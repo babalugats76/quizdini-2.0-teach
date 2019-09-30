@@ -7,7 +7,7 @@ import InputText from '../UI/InputText';
 import RadioGroup from '../UI/RadioGroup';
 import Button from '../UI/Button';
 import Message from '../UI/Message';
-import DisplayFormikState from '../UI/FormikHelper';
+//import DisplayFormikState from '../UI/FormikHelper';
 
 import logo from '../../logo.svg';
 
@@ -135,7 +135,7 @@ const LostForm = props => {
         <Segment padded>
           {status && renderMessage({ ...status, setStatus })}
           {form}
-          <DisplayFormikState {...props} />
+          {/* <DisplayFormikState {...props} /> */}
         </Segment>
       </Grid.Column>
     </Grid>

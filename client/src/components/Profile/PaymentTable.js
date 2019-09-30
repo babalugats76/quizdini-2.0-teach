@@ -12,14 +12,15 @@ const PaymentTable = ({ error, id, loading, payments }) => {
       payments.map((val, idx) => {
         return (
           <Table.Row key={val.paymentId}>
-            <Table.Cell textAlign="right" collapsing>{`${
-              val.credits
-            } credits`}</Table.Cell>
+            <Table.Cell
+              textAlign="right"
+              collapsing
+            >{`${val.credits} credits`}</Table.Cell>
             <Table.Cell textAlign="right" collapsing>
               {val.formatted}
             </Table.Cell>
             <Table.Cell textAlign="right" collapsing>
-              {format(val.paymentDate, 'MMM D, YYYY, h:mm aa')}
+              {format(Date.parse(val.paymentDate), 'MMM d, yyyy, h:mm aa')}
             </Table.Cell>
             <Table.Cell>{val.description}</Table.Cell>
             <Table.Cell textAlign="center" collapsing>

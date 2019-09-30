@@ -30,7 +30,7 @@ const AccountSummary = ({
             ) : null}
             <Item.Description className="email">{email}</Item.Description>
             <Item.Extra attached="top" className="since">
-              Since&nbsp;{format(createDate, "MMM. 'YY")}
+              Since&nbsp;{format(Date.parse(createDate), "MMM. ''yy")}
             </Item.Extra>
             <Label attached="top right">
               {googleId ? 'Google account' : 'Local account'}

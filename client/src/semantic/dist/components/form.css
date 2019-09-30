@@ -1,6 +1,6 @@
 /*!
- * # Semantic UI 2.7.4 - Form
- * http://github.com/semantic-org/semantic-ui/
+ * # Fomantic-UI - Form
+ * http://github.com/fomantic/Fomantic-UI/
  *
  *
  * Released under the MIT license
@@ -111,13 +111,13 @@
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0 0 0 0 transparent inset;
-          box-shadow: 0 0 0 0 transparent inset;
+  box-shadow: 0 0 0 0 transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
 }
 
 /* Text Area */
+.ui.input textarea,
 .ui.form textarea {
   margin: 0;
   -webkit-appearance: none;
@@ -128,8 +128,7 @@
   outline: none;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0 0 0 0 transparent inset;
-          box-shadow: 0 0 0 0 transparent inset;
+  box-shadow: 0 0 0 0 transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
   font-size: 1em;
@@ -148,21 +147,48 @@
 }
 
 /*--------------------
+    Checkbox margin
+---------------------*/
+
+.ui.form .fields:not(.grouped):not(.inline) .field:not(:only-child) label + .ui.ui.checkbox {
+  margin-top: 0.7em;
+}
+.ui.form .fields:not(.grouped):not(.inline) .field:not(:only-child) .ui.checkbox {
+  margin-top: 2.41428571em;
+}
+.ui.form .fields:not(.grouped):not(.inline) .field:not(:only-child) .ui.toggle.checkbox {
+  margin-top: 2.21428571em;
+}
+.ui.form .fields:not(.grouped):not(.inline) .field:not(:only-child) .ui.slider.checkbox {
+  margin-top: 2.61428571em;
+}
+.ui.ui.form .field .fields .field:not(:only-child) .ui.checkbox {
+  margin-top: 0.6em;
+}
+.ui.ui.form .field .fields .field:not(:only-child) .ui.toggle.checkbox {
+  margin-top: 0.5em;
+}
+.ui.ui.form .field .fields .field:not(:only-child) .ui.slider.checkbox {
+  margin-top: 0.7em;
+}
+
+/*--------------------
       Transparent
 ---------------------*/
 
-.ui.form .field .transparent.input input,
+.ui.form .field .transparent.input:not(.icon) input,
 .ui.form .field input.transparent,
 .ui.form .field textarea.transparent {
-  padding: 0.67857143em 1em !important;
+  padding: 0.67857143em 1em;
 }
+.ui.form .field input.transparent,
 .ui.form .field textarea.transparent {
   border-color: transparent !important;
   background-color: transparent !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 .ui.form .field.error .transparent.input input,
+.ui.form .field.error .transparent.input textarea,
 .ui.form .field.error input.transparent,
 .ui.form .field.error textarea.transparent {
   background-color: #FFF6F6 !important;
@@ -188,8 +214,7 @@
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0 0 0 0 transparent inset;
-          box-shadow: 0 0 0 0 transparent inset;
+  box-shadow: 0 0 0 0 transparent inset;
   padding: 0.62em 1em;
   color: rgba(0, 0, 0, 0.87);
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
@@ -257,7 +282,6 @@
 .ui.form .two.fields .ui.input input,
 .ui.form .wide.field .ui.input input {
   -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   width: 0;
 }
@@ -313,22 +337,19 @@
 ---------------------*/
 
 .ui.form .field.field input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 100px #FFFFF0 inset !important;
-          box-shadow: 0 0 0 100px #FFFFF0 inset !important;
+  box-shadow: 0 0 0 100px #FFFFF0 inset !important;
   border-color: #E5DFA1 !important;
 }
 
 /* Focus */
 .ui.form .field.field input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 100px #FFFFF0 inset !important;
-          box-shadow: 0 0 0 100px #FFFFF0 inset !important;
+  box-shadow: 0 0 0 100px #FFFFF0 inset !important;
   border-color: #D5C315 !important;
 }
 
 /* Error */
 .ui.form .error.error input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 100px #FFFAF0 inset !important;
-          box-shadow: 0 0 0 100px #FFFAF0 inset !important;
+  box-shadow: 0 0 0 100px #FFFAF0 inset !important;
   border-color: #E0B4B4 !important;
 }
 
@@ -397,16 +418,14 @@
   border-color: #85B7D9;
   border-radius: 0.28571429rem;
   background: #FFFFFF;
-  -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
-          box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
+  box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
 }
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.95);
   border-color: #85B7D9;
   border-radius: 0.28571429rem;
   background: #FFFFFF;
-  -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
-          box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
+  box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
   -webkit-appearance: none;
 }
 
@@ -424,7 +443,6 @@
 }
 .ui.form.success .icon.success.message:not(:empty) {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -442,7 +460,6 @@
 }
 .ui.form.warning .icon.warning.message:not(:empty) {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -460,15 +477,14 @@
 }
 .ui.form.error .icon.error.message:not(:empty) {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 /* On Field(s) */
-.ui.form .fields.error .field label,
-.ui.form .field.error label,
-.ui.form .fields.error .field .input,
-.ui.form .field.error .input {
+.ui.ui.form .fields.error .field label,
+.ui.ui.form .field.error label,
+.ui.ui.form .fields.error .field .input,
+.ui.ui.form .field.error .input {
   color: #9F3A38;
 }
 .ui.form .fields.error .field .corner.label,
@@ -508,8 +524,7 @@
   border-color: #E0B4B4;
   color: #9F3A38;
   border-radius: '';
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error select:focus,
@@ -528,9 +543,7 @@
   background: #FFF6F6;
   border-color: #E0B4B4;
   color: #9F3A38;
-  -webkit-appearance: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 /* Preserve Native Select Stylings */
@@ -647,6 +660,9 @@
   height: 100%;
   z-index: 100;
 }
+.ui.loading.form.segments:before {
+  border-radius: 0.28571429rem;
+}
 .ui.loading.form:after {
   position: absolute;
   content: '';
@@ -659,8 +675,7 @@
           animation: loader 0.6s infinite linear;
   border: 0.2em solid #767676;
   border-radius: 500rem;
-  -webkit-box-shadow: 0 0 0 1px transparent;
-          box-shadow: 0 0 0 1px transparent;
+  box-shadow: 0 0 0 1px transparent;
   visibility: visible;
   z-index: 101;
 }
@@ -745,8 +760,7 @@
   background: #FFFFFF;
   border-color: rgba(255, 255, 255, 0.1);
   color: rgba(0, 0, 0, 0.87);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 /*--------------------
@@ -784,25 +798,21 @@
 /* Split fields */
 .ui.form .fields {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
           flex-direction: row;
   margin: 0 -0.5em 1em;
 }
 .ui.form .fields > .field {
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 auto;
           flex: 0 1 auto;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
 .ui.form .fields > .field:first-child {
   border-left: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 /* Other Combinations */
@@ -844,10 +854,9 @@
 }
 
 /* Swap to full width on mobile */
-@media only screen and (max-width: 767.99px) {
+@media only screen and (max-width: 767.98px) {
   .ui.form .fields {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
   .ui[class*="equal width"].form:not(.unstackable) .fields > .field,
   .ui.form:not(.unstackable) [class*="equal width"].fields:not(.unstackable) > .field,
@@ -930,7 +939,7 @@
 }
 
 /* Swap to full width on mobile */
-@media only screen and (max-width: 767.99px) {
+@media only screen and (max-width: 767.98px) {
   .ui.form:not(.unstackable) .two.fields:not(.unstackable) > .fields,
   .ui.form:not(.unstackable) .two.fields:not(.unstackable) > .field,
   .ui.form:not(.unstackable) .three.fields:not(.unstackable) > .fields,
@@ -969,7 +978,6 @@
 .ui.form [class*="equal width"].fields > .field {
   width: 100%;
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
           flex: 1 1 auto;
 }
 
@@ -980,7 +988,6 @@
 .ui.form .inline.fields {
   margin: 0 0 1em;
   -webkit-box-align: center;
-      -ms-flex-align: center;
           align-items: center;
 }
 .ui.form .inline.fields .field {
@@ -1036,10 +1043,8 @@
 /* Wide */
 .ui.form .inline.fields .wide.field {
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
           align-items: center;
 }
 .ui.form .inline.fields .wide.field > input,

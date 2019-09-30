@@ -5,7 +5,7 @@ import { Button } from '../UI/Button';
 import { Label } from '../UI/Label';
 import RouterButton from '../UI/RouterButton';
 
-const { distanceInWordsToNow } = require('date-fns');
+const { formatDistanceToNow } = require('date-fns');
 
 class MatchCard extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class MatchCard extends Component {
   render() {
     const { matchId, title, updateDate, matches } = this.props.game;
     const { visible, copied } = this.state;
-    const timeAgo = distanceInWordsToNow(updateDate, {
+    const timeAgo = formatDistanceToNow(Date.parse(updateDate), {
       addSuffix: false,
       includeSeconds: false
     });

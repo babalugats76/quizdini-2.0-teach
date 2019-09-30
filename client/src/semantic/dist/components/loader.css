@@ -1,6 +1,6 @@
 /*!
- * # Semantic UI 2.7.4 - Loader
- * http://github.com/semantic-org/semantic-ui/
+ * # Fomantic-UI - Loader
+ * http://github.com/fomantic/Fomantic-UI/
  *
  *
  * Released under the MIT license
@@ -51,8 +51,7 @@
           animation: loader 0.6s infinite linear;
   border: 0.2em solid #767676;
   border-radius: 500rem;
-  -webkit-box-shadow: 0 0 0 1px transparent;
-          box-shadow: 0 0 0 1px transparent;
+  box-shadow: 0 0 0 1px transparent;
 }
 
 /* Speeds */

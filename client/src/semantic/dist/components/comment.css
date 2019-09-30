@@ -1,6 +1,6 @@
 /*!
- * # Semantic UI 2.7.4 - Comment
- * http://github.com/semantic-org/semantic-ui/
+ * # Fomantic-UI - Comment
+ * http://github.com/fomantic/Fomantic-UI/
  *
  *
  * Released under the MIT license
@@ -206,8 +206,7 @@
 .ui.threaded.comments .comment > .comments {
   margin: -1.5em 0 -1em 1.25em;
   padding: 3em 0 2em 2.25em;
-  -webkit-box-shadow: -1px 0 0 rgba(34, 36, 38, 0.15);
-          box-shadow: -1px 0 0 rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0 0 rgba(34, 36, 38, 0.15);
 }
 
 /*--------------------
@@ -279,8 +278,7 @@
   color: #ffffff;
 }
 .ui.inverted.threaded.comments .comment > .comments {
-  -webkit-box-shadow: -1px 0 0 #555555;
-          box-shadow: -1px 0 0 #555555;
+  box-shadow: -1px 0 0 #555555;
 }
 
 
