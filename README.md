@@ -53,7 +53,6 @@ Messages need to be standardized, etc.
 - MongoDB
   - Add indexes to production using Atlas
 - Heroku
-  - Revisit production steps, e.g., logging plugin, etc.
   - Investigate SSL steps
 - Google OAuth
   - Domain verification (contingent on DNS/using .quizdini.com TLD)
@@ -88,12 +87,8 @@ Messages need to be standardized, etc.
     - Refine error-handling to match renderMessage-style functionality
     - Branch to redirect on Insufficient Credits (specifc to that type of exception...all others will use `renderMessage` functionality)
   - Dashboard
-    - Remove unneeded welcome message alert of add a setTimeout or something like that
     - Style menu
       - Find icons to replace logo placeholder
-  - Login
-    - Add 'Login with Google' button to login page
-    - Remove 'Login with Google' inline expression code from FixedMenu in favor of simple Login/Logout, based upon auth, Login should go to /login page
   - Icons
     - Update UI\Icon with svgs for
 

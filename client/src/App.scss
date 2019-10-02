@@ -326,6 +326,28 @@ form#reset > .fields {
   justify-content: center;
 }
 
+a#google-login {
+  display: block;
+  width: 191px;
+  height: 46px;
+  margin: 0 auto;
+  text-decoration: none;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: #ffffff url('/img/btn_google_signin_light_normal_web@2x.png')
+    no-repeat;
+  background-size: 191px 46px;
+  &:focus,
+  &:hover {
+    background-image: url('/img/btn_google_signin_light_focus_web@2x.png');
+  }
+  &:active,
+  &:visited {
+    background-image: url('/img/btn_google_signin_light_pressed_web@2x.png');
+  }
+}
+
 form#login {
   a#lost {
     &:hover {

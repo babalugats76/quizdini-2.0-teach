@@ -6,6 +6,7 @@ import InputText from '../UI/InputText';
 import * as Yup from 'yup';
 import Button from '../UI/Button';
 import Message from '../UI/Message';
+import ExternalLink from '../UI/ExternalLink';
 
 //import DisplayFormikState from '../UI/FormikHelper';
 
@@ -46,18 +47,7 @@ const LoginForm = props => {
   }) => {
     return (
       <Segment basic textAlign="left">
-        <button
-          style={{
-            width: '100%',
-            height: '46px',
-            backgroundColor: '#ffffff',
-            border: '0'
-          }}
-        >
-          <a href="/auth/google">
-            <Image centered alt="Login with Google" src="/img/btn-google.png" />
-          </a>
-        </button>
+        <ExternalLink href="/auth/google" id="google-login" title="Login with Google" />
         <Divider content="OR" horizontal section />
         <Form id="login" onSubmit={handleSubmit} size="large">
           <Form.Group>

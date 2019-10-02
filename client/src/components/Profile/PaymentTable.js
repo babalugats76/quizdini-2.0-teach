@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'semantic-ui-react';
-import Link from '../UI/Link';
+import ExternalLink from '../UI/ExternalLink';
 
 const { format } = require('date-fns');
 
@@ -24,13 +24,13 @@ const PaymentTable = ({ error, id, loading, payments }) => {
             </Table.Cell>
             <Table.Cell>{val.description}</Table.Cell>
             <Table.Cell textAlign="center" collapsing>
-              <Link
+              <ExternalLink
                 title={`View ${val.processor} receipt ${val.paymentId}`}
                 href={val.receiptUrl}
                 target="_blank"
               >
                 Receipt
-              </Link>
+              </ExternalLink>
             </Table.Cell>
           </Table.Row>
         );
