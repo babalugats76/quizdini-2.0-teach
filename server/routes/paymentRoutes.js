@@ -78,7 +78,7 @@ module.exports = app => {
         },
         { new: true }
       );
-
+      console.log(payment.toObject());
       res.send(payment);
     } catch (e) {
       next(e);
