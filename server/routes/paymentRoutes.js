@@ -78,7 +78,7 @@ module.exports = app => {
         },
         { new: true }
       );
-      console.log(payment.toObject());
+      console.log('PAYMENT RECEIVED: %s %s', payment, user);
       res.send(payment);
     } catch (e) {
       next(e);
