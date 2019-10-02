@@ -338,14 +338,14 @@ a#google-login {
   background: #ffffff url('/img/btn_google_signin_light_normal_web@2x.png')
     no-repeat;
   background-size: 191px 46px;
-  &:focus,
+  /*&:focus,
   &:hover {
     background-image: url('/img/btn_google_signin_light_focus_web@2x.png');
-  }
-  &:active,
+  }*/
+  /*&:active,
   &:visited {
     background-image: url('/img/btn_google_signin_light_pressed_web@2x.png');
-  }
+  }*/
 }
 
 form#login {
