@@ -1,3 +1,4 @@
+require('newrelic');
 const sslRedirect = require('heroku-ssl-redirect');
 const express = require('express');
 const mongoose = require('mongoose');
