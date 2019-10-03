@@ -1,82 +1,89 @@
-import React, { Component } from "react";
-import { withFormik } from "formik";
-import * as Yup from "yup";
-import { Link } from "react-router-dom";
-import { matchToString, parseMatch } from "./utils";
-import Button from "../UI/Button";
-import InputText from "../UI/InputText";
-import IconDropdown from "../UI/IconDropdown";
-import Message from "../UI/Message";
-import HtmlSerializer from "./HtmlSerializer";
-import MatchExpert from "./MatchExpert";
-import MatchBulk from "./MatchBulk";
-import MatchTable from "./MatchTable";
+import React, { Component } from 'react';
+import { withFormik } from 'formik';
+import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
+import { matchToString, parseMatch } from './utils';
+import Button from '../UI/Button';
+import InputText from '../UI/InputText';
+import IconDropdown from '../UI/IconDropdown';
+import Message from '../UI/Message';
+import HtmlSerializer from './HtmlSerializer';
+import MatchExpert from './MatchExpert';
+import MatchBulk from './MatchBulk';
+import MatchTable from './MatchTable';
 
 /* Used to debug behind-the-scenes Formik state, etc. */
-//import DisplayFormikState from '../UI/FormikHelper';
+import DisplayFormikState from '../UI/FormikHelper';
 
 // eslint-disable-next-line
-import { Grid, Tab, Divider, Segment, Form } from "semantic-ui-react";
-import { Accordion } from "../UI/Accordion";
+import { Grid, Tab, Divider, Segment, Form } from 'semantic-ui-react';
+import { Accordion } from '../UI/Accordion';
 
 /* eslint-disable no-template-curly-in-string */
 const transformMatch = Yup.object().shape({
   title: Yup.string()
-    .min(2, "Title is too short. ${min} characters are required.")
-    .max(40, "Title is too long. ${max} characters are allowed.")
-    .required("Title is required.")
-    .default(""),
+    .min(2, 'Title is too short. ${min} characters are required.')
+    .max(40, 'Title is too long. ${max} characters are allowed.')
+    .required('Title is required.')
+    .default(''),
   instructions: Yup.string()
-    .max(60, "Instructions are too long. ${max} characters are allowed.")
-    .default(""),
+    .max(60, 'Instructions are too long. ${max} characters are allowed.')
+    .default(''),
   options: Yup.object({
     itemsPerBoard: Yup.number()
       .integer()
       .positive()
-      .required("Game Tiles is required.")
-      .oneOf([4, 6, 9], "Game may contain 4, 6, or 9 tiles.")
+      .required('Game Tiles is required.')
+      .oneOf([4, 6, 9], 'Game may contain 4, 6, or 9 tiles.')
       .default(9),
     duration: Yup.number()
       .integer()
       .positive()
-      .required("Duration is required.")
-      .min(10, "Games must last at least ${min} seconds.")
-      .max(300, "Game may last no more than ${max} seconds.")
-      .default(180)
+      .required('Duration is required.')
+      .min(10, 'Games must last at least ${min} seconds.')
+      .max(300, 'Game may last no more than ${max} seconds.')
+      .default(180),
+    colorScheme: Yup.string()
+      .required('Color Scheme is required.')
+      .oneOf(['mono', 'rainbow'], "Color Scheme must be 'mono' or 'rainbow'.")
+      .default('mono')
   }),
   matches: Yup.array()
-    .required("Matches are required.")
+    .required('Matches are required.')
     .default(() => [])
 });
 
 /* eslint-disable no-template-curly-in-string */
 const validateMatch = Yup.object().shape({
   title: Yup.string()
-    .min(2, "Title is too short. ${min} characters are required.")
-    .max(40, "Title is too long. ${max} characters are allowed.")
-    .required("Title is required."),
+    .min(2, 'Title is too short. ${min} characters are required.')
+    .max(40, 'Title is too long. ${max} characters are allowed.')
+    .required('Title is required.'),
   instructions: Yup.string().max(
     60,
-    "Instructions are too long. ${max} characters are allowed."
+    'Instructions are too long. ${max} characters are allowed.'
   ),
   itemsPerBoard: Yup.number()
     .integer()
     .positive()
-    .required("Game Tiles is required.")
-    .min(4, "Game must contain at least ${min} tiles.")
-    .max(9, "Game may contain no more than ${max} tiles."),
+    .required('Game Tiles is required.')
+    .min(4, 'Game must contain at least ${min} tiles.')
+    .max(9, 'Game may contain no more than ${max} tiles.'),
   duration: Yup.number()
     .integer()
     .positive()
-    .required("Duration is required.")
-    .min(10, "Games must last at least ${min} seconds.")
-    .max(300, "Game may last no more than ${max} seconds."),
+    .required('Duration is required.')
+    .min(10, 'Games must last at least ${min} seconds.')
+    .max(300, 'Game may last no more than ${max} seconds.'),
+  colorScheme: Yup.string()
+    .required('Color Scheme is required.')
+    .oneOf(['mono', 'rainbow'], "Color Scheme must be 'mono' or 'rainbow'."),
   matches: Yup.array().test({
-    name: "min-matches",
+    name: 'min-matches',
     params: {
-      itemsPerBoard: Yup.ref("itemsPerBoard")
+      itemsPerBoard: Yup.ref('itemsPerBoard')
     },
-    message: "${itemsPerBoard} matches required in bank.",
+    message: '${itemsPerBoard} matches required in bank.',
     test: function(value) {
       return value.length >= this.parent.itemsPerBoard;
     }
@@ -86,39 +93,44 @@ const validateMatch = Yup.object().shape({
 const newMatchSchema = matches => {
   return Yup.object().shape({
     term: Yup.string()
-      .required("Term is required")
-      .test("duplicate term", "Duplicate term", function(value) {
+      .required('Term is required')
+      .test('duplicate term', 'Duplicate term', function(value) {
         const passed = !matches.some(element => {
           return element.term === value;
         }); // check for duplicate terms
         return passed;
       }),
-    definition: Yup.string().required("Definition is required")
+    definition: Yup.string().required('Definition is required')
   });
 };
 
 const itemsPerBoardOptions = [
-  { text: "4", value: 4 },
-  { text: "6", value: 6 },
-  { text: "9", value: 9 }
+  { text: '4', value: 4 },
+  { text: '6', value: 6 },
+  { text: '9', value: 9 }
 ];
 
 const durationOptions = [
-  { text: "10", value: 10 },
-  { text: "60", value: 60 },
-  { text: "90", value: 90 },
-  { text: "120", value: 120 },
-  { text: "180", value: 180 },
-  { text: "240", value: 240 },
-  { text: "300", value: 300 }
+  { text: '10', value: 10 },
+  { text: '60', value: 60 },
+  { text: '90', value: 90 },
+  { text: '120', value: 120 },
+  { text: '180', value: 180 },
+  { text: '240', value: 240 },
+  { text: '300', value: 300 }
+];
+
+const colorSchemeOptions = [
+  { text: 'mono', value: 'mono' },
+  { text: 'rainbow', value: 'rainbow' }
 ];
 
 class MatchForm extends Component {
   static MATCH_TAB = 0;
   static BULK_TAB = 1;
-  static GAME_OPTS_ACCORDION = "gameOptions";
-  static GAME_DESC_ACCORDION = "gameDescription";
-  static HAS_COMMA = RegExp("^(.?)+([,]+)(.?)+$");
+  static GAME_OPTS_ACCORDION = 'gameOptions';
+  static GAME_DESC_ACCORDION = 'gameDescription';
+  static HAS_COMMA = RegExp('^(.?)+([,]+)(.?)+$');
 
   state = {
     // Use to track open/close state of accordions
@@ -129,18 +141,18 @@ class MatchForm extends Component {
     activePage: 1,
     activeTab: MatchForm.MATCH_TAB,
     definition: {
-      placeholder: "",
+      placeholder: '',
       touched: false,
-      value: HtmlSerializer.deserialize("")
+      value: HtmlSerializer.deserialize('')
     },
     dirty: {
       bulkMatches: false
     },
     itemsPerPage: 10,
     term: {
-      placeholder: "",
+      placeholder: '',
       touched: false,
-      value: HtmlSerializer.deserialize("")
+      value: HtmlSerializer.deserialize('')
     }
   };
 
@@ -289,18 +301,18 @@ class MatchForm extends Component {
           },
           ...matches
         ];
-        setFieldValue("matches", updated); // Update Formik state
-        setFieldValue("bulkMatches", matchToString(updated)); // Format bulkMatches then update Formik state
+        setFieldValue('matches', updated); // Update Formik state
+        setFieldValue('bulkMatches', matchToString(updated)); // Format bulkMatches then update Formik state
         this.handleEditorChange(
-          { value: HtmlSerializer.deserialize("") },
-          "term"
+          { value: HtmlSerializer.deserialize('') },
+          'term'
         ); // Reset editors' contents
         this.handleEditorChange(
-          { value: HtmlSerializer.deserialize("") },
-          "definition"
+          { value: HtmlSerializer.deserialize('') },
+          'definition'
         );
-        this.setError("term", ""); // Clear errors (using custom function)
-        this.setError("definition", "");
+        this.setError('term', ''); // Clear errors (using custom function)
+        this.setError('definition', '');
         this.setFocus(this.termRef); // Move focus to term editor
       })
       .catch(errors => {
@@ -310,8 +322,8 @@ class MatchForm extends Component {
           this.setError(path, message);
         });
       });
-    this.handleEditorTouch("term", false); // Mark fields untouched
-    this.handleEditorTouch("definition", false);
+    this.handleEditorTouch('term', false); // Mark fields untouched
+    this.handleEditorTouch('definition', false);
     this.setActivePage(1); // Reset pagination to beginning
   };
 
@@ -328,8 +340,8 @@ class MatchForm extends Component {
       // Filter out (deleted) term
       return match.term !== term;
     });
-    setFieldValue("matches", filtered); // Update state (in Formik) with matches minus (deleted) term
-    setFieldValue("bulkMatches", matchToString(filtered)); // Format bulkMatches then update Formik state
+    setFieldValue('matches', filtered); // Update state (in Formik) with matches minus (deleted) term
+    setFieldValue('bulkMatches', matchToString(filtered)); // Format bulkMatches then update Formik state
     const { activePage, itemsPerPage } = this.state; // Grab pagination value from state
     const totalPages = Math.ceil(
       (filtered.length ? filtered.length : 0) / itemsPerPage
@@ -349,7 +361,7 @@ class MatchForm extends Component {
   handleBulkChange = (event, data) => {
     event.preventDefault();
     const { setFieldValue } = this.props;
-    setFieldValue("bulkMatches", data.value);
+    setFieldValue('bulkMatches', data.value);
     this.setState((state, props) => {
       return {
         dirty: {
@@ -383,8 +395,8 @@ class MatchForm extends Component {
   updateMatches = bulkMatches => {
     const { setFieldValue, maxMatches } = this.props; // Grab Formik function (to update state)
     const parsed = parseMatch(bulkMatches, maxMatches); // Split, Sanitize, Dedup -> array of matches
-    setFieldValue("matches", parsed); // Update matches in Formik state
-    setFieldValue("bulkMatches", matchToString(parsed)); // Flatten parsed matches
+    setFieldValue('matches', parsed); // Update matches in Formik state
+    setFieldValue('bulkMatches', matchToString(parsed)); // Flatten parsed matches
     this.setActivePage(1); // Reset pagination to beginning
   };
 
@@ -398,7 +410,7 @@ class MatchForm extends Component {
 
     if (event.target.files.length) {
       const file = event.target.files[0]; // Assumes single file processing
-      const contents = event.target.files[0].slice(0, file.size, ""); // 0, size, '' are defaults
+      const contents = event.target.files[0].slice(0, file.size, ''); // 0, size, '' are defaults
       const reader = new FileReader(); // To read file from disk
 
       reader.onload = (function(file, updateMatches) {
@@ -413,7 +425,7 @@ class MatchForm extends Component {
         };
       })(file, this.updateMatches);
 
-      reader.readAsText(contents, "UTF-8"); // Initiate file read, assuming UTF-8 encoding
+      reader.readAsText(contents, 'UTF-8'); // Initiate file read, assuming UTF-8 encoding
     }
   };
 
@@ -468,7 +480,7 @@ class MatchForm extends Component {
     const editorPanes = [
       {
         hideOnMobile: false,
-        menuItem: "Match Bank",
+        menuItem: 'Match Bank',
         render: () => (
           <Tab.Pane as={Segment} padded>
             <MatchBulk
@@ -486,7 +498,7 @@ class MatchForm extends Component {
       },
       {
         hideOnMobile: true,
-        menuItem: "Expert Mode",
+        menuItem: 'Expert Mode',
         render: () => (
           <Tab.Pane as={Segment} padded>
             <MatchExpert
@@ -519,7 +531,7 @@ class MatchForm extends Component {
     return (
       <Form id="match-edit" onSubmit={handleSubmit} size="large">
         <span id="match-id">
-          {values.matchId ? values.matchId : "UNPUBLISHED"}
+          {values.matchId ? values.matchId : 'UNPUBLISHED'}
         </span>
         <Grid columns={2} stackable>
           <Grid.Column computer={8} mobile={16} tablet={16}>
@@ -534,8 +546,9 @@ class MatchForm extends Component {
                 labelPosition="left"
                 tabIndex={-1}
                 title="Back to Dashboard"
-                to={{ pathname: "/dashboard", state: { from: "MATCH" } }}
-                type="button">
+                to={{ pathname: '/dashboard', state: { from: 'MATCH' } }}
+                type="button"
+              >
                 BACK
               </Button>
               <Button
@@ -547,7 +560,8 @@ class MatchForm extends Component {
                 positive={dirty && isValid && !isMatchDirty}
                 tabIndex={6}
                 title="Save Game"
-                type="submit">
+                type="submit"
+              >
                 SAVE
               </Button>
             </Form.Group>
@@ -564,7 +578,8 @@ class MatchForm extends Component {
                   )
                 }
                 open={accordion[MatchForm.GAME_DESC_ACCORDION]}
-                title="Description">
+                title="Description"
+              >
                 <Form.Group>
                   <InputText
                     disabled={disabled}
@@ -611,8 +626,9 @@ class MatchForm extends Component {
                   )
                 }
                 open={accordion[MatchForm.GAME_OPTS_ACCORDION]}
-                title="Options">
-                <Grid columns={2} stackable textAlign="center">
+                title="Options"
+              >
+                <Grid columns={3} stackable textAlign="center">
                   <Grid.Row>
                     <Grid.Column verticalAlign="top">
                       <IconDropdown
@@ -646,6 +662,22 @@ class MatchForm extends Component {
                         value={values.duration}
                       />
                     </Grid.Column>
+                    <Grid.Column verticalAlign="top">
+                      <IconDropdown
+                        compact
+                        disabled={disabled}
+                        error={touched.colorScheme && errors.colorScheme}
+                        icon="palette"
+                        label="Color Scheme"
+                        name="colorScheme"
+                        onBlur={handleBlur}
+                        options={colorSchemeOptions}
+                        selection
+                        setFieldValue={setFieldValue}
+                        tabIndex={-1}
+                        value={values.colorScheme}
+                      />
+                    </Grid.Column>
                   </Grid.Row>
                 </Grid>
               </Accordion>
@@ -666,7 +698,7 @@ class MatchForm extends Component {
                 errors.matches &&
                 `Add at least ${values.itemsPerBoard -
                   values.matches.length} more term${
-                  values.itemsPerBoard - values.matches.length === 1 ? "" : "s"
+                  values.itemsPerBoard - values.matches.length === 1 ? '' : 's'
                 }...`
               }
               id="table-match"
@@ -679,7 +711,7 @@ class MatchForm extends Component {
             />
           </Grid.Column>
         </Grid>
-        {/*<DisplayFormikState {...this.props} /> */}
+        <DisplayFormikState {...this.props} />
         {/*<pre>{JSON.stringify(this.state, null, 2)}</pre> */}
       </Form>
     );
@@ -701,6 +733,7 @@ export default withFormik({
       instructions: data.instructions,
       itemsPerBoard: data.options.itemsPerBoard,
       duration: data.options.duration,
+      colorScheme: data.options.colorScheme,
       matches: data.matches || [],
       bulkMatches: matchToString(data.matches || [])
     };

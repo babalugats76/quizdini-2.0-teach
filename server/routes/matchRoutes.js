@@ -75,7 +75,6 @@ module.exports = app => {
       );
 
       if (!match) return res.send({}); // Return empty Object to signify not found
-
       res.send(match);
     } catch (e) {
       next(e);
@@ -108,5 +107,4 @@ module.exports = app => {
       next(e);
     }
   });
-
 };

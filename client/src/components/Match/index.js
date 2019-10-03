@@ -32,12 +32,13 @@ class Match extends Component {
       duration,
       instructions,
       itemsPerBoard,
+      colorScheme,
       matchId,
       matches,
       title
     } = values;
 
-    const options = { duration, itemsPerBoard };
+    const options = { duration, itemsPerBoard, colorScheme };
 
     await setStatus(null); // Clear form status
 
