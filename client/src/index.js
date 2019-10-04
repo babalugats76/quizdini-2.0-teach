@@ -1,4 +1,3 @@
-//import "./normalize.css";
 import './App.scss';
 import './semantic/dist/semantic.css';
 

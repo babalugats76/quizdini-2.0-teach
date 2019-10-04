@@ -117,7 +117,7 @@
 }
 .ui.search > .results .result .title {
   margin: -0.14285714em 0 0;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Merriweather Sans', sans-serif;
   font-weight: bold;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.85);
@@ -140,7 +140,7 @@
   padding: 1em 1em;
 }
 .ui.search > .results > .message .header {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Merriweather Sans', sans-serif;
   font-size: 1rem;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
@@ -336,7 +336,7 @@
   width: 100px;
   white-space: nowrap;
   background: transparent;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Merriweather Sans', sans-serif;
   font-size: 1em;
   padding: 0.4em 1em;
   font-weight: bold;

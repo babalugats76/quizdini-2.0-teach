@@ -13,7 +13,7 @@ import MatchBulk from './MatchBulk';
 import MatchTable from './MatchTable';
 
 /* Used to debug behind-the-scenes Formik state, etc. */
-import DisplayFormikState from '../UI/FormikHelper';
+// import DisplayFormikState from '../UI/FormikHelper';
 
 // eslint-disable-next-line
 import { Grid, Tab, Divider, Segment, Form } from 'semantic-ui-react';
@@ -711,7 +711,7 @@ class MatchForm extends Component {
             />
           </Grid.Column>
         </Grid>
-        <DisplayFormikState {...this.props} />
+        {/*<DisplayFormikState {...this.props} /> */}
         {/*<pre>{JSON.stringify(this.state, null, 2)}</pre> */}
       </Form>
     );
