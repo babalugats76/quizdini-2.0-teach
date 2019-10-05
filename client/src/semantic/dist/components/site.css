@@ -13,7 +13,7 @@
              Page
 *******************************/
 
-@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700&subset=latin&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Merriweather+Sans:700&subset=latin&display=swap');
 html,
 body {
   height: 100%;
@@ -27,7 +27,7 @@ body {
   overflow-x: hidden;
   min-width: 320px;
   background: #FFFFFF;
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Lexend Deca', sans-serif;
   font-size: 14px;
   line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.87);

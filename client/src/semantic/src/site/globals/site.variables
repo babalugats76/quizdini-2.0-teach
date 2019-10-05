@@ -1,3 +1,9 @@
 /*******************************
      User Global Variables
 *******************************/
+
+@fontName          : 'Lexend Deca';
+@headerFont        : 'Merriweather Sans', sans-serif;
+@pageFont          : 'Lexend Deca', sans-serif;
+@googleFontFamily  : 'Lexend+Deca|Merriweather+Sans:700';
+@googleFontRequest : '@{googleFontFamily}&subset=@{googleSubset}&display=@{googleFontDisplay}';

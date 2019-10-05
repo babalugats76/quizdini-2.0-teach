@@ -1,3 +1,6 @@
 /*******************************
          Site Overrides
 *******************************/
+.ui.form .field > label {
+   font-family: @headerFont;
+}

@@ -6,14 +6,14 @@
        Fonts
 --------------------*/
 
-@fontName          : 'Merriweather Sans';
+@fontName          : 'Lato';
 
-@headerFont        : @fontName, sans-serif;
-@pageFont          : @fontName, sans-serif;
+@headerFont        : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont          : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
-@googleFontName    : 'Merriweather+Sans';
+@googleFontName    : @fontName;
 @importGoogleFonts : true;
-@googleFontSizes   : '400,700';
+@googleFontSizes   : '400,700,400italic,700italic';
 @googleSubset      : 'latin';
 @googleFontDisplay : 'swap';
 

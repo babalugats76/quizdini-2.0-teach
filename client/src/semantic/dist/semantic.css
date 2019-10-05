@@ -8,7 +8,7 @@
  * http://opensource.org/licenses/MIT
  *
  */
-@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700&subset=latin&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Merriweather+Sans:700&subset=latin&display=swap');
 /*!
  * # Fomantic-UI - Reset
  * http://github.com/fomantic/Fomantic-UI/
@@ -459,7 +459,7 @@ body {
   overflow-x: hidden;
   min-width: 320px;
   background: #FFFFFF;
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Lexend Deca', sans-serif;
   font-size: 14px;
   line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.87);
@@ -671,7 +671,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   vertical-align: baseline;
   background: #E0E1E2 none;
   color: rgba(0, 0, 0, 0.6);
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Lexend Deca', sans-serif;
   margin: 0 0.25em 0 0;
   padding: 0.78571429em 1.5em 0.78571429em;
   text-transform: none;
@@ -5450,7 +5450,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 /* Text Container */
 
 .ui.text.container {
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Lexend Deca', sans-serif;
   max-width: 700px;
   line-height: 1.5;
   font-size: 1.14285714rem;
@@ -16983,7 +16983,7 @@ img.ui.bordered.image {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: left;
   line-height: 1.21428571em;
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Lexend Deca', sans-serif;
   padding: 0.67857143em 1em;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
@@ -24343,7 +24343,7 @@ ol.ui.suffixed.list li:before,
 .ui.form input[type="text"],
 .ui.form input[type="file"],
 .ui.form input[type="url"] {
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Lexend Deca', sans-serif;
   margin: 0;
   outline: none;
   -webkit-appearance: none;
@@ -24377,7 +24377,7 @@ ol.ui.suffixed.list li:before,
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
   font-size: 1em;
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Lexend Deca', sans-serif;
   line-height: 1.2857;
   resize: vertical;
 }
@@ -25508,6 +25508,10 @@ ol.ui.suffixed.list li:before,
 /*******************************
          Site Overrides
 *******************************/
+
+.ui.form .field > label {
+  font-family: 'Merriweather Sans', sans-serif;
+}
 /*!
  * # Fomantic-UI - Grid
  * http://github.com/fomantic/Fomantic-UI/
@@ -27817,7 +27821,7 @@ ol.ui.suffixed.list li:before,
   display: -webkit-box;
   display: flex;
   margin: 1rem 0;
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Lexend Deca', sans-serif;
   background: #FFFFFF;
   font-weight: normal;
   border: 1px solid rgba(34, 36, 38, 0.15);
@@ -32573,6 +32577,10 @@ Floated Menu / Item
 /*******************************
          Site Overrides
 *******************************/
+
+.ui.table > thead {
+  font-family: 'Merriweather Sans', sans-serif;
+}
 /*!
  * # Fomantic-UI - Ad
  * http://github.com/fomantic/Fomantic-UI/
@@ -35559,7 +35567,7 @@ a.inverted.ui.card:hover,
 
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Lexend Deca', sans-serif;
   font-size: 4rem;
   font-weight: normal;
   line-height: 1em;
@@ -44711,7 +44719,7 @@ a.ui.nag {
   width: 100px;
   white-space: nowrap;
   background: transparent;
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Lexend Deca', sans-serif;
   font-size: 1em;
   padding: 0.4em 1em;
   font-weight: bold;

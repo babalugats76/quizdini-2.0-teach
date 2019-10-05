@@ -1370,3 +1370,6 @@
          Site Overrides
 *******************************/
 
+.ui.table > thead {
+  font-family: 'Merriweather Sans', sans-serif;
+}

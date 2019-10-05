@@ -1,3 +1,6 @@
 /*******************************
          Site Overrides
 *******************************/
+.ui.table > thead {
+    font-family: @headerFont;
+}
