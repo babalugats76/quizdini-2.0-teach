@@ -2,8 +2,29 @@
      User Global Variables
 *******************************/
 
+/*-------------------
+    Web Fonts, etc.
+--------------------*/
+
 @fontName          : 'Lexend Deca';
-@headerFont        : 'Merriweather Sans', sans-serif;
+@headerFont        : 'Cabin', sans-serif;
 @pageFont          : 'Lexend Deca', sans-serif;
-@googleFontFamily  : 'Lexend+Deca|Merriweather+Sans:700';
+@googleFontFamily  : 'Lexend+Deca|Cabin:400,700';
 @googleFontRequest : '@{googleFontFamily}&subset=@{googleSubset}&display=@{googleFontDisplay}';
+
+/*-------------------
+      Base Sizes
+--------------------*/
+
+/* This is the single variable that controls them all */
+@emSize   : 15px;
+
+/* The size of page text  */
+@fontSize : 15px;
+
+/*-------------------
+    Brand Colors
+--------------------*/
+
+@primaryColor        : #1a1c57;
+@secondaryColor      : #2e3235; 

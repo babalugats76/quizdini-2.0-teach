@@ -78,21 +78,21 @@
 
 .ui.primary.rating .active.icon {
   color: #54C8FF;
-  text-shadow: 0px -1px 0px #2185D0, -1px 0px 0px #2185D0, 0px 1px 0px #2185D0, 1px 0px 0px #2185D0;
+  text-shadow: 0px -1px 0px #1a1c57, -1px 0px 0px #1a1c57, 0px 1px 0px #1a1c57, 1px 0px 0px #1a1c57;
 }
 .ui.primary.rating .icon.selected,
 .ui.primary.rating .icon.selected.active {
   color: #21b8ff;
-  text-shadow: 0px -1px 0px #1678c2, -1px 0px 0px #1678c2, 0px 1px 0px #1678c2, 1px 0px 0px #1678c2;
+  text-shadow: 0px -1px 0px #121346, -1px 0px 0px #121346, 0px 1px 0px #121346, 1px 0px 0px #121346;
 }
 .ui.secondary.rating .active.icon {
   color: #545454;
-  text-shadow: 0px -1px 0px #1B1C1D, -1px 0px 0px #1B1C1D, 0px 1px 0px #1B1C1D, 1px 0px 0px #1B1C1D;
+  text-shadow: 0px -1px 0px #2e3235, -1px 0px 0px #2e3235, 0px 1px 0px #2e3235, 1px 0px 0px #2e3235;
 }
 .ui.secondary.rating .icon.selected,
 .ui.secondary.rating .icon.selected.active {
   color: #6e6e6e;
-  text-shadow: 0px -1px 0px #27292a, -1px 0px 0px #27292a, 0px 1px 0px #27292a, 1px 0px 0px #27292a;
+  text-shadow: 0px -1px 0px #393f43, -1px 0px 0px #393f43, 0px 1px 0px #393f43, 1px 0px 0px #393f43;
 }
 .ui.red.rating .active.icon {
   color: #FF695E;
@@ -248,22 +248,22 @@
 *******************************/
 
 .ui.mini.rating {
-  font-size: 0.78571429rem;
+  font-size: 0.8rem;
 }
 .ui.tiny.rating {
-  font-size: 0.85714286rem;
+  font-size: 0.86666667rem;
 }
 .ui.small.rating {
-  font-size: 0.92857143rem;
+  font-size: 0.93333333rem;
 }
 .ui.rating {
   font-size: 1rem;
 }
 .ui.large.rating {
-  font-size: 1.14285714rem;
+  font-size: 1.13333333rem;
 }
 .ui.huge.rating {
-  font-size: 1.42857143rem;
+  font-size: 1.4rem;
 }
 .ui.massive.rating {
   font-size: 2rem;

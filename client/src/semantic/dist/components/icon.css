@@ -235,25 +235,25 @@ i.inverted.icon {
 --------------------*/
 
 i.primary.icon.icon.icon.icon {
-  color: #2185D0;
+  color: #1a1c57;
 }
 i.inverted.primary.icon.icon.icon.icon {
   color: #54C8FF;
 }
 i.inverted.bordered.primary.icon.icon.icon.icon,
 i.inverted.circular.primary.icon.icon.icon.icon {
-  background-color: #2185D0;
+  background-color: #1a1c57;
   color: #FFFFFF;
 }
 i.secondary.icon.icon.icon.icon {
-  color: #1B1C1D;
+  color: #2e3235;
 }
 i.inverted.secondary.icon.icon.icon.icon {
   color: #545454;
 }
 i.inverted.bordered.secondary.icon.icon.icon.icon,
 i.inverted.circular.secondary.icon.icon.icon.icon {
-  background-color: #1B1C1D;
+  background-color: #2e3235;
   color: #FFFFFF;
 }
 i.red.icon.icon.icon.icon {

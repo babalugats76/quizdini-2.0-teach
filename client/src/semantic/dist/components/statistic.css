@@ -105,7 +105,7 @@
 
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Cabin', sans-serif;
   font-size: 1em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
@@ -316,7 +316,7 @@
 .ui.primary.statistics .statistic > .value,
 .ui.statistics .primary.statistic > .value,
 .ui.primary.statistic > .value {
-  color: #2185D0;
+  color: #1a1c57;
 }
 .ui.inverted.primary.statistics .statistic > .value,
 .ui.statistics .inverted.primary.statistic > .value,
@@ -326,7 +326,7 @@
 .ui.secondary.statistics .statistic > .value,
 .ui.statistics .secondary.statistic > .value,
 .ui.secondary.statistic > .value {
-  color: #1B1C1D;
+  color: #2e3235;
 }
 .ui.inverted.secondary.statistics .statistic > .value,
 .ui.statistics .inverted.secondary.statistic > .value,

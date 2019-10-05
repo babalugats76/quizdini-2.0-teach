@@ -29,7 +29,7 @@
   font-size: 1rem;
   text-align: center;
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 0 0 0.28571429rem 0.28571429rem;
+  border-radius: 0 0 0.26666667rem 0.26666667rem;
   -webkit-transition: 0.2s background ease;
   transition: 0.2s background ease;
 }
@@ -98,7 +98,7 @@ a.ui.nag {
 
 .ui.bottom.nags,
 .ui.bottom.nag {
-  border-radius: 0.28571429rem 0.28571429rem 0 0;
+  border-radius: 0.26666667rem 0.26666667rem 0 0;
   top: auto;
   bottom: 0;
 }
@@ -128,10 +128,10 @@ a.ui.nag {
   border-radius: 0 !important;
 }
 .ui.nags .nag:last-child {
-  border-radius: 0 0 0.28571429rem 0.28571429rem;
+  border-radius: 0 0 0.26666667rem 0.26666667rem;
 }
 .ui.bottom.nags .nag:last-child {
-  border-radius: 0.28571429rem 0.28571429rem 0 0;
+  border-radius: 0.26666667rem 0.26666667rem 0 0;
 }
 
 

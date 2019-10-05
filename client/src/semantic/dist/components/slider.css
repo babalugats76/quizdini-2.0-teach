@@ -249,7 +249,7 @@
 
 /* Standard */
 .ui.primary.slider .inner .track-fill {
-  background-color: #2185D0;
+  background-color: #1a1c57;
 }
 .ui.primary.inverted.slider .inner .track-fill {
   background-color: #54C8FF;
@@ -257,11 +257,11 @@
 
 /* Basic */
 .ui.primary.slider.basic .inner .thumb {
-  background-color: #2185D0;
+  background-color: #1a1c57;
 }
 .ui.primary.slider.basic .inner .thumb:hover,
 .ui.primary.slider.basic:focus .inner .thumb {
-  background-color: #1678c2;
+  background-color: #121346;
 }
 
 /* Basic Inverted */
@@ -275,7 +275,7 @@
 
 /* Standard */
 .ui.secondary.slider .inner .track-fill {
-  background-color: #1B1C1D;
+  background-color: #2e3235;
 }
 .ui.secondary.inverted.slider .inner .track-fill {
   background-color: #545454;
@@ -283,11 +283,11 @@
 
 /* Basic */
 .ui.secondary.slider.basic .inner .thumb {
-  background-color: #1B1C1D;
+  background-color: #2e3235;
 }
 .ui.secondary.slider.basic .inner .thumb:hover,
 .ui.secondary.slider.basic:focus .inner .thumb {
-  background-color: #27292a;
+  background-color: #393f43;
 }
 
 /* Basic Inverted */

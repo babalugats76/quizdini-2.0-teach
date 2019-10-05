@@ -13,13 +13,13 @@
              Page
 *******************************/
 
-@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Merriweather+Sans:700&subset=latin&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Cabin:400,700&subset=latin&display=swap');
 html,
 body {
   height: 100%;
 }
 html {
-  font-size: 14px;
+  font-size: 15px;
 }
 body {
   margin: 0;
@@ -28,7 +28,7 @@ body {
   min-width: 320px;
   background: #FFFFFF;
   font-family: 'Lexend Deca', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -43,7 +43,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Cabin', sans-serif;
   line-height: 1.28571429em;
   margin: calc(2rem - 0.1428571428571429em) 0 1rem;
   font-weight: bold;

@@ -5,18 +5,6 @@ import { Container, Sidebar, Image, Icon, Menu } from 'semantic-ui-react';
 
 import logo from '../logo.svg';
 
-const navStyles = {
-  backgroundColor: '#1a1c57',
-  // eslint-disable-next-line
-  backgroundColor: 'rgb(26, 28, 87)',
-  color: '#ffffff',
-  borderRadius: '0',
-  marginBottom: '2em',
-  transition: 'box-shadow 0.5s ease, padding 0.5s ease',
-  border: '1px solid #ddd',
-  boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)'
-};
-
 class NavBar extends Component {
   constructor(props) {
     super(props);
@@ -184,7 +172,6 @@ class NavBar extends Component {
           onClick={isMobile && visible ? this.handlePusherClick : null}
         >
           <Menu
-            style={navStyles}
             as="nav"
             fixed="top"
             borderless

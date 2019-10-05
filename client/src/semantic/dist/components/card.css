@@ -32,7 +32,7 @@
   background: #FFFFFF;
   padding: 0;
   border: none;
-  border-radius: 0.28571429rem;
+  border-radius: 0.26666667rem;
   box-shadow: 0 1px 3px 0 #D4D4D5, 0 0 0 1px #D4D4D5;
   -webkit-transition: box-shadow 0.1s ease, -webkit-transform 0.1s ease;
   transition: box-shadow 0.1s ease, -webkit-transform 0.1s ease;
@@ -94,16 +94,16 @@
 
 .ui.cards > .card > :first-child,
 .ui.card > :first-child {
-  border-radius: 0.28571429rem 0.28571429rem 0 0 !important;
+  border-radius: 0.26666667rem 0.26666667rem 0 0 !important;
   border-top: none !important;
 }
 .ui.cards > .card > :last-child,
 .ui.card > :last-child {
-  border-radius: 0 0 0.28571429rem 0.28571429rem !important;
+  border-radius: 0 0 0.26666667rem 0.26666667rem !important;
 }
 .ui.cards > .card > :only-child,
 .ui.card > :only-child {
-  border-radius: 0.28571429rem !important;
+  border-radius: 0.26666667rem !important;
 }
 
 /*--------------
@@ -161,7 +161,7 @@
 .ui.card > .content > .header {
   display: block;
   margin: '';
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Cabin', sans-serif;
   color: rgba(0, 0, 0, 0.85);
 }
 
@@ -169,7 +169,7 @@
 .ui.cards > .card > .content > .header:not(.ui),
 .ui.card > .content > .header:not(.ui) {
   font-weight: bold;
-  font-size: 1.28571429em;
+  font-size: 1.26666667em;
   margin-top: -0.21425em;
   line-height: 1.28571429em;
 }
@@ -441,7 +441,7 @@
 }
 .ui.horizontal.cards > .card > .image,
 .ui.card.horizontal > .image {
-  border-radius: 0.28571429rem 0 0 0.28571429rem;
+  border-radius: 0.26666667rem 0 0 0.26666667rem;
   width: 150px;
 }
 .ui.horizontal.cards > .card > .image > img,
@@ -457,7 +457,7 @@
   display: flex;
   width: 100%;
   height: 100%;
-  border-radius: 0.28571429rem 0 0 0.28571429rem;
+  border-radius: 0.26666667rem 0 0 0.26666667rem;
 }
 .ui.horizontal.cards > .card > .content,
 .ui.horizontal.card > .content {
@@ -536,12 +536,12 @@ a.ui.card:hover,
 .ui.primary.cards > .card,
 .ui.cards > .primary.card,
 .ui.primary.card {
-  box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #2185D0, 0 1px 3px 0 #D4D4D5;
+  box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1a1c57, 0 1px 3px 0 #D4D4D5;
 }
 .ui.primary.cards > .card:hover,
 .ui.cards > .primary.card:hover,
 .ui.primary.card:hover {
-  box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1678c2, 0 1px 3px 0 #BCBDBD;
+  box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #121346, 0 1px 3px 0 #BCBDBD;
 }
 .ui.inverted.primary.cards > .card,
 .ui.inverted.cards > .primary.card,
@@ -556,12 +556,12 @@ a.ui.card:hover,
 .ui.secondary.cards > .card,
 .ui.cards > .secondary.card,
 .ui.secondary.card {
-  box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1B1C1D, 0 1px 3px 0 #D4D4D5;
+  box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #2e3235, 0 1px 3px 0 #D4D4D5;
 }
 .ui.secondary.cards > .card:hover,
 .ui.cards > .secondary.card:hover,
 .ui.secondary.card:hover {
-  box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #27292a, 0 1px 3px 0 #BCBDBD;
+  box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #393f43, 0 1px 3px 0 #BCBDBD;
 }
 .ui.inverted.secondary.cards > .card,
 .ui.inverted.cards > .secondary.card,
