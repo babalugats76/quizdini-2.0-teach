@@ -86,6 +86,8 @@ Messages need to be standardized, etc.
   - Match
     - Refine error-handling to match renderMessage-style functionality
     - Branch to redirect on Insufficient Credits (specifc to that type of exception...all others will use `renderMessage` functionality)
+  - Landing
+    - Move landing page under `Components`
   - Dashboard
     - Style menu
       - Find icons to replace logo placeholder
@@ -101,6 +103,7 @@ Messages need to be standardized, etc.
       - When appropriate, alter variables and provide overrides
       - For truly custom work, simply place it in `sites.overrides` in each own themed sections
     - Fix overflow-y (scrolling issue)
+    - Work on potentially remove Grid from pages which feature the logo; optionally, fix the spacing issue, etc.
 
 # User Migration
 
