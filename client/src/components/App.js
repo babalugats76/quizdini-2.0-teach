@@ -14,7 +14,7 @@ import Checkout from './Checkout';
 import Profile from './Profile/';
 import Terms from './Terms/';
 import About from './About/';
-import Landing from './Landing';
+import Landing from './Landing/';
 import Dashboard from './Dashboard/';
 import Footer from './Footer';
 import NavBar from './NavBar';

@@ -1,6 +1,4 @@
-//import './App.scss';
-import './semantic/dist/semantic.css';
-//import './semantic/dist/semantic.js';
+import './semantic/dist/semantic.min.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

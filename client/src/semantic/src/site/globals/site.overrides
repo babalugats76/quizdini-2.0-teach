@@ -49,7 +49,7 @@
 
 
 /*-------------------
-    Root Element
+  Root Element
 --------------------*/
 
 #quizdini {
@@ -58,7 +58,7 @@
 }
 
 /*-------------------
-       Page
+  Page
 --------------------*/
 
 #main {
@@ -80,7 +80,7 @@
 }
 
 /*-------------------
-       Login
+  Login
 --------------------*/
 
 a#google-login {
@@ -106,7 +106,7 @@ a#google-login {
 }
 
 /*-------------------
-       Dashboard
+  Dashboard
 --------------------*/
 
 #dashboard {
@@ -119,7 +119,7 @@ a#google-login {
 }
 
 /*-------------------
-       Profile
+  Profile
 --------------------*/
 
 #profile {
@@ -132,7 +132,7 @@ a#google-login {
 }
 
 /*-------------------
-       Icons
+  Icons
 --------------------*/
 
 svg.icon.chevron-down.open {
@@ -146,7 +146,7 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-       Stripe
+  Stripe
 --------------------*/
 
 .StripeElement {
@@ -163,7 +163,7 @@ svg.icon.chevron-down.closed {
 
 
 /*-------------------
-       Disposition
+  Disposition
 --------------------*/
 
 .account-summary {

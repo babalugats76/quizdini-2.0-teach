@@ -1,7 +1,7 @@
 import React from 'react';
 import { Segment, Image, Divider, Header, Grid } from 'semantic-ui-react';
 
-const Landing = () => {
+const index = () => {
   return (
     <Segment id="intro" as="section" vertical>
       <Grid container stackable verticalAlign="middle">
@@ -45,4 +45,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default index;

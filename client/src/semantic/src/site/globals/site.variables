@@ -3,7 +3,7 @@
 *******************************/
 
 /*-------------------
-    Web Fonts, etc.
+  Web Fonts, etc.
 --------------------*/
 
 @fontName          : 'Lexend Deca';
@@ -15,7 +15,7 @@
 @importGoogleFonts : false; /* Make false because self-hosting */
 
 /*-------------------
-      Base Sizes
+  Base Sizes
 --------------------*/
 
 /* This is the single variable that controls them all */
@@ -25,14 +25,14 @@
 @fontSize : 15px;
 
 /*-------------------
-    Brand Colors
+  Brand Colors
 --------------------*/
 
 @primaryColor        : #1a1c57;
 @secondaryColor      : #2e3235; 
 
 /*-------------------
-   Padding & Margin
+  Padding & Margin
 --------------------*/
 
 @inputVerticalPadding   : @relative9px;
