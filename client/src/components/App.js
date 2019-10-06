@@ -89,7 +89,7 @@ class App extends Component {
 
     return (
       <NavBar credits={credits} isMobile={isMobile} loggedIn={loggedIn}>
-        <Container as="main">
+        <Container as="main" id="main">
           <Switch>
             <PrivateRoute
               loggedIn={loggedIn}

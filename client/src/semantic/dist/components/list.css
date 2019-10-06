@@ -764,7 +764,7 @@ ol.ui.suffixed.list li:before,
   border-top: none;
   border-right: 1px solid rgba(34, 36, 38, 0.15);
   margin: 0;
-  line-height: 0.6;
+  line-height: 1.4;
 }
 .ui.horizontal.divided.list > .item:last-child {
   border-right: none;

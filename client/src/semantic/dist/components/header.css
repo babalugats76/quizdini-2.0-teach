@@ -741,3 +741,7 @@ a.ui.inverted.black.header.header.header:hover {
          Site Overrides
 *******************************/
 
+.ui.header.logo {
+  font-size: 1.8em;
+  margin-bottom: 0.6em;
+}

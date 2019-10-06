@@ -12,6 +12,8 @@
 @googleFontFamily  : 'Lexend+Deca|Cabin:400,700';
 @googleFontRequest : '@{googleFontFamily}&subset=@{googleSubset}&display=@{googleFontDisplay}';
 
+@importGoogleFonts : false; /* Make false because self-hosting */
+
 /*-------------------
       Base Sizes
 --------------------*/
@@ -28,3 +30,9 @@
 
 @primaryColor        : #1a1c57;
 @secondaryColor      : #2e3235; 
+
+/*-------------------
+   Padding & Margin
+--------------------*/
+
+@inputVerticalPadding   : @relative9px;

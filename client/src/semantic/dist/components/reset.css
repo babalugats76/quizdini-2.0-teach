@@ -384,3 +384,33 @@ template {
          Site Overrides
 *******************************/
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*:not(input):not(textarea) {
+  -webkit-touch-callout: none;
+  
+/* iOS Safari */
+  -webkit-user-select: none;
+  
+/* Safari */
+  
+/* Konqueror HTML */
+  -moz-user-select: none;
+  
+/* Firefox */
+  -ms-user-select: none;
+  
+/* Internet Explorer/Edge */
+  user-select: none;
+  
+/* Non-prefixed version, currently supported by Chrome and Opera */
+}
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: none !important;
+}

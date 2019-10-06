@@ -13,7 +13,6 @@
              Page
 *******************************/
 
-@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Cabin:400,700&subset=latin&display=swap');
 html,
 body {
   height: 100%;
@@ -201,3 +200,648 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
          Site Overrides
 *******************************/
 
+
+/*-------------------
+  Self-Hosted Fonts
+--------------------*/
+
+
+/* cabin-regular - latin */
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/cabin-v14-latin-regular.eot');
+  
+/* IE9 Compat Modes */
+  src: local('Cabin'), local('Cabin-Regular'), url('/fonts/cabin-v14-latin-regular.eot?#iefix') format('embedded-opentype'), 
+/* IE6-IE8 */ url('/fonts/cabin-v14-latin-regular.woff2') format('woff2'), 
+/* Super Modern Browsers */ url('/fonts/cabin-v14-latin-regular.woff') format('woff'), 
+/* Modern Browsers */ url('/fonts/cabin-v14-latin-regular.ttf') format('truetype'), 
+/* Safari, Android, iOS */ url('/fonts/cabin-v14-latin-regular.svg#Cabin') format('svg');
+  
+/* Legacy iOS */
+}
+
+/* cabin-700 - latin */
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/cabin-v14-latin-700.eot');
+  
+/* IE9 Compat Modes */
+  src: local('Cabin Bold'), local('Cabin-Bold'), url('/fonts/cabin-v14-latin-700.eot?#iefix') format('embedded-opentype'), 
+/* IE6-IE8 */ url('/fonts/cabin-v14-latin-700.woff2') format('woff2'), 
+/* Super Modern Browsers */ url('/fonts/cabin-v14-latin-700.woff') format('woff'), 
+/* Modern Browsers */ url('/fonts/cabin-v14-latin-700.ttf') format('truetype'), 
+/* Safari, Android, iOS */ url('/fonts/cabin-v14-latin-700.svg#Cabin') format('svg');
+  
+/* Legacy iOS */
+}
+
+/* lexend-deca-regular - latin */
+@font-face {
+  font-family: 'Lexend Deca';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/lexend-deca-v1-latin-regular.eot');
+  
+/* IE9 Compat Modes */
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('/fonts/lexend-deca-v1-latin-regular.eot?#iefix') format('embedded-opentype'), 
+/* IE6-IE8 */ url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
+/* Super Modern Browsers */ url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff'), 
+/* Modern Browsers */ url('/fonts/lexend-deca-v1-latin-regular.ttf') format('truetype'), 
+/* Safari, Android, iOS */ url('/fonts/lexend-deca-v1-latin-regular.svg#LexendDeca') format('svg');
+  
+/* Legacy iOS */
+}
+
+/*-------------------
+    Root Element
+--------------------*/
+
+#quizdini {
+  height: 100%;
+  background-color: #f6f6f6;
+}
+
+/*-------------------
+       Page
+--------------------*/
+
+#main {
+  -webkit-box-flex: 1;
+          flex: 1 0 auto;
+  
+/* Makes the content area grow */
+  margin: 7em auto 3em;
+}
+#main section {
+  background: #fff;
+  box-shadow: 0 1px 2px #ccc;
+}
+#footer {
+  -webkit-box-flex: 0;
+          flex: 0 1 auto;
+  
+/* Makes the footer shrink */
+  width: 100%;
+  padding: 3em;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  background-color: #2e3235;
+}
+
+/*-------------------
+       Login
+--------------------*/
+
+a#google-login {
+  display: block;
+  width: 191px;
+  height: 46px;
+  margin: 0 auto;
+  text-decoration: none;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
+  background-size: 191px 46px;
+}
+a#google-login:focus,
+a#google-login:hover {
+  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
+}
+a#google-login:active,
+a#google-login:visited {
+  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
+}
+
+/*-------------------
+       Dashboard
+--------------------*/
+
+#dashboard .content-wrapper {
+  min-height: 50vh;
+}
+#dashboard .ui.message {
+  margin-bottom: 2em;
+}
+
+/*-------------------
+       Profile
+--------------------*/
+
+#profile .content-wrapper {
+  min-height: 50vh;
+}
+#profile .ui.message {
+  margin-bottom: 2em;
+}
+
+/*-------------------
+       Icons
+--------------------*/
+
+svg.icon.chevron-down.open {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 100ms ease-in-out;
+  transition: -webkit-transform 100ms ease-in-out;
+  transition: transform 100ms ease-in-out;
+  transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
+}
+svg.icon.chevron-down.closed {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition: -webkit-transform 150ms ease-in-out;
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+
+/*-------------------
+       Stripe
+--------------------*/
+
+.StripeElement {
+  height: 43px;
+  padding: 0.67857143em 1em;
+  border-radius: 4px;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+}
+.StripeElement--invalid {
+  background: #fff6f6;
+  border-color: #e0b4b4;
+}
+
+/*-------------------
+       Disposition
+--------------------*/
+
+.account-summary .ui.items > .item {
+  line-height: 1.2;
+  font-size: 1.3rem;
+}
+.account-summary .ui.items > .item .email {
+  text-decoration: underline;
+}
+.account-summary .ui.items > .item .fullname,
+.account-summary .ui.items > .item .since {
+  margin-top: 0.8em;
+}
+.ui.button.clipboard {
+  -webkit-transition: color 0.5s ease-in, background-color 0.5s ease-in cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: color 0.5s ease-in, background-color 0.5s ease-in cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.ui.button.clipboard.copied {
+  color: white !important;
+  background-color: blue !important;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+#login-container.ui.container,
+#lost-container.ui.container,
+#reset-container.ui.container {
+  max-width: 480px !important;
+}
+#password-container.ui.container {
+  max-width: 360px !important;
+}
+.ui.visible.left.overlay.sidebar {
+  background-color: #2e3235 !important;
+}
+.ui.button.trash {
+  background-color: pink;
+}
+.ui.button.trash:hover {
+  background-color: red;
+}
+.ui.button.trash:hover svg.icon.trash {
+  fill: white;
+}
+svg.icon.trash {
+  width: 18px !important;
+  height: 18px !important;
+  fill: black;
+}
+svg.icon.edit,
+svg.icon.play,
+svg.icon.link {
+  width: 23px !important;
+  height: 23px !important;
+}
+svg.icon.tiles,
+svg.icon.timer {
+  width: 48px !important;
+  height: 48px !important;
+}
+
+/* Textarea style additions */
+.ui.form textarea {
+  margin-top: 0.75em !important;
+}
+.ui.form textarea[disabled] {
+  opacity: 0.45;
+}
+
+/* Label component styling - to override semantic ui */
+.ui.cards .ui.card.match-card {
+  display: -webkit-inline-box !important;
+  display: inline-flex !important;
+  
+/* Allows for controlling vertical growth of card sections */
+}
+.ui.cards .ui.card.match-card .content.match-card-header {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  justify-items: center;
+  min-height: 5em;
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+}
+.ui.cards .ui.card.match-card .content.match-card-header > .header {
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+  
+/* Needed to push delete button to end */
+  align-self: center;
+  padding: 0.5em;
+}
+.ui.cards .ui.card.match-card .content.match-card-header button {
+  -webkit-box-flex: 0;
+          flex: 0 0 32px;
+  max-height: 32px;
+}
+.ui.cards .ui.card.match-card .content.match-card-desc,
+.ui.cards .ui.card.match-card .content.match-card-btns {
+  -webkit-box-flex: 0;
+          flex-grow: 0;
+}
+.ui.cards .ui.card.match-card .ui.label {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-align: center;
+          align-items: center;
+  background-color: transparent !important;
+  border: none !important;
+}
+.ui.cards .ui.card.match-card .ui.label .icon {
+  margin-right: 0.75em;
+}
+.ui.cards .ui.card.match-card .ui.label .detail {
+  font-size: 1.25em !important;
+  margin-left: unset !important;
+  color: rgba(0, 0, 0, 0.6);
+}
+.ui.cards .ui.card.match-card .ui.label svg.icon {
+  width: 22px;
+  height: 22px;
+  fill: rgba(0, 0, 0, 0.6);
+}
+.ui.cards .ui.card.match-card .ui.buttons .ui.button:not(:last-child) {
+  border-right: 1px inset #000000;
+}
+#login-container .ui.message,
+#lost-container .ui.message {
+  width: 100%;
+}
+#checkout-container {
+  margin: 0 auto;
+  max-width: 450px;
+}
+#checkout-container .ui.message {
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+/* Semantic form styling */
+form#match-edit.ui.form .ui.accordion:first-of-type {
+  margin-bottom: 1rem;
+}
+form#match-edit.ui.form .inline.fields {
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+form#match-edit.ui.form .match-tip {
+  font-size: 0.9em;
+  padding-top: 1em;
+  line-height: 1;
+  text-align: left;
+  color: #ccc;
+}
+form#match-edit.ui.form #match-id {
+  position: absolute;
+  bottom: -1rem;
+  right: 0;
+  color: #ccc;
+}
+
+/* Form Specific */
+form#checkout.ui.form .ui.input,
+form#checkout.ui.form .ui.radio.checkbox,
+form#checkout.ui.form .input-feedback,
+form#checkout.ui.form .input-feedback.error {
+  font-family: Arial, Helvetica, sans-serif;
+}
+form#checkout.ui.form .ui.segment {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+form#checkout *::-webkit-input-placeholder {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: rgba(34, 36, 38, 0.3);
+}
+form#checkout *::-moz-placeholder {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: rgba(34, 36, 38, 0.3);
+}
+form#checkout *::-ms-input-placeholder {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: rgba(34, 36, 38, 0.3);
+}
+form#checkout *::placeholder {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: rgba(34, 36, 38, 0.3);
+}
+form#checkout .ui.header {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-align: center;
+          align-items: center;
+}
+form#checkout .fields:last-of-type {
+  margin-top: 2em;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+form#register > .fields:last-of-type,
+form#account > .fields:last-of-type,
+form#lost > .fields:last-of-type {
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+}
+form#password > .fields:last-of-type,
+form#lost > .fields:last-of-type {
+  margin-top: 2em;
+}
+form#login > .fields,
+form#password > .fields,
+form#reset > .fields {
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+form#login a#lost:hover {
+  text-decoration: underline;
+}
+.ui.form .ui.segments .segment,
+.ui.form .ui.segment,
+.ui.form .ui.checkbox,
+.ui.form .ui.dropdown {
+  font-size: inherit !important;
+}
+.ui.form .ui.accordion .title {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-align: center;
+          align-items: center;
+}
+.ui.form .ui.accordion .title :first-child {
+  margin-right: 0.3rem;
+}
+#register-container .ui.message {
+  margin-bottom: 2em;
+}
+
+/* Lists */
+.icon-menu-list.ui.selection.list {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: left;
+          justify-content: left;
+}
+.icon-menu-list.ui.selection.list > .item {
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-align: center;
+          align-items: center;
+  background-color: none;
+  padding: 0.5em 1em;
+  margin: 0 1em 0.5em 0;
+  border-radius: 0.3em;
+}
+.icon-menu-list.ui.selection.list > .item > .content {
+  color: rgba(34, 36, 38, 0.15);
+}
+.icon-menu-list.ui.selection.list > .item > .content > .header {
+  color: rgba(34, 36, 38, 0.15);
+}
+.icon-menu-list.ui.selection.list > .item:hover {
+  background: rgba(0, 0, 0, 0.01);
+}
+.icon-menu-list.ui.selection.list > .item.active {
+  background: #ffffff;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+}
+.icon-menu-list.ui.selection.list > .item.active > .content {
+  color: #000000;
+}
+.icon-menu-list.ui.selection.list > .item.active > .content > .header {
+  color: rgba(0, 0, 0, 0.8);
+}
+.icon-menu-list.ui.horizontal.list:not(.celled) > .item:last-child {
+  padding-right: 1em;
+  
+/*  Need to unset .ui.horizontal.list:not(.celled)>.item:last-child { padding-right: 0 } in semantic ui */
+  margin-bottom: 0.5em;
+  
+/* Need to unset .ui.selection.list .list>.item:last-child, .ui.selection.list>.item:last-child { margin-bottom: 0; } in semantic ui */
+}
+.icon-menu-list.ui.horizontal.list > .item:first-child,
+.icon-menu-list.ui.horizontal.list > .item:last-child {
+  padding-top: 0.5em;
+  
+/* Need to reset semantic ui to prevent overriding of this */
+  padding-bottom: 0.5em;
+}
+.icon-menu-list.ui.horizontal.relaxed.list > .item:not(:last-child) {
+  /*margin-right: 1rem; */
+}
+
+/* Table container */
+#match-table-container {
+  min-height: 550px;
+  margin-top: 3.7rem;
+}
+section#intro {
+  padding-top: 0;
+  font-size: 1.5rem;
+}
+textarea.editor {
+  font-size: 15px;
+  line-height: 1.3em;
+  height: 120px;
+}
+.card {
+  min-width: 8ch;
+  max-width: 30ch;
+}
+.label {
+  font-weight: bold;
+  display: block;
+}
+textarea#matchText {
+  width: 100%;
+  padding: 10px;
+  overflow-y: scroll;
+}
+.rich-text-editor {
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+  font-size: inherit;
+  line-height: 1.5rem;
+  border: none;
+  border-radius: 0.26666667rem;
+  padding: 1rem 1rem 1.5rem;
+  outline: none;
+  width: 100;
+  display: block;
+  height: auto;
+}
+.rich-text-editor:not([contenteditable='true']) {
+  pointer-events: none;
+  color: rgba(40, 40, 40, 0.3);
+}
+/*.format-toolbar {
+  display: flex;
+  position: relative;
+  padding: 1px 18px 17px;
+  margin: 0px -20px 20px;
+  border-bottom: 2px solid rgb(238, 238, 238);
+}*/
+/*.rich-text-editor-container {
+  display: inline-block;
+  max-width: calc(50% - 20px);
+  margin: 20px 10px;
+  padding: 20px;
+  background: white;
+}*/
+.match-editor {
+  position: relative;
+}
+.toolbar {
+  float: right;
+}
+.format-toolbar {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.format-toolbar button {
+  background-color: white;
+  padding: 3px 6px;
+  color: #4e4e4e;
+  margin-right: 3px;
+  border-radius: 3px;
+  font-size: 1rem;
+}
+.format-toolbar button svg {
+  fill: #d5d5d5;
+}
+.format-toolbar button:hover,
+.format-toolbar button:focus {
+  cursor: pointer;
+  background-color: red;
+  border-color: #222222;
+}
+.format-toolbar button:hover svg {
+  fill: #222222;
+}
+.button-toolbar {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+/*#match-bank button.labeled:not(.active):not(:hover) {
+  background-color: rgba(40, 40, 40, 0.3) !important;
+}*/
+.error .label {
+  color: red;
+}
+.input-feedback {
+  color: #999;
+  margin-top: 0.5rem;
+  font-size: 0.9em;
+}
+.input-feedback.error {
+  color: red;
+}
+.animated {
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+.input-group {
+  margin-bottom: 1rem;
+}
+svg.svg-icon {
+  vertical-align: middle;
+}
+@media only screen and (max-width: 767.99px) {
+  #match-table-container {
+    margin-top: unset;
+  }
+  
+/* Lists */
+  .icon-menu-list.ui.selection.list {
+    -webkit-box-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .icon-menu-list.ui.selection.list > .item {
+    margin: 0.5em 0;
+  }
+  .cards .ui.card.match-card .ui.label {
+    display: -webkit-inline-box;
+    display: inline-flex;
+  }
+  .ui.form .fields {
+    /*.ui.input,
+      .ui.button,
+      .ui.dropdown {
+        margin-bottom: 1.3em !important;
+      }*/
+  }
+  .ui.form .fields > .error {
+    margin-bottom: 1.3em !important;
+  }
+  .ui.form .fields .field:not(.error) {
+    margin-bottom: 1.3em !important;
+  }
+}

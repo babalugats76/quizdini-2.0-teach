@@ -1,3 +1,7 @@
 /*******************************
          Site Overrides
 *******************************/
+.pushable > .pusher {
+  display: flex;
+  flex-direction: column;
+}

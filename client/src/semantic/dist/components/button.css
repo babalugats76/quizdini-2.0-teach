@@ -24,7 +24,7 @@
   color: rgba(0, 0, 0, 0.6);
   font-family: 'Cabin', sans-serif;
   margin: 0 0.25em 0 0;
-  padding: 0.73333333em 1.5em 0.73333333em;
+  padding: 0.6em 1.5em 0.6em;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
@@ -647,19 +647,19 @@
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: 0.55em 1.125em 0.55em;
+  padding: 0.45em 1.125em 0.45em;
 }
 .ui.compact.icon.buttons .button,
 .ui.compact.icon.button {
-  padding: 0.55em 0.55em 0.55em;
+  padding: 0.45em 0.45em 0.45em;
 }
 .ui.compact.labeled.icon.buttons .button,
 .ui.compact.labeled.icon.button {
-  padding: 0.55em 3.59166667em 0.55em;
+  padding: 0.45em 3.325em 0.45em;
 }
 .ui.compact.labeled.icon.buttons .button > .icon,
 .ui.compact.labeled.icon.button > .icon {
-  padding: 0.55em 0 0.55em 0;
+  padding: 0.45em 0 0.45em 0;
 }
 
 /*-------------------
@@ -757,7 +757,7 @@
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.73333333em 0.73333333em 0.73333333em;
+  padding: 0.6em 0.6em 0.6em;
 }
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
@@ -888,7 +888,7 @@
   -webkit-transition: color 0.1s ease !important;
   transition: color 0.1s ease !important;
   border-radius: 0;
-  margin: 0.23333333em 0.25em 0.23333333em 0 !important;
+  margin: 0.1em 0.25em 0.1em 0 !important;
   padding: 0.5em !important;
   box-shadow: none;
   color: rgba(0, 0, 0, 0.6);
@@ -918,7 +918,7 @@
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
-  padding-left: 3.96666667em !important;
+  padding-left: 3.7em !important;
   padding-right: 1.5em !important;
 }
 
@@ -936,9 +936,9 @@
   text-align: center;
   -webkit-animation: none;
           animation: none;
-  padding: 0.73333333em 0 0.73333333em 0;
+  padding: 0.6em 0 0.6em 0;
   margin: 0;
-  width: 2.46666667em;
+  width: 2.2em;
   background-color: rgba(0, 0, 0, 0.05);
   color: '';
   box-shadow: -1px 0 0 0 transparent inset;
@@ -946,7 +946,7 @@
 
 /* Right Labeled */
 .ui[class*="right labeled"].icon.button {
-  padding-right: 3.96666667em !important;
+  padding-right: 3.7em !important;
   padding-left: 1.5em !important;
 }
 .ui[class*="right labeled"].icon.button > .icon {
@@ -1032,7 +1032,7 @@
 .ui.buttons .or {
   position: relative;
   width: 0.3em;
-  height: 2.46666667em;
+  height: 2.2em;
   z-index: 3;
 }
 .ui.buttons .or:before {
@@ -1044,11 +1044,11 @@
   left: 50%;
   background-color: #FFFFFF;
   text-shadow: none;
-  margin-top: -0.86666667em;
-  margin-left: -0.86666667em;
-  width: 1.73333333em;
-  height: 1.73333333em;
-  line-height: 1.73333333em;
+  margin-top: -0.8em;
+  margin-left: -0.8em;
+  width: 1.6em;
+  height: 1.6em;
+  line-height: 1.6em;
   color: rgba(0, 0, 0, 0.4);
   font-style: normal;
   font-weight: bold;
@@ -4067,3 +4067,8 @@
          Site Overrides
 *******************************/
 
+.ui.labeled.icon.buttons .button,
+.ui.labeled.icon.button {
+  padding-top: 0.73333333em !important;
+  padding-bottom: 0.73333333em !important;
+}

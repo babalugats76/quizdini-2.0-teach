@@ -36,7 +36,7 @@
   text-align: left;
   line-height: 1.21428571em;
   font-family: 'Lexend Deca', sans-serif;
-  padding: 0.62619048em 0.93333333em;
+  padding: 0.49285714em 0.93333333em;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
@@ -199,7 +199,7 @@
   border-radius: 0 !important;
 }
 .field .ui.transparent.input > textarea {
-  padding: 0.62619048em 0.93333333em;
+  padding: 0.49285714em 0.93333333em;
 }
 
 /* Transparent Icon */
@@ -246,7 +246,7 @@
   right: 0;
   margin: 0;
   height: 100%;
-  width: 2.56666667em;
+  width: 2.3em;
   opacity: 0.5;
   border-radius: 0 0.26666667rem 0.26666667rem 0;
   -webkit-transition: opacity 0.3s ease;
@@ -257,7 +257,7 @@
 }
 .ui.ui.icon.input > textarea,
 .ui.ui.icon.input > input {
-  padding-right: 2.56666667em;
+  padding-right: 2.3em;
 }
 .ui.icon.input > i.icon:before,
 .ui.icon.input > i.icon:after {
@@ -288,7 +288,7 @@
 }
 .ui.ui[class*="left icon"].input > textarea,
 .ui.ui[class*="left icon"].input > input {
-  padding-left: 2.56666667em;
+  padding-left: 2.3em;
   padding-right: 0.93333333em;
 }
 
@@ -311,8 +311,8 @@
   font-size: 1em;
 }
 .ui.labeled.input > .label:not(.corner) {
-  padding-top: 0.73333333em;
-  padding-bottom: 0.73333333em;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
 }
 
 /* Regular Label on Left */
@@ -433,8 +433,8 @@
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons > .button {
-  padding-top: 0.73333333em;
-  padding-bottom: 0.73333333em;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
   margin: 0;
 }
 

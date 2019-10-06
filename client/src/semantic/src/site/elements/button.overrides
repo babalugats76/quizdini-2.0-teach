@@ -1,3 +1,8 @@
 /*******************************
          Site Overrides
 *******************************/
+.ui.labeled.icon.buttons .button,
+.ui.labeled.icon.button {
+  padding-top: @relative11px !important;
+  padding-bottom: @relative11px !important;
+}

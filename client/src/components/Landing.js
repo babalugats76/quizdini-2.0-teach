@@ -1,5 +1,5 @@
-import React from "react";
-import { Segment, Image, Divider, Header, Grid } from "semantic-ui-react";
+import React from 'react';
+import { Segment, Image, Divider, Header, Grid } from 'semantic-ui-react';
 
 const Landing = () => {
   return (
@@ -25,9 +25,9 @@ const Landing = () => {
           </Grid.Column>
           <Grid.Column floated="right" width={6} textAlign="center">
             <Image
-              styles={{ maxWidth: "300px" }}
+              styles={{ maxWidth: '300px' }}
               fluid
-              src="/img/dumpster-fire.gif"
+              src="/images/dumpster-fire.gif"
               centered
             />
             <p className="caption">

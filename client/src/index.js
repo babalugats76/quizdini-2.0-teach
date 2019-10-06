@@ -1,5 +1,6 @@
-import './App.scss';
+//import './App.scss';
 import './semantic/dist/semantic.css';
+//import './semantic/dist/semantic.js';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
