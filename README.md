@@ -89,8 +89,18 @@ Messages need to be standardized, etc.
   - Dashboard
     - Style menu
       - Find icons to replace logo placeholder
+    - Create functional component, e.g., `MatchIntro`
+    - Update MatchList to use and show MatchIntro as appropriate
+    - Consider adding `isEmptyArray` utility function for use in `MatchList`, etc.
+  - NavBar
+    - Alter so that an exit icon shows on mobile device, in lieu of Logout
   - Icons
     - Update UI\Icon with svgs for
+  - Semantic UI
+    - Continue migrating work-in-progress style to semantic
+      - When appropriate, alter variables and provide overrides
+      - For truly custom work, simply place it in `sites.overrides` in each own themed sections
+    - Fix overflow-y (scrolling issue)
 
 # User Migration
 
