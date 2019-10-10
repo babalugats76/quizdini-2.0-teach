@@ -19,8 +19,8 @@
   border: none;
   margin: calc(2rem - 0.1428571428571429em) 0 1rem;
   padding: 0 0;
-  font-family: 'Cabin', sans-serif;
-  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
   line-height: 1.28571429em;
   text-transform: none;
   color: rgba(0, 0, 0, 0.87);
@@ -208,7 +208,7 @@ h5.ui.header .sub.header {
 .ui.sub.header {
   padding: 0;
   margin-bottom: 0.13333333rem;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 0.86666667em;
   text-transform: uppercase;
   color: '';

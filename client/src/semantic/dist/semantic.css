@@ -8,6 +8,7 @@
  * http://opensource.org/licenses/MIT
  *
  */
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Work+Sans:400,500,600,700,800,900&subset=latin&display=swap');
 /*!
  * # Fomantic-UI - Reset
  * http://github.com/fomantic/Fomantic-UI/
@@ -500,10 +501,10 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   line-height: 1.28571429em;
   margin: calc(2rem - 0.1428571428571429em) 0 1rem;
-  font-weight: bold;
+  font-weight: 600;
   padding: 0;
 }
 
@@ -566,12 +567,12 @@ p:last-child {
 --------------------*/
 
 a {
-  color: #4183C4;
+  color: #aa54ff;
   text-decoration: none;
 }
 
 a:hover {
-  color: #1e70bf;
+  color: #9121ff;
   text-decoration: none;
 }
 
@@ -679,65 +680,19 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   Self-Hosted Fonts
 --------------------*/
 
-/* cabin-regular - latin */
-
-@font-face {
-  font-family: 'Cabin';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/cabin-v14-latin-regular.eot');
-  /* IE9 Compat Modes */
-  src: local('Cabin'), local('Cabin-Regular'), url('/fonts/cabin-v14-latin-regular.eot?#iefix') format('embedded-opentype'), 
- url('/fonts/cabin-v14-latin-regular.woff2') format('woff2'), 
- url('/fonts/cabin-v14-latin-regular.woff') format('woff'), 
- url('/fonts/cabin-v14-latin-regular.ttf') format('truetype'), 
- url('/fonts/cabin-v14-latin-regular.svg#Cabin') format('svg');
-  /* Legacy iOS */
-}
-
-/* cabin-700 - latin */
-
-@font-face {
-  font-family: 'Cabin';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/cabin-v14-latin-700.eot');
-  /* IE9 Compat Modes */
-  src: local('Cabin Bold'), local('Cabin-Bold'), url('/fonts/cabin-v14-latin-700.eot?#iefix') format('embedded-opentype'), 
- url('/fonts/cabin-v14-latin-700.woff2') format('woff2'), 
- url('/fonts/cabin-v14-latin-700.woff') format('woff'), 
- url('/fonts/cabin-v14-latin-700.ttf') format('truetype'), 
- url('/fonts/cabin-v14-latin-700.svg#Cabin') format('svg');
-  /* Legacy iOS */
-}
-
-/* lexend-deca-regular - latin */
-
-@font-face {
-  font-family: 'Lexend Deca';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/lexend-deca-v1-latin-regular.eot');
-  /* IE9 Compat Modes */
-  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('/fonts/lexend-deca-v1-latin-regular.eot?#iefix') format('embedded-opentype'), 
- url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
- url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff'), 
- url('/fonts/lexend-deca-v1-latin-regular.ttf') format('truetype'), 
- url('/fonts/lexend-deca-v1-latin-regular.svg#LexendDeca') format('svg');
-  /* Legacy iOS */
-}
+/** Add fonts here, once styles have been finalized **/
 
 /*-------------------
-    Root Element
+  Root Element
 --------------------*/
 
 #quizdini {
   height: 100%;
-  background-color: #f6f6f6;
+  background-color: #f3f3f3;
 }
 
 /*-------------------
-       Page
+  Page
 --------------------*/
 
 #main {
@@ -766,7 +721,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 
 /*-------------------
-       Login
+  Login
 --------------------*/
 
 a#google-login {
@@ -793,7 +748,7 @@ a#google-login:visited {
 }
 
 /*-------------------
-       Dashboard
+  Dashboard
 --------------------*/
 
 #dashboard .content-wrapper {
@@ -805,7 +760,7 @@ a#google-login:visited {
 }
 
 /*-------------------
-       Profile
+  Profile
 --------------------*/
 
 #profile .content-wrapper {
@@ -817,7 +772,7 @@ a#google-login:visited {
 }
 
 /*-------------------
-       Icons
+  Icons
 --------------------*/
 
 svg.icon.chevron-down.open {
@@ -839,7 +794,7 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-       Stripe
+  Stripe
 --------------------*/
 
 .StripeElement {
@@ -855,7 +810,7 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-       Disposition
+  Disposition
 --------------------*/
 
 .account-summary .ui.items > .item {
@@ -1430,12 +1385,12 @@ svg.svg-icon {
   vertical-align: baseline;
   background: #E0E1E2 none;
   color: rgba(0, 0, 0, 0.6);
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   margin: 0 0.25em 0 0;
   padding: 0.6em 1.5em 0.6em;
   text-transform: none;
   text-shadow: none;
-  font-weight: bold;
+  font-weight: 600;
   line-height: 1em;
   font-style: normal;
   text-align: center;
@@ -2587,7 +2542,7 @@ svg.svg-icon {
   line-height: 1.6em;
   color: rgba(0, 0, 0, 0.4);
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   box-shadow: 0 0 0 1px transparent inset;
 }
 
@@ -6275,7 +6230,7 @@ svg.svg-icon {
   margin: 1rem 0;
   line-height: 1;
   height: 0;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: rgba(0, 0, 0, 0.85);
@@ -6563,8 +6518,8 @@ svg.svg-icon {
   border: none;
   margin: calc(2rem - 0.1428571428571429em) 0 1rem;
   padding: 0 0;
-  font-family: 'Cabin', sans-serif;
-  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
   line-height: 1.28571429em;
   text-transform: none;
   color: rgba(0, 0, 0, 0.87);
@@ -6775,7 +6730,7 @@ h5.ui.header .sub.header {
 .ui.sub.header {
   padding: 0;
   margin-bottom: 0.13333333rem;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 0.86666667em;
   text-transform: uppercase;
   color: '';
@@ -17067,7 +17022,7 @@ img.ui.bordered.image {
   padding: 0.5833em 0.833em;
   color: rgba(0, 0, 0, 0.6);
   text-transform: none;
-  font-weight: bold;
+  font-weight: 600;
   border: 0 solid transparent;
   border-radius: 0.26666667rem;
   -webkit-transition: background 0.1s ease;
@@ -17123,7 +17078,7 @@ a.ui.label {
 .ui.label > .detail {
   display: inline-block;
   vertical-align: top;
-  font-weight: bold;
+  font-weight: 600;
   margin-left: 1em;
   opacity: 0.8;
 }
@@ -17669,7 +17624,7 @@ a.ui.active.label:hover:before {
 a.ui.basic.label:hover {
   text-decoration: none;
   background: none #FFFFFF;
-  color: #1e70bf;
+  color: #9121ff;
   box-shadow: none;
 }
 
@@ -17717,7 +17672,7 @@ a.ui.basic.label:hover {
 }
 
 .ui.inverted.basic.label:hover {
-  color: #4183C4;
+  color: #aa54ff;
 }
 
 /*-------------------
@@ -19582,8 +19537,8 @@ ol.ui.list ol li,
 .ui.list > .item .header {
   display: block;
   margin: 0;
-  font-family: 'Cabin', sans-serif;
-  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -19607,12 +19562,12 @@ ol.ui.list ol li,
 .ui.list .list > a.item,
 .ui.list > a.item {
   cursor: pointer;
-  color: #4183C4;
+  color: #aa54ff;
 }
 
 .ui.list .list > a.item:hover,
 .ui.list > a.item:hover {
-  color: #1e70bf;
+  color: #9121ff;
 }
 
 /* Linked Item Icons */
@@ -19627,12 +19582,12 @@ ol.ui.list ol li,
 .ui.list .list > .item a.header,
 .ui.list > .item a.header {
   cursor: pointer;
-  color: #4183C4 !important;
+  color: #aa54ff !important;
 }
 
 .ui.list .list > .item > a.header:hover,
 .ui.list > .item > a.header:hover {
-  color: #1e70bf !important;
+  color: #9121ff !important;
 }
 
 /* Floated Content */
@@ -19819,7 +19774,7 @@ ol.ui.list ol li,
 
 .ui.inverted.list .list > a.item:hover,
 .ui.inverted.list > a.item:hover {
-  color: #1e70bf;
+  color: #9121ff;
 }
 
 /* Linking Content */
@@ -19829,7 +19784,7 @@ ol.ui.list ol li,
 }
 
 .ui.inverted.list .item a:not(.ui):hover {
-  color: #1e70bf !important;
+  color: #9121ff !important;
 }
 
 /*-------------------
@@ -22432,7 +22387,7 @@ ol.ui.suffixed.list li:before,
   margin: 0 0 0.26666667rem 0;
   color: rgba(0, 0, 0, 0.87);
   font-size: 0.93333333em;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: none;
 }
 
@@ -23217,7 +23172,7 @@ ol.ui.suffixed.list li:before,
   margin: 0 0 0.26666667rem 0;
   color: rgba(0, 0, 0, 0.87);
   font-size: 0.93333333em;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: none;
 }
 
@@ -23479,7 +23434,7 @@ ol.ui.suffixed.list li:before,
   margin-bottom: 0;
   vertical-align: baseline;
   font-size: 0.93333333em;
-  font-weight: bold;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.87);
   text-transform: none;
 }
@@ -23643,7 +23598,7 @@ ol.ui.suffixed.list li:before,
 *******************************/
 
 .ui.form .field > label {
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Work Sans', sans-serif;
 }
 /*!
  * # Fomantic-UI - Grid
@@ -26129,13 +26084,13 @@ ol.ui.suffixed.list li:before,
   margin: 0;
   background: '';
   text-transform: normal;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .ui.vertical.menu .item > .header:not(.ui) {
   margin: 0 0 0.5em;
   font-size: 1em;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 /*--------------
@@ -26191,7 +26146,7 @@ ol.ui.suffixed.list li:before,
 
 .ui.menu .ui.dropdown .menu > .active.item {
   background: rgba(0, 0, 0, 0.03) !important;
-  font-weight: bold !important;
+  font-weight: 600 !important;
   color: rgba(0, 0, 0, 0.95) !important;
 }
 
@@ -26603,7 +26558,7 @@ Floated Menu / Item
 
 .ui.vertical.menu .item .menu .active.item {
   background-color: transparent;
-  font-weight: bold;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.95);
 }
 
@@ -26651,7 +26606,7 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.95);
   border-top-width: 1px;
   border-color: #D4D4D5;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: -1px;
   box-shadow: none;
   border-radius: 0.26666667rem 0.26666667rem 0 0 !important;
@@ -27023,7 +26978,7 @@ Floated Menu / Item
   background-color: transparent;
   box-shadow: none;
   border-color: currentColor;
-  font-weight: bold;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.95);
 }
 
@@ -27132,7 +27087,7 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.85);
   font-size: 0.93333333em;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 /* Image */
@@ -28461,7 +28416,7 @@ Floated Menu / Item
 }
 
 .ui.tabular.menu .item {
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Work Sans', sans-serif;
 }
 /*!
  * # Fomantic-UI - Message
@@ -28507,8 +28462,8 @@ Floated Menu / Item
 
 .ui.message .header {
   display: block;
-  font-family: 'Cabin', sans-serif;
-  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
   margin: -0.14285714em 0 0 0;
 }
 
@@ -29230,7 +29185,7 @@ Floated Menu / Item
   padding: 0.93333333em 0.8em;
   vertical-align: inherit;
   font-style: none;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: none;
   border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   border-left: none;
@@ -29397,7 +29352,7 @@ Floated Menu / Item
   .ui.table:not(.unstackable) > tfoot > tr > th:first-child,
   .ui.table:not(.unstackable) > tr > td:first-child,
   .ui.table:not(.unstackable) > tbody > tr > td:first-child {
-    font-weight: bold;
+    font-weight: 600;
   }
 
   /* Definition Table */
@@ -29486,7 +29441,7 @@ Floated Menu / Item
 .ui.definition.table > tbody > tr > td:first-child:not(.ignored),
 .ui.definition.table tr td.definition {
   background: rgba(0, 0, 0, 0.03);
-  font-weight: bold;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.95);
   text-transform: '';
   box-shadow: '';
@@ -30720,7 +30675,7 @@ Floated Menu / Item
 *******************************/
 
 .ui.table > thead {
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Work Sans', sans-serif;
 }
 /*!
  * # Fomantic-UI - Card
@@ -30896,7 +30851,7 @@ Floated Menu / Item
 .ui.card > .content > .header {
   display: block;
   margin: '';
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   color: rgba(0, 0, 0, 0.85);
 }
 
@@ -30904,7 +30859,7 @@ Floated Menu / Item
 
 .ui.cards > .card > .content > .header:not(.ui),
 .ui.card > .content > .header:not(.ui) {
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1.26666667em;
   margin-top: -0.21425em;
   line-height: 1.28571429em;
@@ -31047,7 +31002,7 @@ Floated Menu / Item
 
 .ui.cards > .card > .content > a.header:hover,
 .ui.card > .content > a.header:hover {
-  color: #1e70bf;
+  color: #9121ff;
 }
 
 /* Meta */
@@ -31172,7 +31127,7 @@ Floated Menu / Item
 
 .ui.cards > .card > .extra a:not(.ui):hover,
 .ui.card > .extra a:not(.ui):hover {
-  color: #1e70bf;
+  color: #9121ff;
 }
 
 /*******************************
@@ -32071,7 +32026,7 @@ a.ui.card:hover,
 
 .ui.inverted.cards > .card > .extra a:not(.ui):hover,
 .ui.inverted.card > .extra a:not(.ui):hover {
-  color: #1e70bf;
+  color: #9121ff;
 }
 
 /* Link card(s) */
@@ -32203,7 +32158,7 @@ a.inverted.ui.card:hover,
 .ui.comments .comment .author {
   font-size: 1em;
   color: rgba(0, 0, 0, 0.87);
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .ui.comments .comment a.author {
@@ -32211,7 +32166,7 @@ a.inverted.ui.card:hover,
 }
 
 .ui.comments .comment a.author:hover {
-  color: #1e70bf;
+  color: #9121ff;
 }
 
 /*--------------
@@ -32535,7 +32490,7 @@ a.inverted.ui.card:hover,
 .ui.feed > .event > .content .summary {
   margin: 0;
   font-size: 1em;
-  font-weight: bold;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -32556,7 +32511,7 @@ a.inverted.ui.card:hover,
 
 .ui.feed > .event > .content .user {
   display: inline-block;
-  font-weight: bold;
+  font-weight: 600;
   margin-right: 0;
   vertical-align: baseline;
 }
@@ -32873,8 +32828,8 @@ a.inverted.ui.card:hover,
 .ui.items > .item > .content > .header {
   display: inline-block;
   margin: -0.21425em 0 0;
-  font-family: 'Cabin', sans-serif;
-  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.85);
 }
 
@@ -32983,7 +32938,7 @@ a.inverted.ui.card:hover,
 }
 
 .ui.items > .item > .content > a.header:hover {
-  color: #1e70bf;
+  color: #9121ff;
 }
 
 /* Meta */
@@ -33209,7 +33164,7 @@ a.inverted.ui.card:hover,
 
 .ui.items a.item:hover .content .header,
 .ui.link.items > .item:hover .content .header {
-  color: #1e70bf;
+  color: #9121ff;
 }
 
 /*--------------
@@ -33261,11 +33216,11 @@ a.inverted.ui.card:hover,
 }
 
 .ui.inverted.items > .item > .content a:not(.ui) {
-  color: #57a4ef;
+  color: #d4a9ff;
 }
 
 .ui.inverted.items > .item > .content a:not(.ui):hover {
-  color: #4183C4;
+  color: #aa54ff;
 }
 
 .ui.inverted.items > .item > .content > a.header {
@@ -33359,7 +33314,7 @@ a.inverted.ui.card:hover,
 
 .ui.accordion .title:not(.ui) {
   padding: 0.5em 0;
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -33461,7 +33416,7 @@ a.inverted.ui.card:hover,
   margin: 0;
   padding: 0.75em 1em;
   color: rgba(0, 0, 0, 0.4);
-  font-weight: bold;
+  font-weight: 600;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
   -webkit-transition: background 0.1s ease, color 0.1s ease;
   transition: background 0.1s ease, color 0.1s ease;
@@ -34694,7 +34649,7 @@ a.inverted.ui.card:hover,
 .ui.dropdown .menu > .header {
   margin: 1rem 0 0.75rem;
   padding: 0 1.13333333rem;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -35421,7 +35376,7 @@ select.ui.dropdown {
 }
 
 .ui.inline.dropdown > .text {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .ui.inline.dropdown .menu {
@@ -35442,7 +35397,7 @@ select.ui.dropdown {
 
 .ui.dropdown .menu .active.item {
   background: transparent;
-  font-weight: bold;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.95);
   box-shadow: none;
   z-index: 12;
@@ -36857,10 +36812,10 @@ select.ui.dropdown {
 
 .ui.popup > .header {
   padding: 0;
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-size: 1.13333333em;
   line-height: 1.2;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .ui.popup > .header + .content {
@@ -37752,7 +37707,7 @@ select.ui.dropdown {
   color: rgba(255, 255, 255, 0.7);
   text-shadow: none;
   margin-top: -0.5em;
-  font-weight: bold;
+  font-weight: 600;
   text-align: left;
 }
 
@@ -37767,7 +37722,7 @@ select.ui.dropdown {
   left: 0;
   bottom: auto;
   color: rgba(0, 0, 0, 0.87);
-  font-weight: bold;
+  font-weight: 600;
   text-shadow: none;
   margin-top: 0.2em;
   text-align: center;

@@ -65,7 +65,7 @@
   padding: 0.93333333em 0.8em;
   vertical-align: inherit;
   font-style: none;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: none;
   border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   border-left: none;
@@ -206,7 +206,7 @@
   .ui.table:not(.unstackable) > tfoot > tr > th:first-child,
   .ui.table:not(.unstackable) > tr > td:first-child,
   .ui.table:not(.unstackable) > tbody > tr > td:first-child {
-    font-weight: bold;
+    font-weight: 600;
   }
   
 /* Definition Table */
@@ -291,7 +291,7 @@
 .ui.definition.table > tbody > tr > td:first-child:not(.ignored),
 .ui.definition.table tr td.definition {
   background: rgba(0, 0, 0, 0.03);
-  font-weight: bold;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.95);
   text-transform: '';
   box-shadow: '';
@@ -1371,5 +1371,5 @@
 *******************************/
 
 .ui.table > thead {
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Work Sans', sans-serif;
 }

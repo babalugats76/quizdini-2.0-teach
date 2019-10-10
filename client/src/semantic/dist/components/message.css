@@ -41,8 +41,8 @@
 /* Header */
 .ui.message .header {
   display: block;
-  font-family: 'Cabin', sans-serif;
-  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
   margin: -0.14285714em 0 0 0;
 }
 

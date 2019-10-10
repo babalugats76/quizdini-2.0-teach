@@ -57,7 +57,7 @@
   margin: 0 0 0.26666667rem 0;
   color: rgba(0, 0, 0, 0.87);
   font-size: 0.93333333em;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: none;
 }
 
@@ -780,7 +780,7 @@
   margin: 0 0 0.26666667rem 0;
   color: rgba(0, 0, 0, 0.87);
   font-size: 0.93333333em;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: none;
 }
 .ui.form .grouped.fields .field,
@@ -1007,7 +1007,7 @@
   margin-bottom: 0;
   vertical-align: baseline;
   font-size: 0.93333333em;
-  font-weight: bold;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.87);
   text-transform: none;
 }
@@ -1145,5 +1145,5 @@
 *******************************/
 
 .ui.form .field > label {
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Work Sans', sans-serif;
 }

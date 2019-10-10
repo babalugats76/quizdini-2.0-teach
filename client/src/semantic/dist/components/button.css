@@ -22,12 +22,12 @@
   vertical-align: baseline;
   background: #E0E1E2 none;
   color: rgba(0, 0, 0, 0.6);
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   margin: 0 0.25em 0 0;
   padding: 0.6em 1.5em 0.6em;
   text-transform: none;
   text-shadow: none;
-  font-weight: bold;
+  font-weight: 600;
   line-height: 1em;
   font-style: normal;
   text-align: center;
@@ -1051,7 +1051,7 @@
   line-height: 1.6em;
   color: rgba(0, 0, 0, 0.4);
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   box-shadow: 0 0 0 1px transparent inset;
 }
 .ui.buttons .or[data-text]:before {

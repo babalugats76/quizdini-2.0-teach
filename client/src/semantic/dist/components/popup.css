@@ -37,10 +37,10 @@
 }
 .ui.popup > .header {
   padding: 0;
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-size: 1.13333333em;
   line-height: 1.2;
-  font-weight: bold;
+  font-weight: 600;
 }
 .ui.popup > .header + .content {
   padding-top: 0.46666667em;

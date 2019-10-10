@@ -23,7 +23,7 @@
   padding: 0.5833em 0.833em;
   color: rgba(0, 0, 0, 0.6);
   text-transform: none;
-  font-weight: bold;
+  font-weight: 600;
   border: 0 solid transparent;
   border-radius: 0.26666667rem;
   -webkit-transition: background 0.1s ease;
@@ -71,7 +71,7 @@ a.ui.label {
 .ui.label > .detail {
   display: inline-block;
   vertical-align: top;
-  font-weight: bold;
+  font-weight: 600;
   margin-left: 1em;
   opacity: 0.8;
 }
@@ -570,7 +570,7 @@ a.ui.active.label:hover:before {
 a.ui.basic.label:hover {
   text-decoration: none;
   background: none #FFFFFF;
-  color: #1e70bf;
+  color: #9121ff;
   box-shadow: none;
 }
 
@@ -613,7 +613,7 @@ a.ui.basic.label:hover {
   background: #1B1C1D;
 }
 .ui.inverted.basic.label:hover {
-  color: #4183C4;
+  color: #aa54ff;
 }
 
 /*-------------------

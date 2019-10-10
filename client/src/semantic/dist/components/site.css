@@ -13,6 +13,7 @@
              Page
 *******************************/
 
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Work+Sans:400,500,600,700,800,900&subset=latin&display=swap');
 html,
 body {
   height: 100%;
@@ -42,10 +43,10 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   line-height: 1.28571429em;
   margin: calc(2rem - 0.1428571428571429em) 0 1rem;
-  font-weight: bold;
+  font-weight: 600;
   padding: 0;
 }
 h1 {
@@ -100,11 +101,11 @@ p:last-child {
 --------------------*/
 
 a {
-  color: #4183C4;
+  color: #aa54ff;
   text-decoration: none;
 }
 a:hover {
-  color: #1e70bf;
+  color: #9121ff;
   text-decoration: none;
 }
 
@@ -205,69 +206,19 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   Self-Hosted Fonts
 --------------------*/
 
-
-/* cabin-regular - latin */
-@font-face {
-  font-family: 'Cabin';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/cabin-v14-latin-regular.eot');
-  
-/* IE9 Compat Modes */
-  src: local('Cabin'), local('Cabin-Regular'), url('/fonts/cabin-v14-latin-regular.eot?#iefix') format('embedded-opentype'), 
-/* IE6-IE8 */ url('/fonts/cabin-v14-latin-regular.woff2') format('woff2'), 
-/* Super Modern Browsers */ url('/fonts/cabin-v14-latin-regular.woff') format('woff'), 
-/* Modern Browsers */ url('/fonts/cabin-v14-latin-regular.ttf') format('truetype'), 
-/* Safari, Android, iOS */ url('/fonts/cabin-v14-latin-regular.svg#Cabin') format('svg');
-  
-/* Legacy iOS */
-}
-
-/* cabin-700 - latin */
-@font-face {
-  font-family: 'Cabin';
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/cabin-v14-latin-700.eot');
-  
-/* IE9 Compat Modes */
-  src: local('Cabin Bold'), local('Cabin-Bold'), url('/fonts/cabin-v14-latin-700.eot?#iefix') format('embedded-opentype'), 
-/* IE6-IE8 */ url('/fonts/cabin-v14-latin-700.woff2') format('woff2'), 
-/* Super Modern Browsers */ url('/fonts/cabin-v14-latin-700.woff') format('woff'), 
-/* Modern Browsers */ url('/fonts/cabin-v14-latin-700.ttf') format('truetype'), 
-/* Safari, Android, iOS */ url('/fonts/cabin-v14-latin-700.svg#Cabin') format('svg');
-  
-/* Legacy iOS */
-}
-
-/* lexend-deca-regular - latin */
-@font-face {
-  font-family: 'Lexend Deca';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/lexend-deca-v1-latin-regular.eot');
-  
-/* IE9 Compat Modes */
-  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('/fonts/lexend-deca-v1-latin-regular.eot?#iefix') format('embedded-opentype'), 
-/* IE6-IE8 */ url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
-/* Super Modern Browsers */ url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff'), 
-/* Modern Browsers */ url('/fonts/lexend-deca-v1-latin-regular.ttf') format('truetype'), 
-/* Safari, Android, iOS */ url('/fonts/lexend-deca-v1-latin-regular.svg#LexendDeca') format('svg');
-  
-/* Legacy iOS */
-}
+/** Add fonts here, once styles have been finalized **/
 
 /*-------------------
-    Root Element
+  Root Element
 --------------------*/
 
 #quizdini {
   height: 100%;
-  background-color: #f6f6f6;
+  background-color: #f3f3f3;
 }
 
 /*-------------------
-       Page
+  Page
 --------------------*/
 
 #main {
@@ -296,7 +247,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 
 /*-------------------
-       Login
+  Login
 --------------------*/
 
 a#google-login {
@@ -321,7 +272,7 @@ a#google-login:visited {
 }
 
 /*-------------------
-       Dashboard
+  Dashboard
 --------------------*/
 
 #dashboard .content-wrapper {
@@ -332,7 +283,7 @@ a#google-login:visited {
 }
 
 /*-------------------
-       Profile
+  Profile
 --------------------*/
 
 #profile .content-wrapper {
@@ -343,7 +294,7 @@ a#google-login:visited {
 }
 
 /*-------------------
-       Icons
+  Icons
 --------------------*/
 
 svg.icon.chevron-down.open {
@@ -364,7 +315,7 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-       Stripe
+  Stripe
 --------------------*/
 
 .StripeElement {
@@ -379,7 +330,7 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-       Disposition
+  Disposition
 --------------------*/
 
 .account-summary .ui.items > .item {

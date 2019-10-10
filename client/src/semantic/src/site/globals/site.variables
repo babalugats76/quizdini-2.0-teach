@@ -7,12 +7,14 @@
 --------------------*/
 
 @fontName          : 'Lexend Deca';
-@headerFont        : 'Cabin', sans-serif;
+@headerFont        : 'Work Sans', sans-serif;
 @pageFont          : 'Lexend Deca', sans-serif;
-@googleFontFamily  : 'Lexend+Deca|Cabin:400,700';
+@googleFontFamily  : 'Lexend+Deca|Work+Sans:400,500,600,700,800,900';
 @googleFontRequest : '@{googleFontFamily}&subset=@{googleSubset}&display=@{googleFontDisplay}';
 
-@importGoogleFonts : false; /* Make false because self-hosting */
+@importGoogleFonts : true; /* Make false because self-hosting */
+
+@bold              : 600;
 
 /*-------------------
   Base Sizes
@@ -27,9 +29,21 @@
 /*-------------------
   Brand Colors
 --------------------*/
-
-@primaryColor        : #1a1c57;
+@quizdiniIndigo      : rgba(113, 28, 255, 1);
+@quizdiniPurple      : rgba(170, 84, 255, 1);
+@quizdiniTurquoise   : rgba(1, 231, 228, 1);
+@quizdiniBlue        : rgba(1, 76, 228, 1);
+@quizdiniZaffre      : rgba(0, 19, 153, 1);
+@spaceCadet          : rgba(26, 28, 87, 1);
+@primaryColor        : @spaceCadet;
 @secondaryColor      : #2e3235; 
+
+
+/*-------------------
+       Links
+--------------------*/
+
+@linkColor           : @quizdiniPurple;
 
 /*-------------------
   Padding & Margin
