@@ -19,7 +19,9 @@ require('./services/passport'); // Since nothing is being exported*/
 
 mongoose.connect(keys.mongoURI, {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  useCreateIndex: true,
+  useUnifiedTopology: true
 });
 
 const app = express();

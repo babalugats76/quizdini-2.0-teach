@@ -45,8 +45,8 @@ const transformMatch = Yup.object().shape({
       .default(180),
     colorScheme: Yup.string()
       .required('Color Scheme is required.')
-      .oneOf(['mono', 'rainbow'], "Color Scheme must be 'mono' or 'rainbow'.")
-      .default('mono')
+      .oneOf(['Basic', 'Rainbow'], "Color Scheme must be 'Basic' or 'Rainbow'.")
+      .default('Basic')
   }),
   matches: Yup.array()
     .required('Matches are required.')
@@ -77,7 +77,7 @@ const validateMatch = Yup.object().shape({
     .max(300, 'Game may last no more than ${max} seconds.'),
   colorScheme: Yup.string()
     .required('Color Scheme is required.')
-    .oneOf(['mono', 'rainbow'], "Color Scheme must be 'mono' or 'rainbow'."),
+    .oneOf(['Basic', 'Rainbow'], "Color Scheme must be 'Basic' or 'Rainbow'."),
   matches: Yup.array().test({
     name: 'min-matches',
     params: {

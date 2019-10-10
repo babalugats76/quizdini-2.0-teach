@@ -17,4 +17,8 @@ ExternalLink.propTypes = {
   rest: PropTypes.object
 };
 
+ExternalLink.defaultProps = {
+  target: "_blank"
+};
+
 export default ExternalLink;
