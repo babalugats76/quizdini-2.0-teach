@@ -11,7 +11,7 @@ const routes = [
     text: 'Cookie Policy',
     exact: false,
     component: Cookie,
-    displayOrder: 1,
+    displayOrder: 1
   },
   {
     path: 'privacy',
@@ -63,7 +63,7 @@ const Terms = ({ match, history }) => {
         </Segment>
       </Grid.Column>
       <Grid.Column width={11}>
-        <Segment as="section" padded>
+        <Segment as="section" padded="very">
           <Switch>
             {routes.map(({ path, exact, component }, idx) => {
               return (

@@ -1,30 +1,30 @@
-import React from "react";
-import { Switch, Route, Link, matchPath } from "react-router-dom";
-import { Segment, Menu, Grid } from "semantic-ui-react";
-import Mission from "./Mission";
-import Team from "./Team";
-import FAQ from "./FAQ";
+import React from 'react';
+import { Switch, Route, Link, matchPath } from 'react-router-dom';
+import { Segment, Menu, Grid } from 'semantic-ui-react';
+import Mission from './Mission';
+import Team from './Team';
+import FAQ from './FAQ';
 
 //const Dummy = () => <h1>Dummy!</h1>;
 
 const routes = [
   {
-    path: "team",
-    text: "The Team",
+    path: 'team',
+    text: 'The Team',
     exact: false,
     component: Team,
     displayOrder: 0
   },
   {
-    path: "faq",
-    text: "FAQ",
+    path: 'faq',
+    text: 'FAQ',
     exact: false,
     component: FAQ,
     displayOrder: 2
   },
   {
-    path: "",
-    text: "Our Mission",
+    path: '',
+    text: 'Our Mission',
     exact: false,
     component: Mission,
     displayOrder: 1
@@ -55,7 +55,8 @@ const index = ({ match, history }) => {
                     key={idx}
                     as={Link}
                     to={`${basePath}/${path}`}
-                    active={path === activePath}>
+                    active={path === activePath}
+                  >
                     {text}
                   </Menu.Item>
                 );
@@ -64,7 +65,7 @@ const index = ({ match, history }) => {
         </Segment>
       </Grid.Column>
       <Grid.Column width={11}>
-        <Segment as="section" padded>
+        <Segment as="section" padded="very">
           <Switch>
             {routes.map(({ path, exact, component }, idx) => {
               return (
