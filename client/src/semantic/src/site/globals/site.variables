@@ -7,24 +7,24 @@
 --------------------*/
 
 @fontName          : 'Lexend Deca';
-@headerFont        : 'fontspring_demo_-_marcher_aBd', sans-serif;
+@headerFont        : 'marcher-medium', sans-serif;
 @pageFont          : 'Lexend Deca', sans-serif;
 @googleFontFamily  : 'Lexend+Deca';
 @googleFontRequest : '@{googleFontFamily}&subset=@{googleSubset}&display=@{googleFontDisplay}';
+@importGoogleFonts : false; /* Make false because self-hosting */
 
-@importGoogleFonts : true; /* Make false because self-hosting */
-
-@bold              : 500;
+@textColor         : rgba(34, 34, 34, 1);
+@bold              : 400;
 
 /*-------------------
   Base Sizes
 --------------------*/
 
 /* This is the single variable that controls them all */
-@emSize   : 14px;
+@emSize   : 15px;
 
 /* The size of page text  */
-@fontSize : 14px;
+@fontSize : 15px;
 
 /*-------------------
   Brand Colors
@@ -36,7 +36,7 @@
 @quizdiniZaffre      : rgba(0, 19, 153, 1);
 @spaceCadet          : rgba(26, 28, 87, 1);
 @primaryColor        : @spaceCadet;
-@secondaryColor      : #2e3235; 
+@secondaryColor      : #2e3235;
 
 
 /*-------------------
