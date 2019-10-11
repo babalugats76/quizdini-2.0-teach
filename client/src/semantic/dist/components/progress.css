@@ -22,7 +22,7 @@
   box-shadow: none;
   background: rgba(0, 0, 0, 0.1);
   padding: 0;
-  border-radius: 0.26666667rem;
+  border-radius: 0.28571429rem;
 }
 .ui.progress:first-child {
   margin: 0 0 2.5em;
@@ -45,7 +45,7 @@
   width: 0;
   min-width: 2em;
   background: #888888;
-  border-radius: 0.26666667rem;
+  border-radius: 0.28571429rem;
   -webkit-transition: width 0.1s ease, background-color 0.1s ease;
   transition: width 0.1s ease, background-color 0.1s ease;
   overflow: hidden;
@@ -66,7 +66,7 @@
   white-space: nowrap;
   position: absolute;
   width: auto;
-  font-size: 0.93333333em;
+  font-size: 0.92857143em;
   top: 50%;
   right: 0.5em;
   left: auto;
@@ -74,7 +74,7 @@
   color: rgba(255, 255, 255, 0.7);
   text-shadow: none;
   margin-top: -0.5em;
-  font-weight: 600;
+  font-weight: 500;
   text-align: left;
 }
 
@@ -88,7 +88,7 @@
   left: 0;
   bottom: auto;
   color: rgba(0, 0, 0, 0.87);
-  font-weight: 600;
+  font-weight: 500;
   text-shadow: none;
   margin-top: 0.2em;
   text-align: center;
@@ -293,7 +293,7 @@
   right: 0;
   bottom: 0;
   background: #FFFFFF;
-  border-radius: 0.26666667rem;
+  border-radius: 0.28571429rem;
   -webkit-animation: progress-active 2s ease infinite;
           animation: progress-active 2s ease infinite;
   -webkit-transform-origin: left;
@@ -388,7 +388,7 @@
   height: 0.2rem;
   padding: 0;
   overflow: hidden;
-  border-radius: 0 0 0.26666667rem 0.26666667rem;
+  border-radius: 0 0 0.28571429rem 0.28571429rem;
 }
 .ui.progress.attached .bar {
   border-radius: 0;
@@ -398,7 +398,7 @@
 .ui.progress.top.attached,
 .ui.progress.top.attached .bar {
   top: 0;
-  border-radius: 0.26666667rem 0.26666667rem 0 0;
+  border-radius: 0.28571429rem 0.28571429rem 0 0;
 }
 .ui.progress.top.attached .bar {
   border-radius: 0;
@@ -579,13 +579,13 @@
 ---------------*/
 
 .ui.tiny.progress {
-  font-size: 0.86666667rem;
+  font-size: 0.85714286rem;
 }
 .ui.tiny.progress .bar {
   height: 0.5em;
 }
 .ui.small.progress {
-  font-size: 0.93333333rem;
+  font-size: 0.92857143rem;
 }
 .ui.small.progress .bar {
   height: 1em;
@@ -597,13 +597,13 @@
   height: 1.75em;
 }
 .ui.large.progress {
-  font-size: 1.13333333rem;
+  font-size: 1.14285714rem;
 }
 .ui.large.progress .bar {
   height: 2.5em;
 }
 .ui.big.progress {
-  font-size: 1.26666667rem;
+  font-size: 1.28571429rem;
 }
 .ui.big.progress .bar {
   height: 3.5em;
@@ -626,7 +626,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  border-radius: 0.26666667rem;
+  border-radius: 0.28571429rem;
   -webkit-animation: progress-pulsating 2s ease infinite;
           animation: progress-pulsating 2s ease infinite;
   -webkit-transform-origin: center;

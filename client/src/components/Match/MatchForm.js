@@ -121,8 +121,8 @@ const durationOptions = [
 ];
 
 const colorSchemeOptions = [
-  { text: 'mono', value: 'mono' },
-  { text: 'rainbow', value: 'rainbow' }
+  { text: 'Basic', value: 'Basic' },
+  { text: 'Rainbow', value: 'Rainbow' }
 ];
 
 class MatchForm extends Component {

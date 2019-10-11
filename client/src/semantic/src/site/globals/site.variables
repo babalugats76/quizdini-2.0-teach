@@ -7,24 +7,24 @@
 --------------------*/
 
 @fontName          : 'Lexend Deca';
-@headerFont        : 'Work Sans', sans-serif;
+@headerFont        : 'fontspring_demo_-_marcher_aBd', sans-serif;
 @pageFont          : 'Lexend Deca', sans-serif;
-@googleFontFamily  : 'Lexend+Deca|Work+Sans:400,500,600,700,800,900';
+@googleFontFamily  : 'Lexend+Deca';
 @googleFontRequest : '@{googleFontFamily}&subset=@{googleSubset}&display=@{googleFontDisplay}';
 
 @importGoogleFonts : true; /* Make false because self-hosting */
 
-@bold              : 600;
+@bold              : 500;
 
 /*-------------------
   Base Sizes
 --------------------*/
 
 /* This is the single variable that controls them all */
-@emSize   : 15px;
+@emSize   : 14px;
 
 /* The size of page text  */
-@fontSize : 15px;
+@fontSize : 14px;
 
 /*-------------------
   Brand Colors

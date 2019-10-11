@@ -132,14 +132,14 @@
 .ui.items > .item > .content > .header {
   display: inline-block;
   margin: -0.21425em 0 0;
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 600;
+  font-family: 'fontspring_demo_-_marcher_aBd', sans-serif;
+  font-weight: 500;
   color: rgba(0, 0, 0, 0.85);
 }
 
 /* Default Header Size */
 .ui.items > .item > .content > .header:not(.ui) {
-  font-size: 1.26666667em;
+  font-size: 1.28571429em;
 }
 
 /*--------------

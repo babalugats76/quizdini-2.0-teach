@@ -54,10 +54,10 @@
 
 .ui.form .field > label {
   display: block;
-  margin: 0 0 0.26666667rem 0;
+  margin: 0 0 0.28571429rem 0;
   color: rgba(0, 0, 0, 0.87);
-  font-size: 0.93333333em;
-  font-weight: 600;
+  font-size: 0.92857143em;
+  font-weight: 500;
   text-transform: none;
 }
 
@@ -105,12 +105,12 @@
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.21428571em;
-  padding: 0.49285714em 0.93333333em;
+  padding: 0.53571429em 1em;
   font-size: 1em;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.26666667rem;
+  border-radius: 0.28571429rem;
   box-shadow: 0 0 0 0 transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
@@ -122,12 +122,12 @@
   margin: 0;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  padding: 0.6em 0.93333333em;
+  padding: 0.64285714em 1em;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
   outline: none;
   color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.26666667rem;
+  border-radius: 0.28571429rem;
   box-shadow: 0 0 0 0 transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
@@ -179,7 +179,7 @@
 .ui.form .field .transparent.input:not(.icon) input,
 .ui.form .field input.transparent,
 .ui.form .field textarea.transparent {
-  padding: 0.49285714em 0.93333333em;
+  padding: 0.53571429em 1em;
 }
 .ui.form .field input.transparent,
 .ui.form .field textarea.transparent {
@@ -213,9 +213,9 @@
   width: 100%;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  border-radius: 0.26666667rem;
+  border-radius: 0.28571429rem;
   box-shadow: 0 0 0 0 transparent inset;
-  padding: 0.62em 0.93333333em;
+  padding: 0.62em 1em;
   color: rgba(0, 0, 0, 0.87);
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
@@ -416,14 +416,14 @@
 .ui.form input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.95);
   border-color: #85B7D9;
-  border-radius: 0.26666667rem;
+  border-radius: 0.28571429rem;
   background: #FFFFFF;
   box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
 }
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.95);
   border-color: #85B7D9;
-  border-radius: 0.26666667rem;
+  border-radius: 0.28571429rem;
   background: #FFFFFF;
   box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
   -webkit-appearance: none;
@@ -661,7 +661,7 @@
   z-index: 100;
 }
 .ui.loading.form.segments:before {
-  border-radius: 0.26666667rem;
+  border-radius: 0.28571429rem;
 }
 .ui.loading.form:after {
   position: absolute;
@@ -777,10 +777,10 @@
   margin-bottom: 0;
 }
 .ui.form .grouped.fields > label {
-  margin: 0 0 0.26666667rem 0;
+  margin: 0 0 0.28571429rem 0;
   color: rgba(0, 0, 0, 0.87);
-  font-size: 0.93333333em;
-  font-weight: 600;
+  font-size: 0.92857143em;
+  font-weight: 500;
   text-transform: none;
 }
 .ui.form .grouped.fields .field,
@@ -1006,8 +1006,8 @@
   margin-top: 0;
   margin-bottom: 0;
   vertical-align: baseline;
-  font-size: 0.93333333em;
-  font-weight: 600;
+  font-size: 0.92857143em;
+  font-weight: 500;
   color: rgba(0, 0, 0, 0.87);
   text-transform: none;
 }
@@ -1033,7 +1033,7 @@
 /* Label */
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
-  margin: 0 0.86666667em 0 0;
+  margin: 0 0.85714286em 0 0;
 }
 .ui.form .inline.fields .field > :only-child,
 .ui.form .inline.field > :only-child {
@@ -1057,80 +1057,80 @@
 ---------------------*/
 
 .ui.mini.form {
-  font-size: 0.8rem;
+  font-size: 0.78571429rem;
 }
 .ui.tiny.form {
-  font-size: 0.86666667rem;
+  font-size: 0.85714286rem;
 }
 .ui.small.form {
-  font-size: 0.93333333rem;
+  font-size: 0.92857143rem;
 }
 .ui.form {
   font-size: 1rem;
 }
 .ui.large.form {
-  font-size: 1.13333333rem;
+  font-size: 1.14285714rem;
 }
 .ui.big.form {
-  font-size: 1.26666667rem;
+  font-size: 1.28571429rem;
 }
 .ui.huge.form {
-  font-size: 1.4rem;
+  font-size: 1.42857143rem;
 }
 .ui.massive.form {
-  font-size: 1.73333333rem;
+  font-size: 1.71428571rem;
 }
 
 /* Dropdown */
 .ui.mini.form .field .dropdown {
-  font-size: 0.8rem;
+  font-size: 0.78571429rem;
 }
 .ui.tiny.form .field .dropdown {
-  font-size: 0.86666667rem;
+  font-size: 0.85714286rem;
 }
 .ui.small.form .field .dropdown {
-  font-size: 0.93333333rem;
+  font-size: 0.92857143rem;
 }
 .ui.form .field .dropdown {
   font-size: 1rem;
 }
 .ui.large.form .field .dropdown {
-  font-size: 1.13333333rem;
+  font-size: 1.14285714rem;
 }
 .ui.big.form .field .dropdown {
-  font-size: 1.26666667rem;
+  font-size: 1.28571429rem;
 }
 .ui.huge.form .field .dropdown {
-  font-size: 1.4rem;
+  font-size: 1.42857143rem;
 }
 .ui.massive.form .field .dropdown {
-  font-size: 1.73333333rem;
+  font-size: 1.71428571rem;
 }
 
 /* Dropdown Items */
 .ui.mini.form .field .dropdown .menu > .item {
-  font-size: 0.8rem;
+  font-size: 0.78571429rem;
 }
 .ui.tiny.form .field .dropdown .menu > .item {
-  font-size: 0.86666667rem;
+  font-size: 0.85714286rem;
 }
 .ui.small.form .field .dropdown .menu > .item {
-  font-size: 0.93333333rem;
+  font-size: 0.92857143rem;
 }
 .ui.form .field .dropdown .menu > .item {
   font-size: 1rem;
 }
 .ui.large.form .field .dropdown .menu > .item {
-  font-size: 1.13333333rem;
+  font-size: 1.14285714rem;
 }
 .ui.big.form .field .dropdown .menu > .item {
-  font-size: 1.26666667rem;
+  font-size: 1.28571429rem;
 }
 .ui.huge.form .field .dropdown .menu > .item {
-  font-size: 1.4rem;
+  font-size: 1.42857143rem;
 }
 .ui.massive.form .field .dropdown .menu > .item {
-  font-size: 1.73333333rem;
+  font-size: 1.71428571rem;
 }
 
 
@@ -1145,5 +1145,5 @@
 *******************************/
 
 .ui.form .field > label {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'fontspring_demo_-_marcher_aBd', sans-serif;
 }
