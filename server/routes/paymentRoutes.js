@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
-const requireLogin = require('../middlewares/requireLogin');
-const keys = require('../config/keys');
-const stripe = require('stripe')(keys.stripeSecretKey);
+const mongoose = require("mongoose");
+const requireLogin = require("../middlewares/requireLogin");
+const keys = require("../config/keys");
+const stripe = require("stripe")(keys.stripeSecretKey);
 
-const User = mongoose.model('users');
-const Payment = mongoose.model('payments');
-const { StripeChargeError } = require('../errors.js');
+const User = mongoose.model("users");
+const Payment = mongoose.model("payments");
+const { StripeChargeError } = require("../errors.js");
 
 module.exports = app => {
   /**
@@ -22,18 +22,18 @@ module.exports = app => {
    * @return Payment object
    * @throws StripeChargeError
    */
-  app.post('/api/payment', requireLogin, async (req, res, next) => {
+  app.post("/api/payment", requireLogin, async (req, res, next) => {
     try {
       const { tokenId, amount, credits, cardholderName } = req.body;
-
+      console.log(tokenId, amount, credits, cardholderName);
       // Query user record using user.req.id to determine email address, i.e., gmail or local
       const { email, fullName } = await User.findOne({ _id: req.user.id });
 
       // STRIPE CHARGES MUST BE EXPRESSED IN PENNIES!
       const pennies = parseInt(amount) * 100,
         description = `Purchase of ${credits} Quizdini credits for ${fullName}`,
-        currency = 'usd',
-        units = 'pennies';
+        currency = "usd",
+        units = "pennies";
 
       let charge;
 
@@ -51,7 +51,7 @@ module.exports = app => {
           }
         });
       } catch (e) {
-        next(new StripeChargeError(e.message, e.code));
+        throw new StripeChargeError(e.message, e.code);
       }
 
       const payment = await new Payment({
@@ -78,14 +78,14 @@ module.exports = app => {
         },
         { new: true }
       );
-      console.log('PAYMENT RECEIVED: %s %s', payment, user);
+      console.log("PAYMENT RECEIVED: %s %s", payment, user);
       res.send(payment);
     } catch (e) {
       next(e);
     }
   });
 
-  app.get('/api/payment/:id', requireLogin, async (req, res, next) => {
+  app.get("/api/payment/:id", requireLogin, async (req, res, next) => {
     try {
       const payment = await Payment.findOne({
         paymentId: req.params.id,
@@ -100,7 +100,7 @@ module.exports = app => {
     }
   });
 
-  app.get('/api/payments', requireLogin, async (req, res, next) => {
+  app.get("/api/payments", requireLogin, async (req, res, next) => {
     try {
       const payments = await Payment.find({ user_id: req.user.id }).sort({
         paymentDate: -1

@@ -56,7 +56,7 @@
   display: table;
   white-space: nowrap;
   height: auto;
-  margin: '';
+  margin: 0;
   line-height: 1;
   text-align: center;
 }
@@ -120,7 +120,7 @@
     display: table;
     white-space: nowrap;
     height: auto;
-    margin: '';
+    margin: 0;
     overflow: hidden;
     line-height: 1;
     text-align: center;

@@ -540,17 +540,15 @@ svg.icon.timer {
 .ui.cards .ui.card.match-card .ui.buttons .ui.button:not(:last-child) {
   border-right: 1px inset #000000;
 }
-#login-container .ui.message,
-#lost-container .ui.message {
-  width: 100%;
+#login-container,
+#lost-container {
+  /*.ui.message {
+    width: 100%;
+  }*/
 }
 #checkout-container {
   margin: 0 auto;
   max-width: 450px;
-}
-#checkout-container .ui.message {
-  margin-right: 1em;
-  margin-left: 1em;
 }
 
 /* Semantic form styling */
@@ -576,58 +574,28 @@ form#match-edit.ui.form #match-id {
 }
 
 /* Form Specific */
-form#checkout.ui.form .ui.input,
-form#checkout.ui.form .ui.radio.checkbox,
-form#checkout.ui.form .input-feedback,
-form#checkout.ui.form .input-feedback.error {
-  
-/* font-family: Arial, Helvetica, sans-serif; */
-}
-form#checkout.ui.form .ui.segment {
+#checkout-container.ui.grid .column > .ui.segment {
   padding-top: 0;
+  margin-top: 0;
+}
+form#checkout.ui.form .ui.input {
+  height: 43px !important;
+}
+form#checkout.ui.form .ui.basic.segment:first-of-type {
   padding-bottom: 0;
+  margin-bottom: 0;
 }
-form#checkout *::-webkit-input-placeholder {
-  
-/* font-family: Arial, Helvetica, sans-serif; */
-  font-weight: normal;
-  
-/* color: rgba(34, 36, 38, 0.3); */
+form#checkout.ui.form .ui.basic.segment {
+  padding-top: 0;
+  margin-top: 0;
 }
-form#checkout *::-moz-placeholder {
-  
-/* font-family: Arial, Helvetica, sans-serif; */
-  font-weight: normal;
-  
-/* color: rgba(34, 36, 38, 0.3); */
+form#checkout.ui.form #credit-card.ui.grid > .row {
+  padding-top: 0.5em;
+  padding-bottom: 0.7em;
 }
-form#checkout *::-ms-input-placeholder {
+form#checkout.ui.form #credit-card.ui.grid > .row .column {
   
-/* font-family: Arial, Helvetica, sans-serif; */
-  font-weight: normal;
-  
-/* color: rgba(34, 36, 38, 0.3); */
-}
-form#checkout *::placeholder {
-  
-/* font-family: Arial, Helvetica, sans-serif; */
-  font-weight: normal;
-  
-/* color: rgba(34, 36, 38, 0.3); */
-}
-form#checkout .ui.header {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
-  -webkit-box-align: center;
-          align-items: center;
-}
-form#checkout .fields:last-of-type {
-  margin-top: 2em;
-  -webkit-box-pack: center;
-          justify-content: center;
+/* column stuff goes here */
 }
 form#register > .fields:last-of-type,
 form#account > .fields:last-of-type,

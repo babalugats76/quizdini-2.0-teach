@@ -1,43 +1,44 @@
-import React from 'react';
+import React from "react";
 import {
   CardExpiryElement,
   CardCvcElement,
   CardNumberElement,
   injectStripe
-} from 'react-stripe-elements';
-import { withFormik } from 'formik';
-import * as Yup from 'yup';
-import { Divider, Form, Grid, Header, Segment } from 'semantic-ui-react';
-import Icon from '../UI/Icon';
-import RadioGroup from '../UI/RadioGroup';
-import InputText from '../UI/InputText';
-import Button from '../UI/Button';
-import Message from '../UI/Message';
+} from "react-stripe-elements";
+import { withFormik } from "formik";
+import * as Yup from "yup";
+import { Divider, Form, Grid, Header, Segment } from "semantic-ui-react";
+import Icon from "../UI/Icon";
+import RadioGroup from "../UI/RadioGroup";
+import InputText from "../UI/InputText";
+import Button from "../UI/Button";
+import Message from "../UI/Message";
 
 /*import DisplayFormikState from '../UI/FormikHelper';*/
 
-import logo from '../../logo.svg';
+import logo from "../../logo.svg";
 
 const elementOptions = disabled => {
   return {
     disabled,
     style: {
       base: {
-        color: 'rgba(34, 34, 34, 0.87)',
+        color: "rgba(34, 34, 34, 0.87)",
         fontFamily: "'Lexend Deca', sans-serif",
-        fontSmoothing: 'antialiased',
-        fontSize: '17px',
-        '::placeholder': {
+        fontSmoothing: "antialiased",
+        fontSize: "17px",
+        "::placeholder": {
           fontFamily: "'Lexend Deca', sans-serif",
-          color: 'rgba(34, 34, 34, 0.3)'
+          fontWeight: "normal",
+          color: "#e1e1e1"
         },
-        ':disabled': {
-          color: 'rgba(0,0,0,.05)'
+        ":disabled": {
+          color: "rgba(0,0,0,.05)"
         }
       },
       invalid: {
-        color: '#e0b4b4',
-        iconColor: '#e0b4b4'
+        color: "#e0b4b4",
+        iconColor: "#e0b4b4"
       }
     }
   };
@@ -59,15 +60,16 @@ const getPaymentOptions = increments => {
 };
 
 const validateCheckout = Yup.object().shape({
-  cardholderName: Yup.string().required('Cardholder Name is required.')
+  cardholderName: Yup.string().required("Cardholder Name is required."),
+  postalCode: Yup.string().required("Postal / Zip is required.")
 });
 
 const CheckoutForm = props => {
   const handleAmountChange = e => {
     const { setFieldValue } = props;
     const { value } = e.target;
-    setFieldValue('amount', value);
-    setFieldValue('credits', amountToCredits(value));
+    setFieldValue("amount", value);
+    setFieldValue("credits", amountToCredits(value));
   };
 
   const handleDismiss = (e, setStatus) => {
@@ -108,13 +110,13 @@ const CheckoutForm = props => {
               Buy More, Get More!
             </Header>
           </Divider>
-          <Form.Group grouped={true}>
+          <Form.Group id="credit-options" grouped={true}>
             <RadioGroup
               disabled={isSubmitting}
               name="amount"
               onBlur={handleBlur}
               onChange={handleAmountChange}
-              options={getPaymentOptions(['5', '10', '15', '20'])}
+              options={getPaymentOptions(["5", "10", "15", "20"])}
               value={values.amount}
             />
           </Form.Group>
@@ -126,9 +128,9 @@ const CheckoutForm = props => {
               Payment Information
             </Header>
           </Divider>
-          <Grid>
+          <Grid id="credit-card">
             <Grid.Row>
-              <Grid.Column>
+              <Grid.Column stretched>
                 <label htmlFor="cardholderName" className="required">
                   Name on Card
                 </label>
@@ -142,44 +144,58 @@ const CheckoutForm = props => {
                   required={true}
                   type="text"
                   value={values.cardholderName}
-                  width={16}
                 />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-              <Grid.Column>
+              <Grid.Column width={16}>
                 <label htmlFor="cardNumber" className="required">
                   Card Number
                 </label>
                 <CardNumberElement
                   id="cardNumber"
-                  name="cardNumber"
                   onChange={onCardChange}
                   {...elementOptions(isSubmitting)}
                 />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-              <Grid.Column width={8}>
+              <Grid.Column width={9}>
                 <label htmlFor="cardExpiry" className="required">
                   Expiration
                 </label>
                 <CardExpiryElement
                   id="cardExpiry"
-                  name="cardExpiry"
                   onChange={onCardChange}
                   {...elementOptions(isSubmitting)}
                 />
               </Grid.Column>
-              <Grid.Column width={8}>
+              <Grid.Column width={7}>
                 <label htmlFor="cardCvc" className="required">
                   CVC
                 </label>
                 <CardCvcElement
                   id="cardCvc"
-                  name="cardCvc"
                   onChange={onCardChange}
                   {...elementOptions(isSubmitting)}
+                />
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row width={16}>
+              <Grid.Column>
+                <label htmlFor="cardPostal" className="required">
+                  Postal / Zip
+                </label>
+                <InputText
+                  disabled={isSubmitting}
+                  error={touched.postalCode && errors.postalCode}
+                  name="postalCode"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  placeholder="90210"
+                  required={true}
+                  type="text"
+                  value={values.postalCode}
                 />
               </Grid.Column>
             </Grid.Row>
@@ -193,8 +209,7 @@ const CheckoutForm = props => {
                   loading={isSubmitting}
                   positive={isValid && !status && isCardComplete()}
                   size="large"
-                  type="submit"
-                >
+                  type="submit">
                   PAY
                 </Button>
               </Grid.Column>
@@ -232,9 +247,10 @@ const FormikCheckoutForm = withFormik({
   validateOnBlur: false,
   validateOnChange: true,
   mapPropsToValues: () => ({
-    cardholderName: '',
-    amount: '10',
-    credits: amountToCredits('10')
+    amount: "10",
+    cardholderName: "",
+    credits: amountToCredits("10"),
+    postalCode: ""
   }),
   mapPropsToStatus: () => {
     return null;
@@ -246,15 +262,15 @@ const FormikCheckoutForm = withFormik({
     setStatus(null); // Clear form status
 
     const res = await stripe.createToken({
-      name: values.cardholderName || ''
+      name: values.cardholderName || ""
     }); // Validate card; obtain token
 
     if (!res.token || res.error) {
       // Handle validation errors
       setStatus({
-        color: 'red',
+        color: "red",
         content: res.error.message,
-        header: 'Validation Error'
+        header: "Validation Error"
       });
       setSubmitting(false);
       return;
@@ -266,7 +282,7 @@ const FormikCheckoutForm = withFormik({
       { setSubmitting, setStatus }
     );
   },
-  displayName: 'CheckoutForm'
+  displayName: "CheckoutForm"
 })(CheckoutForm);
 
 export default injectStripe(FormikCheckoutForm);
