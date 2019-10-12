@@ -83,11 +83,13 @@ Messages need to be standardized, etc.
   - Profile
     - Style menu
       - Find icons to replace logo placeholder
+  - Checkout Form
+    - Replace `CardElement` with separate CVC, Expiration, Card Number, etc., that can be made responsive, can be styled, etc. etc. 
+  - Login
+    - Update sign in for to use `touch` for the errors
   - Match
     - Refine error-handling to match renderMessage-style functionality
     - Branch to redirect on Insufficient Credits (specifc to that type of exception...all others will use `renderMessage` functionality)
-  - Landing
-    - Move landing page under `Components`
   - Dashboard
     - Style menu
       - Find icons to replace logo placeholder
@@ -97,13 +99,16 @@ Messages need to be standardized, etc.
   - NavBar
     - Alter so that an exit icon shows on mobile device, in lieu of Logout
   - Icons
-    - Update UI\Icon with svgs for
+    - Migrate version of newly-created SVG component and adapt
   - Semantic UI
     - Continue migrating work-in-progress style to semantic
+      - Checkbox `line-height`
       - When appropriate, alter variables and provide overrides
       - For truly custom work, simply place it in `sites.overrides` in each own themed sections
-    - Fix overflow-y (scrolling issue)
-    - Work on potentially remove Grid from pages which feature the logo; optionally, fix the spacing issue, etc.
+      - Fix overflow-y (scrolling issue)
+      - Work on potentially remove Grid from pages which feature the logo; optionally, fix the spacing issue, etc.
+Kay
+  -     
 
 # User Migration
 
