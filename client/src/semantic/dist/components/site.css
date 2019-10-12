@@ -473,6 +473,9 @@ svg.icon.timer {
   padding: 1em 0.5em 0.5em;
   overflow: hidden;
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  background-size: 25px;
+  background-repeat: round;
+  background-image: url('/images/logo.svg');
 }
 .ui.cards .ui.card.match-card .content.match-card-header:hover .ui.icon.button.trash {
   display: block;

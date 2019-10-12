@@ -295,6 +295,9 @@ svg.icon {
         padding: 1em .5em .5em;
         overflow: hidden;
         border-bottom: 1px solid @subtleTransparentBlack;
+        background-size: 25px;
+        background-repeat: round;
+        background-image: url('/images/logo.svg');
         &:hover {
           .ui.icon.button.trash {
             display: block;
