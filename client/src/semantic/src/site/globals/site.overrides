@@ -416,7 +416,7 @@ form#checkout {
     .ui.radio.checkbox,
     .input-feedback,
     .input-feedback.error {
-      font-family: Arial, Helvetica, sans-serif;
+     /* font-family: Arial, Helvetica, sans-serif; */
     }
     .ui.segment {
       padding-top: 0;
@@ -425,9 +425,9 @@ form#checkout {
   }
 
   *::placeholder {
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     font-weight: normal;
-    color: rgba(34, 36, 38, 0.3);
+    /* color: rgba(34, 36, 38, 0.3); */
   }
 
   .ui.header {

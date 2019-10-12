@@ -5,14 +5,16 @@ import * as actions from '../../actions';
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm';
 
+const elementOptions = {
+  fonts: [{ cssSrc: 'https://fonts.googleapis.com/css?family=Lexend+Deca' }]
+};
+
 class Checkout extends Component {
   // Needed for async function
   handlePayment = this.handlePayment.bind(this);
   constructor(props) {
     super(props);
-    this.state = {
-      cardComplete: false
-    };
+    this.state = {}; // Values added dynamically by downstream form
   }
 
   // Reset state upon navigation
@@ -22,19 +24,24 @@ class Checkout extends Component {
     }
   }
 
-  handleCardChange(changeObject) {
+  handleCardChange = change => {
     this.setState((state, props) => {
-      if (state.cardComplete !== changeObject.complete) {
-        return {
-          cardComplete: changeObject.complete
-        };
-      }
+      return {
+        [change.elementType]: change.complete
+      };
     });
-  }
+  };
 
+  /**
+   * Determines whether all React Stripe Elements
+   * have been completed by the user
+   *
+   * @returns {boolean} - Whether card input is complete
+   */
   isCardComplete = () => {
-    const { cardComplete } = this.state;
-    return cardComplete;
+    const { cardNumber = false, cardExpiry = false, cardCvc = false } =
+      this.state || {};
+    return cardNumber && cardExpiry && cardCvc;
   };
 
   /**
@@ -56,11 +63,6 @@ class Checkout extends Component {
     const { payment, error } = this.props; // Get latest version of payment props (mapped from state)
     if (error) {
       // If error in processing
-      this.setState((state, props) => {
-        return {
-          cardComplete: false
-        };
-      });
       await setStatus({
         header: 'Transaction Failed',
         content: error.message || '',
@@ -82,11 +84,11 @@ class Checkout extends Component {
 
   renderForm = () => (
     <StripeProvider apiKey={process.env.REACT_APP_STRIPE_KEY}>
-      <Elements>
+      <Elements {...elementOptions}>
         <CheckoutForm
+          onCardChange={this.handleCardChange}
           isCardComplete={this.isCardComplete}
           onPayment={(values, actions) => this.handlePayment(values, actions)}
-          onCardChange={changeObject => this.handleCardChange(changeObject)}
         />
       </Elements>
     </StripeProvider>

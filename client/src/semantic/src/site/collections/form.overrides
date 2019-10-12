@@ -1,6 +1,25 @@
 /*******************************
          Site Overrides
 *******************************/
-.ui.form .field > label {
+
+/* Use headerForm for form and grid forms */
+.ui.form .field > label, .ui.grid .row .column > label {
    font-family: @headerFont;
+}
+
+/* Style .ui.grid "required" labels like .ui.form */
+.ui.grid label.required:after {
+  margin: @requiredMargin;
+  content: @requiredContent;
+  color: @requiredColor;
+}
+
+/* Style .ui.grid labels like .ui.form */
+.ui.grid .row .column > label {
+  display: block;
+  margin: @groupedLabelMargin;
+  color: @groupedLabelColor;
+  font-size: @groupedLabelFontSize;
+  font-weight: @groupedLabelFontWeight;
+  text-transform: @groupedLabelTextTransform;
 }

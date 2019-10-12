@@ -1102,7 +1102,7 @@ form#checkout.ui.form .ui.input,
 form#checkout.ui.form .ui.radio.checkbox,
 form#checkout.ui.form .input-feedback,
 form#checkout.ui.form .input-feedback.error {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 form#checkout.ui.form .ui.segment {
@@ -1111,27 +1111,27 @@ form#checkout.ui.form .ui.segment {
 }
 
 form#checkout *::-webkit-input-placeholder {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   font-weight: normal;
-  color: rgba(34, 36, 38, 0.3);
+  /* color: rgba(34, 36, 38, 0.3); */
 }
 
 form#checkout *::-moz-placeholder {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   font-weight: normal;
-  color: rgba(34, 36, 38, 0.3);
+  /* color: rgba(34, 36, 38, 0.3); */
 }
 
 form#checkout *::-ms-input-placeholder {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   font-weight: normal;
-  color: rgba(34, 36, 38, 0.3);
+  /* color: rgba(34, 36, 38, 0.3); */
 }
 
 form#checkout *::placeholder {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   font-weight: normal;
-  color: rgba(34, 36, 38, 0.3);
+  /* color: rgba(34, 36, 38, 0.3); */
 }
 
 form#checkout .ui.header {
@@ -23685,8 +23685,30 @@ ol.ui.suffixed.list li:before,
          Site Overrides
 *******************************/
 
-.ui.form .field > label {
+/* Use headerForm for form and grid forms */
+
+.ui.form .field > label,
+.ui.grid .row .column > label {
   font-family: 'marcher-medium', sans-serif;
+}
+
+/* Style .ui.grid "required" labels like .ui.form */
+
+.ui.grid label.required:after {
+  margin: -0.2em 0 0 0.2em;
+  content: '*';
+  color: #DB2828;
+}
+
+/* Style .ui.grid labels like .ui.form */
+
+.ui.grid .row .column > label {
+  display: block;
+  margin: 0 0 0.26666667rem 0;
+  color: #222222;
+  font-size: 0.93333333em;
+  font-weight: 400;
+  text-transform: none;
 }
 /*!
  * # Fomantic-UI - Grid

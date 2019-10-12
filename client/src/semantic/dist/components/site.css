@@ -580,31 +580,40 @@ form#checkout.ui.form .ui.input,
 form#checkout.ui.form .ui.radio.checkbox,
 form#checkout.ui.form .input-feedback,
 form#checkout.ui.form .input-feedback.error {
-  font-family: Arial, Helvetica, sans-serif;
+  
+/* font-family: Arial, Helvetica, sans-serif; */
 }
 form#checkout.ui.form .ui.segment {
   padding-top: 0;
   padding-bottom: 0;
 }
 form#checkout *::-webkit-input-placeholder {
-  font-family: Arial, Helvetica, sans-serif;
+  
+/* font-family: Arial, Helvetica, sans-serif; */
   font-weight: normal;
-  color: rgba(34, 36, 38, 0.3);
+  
+/* color: rgba(34, 36, 38, 0.3); */
 }
 form#checkout *::-moz-placeholder {
-  font-family: Arial, Helvetica, sans-serif;
+  
+/* font-family: Arial, Helvetica, sans-serif; */
   font-weight: normal;
-  color: rgba(34, 36, 38, 0.3);
+  
+/* color: rgba(34, 36, 38, 0.3); */
 }
 form#checkout *::-ms-input-placeholder {
-  font-family: Arial, Helvetica, sans-serif;
+  
+/* font-family: Arial, Helvetica, sans-serif; */
   font-weight: normal;
-  color: rgba(34, 36, 38, 0.3);
+  
+/* color: rgba(34, 36, 38, 0.3); */
 }
 form#checkout *::placeholder {
-  font-family: Arial, Helvetica, sans-serif;
+  
+/* font-family: Arial, Helvetica, sans-serif; */
   font-weight: normal;
-  color: rgba(34, 36, 38, 0.3);
+  
+/* color: rgba(34, 36, 38, 0.3); */
 }
 form#checkout .ui.header {
   display: -webkit-box;

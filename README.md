@@ -84,7 +84,7 @@ Messages need to be standardized, etc.
     - Style menu
       - Find icons to replace logo placeholder
   - Checkout Form
-    - Replace `CardElement` with separate CVC, Expiration, Card Number, etc., that can be made responsive, can be styled, etc. etc. 
+    - Enhance to use onReady to grab element references; pass down as prop function to clear things from Formik
   - Login
     - Update sign in for to use `touch` for the errors
   - Match

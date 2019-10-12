@@ -1,5 +1,10 @@
 import React from 'react';
-import { CardElement, injectStripe } from 'react-stripe-elements';
+import {
+  CardExpiryElement,
+  CardCvcElement,
+  CardNumberElement,
+  injectStripe
+} from 'react-stripe-elements';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
 import { Divider, Form, Grid, Header, Segment } from 'semantic-ui-react';
@@ -13,18 +18,18 @@ import Message from '../UI/Message';
 
 import logo from '../../logo.svg';
 
-const cardCreateOptions = disabled => {
+const elementOptions = disabled => {
   return {
     disabled,
     style: {
       base: {
-        color: 'rgba(0, 0, 0, 0.87)',
-        fontFamily: 'Arial, Helvetica, sans-serif',
+        color: 'rgba(34, 34, 34, 0.87)',
+        fontFamily: "'Lexend Deca', sans-serif",
         fontSmoothing: 'antialiased',
-        fontSize: '16px',
+        fontSize: '17px',
         '::placeholder': {
-          fontFamily: 'Arial, Helvetica, sans-serif',
-          color: 'rgba(34, 36, 38, 0.3)'
+          fontFamily: "'Lexend Deca', sans-serif",
+          color: 'rgba(34, 34, 34, 0.3)'
         },
         ':disabled': {
           color: 'rgba(0,0,0,.05)'
@@ -121,39 +126,81 @@ const CheckoutForm = props => {
               Payment Information
             </Header>
           </Divider>
-          <Form.Group>
-            <InputText
-              disabled={isSubmitting}
-              error={touched.cardholderName && errors.cardholderName}
-              name="cardholderName"
-              onBlur={handleBlur}
-              onChange={handleChange}
-              placeholder="Cardholder name"
-              required={true}
-              type="text"
-              value={values.cardholderName}
-              width={16}
-            />
-          </Form.Group>
-          <CardElement
-            onChange={changeObject => onCardChange(changeObject)}
-            {...cardCreateOptions(isSubmitting)}
-          />
+          <Grid>
+            <Grid.Row>
+              <Grid.Column>
+                <label htmlFor="cardholderName" className="required">
+                  Name on Card
+                </label>
+                <InputText
+                  disabled={isSubmitting}
+                  error={touched.cardholderName && errors.cardholderName}
+                  name="cardholderName"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  placeholder="Bob Lee Swagger"
+                  required={true}
+                  type="text"
+                  value={values.cardholderName}
+                  width={16}
+                />
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column>
+                <label htmlFor="cardNumber" className="required">
+                  Card Number
+                </label>
+                <CardNumberElement
+                  id="cardNumber"
+                  name="cardNumber"
+                  onChange={onCardChange}
+                  {...elementOptions(isSubmitting)}
+                />
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column width={8}>
+                <label htmlFor="cardExpiry" className="required">
+                  Expiration
+                </label>
+                <CardExpiryElement
+                  id="cardExpiry"
+                  name="cardExpiry"
+                  onChange={onCardChange}
+                  {...elementOptions(isSubmitting)}
+                />
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <label htmlFor="cardCvc" className="required">
+                  CVC
+                </label>
+                <CardCvcElement
+                  id="cardCvc"
+                  name="cardCvc"
+                  onChange={onCardChange}
+                  {...elementOptions(isSubmitting)}
+                />
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column textAlign="center" width={16}>
+                <Button
+                  active
+                  disabled={isSubmitting}
+                  icon="dollar-sign"
+                  labelPosition="left"
+                  loading={isSubmitting}
+                  positive={isValid && !status && isCardComplete()}
+                  size="large"
+                  type="submit"
+                >
+                  PAY
+                </Button>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
         </Segment>
-        <Form.Group>
-          <Button
-            active
-            disabled={isSubmitting}
-            icon="dollar-sign"
-            labelPosition="left"
-            loading={isSubmitting}
-            positive={isValid && !status && isCardComplete()}
-            size="large"
-            type="submit"
-          >
-            PAY
-          </Button>
-        </Form.Group>
       </Form>
     );
   };
@@ -181,9 +228,9 @@ const CheckoutForm = props => {
 };
 
 const FormikCheckoutForm = withFormik({
-  enableReinitialize: true,
-  validateOnChange: false,
-  validateOnBlur: true,
+  enableReinitialize: false,
+  validateOnBlur: false,
+  validateOnChange: true,
   mapPropsToValues: () => ({
     cardholderName: '',
     amount: '10',
