@@ -7,6 +7,7 @@ import Message from '../UI/Message';
 import RouterButton from '../UI/RouterButton';
 import MatchList from './MatchList';
 import logo from '../../logo.svg';
+import SVG from '../UI/SVG';
 
 const Match = ({ credits, matchList, onMatchDelete }) => (
   <div id="match-game">
@@ -32,7 +33,7 @@ const games = [
     name: 'MATCH',
     title: 'Match',
     credits: 1,
-    icon: logo,
+    icon: 'question',
     render: props => <Match {...props} />
   }
 ];
@@ -141,7 +142,9 @@ class Dashboard extends Component {
                 active={activeGameIdx === idx}
                 onClick={(e, index) => this.handleMenuChange(e, idx)}
               >
-                <Image avatar src={icon} />
+                <Image avatar>
+                  <SVG name={icon} />
+                </Image>
                 <List.Content>
                   <List.Header>{title}</List.Header>
                   {credits} credit{credits === 1 ? '' : 's'}

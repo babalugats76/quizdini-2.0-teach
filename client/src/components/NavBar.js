@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Container, Sidebar, Image, Icon, Menu } from 'semantic-ui-react';
+import { Container, Sidebar, Image, Menu } from 'semantic-ui-react';
+import SVG from './UI/SVG';
 
 import logo from '../logo.svg';
 
@@ -88,6 +89,15 @@ class NavBar extends Component {
         as: 'a',
         href: '/api/logout',
         content: 'Logout',
+        position: 'right',
+        loggedIn: true,
+        sidebar: true
+      },
+      {
+        key: 'logout-mobile',
+        as: 'a',
+        href: '/api/logout',
+        content: isMobile && <SVG width='24px' height='24px' name='logout' fill='#fff' />,
         position: 'right',
         loggedIn: true,
         sidebar: false
@@ -185,7 +195,7 @@ class NavBar extends Component {
                 position="left"
                 onClick={this.handleToggle}
               >
-                <Icon name="sidebar" />
+                <SVG width='24px' height='24px' name="menu" fill="#fff" />
               </Menu.Item>
             )}
             <Container>{topbarItems}</Container>

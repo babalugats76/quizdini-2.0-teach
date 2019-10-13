@@ -266,7 +266,8 @@ const FormikCheckoutForm = withFormik({
     setStatus(null); // Clear form status
 
     const res = await stripe.createToken({
-      name: values.cardholderName || ""
+      name: values.cardholderName || "",
+      address_zip: values.postalCode || ""
     }); // Validate card; obtain token
 
     if (!res.token || res.error) {
@@ -283,6 +284,8 @@ const FormikCheckoutForm = withFormik({
       setSubmitting(false);
       return;
     }
+
+    console.log(res.token);
 
     // Call prop function to create charge passing values and actions
     await onPayment(

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, Link, matchPath } from 'react-router-dom';
 import { Segment, Menu, Grid } from 'semantic-ui-react';
-import Mission from './Mission';
+import Values from './Values';
 import Team from './Team';
 import FAQ from './FAQ';
 
@@ -24,9 +24,9 @@ const routes = [
   },
   {
     path: '',
-    text: 'Our Mission',
+    text: 'Our Values',
     exact: false,
-    component: Mission,
+    component: Values,
     displayOrder: 1
   }
 ];

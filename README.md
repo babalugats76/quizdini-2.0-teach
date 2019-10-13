@@ -50,6 +50,8 @@ Messages need to be standardized, etc.
 
 # Todo List
 
+- New Relic
+  - Local configuration - CRA
 - MongoDB
   - Add indexes to production using Atlas
 - Heroku
@@ -68,6 +70,8 @@ Messages need to be standardized, etc.
     - Update logo to be 300px-wide friend logo with text
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Client
+  - Landing Page
+    - Add selling point section, etc.
   - Loading and Error
     - Mock up component for each; animation?
     - Design pattern for determining
@@ -82,25 +86,27 @@ Messages need to be standardized, etc.
     - Cookies
   - Profile
     - Style menu
-      - Find icons to replace logo placeholder
+      - *Find icons to replace logo placeholder*
+      - Simply add to new SVG component
   - Login
     - Update sign in for to use `touch` for the errors
   - Match
     - Refine error-handling to match renderMessage-style functionality
     - Branch to redirect on Insufficient Credits (specifc to that type of exception...all others will use `renderMessage` functionality)
   - Dashboard
-    - Style menu
-      - Find icons to replace logo placeholder
     - Create functional component, e.g., `MatchIntro`
     - Update MatchList to use and show MatchIntro as appropriate
     - Consider adding `isEmptyArray` utility function for use in `MatchList`, etc.
-  - NavBar
-    - Alter so that an exit icon shows on mobile device, in lieu of Logout
   - Icons
     - Migrate version of newly-created SVG component and adapt
+      - Profile
+      - NavBar
+      - UI Components
   - Semantic UI - Continue migrating work-in-progress style to semantic - Checkbox `line-height` - When appropriate, alter variables and provide overrides - For truly custom work, simply place it in `sites.overrides` in each own themed sections - Fix overflow-y (scrolling issue) - Work on potentially remove Grid from pages which feature the logo; optionally, fix the spacing issue, etc.
-    Kay
-  -
+
+Kay
+  - Custom match icon
+  - Design for match-card-header
 
 # User Migration
 

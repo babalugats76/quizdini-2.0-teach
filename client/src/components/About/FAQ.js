@@ -1,6 +1,6 @@
-import React from "react";
-import { Header, Step } from "semantic-ui-react";
-import Icon from "../UI/Icon";
+import React from 'react';
+import { Header, Step } from 'semantic-ui-react';
+import Icon from '../UI/Icon';
 
 export default () => (
   <React.Fragment>
@@ -12,6 +12,23 @@ export default () => (
       educational game market. Quizdini allows teachers to quickly and easily
       create and customize engaging activities for their students!
     </p>
+    <details>
+      <summary
+        style={{
+          fontSize: '1.71428571rem',
+          fontFamily: 'marcher-semibold',
+          marginBottom: '.5em'
+        }}
+      >
+        Who should use it?
+      </summary>
+      <p style={{ fontSize: '1.1em' }}>
+        As an evolving tool, Quizdini allows YOU to create the material your
+        students will use. Will we write your questions for you? No. Will we
+        support you as you build a collection of activities that help your
+        students learn, practice, and review? Heck, yes!
+      </p>
+    </details>
     <Header as="h2">Who should use it?</Header>
     <p>
       As an evolving tool, Quizdini allows YOU to create the material your
@@ -35,52 +52,57 @@ export default () => (
       learning tool in the hands of your students before you realize it!
     </p>
     <Step.Group vertical attached="bottom" size="small">
-    <Step>
-      <Icon icon='plus' />
-      <Step.Content>
-        <Step.Title>Create account</Step.Title>
-        <Step.Description>Check your email to verify!</Step.Description>
-      </Step.Content>
-    </Step>
-    <Step>
-      <Icon icon='dollar-sign' />
-      <Step.Content>
-        <Step.Title>Purchase Credits</Step.Title>
-        <Step.Description>Pay-as-you-go for what
-        you need</Step.Description>
-      </Step.Content>
-    </Step>
-    <Step>
-      <Icon icon='edit' />
-      <Step.Content>
-        <Step.Title>Design Your Game</Step.Title>
-        <Step.Description>Enter terms and definitions, or
-        upload a csv</Step.Description>
-      </Step.Content>
-    </Step>
-    <Step>
-      <Icon icon='link' />
-      <Step.Content>
-        <Step.Title>Copy URL</Step.Title>
-        <Step.Description>Watch your students drag and learn
-        you need</Step.Description>
-      </Step.Content>
-    </Step>
+      <Step>
+        <Icon icon="plus" />
+        <Step.Content>
+          <Step.Title>Create account</Step.Title>
+          <Step.Description>Check your email to verify!</Step.Description>
+        </Step.Content>
+      </Step>
+      <Step>
+        <Icon icon="dollar-sign" />
+        <Step.Content>
+          <Step.Title>Purchase Credits</Step.Title>
+          <Step.Description>Pay-as-you-go for what you need</Step.Description>
+        </Step.Content>
+      </Step>
+      <Step>
+        <Icon icon="edit" />
+        <Step.Content>
+          <Step.Title>Design Your Game</Step.Title>
+          <Step.Description>
+            Enter terms and definitions, or upload a csv
+          </Step.Description>
+        </Step.Content>
+      </Step>
+      <Step>
+        <Icon icon="link" />
+        <Step.Content>
+          <Step.Title>Copy URL</Step.Title>
+          <Step.Description>
+            Watch your students drag and learn you need
+          </Step.Description>
+        </Step.Content>
+      </Step>
     </Step.Group>
     <ul>
       <li>
-      <Icon icon="plus"/><strong>Create</strong> account: Check your email to verify!
+        <Icon icon="plus" />
+        <strong>Create</strong> account: Check your email to verify!
       </li>
       <li>
-      <Icon icon="dollar-sign"/><strong>Purchase</strong> credits: Pay-as-you-go lets you buy only what
+        <Icon icon="dollar-sign" />
+        <strong>Purchase</strong> credits: Pay-as-you-go lets you buy only what
         you need
       </li>
       <li>
-      <Icon icon="edit"/><strong>Design</strong> your game: Enter your terms and definitions, or
+        <Icon icon="edit" />
+        <strong>Design</strong> your game: Enter your terms and definitions, or
         upload a csv
       </li>
       <li>
-      <Icon icon="link"/><strong>Copy</strong> the URL and watch your students drag and learn!
+        <Icon icon="link" />
+        <strong>Copy</strong> the URL and watch your students drag and learn!
       </li>
     </ul>
     <Header as="h2">

@@ -297,7 +297,7 @@ svg.icon {
         border-bottom: 1px solid @subtleTransparentBlack;
         background-size: 25px;
         background-repeat: round;
-        background-image: url('/images/logo.svg');
+        background-image: url('/images/question.svg');
         &:hover {
           .ui.icon.button.trash {
             display: block;
