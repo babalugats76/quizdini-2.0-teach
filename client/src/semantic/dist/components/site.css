@@ -556,7 +556,7 @@ svg.icon.timer {
 
 /* Semantic form styling */
 form#match-edit.ui.form .ui.accordion:first-of-type {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 form#match-edit.ui.form .inline.fields {
   -webkit-box-pack: justify;
@@ -578,7 +578,7 @@ form#match-edit.ui.form #match-id {
 
 /* Form Specific */
 #checkout-container.ui.grid .column > .ui.segment {
-  padding-top: 0;
+  padding-top: 1em;
   margin-top: 0;
 }
 form#checkout.ui.form .ui.input {

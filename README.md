@@ -83,8 +83,6 @@ Messages need to be standardized, etc.
   - Profile
     - Style menu
       - Find icons to replace logo placeholder
-  - Checkout Form
-    - Enhance to use onReady to grab element references; pass down as prop function to clear things from Formik
   - Login
     - Update sign in for to use `touch` for the errors
   - Match
@@ -100,15 +98,9 @@ Messages need to be standardized, etc.
     - Alter so that an exit icon shows on mobile device, in lieu of Logout
   - Icons
     - Migrate version of newly-created SVG component and adapt
-  - Semantic UI
-    - Continue migrating work-in-progress style to semantic
-      - Checkbox `line-height`
-      - When appropriate, alter variables and provide overrides
-      - For truly custom work, simply place it in `sites.overrides` in each own themed sections
-      - Fix overflow-y (scrolling issue)
-      - Work on potentially remove Grid from pages which feature the logo; optionally, fix the spacing issue, etc.
-Kay
-  -     
+  - Semantic UI - Continue migrating work-in-progress style to semantic - Checkbox `line-height` - When appropriate, alter variables and provide overrides - For truly custom work, simply place it in `sites.overrides` in each own themed sections - Fix overflow-y (scrolling issue) - Work on potentially remove Grid from pages which feature the logo; optionally, fix the spacing issue, etc.
+    Kay
+  -
 
 # User Migration
 

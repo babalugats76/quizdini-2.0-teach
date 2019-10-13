@@ -14,7 +14,11 @@ class Checkout extends Component {
   handlePayment = this.handlePayment.bind(this);
   constructor(props) {
     super(props);
-    this.state = {}; // Values added dynamically by downstream form
+    this.state = {
+      cardNumber: {},
+      cardExpiry: {},
+      cardCvc: {}
+    };
   }
 
   // Reset state upon navigation
@@ -24,10 +28,24 @@ class Checkout extends Component {
     }
   }
 
-  handleCardChange = change => {
+  handleStripeChange = change => {
     this.setState((state, props) => {
       return {
-        [change.elementType]: change.complete
+        [change.elementType]: {
+          ...state[change.elementType],
+          complete: change.complete
+        }
+      };
+    });
+  };
+
+  handleStripeReady = StripeElement => {
+    this.setState((state, props) => {
+      return {
+        [StripeElement._componentName]: {
+          ...state[StripeElement._componentName],
+          ref: StripeElement
+        }
       };
     });
   };
@@ -39,9 +57,24 @@ class Checkout extends Component {
    * @returns {boolean} - Whether card input is complete
    */
   isCardComplete = () => {
-    const { cardNumber = false, cardExpiry = false, cardCvc = false } =
-      this.state || {};
-    return cardNumber && cardExpiry && cardCvc;
+    const {
+      cardNumber: { complete: cardComplete = false },
+      cardExpiry: { complete: expiryComplete = false },
+      cardCvc: { complete: cvcComplete = false }
+    } = this.state;
+    return cardComplete && expiryComplete && cvcComplete;
+  };
+
+  clearStripeFields = () => {
+    const {
+      cardNumber: { ref: cardRef = undefined },
+      cardExpiry: { ref: expiryRef = undefined },
+      cardCvc: { ref: cvcRef = undefined }
+    } = this.state;
+
+    cardRef && cardRef.clear();
+    expiryRef && expiryRef.clear();
+    cvcRef && cvcRef.clear();
   };
 
   /**
@@ -58,11 +91,15 @@ class Checkout extends Component {
   async handlePayment(values, actions) {
     const { processCard } = this.props; // Get Redux action
     const { tokenId, amount, credits, cardholderName } = values; // Get form values (for charge)
-    const { setStatus, setSubmitting } = actions; // Get Formik helper functions, etc.
+    const { setStatus, setSubmitting, clearStripeFields } = actions; // Get Formik helper functions, etc.
     await processCard({ tokenId, amount, credits, cardholderName }); // Call Redux action passing charge values
     const { payment, error } = this.props; // Get latest version of payment props (mapped from state)
     if (error) {
       // If error in processing
+
+      // Clear form (hide sensitive info)
+      clearStripeFields();
+
       await setStatus({
         header: 'Transaction Failed',
         content: error.message || '',
@@ -86,8 +123,10 @@ class Checkout extends Component {
     <StripeProvider apiKey={process.env.REACT_APP_STRIPE_KEY}>
       <Elements {...elementOptions}>
         <CheckoutForm
-          onCardChange={this.handleCardChange}
+          onStripeChange={this.handleStripeChange}
+          onStripeReady={this.handleStripeReady}
           isCardComplete={this.isCardComplete}
+          clearStripeFields={this.clearStripeFields}
           onPayment={(values, actions) => this.handlePayment(values, actions)}
         />
       </Elements>

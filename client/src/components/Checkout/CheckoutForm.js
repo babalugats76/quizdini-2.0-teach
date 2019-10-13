@@ -97,7 +97,8 @@ const CheckoutForm = props => {
     isCardComplete,
     isSubmitting,
     isValid,
-    onCardChange,
+    onStripeChange,
+    onStripeReady,
     touched,
     values
   }) => {
@@ -154,7 +155,8 @@ const CheckoutForm = props => {
                 </label>
                 <CardNumberElement
                   id="cardNumber"
-                  onChange={onCardChange}
+                  onChange={onStripeChange}
+                  onReady={onStripeReady}
                   {...elementOptions(isSubmitting)}
                 />
               </Grid.Column>
@@ -166,7 +168,8 @@ const CheckoutForm = props => {
                 </label>
                 <CardExpiryElement
                   id="cardExpiry"
-                  onChange={onCardChange}
+                  onChange={onStripeChange}
+                  onReady={onStripeReady}
                   {...elementOptions(isSubmitting)}
                 />
               </Grid.Column>
@@ -176,7 +179,8 @@ const CheckoutForm = props => {
                 </label>
                 <CardCvcElement
                   id="cardCvc"
-                  onChange={onCardChange}
+                  onChange={onStripeChange}
+                  onReady={onStripeReady}
                   {...elementOptions(isSubmitting)}
                 />
               </Grid.Column>
@@ -257,7 +261,7 @@ const FormikCheckoutForm = withFormik({
   },
   validationSchema: validateCheckout,
   handleSubmit: async (values, { setSubmitting, setStatus, props }) => {
-    const { stripe, onPayment } = props; // Obtain reference to stripe object
+    const { stripe, onPayment, clearStripeFields } = props; // Obtain reference to stripe object
     const { credits, amount, cardholderName } = values;
     setStatus(null); // Clear form status
 
@@ -266,6 +270,10 @@ const FormikCheckoutForm = withFormik({
     }); // Validate card; obtain token
 
     if (!res.token || res.error) {
+
+      // Clear form (hide sensitive info)
+      clearStripeFields();
+
       // Handle validation errors
       setStatus({
         color: "red",
@@ -279,7 +287,7 @@ const FormikCheckoutForm = withFormik({
     // Call prop function to create charge passing values and actions
     await onPayment(
       { tokenId: res.token.id, amount, credits, cardholderName },
-      { setSubmitting, setStatus }
+      { setSubmitting, setStatus, clearStripeFields }
     );
   },
   displayName: "CheckoutForm"

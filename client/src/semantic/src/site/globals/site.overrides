@@ -383,7 +383,7 @@ svg.icon {
 
 form#match-edit.ui.form {
   .ui.accordion:first-of-type {
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
   }
 
   .inline.fields {
@@ -413,7 +413,7 @@ form#match-edit.ui.form {
   &.ui.grid {
     .column {
       > .ui.segment {
-        padding-top: 0;
+        padding-top: 1em;
         margin-top: 0;
       }
     }
