@@ -5,7 +5,7 @@ import { Segment, Header, Image, Divider } from "semantic-ui-react";
 //redo with different layout - wireframe//
 
 export default () => (
-  <div basic class="the-team">
+  <div class="the-team">
     <Segment basic className="team-member">
       <Segment basic className="team-member-summary" textAlign="right">
         <Header as="h1" class="name">

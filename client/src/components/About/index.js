@@ -4,6 +4,8 @@ import { Segment, Menu, Grid } from 'semantic-ui-react';
 import Values from './Values';
 import Team from './Team';
 import FAQ from './FAQ';
+import Attribution from './Attribution';
+import Dedication from './Dedication';
 
 //const Dummy = () => <h1>Dummy!</h1>;
 
@@ -21,6 +23,20 @@ const routes = [
     exact: false,
     component: FAQ,
     displayOrder: 2
+  },
+  {
+    path: 'attribution',
+    text: 'Attribution',
+    exact: false,
+    component: Attribution,
+    displayOrder: 3
+  },
+  {
+    path: 'dedication',
+    text: 'Dedication',
+    exact: false,
+    component: Dedication,
+    displayOrder: 4
   },
   {
     path: '',

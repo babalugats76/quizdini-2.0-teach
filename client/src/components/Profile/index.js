@@ -5,7 +5,8 @@ import { Image, List, Segment } from 'semantic-ui-react';
 import Account from './Account';
 import Payment from './Payment';
 import Password from './Password';
-import logo from '../../logo.svg';
+import SVG from '../UI/SVG';
+//import logo from '../../logo.svg';
 
 /**
  * Ordering of routes is important!
@@ -20,7 +21,8 @@ const routes = [
     exact: false,
     component: Payment,
     displayOrder: 1,
-    localOnly: false
+    localOnly: false,
+    icon: 'credit-card'
   },
   {
     path: 'password',
@@ -28,7 +30,8 @@ const routes = [
     exact: false,
     component: Password,
     displayOrder: 2,
-    localOnly: true
+    localOnly: true,
+    icon: 'key'
   },
   {
     path: '',
@@ -36,7 +39,8 @@ const routes = [
     exact: false,
     component: Account,
     displayOrder: 0,
-    localOnly: false
+    localOnly: false,
+    icon: 'avatar'
   }
 ];
 
@@ -65,7 +69,7 @@ const Profile = ({ match, history, accountType }) => {
             return !(route.localOnly && accountType === 'google');
           })
           .sort((a, b) => a.displayOrder - b.displayOrder)
-          .map(({ text, path }, idx) => {
+          .map(({ text, path, icon }, idx) => {
             return (
               <List.Item
                 key={idx}
@@ -73,7 +77,9 @@ const Profile = ({ match, history, accountType }) => {
                 to={`${basePath}/${path}`}
                 active={path === activePath}
               >
-                <Image avatar src={logo} />
+                <Image avatar>
+                  <SVG name={icon} />
+                </Image>
                 <List.Content>
                   <List.Header>{text}</List.Header>
                 </List.Content>

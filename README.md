@@ -57,7 +57,7 @@ Messages need to be standardized, etc.
 - Heroku
   - Investigate SSL steps
 - Google OAuth
-  - Domain verification (contingent on DNS/using .quizdini.com TLD)
+  - *Domain verification (contingent on DNS/using .quizdini.com TLD)*
 - Documentation
 - Server
   - Document and QA all routes callbacks
@@ -76,18 +76,14 @@ Messages need to be standardized, etc.
     - Mock up component for each; animation?
     - Design pattern for determining
       - Revisit all "loading" components and refine
-  - About
-    - Team
-    - FAQ
-    - Mission
+  - About - Team - FAQ - Our Values - Attribution - []() - Dedication - [Sleepwalk | George Ogg | West Central Quartet | Club Soda on Vimeo](https://vimeo.com/18706747) - ```
+    <iframe src="https://player.vimeo.com/video/365146054" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <p><a href="https://vimeo.com/365146054">&ldquo;D&eacute;guste&rdquo;</a> from <a href="https://vimeo.com/insolenceproductions">Insolence Productions</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+            ```
   - Terms
     - Terms
     - Privacy
     - Cookies
-  - Profile
-    - Style menu
-      - *Find icons to replace logo placeholder*
-      - Simply add to new SVG component
   - Login
     - Update sign in for to use `touch` for the errors
   - Match
@@ -105,8 +101,9 @@ Messages need to be standardized, etc.
   - Semantic UI - Continue migrating work-in-progress style to semantic - Checkbox `line-height` - When appropriate, alter variables and provide overrides - For truly custom work, simply place it in `sites.overrides` in each own themed sections - Fix overflow-y (scrolling issue) - Work on potentially remove Grid from pages which feature the logo; optionally, fix the spacing issue, etc.
 
 Kay
-  - Custom match icon
-  - Design for match-card-header
+
+- Custom match icon
+- Design for match-card-header
 
 # User Migration
 
