@@ -6,7 +6,6 @@
   Self-Hosted Fonts
 --------------------*/
 
-/* lexend-deca-regular - latin */
 @font-face {
   font-family: 'Lexend Deca';
   font-style: normal;
@@ -16,7 +15,6 @@
        url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* fira-code-regular - latin */
 @font-face {
   font-family: 'Fira Code';
   font-style: normal;
@@ -86,6 +84,9 @@ a#google-login {
   color: transparent;
   border: 0;
   outline: none;
+  /** TODO - move to cloud and host on S3/Cloud Front
+      Use regular, low-fidelity images?
+  **/
   background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png')
     no-repeat;
   background-size: 191px 46px;
@@ -186,6 +187,86 @@ svg.icon.chevron-down.closed {
   border-color: #e0b4b4;
 }
 
+/*-------------------
+  Icon Menu List
+--------------------*/
+
+.icon-menu-list {
+  &.ui.selection.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+
+    > .item {
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: none;
+      padding: 0.5em 1em;
+      margin: 0 1em 0.5em 0;
+      border-radius: 0.3em;
+      > .ui.avatar.image svg path {
+        fill: @veryStrongTransparentBlack;
+      }
+      > .content {
+        color: @veryStrongTransparentBlack;
+        > .header {
+          color: @veryStrongTransparentBlack;
+        }
+      }
+    }
+
+    > .item:hover {
+      background: @subtleTransparentBlack;
+    }
+
+    > .item.active {
+      background: @white;
+      border: 1px solid @veryStrongTransparentBlack;
+      > .ui.avatar.image svg path {
+        fill: @black;
+      }
+      > .content {
+        color: @black;
+        > .header {
+          color: @black;
+        }
+      }
+    }
+  }
+
+  &.ui.horizontal.list:not(.celled) {
+    > .item:last-child {
+      padding-right: 1em;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  &.ui.horizontal.list {
+    > .item:first-child,
+    > .item:last-child {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+  }
+}
+
+/*-------------------
+  Media Queries
+--------------------*/
+
+@media only screen and (max-width: 767.99px) {
+
+  .icon-menu-list {
+    &.ui.horizontal.list {
+      justify-content: space-evenly;
+      > .item {
+        margin: 0.5em 0;
+      }
+    }
+  }
+
+}
 
 /*-------------------
   Disposition
@@ -498,66 +579,6 @@ form#login {
   margin-bottom: 2em;
 }
 
-/* Lists */
-.icon-menu-list {
-  &.ui.selection.list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-
-    > .item {
-      display: inline-flex;
-      flex-direction: row;
-      align-items: center;
-      background-color: none;
-      padding: 0.5em 1em;
-      margin: 0 1em 0.5em 0;
-      border-radius: 0.3em;
-      > .content {
-        color: rgba(34, 36, 38, 0.15);
-        > .header {
-          color: rgba(34, 36, 38, 0.15);
-        }
-      }
-    }
-
-    > .item:hover {
-      background: rgba(0, 0, 0, 0.01);
-    }
-
-    > .item.active {
-      background: rgba(255, 255, 255, 1);
-      border: 1px solid rgba(34, 36, 38, 0.15);
-      > .content {
-        color: rgba(0, 0, 0, 1);
-        > .header {
-          color: rgba(0, 0, 0, 0.8);
-        }
-      }
-    }
-  }
-
-  &.ui.horizontal.list:not(.celled) {
-    > .item:last-child {
-      padding-right: 1em; /*  Need to unset .ui.horizontal.list:not(.celled)>.item:last-child { padding-right: 0 } in semantic ui */
-      margin-bottom: 0.5em; /* Need to unset .ui.selection.list .list>.item:last-child, .ui.selection.list>.item:last-child { margin-bottom: 0; } in semantic ui */
-    }
-  }
-
-  &.ui.horizontal.list {
-    > .item:first-child,
-    > .item:last-child {
-      padding-top: 0.5em; /* Need to reset semantic ui to prevent overriding of this */
-      padding-bottom: 0.5em;
-    }
-  }
-  &.ui.horizontal.relaxed.list {
-    > .item:not(:last-child) {
-      /*margin-right: 1rem; */
-    }
-  }
-}
-
 /* Table container */
 #match-table-container {
   min-height: 550px;
@@ -705,16 +726,6 @@ svg.svg-icon {
 @media only screen and (max-width: 767.99px) {
   #match-table-container {
     margin-top: unset;
-  }
-
-  /* Lists */
-  .icon-menu-list {
-    &.ui.selection.list {
-      justify-content: space-evenly;
-      > .item {
-        margin: 0.5em 0;
-      }
-    }
   }
 
   .cards {

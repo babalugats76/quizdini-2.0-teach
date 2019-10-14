@@ -55,7 +55,7 @@
 .ui.form .field > label {
   display: block;
   margin: 0 0 0.26666667rem 0;
-  color: #222222;
+  color: #1B1C1D;
   font-size: 0.93333333em;
   font-weight: 400;
   text-transform: none;
@@ -109,7 +109,7 @@
   font-size: 1em;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  color: #222222;
+  color: #1B1C1D;
   border-radius: 0.26666667rem;
   box-shadow: 0 0 0 0 transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
@@ -126,7 +126,7 @@
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
   outline: none;
-  color: #222222;
+  color: #1B1C1D;
   border-radius: 0.26666667rem;
   box-shadow: 0 0 0 0 transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
@@ -216,7 +216,7 @@
   border-radius: 0.26666667rem;
   box-shadow: 0 0 0 0 transparent inset;
   padding: 0.62em 0.93333333em;
-  color: #222222;
+  color: #1B1C1D;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
 }
@@ -360,22 +360,22 @@
 
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
-  color: #e1e1e1;
+  color: #dadbdd;
 }
 .ui.form :-ms-input-placeholder {
-  color: #e1e1e1 !important;
+  color: #dadbdd !important;
 }
 .ui.form ::-moz-placeholder {
-  color: #e1e1e1;
+  color: #dadbdd;
 }
 .ui.form :focus::-webkit-input-placeholder {
-  color: #959595;
+  color: #8b8f93;
 }
 .ui.form :focus:-ms-input-placeholder {
-  color: #959595 !important;
+  color: #8b8f93 !important;
 }
 .ui.form :focus::-moz-placeholder {
-  color: #959595;
+  color: #8b8f93;
 }
 
 /* Error Placeholder */
@@ -759,7 +759,7 @@
 .ui.inverted.form input[type="url"] {
   background: #FFFFFF;
   border-color: rgba(255, 255, 255, 0.1);
-  color: #222222;
+  color: #1B1C1D;
   box-shadow: none;
 }
 
@@ -778,7 +778,7 @@
 }
 .ui.form .grouped.fields > label {
   margin: 0 0 0.26666667rem 0;
-  color: #222222;
+  color: #1B1C1D;
   font-size: 0.93333333em;
   font-weight: 400;
   text-transform: none;
@@ -1008,7 +1008,7 @@
   vertical-align: baseline;
   font-size: 0.93333333em;
   font-weight: 400;
-  color: #222222;
+  color: #1B1C1D;
   text-transform: none;
 }
 
@@ -1162,7 +1162,7 @@
 .ui.grid .row .column > label {
   display: block;
   margin: 0 0 0.26666667rem 0;
-  color: #222222;
+  color: #1B1C1D;
   font-size: 0.93333333em;
   font-weight: 400;
   text-transform: none;

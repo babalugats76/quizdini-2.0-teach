@@ -33,7 +33,7 @@
   padding: 0.5em 0;
   font-family: 'marcher-medium', sans-serif;
   font-size: 1em;
-  color: #222222;
+  color: #1B1C1D;
 }
 
 /* Default Styling */
@@ -155,12 +155,12 @@
 .ui.styled.accordion .accordion .title:hover,
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
-  color: #222222;
+  color: #1B1C1D;
 }
 .ui.styled.accordion .accordion .title:hover,
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
-  color: #222222;
+  color: #1B1C1D;
 }
 
 /* Active */

@@ -29,7 +29,7 @@ body {
   font-family: 'Lexend Deca', sans-serif;
   font-size: 15px;
   line-height: 1.4285em;
-  color: #222222;
+  color: #1B1C1D;
 }
 
 
@@ -123,32 +123,32 @@ a:hover {
 /* Site */
 ::-webkit-selection {
   background-color: #CCE2FF;
-  color: #222222;
+  color: #1B1C1D;
 }
 ::-moz-selection {
   background-color: #CCE2FF;
-  color: #222222;
+  color: #1B1C1D;
 }
 ::selection {
   background-color: #CCE2FF;
-  color: #222222;
+  color: #1B1C1D;
 }
 
 /* Form */
 textarea::-webkit-selection,
 input::-webkit-selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: #222222;
+  color: #1B1C1D;
 }
 textarea::-moz-selection,
 input::-moz-selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: #222222;
+  color: #1B1C1D;
 }
 textarea::selection,
 input::selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: #222222;
+  color: #1B1C1D;
 }
 
 /* Force Simple Scrollbars */
@@ -205,8 +205,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   Self-Hosted Fonts
 --------------------*/
 
-
-/* lexend-deca-regular - latin */
 @font-face {
   font-family: 'Lexend Deca';
   font-style: normal;
@@ -216,8 +214,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   
 /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-
-/* fira-code-regular - latin */
 @font-face {
   font-family: 'Fira Code';
   font-style: normal;
@@ -291,6 +287,9 @@ a#google-login {
   color: transparent;
   border: 0;
   outline: none;
+  /** TODO - move to cloud and host on S3/Cloud Front
+      Use regular, low-fidelity images?
+  **/
   background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
   background-size: 191px 46px;
 }
@@ -381,6 +380,79 @@ svg.icon.chevron-down.closed {
 .StripeElement--invalid {
   background: #fff6f6;
   border-color: #e0b4b4;
+}
+
+/*-------------------
+  Icon Menu List
+--------------------*/
+
+.icon-menu-list.ui.selection.list {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: left;
+          justify-content: left;
+}
+.icon-menu-list.ui.selection.list > .item {
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-align: center;
+          align-items: center;
+  background-color: none;
+  padding: 0.5em 1em;
+  margin: 0 1em 0.5em 0;
+  border-radius: 0.3em;
+}
+.icon-menu-list.ui.selection.list > .item > .ui.avatar.image svg path {
+  fill: rgba(0, 0, 0, 0.15);
+}
+.icon-menu-list.ui.selection.list > .item > .content {
+  color: rgba(0, 0, 0, 0.15);
+}
+.icon-menu-list.ui.selection.list > .item > .content > .header {
+  color: rgba(0, 0, 0, 0.15);
+}
+.icon-menu-list.ui.selection.list > .item:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+.icon-menu-list.ui.selection.list > .item.active {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.icon-menu-list.ui.selection.list > .item.active > .ui.avatar.image svg path {
+  fill: #1B1C1D;
+}
+.icon-menu-list.ui.selection.list > .item.active > .content {
+  color: #1B1C1D;
+}
+.icon-menu-list.ui.selection.list > .item.active > .content > .header {
+  color: #1B1C1D;
+}
+.icon-menu-list.ui.horizontal.list:not(.celled) > .item:last-child {
+  padding-right: 1em;
+  margin-bottom: 0.5em;
+}
+.icon-menu-list.ui.horizontal.list > .item:first-child,
+.icon-menu-list.ui.horizontal.list > .item:last-child {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+/*-------------------
+  Media Queries
+--------------------*/
+
+@media only screen and (max-width: 767.99px) {
+  .icon-menu-list.ui.horizontal.list {
+    -webkit-box-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .icon-menu-list.ui.horizontal.list > .item {
+    margin: 0.5em 0;
+  }
 }
 
 /*-------------------
@@ -641,65 +713,6 @@ form#login a#lost:hover {
   margin-bottom: 2em;
 }
 
-/* Lists */
-.icon-menu-list.ui.selection.list {
-  display: -webkit-box;
-  display: flex;
-  flex-wrap: wrap;
-  -webkit-box-pack: left;
-          justify-content: left;
-}
-.icon-menu-list.ui.selection.list > .item {
-  display: -webkit-inline-box;
-  display: inline-flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
-  -webkit-box-align: center;
-          align-items: center;
-  background-color: none;
-  padding: 0.5em 1em;
-  margin: 0 1em 0.5em 0;
-  border-radius: 0.3em;
-}
-.icon-menu-list.ui.selection.list > .item > .content {
-  color: rgba(34, 36, 38, 0.15);
-}
-.icon-menu-list.ui.selection.list > .item > .content > .header {
-  color: rgba(34, 36, 38, 0.15);
-}
-.icon-menu-list.ui.selection.list > .item:hover {
-  background: rgba(0, 0, 0, 0.01);
-}
-.icon-menu-list.ui.selection.list > .item.active {
-  background: #ffffff;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-}
-.icon-menu-list.ui.selection.list > .item.active > .content {
-  color: #000000;
-}
-.icon-menu-list.ui.selection.list > .item.active > .content > .header {
-  color: rgba(0, 0, 0, 0.8);
-}
-.icon-menu-list.ui.horizontal.list:not(.celled) > .item:last-child {
-  padding-right: 1em;
-  
-/*  Need to unset .ui.horizontal.list:not(.celled)>.item:last-child { padding-right: 0 } in semantic ui */
-  margin-bottom: 0.5em;
-  
-/* Need to unset .ui.selection.list .list>.item:last-child, .ui.selection.list>.item:last-child { margin-bottom: 0; } in semantic ui */
-}
-.icon-menu-list.ui.horizontal.list > .item:first-child,
-.icon-menu-list.ui.horizontal.list > .item:last-child {
-  padding-top: 0.5em;
-  
-/* Need to reset semantic ui to prevent overriding of this */
-  padding-bottom: 0.5em;
-}
-.icon-menu-list.ui.horizontal.relaxed.list > .item:not(:last-child) {
-  /*margin-right: 1rem; */
-}
-
 /* Table container */
 #match-table-container {
   min-height: 550px;
@@ -825,15 +838,6 @@ svg.svg-icon {
 @media only screen and (max-width: 767.99px) {
   #match-table-container {
     margin-top: unset;
-  }
-  
-/* Lists */
-  .icon-menu-list.ui.selection.list {
-    -webkit-box-pack: space-evenly;
-            justify-content: space-evenly;
-  }
-  .icon-menu-list.ui.selection.list > .item {
-    margin: 0.5em 0;
   }
   .cards .ui.card.match-card .ui.label {
     display: -webkit-inline-box;

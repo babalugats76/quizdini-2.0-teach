@@ -105,7 +105,7 @@
   -webkit-box-flex: 1;
           flex: 1 1 auto;
   background: none;
-  color: #222222;
+  color: #1B1C1D;
   margin: 0;
   padding: 0;
   box-shadow: none;
@@ -177,7 +177,7 @@
   max-width: auto;
   font-size: 1em;
   line-height: 1.4285em;
-  color: #222222;
+  color: #1B1C1D;
 }
 
 /*--------------
@@ -240,7 +240,7 @@
   color: rgba(0, 0, 0, 0.4);
 }
 .ui.items > .item .meta > a:not(.ui):hover {
-  color: #222222;
+  color: #1B1C1D;
 }
 
 /*--------------
