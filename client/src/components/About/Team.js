@@ -64,8 +64,7 @@ export default () => (
                 Before seguing into Education, James had a successful
                 Information Technology career, primarily as a Database
                 Administrator and Developer. He worked within organizations of
-                every conceivable size&mdash;from startup to Fortune 500
-                company&mdash; and gained experience within nearly every sector
+                every conceivable size&mdash;from startup to Fortune 500&mdash; and gained experience within nearly every sector
                 of the economy.
               </p>
               <p>
