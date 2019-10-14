@@ -70,7 +70,7 @@ export default () => (
               </p>
               <p>
                 He holds multiple industry certifications and is a licensed
-                teacher (grades 6-12) and Career and Technical Education (CTE)
+                teacher (grades 6-12) as well as Career and Technical Education (CTE)
                 educator.
               </p>
             </Segment>
