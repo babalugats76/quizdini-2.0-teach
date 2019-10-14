@@ -1,160 +1,90 @@
 import React from "react";
-import { Segment, Header, Image, Divider } from "semantic-ui-react";
-
-//Raleway, 1.1em//
-//redo with different layout - wireframe//
+import { Dimmer, Divider, Header, Image, Segment } from "semantic-ui-react";
 
 export default () => (
-  <div class="the-team">
-    <Segment basic className="team-member">
-      <Segment basic className="team-member-summary" textAlign="right">
-        <Header as="h1" class="name">
-          James Colestock
-          <Header.Subheader>CEO &bull; CTO</Header.Subheader>
-          <Header.Subheader>
-            IT Professional &bull; CTE Teacher
-          </Header.Subheader>
-        </Header>
-      </Segment>
-      <div class="team-member-details">
-        <Image
-          circular
-          floated="right"
-          fluid
-          inline
-          src="https://via.placeholder.com/600"
-          style={{ maxWidth: "250px", marginTop: "2em" }}
-        />
-        <Segment basic class="background">
-          <Header size="small">Background</Header>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </p>
-        </Segment>
-        <Segment basic class="other-section">
-          <Header size="small">Other Section</Header>
-          <blockquote>
-            "Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum."
-          </blockquote>
-        </Segment>
-      </div>
+  <div basic id="team">
+    <Segment basic textAlign="center">
+      <Header as="h1">The Team</Header>
     </Segment>
-    <Divider section clearing />
-    <Segment basic className="team-member">
-      <Segment basic className="team-member-summary" textAlign="right">
-        <Header as="h1" class="name">
-          James Colestock
-          <Header.Subheader>CEO &bull; CTO</Header.Subheader>
-          <Header.Subheader>
-            IT Professional &bull; CTE Teacher
-          </Header.Subheader>
-        </Header>
-      </Segment>
-      <div class="team-member-details">
-        <Image
-          circular
-          floated="right"
-          fluid
-          inline
-          src="https://via.placeholder.com/600"
-          style={{ maxWidth: "250px", marginTop: "2em" }}
-        />
-        <Segment basic class="background">
-          <Header size="small">Background</Header>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </p>
-        </Segment>
-        <Segment basic class="other-section">
-          <Header size="small">Other Section</Header>
-          <blockquote>
-            "Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum."
-          </blockquote>
-        </Segment>
+      <div className="team-member">
+        <Segment.Group>
+          <Segment
+            basic
+            className="team-member-top"
+            style={{ backgroundColor: "rgba(50,50,50,.01)" }}>
+            <Segment basic>
+              <Header as="h2" className="member-name-role">
+                James Colestock
+                <Header.Subheader>Creator &bull; Developer</Header.Subheader>
+              </Header>
+            </Segment>
+          </Segment>
+          <Segment basic className="team-member-middle">
+            <Segment basic className="bio">
+              <Image
+                alt="James Colestock with Dooder"
+                circular
+                floated="right"
+                fluid
+                inline
+                spaced
+                src="https://static.quizdini.com/images/james-and-dooder.jpg"
+                style={{ maxWidth: "200px", marginTop: "4em" }}
+              />
+              <p>
+                James Colestock is originally from&nbsp;
+                <a
+                  href="https://www.visitfortwayne.com/"
+                  target="_blank"
+                  title="Visit Fort Wayne, IN">
+                  Fort Wayne, IN
+                </a>
+                &nbsp;, a Midwestern town equidistant from Chicago, Detroit, and
+                Cincinnati.
+              </p>
+              <p>
+                He is a graduate of&nbsp;
+                <a
+                  href="http://homestead.sacs.k12.in.us/"
+                  target="_blank"
+                  title="Homestead High School">
+                  Homestead High School
+                </a>
+                &nbsp;and of nearby&nbsp;
+                <a
+                  href="https://www.pfw.edu/"
+                  target="_blank"
+                  title="Purdue University Fort Wayne">
+                  Indiana-Purdue at Fort Wayne
+                </a>
+                &nbsp;where he studied Business Administration and Computer
+                Science.
+              </p>
+              <p>
+                Before seguing into Education, James had a successful
+                Information Technology career, primarily as a Database
+                Administrator and Developer. He worked within organizations of
+                every conceivable size&mdash;from startup to Fortune 500
+                company&mdash; and gained experience within nearly every sector
+                of the economy.
+              </p>
+              <p>
+                He holds multiple industry certifications and is a licensed
+                teacher (grades 6-12) and Career and Technical Education (CTE)
+                educator.
+              </p>
+            </Segment>
+          </Segment>
+          <Segment
+            basic
+            className="team-member-bottom"
+            style={{ backgroundColor: "rgba(50,50,50,.01)" }}>
+            <Segment basic className="contact">
+              Bottom Content Goes Here...
+            </Segment>
+          </Segment>
+        </Segment.Group>
       </div>
-    </Segment>
-    <Divider section clearing />
-    <Segment basic className="team-member">
-      <Segment basic className="team-member-summary" textAlign="right">
-        <Header as="h1" class="name">
-          James Colestock
-          <Header.Subheader>CEO &bull; CTO</Header.Subheader>
-          <Header.Subheader>
-            IT Professional &bull; CTE Teacher
-          </Header.Subheader>
-        </Header>
-      </Segment>
-      <div class="team-member-details">
-        <Image
-          circular
-          floated="right"
-          fluid
-          inline
-          src="https://via.placeholder.com/600"
-          style={{ maxWidth: "250px", marginTop: "2em" }}
-        />
-        <Segment basic class="background">
-          <Header size="small">Background</Header>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </p>
-        </Segment>
-        <Segment basic class="other-section">
-          <Header size="small">Other Section</Header>
-          <blockquote>
-            "Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum."
-          </blockquote>
-        </Segment>
-      </div>
-    </Segment>
-    <Divider section clearing />
+      <Divider section clearing />
   </div>
 );

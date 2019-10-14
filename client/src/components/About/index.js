@@ -7,15 +7,13 @@ import FAQ from './FAQ';
 import Attribution from './Attribution';
 import Dedication from './Dedication';
 
-//const Dummy = () => <h1>Dummy!</h1>;
-
 const routes = [
   {
-    path: 'team',
-    text: 'The Team',
+    path: 'values',
+    text: 'Our Values',
     exact: false,
-    component: Team,
-    displayOrder: 0
+    component: Values,
+    displayOrder: 1
   },
   {
     path: 'faq',
@@ -40,10 +38,10 @@ const routes = [
   },
   {
     path: '',
-    text: 'Our Values',
+    text: 'The Team',
     exact: false,
-    component: Values,
-    displayOrder: 1
+    component: Team,
+    displayOrder: 0
   }
 ];
 
@@ -81,7 +79,7 @@ const index = ({ match, history }) => {
         </Segment>
       </Grid.Column>
       <Grid.Column width={11}>
-        <Segment as="section" padded="very">
+        <Segment as="section" className='about' padded="very">
           <Switch>
             {routes.map(({ path, exact, component }, idx) => {
               return (
