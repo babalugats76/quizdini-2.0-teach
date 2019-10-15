@@ -21,7 +21,14 @@ export default () => (
           floated="right"
           textAlign="right"
         >
-        <a
+          <a
+            href="http://www.colestock.com"
+            target="_blank"
+            title="Visit James' Website"
+          >
+            <SVG name="globe" width="40px" height="40px" />
+          </a>
+          <a
             href="mailto:james@colestock.com"
             target="_blank"
             title="Email James"
@@ -41,6 +48,13 @@ export default () => (
             title="YouTube - Colestock's Channel"
           >
             <SVG name="youtube" width="40px" height="40px" />
+          </a>
+          <a
+            href="https://github.com/babalugats76"
+            target="_blank"
+            title="GitHub - babalugats76"
+          >
+            <SVG name="github" width="40px" height="40px" />
           </a>
           <a
             href="https://www.linkedin.com/in/jamescolestock/"
