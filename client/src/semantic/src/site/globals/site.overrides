@@ -340,7 +340,7 @@ svg.icon.chevron-down.closed {
       }
       .ui.buttons {
         .ui.button:not(:last-child) {
-          border-right: 1px inset rgba(0, 0, 0, 1);
+          border-right: 1px inset @black;
         }
       }
     }
