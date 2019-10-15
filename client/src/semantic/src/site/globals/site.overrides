@@ -252,10 +252,99 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
+  Match Cards
+--------------------*/
+
+.ui.cards {
+  .ui.card.match-card {
+    display: inline-flex !important; /* Allows for controlling vertical growth of card sections */
+    .content {
+      &.match-card-header {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        min-height: 5em;
+        padding: 1em .5em .5em;
+        overflow: hidden;
+        border-bottom: 1px solid @subtleTransparentBlack;
+        background-size: 25px;
+        background-repeat: round;
+        background-image: url('/images/question.svg');
+        &:hover {
+          .ui.icon.button.trash {
+            display: block;
+            background-color: @negativeBackgroundColor;
+            opacity: .87;
+            svg.icon.trash {
+              fill: @negativeColor;            
+            }
+          }
+        }
+        > .header {
+          text-align: center;
+          font-size: 1.4em;
+          flex-grow: 1;
+          padding: 0 .5em;
+        }
+        .ui.icon.button.trash {
+          opacity: 0;
+          position: absolute;
+          border-radius: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          transition: all 800ms ease;
+          background-color: transparent;
+          svg.icon.trash {
+            fill: @negativeTextColor;
+            width: 2em;
+            height: 2em;
+          }
+        }
+      }
+      &.match-card-desc,
+      &.match-card-btns {
+        flex-grow: 0;
+      }
+      &.match-card-btns {
+        background-color: @subtleTransparentBlack;
+      }
+    }
+
+    .ui.label {
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: transparent !important;
+      border: none !important;
+      .icon {
+        margin-right: 0.75em;
+      }
+      .detail {
+        font-size: 1.25em !important;
+        margin-left: unset !important;
+        color: @grey;
+      }
+      svg.icon {
+        width: 22px;
+        height: 22px;
+        fill: @grey;
+      }
+    }
+    .ui.buttons {
+      .ui.button:not(:last-child) {
+        border-right: 1px inset rgba(0, 0, 0, 1);
+      }
+    }
+  }
+}
+
+/*-------------------
   Media Queries
 --------------------*/
 
-@media only screen and (max-width: 767.99px) {
+@media only screen and (max-width: @largestMobileScreen) {
 
   .icon-menu-list {
     &.ui.horizontal.list {
@@ -265,6 +354,16 @@ svg.icon.chevron-down.closed {
       }
     }
   }
+
+  .ui.cards {
+    .ui.card {
+      &.match-card {
+        .ui.label {
+          display: flex;
+        }
+      }
+    }
+  }  
 
 }
 
@@ -363,90 +462,7 @@ svg.icon {
 
 /* Label component styling - to override semantic ui */
 
-.ui.cards {
-  .ui.card.match-card {
-    display: inline-flex !important; /* Allows for controlling vertical growth of card sections */
-    .content {
-      &.match-card-header {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        align-items: center;
-        min-height: 5em;
-        padding: 1em .5em .5em;
-        overflow: hidden;
-        border-bottom: 1px solid @subtleTransparentBlack;
-        background-size: 25px;
-        background-repeat: round;
-        background-image: url('/images/question.svg');
-        &:hover {
-          .ui.icon.button.trash {
-            display: block;
-            background-color: @negativeBackgroundColor;
-            opacity: .87;
-            svg.icon.trash {
-              fill: @negativeColor;            
-            }
-          }
-        }
-        > .header {
-          text-align: center;
-          font-size: 1.4em;
-          flex-grow: 1;
-          padding: 0 .5em;
-        }
-        .ui.icon.button.trash {
-          opacity: 0;
-          position: absolute;
-          border-radius: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          transition: all 800ms ease;
-          background-color: transparent;
-          svg.icon.trash {
-            fill: @negativeTextColor;
-            width: 2em;
-            height: 2em;
-          }
-        }
-      }
-      &.match-card-desc,
-      &.match-card-btns {
-        flex-grow: 0;
-      }
-      &.match-card-btns {
-        background-color: @subtleTransparentBlack;
-      }
-    }
 
-    .ui.label {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      background-color: transparent !important;
-      border: none !important;
-      .icon {
-        margin-right: 0.75em;
-      }
-      .detail {
-        font-size: 1.25em !important;
-        margin-left: unset !important;
-        color: @grey;
-      }
-      svg.icon {
-        width: 22px;
-        height: 22px;
-        fill: @grey;
-      }
-    }
-    .ui.buttons {
-      .ui.button:not(:last-child) {
-        border-right: 1px inset rgba(0, 0, 0, 1);
-      }
-    }
-  }
-}
 
 #login-container,
 #lost-container {
@@ -726,14 +742,6 @@ svg.svg-icon {
 @media only screen and (max-width: 767.99px) {
   #match-table-container {
     margin-top: unset;
-  }
-
-  .cards {
-    .ui.card.match-card {
-      .ui.label {
-        display: inline-flex;
-      }
-    }
   }
 
   .ui.form {
