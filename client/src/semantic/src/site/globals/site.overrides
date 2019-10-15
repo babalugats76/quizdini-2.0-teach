@@ -11,33 +11,34 @@
   font-style: normal;
   font-weight: 400;
   src: local('Lexend Deca Regular'), local('LexendDeca-Regular'),
-       url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
   font-family: 'Fira Code';
   font-style: normal;
   font-weight: 400;
-  src: local(''),
-       url('/fonts/fira-code-v5-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/fira-code-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local(''), url('/fonts/fira-code-v5-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/fira-code-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-    font-family: 'marcher-semibold';
-    src: url('/fonts/marcher-semibold-webfont.woff2') format('woff2'),
-         url('/fonts/marcher-semibold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'marcher-semibold';
+  src: url('/fonts/marcher-semibold-webfont.woff2') format('woff2'),
+    url('/fonts/marcher-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'marcher-medium';
-    src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'),
-         url('/fonts/marcher-medium-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'marcher-medium';
+  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'),
+    url('/fonts/marcher-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 /*-------------------
@@ -252,119 +253,98 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-  Match Cards
+  Cards
 --------------------*/
 
 .ui.cards {
-  .ui.card.match-card {
-    display: inline-flex !important; /* Allows for controlling vertical growth of card sections */
-    .content {
-      &.match-card-header {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        align-items: center;
-        min-height: 5em;
-        padding: 1em .5em .5em;
-        overflow: hidden;
-        border-bottom: 1px solid @subtleTransparentBlack;
-        background-size: 25px;
-        background-repeat: round;
-        background-image: url('/images/question.svg');
-        &:hover {
+  .ui.card {
+    &.match-card {
+      display: inline-flex !important; /* Allows for controlling vertical growth of card sections, when side by side */
+      .content {
+        &.match-card-header {
+          display: flex;
+          position: relative;
+          justify-content: center;
+          align-items: center;
+          min-height: 5em;
+          padding: 1em 0.5em 0.5em;
+          overflow: hidden;
+          border-bottom: 1px solid @subtleTransparentBlack;
+          background-size: 25px;
+          background-repeat: round;
+          background-image: url('/images/question.svg');
+          &:hover {
+            .ui.icon.button.trash {
+              display: block;
+              background-color: @negativeBackgroundColor;
+              opacity: 0.87;
+              svg.icon.trash {
+                fill: @negativeColor;
+              }
+            }
+          }
+          > .header {
+            text-align: center;
+            font-size: 1.4em;
+            flex-grow: 1;
+            padding: 0 0.5em;
+          }
           .ui.icon.button.trash {
-            display: block;
-            background-color: @negativeBackgroundColor;
-            opacity: .87;
+            opacity: 0;
+            position: absolute;
+            border-radius: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transition: all 800ms ease;
+            background-color: transparent;
             svg.icon.trash {
-              fill: @negativeColor;            
+              fill: @negativeTextColor;
+              width: 2em;
+              height: 2em;
             }
           }
         }
-        > .header {
-          text-align: center;
-          font-size: 1.4em;
-          flex-grow: 1;
-          padding: 0 .5em;
+        &.match-card-desc,
+        &.match-card-btns {
+          flex-grow: 0;
         }
-        .ui.icon.button.trash {
-          opacity: 0;
-          position: absolute;
-          border-radius: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          transition: all 800ms ease;
-          background-color: transparent;
-          svg.icon.trash {
-            fill: @negativeTextColor;
-            width: 2em;
-            height: 2em;
-          }
-        }
-      }
-      &.match-card-desc,
-      &.match-card-btns {
-        flex-grow: 0;
-      }
-      &.match-card-btns {
-        background-color: @subtleTransparentBlack;
-      }
-    }
-
-    .ui.label {
-      display: inline-flex;
-      flex-direction: row;
-      align-items: center;
-      background-color: transparent !important;
-      border: none !important;
-      .icon {
-        margin-right: 0.75em;
-      }
-      .detail {
-        font-size: 1.25em !important;
-        margin-left: unset !important;
-        color: @grey;
-      }
-      svg.icon {
-        width: 22px;
-        height: 22px;
-        fill: @grey;
-      }
-    }
-    .ui.buttons {
-      .ui.button:not(:last-child) {
-        border-right: 1px inset rgba(0, 0, 0, 1);
-      }
-    }
-  }
-}
-
-/*-------------------
-  Media Queries
---------------------*/
-
-@media only screen and (max-width: @largestMobileScreen) {
-
-  .icon-menu-list {
-    &.ui.horizontal.list {
-      justify-content: space-evenly;
-      > .item {
-        margin: 0.5em 0;
-      }
-    }
-  }
-
-  .ui.cards {
-    .ui.card {
-      &.match-card {
-        .ui.label {
+        &.match-card-desc {
           display: flex;
+          justify-content: center;
+        }  
+        &.match-card-btns {
+          background-color: @subtleTransparentBlack;
+        }
+      }
+
+      .ui.label {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: transparent !important;
+        border: none !important;
+        .icon {
+          margin-right: 0.75em;
+        }
+        .detail {
+          font-size: 1.25em !important;
+          margin-left: unset !important;
+          color: @grey;
+        }
+        svg.icon {
+          width: 22px;
+          height: 22px;
+          fill: @grey;
+        }
+      }
+      .ui.buttons {
+        .ui.button:not(:last-child) {
+          border-right: 1px inset rgba(0, 0, 0, 1);
         }
       }
     }
-  }  
-
+  }
 }
 
 /*-------------------
@@ -386,7 +366,6 @@ svg.icon.chevron-down.closed {
     }
   }
 }
-
 
 .ui.button {
   &.clipboard {
@@ -462,8 +441,6 @@ svg.icon {
 
 /* Label component styling - to override semantic ui */
 
-
-
 #login-container,
 #lost-container {
   /*.ui.message {
@@ -505,7 +482,6 @@ form#match-edit.ui.form {
 
 /* Form Specific */
 
-
 #checkout-container {
   &.ui.grid {
     .column {
@@ -514,27 +490,27 @@ form#match-edit.ui.form {
         margin-top: 0;
       }
     }
-  } 
+  }
 }
 
 form#checkout {
   &.ui.form {
     .ui.input {
-       height: 43px !important;
+      height: 43px !important;
     }
     .ui.basic.segment:first-of-type {
       padding-bottom: 0;
       margin-bottom: 0;
     }
     .ui.basic.segment {
-       padding-top: 0;
-       margin-top: 0;
+      padding-top: 0;
+      margin-top: 0;
     }
     #credit-card {
       &.ui.grid {
         > .row {
-          padding-top: .5em;
-          padding-bottom: .7em;
+          padding-top: 0.5em;
+          padding-bottom: 0.7em;
           .column {
             /* column stuff goes here */
           }
@@ -560,7 +536,6 @@ form#password > .fields,
 form#reset > .fields {
   justify-content: center;
 }
-
 
 form#login {
   a#lost {
@@ -589,7 +564,6 @@ form#login {
     }
   }
 }
-
 
 #register-container .ui.message {
   margin-bottom: 2em;
@@ -758,6 +732,42 @@ svg.svg-icon {
       .ui.dropdown {
         margin-bottom: 1.3em !important;
       }*/
+    }
+  }
+}
+
+/*-------------------
+  Media Queries
+--------------------*/
+
+/* Tablets and smaller */
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .icon-menu-list {
+    &.ui.horizontal.list {
+      justify-content: space-evenly;
+      > .item {
+        margin: 0.5em 0;
+      }
+    }
+  }
+
+  .ui.cards {
+    .ui.card {
+      &.match-card {
+        .content {
+          &.match-card-desc {
+            .description {
+              display: inline-flex;
+              flex-wrap: wrap;
+              justify-content: space-around;
+            }
+          }
+        }
+        .ui.label {
+          display: flex;
+        }
+      }
     }
   }
 }

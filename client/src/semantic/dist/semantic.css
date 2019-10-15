@@ -939,13 +939,13 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-  Match Cards
+  Cards
 --------------------*/
 
 .ui.cards .ui.card.match-card {
   display: -webkit-inline-box !important;
   display: inline-flex !important;
-  /* Allows for controlling vertical growth of card sections */
+  /* Allows for controlling vertical growth of card sections, when side by side */
 }
 
 .ui.cards .ui.card.match-card .content.match-card-header {
@@ -1007,6 +1007,13 @@ svg.icon.chevron-down.closed {
   flex-grow: 0;
 }
 
+.ui.cards .ui.card.match-card .content.match-card-desc {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
 .ui.cards .ui.card.match-card .content.match-card-btns {
   background-color: rgba(0, 0, 0, 0.03);
 }
@@ -1041,26 +1048,6 @@ svg.icon.chevron-down.closed {
 
 .ui.cards .ui.card.match-card .ui.buttons .ui.button:not(:last-child) {
   border-right: 1px inset #000000;
-}
-
-/*-------------------
-  Media Queries
---------------------*/
-
-@media only screen and (max-width: 767.98px) {
-  .icon-menu-list.ui.horizontal.list {
-    -webkit-box-pack: space-evenly;
-    justify-content: space-evenly;
-  }
-
-  .icon-menu-list.ui.horizontal.list > .item {
-    margin: 0.5em 0;
-  }
-
-  .ui.cards .ui.card.match-card .ui.label {
-    display: -webkit-box;
-    display: flex;
-  }
 }
 
 /*-------------------
@@ -1434,6 +1421,35 @@ svg.svg-icon {
 
   .ui.form .fields .field:not(.error) {
     margin-bottom: 1.3em !important;
+  }
+}
+
+/*-------------------
+  Media Queries
+--------------------*/
+
+/* Tablets and smaller */
+
+@media only screen and (max-width: 767.98px) {
+  .icon-menu-list.ui.horizontal.list {
+    -webkit-box-pack: space-evenly;
+    justify-content: space-evenly;
+  }
+
+  .icon-menu-list.ui.horizontal.list > .item {
+    margin: 0.5em 0;
+  }
+
+  .ui.cards .ui.card.match-card .content.match-card-desc .description {
+    display: -webkit-inline-box;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .ui.cards .ui.card.match-card .ui.label {
+    display: -webkit-box;
+    display: flex;
   }
 }
 /*!
