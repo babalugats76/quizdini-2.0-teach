@@ -23,6 +23,7 @@ export default () => (
         >
           <a
             href="http://www.colestock.com"
+            rel="noopener noreferrer"
             target="_blank"
             title="Visit James' Website"
           >
@@ -30,6 +31,7 @@ export default () => (
           </a>
           <a
             href="mailto:james@colestock.com"
+            rel="noopener noreferrer"
             target="_blank"
             title="Email James"
           >
@@ -37,6 +39,7 @@ export default () => (
           </a>
           <a
             href="https://twitter.com/jamescolestock"
+            rel="noopener noreferrer"
             target="_blank"
             title="@JamesColestock"
           >
@@ -44,6 +47,7 @@ export default () => (
           </a>
           <a
             href="https://www.youtube.com/c/jamescolestock"
+            rel="noopener noreferrer"
             target="_blank"
             title="YouTube - Colestock's Channel"
           >
@@ -51,6 +55,7 @@ export default () => (
           </a>
           <a
             href="https://github.com/babalugats76"
+            rel="noopener noreferrer"
             target="_blank"
             title="GitHub - babalugats76"
           >
@@ -58,6 +63,7 @@ export default () => (
           </a>
           <a
             href="https://www.linkedin.com/in/jamescolestock/"
+            rel="noopener noreferrer"
             target="_blank"
             title="Connect on LinkedIn"
           >

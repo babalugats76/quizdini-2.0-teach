@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header, Image, Segment } from 'semantic-ui-react';
 import logo from '../../logo.svg';
+import payToPlay from '../../pay-to-play.svg';
 
 export default () => (
   <div>
@@ -14,6 +15,13 @@ export default () => (
         className="logo"
         size="medium"
         src={logo}
+      />
+      <Image
+        alt="Quizdini Logo"
+        floated="right"
+        className="pay-to-play"
+        size="medium"
+        src={payToPlay}
       />
       <p>Better stuff</p>
     </Segment>
