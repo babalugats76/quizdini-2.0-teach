@@ -27,7 +27,7 @@
 @fontSize : 15px;
 
 /*-------------------
-  Brand Colors
+  Quizdini Colors
 --------------------*/
 @quizdiniIndigo      : rgba(113, 28, 255, 1);
 @quizdiniPurple      : rgba(170, 84, 255, 1);
@@ -37,6 +37,11 @@
 @spaceCadet          : rgba(26, 28, 87, 1);
 @primaryColor        : @spaceCadet;
 @secondaryColor      : #2e3235;
+
+/*-------------------
+     Brand Colors
+--------------------*/
+@udemyColor          : #ea5252;        
 
 
 /*-------------------
