@@ -13,27 +13,6 @@ export default () => (
     <div className="belief" style={{ marginBottom: '2rem' }}>
       <Header as="h2" icon textAlign="center" style={{ margin: '0 auto 1rem' }}>
         <Image
-          alt="Measuring Tape"
-          className="icon measuring-tape"
-          src={measuringTape}
-          style={{ height: '100px', marginBottom: '1rem' }}
-        />
-        <Header.Content>
-          &quot;Everything Is Formative &amp;<br/>Formative Is Everything&quot;
-        </Header.Content>
-      </Header>
-      <p>Paragraph 1
-      </p>
-      <p>
-        Paragraph 2
-      </p>
-      <p>
-        Paragraph 3
-      </p>
-    </div>
-    <div className="belief" style={{ marginBottom: '2rem' }}>
-      <Header as="h2" icon textAlign="center" style={{ margin: '0 auto 1rem' }}>
-        <Image
           alt="Pay to Play"
           className="icon easel"
           src={easel}
@@ -72,6 +51,48 @@ export default () => (
         that calls upon teachers' creativity; much to the contrary: we celebrate
         it. After all, we teachers truly shine when we have a little less to
         work with.
+      </p>
+    </div>
+    <div className="belief" style={{ marginBottom: '2rem' }}>
+      <Header as="h2" icon textAlign="center" style={{ margin: '0 auto 1rem' }}>
+        <Image
+          alt="Measuring Tape"
+          className="icon measuring-tape"
+          src={measuringTape}
+          style={{ height: '100px', marginBottom: '1rem' }}
+        />
+        <Header.Content>
+          &quot;Everything Is Formative &amp;
+          <br />
+          Formative Is Everything&quot;
+        </Header.Content>
+      </Header>
+      <p>
+        They say that &quot;you never stop learning.&quot; If that is true, then
+        that must also mean that you never stop receiving feedback. As teachers,
+        we are merely facilitators of the learning process: a veritable infinite
+        loop of practice acquiring some skill or knowledge interlaced with
+        feedback. Take away formative assessment, especially of the informal
+        variety, and the &quot;wheels of learning&quot; grind to an
+        unceremonious halt.
+      </p>
+      <p>
+        In reality, most educators are not teaching rocket science&mdash;neither
+        literally nor figuratively&mdash;so their success very much centers
+        around their ability to orchestrate the learning process in such a way
+        that every student receives the feedback they need, how they need it,
+        when they need it. Under ideal circumstances, students themselves would
+        be empowered with tools that help them self-grade, etc.
+      </p>
+      <p>
+        Our goal at Quizdini is to make tools that are consistent with this
+        principle. To provide teacher and student alike with learning tools that
+        &quot;keep the wheels turning.&quot; To us, empowering teachers with
+        what they need and trusting their judgement is the way forward vis-à-vis
+        our embattled Education system. In the end, those espousing high-stakes
+        testing or turning teaching into some perverse cross between heartless
+        statistics and ivory tower postulates, a la Hattie, are simply on the
+        wrong track.
       </p>
     </div>
     <div className="belief" style={{ marginBottom: '2rem' }}>
