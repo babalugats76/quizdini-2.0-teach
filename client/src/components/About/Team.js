@@ -133,6 +133,10 @@ export default () => (
             (grades 6-12) as well as Career and Technical Education (CTE)
             educator.
           </p>
+          <p>
+            When not feverishly coding Quizdini, he can be found playing the
+            guitar and rooting on his beloved Chicago Cubs.
+          </p>
         </Grid.Column>
       </Grid.Row>
     </Grid>
