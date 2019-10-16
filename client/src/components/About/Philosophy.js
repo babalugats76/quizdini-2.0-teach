@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header, Icon, Image, Segment } from 'semantic-ui-react';
 import logo from '../../logo.svg';
+import measuringTape from '../../measuring-tape.svg';
 import payToPlay from '../../pay-to-play.svg';
 import easel from '../../easel.svg';
 
@@ -9,6 +10,27 @@ export default () => (
     <Segment basic textAlign="center">
       <Header as="h1">Philosophy</Header>
     </Segment>
+    <div className="belief" style={{ marginBottom: '2rem' }}>
+      <Header as="h2" icon textAlign="center" style={{ margin: '0 auto 1rem' }}>
+        <Image
+          alt="Measuring Tape"
+          className="icon measuring-tape"
+          src={measuringTape}
+          style={{ height: '100px', marginBottom: '1rem' }}
+        />
+        <Header.Content>
+          &quot;Everything is Formative &amp;<br/>Formative is Everything&quot;
+        </Header.Content>
+      </Header>
+      <p>Paragraph 1
+      </p>
+      <p>
+        Paragraph 2
+      </p>
+      <p>
+        Paragraph 3
+      </p>
+    </div>
     <div className="belief" style={{ marginBottom: '2rem' }}>
       <Header as="h2" icon textAlign="center" style={{ margin: '0 auto 1rem' }}>
         <Image
