@@ -19,7 +19,7 @@ export default () => (
           style={{ height: '100px', marginBottom: '1rem' }}
         />
         <Header.Content>
-          &quot;Everything is Formative &amp;<br/>Formative is Everything&quot;
+          &quot;Everything Is Formative &amp;<br/>Formative Is Everything&quot;
         </Header.Content>
       </Header>
       <p>Paragraph 1
