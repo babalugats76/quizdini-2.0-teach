@@ -1,18 +1,18 @@
 import React from 'react';
 import { Switch, Route, Link, matchPath } from 'react-router-dom';
 import { Segment, Menu, Grid } from 'semantic-ui-react';
-import Values from './Values';
 import Team from './Team';
+import Philosophy from './Philosophy';
 import FAQ from './FAQ';
 import Attribution from './Attribution';
 import Dedication from './Dedication';
 
 const routes = [
   {
-    path: 'values',
-    text: 'Our Values',
+    path: 'philosophy',
+    text: 'Philosophy',
     exact: false,
-    component: Values,
+    component: Philosophy,
     displayOrder: 1
   },
   {
