@@ -3,7 +3,6 @@ import { withRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import withSizes from 'react-sizes';
-import { Container } from 'semantic-ui-react';
 import MatchGame from './Match';
 import Login from './Login/';
 import Register from './Register';
@@ -89,7 +88,7 @@ class App extends Component {
 
     return (
       <NavBar credits={credits} isMobile={isMobile} loggedIn={loggedIn}>
-        <Container as="main" id="main">
+        <div className="page-wrapper">
           <Switch>
             <PrivateRoute
               loggedIn={loggedIn}
@@ -165,7 +164,7 @@ class App extends Component {
             />
             <PublicRoute component={Landing} />
           </Switch>
-        </Container>
+        </div>
         <Footer />
       </NavBar>
     );

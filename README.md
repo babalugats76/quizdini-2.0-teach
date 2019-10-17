@@ -70,6 +70,11 @@ Messages need to be standardized, etc.
     - Update logo to be 300px-wide friend logo with text
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Client
+  - Page
+    - New page layout is in place and nixes the fixed header, etc.
+    - Update all "pages" to wrap page in `<Container as="main" className="page" />` which will allow for better control over main page area, including margins. This will also allow for full width pages, etc. 
+    - Rename child components as necessary, considering the change
+    - Consider adding a series of mt-1 mb-1 classes, etc. to exercise complete control over the margins of page sections. This is necessary because page content varies wildly in terms of top padding and top margin
   - Landing Page
     - Add selling point section, etc.
   - Loading and Error
@@ -98,7 +103,7 @@ Messages need to be standardized, etc.
       - Profile
       - NavBar
       - UI Components
-  - Semantic UI - Continue migrating work-in-progress style to semantic - Checkbox `line-height` - When appropriate, alter variables and provide overrides - For truly custom work, simply place it in `sites.overrides` in each own themed sections - Fix overflow-y (scrolling issue) - Work on potentially remove Grid from pages which feature the logo; optionally, fix the spacing issue, etc.
+  - Semantic UI - Continue migrating work-in-progress style to semantic - Checkbox `line-height` - When appropriate, alter variables and provide overrides - For truly custom work, simply place it in `sites.overrides` in each own themed sections
 
 Kay
 

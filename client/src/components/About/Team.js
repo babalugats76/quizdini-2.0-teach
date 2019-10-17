@@ -71,6 +71,7 @@ export default () => (
           </a>
           <a
             href="https://www.udemy.com/user/jamescolestock/"
+            rel="noopener noreferrer"
             target="_blank"
             title="Connect on Udemy"
           >
@@ -94,6 +95,7 @@ export default () => (
             James Colestock is originally from&nbsp;
             <a
               href="https://www.visitfortwayne.com/"
+              rel="noopener noreferrer"
               target="_blank"
               title="Visit Fort Wayne, IN"
             >
@@ -106,6 +108,7 @@ export default () => (
             He is a graduate of&nbsp;
             <a
               href="http://homestead.sacs.k12.in.us/"
+              rel="noopener noreferrer"
               target="_blank"
               title="Homestead High School"
             >
@@ -114,6 +117,7 @@ export default () => (
             &nbsp;and of nearby&nbsp;
             <a
               href="https://www.pfw.edu/"
+              rel="noopener noreferrer"
               target="_blank"
               title="Purdue University Fort Wayne"
             >

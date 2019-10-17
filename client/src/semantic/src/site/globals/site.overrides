@@ -2,6 +2,13 @@
          Site Overrides
 *******************************/
 
+.pusher {
+  > .ui.menu {
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+}
+
 /*-------------------
   Self-Hosted Fonts
 --------------------*/
@@ -54,22 +61,25 @@
   Page
 --------------------*/
 
-#main {
-  flex: 1 0 auto; /* Makes the content area grow */
-  margin: 7em auto 3em;
-  section {
-    background: #fff;
-    box-shadow: 0 1px 2px #ccc;
+.pusher {
+  > .page-wrapper {
+    flex: 1 0 auto; /* Make content grow */
+    width: 100%;
+    min-height: 50%;
+    background-color: @darkWhite;
+    > .ui.container.page {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
   }
-}
-
-#footer {
-  flex: 0 1 auto; /* Makes the footer shrink */
-  width: 100%;
-  padding: 3em;
-  align-items: center;
-  justify-content: center;
-  background-color: @secondaryColor;
+  > #footer {
+    flex: 0 1 auto; /* Makes the footer shrink */
+    width: 100%;
+    padding: 3em;
+    align-items: center;
+    justify-content: center;
+    background-color: @secondaryColor;
+  }
 }
 
 /*-------------------
@@ -312,7 +322,7 @@ svg.icon.chevron-down.closed {
         &.match-card-desc {
           display: flex;
           justify-content: center;
-        }  
+        }
         &.match-card-btns {
           background-color: @subtleTransparentBlack;
         }

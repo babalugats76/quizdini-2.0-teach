@@ -675,6 +675,11 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
          Site Overrides
 *******************************/
 
+.pusher > .ui.menu {
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+
 /*-------------------
   Self-Hosted Fonts
 --------------------*/
@@ -724,19 +729,21 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   Page
 --------------------*/
 
-#main {
+.pusher > .page-wrapper {
   -webkit-box-flex: 1;
   flex: 1 0 auto;
-  /* Makes the content area grow */
-  margin: 7em auto 3em;
+  /* Make content grow */
+  width: 100%;
+  min-height: 50%;
+  background-color: #F3F4F5;
 }
 
-#main section {
-  background: #fff;
-  box-shadow: 0 1px 2px #ccc;
+.pusher > .page-wrapper > .ui.container.page {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
-#footer {
+.pusher > #footer {
   -webkit-box-flex: 0;
   flex: 0 1 auto;
   /* Makes the footer shrink */
@@ -1047,7 +1054,7 @@ svg.icon.chevron-down.closed {
 }
 
 .ui.cards .ui.card.match-card .ui.buttons .ui.button:not(:last-child) {
-  border-right: 1px inset #000000;
+  border-right: 1px inset #1B1C1D;
 }
 
 /*-------------------
