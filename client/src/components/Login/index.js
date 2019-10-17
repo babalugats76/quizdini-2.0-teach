@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Container, Grid } from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import Message from '../UI/Message';
-import LoginForm from './LoginForm';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Container, Grid } from "semantic-ui-react";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
+import Message from "../UI/Message";
+import LoginForm from "./LoginForm";
 
 class Login extends Component {
   // bind this way due to async/await arrow function bug in Babel
@@ -14,7 +14,7 @@ class Login extends Component {
     super(props);
     const { location: { state: { message } = {} } = {}, history } = this.props;
     this.state = { message };
-    history.replace({ pathname: '/login', state: {} });
+    history.replace({ pathname: "/login", state: {} });
   }
 
   handleDismiss = e => {
@@ -48,15 +48,15 @@ class Login extends Component {
 
     if (error) {
       await setStatus({
-        header: 'Authentication Error',
-        content: error.message || '',
-        color: 'red'
+        header: "Authentication Error",
+        content: error.message || "",
+        color: "red"
       });
       return setSubmitting(false);
     }
 
     await fetchAuth();
-    return this.props.history.push('/dashboard');
+    return this.props.history.push("/dashboard");
   }
 
   renderForm = () => {
@@ -72,19 +72,10 @@ class Login extends Component {
     const form = this.renderForm();
 
     return (
-      <Grid
-        id="login-container"
-        as={Container}
-        centered
-        columns={1}
-        stackable
-        text
-      >
-        {message && <Grid.Row>{this.renderMessage({ ...message })}</Grid.Row>}
-        <Grid.Row>
-          <Grid.Column>{form}</Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <Container id="login" as="main" className="page">
+        {message && this.renderMessage({ ...message })}
+        {form}
+      </Container>
     );
   }
 }

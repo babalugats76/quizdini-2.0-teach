@@ -2,6 +2,6 @@
          Site Overrides
 *******************************/
 .ui.header.logo {
-  font-size: 1.8em;
-  margin-bottom: .6em;
+  font-size: 2em;
+  margin-bottom: 2rem;
 }

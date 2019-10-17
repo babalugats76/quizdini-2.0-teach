@@ -1,20 +1,20 @@
-import React from 'react';
-import { withFormik } from 'formik';
-import { Link } from 'react-router-dom';
-import { Segment, Header, Image, Grid, Form, Divider } from 'semantic-ui-react';
-import InputText from '../UI/InputText';
-import * as Yup from 'yup';
-import Button from '../UI/Button';
-import Message from '../UI/Message';
-import ExternalLink from '../UI/ExternalLink';
+import React from "react";
+import { withFormik } from "formik";
+import { Link } from "react-router-dom";
+import { Divider, Form, Grid, Header, Segment } from "semantic-ui-react";
+import InputText from "../UI/InputText";
+import * as Yup from "yup";
+import Button from "../UI/Button";
+import Message from "../UI/Message";
+import ExternalLink from "../UI/ExternalLink";
 
 //import DisplayFormikState from '../UI/FormikHelper';
 
-import logo from '../../logo.svg';
+import logo from "../../logo.svg";
 
 const validateLogin = Yup.object().shape({
-  username: Yup.string().required('Username is required.'),
-  password: Yup.string().required('Password is required.')
+  username: Yup.string().required("Username is required."),
+  password: Yup.string().required("Password is required.")
 });
 
 const LoginForm = props => {
@@ -89,8 +89,7 @@ const LoginForm = props => {
               tabIndex={3}
               title="Log in to Quizdini"
               type="submit"
-              labelPosition="left"
-            >
+              labelPosition="left">
               LOG IN
             </Button>
           </Form.Group>
@@ -107,21 +106,23 @@ const LoginForm = props => {
   const { status, setStatus } = props;
   const form = renderForm(props);
   return (
-    <Grid centered columns={1}>
-      <Grid.Column>
-        <Header
-          className="logo"
-          content="Log in to Quizdini"
-          image={logo}
-          size="large"
-          textAlign="center"
-        />
-        <Segment padded>
-          {status && renderMessage({ ...status, setStatus })}
-          {form}
-          {/*<DisplayFormikState {...props} /> */}
-        </Segment>
-      </Grid.Column>
+    <Grid centered columns={1} padded>
+      <Grid.Row>
+        <Grid.Column>
+          <Header
+            className="logo"
+            content="Log in to Quizdini"
+            image={logo}
+            size="large"
+            textAlign="center"
+          />
+          <Segment padded>
+            {status && renderMessage({ ...status, setStatus })}
+            {form}
+            {/*<DisplayFormikState {...props} /> */}
+          </Segment>
+        </Grid.Column>
+      </Grid.Row>
     </Grid>
   );
 };
@@ -131,8 +132,8 @@ const FormikLoginForm = withFormik({
   validateOnBlur: false,
   validateOnChange: true,
   mapPropsToValues: () => ({
-    username: '',
-    password: ''
+    username: "",
+    password: ""
   }),
   mapPropsToStatus: () => {
     return null;
@@ -146,7 +147,7 @@ const FormikLoginForm = withFormik({
     setStatus(null); // Clear form status
     await onLogin(values, { props, resetForm, setStatus, setSubmitting });
   },
-  displayName: 'LoginForm'
+  displayName: "LoginForm"
 })(LoginForm);
 
 export default FormikLoginForm;

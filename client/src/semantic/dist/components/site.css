@@ -200,10 +200,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
          Site Overrides
 *******************************/
 
-.pusher > .ui.menu {
-  border-radius: 0 !important;
-  margin: 0 !important;
-}
 
 /*-------------------
   Self-Hosted Fonts
@@ -246,7 +242,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 #quizdini {
   height: 100%;
-  background-color: #f3f3f3;
+  background-color: #F3F4F5;
 }
 
 /*-------------------
@@ -262,9 +258,9 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   min-height: 50%;
   background-color: #F3F4F5;
 }
-.pusher > .page-wrapper > .ui.container.page {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+.pusher > .page-wrapper main#login.ui.container {
+  max-width: 480px;
+  margin: 2rem auto 3rem;
 }
 .pusher > #footer {
   -webkit-box-flex: 0;
@@ -550,6 +546,12 @@ svg.icon.chevron-down.closed {
   Disposition
 --------------------*/
 
+
+/* TODO - Move this to semantic overrides */
+.pusher > .ui.menu {
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
 .account-summary .ui.items > .item {
   line-height: 1.2;
   font-size: 1.3rem;
@@ -572,7 +574,6 @@ svg.icon.chevron-down.closed {
   margin: 0;
   padding: 0;
 }
-#login-container.ui.container,
 #lost-container.ui.container,
 #reset-container.ui.container {
   max-width: 480px !important;
