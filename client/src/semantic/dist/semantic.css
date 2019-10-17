@@ -729,7 +729,9 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   flex: 1 0 auto;
   /* Make content grow */
   width: 100%;
-  min-height: 50%;
+  margin-top: 69px;
+  height: auto;
+  /* min-height: 50%; */
   background-color: #F3F4F5;
 }
 
@@ -40273,12 +40275,18 @@ body.pushable > .pusher {
          Site Overrides
 *******************************/
 
+.pushable {
+  overflow-y: hidden;
+}
+
 .pushable > .pusher {
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
 }
 /*!
  * # Fomantic-UI - Sticky

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Container, Grid } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 import Message from "../UI/Message";

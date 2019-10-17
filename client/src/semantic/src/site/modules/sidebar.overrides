@@ -1,7 +1,12 @@
 /*******************************
          Site Overrides
 *******************************/
-.pushable > .pusher {
-  display: flex;
-  flex-direction: column;
+.pushable {
+  overflow-y: hidden;
+  > .pusher {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+  }
 }

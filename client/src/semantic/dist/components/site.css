@@ -255,7 +255,10 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   
 /* Make content grow */
   width: 100%;
-  min-height: 50%;
+  margin-top: 69px;
+  height: auto;
+  
+/* min-height: 50%; */
   background-color: #F3F4F5;
 }
 .pusher > .page-wrapper main#login.ui.container {

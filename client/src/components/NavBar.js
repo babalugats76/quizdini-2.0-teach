@@ -184,6 +184,7 @@ class NavBar extends Component {
           <Menu
             as="nav"
             borderless
+            fixed="top"
             inverted
             size="massive"
           >

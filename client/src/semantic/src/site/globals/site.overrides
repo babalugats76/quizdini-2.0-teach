@@ -58,7 +58,8 @@
   > .page-wrapper {
     flex: 1 0 auto; /* Make content grow */
     width: 100%;
-    min-height: 50%;
+    padding-top: 69px;
+    height: auto;
     background-color: @darkWhite;
     main#login.ui.container {
       max-width: 480px;
