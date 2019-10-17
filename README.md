@@ -71,6 +71,8 @@ Messages need to be standardized, etc.
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Client
   - Page
+    - Revisit dynamic fixed menu idea; see semantic ui demos
+    - Revisit pushable and see if there is a way to improve show hide, including transition
     - New page layout is in place and nixes the fixed header, etc.
     - Update all "pages" to wrap page in `<Container as="main" className="page" />` which will allow for better control over main page area, including margins. This will also allow for full width pages, etc. 
     - Rename child components as necessary, considering the change
@@ -103,7 +105,9 @@ Messages need to be standardized, etc.
       - Profile
       - NavBar
       - UI Components
-  - Semantic UI - Continue migrating work-in-progress style to semantic - Checkbox `line-height` - When appropriate, alter variables and provide overrides - For truly custom work, simply place it in `sites.overrides` in each own themed sections
+  - Semantic UI - Continue migrating work-in-progress style to semantic
+     -Checkbox `line-height`
+     -Remove negative margin from grid
 
 Kay
 
