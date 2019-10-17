@@ -2,13 +2,6 @@
          Site Overrides
 *******************************/
 
-.pusher {
-  > .ui.menu {
-    border-radius: 0 !important;
-    margin: 0 !important;
-  }
-}
-
 /*-------------------
   Self-Hosted Fonts
 --------------------*/
@@ -360,6 +353,15 @@ svg.icon.chevron-down.closed {
 /*-------------------
   Disposition
 --------------------*/
+
+/* TODO - Move this to semantic overrides */
+.pusher {
+  > .ui.menu {
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+}
+
 
 .account-summary {
   .ui.items {
