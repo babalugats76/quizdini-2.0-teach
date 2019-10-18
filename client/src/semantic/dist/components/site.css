@@ -255,14 +255,12 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   
 /* Make content grow */
   width: 100%;
-  margin-top: 69px;
+  padding-top: 69px;
   height: auto;
-  
-/* min-height: 50%; */
   background-color: #F3F4F5;
 }
-.pusher > .page-wrapper main#login.ui.container {
-  max-width: 480px;
+.pusher > .page-wrapper main#login {
+  max-width: 450px;
   margin: 2rem auto 3rem;
 }
 .pusher > #footer {

@@ -729,14 +729,13 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   flex: 1 0 auto;
   /* Make content grow */
   width: 100%;
-  margin-top: 69px;
+  padding-top: 69px;
   height: auto;
-  /* min-height: 50%; */
   background-color: #F3F4F5;
 }
 
-.pusher > .page-wrapper main#login.ui.container {
-  max-width: 480px;
+.pusher > .page-wrapper main#login {
+  max-width: 450px;
   margin: 2rem auto 3rem;
 }
 
@@ -7485,7 +7484,8 @@ a.ui.inverted.black.header.header.header:hover {
 
 .ui.header.logo {
   font-size: 2em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 0 0.75rem;
 }
 /*!
  * # Fomantic-UI - Icon
@@ -21527,7 +21527,7 @@ ol.ui.suffixed.list li:before,
   background: #FFFFFF;
   box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
   margin: 1rem 0;
-  padding: 1em 1em;
+  padding: 0.75em 0.75em;
   border-radius: 0.26666667rem;
   border: 1px solid rgba(34, 36, 38, 0.15);
 }
@@ -21595,8 +21595,8 @@ ol.ui.suffixed.list li:before,
 .ui.page.grid.segment,
 .ui.grid > .row > .ui.segment.column,
 .ui.grid > .ui.segment.column {
-  padding-top: 2em;
-  padding-bottom: 2em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
 }
 
 .ui.grid.segment {
@@ -21613,7 +21613,7 @@ ol.ui.suffixed.list li:before,
 }
 
 .ui[class*="very basic"].table.segment {
-  padding: 1em 1em;
+  padding: 0.75em 0.75em;
 }
 
 /* Tab */
@@ -21644,7 +21644,7 @@ ol.ui.suffixed.list li:before,
   -webkit-animation: none;
   animation: none;
   overflow: visible;
-  padding: 1em 1em;
+  padding: 0.75em 0.75em;
   min-height: 18rem;
   background: #F9FAFB;
   border-color: rgba(34, 36, 38, 0.15);
@@ -21764,7 +21764,7 @@ ol.ui.suffixed.list li:before,
 --------------------*/
 
 .ui.stacked.segment {
-  padding-bottom: 1.4em;
+  padding-bottom: 1.15em;
 }
 
 .ui.stacked.segments:before,

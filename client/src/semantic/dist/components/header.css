@@ -743,5 +743,6 @@ a.ui.inverted.black.header.header.header:hover {
 
 .ui.header.logo {
   font-size: 2em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 0 0.75rem;
 }

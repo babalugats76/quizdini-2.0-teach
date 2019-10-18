@@ -61,8 +61,8 @@
     padding-top: 69px;
     height: auto;
     background-color: @darkWhite;
-    main#login.ui.container {
-      max-width: 480px;
+    main#login {
+      max-width: 450px;
       margin: 2rem auto 3rem;
     }
   }

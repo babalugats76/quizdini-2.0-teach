@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Container } from "semantic-ui-react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import LogoHeader from "../UI/LogoHeader";
 import Message from "../UI/Message";
 import LoginForm from "./LoginForm";
 
@@ -72,10 +72,11 @@ class Login extends Component {
     const form = this.renderForm();
 
     return (
-      <Container id="login" as="main" className="page">
+      <main id="login" className="page">
         {message && this.renderMessage({ ...message })}
+        <LogoHeader>Login to Quizdini</LogoHeader>
         {form}
-      </Container>
+      </main>
     );
   }
 }

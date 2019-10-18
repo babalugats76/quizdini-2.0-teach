@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { Segment, List, Image, Divider } from 'semantic-ui-react';
+import { Divider, Segment, List, Image} from 'semantic-ui-react';
 import Message from '../UI/Message';
 import RouterButton from '../UI/RouterButton';
 import MatchList from './MatchList';
@@ -161,16 +161,14 @@ class Dashboard extends Component {
     const { activeGameIdx, message } = this.state;
 
     return (
-      <div id="dashboard">
+      <main id="dashboard" className="page">
         {this.renderMenu(games, activeGameIdx)}
-        <Segment className="content-wrapper" padded="very">
-          {message && this.renderMessage(message)}
-          {games[activeGameIdx].render({
-            ...this.props,
-            onMatchDelete: matchId => this.handleMatchDelete(matchId)
-          })}
-        </Segment>
-      </div>
+        {message && this.renderMessage(message)}
+        {games[activeGameIdx].render({
+          ...this.props,
+          onMatchDelete: matchId => this.handleMatchDelete(matchId)
+        })}
+      </main>
     );
   }
 }

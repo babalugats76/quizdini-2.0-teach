@@ -18,7 +18,7 @@
   background: #FFFFFF;
   box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
   margin: 1rem 0;
-  padding: 1em 1em;
+  padding: 0.75em 0.75em;
   border-radius: 0.26666667rem;
   border: 1px solid rgba(34, 36, 38, 0.15);
 }
@@ -77,8 +77,8 @@
 .ui.page.grid.segment,
 .ui.grid > .row > .ui.segment.column,
 .ui.grid > .ui.segment.column {
-  padding-top: 2em;
-  padding-bottom: 2em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
 }
 .ui.grid.segment {
   margin: 1rem 0;
@@ -92,7 +92,7 @@
   box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
 }
 .ui[class*="very basic"].table.segment {
-  padding: 1em 1em;
+  padding: 0.75em 0.75em;
 }
 
 /* Tab */
@@ -124,7 +124,7 @@
   -webkit-animation: none;
           animation: none;
   overflow: visible;
-  padding: 1em 1em;
+  padding: 0.75em 0.75em;
   min-height: 18rem;
   background: #F9FAFB;
   border-color: rgba(34, 36, 38, 0.15);
@@ -229,7 +229,7 @@
 --------------------*/
 
 .ui.stacked.segment {
-  padding-bottom: 1.4em;
+  padding-bottom: 1.15em;
 }
 .ui.stacked.segments:before,
 .ui.stacked.segments:after,
