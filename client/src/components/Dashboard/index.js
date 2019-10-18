@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+/*eslint-disable */
 import { Divider, Segment, List, Image} from 'semantic-ui-react';
 import Message from '../UI/Message';
 import RouterButton from '../UI/RouterButton';
 import MatchList from './MatchList';
+/*eslint-disable */
 import logo from '../../logo.svg';
 import SVG from '../UI/SVG';
 

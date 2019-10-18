@@ -246,22 +246,31 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 
 /*-------------------
-  Page
+  Page - fixed
 --------------------*/
 
 .pusher > .page-wrapper {
+  display: -webkit-box;
+  display: flex;
   -webkit-box-flex: 1;
           flex: 1 0 auto;
   
-/* Make content grow */
+/* Make its content grow */
   width: 100%;
-  padding-top: 69px;
   height: auto;
+  padding-top: 69px !important;
+  
+/* account for fixed top menu */
+  -webkit-box-pack: center;
+          justify-content: center;
+  
+/* center the children */
   background-color: #F3F4F5;
 }
 .pusher > .page-wrapper main#login {
   max-width: 450px;
-  margin: 2rem auto 3rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 .pusher > #footer {
   -webkit-box-flex: 0;
@@ -866,6 +875,10 @@ svg.svg-icon {
 
 /* Tablets and smaller */
 @media only screen and (max-width: 767.98px) {
+  .page-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
   .icon-menu-list.ui.horizontal.list {
     -webkit-box-pack: space-evenly;
             justify-content: space-evenly;

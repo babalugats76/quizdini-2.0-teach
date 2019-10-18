@@ -1,5 +1,7 @@
 import React from 'react';
+/*eslint-disable */
 import { Header, Icon, Image, Segment } from 'semantic-ui-react';
+/*eslint-disable */
 import logo from '../../logo.svg';
 import measuringTape from '../../measuring-tape.svg';
 import payToPlay from '../../pay-to-play.svg';

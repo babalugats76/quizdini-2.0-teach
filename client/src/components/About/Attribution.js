@@ -1,4 +1,5 @@
 import React from 'react';
+/*eslint-disable */
 import { Header, Image, Segment } from 'semantic-ui-react';
 export default () => (
   <div class="attribution">

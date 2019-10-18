@@ -51,19 +51,22 @@
 }
 
 /*-------------------
-  Page
+  Page - fixed
 --------------------*/
 
 .pusher {
   > .page-wrapper {
-    flex: 1 0 auto; /* Make content grow */
+    display: flex;
+    flex: 1 0 auto; /* Make its content grow */
     width: 100%;
-    padding-top: 69px;
     height: auto;
+    padding-top: 69px !important; /* account for fixed top menu */
+    justify-content: center; /* center the children */
     background-color: @darkWhite;
     main#login {
       max-width: 450px;
-      margin: 2rem auto 3rem;
+      margin-top: 2rem;
+      margin-bottom: 3rem;
     }
   }
   > #footer {
@@ -75,6 +78,7 @@
     background-color: @secondaryColor;
   }
 }
+
 
 /*-------------------
   Login
@@ -755,6 +759,12 @@ svg.svg-icon {
 /* Tablets and smaller */
 
 @media only screen and (max-width: @largestMobileScreen) {
+
+  .page-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
   .icon-menu-list {
     &.ui.horizontal.list {
       justify-content: space-evenly;
