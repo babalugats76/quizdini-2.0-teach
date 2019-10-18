@@ -13,35 +13,40 @@ const routes = [
     text: 'Philosophy',
     exact: false,
     component: Philosophy,
-    displayOrder: 1
+    displayOrder: 1,
+    id: 'philosophy'
   },
   {
     path: 'faq',
     text: 'FAQ',
     exact: false,
     component: FAQ,
-    displayOrder: 2
+    displayOrder: 2,
+    id: 'faq'
   },
   {
     path: 'attribution',
     text: 'Attribution',
     exact: false,
     component: Attribution,
-    displayOrder: 3
+    displayOrder: 3,
+    id: 'attribution'
   },
   {
     path: 'dedication',
     text: 'Dedication',
     exact: false,
     component: Dedication,
-    displayOrder: 4
+    displayOrder: 4,
+    id: 'dedication'
   },
   {
     path: '',
     text: 'The Team',
     exact: false,
     component: Team,
-    displayOrder: 0
+    displayOrder: 0,
+    id: 'team'
   }
 ];
 
@@ -80,20 +85,18 @@ const index = ({ match, history }) => {
           </Segment>
         </Grid.Column>
         <Grid.Column width={11}>
-          <Segment as="section" className="about" padded="very">
-            <Switch>
-              {routes.map(({ path, exact, component }, idx) => {
-                return (
-                  <Route
-                    key={idx}
-                    path={`${basePath}/${path}`}
-                    exact={exact}
-                    component={component}
-                  />
-                );
-              })}
-            </Switch>
-          </Segment>
+          <Switch>
+            {routes.map(({ path, exact, component: Component, id }, idx) => {
+              return (
+                <Route
+                  key={idx}
+                  path={`${basePath}/${path}`}
+                  exact={exact}
+                  render={() => <Component id={id} />}
+                />
+              );
+            })}
+          </Switch>
         </Grid.Column>
       </Grid>
     </Container>

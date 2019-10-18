@@ -60,7 +60,7 @@
     flex: 1 0 auto; /* Make its content grow */
     width: 100%;
     height: auto;
-    padding: 69px 1rem 0 !important; /* fixed menu, space to the side on mobile */
+    padding-top: 69px;
     justify-content: center; /* center the children */
     background-color: @darkWhite;
     main#login {
@@ -791,5 +791,13 @@ svg.svg-icon {
         }
       }
     }
+  }
+}
+
+
+@media only screen and (min-width: @tabletBreakpoint) {
+  .page-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

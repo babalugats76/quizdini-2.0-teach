@@ -1,10 +1,10 @@
 import React from 'react';
-/*eslint-disable */
-import { Header, Image, Segment } from 'semantic-ui-react';
-export default () => (
-  <div class="dedication">
-    <Header as="h1" attached="top">
-      <Header.Content>Dedication</Header.Content>
+import { Header, Segment } from 'semantic-ui-react';
+export default ({ id }) => (
+  <Segment as="section" id={id} padded="very">
+    <Header size="huge" textAlign="center">
+      Dedication
     </Header>
-  </div>
+    <br />
+  </Segment>
 );

@@ -11,21 +11,24 @@ const routes = [
     text: 'Cookie Policy',
     exact: false,
     component: Cookie,
-    displayOrder: 1
+    displayOrder: 1,
+    id: 'cookies'
   },
   {
     path: 'privacy',
     text: 'Privacy Policy',
     exact: false,
     component: Privacy,
-    displayOrder: 2
+    displayOrder: 2,
+    id: 'privacy'
   },
   {
     path: '',
     text: 'Terms of Use',
     exact: false,
     component: Conditions,
-    displayOrder: 0
+    displayOrder: 0,
+    id: 'conditions'
   }
 ];
 
@@ -64,20 +67,18 @@ const Terms = ({ match, history }) => {
           </Segment>
         </Grid.Column>
         <Grid.Column width={11}>
-          <Segment as="section" padded="very">
-            <Switch>
-              {routes.map(({ path, exact, component }, idx) => {
-                return (
-                  <Route
-                    key={idx}
-                    path={`${basePath}/${path}`}
-                    exact={exact}
-                    component={component}
-                  />
-                );
-              })}
-            </Switch>
-          </Segment>
+          <Switch>
+            {routes.map(({ exact, component: Component, id, path }, idx) => {
+              return (
+                <Route
+                  key={idx}
+                  path={`${basePath}/${path}`}
+                  exact={exact}
+                  render={() => <Component id={id} />}
+                />
+              );
+            })}
+          </Switch>
         </Grid.Column>
       </Grid>
     </Container>

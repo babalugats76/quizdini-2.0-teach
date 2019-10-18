@@ -20,15 +20,13 @@
   Base Sizes
 --------------------*/
 
-/* This is the single variable that controls them all */
 @emSize   : 16px;
-
-/* The size of page text  */
 @fontSize : 16px;
 
 /*-------------------
   Quizdini Colors
 --------------------*/
+
 @quizdiniIndigo      : rgba(113, 28, 255, 1);
 @quizdiniPurple      : rgba(170, 84, 255, 1);
 @quizdiniTurquoise   : rgba(1, 231, 228, 1);
@@ -43,7 +41,6 @@
 --------------------*/
 @udemyColor          : #ea5252;        
 
-
 /*-------------------
        Links
 --------------------*/
@@ -54,4 +51,10 @@
   Padding & Margin
 --------------------*/
 
-@inputVerticalPadding   : @relative9px;
+@inputVerticalPadding: @relative9px;
+
+/*-------------------
+        Page
+--------------------*/
+
+@pageBackground      : @darkWhite;

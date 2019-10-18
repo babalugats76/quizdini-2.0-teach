@@ -1,10 +1,12 @@
-import React from "react";
-import { Header } from "semantic-ui-react";
+import React from 'react';
+import { Header, Segment } from 'semantic-ui-react';
 
-export default () => (
-  <React.Fragment>
-    <Header as="h1">Quizdini Privacy Policy</Header>
-    <Header as="h3">
+export default ({ id }) => (
+  <Segment as="section" id={id} padded="very">
+    <Header size="huge" textAlign="center">
+      Quizdini Privacy Policy
+    </Header>
+    <Header size="medium">
       Effective Date: May 1<sup>st</sup>, 2019
     </Header>
     <p>
@@ -15,10 +17,10 @@ export default () => (
       services. We see the responsible use and protection of your information as
       essential in securing both compliance and your trust in us.
     </p>
-    <Header as="h2">Information We Collect & How We Use It</Header>
+    <Header size="large">Information We Collect & How We Use It</Header>
     <p>
       When you create an account with Quizdini, you will be asked to provide
-      personal information such as <strong>name</strong>,{" "}
+      personal information such as <strong>name</strong>,&nbsp;
       <strong>general location</strong>, and <strong>email address</strong>.
       This will help to create your unique user account, controlled by the
       username and encrypted password of your choice.
@@ -31,14 +33,14 @@ export default () => (
     </p>
     <p>To help... Information about the games you create</p>
     <p>
-      Please note that your{" "}
+      Please note that your&nbsp;
       <strong>credit card information will never be stored</strong>.
     </p>
-    <Header as="h2">Making Changes to Your Information</Header>
+    <Header size="large">Making Changes to Your Information</Header>
     <p>
-      You are welcome and encouraged to <strong>verify the information</strong> provided on your
-      Profile page often and to update it as needed. You can also <strong>change your
-      password</strong> from that page as well.
+      You are welcome and encouraged to <strong>verify the information</strong>{' '}
+      provided on your Profile page often and to update it as needed. You can
+      also <strong>change your password</strong> from that page as well.
     </p>
-  </React.Fragment>
+  </Segment>
 );

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Header, List } from 'semantic-ui-react';
+import { Header, List, Segment } from 'semantic-ui-react';
 
-export default () => (
-  <div id="conditions">
+export default ({ id }) => (
+  <Segment as="section" id={id} padded="very">
     <Header size="huge" textAlign="center">
       Quizdini Terms &amp; Conditions
     </Header>
@@ -22,39 +22,37 @@ export default () => (
       gotta go.
     </p>
     <Header size="large">Basic Terms of Use</Header>
-    <p>
-      <ul>
-        <li>
-          You must be <strong>at least 13 years old</strong> to create or use an
-          account with Quizdini. (You can, and should, feel free to play the
-          games at any age, however.)
-        </li>
-        <li>
-          Quizdini was designed for the creative use of&nbsp;
-          <strong>individual teachers</strong>. No student, class, or group
-          accounts will be allowed.
-        </li>
-        <li>
-          Given the educational intent of this tool, let's keep things&nbsp;
-          <strong>school appropriate</strong>. Users may not post violent,
-          sexual, descriminatory, or otherwise icky content via the site.
-        </li>
-        <li>
-          All content published on this site is propery of Quizdini and/or its
-          content creators and is protected by&nbsp;
-          <strong>international copyright laws</strong>.
-        </li>
-        <li>
-          If you create an account, which we certainly hope you do,&nbsp;
-          <strong>you are solely responsible</strong> for maintaining the
-          confidentiality of your private user details, as well as all
-          activities that occur under your account.
-        </li>
-        <li>
-          We reserve <strong>all rights</strong> to terminate accounts as well
-          as edit or remove content at our sole discretion.
-        </li>
-      </ul>
-    </p>
-  </div>
+    <List as="ul" bulleted>
+      <List.Item as="li">
+        You must be <strong>at least 13 years old</strong> to create or use an
+        account with Quizdini. (You can, and should, feel free to play the games
+        at any age, however.)
+      </List.Item>
+      <List.Item as="li">
+        Quizdini was designed for the creative use of&nbsp;
+        <strong>individual teachers</strong>. No student, class, or group
+        accounts will be allowed.
+      </List.Item>
+      <List.Item as="li">
+        Given the educational intent of this tool, let's keep things&nbsp;
+        <strong>school appropriate</strong>. Users may not post violent, sexual,
+        descriminatory, or otherwise icky content via the site.
+      </List.Item>
+      <List.Item as="li">
+        All content published on this site is propery of Quizdini and/or its
+        content creators and is protected by&nbsp;
+        <strong>international copyright laws</strong>.
+      </List.Item>
+      <List.Item as="li">
+        If you create an account, which we certainly hope you do,&nbsp;
+        <strong>you are solely responsible</strong> for maintaining the
+        confidentiality of your private user details, as well as all activities
+        that occur under your account.
+      </List.Item>
+      <List.Item as="li">
+        We reserve <strong>all rights</strong> to terminate accounts as well as
+        edit or remove content at our sole discretion.
+      </List.Item>
+    </List>
+  </Segment>
 );

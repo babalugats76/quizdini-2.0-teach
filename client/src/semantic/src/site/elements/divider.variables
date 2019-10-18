@@ -2,3 +2,4 @@
     User Variable Overrides
 *******************************/
 @horizontalMargin: 0;
+@sectionMargin: 1rem;

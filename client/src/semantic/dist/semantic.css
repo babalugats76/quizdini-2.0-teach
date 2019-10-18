@@ -484,7 +484,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   min-width: 320px;
-  background: #FFFFFF;
+  background: #F3F4F5;
   font-family: 'Lexend Deca', sans-serif;
   font-size: 16px;
   line-height: 1.4285em;
@@ -732,8 +732,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   /* Make its content grow */
   width: 100%;
   height: auto;
-  padding: 69px 1rem 0 !important;
-  /* fixed menu, space to the side on mobile */
+  padding-top: 69px;
   -webkit-box-pack: center;
   justify-content: center;
   /* center the children */
@@ -1473,6 +1472,13 @@ svg.svg-icon {
   .ui.cards .ui.card.match-card .ui.label {
     display: -webkit-box;
     display: flex;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .page-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 /*!
@@ -6578,8 +6584,8 @@ svg.svg-icon {
 ---------------*/
 
 .ui.section.divider {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 /*--------------
@@ -19510,8 +19516,8 @@ ol.ui.list li,
   table-layout: fixed;
   list-style-type: none;
   list-style-position: outside;
-  padding: 0.1875em 0;
-  line-height: 1.125em;
+  padding: 0.5625em 0;
+  line-height: 1.4285em;
 }
 
 ul.ui.list > li:first-child:after,
@@ -19614,7 +19620,7 @@ ol.ui.list ol li,
 
 .ui.list .list > .item > .content,
 .ui.list > .item > .content {
-  line-height: 1.125em;
+  line-height: 1.4285em;
   color: #1B1C1D;
 }
 
@@ -19737,8 +19743,8 @@ ol.ui.list ol li,
   background-color: transparent;
   list-style-type: none;
   list-style-position: outside;
-  padding: 0.1875em 0;
-  line-height: 1.125em;
+  padding: 0.5625em 0;
+  line-height: 1.4285em;
 }
 
 .ui.menu .ui.list .list > .item:before,
@@ -19799,8 +19805,8 @@ ol.ui.list ol li,
 
 .ui.horizontal.list > .item:first-child,
 .ui.horizontal.list > .item:last-child {
-  padding-top: 0.1875em;
-  padding-bottom: 0.1875em;
+  padding-top: 0.5625em;
+  padding-bottom: 0.5625em;
 }
 
 /* Horizontal List */
@@ -20288,7 +20294,7 @@ ol.ui.suffixed.list li:before,
 .ui.divided.ordered.list .item .list:not(.icon) {
   margin-left: 0;
   margin-right: 0;
-  padding-bottom: 0.1875em;
+  padding-bottom: 0.5625em;
 }
 
 .ui.divided.ordered.list .item .list > .item {
@@ -20321,7 +20327,7 @@ ol.ui.suffixed.list li:before,
   border-top: none;
   border-right: 1px solid rgba(34, 36, 38, 0.15);
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.4285em;
 }
 
 .ui.horizontal.divided.list > .item:last-child {
@@ -20355,8 +20361,8 @@ ol.ui.suffixed.list li:before,
 
 .ui.celled.list > .item:first-child,
 .ui.celled.list > .item:last-child {
-  padding-top: 0.1875em;
-  padding-bottom: 0.1875em;
+  padding-top: 0.5625em;
+  padding-bottom: 0.5625em;
 }
 
 /* Sub Menu */
@@ -20383,7 +20389,7 @@ ol.ui.suffixed.list li:before,
 .ui.celled.bulleted.list .item .list:not(.icon) {
   margin-left: -1.25rem;
   margin-right: -1.25rem;
-  padding-bottom: 0.1875em;
+  padding-bottom: 0.5625em;
 }
 
 /* Celled Ordered */
@@ -20400,7 +20406,7 @@ ol.ui.suffixed.list li:before,
 .ui.celled.ordered.list .item .list:not(.icon) {
   margin-left: 0;
   margin-right: 0;
-  padding-bottom: 0.1875em;
+  padding-bottom: 0.5625em;
 }
 
 .ui.celled.ordered.list .list > .item {
@@ -39756,7 +39762,7 @@ body.pushable.dimmed {
 }
 
 body.pushable > .pusher {
-  background: #FFFFFF;
+  background: #F3F4F5;
 }
 
 /*--------------

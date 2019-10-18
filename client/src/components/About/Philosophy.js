@@ -7,13 +7,19 @@ import measuringTape from '../../measuring-tape.svg';
 import payToPlay from '../../pay-to-play.svg';
 import easel from '../../easel.svg';
 
-export default () => (
-  <div id="philosophy">
-    <Segment basic textAlign="center">
-      <Header as="h1">Philosophy</Header>
-    </Segment>
+export default ({ id }) => (
+  <Segment as="section" id={id} padded="very">
+    <Header size="huge" textAlign="center">
+      Philosophy
+    </Header>
+    <br />
     <div className="belief" style={{ marginBottom: '2rem' }}>
-      <Header as="h2" icon textAlign="center" style={{ margin: '0 auto 1rem' }}>
+      <Header
+        size="large"
+        icon
+        textAlign="center"
+        style={{ margin: '0 auto 1rem' }}
+      >
         <Image
           alt="Pay to Play"
           className="icon easel"
@@ -56,7 +62,12 @@ export default () => (
       </p>
     </div>
     <div className="belief" style={{ marginBottom: '2rem' }}>
-      <Header as="h2" icon textAlign="center" style={{ margin: '0 auto 1rem' }}>
+      <Header
+        size="large"
+        icon
+        textAlign="center"
+        style={{ margin: '0 auto 1rem' }}
+      >
         <Image
           alt="Measuring Tape"
           className="icon measuring-tape"
@@ -98,7 +109,12 @@ export default () => (
       </p>
     </div>
     <div className="belief" style={{ marginBottom: '2rem' }}>
-      <Header as="h2" icon textAlign="center" style={{ margin: '0 auto 1rem' }}>
+      <Header
+        size="large"
+        icon
+        textAlign="center"
+        style={{ margin: '0 auto 1rem' }}
+      >
         <Image
           alt="Pay to Play"
           className="icon pay-to-play"
@@ -136,5 +152,5 @@ export default () => (
         of the EdTech world.
       </p>
     </div>
-  </div>
+  </Segment>
 );

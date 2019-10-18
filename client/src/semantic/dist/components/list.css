@@ -48,8 +48,8 @@ ol.ui.list li,
   table-layout: fixed;
   list-style-type: none;
   list-style-position: outside;
-  padding: 0.1875em 0;
-  line-height: 1.125em;
+  padding: 0.5625em 0;
+  line-height: 1.4285em;
 }
 ul.ui.list > li:first-child:after,
 ol.ui.list > li:first-child:after,
@@ -139,7 +139,7 @@ ol.ui.list ol li,
 /* Content */
 .ui.list .list > .item > .content,
 .ui.list > .item > .content {
-  line-height: 1.125em;
+  line-height: 1.4285em;
   color: #1B1C1D;
 }
 .ui.list .list > .item > .image + .content,
@@ -247,8 +247,8 @@ ol.ui.list ol li,
   background-color: transparent;
   list-style-type: none;
   list-style-position: outside;
-  padding: 0.1875em 0;
-  line-height: 1.125em;
+  padding: 0.5625em 0;
+  line-height: 1.4285em;
 }
 .ui.menu .ui.list .list > .item:before,
 .ui.menu .ui.list > .item:before {
@@ -303,8 +303,8 @@ ol.ui.list ol li,
 /* Padding on all elements */
 .ui.horizontal.list > .item:first-child,
 .ui.horizontal.list > .item:last-child {
-  padding-top: 0.1875em;
-  padding-bottom: 0.1875em;
+  padding-top: 0.5625em;
+  padding-bottom: 0.5625em;
 }
 
 /* Horizontal List */
@@ -737,7 +737,7 @@ ol.ui.suffixed.list li:before,
 .ui.divided.ordered.list .item .list:not(.icon) {
   margin-left: 0;
   margin-right: 0;
-  padding-bottom: 0.1875em;
+  padding-bottom: 0.5625em;
 }
 .ui.divided.ordered.list .item .list > .item {
   padding-left: 1em;
@@ -764,7 +764,7 @@ ol.ui.suffixed.list li:before,
   border-top: none;
   border-right: 1px solid rgba(34, 36, 38, 0.15);
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.4285em;
 }
 .ui.horizontal.divided.list > .item:last-child {
   border-right: none;
@@ -794,8 +794,8 @@ ol.ui.suffixed.list li:before,
 /* Padding on all elements */
 .ui.celled.list > .item:first-child,
 .ui.celled.list > .item:last-child {
-  padding-top: 0.1875em;
-  padding-bottom: 0.1875em;
+  padding-top: 0.5625em;
+  padding-bottom: 0.5625em;
 }
 
 /* Sub Menu */
@@ -817,7 +817,7 @@ ol.ui.suffixed.list li:before,
 .ui.celled.bulleted.list .item .list:not(.icon) {
   margin-left: -1.25rem;
   margin-right: -1.25rem;
-  padding-bottom: 0.1875em;
+  padding-bottom: 0.5625em;
 }
 
 /* Celled Ordered */
@@ -831,7 +831,7 @@ ol.ui.suffixed.list li:before,
 .ui.celled.ordered.list .item .list:not(.icon) {
   margin-left: 0;
   margin-right: 0;
-  padding-bottom: 0.1875em;
+  padding-bottom: 0.5625em;
 }
 .ui.celled.ordered.list .list > .item {
   padding-left: 1em;

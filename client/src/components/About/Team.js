@@ -3,9 +3,12 @@ import { Divider, Grid, Header, Image, Segment } from 'semantic-ui-react';
 
 import SVG from '../UI/SVG';
 
-export default () => (
-  <div id="team">
-    <Header size="huge" textAlign="center">The Team</Header>
+export default ({ id }) => (
+  <Segment as="section" id={id} padded="very">
+    <Header size="huge" textAlign="center">
+      The Team
+    </Header>
+    <br/>
     <Grid className="member" stackable>
       <Grid.Row columns={2}>
         <Grid.Column className="member-title" floated="left">
@@ -99,7 +102,7 @@ export default () => (
             >
               Fort Wayne, IN
             </a>
-            &nbsp;, a Midwestern town equidistant from Chicago, Detroit, and
+            , a Midwestern town equidistant from Chicago, Detroit, and
             Cincinnati.
           </p>
           <p>
@@ -143,5 +146,5 @@ export default () => (
       </Grid.Row>
     </Grid>
     <Divider section clearing />
-  </div>
+  </Segment>
 );

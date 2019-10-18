@@ -1,4 +1,7 @@
 /*******************************
     User Variable Overrides
 *******************************/
-@horizontalDividedLineHeight: 1.4;
+@horizontalDividedLineHeight: @lineHeight;
+/*@itemLineHeight: @relativeBig;*/
+@itemLineHeight: @lineHeight;
+@itemVerticalPadding: @relative9px;
