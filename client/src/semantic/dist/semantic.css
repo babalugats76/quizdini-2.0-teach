@@ -732,26 +732,33 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   /* Make its content grow */
   width: 100%;
   height: auto;
-  padding-top: 69px;
+  padding: 69px 0.5rem 0;
   -webkit-box-pack: center;
   justify-content: center;
   /* center the children */
   background-color: #F3F4F5;
 }
 
-.pusher > .page-wrapper main#login {
-  max-width: 450px;
+.pusher > .page-wrapper .page {
   margin-top: 2rem;
   margin-bottom: 3rem;
   min-height: 50vh;
 }
 
+.pusher > .page-wrapper main#login,
+.pusher > .page-wrapper main#lost,
+.pusher > .page-wrapper main#reset,
+.pusher > .page-wrapper main#checkout {
+  max-width: 450px;
+}
+
+.pusher > .page-wrapper main#register {
+  max-width: 766.98px;
+}
+
 .pusher > .page-wrapper main#about,
 .pusher > .page-wrapper main#terms {
   max-width: 1198px;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  min-height: 50vh;
 }
 
 .pusher > #footer {
@@ -1106,11 +1113,6 @@ svg.icon.chevron-down.closed {
   padding: 0;
 }
 
-#lost-container.ui.container,
-#reset-container.ui.container {
-  max-width: 480px !important;
-}
-
 #password-container.ui.container {
   max-width: 360px !important;
 }
@@ -1169,11 +1171,6 @@ svg.icon.timer {
   }*/
 }
 
-#checkout-container {
-  margin: 0 auto;
-  max-width: 450px;
-}
-
 /* Semantic form styling */
 
 form#match-edit.ui.form .ui.accordion:first-of-type {
@@ -1207,44 +1204,47 @@ form#match-edit.ui.form #match-id {
   margin-top: 0;
 }
 
-form#checkout.ui.form .ui.input {
+#checkout-form.ui.form .ui.input {
   height: 43px !important;
 }
 
-form#checkout.ui.form .ui.basic.segment:first-of-type {
+#checkout-form.ui.form .ui.basic.segment:first-of-type {
   padding-bottom: 0;
   margin-bottom: 0;
 }
 
-form#checkout.ui.form .ui.basic.segment {
+#checkout-form.ui.form .ui.basic.segment {
   padding-top: 0;
   margin-top: 0;
 }
 
-form#checkout.ui.form #credit-card.ui.grid > .row {
+#checkout-form.ui.form #credit-card.ui.grid > .row {
   padding-top: 0.5em;
   padding-bottom: 0.7em;
 }
 
-form#checkout.ui.form #credit-card.ui.grid > .row .column {
+#checkout-form.ui.form #credit-card.ui.grid > .row .column {
   /* column stuff goes here */
 }
 
-form#register > .fields:last-of-type,
+#register-form > .fields:last-of-type,
 form#account > .fields:last-of-type,
-form#lost > .fields:last-of-type {
-  -webkit-box-pack: end;
-  justify-content: flex-end;
+#lost-form > .fields:last-of-type {
+  -webkit-box-pack: center;
+  justify-content: center;
 }
 
 form#password > .fields:last-of-type,
-form#lost > .fields:last-of-type {
-  margin-top: 2em;
+#checkout-form #credit-card.ui.grid > .row:last-child,
+#lost-form > .fields:last-of-type,
+#reset-form > .fields:last-of-type {
+  margin-top: 2rem;
+  margin-bottom: 0;
 }
 
 #login-form > .fields,
 form#password > .fields,
-form#reset > .fields {
+#reset-form > .fields {
   -webkit-box-pack: center;
   justify-content: center;
 }
@@ -1274,9 +1274,9 @@ form#reset > .fields {
   margin-right: 0.3rem;
 }
 
-#register-container .ui.message {
+/*#register-container .ui.message {
   margin-bottom: 2em;
-}
+}*/
 
 /* Table container */
 
@@ -6586,8 +6586,8 @@ svg.svg-icon {
 ---------------*/
 
 .ui.section.divider {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /*--------------

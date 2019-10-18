@@ -60,21 +60,25 @@
     flex: 1 0 auto; /* Make its content grow */
     width: 100%;
     height: auto;
-    padding-top: 69px;
+    padding: 69px 0.5rem 0;
     justify-content: center; /* center the children */
     background-color: @darkWhite;
-    main#login {
-      max-width: 450px;
+    .page {
       margin-top: 2rem;
       margin-bottom: 3rem;
-      min-height: 50vh
+      min-height: 50vh;
     }
-    main#about, main#terms {
-      max-width: @largeMonitorBreakpoint - 2rem;
-      margin-top: 2rem;
-      margin-bottom: 3rem;
-      min-height: 50vh
+    main#login,
+    main#lost,
+    main#reset,
+    main#checkout { max-width: 450px; }
+
+    main#register {
+      max-width: @largestMobileScreen - 1rem;
     }
+    
+    main#about,
+    main#terms { max-width: @largeMonitorBreakpoint - 2rem; }
   }
   > #footer {
     flex: 0 1 auto; /* Makes the footer shrink */
@@ -85,7 +89,6 @@
     background-color: @secondaryColor;
   }
 }
-
 
 /*-------------------
   Login
@@ -374,7 +377,6 @@ svg.icon.chevron-down.closed {
   }
 }
 
-
 .account-summary {
   .ui.items {
     > .item {
@@ -403,11 +405,6 @@ svg.icon.chevron-down.closed {
       padding: 0;
     }
   }
-}
-
-#lost-container.ui.container,
-#reset-container.ui.container {
-  max-width: 480px !important;
 }
 
 #password-container.ui.container {
@@ -471,10 +468,6 @@ svg.icon {
   }*/
 }
 
-#checkout-container {
-  margin: 0 auto;
-  max-width: 450px;
-}
 
 /* Semantic form styling */
 
@@ -516,7 +509,7 @@ form#match-edit.ui.form {
   }
 }
 
-form#checkout {
+#checkout-form {
   &.ui.form {
     .ui.input {
       height: 43px !important;
@@ -543,20 +536,23 @@ form#checkout {
   }
 }
 
-form#register > .fields:last-of-type,
+#register-form > .fields:last-of-type,
 form#account > .fields:last-of-type,
-form#lost > .fields:last-of-type {
-  justify-content: flex-end;
+#lost-form > .fields:last-of-type {
+  justify-content: center;
 }
 
 form#password > .fields:last-of-type,
-form#lost > .fields:last-of-type {
-  margin-top: 2em;
+#checkout-form #credit-card.ui.grid > .row:last-child,
+#lost-form > .fields:last-of-type,
+#reset-form > .fields:last-of-type {
+  margin-top: 2rem;
+  margin-bottom: 0;
 }
 
 #login-form > .fields,
 form#password > .fields,
-form#reset > .fields {
+#reset-form > .fields {
   justify-content: center;
 }
 
@@ -588,9 +584,9 @@ form#reset > .fields {
   }
 }
 
-#register-container .ui.message {
+/*#register-container .ui.message {
   margin-bottom: 2em;
-}
+}*/
 
 /* Table container */
 #match-table-container {
@@ -766,7 +762,6 @@ svg.svg-icon {
 /* Tablets and smaller */
 
 @media only screen and (max-width: @largestMobileScreen) {
-  
   .icon-menu-list {
     &.ui.horizontal.list {
       justify-content: space-evenly;
@@ -795,7 +790,6 @@ svg.svg-icon {
     }
   }
 }
-
 
 @media only screen and (min-width: @tabletBreakpoint) {
   .page-wrapper {

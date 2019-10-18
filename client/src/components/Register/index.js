@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { Container, Grid } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
+import LogoHeader from '../UI/LogoHeader';
 import RegisterForm from './RegisterForm';
 
 class Register extends Component {
@@ -103,11 +104,10 @@ class Register extends Component {
     if (stateLoading || countryLoading) return <div>Loading...</div>;
     if (stateError || countryError) return <div>Error!</div>;
     return (
-      <Grid as={Container} centered columns={1} stackable text>
-        <Grid.Row>
-          <Grid.Column>{form}</Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <Container as="main" className="page" fluid id="register">
+        <LogoHeader>Sign Up for Quizdini</LogoHeader>
+        {form}
+      </Container>
     );
   }
 }

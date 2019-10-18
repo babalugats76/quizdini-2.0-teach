@@ -1,15 +1,13 @@
 import React from 'react';
 import { withFormik } from 'formik';
-import { Form, Grid, Header, Segment } from 'semantic-ui-react';
+import { Form, Segment } from 'semantic-ui-react';
 import * as Yup from 'yup';
 import Button from '../UI/Button';
 import InputText from '../UI/InputText';
 import Message from '../UI/Message';
 
 /* Used to debug behind-the-scenes Formik state, etc. */
-import DisplayFormikState from '../UI/FormikHelper';
-
-import logo from '../../logo.svg';
+/* import DisplayFormikState from '../UI/FormikHelper'; */
 
 /* eslint-disable no-template-curly-in-string */
 const validateReset = Yup.object().shape({
@@ -53,8 +51,7 @@ const ResetForm = props => {
     values
   }) => {
     return (
-      <Form id="reset" onSubmit={handleSubmit} size="large">
-        <Form.Group></Form.Group>
+      <Form id="reset-form" onSubmit={handleSubmit}>
         <Form.Group>
           <InputText
             disabled={isSubmitting}
@@ -116,22 +113,11 @@ const ResetForm = props => {
   const form = renderForm(props);
 
   return (
-    <Grid centered columns={1}>
-      <Grid.Column>
-        <Header
-          className="logo"
-          content="Reset Password"
-          image={logo}
-          size="large"
-          textAlign="center"
-        />
-        <Segment padded>
-          {status && renderMessage({ ...status, setStatus })}
-          {form}
-          <DisplayFormikState {...props} />
-        </Segment>
-      </Grid.Column>
-    </Grid>
+    <Segment padded>
+      {status && renderMessage({ ...status, setStatus })}
+      {form}
+      {/*<DisplayFormikState {...props} /> */}
+    </Segment>
   );
 };
 

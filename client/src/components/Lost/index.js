@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { Container, Grid } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
+import LogoHeader from '../UI/LogoHeader';
 import LostForm from './LostForm';
 
 class Lost extends Component {
@@ -27,15 +28,15 @@ class Lost extends Component {
     const { recovery: { error, message } = {} } = this.props; // Get latest version of recovery props (mapped from state)
     if (error) {
       await setStatus({
-        color: "red",
-        content: error.message || "",
-        header: "Credential Recovery Error"
+        color: 'red',
+        content: error.message || '',
+        header: 'Credential Recovery Error'
       });
     } else {
       await setStatus({
-        color: "green",
-        content: message || "",
-        header: "Success!"
+        color: 'green',
+        content: message || '',
+        header: 'Success!'
       });
     }
     return setSubmitting(false);
@@ -55,18 +56,10 @@ class Lost extends Component {
     const form = this.renderForm();
 
     return (
-      <Grid
-        id="lost-container"
-        as={Container}
-        centered
-        columns={1}
-        stackable
-        text
-      >
-        <Grid.Row>
-          <Grid.Column>{form}</Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <Container as="main" className="page" id="lost" fluid>
+        <LogoHeader>Lost Credentials</LogoHeader>
+        {form}
+      </Container>
     );
   }
 }

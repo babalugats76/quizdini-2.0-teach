@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 /***
  * Used for external links, not internal links, e.g, react-router
  */
 const ExternalLink = ({ children, href, target, ...rest }) => (
-  <a href={href} target={target} {...rest}>
+  <a href={href} rel="noopener noreferrer" target={target} {...rest}>
     {children}
   </a>
 );
@@ -18,7 +18,7 @@ ExternalLink.propTypes = {
 };
 
 ExternalLink.defaultProps = {
-  target: "_blank"
+  target: '_blank'
 };
 
 export default ExternalLink;

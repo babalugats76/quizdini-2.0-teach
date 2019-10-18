@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { Elements, StripeProvider } from 'react-stripe-elements';
+import { Container } from 'semantic-ui-react';
+import LogoHeader from '../UI/LogoHeader';
 import CheckoutForm from './CheckoutForm';
 
 const elementOptions = {
@@ -136,7 +138,14 @@ class Checkout extends Component {
   render() {
     const { loading } = this.props;
     const form = this.renderForm();
-    return !loading && form; // loading is used to force form rerender on navigation
+    return (
+      !loading && (
+        <Container as="main" className="page" fluid id="checkout">
+          <LogoHeader>Purchase Credits</LogoHeader>
+          {form}
+        </Container>
+      )
+    ); // loading is used to force form rerender on navigation
   }
 }
 

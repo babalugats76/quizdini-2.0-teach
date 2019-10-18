@@ -1,15 +1,13 @@
 import React from 'react';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import { Divider, Form, Grid, Header, Segment } from 'semantic-ui-react';
+import { Divider, Form, Header, Segment } from 'semantic-ui-react';
 import Icon from '../UI/Icon';
 import InputText from '../UI/InputText';
 import RadioGroup from '../UI/RadioGroup';
 import Button from '../UI/Button';
 import Message from '../UI/Message';
 //import DisplayFormikState from '../UI/FormikHelper';
-
-import logo from '../../logo.svg';
 
 const validateLost = Yup.object().shape({
   email: Yup.string()
@@ -66,7 +64,7 @@ const LostForm = props => {
   }) => {
     return (
       <Segment basic textAlign="left">
-        <Form id="lost" onSubmit={handleSubmit} size="large">
+        <Form id="lost-form" onSubmit={handleSubmit}>
           <Form.Group>
             <InputText
               disabled={isSubmitting}
@@ -90,7 +88,7 @@ const LostForm = props => {
             </Header>
           </Divider>
           <Form.Group grouped={true}>
-            <strong>I need help...</strong>
+            <Header size="small">I need help...</Header>
             <RadioGroup
               disabled={isSubmitting}
               name="recoveryType"
@@ -123,22 +121,11 @@ const LostForm = props => {
   const { status, setStatus } = props;
   const form = renderForm(props);
   return (
-    <Grid centered columns={1}>
-      <Grid.Column>
-        <Header
-          className="logo"
-          content="Lost Credentials"
-          image={logo}
-          size="large"
-          textAlign="center"
-        />
-        <Segment padded>
-          {status && renderMessage({ ...status, setStatus })}
-          {form}
-          {/* <DisplayFormikState {...props} /> */}
-        </Segment>
-      </Grid.Column>
-    </Grid>
+    <Segment padded>
+      {status && renderMessage({ ...status, setStatus })}
+      {form}
+      {/* <DisplayFormikState {...props} /> */}
+    </Segment>
   );
 };
 

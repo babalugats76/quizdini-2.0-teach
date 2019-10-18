@@ -1,10 +1,11 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import * as actions from "../../actions";
-import LogoHeader from "../UI/LogoHeader";
-import Message from "../UI/Message";
-import LoginForm from "./LoginForm";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
+import { Container } from 'semantic-ui-react';
+import LogoHeader from '../UI/LogoHeader';
+import Message from '../UI/Message';
+import LoginForm from './LoginForm';
 
 class Login extends Component {
   // bind this way due to async/await arrow function bug in Babel
@@ -14,7 +15,7 @@ class Login extends Component {
     super(props);
     const { location: { state: { message } = {} } = {}, history } = this.props;
     this.state = { message };
-    history.replace({ pathname: "/login", state: {} });
+    history.replace({ pathname: '/login', state: {} });
   }
 
   handleDismiss = e => {
@@ -48,15 +49,15 @@ class Login extends Component {
 
     if (error) {
       await setStatus({
-        header: "Authentication Error",
-        content: error.message || "",
-        color: "red"
+        header: 'Authentication Error',
+        content: error.message || '',
+        color: 'red'
       });
       return setSubmitting(false);
     }
 
     await fetchAuth();
-    return this.props.history.push("/dashboard");
+    return this.props.history.push('/dashboard');
   }
 
   renderForm = () => {
@@ -72,11 +73,11 @@ class Login extends Component {
     const form = this.renderForm();
 
     return (
-      <main id="login" className="page">
+      <Container as="main" className="page" fluid id="login">
         {message && this.renderMessage({ ...message })}
         <LogoHeader>Login to Quizdini</LogoHeader>
         {form}
-      </main>
+      </Container>
     );
   }
 }

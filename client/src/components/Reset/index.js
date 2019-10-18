@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { Container, Grid } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
+import LogoHeader from '../UI/LogoHeader';
 import ResetForm from './ResetForm';
 
 class Reset extends Component {
@@ -53,7 +54,6 @@ class Reset extends Component {
     const { newPassword } = values; // Get form values (for reset)
     const { setSubmitting, setStatus } = actions; // Get Formik helper functions, etc.
     await resetPassword({ newPassword, secret }); // Call Redux action passing registration values
-    console.log(this.props.password);
     const { password: { error, message } = {} } = this.props; // Get latest version of password props (mapped from state)
     if (error) {
       const {
@@ -95,18 +95,10 @@ class Reset extends Component {
     return (
       !error &&
       !loading && (
-        <Grid
-          id="reset-container"
-          as={Container}
-          centered
-          columns={1}
-          stackable
-          text
-        >
-          <Grid.Row>
-            <Grid.Column>{form}</Grid.Column>
-          </Grid.Row>
-        </Grid>
+        <Container as="main" className="page" fluid id="reset">
+          <LogoHeader>Reset Password</LogoHeader>
+          {form}
+        </Container>
       )
     );
   }
