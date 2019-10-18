@@ -74,7 +74,14 @@ const Terms = ({ match, history }) => {
                   key={idx}
                   path={`${basePath}/${path}`}
                   exact={exact}
-                  render={() => <Component id={id} />}
+                  render={() => (
+                    <Component
+                      as="section"
+                      className="terms"
+                      id={id}
+                      padded="very"
+                    />
+                  )}
                 />
               );
             })}

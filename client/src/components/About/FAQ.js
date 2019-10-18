@@ -1,9 +1,8 @@
 import React from 'react';
 import { Header, Segment } from 'semantic-ui-react';
-import Icon from '../UI/Icon';
 
-export default ({ id }) => (
-  <Segment as="section" id={id} padded="very">
+export default props => (
+  <Segment {...props}>
     <Header size="huge" textAlign="center">
       Frequently Asked Questions
     </Header>

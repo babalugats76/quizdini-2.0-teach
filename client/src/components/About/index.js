@@ -92,7 +92,14 @@ const index = ({ match, history }) => {
                   key={idx}
                   path={`${basePath}/${path}`}
                   exact={exact}
-                  render={() => <Component id={id} />}
+                  render={() => (
+                    <Component
+                      as="section"
+                      className="about"
+                      id={id}
+                      padded="very"
+                    />
+                  )}
                 />
               );
             })}

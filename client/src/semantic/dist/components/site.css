@@ -269,12 +269,14 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   max-width: 450px;
   margin-top: 2rem;
   margin-bottom: 3rem;
+  min-height: 50vh;
 }
 .pusher > .page-wrapper main#about,
 .pusher > .page-wrapper main#terms {
   max-width: 1198px;
   margin-top: 2rem;
   margin-bottom: 3rem;
+  min-height: 50vh;
 }
 .pusher > #footer {
   -webkit-box-flex: 0;
@@ -700,13 +702,13 @@ form#password > .fields:last-of-type,
 form#lost > .fields:last-of-type {
   margin-top: 2em;
 }
-form#login > .fields,
+#login-form > .fields,
 form#password > .fields,
 form#reset > .fields {
   -webkit-box-pack: center;
           justify-content: center;
 }
-form#login a#lost:hover {
+#login-form a#lost:hover {
   text-decoration: underline;
 }
 .ui.form .ui.segments .segment,

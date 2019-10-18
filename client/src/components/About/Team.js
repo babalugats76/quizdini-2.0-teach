@@ -3,12 +3,12 @@ import { Divider, Grid, Header, Image, Segment } from 'semantic-ui-react';
 
 import SVG from '../UI/SVG';
 
-export default ({ id }) => (
-  <Segment as="section" id={id} padded="very">
+export default props => (
+  <Segment {...props}>
     <Header size="huge" textAlign="center">
       The Team
     </Header>
-    <br/>
+    <br />
     <Grid className="member" stackable>
       <Grid.Row columns={2}>
         <Grid.Column className="member-title" floated="left">

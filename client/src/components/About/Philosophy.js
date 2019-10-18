@@ -7,8 +7,8 @@ import measuringTape from '../../measuring-tape.svg';
 import payToPlay from '../../pay-to-play.svg';
 import easel from '../../easel.svg';
 
-export default ({ id }) => (
-  <Segment as="section" id={id} padded="very">
+export default props => (
+  <Segment {...props}>
     <Header size="huge" textAlign="center">
       Philosophy
     </Header>

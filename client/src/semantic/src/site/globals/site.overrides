@@ -67,11 +67,13 @@
       max-width: 450px;
       margin-top: 2rem;
       margin-bottom: 3rem;
+      min-height: 50vh
     }
     main#about, main#terms {
       max-width: @largeMonitorBreakpoint - 2rem;
       margin-top: 2rem;
       margin-bottom: 3rem;
+      min-height: 50vh
     }
   }
   > #footer {
@@ -552,13 +554,13 @@ form#lost > .fields:last-of-type {
   margin-top: 2em;
 }
 
-form#login > .fields,
+#login-form > .fields,
 form#password > .fields,
 form#reset > .fields {
   justify-content: center;
 }
 
-form#login {
+#login-form {
   a#lost {
     &:hover {
       text-decoration: underline;

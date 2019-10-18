@@ -1,8 +1,8 @@
 import React from 'react';
 import { Header, Segment } from 'semantic-ui-react';
 
-export default ({ id }) => (
-  <Segment as="section" id={id} padded="very">
+export default props => (
+  <Segment {...props}>
     <Header size="huge" textAlign="center">
       Quizdini Cookie Policy
     </Header>
