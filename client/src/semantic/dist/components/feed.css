@@ -37,7 +37,7 @@
   -webkit-box-direction: normal;
           flex-direction: row;
   width: 100%;
-  padding: 0.2rem 0;
+  padding: 0.1875rem 0;
   margin: 0;
   background: none;
   border-top: none;
@@ -76,7 +76,7 @@
   border-radius: 500rem;
 }
 .ui.feed > .event > .label + .content {
-  margin: 0.5em 0 0.33333333em 1.13333333em;
+  margin: 0.5em 0 0.3125em 1.125em;
 }
 
 /*--------------
@@ -163,7 +163,7 @@
   display: inline-block;
   float: none;
   font-weight: normal;
-  font-size: 0.86666667em;
+  font-size: 0.875em;
   font-style: normal;
   margin: 0 0 0 0.5em;
   padding: 0;
@@ -203,7 +203,7 @@
 
 .ui.feed > .event > .content .meta {
   display: inline-block;
-  font-size: 0.86666667em;
+  font-size: 0.875em;
   margin: 0.5em 0 0;
   background: none;
   border: none;
@@ -266,13 +266,13 @@
 *******************************/
 
 .ui.small.feed {
-  font-size: 0.93333333rem;
+  font-size: 0.9375rem;
 }
 .ui.feed {
   font-size: 1rem;
 }
 .ui.large.feed {
-  font-size: 1.13333333rem;
+  font-size: 1.125rem;
 }
 
 /*------------------

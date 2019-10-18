@@ -87,51 +87,51 @@
 /* Sizes */
 .ui.mini.loader:before,
 .ui.mini.loader:after {
-  width: 0.93333333rem;
-  height: 0.93333333rem;
-  margin: 0 0 0 -0.46666667rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  margin: 0 0 0 -0.4375rem;
 }
 .ui.tiny.loader:before,
 .ui.tiny.loader:after {
-  width: 1.06666667rem;
-  height: 1.06666667rem;
-  margin: 0 0 0 -0.53333333rem;
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0 0 -0.5rem;
 }
 .ui.small.loader:before,
 .ui.small.loader:after {
-  width: 1.6rem;
-  height: 1.6rem;
-  margin: 0 0 0 -0.8rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 0 0 -0.75rem;
 }
 .ui.loader:before,
 .ui.loader:after {
-  width: 2.13333333rem;
-  height: 2.13333333rem;
-  margin: 0 0 0 -1.06666667rem;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0 0 -1rem;
 }
 .ui.large.loader:before,
 .ui.large.loader:after {
-  width: 3.2rem;
-  height: 3.2rem;
-  margin: 0 0 0 -1.6rem;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 0 0 -1.5rem;
 }
 .ui.big.loader:before,
 .ui.big.loader:after {
-  width: 3.46666667rem;
-  height: 3.46666667rem;
-  margin: 0 0 0 -1.73333333rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: 0 0 0 -1.625rem;
 }
 .ui.huge.loader:before,
 .ui.huge.loader:after {
-  width: 3.86666667rem;
-  height: 3.86666667rem;
-  margin: 0 0 0 -1.93333333rem;
+  width: 3.625rem;
+  height: 3.625rem;
+  margin: 0 0 0 -1.8125rem;
 }
 .ui.massive.loader:before,
 .ui.massive.loader:after {
-  width: 4.26666667rem;
-  height: 4.26666667rem;
-  margin: 0 0 0 -2.13333333rem;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 0 0 -2rem;
 }
 
 /*-------------------
@@ -209,78 +209,78 @@
 
 /* Loader */
 .ui.mini.loader {
-  width: 0.93333333rem;
-  height: 0.93333333rem;
-  font-size: 0.8em;
+  width: 0.875rem;
+  height: 0.875rem;
+  font-size: 0.8125em;
 }
 .ui.tiny.loader {
-  width: 1.06666667rem;
-  height: 1.06666667rem;
-  font-size: 0.86666667em;
+  width: 1rem;
+  height: 1rem;
+  font-size: 0.875em;
 }
 .ui.small.loader {
-  width: 1.6rem;
-  height: 1.6rem;
-  font-size: 0.93333333em;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.9375em;
 }
 .ui.loader {
-  width: 2.13333333rem;
-  height: 2.13333333rem;
+  width: 2rem;
+  height: 2rem;
   font-size: 1em;
 }
 .ui.large.loader {
-  width: 3.2rem;
-  height: 3.2rem;
-  font-size: 1.13333333em;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.125em;
 }
 .ui.big.loader {
-  width: 3.46666667rem;
-  height: 3.46666667rem;
-  font-size: 1.26666667em;
+  width: 3.25rem;
+  height: 3.25rem;
+  font-size: 1.3125em;
 }
 .ui.huge.loader {
-  width: 3.86666667rem;
-  height: 3.86666667rem;
-  font-size: 1.4em;
+  width: 3.625rem;
+  height: 3.625rem;
+  font-size: 1.4375em;
 }
 .ui.massive.loader {
-  width: 4.26666667rem;
-  height: 4.26666667rem;
-  font-size: 1.73333333em;
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.6875em;
 }
 
 /* Text Loader */
 .ui.mini.text.loader {
-  min-width: 0.93333333rem;
-  padding-top: 1.73333333rem;
+  min-width: 0.875rem;
+  padding-top: 1.6875rem;
 }
 .ui.tiny.text.loader {
-  min-width: 1.06666667rem;
-  padding-top: 1.86666667rem;
+  min-width: 1rem;
+  padding-top: 1.8125rem;
 }
 .ui.small.text.loader {
-  min-width: 1.6rem;
-  padding-top: 2.4rem;
+  min-width: 1.5rem;
+  padding-top: 2.3125rem;
 }
 .ui.text.loader {
-  min-width: 2.13333333rem;
-  padding-top: 2.93333333rem;
+  min-width: 2rem;
+  padding-top: 2.8125rem;
 }
 .ui.large.text.loader {
-  min-width: 3.2rem;
-  padding-top: 4rem;
+  min-width: 3rem;
+  padding-top: 3.8125rem;
 }
 .ui.big.text.loader {
-  min-width: 3.46666667rem;
-  padding-top: 4.26666667rem;
+  min-width: 3.25rem;
+  padding-top: 4.0625rem;
 }
 .ui.huge.text.loader {
-  min-width: 3.86666667rem;
-  padding-top: 4.66666667rem;
+  min-width: 3.625rem;
+  padding-top: 4.4375rem;
 }
 .ui.massive.text.loader {
-  min-width: 4.26666667rem;
-  padding-top: 5.06666667rem;
+  min-width: 4rem;
+  padding-top: 4.8125rem;
 }
 
 /*-------------------

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, Link, matchPath } from 'react-router-dom';
-import { Segment, Menu, Grid } from 'semantic-ui-react';
+import { Container, Grid, Menu, Segment } from 'semantic-ui-react';
 import Conditions from './Conditions';
 import Cookie from './Cookie';
 import Privacy from './Privacy';
@@ -40,45 +40,47 @@ const Terms = ({ match, history }) => {
   });
 
   return (
-    <Grid stackable columns={2}>
-      <Grid.Column width={5}>
-        <Segment textAlign="center">
-          <Menu fluid vertical>
-            {routes
-              .concat()
-              .sort((a, b) => a.displayOrder - b.displayOrder)
-              .map(({ text, path }, idx) => {
+    <Container as="main" className="page" id="terms" fluid>
+      <Grid stackable columns={2}>
+        <Grid.Column width={5}>
+          <Segment textAlign="center">
+            <Menu fluid vertical>
+              {routes
+                .concat()
+                .sort((a, b) => a.displayOrder - b.displayOrder)
+                .map(({ text, path }, idx) => {
+                  return (
+                    <Menu.Item
+                      key={idx}
+                      as={Link}
+                      to={`${basePath}/${path}`}
+                      active={path === activePath}
+                    >
+                      {text}
+                    </Menu.Item>
+                  );
+                })}
+            </Menu>
+          </Segment>
+        </Grid.Column>
+        <Grid.Column width={11}>
+          <Segment as="section" padded="very">
+            <Switch>
+              {routes.map(({ path, exact, component }, idx) => {
                 return (
-                  <Menu.Item
+                  <Route
                     key={idx}
-                    as={Link}
-                    to={`${basePath}/${path}`}
-                    active={path === activePath}
-                  >
-                    {text}
-                  </Menu.Item>
+                    path={`${basePath}/${path}`}
+                    exact={exact}
+                    component={component}
+                  />
                 );
               })}
-          </Menu>
-        </Segment>
-      </Grid.Column>
-      <Grid.Column width={11}>
-        <Segment as="section" padded="very">
-          <Switch>
-            {routes.map(({ path, exact, component }, idx) => {
-              return (
-                <Route
-                  key={idx}
-                  path={`${basePath}/${path}`}
-                  exact={exact}
-                  component={component}
-                />
-              );
-            })}
-          </Switch>
-        </Segment>
-      </Grid.Column>
-    </Grid>
+            </Switch>
+          </Segment>
+        </Grid.Column>
+      </Grid>
+    </Container>
   );
 };
 

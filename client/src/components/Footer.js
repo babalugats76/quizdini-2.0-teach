@@ -1,9 +1,7 @@
-import React from "react";
-import { Segment, Container, List, Grid } from "semantic-ui-react";
-import { Link } from "react-router-dom";
-import Icon from "./UI/Icon";
-
-/*Need to fix line height*/
+import React from 'react';
+import { Container, Grid, List, Segment } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import Icon from './UI/Icon';
 
 const Footer = props => {
   return (
@@ -21,7 +19,7 @@ const Footer = props => {
                 </List.Item>
                 <List.Item
                   key="contact"
-                  href="mailto:jsmarglin@gmail.com"
+                  href="mailto:james@colestock.com"
                   tabIndex={-1}
                 >
                   Contact Us
@@ -34,23 +32,23 @@ const Footer = props => {
                   as="a"
                   href="https://twitter.com/quizdini"
                   key="twitter"
-                  style={{ fill: '#ffffff'}}
+                  style={{ fill: '#ffffff' }}
                   tabIndex={-1}
                   target="_blank"
                   title="Follow us on Twitter"
                 >
-                  <Icon icon="twitter" size={30}/>
+                  <Icon icon="twitter" size={30} />
                 </List.Item>
                 <List.Item
                   as="a"
                   href="https://www.youtube.com/user/quizdini"
                   key="youtube"
-                  style={{ fill: '#ffffff'}}
+                  style={{ fill: '#ffffff' }}
                   tabIndex={-1}
                   target="_blank"
                   title="Check us out on YouTube"
                 >
-                  <Icon icon="youtube" size={30}/>
+                  <Icon icon="youtube" size={30} />
                 </List.Item>
               </List>
             </Grid.Column>

@@ -5,13 +5,11 @@ import SVG from '../UI/SVG';
 
 export default () => (
   <div id="team">
-    <Segment basic textAlign="center">
-      <Header as="h1">The Team</Header>
-    </Segment>
+    <Header size="huge" textAlign="center">The Team</Header>
     <Grid className="member" stackable>
       <Grid.Row columns={2}>
         <Grid.Column className="member-title" floated="left">
-          <Header as="h2">
+          <Header size="large">
             James Colestock
             <Header.Subheader>Creator &bull; Developer</Header.Subheader>
           </Header>

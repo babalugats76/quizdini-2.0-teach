@@ -18,7 +18,7 @@ body {
   height: 100%;
 }
 html {
-  font-size: 15px;
+  font-size: 16px;
 }
 body {
   margin: 0;
@@ -27,7 +27,7 @@ body {
   min-width: 320px;
   background: #FFFFFF;
   font-family: 'Lexend Deca', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.4285em;
   color: #1B1C1D;
 }
@@ -258,9 +258,9 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 /* Make its content grow */
   width: 100%;
   height: auto;
-  padding-top: 69px !important;
+  padding: 69px 1rem 0 !important;
   
-/* account for fixed top menu */
+/* fixed menu, space to the side on mobile */
   -webkit-box-pack: center;
           justify-content: center;
   
@@ -269,6 +269,12 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 .pusher > .page-wrapper main#login {
   max-width: 450px;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+.pusher > .page-wrapper main#about,
+.pusher > .page-wrapper main#terms {
+  max-width: 1198px;
   margin-top: 2rem;
   margin-bottom: 3rem;
 }
@@ -875,10 +881,6 @@ svg.svg-icon {
 
 /* Tablets and smaller */
 @media only screen and (max-width: 767.98px) {
-  .page-wrapper {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
   .icon-menu-list.ui.horizontal.list {
     -webkit-box-pack: space-evenly;
             justify-content: space-evenly;

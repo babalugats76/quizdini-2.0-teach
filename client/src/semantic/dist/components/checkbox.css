@@ -68,7 +68,7 @@
   height: 17px;
   content: '';
   background: #FFFFFF;
-  border-radius: 0.2rem;
+  border-radius: 0.1875rem;
   -webkit-transition: border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease, -webkit-transform 0.1s ease;
   transition: border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease, -webkit-transform 0.1s ease;
   transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease;
@@ -391,7 +391,7 @@
   top: 0.4rem;
   background-color: rgba(0, 0, 0, 0.05);
   width: 3.5rem;
-  height: 0.2rem;
+  height: 0.1875rem;
   border-radius: 500rem;
   -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
@@ -683,16 +683,16 @@
 ---------------------*/
 
 .ui.mini.checkbox {
-  font-size: 0.8em;
+  font-size: 0.8125em;
 }
 .ui.tiny.checkbox {
-  font-size: 0.86666667em;
+  font-size: 0.875em;
 }
 .ui.small.checkbox {
-  font-size: 0.93333333em;
+  font-size: 0.9375em;
 }
 .ui.large.checkbox {
-  font-size: 1.13333333em;
+  font-size: 1.125em;
 }
 .ui.large.form .checkbox:not(.slider):not(.toggle):not(.radio) .box:after,
 .ui.large.checkbox:not(.slider):not(.toggle):not(.radio) .box:after,
@@ -702,8 +702,8 @@
 .ui.large.checkbox:not(.slider):not(.toggle):not(.radio) label:after,
 .ui.large.form .checkbox:not(.slider):not(.toggle):not(.radio) label:before,
 .ui.large.checkbox:not(.slider):not(.toggle):not(.radio) label:before {
-  -webkit-transform: scale(1.13333333);
-          transform: scale(1.13333333);
+  -webkit-transform: scale(1.125);
+          transform: scale(1.125);
   -webkit-transform-origin: left;
           transform-origin: left;
 }
@@ -711,8 +711,8 @@
 .ui.large.checkbox.radio .box:before,
 .ui.large.form .checkbox.radio label:before,
 .ui.large.checkbox.radio label:before {
-  -webkit-transform: scale(1.13333333);
-          transform: scale(1.13333333);
+  -webkit-transform: scale(1.125);
+          transform: scale(1.125);
   -webkit-transform-origin: left;
           transform-origin: left;
 }
@@ -720,14 +720,14 @@
 .ui.large.checkbox.radio .box:after,
 .ui.large.form .checkbox.radio label:after,
 .ui.large.checkbox.radio label:after {
-  -webkit-transform: scale(0.56666667);
-          transform: scale(0.56666667);
+  -webkit-transform: scale(0.5625);
+          transform: scale(0.5625);
   -webkit-transform-origin: left;
           transform-origin: left;
-  left: 0.33333333em;
+  left: 0.33125em;
 }
 .ui.big.checkbox {
-  font-size: 1.26666667em;
+  font-size: 1.3125em;
 }
 .ui.big.form .checkbox:not(.slider):not(.toggle):not(.radio) .box:after,
 .ui.big.checkbox:not(.slider):not(.toggle):not(.radio) .box:after,
@@ -737,8 +737,8 @@
 .ui.big.checkbox:not(.slider):not(.toggle):not(.radio) label:after,
 .ui.big.form .checkbox:not(.slider):not(.toggle):not(.radio) label:before,
 .ui.big.checkbox:not(.slider):not(.toggle):not(.radio) label:before {
-  -webkit-transform: scale(1.26666667);
-          transform: scale(1.26666667);
+  -webkit-transform: scale(1.3125);
+          transform: scale(1.3125);
   -webkit-transform-origin: left;
           transform-origin: left;
 }
@@ -746,8 +746,8 @@
 .ui.big.checkbox.radio .box:before,
 .ui.big.form .checkbox.radio label:before,
 .ui.big.checkbox.radio label:before {
-  -webkit-transform: scale(1.26666667);
-          transform: scale(1.26666667);
+  -webkit-transform: scale(1.3125);
+          transform: scale(1.3125);
   -webkit-transform-origin: left;
           transform-origin: left;
 }
@@ -755,14 +755,14 @@
 .ui.big.checkbox.radio .box:after,
 .ui.big.form .checkbox.radio label:after,
 .ui.big.checkbox.radio label:after {
-  -webkit-transform: scale(0.63333333);
-          transform: scale(0.63333333);
+  -webkit-transform: scale(0.65625);
+          transform: scale(0.65625);
   -webkit-transform-origin: left;
           transform-origin: left;
-  left: 0.36666667em;
+  left: 0.378125em;
 }
 .ui.huge.checkbox {
-  font-size: 1.4em;
+  font-size: 1.4375em;
 }
 .ui.huge.form .checkbox:not(.slider):not(.toggle):not(.radio) .box:after,
 .ui.huge.checkbox:not(.slider):not(.toggle):not(.radio) .box:after,
@@ -772,8 +772,8 @@
 .ui.huge.checkbox:not(.slider):not(.toggle):not(.radio) label:after,
 .ui.huge.form .checkbox:not(.slider):not(.toggle):not(.radio) label:before,
 .ui.huge.checkbox:not(.slider):not(.toggle):not(.radio) label:before {
-  -webkit-transform: scale(1.4);
-          transform: scale(1.4);
+  -webkit-transform: scale(1.4375);
+          transform: scale(1.4375);
   -webkit-transform-origin: left;
           transform-origin: left;
 }
@@ -781,8 +781,8 @@
 .ui.huge.checkbox.radio .box:before,
 .ui.huge.form .checkbox.radio label:before,
 .ui.huge.checkbox.radio label:before {
-  -webkit-transform: scale(1.4);
-          transform: scale(1.4);
+  -webkit-transform: scale(1.4375);
+          transform: scale(1.4375);
   -webkit-transform-origin: left;
           transform-origin: left;
 }
@@ -790,14 +790,14 @@
 .ui.huge.checkbox.radio .box:after,
 .ui.huge.form .checkbox.radio label:after,
 .ui.huge.checkbox.radio label:after {
-  -webkit-transform: scale(0.7);
-          transform: scale(0.7);
+  -webkit-transform: scale(0.71875);
+          transform: scale(0.71875);
   -webkit-transform-origin: left;
           transform-origin: left;
-  left: 0.4em;
+  left: 0.409375em;
 }
 .ui.massive.checkbox {
-  font-size: 1.73333333em;
+  font-size: 1.6875em;
 }
 .ui.massive.form .checkbox:not(.slider):not(.toggle):not(.radio) .box:after,
 .ui.massive.checkbox:not(.slider):not(.toggle):not(.radio) .box:after,
@@ -807,8 +807,8 @@
 .ui.massive.checkbox:not(.slider):not(.toggle):not(.radio) label:after,
 .ui.massive.form .checkbox:not(.slider):not(.toggle):not(.radio) label:before,
 .ui.massive.checkbox:not(.slider):not(.toggle):not(.radio) label:before {
-  -webkit-transform: scale(1.73333333);
-          transform: scale(1.73333333);
+  -webkit-transform: scale(1.6875);
+          transform: scale(1.6875);
   -webkit-transform-origin: left;
           transform-origin: left;
 }
@@ -816,8 +816,8 @@
 .ui.massive.checkbox.radio .box:before,
 .ui.massive.form .checkbox.radio label:before,
 .ui.massive.checkbox.radio label:before {
-  -webkit-transform: scale(1.73333333);
-          transform: scale(1.73333333);
+  -webkit-transform: scale(1.6875);
+          transform: scale(1.6875);
   -webkit-transform-origin: left;
           transform-origin: left;
 }
@@ -825,11 +825,11 @@
 .ui.massive.checkbox.radio .box:after,
 .ui.massive.form .checkbox.radio label:after,
 .ui.massive.checkbox.radio label:after {
-  -webkit-transform: scale(0.86666667);
-          transform: scale(0.86666667);
+  -webkit-transform: scale(0.84375);
+          transform: scale(0.84375);
   -webkit-transform-origin: left;
           transform-origin: left;
-  left: 0.48333333em;
+  left: 0.471875em;
 }
 
 

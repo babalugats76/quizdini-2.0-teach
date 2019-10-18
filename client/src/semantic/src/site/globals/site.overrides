@@ -60,11 +60,16 @@
     flex: 1 0 auto; /* Make its content grow */
     width: 100%;
     height: auto;
-    padding-top: 69px !important; /* account for fixed top menu */
+    padding: 69px 1rem 0 !important; /* fixed menu, space to the side on mobile */
     justify-content: center; /* center the children */
     background-color: @darkWhite;
     main#login {
       max-width: 450px;
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+    }
+    main#about, main#terms {
+      max-width: @largeMonitorBreakpoint - 2rem;
       margin-top: 2rem;
       margin-bottom: 3rem;
     }
@@ -759,11 +764,6 @@ svg.svg-icon {
 /* Tablets and smaller */
 
 @media only screen and (max-width: @largestMobileScreen) {
-
-  .page-wrapper {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
   
   .icon-menu-list {
     &.ui.horizontal.list {
