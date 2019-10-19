@@ -72,16 +72,16 @@
     main#lost,
     main#reset,
     main#checkout {
-      max-width: 450px;
+      max-width: @smallContainerWidth;
     }
 
     main#register {
-      max-width: @largestMobileScreen - 1rem;
+      max-width: @mediumContainerWidth;
     }
 
     main#about,
     main#terms {
-      max-width: @largeMonitorBreakpoint - 2rem;
+      max-width: @largeContainerWidth;
     }
   }
   > #footer {
@@ -592,12 +592,19 @@ form#account > .fields:last-of-type,
   justify-content: center;
 }
 
+#checkout-form #credit-card.ui.grid > .row:last-child {
+  margin-top: .75rem;
+  margin-bottom: 0;
+}
+
 form#password > .fields:last-of-type,
-#checkout-form #credit-card.ui.grid > .row:last-child,
+#register-form > .fields:last-of-type,
+#login-form > .fields:last-of-type,
 #lost-form > .fields:last-of-type,
 #reset-form > .fields:last-of-type {
-  margin-top: 2rem;
+  padding-top: .75em;
   margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 #login-form > .fields,
@@ -843,14 +850,12 @@ svg.svg-icon {
 
 @media only screen and (min-width: @mobileBreakpoint) and (max-width: @largestMobileScreen) {
   .page-wrapper {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding: @mobileContainerPadding;
   }
 }
 
 @media only screen and (min-width: @tabletBreakpoint) {
   .page-wrapper {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: @containerPadding;
   }
 }

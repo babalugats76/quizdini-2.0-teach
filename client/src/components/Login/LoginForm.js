@@ -92,12 +92,12 @@ const LoginForm = props => {
               LOG IN
             </Button>
           </Form.Group>
-          <Segment basic textAlign="center">
+        </Form>
+        <Segment basic textAlign="center">
             <Link id="lost" title="Get help with your credentials" to="/lost">
               Forgot your username or password?
             </Link>
           </Segment>
-        </Form>
       </Segment>
     );
   };

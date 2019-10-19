@@ -57,5 +57,13 @@
         Page
 --------------------*/
 
-/*@pageBackground      : @darkWhite;*/
 @pageBackground        : #efefef;
+
+/*-------------------
+    Containers
+--------------------*/
+@smallContainerWidth       : (@tabletBreakpoint - @mobileBreakpoint) - @fontSize;
+@mediumContainerWidth      : (@largestMobileScreen - (2 * @fontSize));
+@largeContainerWidth       : (@largeMonitorBreakpoint - (2 * @fontSize));
+@containerPadding          : 0 1rem;
+@mobileContainerPadding    : 0 .5rem;

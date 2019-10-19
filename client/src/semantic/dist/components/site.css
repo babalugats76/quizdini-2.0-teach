@@ -274,14 +274,14 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .pusher > .page-wrapper main#lost,
 .pusher > .page-wrapper main#reset,
 .pusher > .page-wrapper main#checkout {
-  max-width: 450px;
+  max-width: 432px;
 }
 .pusher > .page-wrapper main#register {
-  max-width: 766.98px;
+  max-width: 735.98px;
 }
 .pusher > .page-wrapper main#about,
 .pusher > .page-wrapper main#terms {
-  max-width: 1198px;
+  max-width: 1168px;
 }
 .pusher > #footer {
   -webkit-box-flex: 0;
@@ -740,12 +740,18 @@ form#account > .fields:last-of-type,
   -webkit-box-pack: center;
           justify-content: center;
 }
+#checkout-form #credit-card.ui.grid > .row:last-child {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
 form#password > .fields:last-of-type,
-#checkout-form #credit-card.ui.grid > .row:last-child,
+#register-form > .fields:last-of-type,
+#login-form > .fields:last-of-type,
 #lost-form > .fields:last-of-type,
 #reset-form > .fields:last-of-type {
-  margin-top: 2rem;
+  padding-top: 0.75em;
   margin-bottom: 0;
+  padding-bottom: 0;
 }
 #login-form > .fields,
 form#password > .fields,
@@ -946,13 +952,11 @@ svg.svg-icon {
 }
 @media only screen and (min-width: 320px) and (max-width: 767.98px) {
   .page-wrapper {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding: 0 0.5rem;
   }
 }
 @media only screen and (min-width: 768px) {
   .page-wrapper {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0 1rem;
   }
 }

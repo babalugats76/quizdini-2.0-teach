@@ -749,16 +749,16 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .pusher > .page-wrapper main#lost,
 .pusher > .page-wrapper main#reset,
 .pusher > .page-wrapper main#checkout {
-  max-width: 450px;
+  max-width: 432px;
 }
 
 .pusher > .page-wrapper main#register {
-  max-width: 766.98px;
+  max-width: 735.98px;
 }
 
 .pusher > .page-wrapper main#about,
 .pusher > .page-wrapper main#terms {
-  max-width: 1198px;
+  max-width: 1168px;
 }
 
 .pusher > #footer {
@@ -1282,12 +1282,19 @@ form#account > .fields:last-of-type,
   justify-content: center;
 }
 
+#checkout-form #credit-card.ui.grid > .row:last-child {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
 form#password > .fields:last-of-type,
-#checkout-form #credit-card.ui.grid > .row:last-child,
+#register-form > .fields:last-of-type,
+#login-form > .fields:last-of-type,
 #lost-form > .fields:last-of-type,
 #reset-form > .fields:last-of-type {
-  margin-top: 2rem;
+  padding-top: 0.75em;
   margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 #login-form > .fields,
@@ -1527,15 +1534,13 @@ svg.svg-icon {
 
 @media only screen and (min-width: 320px) and (max-width: 767.98px) {
   .page-wrapper {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding: 0 0.5rem;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .page-wrapper {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0 1rem;
   }
 }
 /*!
@@ -21604,7 +21609,7 @@ ol.ui.suffixed.list li:before,
   background: #FFFFFF;
   box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
   margin: 1rem 0;
-  padding: 0.75em 0.75em;
+  padding: 1em 1em;
   border-radius: 0.25rem;
   border: 1px solid rgba(34, 36, 38, 0.15);
 }
@@ -21672,8 +21677,8 @@ ol.ui.suffixed.list li:before,
 .ui.page.grid.segment,
 .ui.grid > .row > .ui.segment.column,
 .ui.grid > .ui.segment.column {
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .ui.grid.segment {
@@ -21690,7 +21695,7 @@ ol.ui.suffixed.list li:before,
 }
 
 .ui[class*="very basic"].table.segment {
-  padding: 0.75em 0.75em;
+  padding: 1em 1em;
 }
 
 /* Tab */
@@ -21721,7 +21726,7 @@ ol.ui.suffixed.list li:before,
   -webkit-animation: none;
   animation: none;
   overflow: visible;
-  padding: 0.75em 0.75em;
+  padding: 1em 1em;
   min-height: 18rem;
   background: #F9FAFB;
   border-color: rgba(34, 36, 38, 0.15);
@@ -21841,7 +21846,7 @@ ol.ui.suffixed.list li:before,
 --------------------*/
 
 .ui.stacked.segment {
-  padding-bottom: 1.15em;
+  padding-bottom: 1.4em;
 }
 
 .ui.stacked.segments:before,
@@ -22512,7 +22517,7 @@ ol.ui.suffixed.list li:before,
   }
 
   .ui[class*='very padded'].segment {
-    padding: 3em 1.5em;
+    padding: 3em 0.75em;
   }
 }
 /*!
