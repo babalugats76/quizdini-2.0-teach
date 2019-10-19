@@ -268,7 +268,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .pusher > .page-wrapper .page {
   margin-top: 2rem;
   margin-bottom: 3rem;
-  min-height: 50vh;
+  min-height: 55vh;
 }
 .pusher > .page-wrapper main#login,
 .pusher > .page-wrapper main#lost,
@@ -561,6 +561,51 @@ svg.icon.chevron-down.closed {
 }
 .ui.cards .ui.card.match-card .ui.buttons .ui.button:not(:last-child) {
   border-right: 1px inset #1B1C1D;
+}
+
+/*-------------------
+  Loader / Spinner
+--------------------*/
+
+.loader {
+  text-align: center;
+}
+.loader .icon.spinner {
+  width: 50px;
+  height: 50px;
+}
+.loader .icon.spinner path {
+  fill: #aa54ff;
+}
+.spinner {
+  -webkit-animation: spin 500ms infinite linear;
+  
+/* Safari 4+ */
+  
+/* Fx 5+ */
+  
+/* Opera 12+ */
+  animation: spin 500ms infinite linear;
+  
+/* IE 10+, Fx 29+ */
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 /*-------------------

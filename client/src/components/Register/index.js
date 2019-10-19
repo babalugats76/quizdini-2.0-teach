@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { Container } from 'semantic-ui-react';
+import Loader from '../UI/Loader';
 import LogoHeader from '../UI/LogoHeader';
 import RegisterForm from './RegisterForm';
 
@@ -97,16 +98,28 @@ class Register extends Component {
 
   render() {
     const {
-      stateOptions: { error: stateError, loading: stateLoading } = {},
-      countryOptions: { error: countryError, loading: countryLoading } = {}
+      stateOptions: {
+        error: stateError,
+        loading: stateLoading
+      } = {},
+      countryOptions: {
+        error: countryError,
+        loading: countryLoading
+      } = {}
     } = this.props;
     const form = this.renderForm(this.props);
-    if (stateLoading || countryLoading) return <div>Loading...</div>;
+
     if (stateError || countryError) return <div>Error!</div>;
+    const showLoader = stateLoading || countryLoading;
+
     return (
       <Container as="main" className="page" fluid id="register">
-        <LogoHeader>Sign Up for Quizdini</LogoHeader>
-        {form}
+        {(showLoader && <Loader />) || (
+          <>
+            <LogoHeader>Sign Up for Quizdini</LogoHeader>
+            {form}
+          </>
+        )}
       </Container>
     );
   }

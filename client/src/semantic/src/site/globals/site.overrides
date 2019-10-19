@@ -66,19 +66,23 @@
     .page {
       margin-top: 2rem;
       margin-bottom: 3rem;
-      min-height: 50vh;
+      min-height: 55vh;
     }
     main#login,
     main#lost,
     main#reset,
-    main#checkout { max-width: 450px; }
+    main#checkout {
+      max-width: 450px;
+    }
 
     main#register {
       max-width: @largestMobileScreen - 1rem;
     }
-    
+
     main#about,
-    main#terms { max-width: @largeMonitorBreakpoint - 2rem; }
+    main#terms {
+      max-width: @largeMonitorBreakpoint - 2rem;
+    }
   }
   > #footer {
     flex: 0 1 auto; /* Makes the footer shrink */
@@ -366,6 +370,53 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
+  Loader / Spinner
+--------------------*/
+
+.loader {
+  text-align: center;
+  .icon.spinner {
+    width: 50px;
+    height: 50px;
+    path {
+      fill: @quizdiniPurple;
+    }
+  }
+}
+
+.spinner {
+  -webkit-animation: spin 500ms infinite linear; /* Safari 4+ */
+  -moz-animation: spin 500ms infinite linear; /* Fx 5+ */
+  -o-animation: spin 500ms infinite linear; /* Opera 12+ */
+  animation: spin 500ms infinite linear; /* IE 10+, Fx 29+ */
+}
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*-------------------
   Disposition
 --------------------*/
 
@@ -467,7 +518,6 @@ svg.icon {
     width: 100%;
   }*/
 }
-
 
 /* Semantic form styling */
 
