@@ -57,4 +57,5 @@
         Page
 --------------------*/
 
-@pageBackground      : @darkWhite;
+/*@pageBackground      : @darkWhite;*/
+@pageBackground        : #efefef;

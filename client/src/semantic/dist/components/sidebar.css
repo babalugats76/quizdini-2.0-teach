@@ -141,7 +141,7 @@ body.pushable.dimmed {
   background: inherit;
 }
 body.pushable > .pusher {
-  background: #F3F4F5;
+  background: #efefef;
 }
 
 /*--------------
