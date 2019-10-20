@@ -73,7 +73,7 @@ class Login extends Component {
     const form = this.renderForm();
 
     return (
-      <Container as="main" className="page" fluid id="login">
+      <Container as="main" className="page small" fluid id="login">
         {message && this.renderMessage({ ...message })}
         <LogoHeader>Login to Quizdini</LogoHeader>
         {form}

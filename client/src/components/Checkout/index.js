@@ -140,7 +140,7 @@ class Checkout extends Component {
     const form = this.renderForm();
     return (
       !loading && (
-        <Container as="main" className="page" fluid id="checkout">
+        <Container as="main" className="page small" fluid id="checkout">
           <LogoHeader>Purchase Credits</LogoHeader>
           {form}
         </Container>

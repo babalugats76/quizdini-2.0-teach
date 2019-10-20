@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Message } from "semantic-ui-react";
 
-const MyMessage = ({ content, ...props }) => {
-  return <Message content={content} {...props} />;
+const MyMessage = ({ content, ...rest }) => {
+  return <Message content={content} {...rest} />;
 };
 
 MyMessage.propTypes = {

@@ -56,7 +56,7 @@ class Lost extends Component {
     const form = this.renderForm();
 
     return (
-      <Container as="main" className="page" id="lost" fluid>
+      <Container as="main" className="page small" id="lost" fluid>
         <LogoHeader>Lost Credentials</LogoHeader>
         {form}
       </Container>

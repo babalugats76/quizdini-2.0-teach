@@ -7,36 +7,36 @@
 --------------------*/
 
 @font-face {
-  font-family: "Lexend Deca";
+  font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"),
-    url("/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"),
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'),
+    url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/fonts/lexend-deca-v1-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "Fira Code";
+  font-family: 'Fira Code';
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("/fonts/fira-code-v5-latin-regular.woff2") format("woff2"),
+  src: local(''), url('/fonts/fira-code-v5-latin-regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/fonts/fira-code-v5-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('/fonts/fira-code-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "marcher-semibold";
-  src: url("/fonts/marcher-semibold-webfont.woff2") format("woff2"),
-    url("/fonts/marcher-semibold-webfont.woff") format("woff");
+  font-family: 'marcher-semibold';
+  src: url('/fonts/marcher-semibold-webfont.woff2') format('woff2'),
+    url('/fonts/marcher-semibold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-medium";
-  src: url("/fonts/marcher-medium-webfont.woff2") format("woff2"),
-    url("/fonts/marcher-medium-webfont.woff") format("woff");
+  font-family: 'marcher-medium';
+  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'),
+    url('/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -48,6 +48,16 @@
 #quizdini {
   height: 100%;
   background-color: @pageBackground;
+}
+
+/*-------------------
+  Generic Elements
+--------------------*/
+
+a {
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 /*-------------------
@@ -68,20 +78,16 @@
       margin-bottom: 3rem;
       min-height: 55vh;
     }
-    main#login,
-    main#lost,
-    main#reset,
-    main#checkout {
-      max-width: @smallContainerWidth;
-    }
-
-    main#register {
-      max-width: @mediumContainerWidth;
-    }
-
-    main#about,
-    main#terms {
-      max-width: @largeContainerWidth;
+    main.ui.container {
+      &.small {
+        max-width: @smallContainerWidth;
+      }
+      &.medium {
+        max-width: @mediumContainerWidth;
+      }
+      &.large {
+        max-width: @largeContainerWidth;
+      }
     }
   }
   > #footer {
@@ -110,16 +116,16 @@ a#google-login {
   /** TODO - move to cloud and host on S3/Cloud Front
       Use regular, low-fidelity images?
   **/
-  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png")
+  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png')
     no-repeat;
   background-size: 191px 46px;
   &:focus,
   &:hover {
-    background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
+    background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
   }
   &:active,
   &:visited {
-    background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
+    background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
   }
 }
 
@@ -294,7 +300,7 @@ svg.icon.chevron-down.closed {
           border-bottom: 1px solid @subtleTransparentBlack;
           background-size: 25px;
           background-repeat: round;
-          background-image: url("/images/question.svg");
+          background-image: url('/images/question.svg');
           &:hover {
             .ui.icon.button.trash {
               display: block;
@@ -417,6 +423,63 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
+  Forms
+--------------------*/
+
+#login-form {
+  input {
+    &#username,
+    &#password {
+      max-width: 300px;
+    }
+  }
+  > .fields:last-of-type {
+    padding-top: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+#login-form > .fields,
+form#password > .fields,
+#reset-form > .fields,
+#register-form > .fields:last-of-type,
+form#account > .fields:last-of-type,
+#lost-form > .fields:last-of-type {
+  justify-content: center;
+}
+
+form#password > .fields:last-of-type,
+#register-form > .fields:last-of-type,
+#lost-form > .fields:last-of-type,
+#reset-form > .fields:last-of-type {
+  padding-top: 0.75em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+#checkout-form {
+  .ui.input {
+    height: 43px !important;
+  }
+  #credit-options {
+    margin: 0 0 2em 1em;
+  }
+  #credit-card {
+    &.ui.grid {
+      > .row {
+        padding-top: 0.5em;
+        padding-bottom: 0.7em;
+      }
+    }
+  }
+}
+
+#checkout-form #credit-card.ui.grid > .row:last-child {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+/*-------------------
   Disposition
 --------------------*/
 
@@ -510,15 +573,6 @@ svg.icon {
   opacity: 0.45;
 }
 
-/* Label component styling - to override semantic ui */
-
-#login-container,
-#lost-container {
-  /*.ui.message {
-    width: 100%;
-  }*/
-}
-
 /* Semantic form styling */
 
 form#match-edit.ui.form {
@@ -559,68 +613,6 @@ form#match-edit.ui.form {
   }
 }
 
-#checkout-form {
-  &.ui.form {
-    .ui.input {
-      height: 43px !important;
-    }
-    .ui.basic.segment:first-of-type {
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
-    .ui.basic.segment {
-      padding-top: 0;
-      margin-top: 0;
-    }
-    #credit-card {
-      &.ui.grid {
-        > .row {
-          padding-top: 0.5em;
-          padding-bottom: 0.7em;
-          .column {
-            /* column stuff goes here */
-          }
-        }
-      }
-    }
-  }
-}
-
-#register-form > .fields:last-of-type,
-form#account > .fields:last-of-type,
-#lost-form > .fields:last-of-type {
-  justify-content: center;
-}
-
-#checkout-form #credit-card.ui.grid > .row:last-child {
-  margin-top: .75rem;
-  margin-bottom: 0;
-}
-
-form#password > .fields:last-of-type,
-#register-form > .fields:last-of-type,
-#login-form > .fields:last-of-type,
-#lost-form > .fields:last-of-type,
-#reset-form > .fields:last-of-type {
-  padding-top: .75em;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-#login-form > .fields,
-form#password > .fields,
-#reset-form > .fields {
-  justify-content: center;
-}
-
-#login-form {
-  a#lost {
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
 .ui.form {
   .ui.segments .segment,
   .ui.segment,
@@ -640,10 +632,6 @@ form#password > .fields,
     }
   }
 }
-
-/*#register-container .ui.message {
-  margin-bottom: 2em;
-}*/
 
 /* Table container */
 #match-table-container {
@@ -668,7 +656,7 @@ textarea.editor {
 }
 
 .label {
-  font-weight: bold;
+  font-weight: @bold;
   display: block;
 }
 
@@ -679,7 +667,7 @@ textarea#matchText {
 }
 
 .rich-text-editor {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #000000;
   font-size: inherit;
   line-height: 1.5rem;
@@ -692,7 +680,7 @@ textarea#matchText {
   height: auto;
 }
 
-.rich-text-editor:not([contenteditable="true"]) {
+.rich-text-editor:not([contenteditable='true']) {
   pointer-events: none;
   color: rgba(40, 40, 40, 0.3);
 }

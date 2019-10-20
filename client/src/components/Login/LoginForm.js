@@ -44,7 +44,7 @@ const LoginForm = props => {
     values
   }) => {
     return (
-      <Segment basic textAlign="left">
+      <Segment basic textAlign="center">
         <ExternalLink href="/auth/google" id="google-login" />
         <Divider content="OR" horizontal section />
         <Form id="login-form" onSubmit={handleSubmit}>
@@ -52,6 +52,7 @@ const LoginForm = props => {
             <InputText
               disabled={isSubmitting}
               error={touched.username && errors.username}
+              id="username"
               name="username"
               onBlur={handleBlur}
               onChange={handleChange}
@@ -59,13 +60,13 @@ const LoginForm = props => {
               tabIndex={1}
               type="text"
               value={values.username}
-              width={14}
             />
           </Form.Group>
           <Form.Group>
             <InputText
               disabled={isSubmitting}
               error={touched.password && errors.password}
+              id="password"
               name="password"
               onBlur={handleBlur}
               onChange={handleChange}
@@ -73,7 +74,6 @@ const LoginForm = props => {
               tabIndex={2}
               type="password"
               value={values.password}
-              width={14}
             />
           </Form.Group>
           <Form.Group>
@@ -81,6 +81,7 @@ const LoginForm = props => {
               active
               disabled={isSubmitting}
               icon="login"
+              id="login-btn"
               loading={isSubmitting}
               positive={isValid && !!values.username && !!values.password}
               size="large"
@@ -93,11 +94,11 @@ const LoginForm = props => {
             </Button>
           </Form.Group>
         </Form>
-        <Segment basic textAlign="center">
-            <Link id="lost" title="Get help with your credentials" to="/lost">
-              Forgot your username or password?
-            </Link>
-          </Segment>
+        <p>
+          <Link id="lost" title="Get help with your credentials" to="/lost">
+            Forgot your username or password?
+          </Link>
+        </p>
       </Segment>
     );
   };

@@ -95,7 +95,7 @@ class Reset extends Component {
     return (
       !error &&
       !loading && (
-        <Container as="main" className="page" fluid id="reset">
+        <Container as="main" className="page small" fluid id="reset">
           <LogoHeader>Reset Password</LogoHeader>
           {form}
         </Container>

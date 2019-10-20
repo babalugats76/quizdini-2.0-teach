@@ -102,123 +102,119 @@ const CheckoutForm = props => {
   }) => {
     return (
       <Form id="checkout-form" onSubmit={handleSubmit}>
-        <Segment basic>
-          <Divider horizontal section>
-            <Header as="h4">
-              <Icon icon="thumbs-up" />
-              Buy More, Get More!
-            </Header>
-          </Divider>
-          <Form.Group id="credit-options" grouped={true}>
-            <RadioGroup
-              disabled={isSubmitting}
-              name="amount"
-              onBlur={handleBlur}
-              onChange={handleAmountChange}
-              options={getPaymentOptions(['5', '10', '15', '20'])}
-              value={values.amount}
-            />
-          </Form.Group>
-        </Segment>
-        <Segment basic>
-          <Divider horizontal section>
-            <Header as="h4">
-              <Icon icon="credit-card" />
-              Payment Information
-            </Header>
-          </Divider>
-          <Grid id="credit-card" padded>
-            <Grid.Row>
-              <Grid.Column stretched>
-                <label htmlFor="cardholderName" className="required">
-                  Name on Card
-                </label>
-                <InputText
-                  disabled={isSubmitting}
-                  error={touched.cardholderName && errors.cardholderName}
-                  name="cardholderName"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  placeholder="Bob Lee Swagger"
-                  required={true}
-                  type="text"
-                  value={values.cardholderName}
-                />
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row>
-              <Grid.Column width={16}>
-                <label htmlFor="cardNumber" className="required">
-                  Card Number
-                </label>
-                <CardNumberElement
-                  id="cardNumber"
-                  onChange={onStripeChange}
-                  onReady={onStripeReady}
-                  {...elementOptions(isSubmitting)}
-                />
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row>
-              <Grid.Column width={9}>
-                <label htmlFor="cardExpiry" className="required">
-                  Expiration
-                </label>
-                <CardExpiryElement
-                  id="cardExpiry"
-                  onChange={onStripeChange}
-                  onReady={onStripeReady}
-                  {...elementOptions(isSubmitting)}
-                />
-              </Grid.Column>
-              <Grid.Column width={7}>
-                <label htmlFor="cardCvc" className="required">
-                  CVC
-                </label>
-                <CardCvcElement
-                  id="cardCvc"
-                  onChange={onStripeChange}
-                  onReady={onStripeReady}
-                  {...elementOptions(isSubmitting)}
-                />
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row width={16}>
-              <Grid.Column>
-                <label htmlFor="cardPostal" className="required">
-                  Postal / Zip
-                </label>
-                <InputText
-                  disabled={isSubmitting}
-                  error={touched.postalCode && errors.postalCode}
-                  name="postalCode"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  placeholder="90210"
-                  required={true}
-                  type="text"
-                  value={values.postalCode}
-                />
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row>
-              <Grid.Column textAlign="center" width={16}>
-                <Button
-                  active
-                  disabled={isSubmitting}
-                  icon="dollar-sign"
-                  labelPosition="left"
-                  loading={isSubmitting}
-                  positive={isValid && !status && isCardComplete()}
-                  size="large"
-                  type="submit"
-                >
-                  PAY
-                </Button>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Segment>
+        <Divider horizontal section>
+          <Header as="h4">
+            <Icon icon="thumbs-up" />
+            Buy More, Get More!
+          </Header>
+        </Divider>
+        <Form.Group id="credit-options" grouped={true}>
+          <RadioGroup
+            disabled={isSubmitting}
+            name="amount"
+            onBlur={handleBlur}
+            onChange={handleAmountChange}
+            options={getPaymentOptions(['5', '10', '15', '20'])}
+            value={values.amount}
+          />
+        </Form.Group>
+        <Divider horizontal section>
+          <Header as="h4">
+            <Icon icon="credit-card" />
+            Payment Information
+          </Header>
+        </Divider>
+        <Grid id="credit-card" padded>
+          <Grid.Row>
+            <Grid.Column stretched>
+              <label htmlFor="cardholderName" className="required">
+                Name on Card
+              </label>
+              <InputText
+                disabled={isSubmitting}
+                error={touched.cardholderName && errors.cardholderName}
+                name="cardholderName"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                placeholder="Bob Lee Swagger"
+                required={true}
+                type="text"
+                value={values.cardholderName}
+              />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width={16}>
+              <label htmlFor="cardNumber" className="required">
+                Card Number
+              </label>
+              <CardNumberElement
+                id="cardNumber"
+                onChange={onStripeChange}
+                onReady={onStripeReady}
+                {...elementOptions(isSubmitting)}
+              />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width={9}>
+              <label htmlFor="cardExpiry" className="required">
+                Expiration
+              </label>
+              <CardExpiryElement
+                id="cardExpiry"
+                onChange={onStripeChange}
+                onReady={onStripeReady}
+                {...elementOptions(isSubmitting)}
+              />
+            </Grid.Column>
+            <Grid.Column width={7}>
+              <label htmlFor="cardCvc" className="required">
+                CVC
+              </label>
+              <CardCvcElement
+                id="cardCvc"
+                onChange={onStripeChange}
+                onReady={onStripeReady}
+                {...elementOptions(isSubmitting)}
+              />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row width={16}>
+            <Grid.Column>
+              <label htmlFor="cardPostal" className="required">
+                Postal / Zip
+              </label>
+              <InputText
+                disabled={isSubmitting}
+                error={touched.postalCode && errors.postalCode}
+                name="postalCode"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                placeholder="90210"
+                required={true}
+                type="text"
+                value={values.postalCode}
+              />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column textAlign="center" width={16}>
+              <Button
+                active
+                disabled={isSubmitting}
+                icon="dollar-sign"
+                labelPosition="left"
+                loading={isSubmitting}
+                positive={isValid && !status && isCardComplete()}
+                size="large"
+                type="submit"
+              >
+                PAY
+              </Button>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </Form>
     );
   };

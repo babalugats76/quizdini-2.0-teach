@@ -113,7 +113,7 @@ class Register extends Component {
     const showLoader = stateLoading || countryLoading;
 
     return (
-      <Container as="main" className="page" fluid id="register">
+      <Container as="main" className="page medium" fluid id="register">
         {(showLoader && <Loader />) || (
           <>
             <LogoHeader>Sign Up for Quizdini</LogoHeader>
