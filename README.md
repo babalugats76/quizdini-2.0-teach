@@ -71,15 +71,13 @@ Messages need to be standardized, etc.
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Client
   - Page
-    - Revisit dynamic fixed menu idea; see semantic ui demos
-    - Revisit pushable and see if there is a way to improve show hide, including transition
     - New page layout is in place and nixes the fixed header, etc.
     - Update all "pages" to wrap page in `<Container as="main" className="page" />` which will allow for better control over main page area, including margins. This will also allow for full width pages, etc. 
     - Rename child components as necessary, considering the change
-    - Consider adding a series of mt-1 mb-1 classes, etc. to exercise complete control over the margins of page sections. This is necessary because page content varies wildly in terms of top padding and top margin
   - Landing Page
     - Add selling point section, etc.
   - Loading and Error
+    - Loading done; integrate where appropriate
     - Mock up component for each; animation?
     - Design pattern for determining
       - Revisit all "loading" components and refine
@@ -107,7 +105,6 @@ Messages need to be standardized, etc.
       - UI Components
   - Semantic UI - Continue migrating work-in-progress style to semantic
      -Checkbox `line-height`
-     -Remove negative margin from grid
 
 Kay
 

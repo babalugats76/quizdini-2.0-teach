@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Container, Sidebar, Image, Menu } from 'semantic-ui-react';
+import { Container, Sidebar, Image, Menu, Visibility } from 'semantic-ui-react';
 import SVG from './UI/SVG';
 
 import logo from '../logo.svg';
@@ -10,7 +10,8 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false
+      visible: false,
+      fixTopMenu: false
     };
   }
 
@@ -25,10 +26,13 @@ class NavBar extends Component {
     this.setState({ visible: !this.state.visible });
   };
 
+  stickTopMenu = () => this.setState({ fixTopMenu: true });
+  unstickTopMenu = () => this.setState({ fixTopMenu: false });
+
   // conditional render of bars, based upon Responsive
   render() {
     const { children, loggedIn, credits, isMobile } = this.props;
-    const { visible } = this.state;
+    const { visible, fixTopMenu } = this.state;
     const navItems = [
       {
         key: 'logo',
@@ -97,7 +101,9 @@ class NavBar extends Component {
         key: 'logout-mobile',
         as: 'a',
         href: '/api/logout',
-        content: isMobile && <SVG width='24px' height='24px' name='logout' fill='#fff' />,
+        content: isMobile && (
+          <SVG width="24px" height="24px" name="logout" fill="#fff" />
+        ),
         position: 'right',
         loggedIn: true,
         sidebar: false
@@ -133,6 +139,7 @@ class NavBar extends Component {
             link={!!as}
             key={key}
             as={as}
+            onClick={this.handlePusherClick}
             position={position}
             content={content}
             tabIndex={-1}
@@ -167,39 +174,44 @@ class NavBar extends Component {
       <Sidebar.Pushable>
         <Sidebar
           as={Menu}
-          animation="overlay"
+          animation="push"
           direction="left"
           inverted
           vertical
-          style={{ width: '240px' }}
           visible={visible}
           size="massive"
         >
           {sidebarItems}
         </Sidebar>
         <Sidebar.Pusher
+          className={fixTopMenu ? 'menu-fixed' : undefined}
           dimmed={visible}
-          onClick={isMobile && visible ? this.handlePusherClick : null}
         >
-          <Menu
-            as="nav"
-            borderless
-            fixed="top"
-            inverted
-            size="massive"
+          <Visibility
+            onBottomPassed={this.stickTopMenu}
+            onBottomVisible={this.unStickTopMenu}
+            once={false}
           >
-            {sidebarItems.length > 0 && isMobile && (
-              <Menu.Item
-                key="sidebar"
-                as="a"
-                position="left"
-                onClick={this.handleToggle}
-              >
-                <SVG width='24px' height='24px' name="menu" fill="#fff" />
-              </Menu.Item>
-            )}
-            <Container>{topbarItems}</Container>
-          </Menu>
+            <Menu
+              as="nav"
+              borderless
+              fixed={fixTopMenu ? 'top' : undefined}
+              inverted
+              size="massive"
+            >
+              {sidebarItems.length > 0 && isMobile && (
+                <Menu.Item
+                  key="sidebar"
+                  as="a"
+                  position="left"
+                  onClick={this.handleToggle}
+                >
+                  <SVG width="24px" height="24px" name="menu" fill="#fff" />
+                </Menu.Item>
+              )}
+              <Container>{topbarItems}</Container>
+            </Menu>
+          </Visibility>
           {children}
         </Sidebar.Pusher>
       </Sidebar.Pushable>

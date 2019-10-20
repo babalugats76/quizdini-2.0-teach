@@ -720,17 +720,28 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   background-color: #efefef;
 }
 
-/*-------------------
-  Generic Elements
---------------------*/
+/** TODO - integrate into semantic-ui **/
 
-a:hover {
-  text-decoration: underline;
+.pusher .ui.menu {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  box-shadow: none;
+  border-radius: 0 !important;
+}
+
+.ui.top.fixed.menu {
+  background-color: rgba(26, 28, 87, 0.8);
 }
 
 /*-------------------
   Page - fixed
 --------------------*/
+
+.pusher.menu-fixed > .page-wrapper {
+  padding-top: 69px;
+}
 
 .pusher > .page-wrapper {
   display: -webkit-box;
@@ -740,7 +751,6 @@ a:hover {
   /* Make its content grow */
   width: 100%;
   height: auto;
-  padding-top: 69px;
   -webkit-box-pack: center;
   justify-content: center;
   /* center the children */
@@ -750,7 +760,11 @@ a:hover {
 .pusher > .page-wrapper .page {
   margin-top: 2rem;
   margin-bottom: 3rem;
-  min-height: 55vh;
+  min-height: 550px;
+}
+
+.pusher > .page-wrapper main.ui.container {
+  width: 100%;
 }
 
 .pusher > .page-wrapper main.ui.container.small {
@@ -1088,8 +1102,8 @@ svg.icon.chevron-down.closed {
 }
 
 .loader .icon.spinner {
-  width: 50px;
-  height: 50px;
+  width: 36px;
+  height: 36px;
 }
 
 .loader .icon.spinner path {
@@ -1130,6 +1144,10 @@ svg.icon.chevron-down.closed {
 /*-------------------
   Forms
 --------------------*/
+
+#login-form a:hover {
+  text-decoration: underline;
+}
 
 #login-form input#username,
 #login-form input#password {
