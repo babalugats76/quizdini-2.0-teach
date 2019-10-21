@@ -70,14 +70,14 @@ Messages need to be standardized, etc.
     - Update logo to be 300px-wide friend logo with text
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Client
-  - Page
+  - *Page*
     - New page layout is in place and nixes the fixed header, etc.
     - Update all "pages" to wrap page in `<Container as="main" className="page" />` which will allow for better control over main page area, including margins. This will also allow for full width pages, etc. 
     - Rename child components as necessary, considering the change
   - Landing Page
     - Add selling point section, etc.
   - Loading and Error
-    - Loading done; integrate where appropriate
+    - Loading done; *integrate where appropriate*
     - Mock up component for each; animation?
     - Design pattern for determining
       - Revisit all "loading" components and refine
@@ -96,14 +96,17 @@ Messages need to be standardized, etc.
     - Branch to redirect on Insufficient Credits (specifc to that type of exception...all others will use `renderMessage` functionality)
   - Dashboard
     - Create functional component, e.g., `MatchIntro`
-    - Update MatchList to use and show MatchIntro as appropriate
+    - *Refactor MatchList* 
+      - Add Loader and move error/loading functionality to Match in Dashboard\index
+      - Create separate MatchIntro component and branch in Match
+      - Consider placing separating out Match in Dashboard\index
     - Consider adding `isEmptyArray` utility function for use in `MatchList`, etc.
-  - Icons
+  - *Icons*
     - Migrate version of newly-created SVG component and adapt
       - Profile
       - NavBar
       - UI Components
-  - Semantic UI - Continue migrating work-in-progress style to semantic
+  - *Semantic UI* - Continue migrating work-in-progress style to semantic
      -Checkbox `line-height`
 
 Kay

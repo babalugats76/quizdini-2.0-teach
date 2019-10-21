@@ -206,32 +206,32 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 --------------------*/
 
 @font-face {
-  font-family: 'Lexend Deca';
+  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 400;
-  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
-/* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
+  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"), url("/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"), 
+/* Chrome 26+, Opera 23+, Firefox 39+ */ url("/fonts/lexend-deca-v1-latin-regular.woff") format("woff");
   
 /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
-  font-family: 'Fira Code';
+  font-family: "Fira Code";
   font-style: normal;
   font-weight: 400;
-  src: local(''), url('/fonts/fira-code-v5-latin-regular.woff2') format('woff2'), 
-/* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/fira-code-v5-latin-regular.woff') format('woff');
+  src: local(""), url("/fonts/fira-code-v5-latin-regular.woff2") format("woff2"), 
+/* Chrome 26+, Opera 23+, Firefox 39+ */ url("/fonts/fira-code-v5-latin-regular.woff") format("woff");
   
 /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
-  font-family: 'marcher-semibold';
-  src: url('/fonts/marcher-semibold-webfont.woff2') format('woff2'), url('/fonts/marcher-semibold-webfont.woff') format('woff');
+  font-family: "marcher-semibold";
+  src: url("/fonts/marcher-semibold-webfont.woff2") format("woff2"), url("/fonts/marcher-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'marcher-medium';
-  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'), url('/fonts/marcher-medium-webfont.woff') format('woff');
+  font-family: "marcher-medium";
+  src: url("/fonts/marcher-medium-webfont.woff2") format("woff2"), url("/fonts/marcher-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -244,27 +244,36 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   height: 100%;
   background-color: #efefef;
 }
-/** TODO - integrate into semantic-ui **/
-.pusher > .ui.menu {
+
+/*-------------------
+  Page & Containers
+--------------------*/
+
+.pushable {
+  overflow-y: hidden;
+}
+.pushable .pusher {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  height: 100%;
+  overflow-y: auto !important;
+}
+.pushable .pusher > .ui.menu {
   display: -webkit-box;
   display: flex;
   -webkit-box-flex: 0;
           flex: 0 0 auto;
-  box-shadow: none;
-  border-radius: 0 !important;
 }
-.ui.top.fixed.menu {
+.pushable .pusher > .ui.menu.fixed {
   background-color: rgba(26, 28, 87, 0.9);
 }
-
-/*-------------------
-  Page - fixed
---------------------*/
-
-.pusher.menu-fixed > .page-wrapper {
+.pushable .pusher.menu-fixed > .page-wrapper {
   padding-top: 69px;
 }
-.pusher > .page-wrapper {
+.pushable .pusher > .page-wrapper {
   display: -webkit-box;
   display: flex;
   -webkit-box-flex: 1;
@@ -279,23 +288,20 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 /* center the children */
   background-color: #efefef;
 }
-.pusher > .page-wrapper .page {
+.pushable .pusher > .page-wrapper > .page {
   margin-top: 2rem;
   margin-bottom: 3rem;
-  min-height: 470px;
-  
-/* 550px - 5rem */
 }
-.pusher > .page-wrapper main.ui.container.small {
+.pushable .pusher > .page-wrapper main.ui.container.small {
   max-width: 432px;
 }
-.pusher > .page-wrapper main.ui.container.medium {
+.pushable .pusher > .page-wrapper main.ui.container.medium {
   max-width: 735.98px;
 }
-.pusher > .page-wrapper main.ui.container.large {
+.pushable .pusher > .page-wrapper main.ui.container.large {
   max-width: 1168px;
 }
-.pusher > #footer {
+.pushable .pusher > #footer {
   -webkit-box-flex: 0;
           flex: 0 1 auto;
   
@@ -325,27 +331,27 @@ a#google-login {
   /** TODO - move to cloud and host on S3/Cloud Front
       Use regular, low-fidelity images?
   **/
-  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
+  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
   background-size: 191px 46px;
 }
 a#google-login:focus,
 a#google-login:hover {
-  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
+  background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
 }
 a#google-login:active,
 a#google-login:visited {
-  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
+  background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
 }
 
 /*-------------------
   Dashboard
 --------------------*/
 
-#dashboard .content-wrapper {
-  min-height: 100%;
-}
 #dashboard .ui.message {
   margin-bottom: 2em;
+}
+#dashboard #match-game {
+  min-height: 330px;
 }
 #dashboard #dashboard-menu > .item > .image > svg {
   width: 2.5em;
@@ -504,7 +510,7 @@ svg.icon.chevron-down.closed {
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   background-size: 25px;
   background-repeat: round;
-  background-image: url('/images/question.svg');
+  background-image: url("/images/question.svg");
 }
 .ui.cards .ui.card.match-card .content.match-card-header:hover .ui.icon.button.trash {
   display: block;
@@ -528,8 +534,8 @@ svg.icon.chevron-down.closed {
   top: 0;
   width: 100%;
   height: 100%;
-  -webkit-transition: all 800ms ease;
-  transition: all 800ms ease;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
   background-color: transparent;
 }
 .ui.cards .ui.card.match-card .content.match-card-header .ui.icon.button.trash svg.icon.trash {
@@ -817,7 +823,7 @@ textarea#matchText {
   overflow-y: scroll;
 }
 .rich-text-editor {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #000000;
   font-size: inherit;
   line-height: 1.5rem;
@@ -829,7 +835,7 @@ textarea#matchText {
   display: block;
   height: auto;
 }
-.rich-text-editor:not([contenteditable='true']) {
+.rich-text-editor:not([contenteditable="true"]) {
   pointer-events: none;
   color: rgba(40, 40, 40, 0.3);
 }

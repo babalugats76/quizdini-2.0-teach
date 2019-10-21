@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Loader from '../UI/Loader';
 import MatchCardGroup from './MatchCardGroup';
+
 
 const MatchList = ({ error, loading, games, onMatchDelete }) => {
   if (error && !games) {
@@ -11,9 +13,9 @@ const MatchList = ({ error, loading, games, onMatchDelete }) => {
     );
   }
 
-  if (loading && !games) {
-    return <h1>Loading...</h1>;
-  }
+  /** add && !games ? */
+  return <Loader />;
+  if (loading && !games) return <Loader />;
 
   return (
     (games && games.length && (

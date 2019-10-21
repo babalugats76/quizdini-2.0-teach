@@ -21,7 +21,7 @@ const MatchCardGroup = ({ games, onMatchDelete }) => {
   const cards = renderCards(games, onMatchDelete);
 
   return (
-    <Card.Group stackable itemsPerRow={3}>
+    <Card.Group itemsPerRow={3} stackable>
       {cards}
     </Card.Group>
   );

@@ -105,17 +105,16 @@ class Dashboard extends Component {
     );
   };
 
-  handleMenuChange = (e, index) => {
-    e.preventDefault();
+  handleMenuChange = (menuIdx) => {
     const { activeGameIdx } = this.state; // Current game index
-    const onSameTab = activeGameIdx === index ? true : false; // New game, i.e., current = target
+    const onSameTab = activeGameIdx === menuIdx ? true : false; // New game, i.e., current = target
     this.setState((state, props) => {
       if (!onSameTab) {
-        return { activeGameIdx: index }; // Update state (with new index)
+        return { activeGameIdx: menuIdx }; // Update state (with new index)
       }
     });
     if (!onSameTab) {
-      this.refreshData(index); // Refresh game's data
+      this.refreshData(menuIdx); // Refresh game's data
     }
   };
 
@@ -143,7 +142,7 @@ class Dashboard extends Component {
               <List.Item
                 key={name}
                 active={activeGameIdx === idx}
-                onClick={(e, index) => this.handleMenuChange(e, idx)}
+                onClick={() => this.handleMenuChange(idx)}
               >
                 <Image>
                   <SVG name={icon} />

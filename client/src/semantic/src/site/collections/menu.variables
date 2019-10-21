@@ -2,3 +2,5 @@
     User Variable Overrides
 *******************************/
 @invertedBackground: @primaryColor;
+@boxShadow: none;
+@borderRadius: 0;

@@ -680,33 +680,33 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 --------------------*/
 
 @font-face {
-  font-family: 'Lexend Deca';
+  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 400;
-  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
- url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
+  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"), url("/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"), 
+ url("/fonts/lexend-deca-v1-latin-regular.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: 'Fira Code';
+  font-family: "Fira Code";
   font-style: normal;
   font-weight: 400;
-  src: local(''), url('/fonts/fira-code-v5-latin-regular.woff2') format('woff2'), 
- url('/fonts/fira-code-v5-latin-regular.woff') format('woff');
+  src: local(""), url("/fonts/fira-code-v5-latin-regular.woff2") format("woff2"), 
+ url("/fonts/fira-code-v5-latin-regular.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: 'marcher-semibold';
-  src: url('/fonts/marcher-semibold-webfont.woff2') format('woff2'), url('/fonts/marcher-semibold-webfont.woff') format('woff');
+  font-family: "marcher-semibold";
+  src: url("/fonts/marcher-semibold-webfont.woff2") format("woff2"), url("/fonts/marcher-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-medium';
-  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'), url('/fonts/marcher-medium-webfont.woff') format('woff');
+  font-family: "marcher-medium";
+  src: url("/fonts/marcher-medium-webfont.woff2") format("woff2"), url("/fonts/marcher-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -720,30 +720,40 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   background-color: #efefef;
 }
 
-/** TODO - integrate into semantic-ui **/
+/*-------------------
+  Page & Containers
+--------------------*/
 
-.pusher > .ui.menu {
+.pushable {
+  overflow-y: hidden;
+}
+
+.pushable .pusher {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto !important;
+}
+
+.pushable .pusher > .ui.menu {
   display: -webkit-box;
   display: flex;
   -webkit-box-flex: 0;
   flex: 0 0 auto;
-  box-shadow: none;
-  border-radius: 0 !important;
 }
 
-.ui.top.fixed.menu {
+.pushable .pusher > .ui.menu.fixed {
   background-color: rgba(26, 28, 87, 0.9);
 }
 
-/*-------------------
-  Page - fixed
---------------------*/
-
-.pusher.menu-fixed > .page-wrapper {
+.pushable .pusher.menu-fixed > .page-wrapper {
   padding-top: 69px;
 }
 
-.pusher > .page-wrapper {
+.pushable .pusher > .page-wrapper {
   display: -webkit-box;
   display: flex;
   -webkit-box-flex: 1;
@@ -757,26 +767,24 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   background-color: #efefef;
 }
 
-.pusher > .page-wrapper .page {
+.pushable .pusher > .page-wrapper > .page {
   margin-top: 2rem;
   margin-bottom: 3rem;
-  min-height: 470px;
-  /* 550px - 5rem */
 }
 
-.pusher > .page-wrapper main.ui.container.small {
+.pushable .pusher > .page-wrapper main.ui.container.small {
   max-width: 432px;
 }
 
-.pusher > .page-wrapper main.ui.container.medium {
+.pushable .pusher > .page-wrapper main.ui.container.medium {
   max-width: 735.98px;
 }
 
-.pusher > .page-wrapper main.ui.container.large {
+.pushable .pusher > .page-wrapper main.ui.container.large {
   max-width: 1168px;
 }
 
-.pusher > #footer {
+.pushable .pusher > #footer {
   -webkit-box-flex: 0;
   flex: 0 1 auto;
   /* Makes the footer shrink */
@@ -805,30 +813,30 @@ a#google-login {
   /** TODO - move to cloud and host on S3/Cloud Front
       Use regular, low-fidelity images?
   **/
-  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
+  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
   background-size: 191px 46px;
 }
 
 a#google-login:focus,
 a#google-login:hover {
-  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
+  background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
 }
 
 a#google-login:active,
 a#google-login:visited {
-  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
+  background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
 }
 
 /*-------------------
   Dashboard
 --------------------*/
 
-#dashboard .content-wrapper {
-  min-height: 100%;
-}
-
 #dashboard .ui.message {
   margin-bottom: 2em;
+}
+
+#dashboard #match-game {
+  min-height: 330px;
 }
 
 #dashboard #dashboard-menu > .item > .image > svg {
@@ -1007,7 +1015,7 @@ svg.icon.chevron-down.closed {
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   background-size: 25px;
   background-repeat: round;
-  background-image: url('/images/question.svg');
+  background-image: url("/images/question.svg");
 }
 
 .ui.cards .ui.card.match-card .content.match-card-header:hover .ui.icon.button.trash {
@@ -1035,8 +1043,8 @@ svg.icon.chevron-down.closed {
   top: 0;
   width: 100%;
   height: 100%;
-  -webkit-transition: all 800ms ease;
-  transition: all 800ms ease;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
   background-color: transparent;
 }
 
@@ -1374,7 +1382,7 @@ textarea#matchText {
 }
 
 .rich-text-editor {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #000000;
   font-size: inherit;
   line-height: 1.5rem;
@@ -1387,7 +1395,7 @@ textarea#matchText {
   height: auto;
 }
 
-.rich-text-editor:not([contenteditable='true']) {
+.rich-text-editor:not([contenteditable="true"]) {
   pointer-events: none;
   color: rgba(40, 40, 40, 0.3);
 }
@@ -26139,8 +26147,8 @@ ol.ui.suffixed.list li:before,
   background: #FFFFFF;
   font-weight: normal;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
-  border-radius: 0.25rem;
+  box-shadow: none;
+  border-radius: 0;
   min-height: 2.875em;
 }
 
@@ -26206,7 +26214,7 @@ ol.ui.suffixed.list li:before,
 }
 
 .ui.menu > .item:first-child {
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: 0 0 0 0;
 }
 
 /* Border */
@@ -26335,7 +26343,7 @@ ol.ui.suffixed.list li:before,
 
 .ui.menu .dropdown.item .menu {
   min-width: calc(100% - 1px);
-  border-radius: 0 0 0.25rem 0.25rem;
+  border-radius: 0 0 0 0;
   background: #FFFFFF;
   margin: 0 0 0;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
@@ -26391,7 +26399,7 @@ ol.ui.suffixed.list li:before,
 
 .ui.secondary.menu .dropdown.item > .menu,
 .ui.text.menu .dropdown.item > .menu {
-  border-radius: 0.25rem;
+  border-radius: 0;
   margin-top: 0.3125em;
 }
 
@@ -26425,7 +26433,7 @@ ol.ui.suffixed.list li:before,
   min-width: max-content;
   margin: 0 0 0 0;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
-  border-radius: 0 0.25rem 0.25rem 0.25rem;
+  border-radius: 0 0 0 0;
 }
 
 .ui.vertical.menu .dropdown.item.upward .menu {
@@ -26679,7 +26687,7 @@ Floated Menu / Item
   -webkit-box-direction: normal;
   flex-direction: column;
   background: #FFFFFF;
-  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+  box-shadow: none;
 }
 
 /*--- Item ---*/
@@ -26692,11 +26700,11 @@ Floated Menu / Item
 }
 
 .ui.vertical.menu > .item:first-child {
-  border-radius: 0.25rem 0.25rem 0 0;
+  border-radius: 0 0 0 0;
 }
 
 .ui.vertical.menu > .item:last-child {
-  border-radius: 0 0 0.25rem 0.25rem;
+  border-radius: 0 0 0 0;
 }
 
 /*--- Label ---*/
@@ -26767,15 +26775,15 @@ Floated Menu / Item
 }
 
 .ui.vertical.menu > .active.item:first-child {
-  border-radius: 0.25rem 0.25rem 0 0;
+  border-radius: 0 0 0 0;
 }
 
 .ui.vertical.menu > .active.item:last-child {
-  border-radius: 0 0 0.25rem 0.25rem;
+  border-radius: 0 0 0 0;
 }
 
 .ui.vertical.menu > .active.item:only-child {
-  border-radius: 0.25rem;
+  border-radius: 0;
 }
 
 .ui.vertical.menu .active.item .menu .active.item {
@@ -26956,11 +26964,11 @@ Floated Menu / Item
 }
 
 .ui.pagination.menu .item:last-child {
-  border-radius: 0 0.25rem 0.25rem 0;
+  border-radius: 0 0 0 0;
 }
 
 .ui.compact.menu .item:last-child {
-  border-radius: 0 0.25rem 0.25rem 0;
+  border-radius: 0 0 0 0;
 }
 
 .ui.pagination.menu .item:last-child:before {
@@ -28071,7 +28079,7 @@ Floated Menu / Item
 }
 
 .ui.compact.menu:not(.secondary) .item:last-child {
-  border-radius: 0 0.25rem 0.25rem 0;
+  border-radius: 0 0 0 0;
 }
 
 .ui.compact.menu .item:last-child:before {
@@ -28407,7 +28415,7 @@ Floated Menu / Item
   margin-bottom: 0;
   top: 0;
   margin-top: 1rem;
-  border-radius: 0.25rem 0.25rem 0 0;
+  border-radius: 0 0 0 0;
 }
 
 .ui.menu[class*="top attached"]:first-child {
@@ -28421,8 +28429,8 @@ Floated Menu / Item
   margin-top: 0;
   top: 0;
   margin-bottom: 1rem;
-  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), none;
-  border-radius: 0 0 0.25rem 0.25rem;
+  box-shadow: none, none;
+  border-radius: 0 0 0 0;
 }
 
 .ui[class*="bottom attached"].menu:last-child {
@@ -28432,11 +28440,11 @@ Floated Menu / Item
 /* Attached Menu Item */
 
 .ui.top.attached.menu > .item:first-child {
-  border-radius: 0.25rem 0 0 0;
+  border-radius: 0 0 0 0;
 }
 
 .ui.bottom.attached.menu > .item:first-child {
-  border-radius: 0 0 0 0.25rem;
+  border-radius: 0 0 0 0;
 }
 
 /* Tabular Attached */
@@ -40378,20 +40386,6 @@ body.pushable > .pusher {
 /*******************************
          Site Overrides
 *******************************/
-
-.pushable {
-  overflow-y: hidden;
-}
-
-.pushable > .pusher {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-  height: 100%;
-  overflow-y: auto;
-}
 /*!
  * # Fomantic-UI - Sticky
  * http://github.com/fomantic/Fomantic-UI/

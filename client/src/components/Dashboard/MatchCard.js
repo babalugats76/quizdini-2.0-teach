@@ -52,11 +52,11 @@ class MatchCard extends Component {
     return (
       <Transition
         animation="fade"
-        duration={400}
+        duration={1000}
         onHide={this.handleHide}
         visible={visible}
       >
-        <Card className="match-card" fluid key={matchId} raised>
+        <Card className="match-card" horizontal key={matchId} raised>
           <Card.Content className="match-card-header">
             <Card.Header>{title}</Card.Header>
             <Button
