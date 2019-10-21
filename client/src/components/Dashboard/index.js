@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 /*eslint-disable */
-import { Divider, Segment, List, Image} from 'semantic-ui-react';
+import { Container, Divider, Segment, List, Image } from 'semantic-ui-react';
 import Message from '../UI/Message';
 import RouterButton from '../UI/RouterButton';
 import MatchList from './MatchList';
@@ -12,7 +12,7 @@ import logo from '../../logo.svg';
 import SVG from '../UI/SVG';
 
 const Match = ({ credits, matchList, onMatchDelete }) => (
-  <div id="match-game">
+  <Segment id="match-game" padded>
     <RouterButton
       disabled={credits <= 0}
       labelPosition="left"
@@ -26,7 +26,7 @@ const Match = ({ credits, matchList, onMatchDelete }) => (
     </RouterButton>
     <Divider hidden />
     <MatchList {...matchList} onMatchDelete={onMatchDelete} />
-  </div>
+  </Segment>
 );
 
 /* Array of objects containing game Component metadata */
@@ -131,9 +131,10 @@ class Dashboard extends Component {
         <List
           className="icon-menu-list"
           horizontal
+          id="dashboard-menu"
           link
           selection
-          size="big"
+          size="large"
           verticalAlign="top"
         >
           {options.map((option, idx) => {
@@ -144,7 +145,7 @@ class Dashboard extends Component {
                 active={activeGameIdx === idx}
                 onClick={(e, index) => this.handleMenuChange(e, idx)}
               >
-                <Image avatar>
+                <Image>
                   <SVG name={icon} />
                 </Image>
                 <List.Content>
@@ -163,14 +164,16 @@ class Dashboard extends Component {
     const { activeGameIdx, message } = this.state;
 
     return (
-      <main id="dashboard" className="page">
-        {this.renderMenu(games, activeGameIdx)}
-        {message && this.renderMessage(message)}
-        {games[activeGameIdx].render({
-          ...this.props,
-          onMatchDelete: matchId => this.handleMatchDelete(matchId)
-        })}
-      </main>
+      <Container as="main" className="page large" id="dashboard" fluid>
+        <div className="content-wrapper">
+          {this.renderMenu(games, activeGameIdx)}
+          {message && this.renderMessage(message)}
+          {games[activeGameIdx].render({
+            ...this.props,
+            onMatchDelete: matchId => this.handleMatchDelete(matchId)
+          })}
+        </div>
+      </Container>
     );
   }
 }

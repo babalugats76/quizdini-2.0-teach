@@ -61,7 +61,7 @@ const Profile = ({ match, history, accountType }) => {
         horizontal
         link
         selection
-        size="big"
+        size="large"
         verticalAlign="top"
       >
         {routes
