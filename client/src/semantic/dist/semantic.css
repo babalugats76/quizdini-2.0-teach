@@ -722,7 +722,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 /** TODO - integrate into semantic-ui **/
 
-.pusher .ui.menu {
+.pusher > .ui.menu {
   display: -webkit-box;
   display: flex;
   -webkit-box-flex: 0;
@@ -732,7 +732,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 
 .ui.top.fixed.menu {
-  background-color: rgba(26, 28, 87, 0.8);
+  background-color: rgba(26, 28, 87, 0.9);
 }
 
 /*-------------------
@@ -760,11 +760,8 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .pusher > .page-wrapper .page {
   margin-top: 2rem;
   margin-bottom: 3rem;
-  min-height: 550px;
-}
-
-.pusher > .page-wrapper main.ui.container {
-  width: 100%;
+  min-height: 470px;
+  /* 550px - 5rem */
 }
 
 .pusher > .page-wrapper main.ui.container.small {
@@ -784,7 +781,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   flex: 0 1 auto;
   /* Makes the footer shrink */
   width: 100%;
-  padding: 3em;
+  padding: 1rem;
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: center;
@@ -827,11 +824,16 @@ a#google-login:visited {
 --------------------*/
 
 #dashboard .content-wrapper {
-  min-height: 50vh;
+  min-height: 100%;
 }
 
 #dashboard .ui.message {
   margin-bottom: 2em;
+}
+
+#dashboard #dashboard-menu > .item > .image > svg {
+  width: 2.5em;
+  height: 2.5em;
 }
 
 /*-------------------
@@ -1511,6 +1513,14 @@ svg.svg-icon {
   Media Queries
 --------------------*/
 
+/* Mobile Only */
+
+@media only screen and (min-width: 320px) and (max-width: 767.98px) {
+  .page-wrapper {
+    padding: 0 0.5rem;
+  }
+}
+
 /* Tablets and smaller */
 
 @media only screen and (max-width: 767.98px) {
@@ -1536,15 +1546,13 @@ svg.svg-icon {
   }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 767.98px) {
-  .page-wrapper {
-    padding: 0 0.5rem;
-  }
-}
-
 @media only screen and (min-width: 768px) {
   .page-wrapper {
     padding: 0 1rem;
+  }
+
+  #dashboard .content-wrapper {
+    padding: 0 5%;
   }
 }
 /*!

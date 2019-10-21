@@ -52,7 +52,7 @@
 
 /** TODO - integrate into semantic-ui **/
 
-.pusher .ui.menu {
+.pusher > .ui.menu {
   display: flex;
   flex: 0 0 auto;
   box-shadow: none;
@@ -60,7 +60,7 @@
 }
 
 .ui.top.fixed.menu {
-  background-color: rgba(26,28,87,.8);
+  background-color: rgba(26, 28, 87, 0.9);
 }
 
 /*-------------------
@@ -83,10 +83,9 @@
     .page {
       margin-top: 2rem;
       margin-bottom: 3rem;
-      min-height: 550px;
+      min-height: 470px; /* 550px - 5rem */
     }
     main.ui.container {
-      width: 100%;
       &.small {
         max-width: @smallContainerWidth;
       }
@@ -101,7 +100,7 @@
   > #footer {
     flex: 0 1 auto; /* Makes the footer shrink */
     width: 100%;
-    padding: 3em;
+    padding: 1rem;
     align-items: center;
     justify-content: center;
     background-color: @secondaryColor;
@@ -143,10 +142,16 @@ a#google-login {
 
 #dashboard {
   .content-wrapper {
-    min-height: 50vh;
+    min-height: 100%;
   }
   .ui.message {
     margin-bottom: 2em;
+  }
+  #dashboard-menu > .item {
+    > .image > svg {
+      width: 2.5em;
+      height: 2.5em;
+    }
   }
 }
 
@@ -817,6 +822,14 @@ svg.svg-icon {
   Media Queries
 --------------------*/
 
+/* Mobile Only */
+
+@media only screen and (min-width: @mobileBreakpoint) and (max-width: @largestMobileScreen) {
+  .page-wrapper {
+    padding: @mobileContainerPadding;
+  }
+}
+
 /* Tablets and smaller */
 
 @media only screen and (max-width: @largestMobileScreen) {
@@ -849,14 +862,13 @@ svg.svg-icon {
   }
 }
 
-@media only screen and (min-width: @mobileBreakpoint) and (max-width: @largestMobileScreen) {
-  .page-wrapper {
-    padding: @mobileContainerPadding;
-  }
-}
-
 @media only screen and (min-width: @tabletBreakpoint) {
   .page-wrapper {
     padding: @containerPadding;
+  }
+  #dashboard {
+    .content-wrapper {
+      padding: 0 5%;
+    }
   }
 }
