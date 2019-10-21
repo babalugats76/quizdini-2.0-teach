@@ -14,7 +14,7 @@ const MatchList = ({ error, loading, games, onMatchDelete }) => {
   }
 
   /** add && !games ? */
-  return <Loader />;
+ // return <Loader />;
   if (loading && !games) return <Loader />;
 
   return (
