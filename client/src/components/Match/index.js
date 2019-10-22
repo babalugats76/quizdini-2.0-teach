@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import { Container } from 'semantic-ui-react';
+import Loader from '../UI/Loader';
 import MatchForm from './MatchForm';
 
 class Match extends Component {
@@ -105,18 +107,20 @@ class Match extends Component {
       );
     }
 
-    if (loading || !game) {
-      return <h1>Loading...</h1>;
-    }
+    const showLoader = loading || !game;
 
     return (
-      <MatchForm
-        game={game}
-        handleSave={(values, actions) => this.handleSave(values, actions)}
-        isMobile={isMobile}
-        loading={loading}
-        maxMatches={100}
-      />
+      <Container as="main" className="page large" fluid id="match-edit">
+        {(showLoader && <Loader />) || (
+          <MatchForm
+            game={game}
+            handleSave={(values, actions) => this.handleSave(values, actions)}
+            isMobile={isMobile}
+            loading={loading}
+            maxMatches={100}
+          />
+        )}
+      </Container>
     );
   }
 }

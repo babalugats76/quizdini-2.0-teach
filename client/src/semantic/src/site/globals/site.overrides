@@ -844,7 +844,7 @@ svg.svg-icon {
       }
     }
   }
-
+  
   .ui.cards {
     .ui.card {
       &.match-card {

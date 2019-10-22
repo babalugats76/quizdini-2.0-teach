@@ -92,14 +92,12 @@ Messages need to be standardized, etc.
   - Login
     - Update sign in for to use `touch` for the errors
   - Match
+    - Investigate Ability to have a mobile-friendly MatchTable Menu
     - Refine error-handling to match renderMessage-style functionality
     - Branch to redirect on Insufficient Credits (specifc to that type of exception...all others will use `renderMessage` functionality)
+    - Force call of auth to refresh credits should credits be found to be insufficient...
   - Dashboard
     - Create functional component, e.g., `MatchIntro`
-    - *Refactor MatchList* 
-      - Add Loader and move error/loading functionality to Match in Dashboard\index
-      - Create separate MatchIntro component and branch in Match
-      - Consider placing separating out Match in Dashboard\index
     - Consider adding `isEmptyArray` utility function for use in `MatchList`, etc.
   - *Icons*
     - Migrate version of newly-created SVG component and adapt

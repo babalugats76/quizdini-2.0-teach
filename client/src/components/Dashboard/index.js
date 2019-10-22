@@ -3,31 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 /*eslint-disable */
-import { Container, Divider, Segment, List, Image } from 'semantic-ui-react';
+import { Container, List, Image } from 'semantic-ui-react';
 import Message from '../UI/Message';
-import RouterButton from '../UI/RouterButton';
-import MatchList from './MatchList';
+import Match from './Match';
 /*eslint-disable */
-import logo from '../../logo.svg';
 import SVG from '../UI/SVG';
-
-const Match = ({ credits, matchList, onMatchDelete }) => (
-  <Segment id="match-game" padded>
-    <RouterButton
-      disabled={credits <= 0}
-      labelPosition="left"
-      icon="plus"
-      pathname="/match"
-      positive={credits >= 1}
-      state={{ matchId: null }}
-      title="Create a new match game"
-    >
-      NEW GAME
-    </RouterButton>
-    <Divider hidden />
-    <MatchList {...matchList} onMatchDelete={onMatchDelete} />
-  </Segment>
-);
 
 /* Array of objects containing game Component metadata */
 const games = [
@@ -69,10 +49,11 @@ class Dashboard extends Component {
    * @param {string} activeGameIdx Index of active game
    */
   refreshData(activeGameIdx) {
-    const { fetchMatches } = this.props; // Grab all Redux actions
+    const { fetchMatches, fetchAuth } = this.props; // Grab all Redux actions
     const { name: activeGame } = games[activeGameIdx]; // Name of current game
     switch (activeGame) {
       case 'MATCH':
+        fetchAuth();
         return fetchMatches();
       default:
         return;
@@ -105,7 +86,7 @@ class Dashboard extends Component {
     );
   };
 
-  handleMenuChange = (menuIdx) => {
+  handleMenuChange = menuIdx => {
     const { activeGameIdx } = this.state; // Current game index
     const onSameTab = activeGameIdx === menuIdx ? true : false; // New game, i.e., current = target
     this.setState((state, props) => {

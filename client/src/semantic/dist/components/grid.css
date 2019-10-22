@@ -1738,7 +1738,7 @@
     width: 100% !important;
     margin: 0 0 !important;
     box-shadow: none !important;
-    padding: 1rem 1rem !important;
+    padding: 1rem 0 !important;
   }
   .ui.stackable.grid:not(.vertically) > .row {
     margin: 0;
@@ -1755,8 +1755,8 @@
 /* Don't pad inside segment or nested grid */
   .ui.grid .ui.stackable.grid,
   .ui.segment:not(.vertical) .ui.stackable.page.grid {
-    margin-left: -1rem !important;
-    margin-right: -1rem !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   
 /* Divided Stackable */

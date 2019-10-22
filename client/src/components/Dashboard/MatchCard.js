@@ -56,7 +56,7 @@ class MatchCard extends Component {
         onHide={this.handleHide}
         visible={visible}
       >
-        <Card className="match-card" horizontal key={matchId} raised>
+        <Card className="match-card" key={matchId} raised>
           <Card.Content className="match-card-header">
             <Card.Header>{title}</Card.Header>
             <Button
