@@ -71,16 +71,14 @@ Messages need to be standardized, etc.
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Client
   - *Page*
-    - New page layout is in place and nixes the fixed header, etc.
-    - Update all "pages" to wrap page in `<Container as="main" className="page" />` which will allow for better control over main page area, including margins. This will also allow for full width pages, etc. 
-    - Rename child components as necessary, considering the change
+    - Update Profile pages and subpages to wrap page in `<Container as="main" className="page" />`
   - Landing Page
     - Add selling point section, etc.
   - Loading and Error
     - Loading done; *integrate where appropriate*
     - Mock up component for each; animation?
     - Design pattern for determining
-      - Revisit all "loading" components and refine
+      - Revisit all "loading" components and refine, e.g., showLoader, etc.
   - About - Team - FAQ - Our Values - Attribution - []() - Dedication - [Sleepwalk | George Ogg | West Central Quartet | Club Soda on Vimeo](https://vimeo.com/18706747) - ```
     <iframe src="https://player.vimeo.com/video/365146054" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     <p><a href="https://vimeo.com/365146054">&ldquo;D&eacute;guste&rdquo;</a> from <a href="https://vimeo.com/insolenceproductions">Insolence Productions</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
@@ -97,8 +95,9 @@ Messages need to be standardized, etc.
     - Branch to redirect on Insufficient Credits (specifc to that type of exception...all others will use `renderMessage` functionality)
     - Force call of auth to refresh credits should credits be found to be insufficient...
   - Dashboard
-    - Create functional component, e.g., `MatchIntro`
-    - Consider adding `isEmptyArray` utility function for use in `MatchList`, etc.
+    - Where to place authUser calls so that 'Credits' is up to date; currently happens after a successful game creation, etc. Change to happen upon insufficient credits or upon any fetch of Dashboard info? ComponentDidMount? Consider lifecycle method or hook?
+    - Refine functional component, e.g., `MatchIntro`
+    - Consider adding `isEmptyArray` utility function for use in `Match`, etc.
   - *Icons*
     - Migrate version of newly-created SVG component and adapt
       - Profile
@@ -106,6 +105,8 @@ Messages need to be standardized, etc.
       - UI Components
   - *Semantic UI* - Continue migrating work-in-progress style to semantic
      -Checkbox `line-height`
+  - Stripe
+    - How to include script only on '/credits' path; to avoid constant firing of pings off to Stripe
 
 Kay
 
