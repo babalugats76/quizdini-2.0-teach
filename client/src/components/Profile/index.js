@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Route, Switch, matchPath } from 'react-router-dom';
-import { Image, List, Segment } from 'semantic-ui-react';
+import { Container, Image, List } from 'semantic-ui-react';
 import Account from './Account';
 import Payment from './Payment';
 import Password from './Password';
@@ -22,7 +22,8 @@ const routes = [
     component: Payment,
     displayOrder: 1,
     localOnly: false,
-    icon: 'credit-card'
+    icon: 'credit-card',
+    id: 'payments'
   },
   {
     path: 'password',
@@ -90,7 +91,7 @@ const Profile = ({ match, history, accountType }) => {
     );
   };
 
-  const renderSwitch = accountType => {
+  const renderPage = accountType => {
     return (
       <Switch>
         {routes
@@ -111,16 +112,13 @@ const Profile = ({ match, history, accountType }) => {
     );
   };
 
-  const profileMenu = renderMenu(accountType);
-  const profileSwitch = renderSwitch(accountType);
-
   return (
-    <div id="profile">
-      {profileMenu}
-      <Segment className="content-wrapper" padded="very">
-        {profileSwitch}
-      </Segment>
-    </div>
+    <Container as="main" className="page large" id="profile" fluid>
+      <div className="content-wrapper">
+        {renderMenu(accountType)}
+        {renderPage(accountType)}
+      </div>
+    </Container>
   );
 };
 

@@ -107,10 +107,11 @@ class Register extends Component {
         loading: countryLoading
       } = {}
     } = this.props;
-    const form = this.renderForm(this.props);
 
     if (stateError || countryError) return <div>Error!</div>;
+    
     const showLoader = stateLoading || countryLoading;
+    const form = this.renderForm(this.props);
 
     return (
       <Container as="main" className="page medium" fluid id="register">

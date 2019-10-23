@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import { Segment } from 'semantic-ui-react';
 import PaymentTable from './PaymentTable';
 
 class Payment extends Component {
@@ -12,7 +13,11 @@ class Payment extends Component {
   render() {
     /* Added redux loading and error stuff here */
     const { paymentList } = this.props;
-    return <PaymentTable id="payments" {...paymentList} />;
+    return (
+      <Segment id="payments" padded="very">
+        <PaymentTable id="payment-table" {...paymentList} />
+      </Segment>
+    );
   }
 }
 

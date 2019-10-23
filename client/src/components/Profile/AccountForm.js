@@ -195,13 +195,16 @@ const FormikAccountForm = withFormik({
   validateOnChange: false,
   validateOnBlur: true,
   mapPropsToValues: ({ user }) => {
+
+    const data = user || {};
+
     return {
-      city: user.city || '',
-      countryCode: user.countryCode || '',
-      firstName: user.firstName || '',
-      lastName: user.lastName || '',
-      stateCode: user.stateCode || null,
-      title: user.title || null
+      city: data.city || '',
+      countryCode: data.countryCode || '',
+      firstName: data.firstName || '',
+      lastName: data.lastName || '',
+      stateCode: data.stateCode || null,
+      title: data.title || null
     };
   },
   mapPropsToStatus: () => {

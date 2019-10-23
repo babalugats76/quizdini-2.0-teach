@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { Divider } from 'semantic-ui-react';
+import Loader from '../UI/Loader';
 import AccountSummary from './AccountSummary';
 import AccountForm from './AccountForm';
 
@@ -66,37 +67,24 @@ class Account extends Component {
 
   render() {
     const {
-      stateOptions: {
-        error: stateError,
-        loading: stateLoading,
-        data: stateData
-      } = {},
-      countryOptions: {
-        error: countryError,
-        loading: countryLoading,
-        data: countryData
-      } = {},
+      stateOptions: { error: stateError, loading: stateLoading } = {},
+      countryOptions: { error: countryError, loading: countryLoading } = {},
       account: { error: accountError, loading: accountLoading, user } = {}
     } = this.props;
 
-    const error = stateError || countryError || (accountError && !user);
-    const loading =
-      stateLoading ||
-      !stateData ||
-      (countryLoading || !countryData) ||
-      (accountLoading || !user);
+    if (stateError || countryError || accountError) return <div>Error!</div>;
 
-    if (error) return <div>Error!</div>;
-    if (loading) return <div>Loading...</div>;
-
-    const form = this.renderForm(this.props);
+    const showLoader = stateLoading || countryLoading || accountLoading;
+    //const form = this.renderForm(this.props);
 
     return (
-      <React.Fragment>
-        <AccountSummary {...user} />
-        <Divider />
-        {form}
-      </React.Fragment>
+      (showLoader && <Loader />) || (
+        <>
+          { user && <AccountSummary {...user} /> }
+          <Divider />
+          { this.renderForm(this.props) }
+        </>
+      )
     );
   }
 }
