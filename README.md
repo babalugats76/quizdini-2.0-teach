@@ -103,6 +103,8 @@ Messages need to be standardized, etc.
       - Profile
       - NavBar
       - UI Components
+  - Profile
+      - Disposition loading issues make resilient to null or should things be visible if data isn't available.  Both?
   - *Semantic UI* - Continue migrating work-in-progress style to semantic
      -Checkbox `line-height`
   - Stripe
