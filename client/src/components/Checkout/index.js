@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { Elements, StripeProvider } from 'react-stripe-elements';
+import StripeScriptLoader from 'react-stripe-script-loader';
 import { Container } from 'semantic-ui-react';
 import LogoHeader from '../UI/LogoHeader';
+import Loader from '../UI/Loader';
 import CheckoutForm from './CheckoutForm';
 
 const elementOptions = {
@@ -122,17 +124,19 @@ class Checkout extends Component {
   }
 
   renderForm = () => (
-    <StripeProvider apiKey={process.env.REACT_APP_STRIPE_KEY}>
-      <Elements {...elementOptions}>
-        <CheckoutForm
-          onStripeChange={this.handleStripeChange}
-          onStripeReady={this.handleStripeReady}
-          isCardComplete={this.isCardComplete}
-          clearStripeFields={this.clearStripeFields}
-          onPayment={(values, actions) => this.handlePayment(values, actions)}
-        />
-      </Elements>
-    </StripeProvider>
+    <StripeScriptLoader uniqueId="stripe-script" script={process.env.REACT_APP_STRIPE_SCRIPT} loader={<Loader/>}>
+      <StripeProvider apiKey={process.env.REACT_APP_STRIPE_KEY}>
+        <Elements {...elementOptions}>
+          <CheckoutForm
+            onStripeChange={this.handleStripeChange}
+            onStripeReady={this.handleStripeReady}
+            isCardComplete={this.isCardComplete}
+            clearStripeFields={this.clearStripeFields}
+            onPayment={(values, actions) => this.handlePayment(values, actions)}
+          />
+        </Elements>
+      </StripeProvider>
+    </StripeScriptLoader>
   );
 
   render() {

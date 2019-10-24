@@ -21,6 +21,22 @@ const titleOptions = [
 ];
 
 /* eslint-disable no-template-curly-in-string */
+const transformUser = Yup.object().shape({
+  firstName: Yup.string()
+    .required('First Name is required.')
+    .default(''),
+  lastName: Yup.string()
+    .required('Last Name is required.')
+    .default(''),
+  city: Yup.string()
+    .max(100, 'City is too long. ${max} characters are allowed.')
+    .default(''),
+  countryCode: Yup.string()
+    .required('Country is required.')
+    .default('')
+});
+
+/* eslint-disable no-template-curly-in-string */
 const validateUser = Yup.object().shape({
   firstName: Yup.string().required('First Name is required.'),
   lastName: Yup.string().required('Last Name is required.'),
@@ -195,16 +211,17 @@ const FormikAccountForm = withFormik({
   validateOnChange: false,
   validateOnBlur: true,
   mapPropsToValues: ({ user }) => {
+    // 1. Cast and transform incoming data as appropriate
+    const data = transformUser.cast(user || {});
 
-    const data = user || {};
-
+    // 2. Map data to Formik's 'values'
     return {
-      city: data.city || '',
-      countryCode: data.countryCode || '',
-      firstName: data.firstName || '',
-      lastName: data.lastName || '',
-      stateCode: data.stateCode || null,
-      title: data.title || null
+      city: data.city,
+      countryCode: data.countryCode,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      stateCode: data.stateCode, // OK is null (no transform necessary)
+      title: data.title // OK if null (no transform necessary)
     };
   },
   mapPropsToStatus: () => {

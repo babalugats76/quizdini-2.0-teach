@@ -107,8 +107,6 @@ Messages need to be standardized, etc.
       - Disposition loading issues make resilient to null or should things be visible if data isn't available.  Both?
   - *Semantic UI* - Continue migrating work-in-progress style to semantic
      -Checkbox `line-height`
-  - Stripe
-    - How to include script only on '/credits' path; to avoid constant firing of pings off to Stripe
 
 Kay
 

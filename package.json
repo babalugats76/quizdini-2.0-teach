@@ -38,6 +38,7 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
     "react-sizes": "^2.0.0",
+    "react-stripe-script-loader": "^1.0.16",
     "shortid": "^2.2.15",
     "stripe": "^7.10.0"
   }

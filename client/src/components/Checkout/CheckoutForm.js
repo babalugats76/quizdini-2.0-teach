@@ -63,6 +63,7 @@ const validateCheckout = Yup.object().shape({
 });
 
 const CheckoutForm = props => {
+ 
   const handleAmountChange = e => {
     const { setFieldValue } = props;
     const { value } = e.target;
