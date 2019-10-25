@@ -7,36 +7,36 @@
 --------------------*/
 
 @font-face {
-  font-family: 'Lexend Deca';
+  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 400;
-  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'),
-    url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'),
+  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"),
+    url("/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("/fonts/lexend-deca-v1-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: 'Fira Code';
+  font-family: "Fira Code";
   font-style: normal;
   font-weight: 400;
-  src: local(''), url('/fonts/fira-code-v5-latin-regular.woff2') format('woff2'),
+  src: local(""), url("/fonts/fira-code-v5-latin-regular.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('/fonts/fira-code-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("/fonts/fira-code-v5-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: 'marcher-semibold';
-  src: url('/fonts/marcher-semibold-webfont.woff2') format('woff2'),
-    url('/fonts/marcher-semibold-webfont.woff') format('woff');
+  font-family: "marcher-semibold";
+  src: url("/fonts/marcher-semibold-webfont.woff2") format("woff2"),
+    url("/fonts/marcher-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-medium';
-  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'),
-    url('/fonts/marcher-medium-webfont.woff') format('woff');
+  font-family: "marcher-medium";
+  src: url("/fonts/marcher-medium-webfont.woff2") format("woff2"),
+    url("/fonts/marcher-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -123,16 +123,16 @@ a#google-login {
   /** TODO - move to cloud and host on S3/Cloud Front
       Use regular, low-fidelity images?
   **/
-  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png')
+  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png")
     no-repeat;
   background-size: 191px 46px;
   &:focus,
   &:hover {
-    background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
+    background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
   }
   &:active,
   &:visited {
-    background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
+    background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
   }
 }
 
@@ -169,12 +169,15 @@ a#google-login {
     margin-bottom: 2em;
   }
 
-  #payment-table {
-    thead > tr > th {
-      font-size: 1em;
-    }
-    tbody > tr > td {
-      font-size: 0.9375em;
+  #payments {
+    min-height: 330px;
+    #payment-table {
+      thead > tr > th {
+        font-size: 1em;
+      }
+      tbody > tr > td {
+        font-size: 0.9375em;
+      }
     }
   }
 
@@ -359,7 +362,7 @@ svg.icon.chevron-down.closed {
           border-bottom: 1px solid @subtleTransparentBlack;
           background-size: 25px;
           background-repeat: round;
-          background-image: url('/images/question.svg');
+          background-image: url("/images/question.svg");
           &:hover {
             .ui.icon.button.trash {
               display: block;
@@ -701,7 +704,7 @@ textarea#matchText {
 }
 
 .rich-text-editor {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #000000;
   font-size: inherit;
   line-height: 1.5rem;
@@ -714,7 +717,7 @@ textarea#matchText {
   height: auto;
 }
 
-.rich-text-editor:not([contenteditable='true']) {
+.rich-text-editor:not([contenteditable="true"]) {
   pointer-events: none;
   color: rgba(40, 40, 40, 0.3);
 }
