@@ -24,8 +24,8 @@
 @media only screen and (max-width: 767.98px) {
   .ui.ui.ui.container:not(.fluid) {
     width: auto;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 0;
+    margin-right: 0;
   }
   .ui.ui.grid.container {
     width: auto;
@@ -137,6 +137,10 @@
          Theme Overrides
 *******************************/
 
+.ui.fluid.container {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 /*******************************

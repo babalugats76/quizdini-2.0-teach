@@ -5,11 +5,10 @@ import ExternalLink from '../UI/ExternalLink';
 
 const { format } = require('date-fns');
 
-const PaymentTable = ({ error, id, loading, payments }) => {
+const PaymentTable = ({ id, payments }) => {
   const renderRows = payments => {
     return (
-      payments &&
-      payments.map((val, idx) => {
+      payments && payments.map((val, idx) => {
         return (
           <Table.Row key={val.paymentId}>
             <Table.Cell
@@ -20,7 +19,7 @@ const PaymentTable = ({ error, id, loading, payments }) => {
               {val.formatted}
             </Table.Cell>
             <Table.Cell textAlign="right" collapsing>
-              {format(Date.parse(val.paymentDate), 'MMM d, yyyy, h:mm aa')}
+              {val.paymentDate && format(Date.parse(val.paymentDate), 'MMM d, yyyy, h:mm aa')}
             </Table.Cell>
             <Table.Cell>{val.description}</Table.Cell>
             <Table.Cell textAlign="center" collapsing>
@@ -37,18 +36,6 @@ const PaymentTable = ({ error, id, loading, payments }) => {
       })
     );
   };
-
-  if (error && !payments) {
-    return (
-      <div>
-        Error! {error.message} {error.status}
-      </div>
-    );
-  }
-
-  if (loading && !payments) {
-    return <h1>Loading...</h1>;
-  }
 
   const rows = renderRows(payments);
 
@@ -79,10 +66,13 @@ const PaymentTable = ({ error, id, loading, payments }) => {
 };
 
 PaymentTable.propTypes = {
-  error: PropTypes.object,
   id: PropTypes.string.isRequired,
-  loading: PropTypes.bool.isRequired,
-  payments: PropTypes.array
+  payments: PropTypes.array.isRequired
 };
+
+PaymentTable.defaultProps = {
+  id: 'payment-table',
+  payments: []
+}
 
 export default PaymentTable;

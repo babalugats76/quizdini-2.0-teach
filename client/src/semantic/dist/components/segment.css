@@ -832,6 +832,6 @@
     padding: 0.75em;
   }
   .ui[class*='very padded'].segment {
-    padding: 3em 0.75em;
+    padding: 3em 1em;
   }
 }

@@ -7,36 +7,36 @@
 --------------------*/
 
 @font-face {
-  font-family: "Lexend Deca";
+  font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"),
-    url("/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"),
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'),
+    url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/fonts/lexend-deca-v1-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "Fira Code";
+  font-family: 'Fira Code';
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("/fonts/fira-code-v5-latin-regular.woff2") format("woff2"),
+  src: local(''), url('/fonts/fira-code-v5-latin-regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/fonts/fira-code-v5-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('/fonts/fira-code-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "marcher-semibold";
-  src: url("/fonts/marcher-semibold-webfont.woff2") format("woff2"),
-    url("/fonts/marcher-semibold-webfont.woff") format("woff");
+  font-family: 'marcher-semibold';
+  src: url('/fonts/marcher-semibold-webfont.woff2') format('woff2'),
+    url('/fonts/marcher-semibold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-medium";
-  src: url("/fonts/marcher-medium-webfont.woff2") format("woff2"),
-    url("/fonts/marcher-medium-webfont.woff") format("woff");
+  font-family: 'marcher-medium';
+  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'),
+    url('/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -84,7 +84,7 @@
         margin-top: 2rem;
         margin-bottom: 3rem;
       }
-      main.ui.container {
+      .ui.container {
         &.small {
           max-width: @smallContainerWidth;
         }
@@ -123,16 +123,16 @@ a#google-login {
   /** TODO - move to cloud and host on S3/Cloud Front
       Use regular, low-fidelity images?
   **/
-  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png")
+  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png')
     no-repeat;
   background-size: 191px 46px;
   &:focus,
   &:hover {
-    background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
+    background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
   }
   &:active,
   &:visited {
-    background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
+    background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
   }
 }
 
@@ -141,7 +141,6 @@ a#google-login {
 --------------------*/
 
 #dashboard {
-
   .ui.message {
     margin-bottom: 2em;
   }
@@ -168,6 +167,50 @@ a#google-login {
   }
   .ui.message {
     margin-bottom: 2em;
+  }
+
+  #payment-table {
+    thead > tr > th {
+      font-size: 1em;
+    }
+    tbody > tr > td {
+      font-size: 0.9375em;
+    }
+  }
+
+  #account-summary {
+    .ui.items {
+      > .item {
+        line-height: 1.2;
+        font-size: 1.125em;
+        > .content {
+          > .description {
+            margin-top: 0.3em;
+            &.username {
+              font-size: 1.0625em;
+            }
+            &.email {
+              color: @quizdiniPurple;
+            }
+          }
+          > .extra {
+            &.since {
+              margin-top: 0.8em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*-------------------
+  Errors
+--------------------*/
+
+.input-feedback {
+  &.error {
+    text-align: left;
   }
 }
 
@@ -240,7 +283,7 @@ svg.icon.chevron-down.closed {
   &.ui.selection.list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
 
     > .item {
       display: inline-flex;
@@ -316,7 +359,7 @@ svg.icon.chevron-down.closed {
           border-bottom: 1px solid @subtleTransparentBlack;
           background-size: 25px;
           background-repeat: round;
-          background-image: url("/images/question.svg");
+          background-image: url('/images/question.svg');
           &:hover {
             .ui.icon.button.trash {
               display: block;
@@ -340,7 +383,7 @@ svg.icon.chevron-down.closed {
             top: 0;
             width: 100%;
             height: 100%;
-            transition: background-color .5s ease;
+            transition: background-color 0.5s ease;
             background-color: transparent;
             svg.icon.trash {
               fill: @negativeTextColor;
@@ -396,17 +439,26 @@ svg.icon.chevron-down.closed {
 --------------------*/
 
 .loader {
-  text-align: center;
+  position: fixed; /* Takes out of normal page flow */
+  z-index: 999;
+  height: 2.3rem;
+  width: 2.3rem;
+  overflow: visible;
+  margin: auto; /* Positions in center of page */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   .icon.spinner {
-    width: 36px;
-    height: 36px;
+    width: 2.3rem;
+    height: 2.3rem;
     path {
       fill: @quizdiniPurple;
     }
   }
 }
 
-.spinner {
+.loader {
   -webkit-animation: spin 500ms infinite linear; /* Safari 4+ */
   -moz-animation: spin 500ms infinite linear; /* Fx 5+ */
   -o-animation: spin 500ms infinite linear; /* Opera 12+ */
@@ -455,21 +507,23 @@ svg.icon.chevron-down.closed {
     }
   }
   > .fields:last-of-type {
-    padding-top: 0.75rem;
-    margin-bottom: 1.25rem;
+    padding-top: 0.75em;
+    margin-bottom: 1.25em;
   }
 }
 
 #login-form > .fields,
-form#password > .fields,
+#password-form > .fields,
 #reset-form > .fields,
+#account-form > .fields:last-of-type,
 #register-form > .fields:last-of-type,
-form#account > .fields:last-of-type,
 #lost-form > .fields:last-of-type {
   justify-content: center;
 }
 
-form#password > .fields:last-of-type,
+#password-form > .fields:last-of-type,
+#account-form > .fields:last-of-type,
+#account-form > .fields:last-of-type,
 #register-form > .fields:last-of-type,
 #lost-form > .fields:last-of-type,
 #reset-form > .fields:last-of-type {
@@ -512,22 +566,6 @@ form#password > .fields:last-of-type,
   }
 }
 
-.account-summary {
-  .ui.items {
-    > .item {
-      line-height: 1.2;
-      font-size: 1.3rem;
-      .email {
-        text-decoration: underline;
-      }
-      .fullname,
-      .since {
-        margin-top: 0.8em;
-      }
-    }
-  }
-}
-
 .ui.button {
   &.clipboard {
     transition: color 0.5s ease-in-out,
@@ -540,10 +578,6 @@ form#password > .fields:last-of-type,
       padding: 0;
     }
   }
-}
-
-#password-container.ui.container {
-  max-width: 360px !important;
 }
 
 .ui.visible.left.overlay.sidebar {
@@ -623,24 +657,7 @@ form#match-edit.ui.form {
 
 /* Form Specific */
 
-#checkout-container {
-  &.ui.grid {
-    .column {
-      > .ui.segment {
-        padding-top: 1em;
-        margin-top: 0;
-      }
-    }
-  }
-}
-
 .ui.form {
-  .ui.segments .segment,
-  .ui.segment,
-  .ui.checkbox,
-  .ui.dropdown {
-    font-size: inherit !important;
-  }
   .ui.accordion {
     .title {
       display: flex;
@@ -671,15 +688,11 @@ textarea.editor {
   height: 120px;
 }
 
-.card {
-  min-width: 8ch;
-  max-width: 30ch;
-}
-
-.label {
+/** TODO - Do I still need? **/
+/*.label {
   font-weight: @bold;
   display: block;
-}
+}*/
 
 textarea#matchText {
   width: 100%;
@@ -688,7 +701,7 @@ textarea#matchText {
 }
 
 .rich-text-editor {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #000000;
   font-size: inherit;
   line-height: 1.5rem;
@@ -701,7 +714,7 @@ textarea#matchText {
   height: auto;
 }
 
-.rich-text-editor:not([contenteditable="true"]) {
+.rich-text-editor:not([contenteditable='true']) {
   pointer-events: none;
   color: rgba(40, 40, 40, 0.3);
 }
@@ -844,7 +857,7 @@ svg.svg-icon {
       }
     }
   }
-  
+
   .ui.cards {
     .ui.card {
       &.match-card {
@@ -869,9 +882,7 @@ svg.svg-icon {
   .page-wrapper {
     padding: @containerPadding;
   }
-  #dashboard {
-    .content-wrapper {
-      padding: 0 5%;
-    }
+  .content-wrapper {
+    padding: 0 5%;
   }
 }

@@ -70,8 +70,9 @@ Messages need to be standardized, etc.
     - Update logo to be 300px-wide friend logo with text
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Client
-  - *Page*
-    - Update Profile pages and subpages to wrap page in `<Container as="main" className="page" />`
+  - Go after preventDefaults
+  - Register
+    - See if errors can be improved to account for touched?
   - Landing Page
     - Add selling point section, etc.
   - Loading and Error

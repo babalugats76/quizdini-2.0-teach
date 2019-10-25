@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { Divider, Segment } from 'semantic-ui-react';
+import { Container, Divider, Segment } from 'semantic-ui-react';
 import Loader from '../UI/Loader';
 import AccountSummary from './AccountSummary';
 import AccountForm from './AccountForm';
@@ -94,15 +94,15 @@ class Account extends Component {
     const form = this.renderForm(this.props);
 
     return (
-      <Segment id="account" padded="very">
-        {(showLoader && <Loader />) || (
-          <>
-            <AccountSummary {...user} />
-            <Divider />
-            {form}
-          </>
-        )}
-      </Segment>
+      <Container className="medium">
+          {(showLoader && <Loader />) || (
+            <Segment id="account">
+              <AccountSummary {...user} />
+              <Divider />
+              {form}
+            </Segment>
+          )}
+      </Container>
     );
   }
 }

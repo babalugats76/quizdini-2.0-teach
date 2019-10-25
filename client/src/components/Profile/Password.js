@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import * as actions from "../../actions";
-import PasswordForm from "./PasswordForm";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
+import { Container } from 'semantic-ui-react';
+import PasswordForm from './PasswordForm';
 
 class Password extends Component {
   /**
@@ -23,15 +24,15 @@ class Password extends Component {
     const { password: { error, message } = {} } = this.props; // Get latest version of password props (mapped from state)
     if (error) {
       await setStatus({
-        color: "red",
-        content: error.message || "",
-        header: "Unable to Change Password"
+        color: 'red',
+        content: error.message || '',
+        header: 'Unable to Change Password'
       });
     } else {
       await setStatus({
-        color: "green",
-        content: message || "",
-        header: "Success!"
+        color: 'green',
+        content: message || '',
+        header: 'Success!'
       });
     }
     return await setSubmitting(false);
@@ -49,7 +50,7 @@ class Password extends Component {
 
   render() {
     const form = this.renderForm(this.props);
-    return form;
+    return <Container className="small" fluid>{form}</Container>;
   }
 }
 

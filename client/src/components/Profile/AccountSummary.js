@@ -17,7 +17,7 @@ const AccountSummary = ({
   const picture = googlePicture || avatar;
 
   return (
-    <Segment basic className="account-summary">
+    <Segment basic id="account-summary">
       <Item.Group>
         <Item>
           <Image avatar size="small" spaced="right" src={picture} />

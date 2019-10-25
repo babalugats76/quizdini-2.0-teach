@@ -680,33 +680,33 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 --------------------*/
 
 @font-face {
-  font-family: "Lexend Deca";
+  font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"), url("/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"), 
- url("/fonts/lexend-deca-v1-latin-regular.woff") format("woff");
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
+ url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "Fira Code";
+  font-family: 'Fira Code';
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("/fonts/fira-code-v5-latin-regular.woff2") format("woff2"), 
- url("/fonts/fira-code-v5-latin-regular.woff") format("woff");
+  src: local(''), url('/fonts/fira-code-v5-latin-regular.woff2') format('woff2'), 
+ url('/fonts/fira-code-v5-latin-regular.woff') format('woff');
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "marcher-semibold";
-  src: url("/fonts/marcher-semibold-webfont.woff2") format("woff2"), url("/fonts/marcher-semibold-webfont.woff") format("woff");
+  font-family: 'marcher-semibold';
+  src: url('/fonts/marcher-semibold-webfont.woff2') format('woff2'), url('/fonts/marcher-semibold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-medium";
-  src: url("/fonts/marcher-medium-webfont.woff2") format("woff2"), url("/fonts/marcher-medium-webfont.woff") format("woff");
+  font-family: 'marcher-medium';
+  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'), url('/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -772,15 +772,15 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   margin-bottom: 3rem;
 }
 
-.pushable .pusher > .page-wrapper main.ui.container.small {
+.pushable .pusher > .page-wrapper .ui.container.small {
   max-width: 432px;
 }
 
-.pushable .pusher > .page-wrapper main.ui.container.medium {
+.pushable .pusher > .page-wrapper .ui.container.medium {
   max-width: 735.98px;
 }
 
-.pushable .pusher > .page-wrapper main.ui.container.large {
+.pushable .pusher > .page-wrapper .ui.container.large {
   max-width: 1168px;
 }
 
@@ -813,18 +813,18 @@ a#google-login {
   /** TODO - move to cloud and host on S3/Cloud Front
       Use regular, low-fidelity images?
   **/
-  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
+  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
   background-size: 191px 46px;
 }
 
 a#google-login:focus,
 a#google-login:hover {
-  background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
+  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
 }
 
 a#google-login:active,
 a#google-login:visited {
-  background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
+  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
 }
 
 /*-------------------
@@ -854,6 +854,43 @@ a#google-login:visited {
 
 #profile .ui.message {
   margin-bottom: 2em;
+}
+
+#profile #payment-table thead > tr > th {
+  font-size: 1em;
+}
+
+#profile #payment-table tbody > tr > td {
+  font-size: 0.9375em;
+}
+
+#profile #account-summary .ui.items > .item {
+  line-height: 1.2;
+  font-size: 1.125em;
+}
+
+#profile #account-summary .ui.items > .item > .content > .description {
+  margin-top: 0.3em;
+}
+
+#profile #account-summary .ui.items > .item > .content > .description.username {
+  font-size: 1.0625em;
+}
+
+#profile #account-summary .ui.items > .item > .content > .description.email {
+  color: #aa54ff;
+}
+
+#profile #account-summary .ui.items > .item > .content > .extra.since {
+  margin-top: 0.8em;
+}
+
+/*-------------------
+  Errors
+--------------------*/
+
+.input-feedback.error {
+  text-align: left;
 }
 
 /*-------------------
@@ -929,8 +966,8 @@ svg.icon.chevron-down.closed {
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
-  -webkit-box-pack: left;
-  justify-content: left;
+  -webkit-box-pack: center;
+  justify-content: center;
 }
 
 .icon-menu-list.ui.selection.list > .item {
@@ -1015,7 +1052,7 @@ svg.icon.chevron-down.closed {
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   background-size: 25px;
   background-repeat: round;
-  background-image: url("/images/question.svg");
+  background-image: url('/images/question.svg');
 }
 
 .ui.cards .ui.card.match-card .content.match-card-header:hover .ui.icon.button.trash {
@@ -1108,19 +1145,30 @@ svg.icon.chevron-down.closed {
 --------------------*/
 
 .loader {
-  text-align: center;
+  position: fixed;
+  /* Takes out of normal page flow */
+  z-index: 999;
+  height: 2.3rem;
+  width: 2.3rem;
+  overflow: visible;
+  margin: auto;
+  /* Positions in center of page */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .loader .icon.spinner {
-  width: 36px;
-  height: 36px;
+  width: 2.3rem;
+  height: 2.3rem;
 }
 
 .loader .icon.spinner path {
   fill: #aa54ff;
 }
 
-.spinner {
+.loader {
   -webkit-animation: spin 500ms infinite linear;
   /* Safari 4+ */
   /* Fx 5+ */
@@ -1165,21 +1213,23 @@ svg.icon.chevron-down.closed {
 }
 
 #login-form > .fields:last-of-type {
-  padding-top: 0.75rem;
-  margin-bottom: 1.25rem;
+  padding-top: 0.75em;
+  margin-bottom: 1.25em;
 }
 
 #login-form > .fields,
-form#password > .fields,
+#password-form > .fields,
 #reset-form > .fields,
+#account-form > .fields:last-of-type,
 #register-form > .fields:last-of-type,
-form#account > .fields:last-of-type,
 #lost-form > .fields:last-of-type {
   -webkit-box-pack: center;
   justify-content: center;
 }
 
-form#password > .fields:last-of-type,
+#password-form > .fields:last-of-type,
+#account-form > .fields:last-of-type,
+#account-form > .fields:last-of-type,
 #register-form > .fields:last-of-type,
 #lost-form > .fields:last-of-type,
 #reset-form > .fields:last-of-type {
@@ -1217,20 +1267,6 @@ form#password > .fields:last-of-type,
   margin: 0 !important;
 }
 
-.account-summary .ui.items > .item {
-  line-height: 1.2;
-  font-size: 1.3rem;
-}
-
-.account-summary .ui.items > .item .email {
-  text-decoration: underline;
-}
-
-.account-summary .ui.items > .item .fullname,
-.account-summary .ui.items > .item .since {
-  margin-top: 0.8em;
-}
-
 .ui.button.clipboard {
   -webkit-transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -1242,10 +1278,6 @@ form#password > .fields:last-of-type,
   font-size: 14px;
   margin: 0;
   padding: 0;
-}
-
-#password-container.ui.container {
-  max-width: 360px !important;
 }
 
 .ui.visible.left.overlay.sidebar {
@@ -1321,18 +1353,6 @@ form#match-edit.ui.form #match-id {
 
 /* Form Specific */
 
-#checkout-container.ui.grid .column > .ui.segment {
-  padding-top: 1em;
-  margin-top: 0;
-}
-
-.ui.form .ui.segments .segment,
-.ui.form .ui.segment,
-.ui.form .ui.checkbox,
-.ui.form .ui.dropdown {
-  font-size: inherit !important;
-}
-
 .ui.form .ui.accordion .title {
   display: -webkit-box;
   display: flex;
@@ -1365,15 +1385,12 @@ textarea.editor {
   height: 120px;
 }
 
-.card {
-  min-width: 8ch;
-  max-width: 30ch;
-}
+/** TODO - Do I still need? **/
 
-.label {
-  font-weight: 400;
+/*.label {
+  font-weight: @bold;
   display: block;
-}
+}*/
 
 textarea#matchText {
   width: 100%;
@@ -1382,7 +1399,7 @@ textarea#matchText {
 }
 
 .rich-text-editor {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #000000;
   font-size: inherit;
   line-height: 1.5rem;
@@ -1395,7 +1412,7 @@ textarea#matchText {
   height: auto;
 }
 
-.rich-text-editor:not([contenteditable="true"]) {
+.rich-text-editor:not([contenteditable='true']) {
   pointer-events: none;
   color: rgba(40, 40, 40, 0.3);
 }
@@ -1559,7 +1576,7 @@ svg.svg-icon {
     padding: 0 1rem;
   }
 
-  #dashboard .content-wrapper {
+  .content-wrapper {
     padding: 0 5%;
   }
 }
@@ -6281,8 +6298,8 @@ svg.svg-icon {
 @media only screen and (max-width: 767.98px) {
   .ui.ui.ui.container:not(.fluid) {
     width: auto;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .ui.ui.grid.container {
@@ -6409,6 +6426,11 @@ svg.svg-icon {
 /*******************************
          Theme Overrides
 *******************************/
+
+.ui.fluid.container {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /*******************************
          Site Overrides
@@ -22537,7 +22559,7 @@ ol.ui.suffixed.list li:before,
   }
 
   .ui[class*='very padded'].segment {
-    padding: 3em 0.75em;
+    padding: 3em 1em;
   }
 }
 /*!

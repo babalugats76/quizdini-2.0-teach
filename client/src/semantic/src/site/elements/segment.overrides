@@ -6,6 +6,6 @@
     padding: 0.75em;
   }
   .ui[class*='very padded'].segment {
-    padding: @veryPaddedSegmentPadding 0.75em;
+    padding: @veryPaddedSegmentPadding 1em;
   }
 }

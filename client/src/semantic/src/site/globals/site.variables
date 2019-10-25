@@ -67,3 +67,4 @@
 @largeContainerWidth       : (@largeMonitorBreakpoint - (2 * @fontSize));
 @containerPadding          : 0 1rem;
 @mobileContainerPadding    : 0 .5rem;
+@mobileGutter              : 0;

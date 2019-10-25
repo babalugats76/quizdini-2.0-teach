@@ -1,6 +1,6 @@
 import React from 'react';
 import { withFormik } from 'formik';
-import { Container, Form, Grid } from 'semantic-ui-react';
+import { Form, Segment } from 'semantic-ui-react';
 import * as Yup from 'yup';
 import Button from '../UI/Button';
 import InputText from '../UI/InputText';
@@ -52,78 +52,80 @@ const PasswordForm = props => {
     values
   }) => {
     return (
-      <Form id="password" onSubmit={handleSubmit} size="large">
-        <Form.Group>
-          <InputText
-            disabled={isSubmitting}
-            error={touched.oldPassword && errors.oldPassword}
-            label="Current Password"
-            name="oldPassword"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            placeholder="Your 'old' password"
-            required
-            tabIndex={1}
-            type="password"
-            value={values.oldPassword}
-            width={16}
-          />
-        </Form.Group>
-        <Form.Group>
-          <InputText
-            disabled={isSubmitting}
-            error={touched.newPassword && errors.newPassword}
-            label="New Password"
-            name="newPassword"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            placeholder="e.g. Qu1zd!n!"
-            required
-            tabIndex={2}
-            type="password"
-            value={values.newPassword}
-            width={16}
-          />
-        </Form.Group>
-        <Form.Group>
-          <InputText
-            disabled={isSubmitting}
-            error={touched.confirmPassword && errors.confirmPassword}
-            label="Confirm Password"
-            name="confirmPassword"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            placeholder="Repeat new password"
-            required
-            tabIndex={3}
-            type="password"
-            value={values.confirmPassword}
-            width={16}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Button
-            active
-            disabled={isSubmitting}
-            icon="key"
-            labelPosition="left"
-            loading={isSubmitting}
-            positive={
-              !status &&
-              isValid &&
-              touched.oldPassword &&
-              touched.newPassword &&
-              touched.confirmPassword
-            }
-            size="large"
-            tabIndex={4}
-            title="Change Password"
-            type="submit"
-          >
-            CHANGE PASSWORD
-          </Button>
-        </Form.Group>
-      </Form>
+      <Segment basic textAlign="center">
+        <Form id="password-form" onSubmit={handleSubmit}>
+          <Form.Group>
+            <InputText
+              disabled={isSubmitting}
+              error={touched.oldPassword && errors.oldPassword}
+              label="Current Password"
+              name="oldPassword"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              placeholder="Your 'old' password"
+              required
+              tabIndex={1}
+              type="password"
+              value={values.oldPassword}
+              width={16}
+            />
+          </Form.Group>
+          <Form.Group>
+            <InputText
+              disabled={isSubmitting}
+              error={touched.newPassword && errors.newPassword}
+              label="New Password"
+              name="newPassword"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              placeholder="e.g. Qu1zd!n!"
+              required
+              tabIndex={2}
+              type="password"
+              value={values.newPassword}
+              width={16}
+            />
+          </Form.Group>
+          <Form.Group>
+            <InputText
+              disabled={isSubmitting}
+              error={touched.confirmPassword && errors.confirmPassword}
+              label="Confirm Password"
+              name="confirmPassword"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              placeholder="Repeat new password"
+              required
+              tabIndex={3}
+              type="password"
+              value={values.confirmPassword}
+              width={16}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Button
+              active
+              disabled={isSubmitting}
+              icon="key"
+              labelPosition="left"
+              loading={isSubmitting}
+              positive={
+                !status &&
+                isValid &&
+                touched.oldPassword &&
+                touched.newPassword &&
+                touched.confirmPassword
+              }
+              size="large"
+              tabIndex={4}
+              title="Update"
+              type="submit"
+            >
+              UPDATE
+            </Button>
+          </Form.Group>
+        </Form>
+      </Segment>
     );
   };
 
@@ -131,14 +133,10 @@ const PasswordForm = props => {
   const form = renderForm(props);
 
   return (
-    <Grid as={Container} id="password-container" centered columns={1} stackable>
-      <Grid.Row centered>
-        <Grid.Column>
-          {status && renderMessage({ ...status, setStatus })}
-          {form}
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+    <Segment padded>
+      {status && renderMessage({ ...status, setStatus })}
+      {form}
+    </Segment>
   );
 };
 

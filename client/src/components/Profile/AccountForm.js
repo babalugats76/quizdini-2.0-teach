@@ -79,7 +79,7 @@ const AccountForm = props => {
     values
   }) => {
     return (
-      <Form id="account" onSubmit={handleSubmit} size="large">
+      <Form id="account-form" onSubmit={handleSubmit}>
         <Form.Group>
           <Dropdown
             disabled={isSubmitting}
@@ -139,7 +139,7 @@ const AccountForm = props => {
             tabIndex={4}
             type="text"
             value={values.city}
-            width={5}
+            width={7}
           />
           <Dropdown
             disabled={isSubmitting}
@@ -154,7 +154,7 @@ const AccountForm = props => {
             tabIndex={5}
             upward={false}
             value={values.countryCode}
-            width={6}
+            width={9}
           />
           {values.countryCode === 'US' && (
             <Dropdown
@@ -184,10 +184,10 @@ const AccountForm = props => {
             positive={isValid && !status}
             size="large"
             tabIndex={7}
-            title="Update Account"
+            title="Update"
             type="submit"
           >
-            UPDATE ACCOUNT
+            UPDATE
           </Button>
         </Form.Group>
       </Form>
