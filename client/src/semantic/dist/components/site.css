@@ -206,32 +206,32 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 --------------------*/
 
 @font-face {
-  font-family: "Lexend Deca";
+  font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"), url("/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"), 
-/* Chrome 26+, Opera 23+, Firefox 39+ */ url("/fonts/lexend-deca-v1-latin-regular.woff") format("woff");
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
+/* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
   
 /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
-  font-family: "Fira Code";
+  font-family: 'Fira Code';
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("/fonts/fira-code-v5-latin-regular.woff2") format("woff2"), 
-/* Chrome 26+, Opera 23+, Firefox 39+ */ url("/fonts/fira-code-v5-latin-regular.woff") format("woff");
+  src: local(''), url('/fonts/fira-code-v5-latin-regular.woff2') format('woff2'), 
+/* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/fira-code-v5-latin-regular.woff') format('woff');
   
 /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
-  font-family: "marcher-semibold";
-  src: url("/fonts/marcher-semibold-webfont.woff2") format("woff2"), url("/fonts/marcher-semibold-webfont.woff") format("woff");
+  font-family: 'marcher-semibold';
+  src: url('/fonts/marcher-semibold-webfont.woff2') format('woff2'), url('/fonts/marcher-semibold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "marcher-medium";
-  src: url("/fonts/marcher-medium-webfont.woff2") format("woff2"), url("/fonts/marcher-medium-webfont.woff") format("woff");
+  font-family: 'marcher-medium';
+  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'), url('/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -316,148 +316,77 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 
 /*-------------------
-  Login
+  Feedback
 --------------------*/
 
-a#google-login {
-  display: block;
-  width: 191px;
-  height: 46px;
-  margin: 0 auto;
-  text-decoration: none;
-  color: transparent;
-  border: 0;
-  outline: none;
-  /** TODO - move to cloud and host on S3/Cloud Front
-      Use regular, low-fidelity images?
-  **/
-  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
-  background-size: 191px 46px;
+.input-feedback {
+  margin-top: 0.5rem;
+  font-size: 0.9em;
 }
-a#google-login:focus,
-a#google-login:hover {
-  background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
-}
-a#google-login:active,
-a#google-login:visited {
-  background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
-}
-
-/*-------------------
-  Dashboard
---------------------*/
-
-#dashboard .ui.message {
-  margin-bottom: 2em;
-}
-#dashboard #match-game {
-  min-height: 330px;
-}
-#dashboard #dashboard-menu > .item > .image > svg {
-  width: 2.5em;
-  height: 2.5em;
-}
-
-/*-------------------
-  Profile
---------------------*/
-
-#profile .content-wrapper {
-  min-height: 50vh;
-}
-#profile .ui.message {
-  margin-bottom: 2em;
-}
-#profile #payments {
-  min-height: 330px;
-}
-#profile #payments #payment-table thead > tr > th {
-  font-size: 1em;
-}
-#profile #payments #payment-table tbody > tr > td {
-  font-size: 0.9375em;
-}
-#profile #account-summary .ui.items > .item {
-  line-height: 1.2;
-  font-size: 1.125em;
-}
-#profile #account-summary .ui.items > .item > .content > .description {
-  margin-top: 0.3em;
-}
-#profile #account-summary .ui.items > .item > .content > .description.username {
-  font-size: 1.0625em;
-}
-#profile #account-summary .ui.items > .item > .content > .description.email {
-  color: #aa54ff;
-}
-#profile #account-summary .ui.items > .item > .content > .extra.since {
-  margin-top: 0.8em;
-}
-
-/*-------------------
-  Errors
---------------------*/
-
 .input-feedback.error {
   text-align: left;
+  color: #DB2828;
+}
+.error .label {
+  color: #DB2828;
 }
 
 /*-------------------
-  Icons
+  Loader / Spinner
 --------------------*/
 
-.ui.labeled.icon.button > svg.plus {
-  fill: white;
+.loader {
+  position: fixed;
+  
+/* Takes out of normal page flow */
+  z-index: 999;
+  height: 2.3rem;
+  width: 2.3rem;
+  overflow: visible;
+  margin: auto;
+  
+/* Positions in center of page */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
-svg.icon.trash {
-  width: 18px;
-  height: 18px;
-  fill: black;
+.loader .icon.spinner {
+  width: 2.3rem;
+  height: 2.3rem;
 }
-svg.icon.edit,
-svg.icon.play,
-svg.icon.link {
-  width: 23px !important;
-  height: 23px !important;
+.loader .icon.spinner path {
+  fill: #aa54ff;
 }
-svg.icon.plus {
-  fill: white;
+.loader {
+  -webkit-animation: spin 500ms infinite linear;
+  
+/* Safari 4+ */
+  
+/* Fx 5+ */
+  
+/* Opera 12+ */
+  animation: spin 500ms infinite linear;
+  
+/* IE 10+, Fx 29+ */
 }
-svg.icon.tiles,
-svg.icon.timer {
-  width: 48px !important;
-  height: 48px !important;
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
-svg.icon.chevron-down.open {
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 100ms ease-in-out;
-  transition: -webkit-transform 100ms ease-in-out;
-  transition: transform 100ms ease-in-out;
-  transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
-}
-svg.icon.chevron-down.closed {
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-  -webkit-transition: -webkit-transform 150ms ease-in-out;
-  transition: -webkit-transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
-}
-
-/*-------------------
-  Stripe
---------------------*/
-
-.StripeElement {
-  height: 43px;
-  padding: 0.67857143em 1em;
-  border-radius: 4px;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-}
-.StripeElement--invalid {
-  background: #fff6f6;
-  border-color: #e0b4b4;
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 /*-------------------
@@ -520,7 +449,139 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-  Cards
+  Forms
+--------------------*/
+
+#account-form > .fields:last-of-type,
+#lost-form > .fields:last-of-type,
+#login-form > .fields,
+#password-form > .fields,
+#register-form > .fields:last-of-type,
+#reset-form > .fields {
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+#account-form > .fields:last-of-type,
+#lost-form > .fields:last-of-type,
+#password-form > .fields:last-of-type,
+#register-form > .fields:last-of-type,
+#reset-form > .fields:last-of-type {
+  padding-top: 0.75em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/*-------------------
+  Login
+--------------------*/
+
+#login-form a:hover {
+  text-decoration: underline;
+}
+#login-form input#username,
+#login-form input#password {
+  max-width: 300px;
+}
+#login-form > .fields:last-of-type {
+  padding-top: 0.75em;
+  margin-bottom: 1.25em;
+}
+a#google-login {
+  display: block;
+  width: 191px;
+  height: 46px;
+  margin: 0 auto;
+  text-decoration: none;
+  color: transparent;
+  border: 0;
+  outline: none;
+  /** TODO - move to cloud and host on S3/Cloud Front
+      Use regular, low-fidelity images?
+  **/
+  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
+  background-size: 191px 46px;
+}
+a#google-login:focus,
+a#google-login:hover {
+  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
+}
+a#google-login:active,
+a#google-login:visited {
+  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
+}
+
+/*-------------------
+  Checkout
+--------------------*/
+
+#checkout-form .ui.input {
+  height: 43px !important;
+}
+#checkout-form #credit-options {
+  margin: 0 0 2em 1em;
+}
+#checkout-form #credit-card.ui.grid > .row {
+  padding-top: 0.5em;
+  padding-bottom: 0.7em;
+}
+#checkout-form #credit-card.ui.grid > .row:last-child {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+/*-------------------
+  Profile
+--------------------*/
+
+#profile .content-wrapper {
+  min-height: 50vh;
+}
+#profile .ui.message {
+  margin-bottom: 2em;
+}
+#profile #payments {
+  min-height: 330px;
+}
+#profile #payments #payment-table thead > tr > th {
+  font-size: 1em;
+}
+#profile #payments #payment-table tbody > tr > td {
+  font-size: 0.9375em;
+}
+#profile #account-summary .ui.items > .item {
+  line-height: 1.2;
+  font-size: 1.125em;
+}
+#profile #account-summary .ui.items > .item > .content > .description {
+  margin-top: 0.3em;
+}
+#profile #account-summary .ui.items > .item > .content > .description.username {
+  font-size: 1.0625em;
+}
+#profile #account-summary .ui.items > .item > .content > .description.email {
+  color: #aa54ff;
+}
+#profile #account-summary .ui.items > .item > .content > .extra.since {
+  margin-top: 0.8em;
+}
+
+/*-------------------
+  Dashboard
+--------------------*/
+
+#dashboard .ui.message {
+  margin-bottom: 2em;
+}
+#dashboard #match-game {
+  min-height: 330px;
+}
+#dashboard #dashboard-menu > .item > .image > svg {
+  width: 2.5em;
+  height: 2.5em;
+}
+
+/*-------------------
+  Match Cards
 --------------------*/
 
 .ui.cards .ui.card.match-card {
@@ -543,7 +604,7 @@ svg.icon.chevron-down.closed {
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   background-size: 25px;
   background-repeat: round;
-  background-image: url("/images/question.svg");
+  background-image: url('/images/question.svg');
 }
 .ui.cards .ui.card.match-card .content.match-card-header:hover .ui.icon.button.trash {
   display: block;
@@ -619,110 +680,104 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-  Loader / Spinner
+  Match
 --------------------*/
 
-.loader {
-  position: fixed;
-  
-/* Takes out of normal page flow */
-  z-index: 999;
-  height: 2.3rem;
-  width: 2.3rem;
-  overflow: visible;
-  margin: auto;
-  
-/* Positions in center of page */
-  top: 0;
-  left: 0;
-  bottom: 0;
+#match-form .ui.accordion:not(:last-of-type) {
+  margin-bottom: 0.75em;
+}
+#match-form .ui.accordion .content {
+  padding-bottom: 1em;
+}
+#match-form .ui.accordion .title {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-align: center;
+          align-items: center;
+}
+#match-form .ui.accordion .title :first-child {
+  margin-right: 0.3rem;
+}
+#match-form .inline.fields {
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+#match-form .match-tip {
+  font-size: 0.9em;
+  padding-top: 0.6em;
+  line-height: 1;
+  text-align: left;
+  color: #DCDDDE;
+}
+#match-form #match-id {
+  position: absolute;
+  bottom: -1rem;
   right: 0;
+  color: #DCDDDE;
 }
-.loader .icon.spinner {
-  width: 2.3rem;
-  height: 2.3rem;
-}
-.loader .icon.spinner path {
-  fill: #aa54ff;
-}
-.loader {
-  -webkit-animation: spin 500ms infinite linear;
-  
-/* Safari 4+ */
-  
-/* Fx 5+ */
-  
-/* Opera 12+ */
-  animation: spin 500ms infinite linear;
-  
-/* IE 10+, Fx 29+ */
-}
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
+#match-table {
+  min-height: 550px;
 }
 
 /*-------------------
-  Forms
+  Icons
 --------------------*/
 
-#login-form a:hover {
-  text-decoration: underline;
+.ui.labeled.icon.button > svg.plus {
+  fill: white;
 }
-#login-form input#username,
-#login-form input#password {
-  max-width: 300px;
+svg.icon.trash {
+  width: 18px;
+  height: 18px;
+  fill: black;
 }
-#login-form > .fields:last-of-type {
-  padding-top: 0.75em;
-  margin-bottom: 1.25em;
+svg.icon.edit,
+svg.icon.play,
+svg.icon.link {
+  width: 23px !important;
+  height: 23px !important;
 }
-#login-form > .fields,
-#password-form > .fields,
-#reset-form > .fields,
-#account-form > .fields:last-of-type,
-#register-form > .fields:last-of-type,
-#lost-form > .fields:last-of-type {
-  -webkit-box-pack: center;
-          justify-content: center;
+svg.icon.plus {
+  fill: white;
 }
-#password-form > .fields:last-of-type,
-#account-form > .fields:last-of-type,
-#account-form > .fields:last-of-type,
-#register-form > .fields:last-of-type,
-#lost-form > .fields:last-of-type,
-#reset-form > .fields:last-of-type {
-  padding-top: 0.75em;
-  padding-bottom: 0;
-  margin-bottom: 0;
+svg.icon.tiles,
+svg.icon.timer {
+  width: 48px !important;
+  height: 48px !important;
 }
-#checkout-form .ui.input {
-  height: 43px !important;
+svg.icon.chevron-down.open {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 100ms ease-in-out;
+  transition: -webkit-transform 100ms ease-in-out;
+  transition: transform 100ms ease-in-out;
+  transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
 }
-#checkout-form #credit-options {
-  margin: 0 0 2em 1em;
+svg.icon.chevron-down.closed {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition: -webkit-transform 150ms ease-in-out;
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
 }
-#checkout-form #credit-card.ui.grid > .row {
-  padding-top: 0.5em;
-  padding-bottom: 0.7em;
+
+/*-------------------
+  Stripe
+--------------------*/
+
+.StripeElement {
+  height: 43px;
+  padding: 0.67857143em 1em;
+  border-radius: 4px;
+  border: 1px solid rgba(34, 36, 38, 0.15);
 }
-#checkout-form #credit-card.ui.grid > .row:last-child {
-  margin-top: 0.75rem;
-  margin-bottom: 0;
+.StripeElement--invalid {
+  background: #fff6f6;
+  border-color: #e0b4b4;
 }
 
 /*-------------------
@@ -783,47 +838,9 @@ svg.icon.timer {
   opacity: 0.45;
 }
 
-/* Semantic form styling */
-form#match-edit.ui.form .ui.accordion:first-of-type {
-  margin-bottom: 1em;
-}
-form#match-edit.ui.form .inline.fields {
-  -webkit-box-pack: justify;
-          justify-content: space-between;
-}
-form#match-edit.ui.form .match-tip {
-  font-size: 0.9em;
-  padding-top: 1em;
-  line-height: 1;
-  text-align: left;
-  color: #ccc;
-}
-form#match-edit.ui.form #match-id {
-  position: absolute;
-  bottom: -1rem;
-  right: 0;
-  color: #ccc;
-}
-
 /* Form Specific */
-.ui.form .ui.accordion .title {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
-  -webkit-box-align: center;
-          align-items: center;
-}
-.ui.form .ui.accordion .title :first-child {
-  margin-right: 0.3rem;
-}
 
 /* Table container */
-#match-table-container {
-  min-height: 550px;
-  margin-top: 3.7rem;
-}
 section#intro {
   padding-top: 0;
   font-size: 1.5rem;
@@ -844,7 +861,7 @@ textarea#matchText {
   overflow-y: scroll;
 }
 .rich-text-editor {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #000000;
   font-size: inherit;
   line-height: 1.5rem;
@@ -856,7 +873,7 @@ textarea#matchText {
   display: block;
   height: auto;
 }
-.rich-text-editor:not([contenteditable="true"]) {
+.rich-text-editor:not([contenteditable='true']) {
   pointer-events: none;
   color: rgba(40, 40, 40, 0.3);
 }
@@ -915,17 +932,6 @@ textarea#matchText {
 /*#match-bank button.labeled:not(.active):not(:hover) {
   background-color: rgba(40, 40, 40, 0.3) !important;
 }*/
-.error .label {
-  color: red;
-}
-.input-feedback {
-  color: #999;
-  margin-top: 0.5rem;
-  font-size: 0.9em;
-}
-.input-feedback.error {
-  color: red;
-}
 .animated {
   -webkit-animation-duration: 0.3s;
           animation-duration: 0.3s;
@@ -939,9 +945,6 @@ svg.svg-icon {
   vertical-align: middle;
 }
 @media only screen and (max-width: 767.99px) {
-  #match-table-container {
-    margin-top: unset;
-  }
   .ui.form .fields {
     /*.ui.input,
       .ui.button,
@@ -961,16 +964,10 @@ svg.svg-icon {
   Media Queries
 --------------------*/
 
-
-/* Mobile Only */
-@media only screen and (min-width: 320px) and (max-width: 767.98px) {
+@media only screen and (max-width: 767.98px) {
   .page-wrapper {
     padding: 0 0.5rem;
   }
-}
-
-/* Tablets and smaller */
-@media only screen and (max-width: 767.98px) {
   .icon-menu-list.ui.horizontal.list {
     -webkit-box-pack: space-evenly;
             justify-content: space-evenly;

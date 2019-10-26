@@ -7,36 +7,36 @@
 --------------------*/
 
 @font-face {
-  font-family: "Lexend Deca";
+  font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"),
-    url("/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"),
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'),
+    url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/fonts/lexend-deca-v1-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "Fira Code";
+  font-family: 'Fira Code';
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("/fonts/fira-code-v5-latin-regular.woff2") format("woff2"),
+  src: local(''), url('/fonts/fira-code-v5-latin-regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/fonts/fira-code-v5-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('/fonts/fira-code-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "marcher-semibold";
-  src: url("/fonts/marcher-semibold-webfont.woff2") format("woff2"),
-    url("/fonts/marcher-semibold-webfont.woff") format("woff");
+  font-family: 'marcher-semibold';
+  src: url('/fonts/marcher-semibold-webfont.woff2') format('woff2'),
+    url('/fonts/marcher-semibold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-medium";
-  src: url("/fonts/marcher-medium-webfont.woff2") format("woff2"),
-    url("/fonts/marcher-medium-webfont.woff") format("woff");
+  font-family: 'marcher-medium';
+  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'),
+    url('/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -108,174 +108,76 @@
 }
 
 /*-------------------
-  Login
---------------------*/
-
-a#google-login {
-  display: block;
-  width: 191px;
-  height: 46px;
-  margin: 0 auto;
-  text-decoration: none;
-  color: transparent;
-  border: 0;
-  outline: none;
-  /** TODO - move to cloud and host on S3/Cloud Front
-      Use regular, low-fidelity images?
-  **/
-  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png")
-    no-repeat;
-  background-size: 191px 46px;
-  &:focus,
-  &:hover {
-    background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
-  }
-  &:active,
-  &:visited {
-    background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
-  }
-}
-
-/*-------------------
-  Dashboard
---------------------*/
-
-#dashboard {
-  .ui.message {
-    margin-bottom: 2em;
-  }
-
-  #match-game {
-    min-height: 330px;
-  }
-
-  #dashboard-menu > .item {
-    > .image > svg {
-      width: 2.5em;
-      height: 2.5em;
-    }
-  }
-}
-
-/*-------------------
-  Profile
---------------------*/
-
-#profile {
-  .content-wrapper {
-    min-height: 50vh;
-  }
-  .ui.message {
-    margin-bottom: 2em;
-  }
-
-  #payments {
-    min-height: 330px;
-    #payment-table {
-      thead > tr > th {
-        font-size: 1em;
-      }
-      tbody > tr > td {
-        font-size: 0.9375em;
-      }
-    }
-  }
-
-  #account-summary {
-    .ui.items {
-      > .item {
-        line-height: 1.2;
-        font-size: 1.125em;
-        > .content {
-          > .description {
-            margin-top: 0.3em;
-            &.username {
-              font-size: 1.0625em;
-            }
-            &.email {
-              color: @quizdiniPurple;
-            }
-          }
-          > .extra {
-            &.since {
-              margin-top: 0.8em;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-/*-------------------
-  Errors
+  Feedback
 --------------------*/
 
 .input-feedback {
+  margin-top: 0.5rem;
+  font-size: 0.9em;
   &.error {
     text-align: left;
+    color: @red;
   }
+}
+
+.error .label {
+  color: @red;
 }
 
 /*-------------------
-  Icons
+  Loader / Spinner
 --------------------*/
 
-.ui.labeled.icon.button > svg {
-  &.plus {
-    fill: white;
+.loader {
+  position: fixed; /* Takes out of normal page flow */
+  z-index: 999;
+  height: 2.3rem;
+  width: 2.3rem;
+  overflow: visible;
+  margin: auto; /* Positions in center of page */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  .icon.spinner {
+    width: 2.3rem;
+    height: 2.3rem;
+    path {
+      fill: @quizdiniPurple;
+    }
   }
 }
 
-svg.icon {
-  &.trash {
-    width: 18px;
-    height: 18px;
-    fill: black;
-  }
-
-  &.edit,
-  &.play,
-  &.link {
-    width: 23px !important;
-    height: 23px !important;
-  }
-
-  &.plus {
-    fill: white;
-  }
-
-  &.tiles,
-  &.timer {
-    width: 48px !important;
-    height: 48px !important;
-  }
+.loader {
+  -webkit-animation: spin 500ms infinite linear; /* Safari 4+ */
+  -moz-animation: spin 500ms infinite linear; /* Fx 5+ */
+  -o-animation: spin 500ms infinite linear; /* Opera 12+ */
+  animation: spin 500ms infinite linear; /* IE 10+, Fx 29+ */
 }
 
-svg.icon.chevron-down.open {
-  transform: rotate(0deg);
-  transition: transform 100ms ease-in-out;
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
 }
-
-svg.icon.chevron-down.closed {
-  transform: rotate(-90deg);
-  transition: transform 150ms ease-in-out;
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
-
-/*-------------------
-  Stripe
---------------------*/
-
-.StripeElement {
-  height: 43px;
-  padding: 0.67857143em 1em;
-  border-radius: 4px;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-}
-
-.StripeElement--invalid {
-  background: #fff6f6;
-  border-color: #e0b4b4;
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /*-------------------
@@ -343,7 +245,172 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-  Cards
+  Forms
+--------------------*/
+
+#account-form > .fields:last-of-type,
+#lost-form > .fields:last-of-type,
+#login-form > .fields,
+#password-form > .fields,
+#register-form > .fields:last-of-type,
+#reset-form > .fields {
+  justify-content: center;
+}
+
+#account-form > .fields:last-of-type,
+#lost-form > .fields:last-of-type,
+#password-form > .fields:last-of-type,
+#register-form > .fields:last-of-type,
+#reset-form > .fields:last-of-type {
+  padding-top: 0.75em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/*-------------------
+  Login
+--------------------*/
+#login-form {
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  input {
+    &#username,
+    &#password {
+      max-width: 300px;
+    }
+  }
+  > .fields:last-of-type {
+    padding-top: 0.75em;
+    margin-bottom: 1.25em;
+  }
+}
+
+a#google-login {
+  display: block;
+  width: 191px;
+  height: 46px;
+  margin: 0 auto;
+  text-decoration: none;
+  color: transparent;
+  border: 0;
+  outline: none;
+  /** TODO - move to cloud and host on S3/Cloud Front
+      Use regular, low-fidelity images?
+  **/
+  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png')
+    no-repeat;
+  background-size: 191px 46px;
+  &:focus,
+  &:hover {
+    background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
+  }
+  &:active,
+  &:visited {
+    background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
+  }
+}
+
+/*-------------------
+  Checkout
+--------------------*/
+
+#checkout-form {
+  .ui.input {
+    height: 43px !important;
+  }
+  #credit-options {
+    margin: 0 0 2em 1em;
+  }
+  #credit-card {
+    &.ui.grid {
+      > .row {
+        padding-top: 0.5em;
+        padding-bottom: 0.7em;
+      }
+      > .row:last-child {
+        margin-top: 0.75rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+/*-------------------
+  Profile
+--------------------*/
+
+#profile {
+  .content-wrapper {
+    min-height: 50vh;
+  }
+  .ui.message {
+    margin-bottom: 2em;
+  }
+
+  #payments {
+    min-height: 330px;
+    #payment-table {
+      thead > tr > th {
+        font-size: 1em;
+      }
+      tbody > tr > td {
+        font-size: 0.9375em;
+      }
+    }
+  }
+
+  #account-summary {
+    .ui.items {
+      > .item {
+        line-height: 1.2;
+        font-size: 1.125em;
+        > .content {
+          > .description {
+            margin-top: 0.3em;
+            &.username {
+              font-size: 1.0625em;
+            }
+            &.email {
+              color: @quizdiniPurple;
+            }
+          }
+          > .extra {
+            &.since {
+              margin-top: 0.8em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*-------------------
+  Dashboard
+--------------------*/
+
+#dashboard {
+  .ui.message {
+    margin-bottom: 2em;
+  }
+
+  #match-game {
+    min-height: 330px;
+  }
+
+  #dashboard-menu > .item {
+    > .image > svg {
+      width: 2.5em;
+      height: 2.5em;
+    }
+  }
+}
+
+/*-------------------
+  Match Cards
 --------------------*/
 
 .ui.cards {
@@ -362,7 +429,7 @@ svg.icon.chevron-down.closed {
           border-bottom: 1px solid @subtleTransparentBlack;
           background-size: 25px;
           background-repeat: round;
-          background-image: url("/images/question.svg");
+          background-image: url('/images/question.svg');
           &:hover {
             .ui.icon.button.trash {
               display: block;
@@ -438,123 +505,110 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-  Loader / Spinner
+  Match
 --------------------*/
 
-.loader {
-  position: fixed; /* Takes out of normal page flow */
-  z-index: 999;
-  height: 2.3rem;
-  width: 2.3rem;
-  overflow: visible;
-  margin: auto; /* Positions in center of page */
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  .icon.spinner {
-    width: 2.3rem;
-    height: 2.3rem;
-    path {
-      fill: @quizdiniPurple;
+#match-form {
+  .ui.accordion {
+    &:not(:last-of-type) {
+      margin-bottom: .75em;
     }
-  }
-}
-
-.loader {
-  -webkit-animation: spin 500ms infinite linear; /* Safari 4+ */
-  -moz-animation: spin 500ms infinite linear; /* Fx 5+ */
-  -o-animation: spin 500ms infinite linear; /* Opera 12+ */
-  animation: spin 500ms infinite linear; /* IE 10+, Fx 29+ */
-}
-
-@-moz-keyframes spin {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-  to {
-    -moz-transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/*-------------------
-  Forms
---------------------*/
-
-#login-form {
-  a {
-    &:hover {
-      text-decoration: underline;
+    .content {
+      padding-bottom: 1em;
     }
-  }
-  input {
-    &#username,
-    &#password {
-      max-width: 300px;
-    }
-  }
-  > .fields:last-of-type {
-    padding-top: 0.75em;
-    margin-bottom: 1.25em;
-  }
-}
-
-#login-form > .fields,
-#password-form > .fields,
-#reset-form > .fields,
-#account-form > .fields:last-of-type,
-#register-form > .fields:last-of-type,
-#lost-form > .fields:last-of-type {
-  justify-content: center;
-}
-
-#password-form > .fields:last-of-type,
-#account-form > .fields:last-of-type,
-#account-form > .fields:last-of-type,
-#register-form > .fields:last-of-type,
-#lost-form > .fields:last-of-type,
-#reset-form > .fields:last-of-type {
-  padding-top: 0.75em;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-#checkout-form {
-  .ui.input {
-    height: 43px !important;
-  }
-  #credit-options {
-    margin: 0 0 2em 1em;
-  }
-  #credit-card {
-    &.ui.grid {
-      > .row {
-        padding-top: 0.5em;
-        padding-bottom: 0.7em;
+    .title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      :first-child {
+        margin-right: 0.3rem;
       }
     }
   }
+
+  .inline.fields {
+    justify-content: space-between;
+  }
+
+  .match-tip {
+    font-size: 0.9em;
+    padding-top: .6em;
+    line-height: 1;
+    text-align: left;
+    color: @lightGrey;
+  }
+
+  #match-id {
+    position: absolute;
+    bottom: -1rem;
+    right: 0;
+    color: @lightGrey;
+  }
 }
 
-#checkout-form #credit-card.ui.grid > .row:last-child {
-  margin-top: 0.75rem;
-  margin-bottom: 0;
+#match-table {
+  min-height: 550px;
+}
+
+/*-------------------
+  Icons
+--------------------*/
+
+.ui.labeled.icon.button > svg {
+  &.plus {
+    fill: white;
+  }
+}
+
+svg.icon {
+  &.trash {
+    width: 18px;
+    height: 18px;
+    fill: black;
+  }
+
+  &.edit,
+  &.play,
+  &.link {
+    width: 23px !important;
+    height: 23px !important;
+  }
+
+  &.plus {
+    fill: white;
+  }
+
+  &.tiles,
+  &.timer {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+svg.icon.chevron-down.open {
+  transform: rotate(0deg);
+  transition: transform 100ms ease-in-out;
+}
+
+svg.icon.chevron-down.closed {
+  transform: rotate(-90deg);
+  transition: transform 150ms ease-in-out;
+}
+
+/*-------------------
+  Stripe
+--------------------*/
+
+.StripeElement {
+  height: 43px;
+  padding: 0.67857143em 1em;
+  border-radius: 4px;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+}
+
+.StripeElement--invalid {
+  background: #fff6f6;
+  border-color: #e0b4b4;
 }
 
 /*-------------------
@@ -631,54 +685,9 @@ svg.icon {
   opacity: 0.45;
 }
 
-/* Semantic form styling */
-
-form#match-edit.ui.form {
-  .ui.accordion:first-of-type {
-    margin-bottom: 1em;
-  }
-
-  .inline.fields {
-    justify-content: space-between;
-  }
-
-  .match-tip {
-    font-size: 0.9em;
-    padding-top: 1em;
-    line-height: 1;
-    text-align: left;
-    color: #ccc;
-  }
-
-  #match-id {
-    position: absolute;
-    bottom: -1rem;
-    right: 0;
-    color: #ccc;
-  }
-}
-
 /* Form Specific */
 
-.ui.form {
-  .ui.accordion {
-    .title {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      :first-child {
-        margin-right: 0.3rem;
-      }
-    }
-  }
-}
-
 /* Table container */
-#match-table-container {
-  min-height: 550px;
-  margin-top: 3.7rem;
-}
 
 section#intro {
   padding-top: 0;
@@ -704,7 +713,7 @@ textarea#matchText {
 }
 
 .rich-text-editor {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #000000;
   font-size: inherit;
   line-height: 1.5rem;
@@ -717,7 +726,7 @@ textarea#matchText {
   height: auto;
 }
 
-.rich-text-editor:not([contenteditable="true"]) {
+.rich-text-editor:not([contenteditable='true']) {
   pointer-events: none;
   color: rgba(40, 40, 40, 0.3);
 }
@@ -788,19 +797,6 @@ textarea#matchText {
   background-color: rgba(40, 40, 40, 0.3) !important;
 }*/
 
-.error .label {
-  color: red;
-}
-
-.input-feedback {
-  color: #999;
-  margin-top: 0.5rem;
-  font-size: 0.9em;
-  &.error {
-    color: red;
-  }
-}
-
 .animated {
   animation-duration: 0.3s;
   animation-fill-mode: both;
@@ -815,10 +811,6 @@ svg.svg-icon {
 }
 
 @media only screen and (max-width: 767.99px) {
-  #match-table-container {
-    margin-top: unset;
-  }
-
   .ui.form {
     .fields {
       > .error {
@@ -841,17 +833,11 @@ svg.svg-icon {
   Media Queries
 --------------------*/
 
-/* Mobile Only */
-
-@media only screen and (min-width: @mobileBreakpoint) and (max-width: @largestMobileScreen) {
+@media only screen and (max-width: @largestMobileScreen) {
   .page-wrapper {
     padding: @mobileContainerPadding;
   }
-}
 
-/* Tablets and smaller */
-
-@media only screen and (max-width: @largestMobileScreen) {
   .icon-menu-list {
     &.ui.horizontal.list {
       justify-content: space-evenly;
