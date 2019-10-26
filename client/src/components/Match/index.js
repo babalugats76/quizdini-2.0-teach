@@ -112,13 +112,15 @@ class Match extends Component {
     return (
       <Container as="main" className="page large" fluid id="match-edit">
         {(showLoader && <Loader />) || (
-          <MatchForm
-            game={game}
-            handleSave={(values, actions) => this.handleSave(values, actions)}
-            isMobile={isMobile}
-            loading={loading}
-            maxMatches={100}
-          />
+          <div className="content-wrapper">
+            <MatchForm
+              game={game}
+              handleSave={(values, actions) => this.handleSave(values, actions)}
+              isMobile={isMobile}
+              loading={loading}
+              maxMatches={100}
+            />
+          </div>
         )}
       </Container>
     );

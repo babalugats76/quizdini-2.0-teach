@@ -529,43 +529,43 @@ class MatchForm extends Component {
       });
 
     return (
-      <Form id="match-edit" onSubmit={handleSubmit} size="large">
+      <Form id="match-form" onSubmit={handleSubmit}>
         <span id="match-id">
           {values.matchId ? values.matchId : 'UNPUBLISHED'}
         </span>
         <Grid columns={2} stackable>
           <Grid.Column computer={8} mobile={16} tablet={16}>
-            {status &&
-              this.renderMessage(status.message, status.color, setStatus)}
-            <Form.Group inline>
-              <Button
-                active
-                as={Link}
-                disabled={disabled}
-                icon="back"
-                labelPosition="left"
-                tabIndex={-1}
-                title="Back to Dashboard"
-                to={{ pathname: '/dashboard', state: { from: 'MATCH' } }}
-                type="button"
-              >
-                BACK
-              </Button>
-              <Button
-                active
-                disabled={disabled}
-                icon="save"
-                labelPosition="left"
-                loading={disabled}
-                positive={dirty && isValid && !isMatchDirty}
-                tabIndex={6}
-                title="Save Game"
-                type="submit"
-              >
-                SAVE
-              </Button>
-            </Form.Group>
             <Segment>
+              {status &&
+                this.renderMessage(status.message, status.color, setStatus)}
+              <Form.Group inline>
+                <Button
+                  active
+                  as={Link}
+                  disabled={disabled}
+                  icon="back"
+                  labelPosition="left"
+                  tabIndex={-1}
+                  title="Back to Dashboard"
+                  to={{ pathname: '/dashboard', state: { from: 'MATCH' } }}
+                  type="button"
+                >
+                  BACK
+                </Button>
+                <Button
+                  active
+                  disabled={disabled}
+                  icon="save"
+                  labelPosition="left"
+                  loading={disabled}
+                  positive={dirty && isValid && !isMatchDirty}
+                  tabIndex={6}
+                  title="Save Game"
+                  type="submit"
+                >
+                  SAVE
+                </Button>
+              </Form.Group>
               <Accordion
                 forceOpen={!!errors.title || !!errors.instructions}
                 icon="tag"
@@ -628,7 +628,12 @@ class MatchForm extends Component {
                 open={accordion[MatchForm.GAME_OPTS_ACCORDION]}
                 title="Options"
               >
-                <Grid columns={3} stackable textAlign="center">
+                <Grid
+                  columns={3}
+                  stackable
+                  textAlign="center"
+                  verticalAlign="middle"
+                >
                   <Grid.Row>
                     <Grid.Column verticalAlign="top">
                       <IconDropdown
@@ -701,7 +706,7 @@ class MatchForm extends Component {
                   values.itemsPerBoard - values.matches.length === 1 ? '' : 's'
                 }...`
               }
-              id="table-match"
+              id="match-table"
               itemsPerPage={itemsPerPage}
               matches={values.matches}
               onMatchDelete={(event, term) =>

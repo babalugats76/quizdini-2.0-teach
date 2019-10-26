@@ -17,26 +17,28 @@ const Match = ({ credits, matchList, onMatchDelete }) => {
     );
   }
 
-  if (loading && !games) return <Loader />;
+  const showLoader = loading && !games;
 
   return (
-    <Segment id="match-game" padded>
-      <RouterButton
-        disabled={credits <= 0}
-        labelPosition="left"
-        icon="plus"
-        pathname="/match"
-        positive={credits >= 1}
-        state={{ matchId: null }}
-        title="Create a new match game"
-      >
-        NEW GAME
-      </RouterButton>
-      <Divider hidden />
-      {(games && games.length && (
-        <MatchCardGroup games={games} onMatchDelete={onMatchDelete} />
-      )) || <MatchIntro />}
-    </Segment>
+    (showLoader && <Loader />) || (
+      <Segment id="match-game" padded>
+        <RouterButton
+          disabled={credits <= 0}
+          labelPosition="left"
+          icon="plus"
+          pathname="/match"
+          positive={credits >= 1}
+          state={{ matchId: null }}
+          title="Create a new match game"
+        >
+          NEW GAME
+        </RouterButton>
+        <Divider hidden />
+        {(games && games.length && (
+          <MatchCardGroup games={games} onMatchDelete={onMatchDelete} />
+        )) || <MatchIntro />}
+      </Segment>
+    )
   );
 };
 

@@ -80,7 +80,7 @@ const MatchTable = ({
   );
   const pagination = renderPagination(activePage, totalPages, onPageChange);
   return (
-    <Segment id="match-table-container">
+    <Segment id={id}>
       <Grid columns={1}>
         {error && (
           <Grid.Row verticalAlign="bottom">
@@ -91,7 +91,7 @@ const MatchTable = ({
         )}
         <Grid.Row verticalAlign="top">
           <Grid.Column>
-            <Table id={id} compact="very">
+            <Table compact="very">
               <Table.Header>
                 <Table.Row>
                   <Table.HeaderCell>Term</Table.HeaderCell>
