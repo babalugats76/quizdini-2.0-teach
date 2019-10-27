@@ -28,7 +28,7 @@ export default props => (
             target="_blank"
             title="Visit James' Website"
           >
-            <SVG name="globe" width="40px" height="40px" />
+            <SVG name="globe" />
           </a>
           <a
             href="mailto:james@colestock.com"
@@ -36,7 +36,7 @@ export default props => (
             target="_blank"
             title="Email James"
           >
-            <SVG name="mail" width="40px" height="40px" />
+            <SVG name="mail" />
           </a>
           <a
             href="https://twitter.com/jamescolestock"
@@ -44,7 +44,7 @@ export default props => (
             target="_blank"
             title="@JamesColestock"
           >
-            <SVG name="twitter" width="40px" height="40px" />
+            <SVG name="twitter" />
           </a>
           <a
             href="https://www.youtube.com/c/jamescolestock"
@@ -52,7 +52,7 @@ export default props => (
             target="_blank"
             title="YouTube - Colestock's Channel"
           >
-            <SVG name="youtube" width="40px" height="40px" />
+            <SVG name="youtube" />
           </a>
           <a
             href="https://github.com/babalugats76"
@@ -60,7 +60,7 @@ export default props => (
             target="_blank"
             title="GitHub - babalugats76"
           >
-            <SVG name="github" width="40px" height="40px" />
+            <SVG name="github" />
           </a>
           <a
             href="https://www.linkedin.com/in/jamescolestock/"
@@ -68,7 +68,7 @@ export default props => (
             target="_blank"
             title="Connect on LinkedIn"
           >
-            <SVG name="linkedin" width="40px" height="40px" />
+            <SVG name="linkedin" />
           </a>
           <a
             href="https://www.udemy.com/user/jamescolestock/"
@@ -76,7 +76,7 @@ export default props => (
             target="_blank"
             title="Connect on Udemy"
           >
-            <SVG name="udemy" viewBox="0 0 144 64" width="40px" height="40px" />
+            <SVG name="udemy" viewBox="0 0 144 64" />
           </a>
         </Grid.Column>
       </Grid.Row>
@@ -86,24 +86,13 @@ export default props => (
             alt="James Colestock with Dooder"
             circular
             floated="right"
-            fluid
             inline
-            spaced
+            size="medium"
             src="https://static.quizdini.com/images/james-and-dooder.jpg"
-            style={{ maxWidth: '200px', marginTop: '4em' }}
           />
           <p>
-            James Colestock is originally from&nbsp;
-            <a
-              href="https://www.visitfortwayne.com/"
-              rel="noopener noreferrer"
-              target="_blank"
-              title="Visit Fort Wayne, IN"
-            >
-              Fort Wayne, IN
-            </a>
-            , a Midwestern town equidistant from Chicago, Detroit, and
-            Cincinnati.
+            James Colestock is originally from <strong>Fort Wayne, IN</strong>,
+            a Midwestern town equidistant from Chicago, Detroit, and Cincinnati.
           </p>
           <p>
             He is a graduate of&nbsp;
@@ -127,20 +116,19 @@ export default props => (
             &nbsp;where he studied Business Administration and Computer Science.
           </p>
           <p>
-            Before seguing into Education, James had a successful Information
-            Technology career, primarily as a Database Administrator and
-            Developer. He worked within organizations of every conceivable
-            size&mdash;from startup to Fortune 500&mdash; and gained experience
-            within nearly every sector of the economy.
+            Before seguing into Education, James had a successful&nbsp;<strong>Information
+            Technology career</strong>, primarily as a Database Administrator and Developer. He worked
+            within organizations of every conceivable size&mdash;from startup to
+            Fortune 500&mdash; and gained experience within nearly every sector
+            of the economy.
           </p>
           <p>
             He holds multiple industry certifications and is a licensed teacher
-            (grades 6-12) as well as Career and Technical Education (CTE)
+            (grades 6-12) as well as&nbsp;<strong>Career and Technical Education</strong> (CTE)
             educator.
           </p>
           <p>
-            When not feverishly coding Quizdini, he can be found playing the
-            guitar and rooting on his beloved Chicago Cubs.
+            When not feverishly coding Quizdini, he can be found playing the&nbsp;<strong>guitar</strong> and rooting on his beloved&nbsp;<strong>Chicago Cubs</strong>.
           </p>
         </Grid.Column>
       </Grid.Row>

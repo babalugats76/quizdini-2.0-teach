@@ -26,17 +26,17 @@
 }
 
 @font-face {
-  font-family: 'marcher-semibold';
-  src: url('/fonts/marcher-semibold-webfont.woff2') format('woff2'),
-    url('/fonts/marcher-semibold-webfont.woff') format('woff');
+  font-family: 'marcher-medium';
+  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'),
+    url('/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-medium';
-  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'),
-    url('/fonts/marcher-medium-webfont.woff') format('woff');
+  font-family: 'marcher-extrabolditalic';
+  src: url('/fonts/marcher-extrabolditalic-webfont.woff2') format('woff2'),
+    url('/fonts/marcher-extrabolditalic-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -265,6 +265,52 @@
   padding-top: 0.75em;
   padding-bottom: 0;
   margin-bottom: 0;
+}
+
+/*-------------------
+  About
+--------------------*/
+#about {
+  &.page {
+    p {
+      > a {
+        color: @quizdiniPurple;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      > strong {
+        font-weight: normal;
+        color: @strongColor;
+      }
+    }
+
+    .ui.huge {
+      font-family: @hugeFont;
+      font-size: 2.6em;
+      text-decoration: underline;
+    }
+
+    #team {
+      .member-contact {
+        a {
+          > svg {
+            width: 2.2em;
+            height: 2.2em;
+          }
+          &:not(:last-of-type) {
+            margin-right: 1%;
+          }
+        }
+      }
+    }
+
+    #philosophy {
+      .belief:not(:last-child) {
+        margin-bottom: 2em;
+      }
+    }
+  }
 }
 
 /*-------------------
@@ -511,7 +557,7 @@ a#google-login {
 #match-form {
   .ui.accordion {
     &:not(:last-of-type) {
-      margin-bottom: .75em;
+      margin-bottom: 0.75em;
     }
     .content {
       padding-bottom: 1em;
@@ -532,7 +578,7 @@ a#google-login {
 
   .match-tip {
     font-size: 0.9em;
-    padding-top: .6em;
+    padding-top: 0.6em;
     line-height: 1;
     text-align: left;
     color: @lightGrey;
@@ -551,8 +597,51 @@ a#google-login {
 }
 
 /*-------------------
-  Icons
+  Icons (Global)
 --------------------*/
+
+svg {
+  width: 1em;
+  height: 1em;
+
+  &.icon {
+    &.github {
+      path {
+        fill: @githubColor;
+      }
+    }
+    &.twitter {
+      path {
+        fill: @twitterColor;
+      }
+    }
+    &.youtube {
+      path {
+        fill: @youtubeColor;
+      }
+    }
+    &.linkedin {
+      path {
+        fill: @linkedInColor;
+      }
+    }
+    &.udemy {
+      path {
+        fill: @udemyColor;
+      }
+    }
+    &.chevron-down {
+      &.open {
+        transform: rotate(0deg);
+        transition: transform 100ms ease-in-out;
+      }
+      &.closed {
+        transform: rotate(-90deg);
+        transition: transform 150ms ease-in-out;
+      }
+    }
+  }
+}
 
 .ui.labeled.icon.button > svg {
   &.plus {
@@ -583,16 +672,6 @@ svg.icon {
     width: 48px !important;
     height: 48px !important;
   }
-}
-
-svg.icon.chevron-down.open {
-  transform: rotate(0deg);
-  transition: transform 100ms ease-in-out;
-}
-
-svg.icon.chevron-down.closed {
-  transform: rotate(-90deg);
-  transition: transform 150ms ease-in-out;
 }
 
 /*-------------------
@@ -838,6 +917,23 @@ svg.svg-icon {
     padding: @mobileContainerPadding;
   }
 
+  #about.page {
+    .ui.floated.image {
+      display: block;
+      float: unset;
+      margin: 1rem auto 2rem;
+    }
+
+    #team {
+      .ui.grid.member > .row > .column {
+        &.member-title,
+        &.member-contact {
+          text-align: center;
+        }
+      }
+    }
+  }
+
   .icon-menu-list {
     &.ui.horizontal.list {
       justify-content: space-evenly;
@@ -871,6 +967,11 @@ svg.svg-icon {
   .page-wrapper {
     padding: @containerPadding;
   }
+
+  #about.page #team .ui.grid.member > .row > .column.member-bio > img {
+    margin-top: 3em;
+  }
+
   .content-wrapper {
     padding: 0 5%;
   }

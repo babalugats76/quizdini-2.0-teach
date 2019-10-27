@@ -13,12 +13,12 @@ export default props => (
       Philosophy
     </Header>
     <br />
-    <div className="belief" style={{ marginBottom: '2rem' }}>
+    <div className="belief">
       <Header
         size="large"
         icon
         textAlign="center"
-        style={{ margin: '0 auto 1rem' }}
+        
       >
         <Image
           alt="Pay to Play"
@@ -61,12 +61,11 @@ export default props => (
         work with.
       </p>
     </div>
-    <div className="belief" style={{ marginBottom: '2rem' }}>
+    <div className="belief">
       <Header
         size="large"
         icon
         textAlign="center"
-        style={{ margin: '0 auto 1rem' }}
       >
         <Image
           alt="Measuring Tape"
@@ -108,12 +107,12 @@ export default props => (
         wrong track.
       </p>
     </div>
-    <div className="belief" style={{ marginBottom: '2rem' }}>
+    <div className="belief">
       <Header
         size="large"
         icon
         textAlign="center"
-        style={{ margin: '0 auto 1rem' }}
+        
       >
         <Image
           alt="Pay to Play"

@@ -8,6 +8,7 @@
 
 @fontName          : 'Lexend Deca';
 @headerFont        : 'marcher-medium', sans-serif;
+@hugeFont          : 'marcher-extrabolditalic', sans-serif;
 @pageFont          : 'Lexend Deca', sans-serif;
 @googleFontFamily  : 'Lexend+Deca';
 @googleFontRequest : '@{googleFontFamily}&subset=@{googleSubset}&display=@{googleFontDisplay}';
@@ -39,13 +40,15 @@
 /*-------------------
      Brand Colors
 --------------------*/
+@githubColor         : #24292e;
 @udemyColor          : #ea5252;        
 
 /*-------------------
-       Links
+    Links etc.
 --------------------*/
 
 @linkColor           : @quizdiniPurple;
+@strongColor         : #009ffd; /* Vivid Cerulean */
 
 /*-------------------
   Padding & Margin

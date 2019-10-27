@@ -224,14 +224,14 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
-  font-family: 'marcher-semibold';
-  src: url('/fonts/marcher-semibold-webfont.woff2') format('woff2'), url('/fonts/marcher-semibold-webfont.woff') format('woff');
+  font-family: 'marcher-medium';
+  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'), url('/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'marcher-medium';
-  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'), url('/fonts/marcher-medium-webfont.woff') format('woff');
+  font-family: 'marcher-extrabolditalic';
+  src: url('/fonts/marcher-extrabolditalic-webfont.woff2') format('woff2'), url('/fonts/marcher-extrabolditalic-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -469,6 +469,36 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   padding-top: 0.75em;
   padding-bottom: 0;
   margin-bottom: 0;
+}
+
+/*-------------------
+  About
+--------------------*/
+
+#about.page p > a {
+  color: #aa54ff;
+}
+#about.page p > a:hover {
+  text-decoration: underline;
+}
+#about.page p > strong {
+  font-weight: normal;
+  color: #009ffd;
+}
+#about.page .ui.huge {
+  font-family: 'marcher-extrabolditalic', sans-serif;
+  font-size: 2.6em;
+  text-decoration: underline;
+}
+#about.page #team .member-contact a > svg {
+  width: 2.2em;
+  height: 2.2em;
+}
+#about.page #team .member-contact a:not(:last-of-type) {
+  margin-right: 1%;
+}
+#about.page #philosophy .belief:not(:last-child) {
+  margin-bottom: 2em;
 }
 
 /*-------------------
@@ -723,9 +753,44 @@ a#google-login:visited {
 }
 
 /*-------------------
-  Icons
+  Icons (Global)
 --------------------*/
 
+svg {
+  width: 1em;
+  height: 1em;
+}
+svg.icon.github path {
+  fill: #24292e;
+}
+svg.icon.twitter path {
+  fill: #1DA1F2;
+}
+svg.icon.youtube path {
+  fill: #FF0000;
+}
+svg.icon.linkedin path {
+  fill: #0077B5;
+}
+svg.icon.udemy path {
+  fill: #ea5252;
+}
+svg.icon.chevron-down.open {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 100ms ease-in-out;
+  transition: -webkit-transform 100ms ease-in-out;
+  transition: transform 100ms ease-in-out;
+  transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
+}
+svg.icon.chevron-down.closed {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition: -webkit-transform 150ms ease-in-out;
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
 .ui.labeled.icon.button > svg.plus {
   fill: white;
 }
@@ -747,22 +812,6 @@ svg.icon.tiles,
 svg.icon.timer {
   width: 48px !important;
   height: 48px !important;
-}
-svg.icon.chevron-down.open {
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 100ms ease-in-out;
-  transition: -webkit-transform 100ms ease-in-out;
-  transition: transform 100ms ease-in-out;
-  transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
-}
-svg.icon.chevron-down.closed {
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-  -webkit-transition: -webkit-transform 150ms ease-in-out;
-  transition: -webkit-transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
 }
 
 /*-------------------
@@ -968,6 +1017,15 @@ svg.svg-icon {
   .page-wrapper {
     padding: 0 0.5rem;
   }
+  #about.page .ui.floated.image {
+    display: block;
+    float: unset;
+    margin: 1rem auto 2rem;
+  }
+  #about.page #team .ui.grid.member > .row > .column.member-title,
+  #about.page #team .ui.grid.member > .row > .column.member-contact {
+    text-align: center;
+  }
   .icon-menu-list.ui.horizontal.list {
     -webkit-box-pack: space-evenly;
             justify-content: space-evenly;
@@ -989,6 +1047,9 @@ svg.svg-icon {
 @media only screen and (min-width: 768px) {
   .page-wrapper {
     padding: 0 1rem;
+  }
+  #about.page #team .ui.grid.member > .row > .column.member-bio > img {
+    margin-top: 3em;
   }
   .content-wrapper {
     padding: 0 5%;
