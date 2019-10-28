@@ -71,16 +71,18 @@ Messages need to be standardized, etc.
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Client
   - Go after preventDefaults
-  - Register
-    - See if errors can be improved to account for touched?
   - Landing Page
     - Add selling point section, etc.
   - Loading and Error
-    - Loading done; *integrate where appropriate*
-    - Mock up component for each; animation?
+    - Mock up Error
+      - Return and apply to all appropriate routes
     - Design pattern for determining
-      - Revisit all "loading" components and refine, e.g., showLoader, etc.
-  - About - FAQ - Our Values - Attribution - []() - Dedication - [Sleepwalk | George Ogg | West Central Quartet | Club Soda on Vimeo](https://vimeo.com/18706747) - ```
+  - About
+    - Philosophy
+    - FAQ
+    - Attribution
+    - Dedication 
+    [Sleepwalk | George Ogg | West Central Quartet | Club Soda on Vimeo](https://vimeo.com/18706747) - ```
     <iframe src="https://player.vimeo.com/video/365146054" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     <p><a href="https://vimeo.com/365146054">&ldquo;D&eacute;guste&rdquo;</a> from <a href="https://vimeo.com/insolenceproductions">Insolence Productions</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
             ```
@@ -104,6 +106,7 @@ Messages need to be standardized, etc.
       - Profile
       - NavBar
       - UI Components
+      - About - Team
   - Profile
       - Disposition loading issues make resilient to null or should things be visible if data isn't available.  Both?
   - *Semantic UI* - Continue migrating work-in-progress style to semantic
