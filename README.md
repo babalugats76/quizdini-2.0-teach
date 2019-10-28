@@ -80,7 +80,7 @@ Messages need to be standardized, etc.
     - Mock up component for each; animation?
     - Design pattern for determining
       - Revisit all "loading" components and refine, e.g., showLoader, etc.
-  - About - Team - FAQ - Our Values - Attribution - []() - Dedication - [Sleepwalk | George Ogg | West Central Quartet | Club Soda on Vimeo](https://vimeo.com/18706747) - ```
+  - About - FAQ - Our Values - Attribution - []() - Dedication - [Sleepwalk | George Ogg | West Central Quartet | Club Soda on Vimeo](https://vimeo.com/18706747) - ```
     <iframe src="https://player.vimeo.com/video/365146054" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     <p><a href="https://vimeo.com/365146054">&ldquo;D&eacute;guste&rdquo;</a> from <a href="https://vimeo.com/insolenceproductions">Insolence Productions</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
             ```
@@ -91,7 +91,7 @@ Messages need to be standardized, etc.
   - Login
     - Update sign in for to use `touch` for the errors
   - Match
-    - Investigate Ability to have a mobile-friendly MatchTable Menu
+    - Investigate Ability to have a mobile-friendly MatchTable Pagination Menu
     - Refine error-handling to match renderMessage-style functionality
     - Branch to redirect on Insufficient Credits (specifc to that type of exception...all others will use `renderMessage` functionality)
     - Force call of auth to refresh credits should credits be found to be insufficient...
