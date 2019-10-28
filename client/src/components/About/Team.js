@@ -134,5 +134,113 @@ export default props => (
       </Grid.Row>
     </Grid>
     <Divider section clearing />
+    <Grid className="member" stackable>
+      <Grid.Row columns={2}>
+        <Grid.Column className="member-title" floated="left">
+          <Header size="large">
+            Jennifer Colestock
+            <Header.Subheader>Quality Assurance &bull; Social Media</Header.Subheader>
+          </Header>
+        </Grid.Column>
+        <Grid.Column
+          className="member-contact"
+          floated="right"
+          textAlign="right"
+        >
+          <a
+            href="http://profe.colestock.com"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Visit Jennifer's Website"
+          >
+            <SVG name="globe" />
+          </a>
+          <a
+            href="mailto:jennifer@colestock.com"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Email Jennifer"
+          >
+            <SVG name="mail" />
+          </a>
+          <a
+            href="https://twitter.com/profecolestock"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="@profecolestock"
+          >
+            <SVG name="twitter" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jennifercolestock/"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Connect on LinkedIn"
+          >
+            <SVG name="linkedin" />
+          </a>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column className="member-bio">
+          <Image
+            alt="Jennifer Colestock"
+            circular
+            floated="right"
+            inline
+            size="medium"
+            src="https://static.quizdini.com/images/jennifer.jpg"
+          />
+          <p>
+            Jennifer Colestock grew up in the Pacific Northwest,
+            just outside of <strong>Seattle, WA</strong>.
+          </p>
+          <p>
+            After graduating from&nbsp;
+            <a
+              href="https://www.lakesideschool.org//"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Lakeside School"
+            >
+              Lakeside School
+            </a>
+            , she went on to&nbsp;
+            <a
+              href="https://www.whitman.edu/"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Whitman College"
+            >
+              Whitman College
+            </a>
+            &nbsp;where she majored in <strong>Spanish</strong>. 
+            Later, she spent a year abroad in Spain as part of her M.A. through&nbsp;
+            <a
+              href="https://www.middlebury.edu/"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Middlebury College"
+            >
+              Middlebury College
+            </a>
+            .&nbsp;
+          </p>
+          <p>
+            Jennifer has spent <strong>two decades in Education</strong>, teaching
+            Spanish to students from middle school to college, and in a wide
+            variety of different environments.  
+          </p>
+          <p>
+            She is a licensed teacher; she also holds her&nbsp;<strong>National Board Certification</strong>.
+          </p>
+          <p>
+            When not asisting with Quizdini, she can be found&nbsp;<strong>running</strong>, 
+            playing with the best dog ever, or planning her next trip.
+          </p>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
+    <Divider section clearing />
   </Segment>
 );
