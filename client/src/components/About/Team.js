@@ -214,7 +214,7 @@ export default props => (
             >
               Whitman College
             </a>
-            &nbsp;where she majored in <strong>Spanish</strong>. 
+            &nbsp;where she majored in Spanish. 
             Later, she spent a year abroad in Spain as part of her M.A. through&nbsp;
             <a
               href="https://www.middlebury.edu/"

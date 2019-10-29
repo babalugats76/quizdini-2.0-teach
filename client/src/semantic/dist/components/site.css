@@ -100,11 +100,11 @@ p:last-child {
 --------------------*/
 
 a {
-  color: #aa54ff;
+  color: rgba(170, 84, 255, 0.87);
   text-decoration: none;
 }
 a:hover {
-  color: #9121ff;
+  color: rgba(145, 33, 255, 0.87);
   text-decoration: none;
 }
 
@@ -476,14 +476,14 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 --------------------*/
 
 #about.page p > a {
-  color: #aa54ff;
+  color: rgba(170, 84, 255, 0.87);
 }
 #about.page p > a:hover {
   text-decoration: underline;
 }
 #about.page p > strong {
   font-weight: normal;
-  color: #009ffd;
+  color: rgba(0, 159, 253, 0.87);
 }
 #about.page .ui.huge {
   font-family: 'marcher-extrabolditalic', sans-serif;
@@ -497,6 +497,18 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 #about.page #team .member-contact a:not(:last-of-type) {
   margin-right: 1%;
 }
+#about.page #philosophy .belief img.icon {
+  margin-bottom: 1rem;
+  
+/* use rem because inside element with font-size set */
+}
+#about.page #philosophy .belief img.icon.easel,
+#about.page #philosophy .belief img.icon.pay-to-play {
+  height: 125px;
+}
+#about.page #philosophy .belief img.icon.measuring-tape {
+  height: 100px;
+}
 #about.page #philosophy .belief:not(:last-child) {
   margin-bottom: 2em;
 }
@@ -506,6 +518,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 --------------------*/
 
 #login-form a:hover {
+  color: rgba(170, 84, 255, 0.87);
   text-decoration: underline;
 }
 #login-form input#username,

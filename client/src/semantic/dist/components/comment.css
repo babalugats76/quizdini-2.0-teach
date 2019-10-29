@@ -112,7 +112,7 @@
   cursor: pointer;
 }
 .ui.comments .comment a.author:hover {
-  color: #9121ff;
+  color: rgba(145, 33, 255, 0.87);
 }
 
 /*--------------

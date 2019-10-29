@@ -274,7 +274,7 @@
   &.page {
     p {
       > a {
-        color: @quizdiniPurple;
+        color: @linkColor;
         &:hover {
           text-decoration: underline;
         }
@@ -306,6 +306,19 @@
     }
 
     #philosophy {
+      .belief {
+        img.icon {
+          margin-bottom: 1rem; /* use rem because inside element with font-size set */
+          &.easel,
+          &.pay-to-play {
+            height: 125px;
+          }
+          &.measuring-tape {
+            height: 100px;
+          }
+        }
+      }
+
       .belief:not(:last-child) {
         margin-bottom: 2em;
       }
@@ -319,6 +332,7 @@
 #login-form {
   a {
     &:hover {
+      color: @linkColor;
       text-decoration: underline;
     }
   }

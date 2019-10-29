@@ -47,8 +47,8 @@
     Links etc.
 --------------------*/
 
-@linkColor           : @quizdiniPurple;
-@strongColor         : #009ffd; /* Vivid Cerulean */
+@linkColor           : rgba(170, 84, 255, .87); /* quizdiniPurple */
+@strongColor         : rgba(0, 159, 253, .87); /* #009ffd Vivid Cerulean */
 
 /*-------------------
   Padding & Margin
