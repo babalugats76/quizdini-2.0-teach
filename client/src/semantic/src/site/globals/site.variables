@@ -25,7 +25,7 @@
 @fontSize : 16px;
 
 /*-------------------
-  Quizdini Colors
+  Colors
 --------------------*/
 
 @quizdiniIndigo      : rgba(113, 28, 255, 1);
@@ -36,6 +36,7 @@
 @spaceCadet          : rgba(26, 28, 87, 1);
 @primaryColor        : @spaceCadet;
 @secondaryColor      : #2e3235;
+@independence        : #574D68;
 
 /*-------------------
      Brand Colors
@@ -47,8 +48,10 @@
     Links etc.
 --------------------*/
 
-@linkColor           : rgba(170, 84, 255, .87); /* quizdiniPurple */
-@strongColor         : rgba(0, 159, 253, .87); /* #009ffd Vivid Cerulean */
+@linkColor            : rgba(0, 159, 253, .77);
+@strongColor          : rgba(162, 112, 53, .9);
+@summaryActiveColor   : @independence;
+@summaryInactiveColor : @grey;
 
 /*-------------------
   Padding & Margin

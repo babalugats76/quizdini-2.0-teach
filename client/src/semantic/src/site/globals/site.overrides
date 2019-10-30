@@ -279,10 +279,11 @@
           text-decoration: underline;
         }
       }
-      > strong {
-        font-weight: normal;
-        color: @strongColor;
-      }
+    }
+
+    strong {
+      font-weight: normal;
+      color: @strongColor;
     }
 
     .ui.huge {
@@ -321,6 +322,56 @@
 
       .belief:not(:last-child) {
         margin-bottom: 2em;
+      }
+    }
+
+    #faq {
+      details {
+        transition: all 300ms ease-in-out;
+        margin-bottom: .5em;
+        &[open] {
+          margin-bottom: 2em;
+          > summary {
+            color: @summaryActiveColor;
+            margin-bottom: .5em;
+            &:before {
+              transform: rotate(0deg);
+              vertical-align: 0%;
+              transition: all 300ms ease-in-out;
+            }
+          }
+        }
+        &:not([open]) {
+          > summary {
+            color: @summaryInactiveColor;
+          }
+        }
+        > summary {
+          transition: all 300ms ease-in-out;
+          font-family: @headerFont;
+          line-height: 1.1;
+          font-size: 1.7em;
+          padding: .3em .1em;
+          list-style-type: none;
+          outline: none;
+          &:hover {
+            color: @summaryActiveColor;
+          }
+          &:before {
+            display: inline-block;
+            content: '\25bc\00a0';
+            transform: rotate(-90deg);
+            transition: all 300ms ease-in-out;
+            vertical-align: 20%;
+          }
+          &::-webkit-details-marker {
+            display: none;
+            list-style-type: none;
+          }
+          &::-moz-list-bullet {
+            list-style-type: none;
+          }
+        }
       }
     }
   }
@@ -984,6 +1035,11 @@ svg.svg-icon {
 
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
     margin-top: 3em;
+  }
+
+  #about.page #faq details[open] > :not(summary) {
+    margin-left: 1em !important;
+    margin-right: 1em !important;
   }
 
   .content-wrapper {
