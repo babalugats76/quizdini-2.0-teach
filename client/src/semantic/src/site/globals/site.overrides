@@ -272,12 +272,10 @@
 --------------------*/
 #about {
   &.page {
-    p {
-      > a {
-        color: @linkColor;
-        &:hover {
-          text-decoration: underline;
-        }
+    p > a {
+      color: @linkColor;
+      &:hover {
+        text-decoration: underline;
       }
     }
 
@@ -326,14 +324,16 @@
     }
 
     #faq {
+
       details {
         transition: all 300ms ease-in-out;
-        margin-bottom: .5em;
+        margin: 0.5em 0;
+
         &[open] {
           margin-bottom: 2em;
           > summary {
+            margin-bottom: 0.3em;
             color: @summaryActiveColor;
-            margin-bottom: .5em;
             &:before {
               transform: rotate(0deg);
               vertical-align: 0%;
@@ -351,7 +351,7 @@
           font-family: @headerFont;
           line-height: 1.1;
           font-size: 1.7em;
-          padding: .3em .1em;
+          padding: 0.3em 0.1em;
           list-style-type: none;
           outline: none;
           &:hover {
@@ -724,8 +724,8 @@ svg.icon {
   &.edit,
   &.play,
   &.link {
-    width: 23px !important;
-    height: 23px !important;
+    width: 23px;
+    height: 23px;
   }
 
   &.plus {
@@ -1035,11 +1035,6 @@ svg.svg-icon {
 
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
     margin-top: 3em;
-  }
-
-  #about.page #faq details[open] > :not(summary) {
-    margin-left: 1em !important;
-    margin-right: 1em !important;
   }
 
   .content-wrapper {

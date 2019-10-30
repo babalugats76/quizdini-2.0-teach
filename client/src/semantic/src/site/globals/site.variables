@@ -42,7 +42,7 @@
      Brand Colors
 --------------------*/
 @githubColor         : #24292e;
-@udemyColor          : #ea5252;        
+@udemyColor          : #ea5252;     
 
 /*-------------------
     Links etc.

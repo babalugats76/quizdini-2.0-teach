@@ -9,7 +9,7 @@ export default props => (
       The Team
     </Header>
     <br />
-    <Grid className="member" stackable>
+    <Grid className="member" id="james" stackable>
       <Grid.Row columns={2}>
         <Grid.Column className="member-title" floated="left">
           <Header size="large">
@@ -134,7 +134,7 @@ export default props => (
       </Grid.Row>
     </Grid>
     <Divider section clearing />
-    <Grid className="member" stackable>
+    <Grid className="member" id="jen" stackable>
       <Grid.Row columns={2}>
         <Grid.Column className="member-title" floated="left">
           <Header size="large">

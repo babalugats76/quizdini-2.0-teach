@@ -10,7 +10,7 @@ export default props => (
       Philosophy
     </Header>
     <br />
-    <div className="belief">
+    <div className="belief" id="creativity">
       <Header size="large" icon textAlign="center">
         <Image alt="Easel" className="icon easel" src={easel} />
         <Header.Content>
@@ -50,7 +50,7 @@ export default props => (
         teachers truly shine when we have a little less to work with.
       </p>
     </div>
-    <div className="belief">
+    <div className="belief" id="formative">
       <Header size="large" icon textAlign="center">
         <Image
           alt="Measuring Tape"
@@ -85,7 +85,7 @@ export default props => (
         our embattled Education system.
       </p>
     </div>
-    <div className="belief">
+    <div className="belief" id="pay-to-play">
       <Header size="large" icon textAlign="center">
         <Image alt="Pay to Play" className="icon pay-to-play" src={payToPlay} />
         <Header.Content>&quot;You Gotta Pay to Play&quot;</Header.Content>

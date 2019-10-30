@@ -515,14 +515,14 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 #about.page #faq details {
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  margin-bottom: 0.5em;
+  margin: 0.5em 0;
 }
 #about.page #faq details[open] {
   margin-bottom: 2em;
 }
 #about.page #faq details[open] > summary {
+  margin-bottom: 0.3em;
   color: #574D68;
-  margin-bottom: 0.5em;
 }
 #about.page #faq details[open] > summary:before {
   -webkit-transform: rotate(0deg);
@@ -866,8 +866,8 @@ svg.icon.trash {
 svg.icon.edit,
 svg.icon.play,
 svg.icon.link {
-  width: 23px !important;
-  height: 23px !important;
+  width: 23px;
+  height: 23px;
 }
 svg.icon.plus {
   fill: white;
@@ -1114,10 +1114,6 @@ svg.svg-icon {
   }
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
     margin-top: 3em;
-  }
-  #about.page #faq details[open] > :not(summary) {
-    margin-left: 1em !important;
-    margin-right: 1em !important;
   }
   .content-wrapper {
     padding: 0 5%;
