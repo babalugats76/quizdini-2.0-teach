@@ -4,81 +4,94 @@ import { Segment, Table, Grid, Pagination } from 'semantic-ui-react';
 import Message from '../UI/Message';
 import Button from '../UI/Button';
 
-const renderHtml = value => (
-  <span dangerouslySetInnerHTML={{ __html: value.replace(/(^")|("$)/g, '') }} />
-);
-
-const renderRows = (
-  matches,
-  disabled,
-  activePage,
-  itemsPerPage,
-  onMatchDelete
-) => {
-  return matches
-    .filter((element, index) => {
-      const start = activePage * itemsPerPage - itemsPerPage;
-      const end = activePage * itemsPerPage - 1;
-      // console.log('start vs. end', `${start} vs ${end}`);
-      return index >= start && index <= end;
-    })
-    .map((val, idx) => {
-      return (
-        <Table.Row key={val.term}>
-          <Table.Cell content={renderHtml(val.term)} />
-          <Table.Cell content={renderHtml(val.definition)} />
-          <Table.Cell collapsing>
-            <Button
-              title={`Delete ${val.term}`}
-              type="button"
-              disabled={disabled}
-              icon="trash"
-              onClick={(event, term) => onMatchDelete(event, val.term)}
-            />
-          </Table.Cell>
-        </Table.Row>
-      );
-    });
-};
-
-const renderPagination = (activePage, totalPages, onPageChange) => {
-  return (
-    <Pagination
-      activePage={activePage}
-      firstItem={null}
-      lastItem={null}
-      totalPages={totalPages}
-      boundaryRange={1}
-      siblingRange={1}
-      onPageChange={(event, data) => onPageChange(event, data)}
-    />
-  );
-};
-
 const MatchTable = ({
-  id,
-  matches,
   activePage,
-  itemsPerPage,
   disabled,
   error,
+  id,
+  isMobile,
+  itemsPerPage,
+  matches,
   onMatchDelete,
   onPageChange
 }) => {
+  const renderHtml = value => (
+    <span
+      dangerouslySetInnerHTML={{ __html: value.replace(/(^")|("$)/g, '') }}
+    />
+  );
+
+  const renderRows = ({
+    activePage,
+    disabled,
+    itemsPerPage,
+    matches,
+    onMatchDelete
+  }) => {
+    return matches
+      .filter((element, index) => {
+        const start = activePage * itemsPerPage - itemsPerPage;
+        const end = activePage * itemsPerPage - 1;
+        // console.log('start vs. end', `${start} vs ${end}`);
+        return index >= start && index <= end;
+      })
+      .map((val, idx) => {
+        return (
+          <Table.Row key={val.term}>
+            <Table.Cell content={renderHtml(val.term)} />
+            <Table.Cell content={renderHtml(val.definition)} />
+            <Table.Cell collapsing>
+              <Button
+                title={`Delete ${val.term}`}
+                type="button"
+                disabled={disabled}
+                icon="trash"
+                onClick={(event, term) => onMatchDelete(event, val.term)}
+              />
+            </Table.Cell>
+          </Table.Row>
+        );
+      });
+  };
+
+  const renderPagination = ({
+    activePage,
+    onPageChange,
+    isMobile,
+    totalPages
+  }) => {
+    return (
+      <Pagination
+        activePage={activePage}
+        firstItem={null}
+        lastItem={null}
+        totalPages={totalPages}
+        boundaryRange={isMobile ? 0 : 1}
+        siblingRange={isMobile ? 0 : 1}
+        onPageChange={(event, data) => onPageChange(event, data)}
+      />
+    );
+  };
+
   const totalPages = Math.ceil(
     (matches.length ? matches.length : 0) / itemsPerPage
   );
   //console.log('Matches (length)', matches.length);
   //console.log('Total Pages', totalPages);
   //console.log('Active Page', activePage);
-  const rows = renderRows(
-    matches,
-    disabled,
+  const rows = renderRows({
     activePage,
+    disabled,
     itemsPerPage,
+    matches,
     onMatchDelete
-  );
-  const pagination = renderPagination(activePage, totalPages, onPageChange);
+  });
+  const pagination = renderPagination({
+    activePage,
+    isMobile,
+    onPageChange,
+    totalPages
+  });
   return (
     <Segment id={id}>
       <Grid columns={1}>
@@ -122,12 +135,13 @@ const MatchTable = ({
 };
 
 MatchTable.propTypes = {
-  id: PropTypes.string.isRequired,
-  matches: PropTypes.array,
   activePage: PropTypes.number.isRequired,
-  itemsPerPage: PropTypes.number.isRequired,
   disabled: PropTypes.bool,
   error: PropTypes.any,
+  id: PropTypes.string.isRequired,
+  isMobile: PropTypes.bool.isRequired,
+  itemsPerPage: PropTypes.number.isRequired,
+  matches: PropTypes.array,
   onMatchDelete: PropTypes.func.isRequired,
   onPageChange: PropTypes.func.isRequired
 };

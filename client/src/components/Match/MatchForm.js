@@ -707,6 +707,7 @@ class MatchForm extends Component {
                 }...`
               }
               id="match-table"
+              isMobile={isMobile}
               itemsPerPage={itemsPerPage}
               matches={values.matches}
               onMatchDelete={(event, term) =>
