@@ -272,10 +272,12 @@
 --------------------*/
 #about {
   &.page {
-    p > a {
-      color: @linkColor;
-      &:hover {
-        text-decoration: underline;
+    section {
+      a {
+        color: @linkColor;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
 
@@ -288,6 +290,14 @@
       font-family: @hugeFont;
       font-size: 2.6em;
       text-decoration: underline;
+    }
+
+    .ui.list {
+      margin-left: 0;
+      padding-left: 2.5em;
+      > li {
+        padding: 0.3em 0;
+      }
     }
 
     #team {
@@ -324,6 +334,39 @@
     }
 
     #faq {
+      #whats-new {
+        > tbody > tr > td:first-of-type {
+          font-family: @headerFont;
+        }
+      }
+
+      #rate-schedule {
+        > thead {
+          &:first-of-type {
+            tr > th {
+              background-color: @white;
+              > .ui.header {
+                margin-top: 0;
+                color: @lightBlack;
+              }
+            }
+          }
+          &:not(:first-of-type) {
+            tr > th {
+              background-color: lighten(@grey, 50);
+              color: @lightBlack;
+              border-radius: 0;
+            }
+          }
+        }
+
+        > tfoot {
+          font-size: 0.9em;
+          tr > th {
+            background-color: @white;
+          }
+        }
+      }
 
       details {
         transition: all 300ms ease-in-out;

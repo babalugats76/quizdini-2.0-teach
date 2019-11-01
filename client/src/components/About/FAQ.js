@@ -109,7 +109,7 @@ export default props => (
           </Step.Content>
         </Step>
         <Step>
-          <SVG name="database" />
+          <SVG name="edit" />
           <Step.Content>
             <Step.Title>Enter Data</Step.Title>
             <Step.Description>Load Manually or Bulk</Step.Description>
@@ -182,7 +182,7 @@ export default props => (
           caniuse
         </a>
         . The following lists the&nbsp;<strong>major features</strong>
-        &nbsp; that your browser should support:
+        &nbsp;that your browser should support:
       </p>
       <List as="ul" bulleted relaxed>
         <List.Item as="li">
@@ -240,23 +240,228 @@ export default props => (
     <details>
       <summary>What Does It Cost?</summary>
       <p>
-        Explain credit-based, pay-to-create model. Refer to philosophy and
-        include verbiage about how credits cannot last forever.
+        Yup, with Quizdini,&nbsp;
+        <Link to="/about/philosophy#pay-to-play">you gotta pay to play</Link>.
+        We don&apos;t charge to get rich. Instead, we charge to keep this&nbsp;
+        <strong>passion project</strong>&nbsp;alive and to&nbsp;
+        <strong>cover our costs</strong>. In spirit, this project is kind of
+        like an&nbsp;<strong>educational cooperative</strong> in which we, as
+        teachers,&nbsp;<strong>pool our resources</strong> and chip in relative
+        to what we use.
       </p>
+      <p>
+        To achieve this end, we employ a model in which&nbsp;
+        <strong>users buy credits</strong> that can be&nbsp;
+        <strong>exchanged for services</strong>&nbsp;on the site, e.g., each
+        Match Game costs 1 credit. When it comes to purchasing credits, you
+        receive a&nbsp;<strong>price break</strong> the more you spend:
+      </p>
+      <Table id="rate-schedule" celled stackable textAlign="center">
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell colSpan="4">
+              <Header size="medium">
+                Quizdini - Rate Schedule&nbsp;
+                <sup>[1]</sup>
+                <sup>[2]</sup>
+              </Header>
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell collapsing>
+              Effective Jan. 1<sup>st</sup>, 2020
+            </Table.HeaderCell>
+            <Table.HeaderCell collapsing>Credits</Table.HeaderCell>
+            <Table.HeaderCell collapsing>Cost</Table.HeaderCell>
+            <Table.HeaderCell collapsing>Unit Cost</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell collapsing>
+              <strong>Option #1</strong>
+            </Table.Cell>
+            <Table.Cell collapsing>5</Table.Cell>
+            <Table.Cell collapsing>$5</Table.Cell>
+            <Table.Cell collapsing>$1</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell collapsing>
+              <strong>Option #2</strong>
+            </Table.Cell>
+            <Table.Cell collapsing>12</Table.Cell>
+            <Table.Cell collapsing>$10</Table.Cell>
+            <Table.Cell collapsing>83&#162;</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell collapsing>
+              <strong>Option #3</strong>
+            </Table.Cell>
+            <Table.Cell collapsing>20</Table.Cell>
+            <Table.Cell collapsing>$15</Table.Cell>
+            <Table.Cell collapsing>75&#162;</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell collapsing>
+              <strong>Option #4</strong>
+            </Table.Cell>
+            <Table.Cell collapsing>30</Table.Cell>
+            <Table.Cell collapsing>$20</Table.Cell>
+            <Table.Cell collapsing>67&#162;</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+        <Table.Footer>
+          <Table.Row textAlign="left">
+            <Table.HeaderCell colSpan="4">
+              <p id="lifetime-members">
+                <sup>[1]</sup>&nbsp;Our payment model has changed with the
+                latest release of Quizdini.&nbsp;
+                <strong>Charter members</strong> of Quizdini&mdash;those who
+                signed up between 2013 and 2019&mdash;have been&nbsp;
+                <strong>grandfathered in</strong>&nbsp;and have been
+                issued&nbsp;
+                <strong>100 credits</strong>.
+              </p>
+              <p id="credit-expiration">
+                <sup>[2]</sup>&nbsp;Our goal is to honor credits for as long as
+                humanly possible. At the same time, we must set forth a
+                reasonable policy that frees us from having to honor credits
+                until the end of time. From a contractual standpoint, we will
+                honor all credits&nbsp;
+                <strong>
+                  for&nbsp;<u>at least</u>&nbsp;365 calendar days
+                </strong>
+                &nbsp;from the date of purchase. Any change impacting
+                users&apos; ability to use their credits will be communicated
+                promptly, in advance.
+              </p>
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Footer>
+      </Table>
     </details>
     <details>
       <summary>Why Can't I See My Students' Results?</summary>
       <p>
-        Privacy. Refer to Formative in Philosophy. Boiling kids down to numbers.  Taking the fun out of things. It is important that students self-grade and own their learning.
+        Because we have no interest in storing&nbsp;
+        <strong>Personally Identifiable Information</strong>&nbsp;of students.
+        In fact, we have gone to great lengths to protect and honor students'
+        privacy throughout the development of Quizdini. If you want to learn
+        more, please see our&nbsp;<Link to="/terms/privacy">privacy</Link>
+        &nbsp;policy.
+      </p>
+      <p>
+        That notwithstanding, it is our view that&nbsp;
+        <Link to="/about/philosophy#formative">everything is formative</Link>.
+        As educators, we want to promote the use of the kind of&nbsp;
+        <strong>informal feedback</strong>
+        &nbsp;that kids find most valuable. Ultimately, we want to make tools
+        that put students in the driver's seat so that they can take charge via
+        self-grading and self-assessment. Nowadays, there is no shortage of
+        analytical and summative tools that, unfortunately, do a great job
+        of&nbsp;
+        <strong>boiling kids down to numbers</strong>. In the end, we just
+        don&apos;t want to be one of them.
       </p>
     </details>
     <details>
-      <summary>Can I create student accounts? Shared accounts?</summary>
-      <p>No and no...explanation</p>
+      <summary>Can I Create Student Accounts? Shared Accounts?</summary>
+      <p>
+        The creation and/or use of either student or so-called &quot;shared
+        accounts&quot; violates both the letter and spirit of our&nbsp;
+        <Link to="/terms">terms of service</Link>. As such, we reserve the right
+        to&nbsp;<strong>remove accounts</strong>&nbsp;that violate this policy.
+      </p>
     </details>
-    <details>
-      <summary>Quizdini looks different. What's new?</summary>
-      <p>Short list of what is new</p>
+    <details id="different">
+      <summary>Quizdini Looks Different. What&apos;s New?</summary>
+      <p>
+        After seven years, Quizdini really&nbsp;
+        <strong>needed an overhaul</strong>. The original implementation of
+        Quizdini was really just a&nbsp;<strong>rock-solid prototype</strong>,
+        and it truly worked well! At the same time, technology was passing her
+        by, so it was time to make her a little more&nbsp;
+        <strong>bad and boujee</strong>, so to speak.
+      </p>
+      <p>
+        What&apos;s changed with Quizdini? In a word:&nbsp;
+        <strong>everything</strong>. Notwithstanding the countless
+        behind-the-scenes upgrades, long-time users should note the following
+        developments:
+      </p>
+      <Table id="whats-new" celled stackable>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>Change</Table.HeaderCell>
+            <Table.HeaderCell>Rationale</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>OAuth Support</Table.Cell>
+            <Table.Cell>
+              In addition to supporting local accounts, we now support&nbsp;
+              <strong>logging in with Google</strong>&nbsp;via OAuth 2.0. We
+              added this because you don't need yet another password!
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Credit-based Model</Table.Cell>
+            <Table.Cell>
+              We switched to a&nbsp;<strong>pay-for-what-you-use</strong>
+              &nbsp;structure. Our goal was to put Quizdini on a sustainable
+              path and respect the fact that some people use the service more
+              than others.
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>New Payment Processor</Table.Cell>
+            <Table.Cell>
+              We switched from PayPal to&nbsp;
+              <a
+                href="https://stripe.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="Online payment processing for internet businesses - Stripe"
+              >
+                Stripe
+              </a>
+              . This was done to provide users a&nbsp;
+              <strong>secure</strong>, one-click checkout experience. We now
+              accept&nbsp;
+              <strong>all major credit cards</strong>, worldwide.
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Match Game Redesign</Table.Cell>
+            <Table.Cell>
+              <p>
+                We added the ability to&nbsp;<strong>bulk load</strong> whether
+                by comma-delimited file (.csv) or through the bulk-text editor.
+                Now, you can create an activity&nbsp;<strong>in seconds</strong>
+                .
+              </p>
+              <p>
+                You&apos;ll also notice additional game play&nbsp;
+                <strong>options</strong>:
+              </p>
+              <List bulleted relaxed>
+                <List.Item>
+                  <strong>Timer</strong>
+                </List.Item>
+                <List.Item>
+                  <strong>Flexible Layouts</strong>
+                </List.Item>
+                <List.Item>
+                  <strong>Color Schemes</strong>
+                </List.Item>
+              </List>
+            </Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
     </details>
   </Segment>
 );

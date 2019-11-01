@@ -972,11 +972,11 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   About
 --------------------*/
 
-#about.page p > a {
+#about.page section a {
   color: rgba(0, 159, 253, 0.77);
 }
 
-#about.page p > a:hover {
+#about.page section a:hover {
   text-decoration: underline;
 }
 
@@ -989,6 +989,15 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   font-family: 'marcher-extrabolditalic', sans-serif;
   font-size: 2.6em;
   text-decoration: underline;
+}
+
+#about.page .ui.list {
+  margin-left: 0;
+  padding-left: 2.5em;
+}
+
+#about.page .ui.list > li {
+  padding: 0.3em 0;
 }
 
 #about.page #team .member-contact a > svg {
@@ -1016,6 +1025,33 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 #about.page #philosophy .belief:not(:last-child) {
   margin-bottom: 2em;
+}
+
+#about.page #faq #whats-new > tbody > tr td:first-of-type {
+  font-family: 'marcher-medium', sans-serif;
+}
+
+#about.page #faq #rate-schedule > thead:first-of-type tr > th {
+  background-color: #FFFFFF;
+}
+
+#about.page #faq #rate-schedule > thead:first-of-type tr > th > .ui.header {
+  margin-top: 0;
+  color: #545454;
+}
+
+#about.page #faq #rate-schedule > thead:not(:first-of-type) tr > th {
+  background-color: #f6f6f6;
+  color: #545454;
+  border-radius: 0;
+}
+
+#about.page #faq #rate-schedule > tfoot {
+  font-size: 0.9em;
+}
+
+#about.page #faq #rate-schedule > tfoot tr > th {
+  background-color: #FFFFFF;
 }
 
 #about.page #faq details {
