@@ -78,8 +78,6 @@ Messages need to be standardized, etc.
       - Return and apply to all appropriate routes
     - Design pattern for determining
   - About
-    - Philosophy
-    - FAQ
     - Attribution
     - Dedication 
     [Sleepwalk | George Ogg | West Central Quartet | Club Soda on Vimeo](https://vimeo.com/18706747) - ```

@@ -417,6 +417,18 @@
         }
       }
     }
+    #dedication {
+      p:first-of-type:first-letter {
+        color: @dropCapColor;
+        float: left;
+        font-family: @dropCapFont;
+        font-size: 4.7rem;
+        line-height: 3rem;
+        padding-top: 0.75rem;
+        padding-right: 0.5rem;
+        padding-left: 0.25rem;
+      }
+    }
   }
 }
 

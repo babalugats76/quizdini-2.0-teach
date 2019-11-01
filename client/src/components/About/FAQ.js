@@ -9,7 +9,7 @@ export default props => (
       Frequently Asked Questions
     </Header>
     <br />
-    <details>
+    <details id="what-is-quizdini">
       <summary>What is Quizdini?</summary>
       <p>
         Quizdini is an&nbsp;<strong>online learning tool</strong> that was
@@ -32,7 +32,7 @@ export default props => (
         <strong>quickly</strong>.
       </p>
     </details>
-    <details>
+    <details id="what-can-i-do">
       <summary>What Can I Do With Quizdini?</summary>
       <p>
         The possibilities are endless; after all,&nbsp;
@@ -89,7 +89,7 @@ export default props => (
         </Table.Body>
       </Table>
     </details>
-    <details>
+    <details id="how-to-create-an-activity">
       <summary>How Do I Create an Activity?</summary>
       <p>
         Currently, our classic&nbsp;<strong>Match Game</strong> is the only
@@ -138,7 +138,7 @@ export default props => (
         </Step>
       </Step.Group>
     </details>
-    <details>
+    <details id="technical-requirements">
       <summary>What Are the Technical Requirements?</summary>
       <Header size="small">TL;DR</Header>
       <p>
@@ -237,7 +237,7 @@ export default props => (
         </List.Item>
       </List>
     </details>
-    <details>
+    <details id="what-does-it-cost">
       <summary>What Does It Cost?</summary>
       <p>
         Yup, with Quizdini,&nbsp;
@@ -342,7 +342,7 @@ export default props => (
         </Table.Footer>
       </Table>
     </details>
-    <details>
+    <details id="student-results">
       <summary>Why Can't I See My Students' Results?</summary>
       <p>
         Because we have no interest in storing&nbsp;
@@ -366,7 +366,7 @@ export default props => (
         don&apos;t want to be one of them.
       </p>
     </details>
-    <details>
+    <details id="student-and-shared-accounts">
       <summary>Can I Create Student Accounts? Shared Accounts?</summary>
       <p>
         The creation and/or use of either student or so-called &quot;shared
@@ -375,7 +375,7 @@ export default props => (
         to&nbsp;<strong>remove accounts</strong>&nbsp;that violate this policy.
       </p>
     </details>
-    <details id="different">
+    <details id="whats-new">
       <summary>Quizdini Looks Different. What&apos;s New?</summary>
       <p>
         After seven years, Quizdini really&nbsp;
@@ -438,6 +438,10 @@ export default props => (
             <Table.Cell>Match Game Redesign</Table.Cell>
             <Table.Cell>
               <p>
+                The&nbsp;<strong>Match Game</strong>&nbsp;activity has been
+                completely redesigned.
+              </p>
+              <p>
                 We added the ability to&nbsp;<strong>bulk load</strong> whether
                 by comma-delimited file (.csv) or through the bulk-text editor.
                 Now, you can create an activity&nbsp;<strong>in seconds</strong>
@@ -460,8 +464,29 @@ export default props => (
               </List>
             </Table.Cell>
           </Table.Row>
+          <Table.Row>
+            <Table.Cell>Multiple Choice Game Removal</Table.Cell>
+            <Table.Cell>
+              The&nbsp;<strong>Multiple Choice</strong>&nbsp;activity was&nbsp;
+              <strong>not brought forward</strong>&nbsp;as part of this new
+              generation of Quizdini. We simply were not able to recreate
+              everything in one fell swoop. It is our intention, however, to
+              bring back&nbsp;
+              <strong>a reimagined version</strong> of it in the&nbsp;
+              <strong>near future</strong>.
+            </Table.Cell>
+          </Table.Row>
         </Table.Body>
       </Table>
+      <p>
+        The&nbsp;<strong>biggest impact</strong>&nbsp;to existing users will be
+        the fact that they will have to&nbsp;
+        <strong>recreate existing activities</strong>&nbsp;within the new
+        system. The hope was that our new bulk-editing capabilites would make
+        this process as painless as possible. We consider all this&nbsp;
+        <strong>the cost of progress</strong>, but at the same time apologize
+        for the inconvenience!
+      </p>
     </details>
   </Segment>
 );

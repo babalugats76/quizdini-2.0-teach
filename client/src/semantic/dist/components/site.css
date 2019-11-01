@@ -519,7 +519,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 #about.page #philosophy .belief:not(:last-child) {
   margin-bottom: 2em;
 }
-#about.page #faq #whats-new > tbody > tr td:first-of-type {
+#about.page #faq #whats-new > tbody > tr > td:first-of-type {
   font-family: 'marcher-medium', sans-serif;
 }
 #about.page #faq #rate-schedule > thead:first-of-type tr > th {
@@ -590,6 +590,16 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 #about.page #faq details > summary::-moz-list-bullet {
   list-style-type: none;
+}
+#about.page #dedication p:first-of-type:first-letter {
+  color: #574D68;
+  float: left;
+  font-family: 'marcher-medium', sans-serif;
+  font-size: 4.7rem;
+  line-height: 3rem;
+  padding-top: 0.75rem;
+  padding-right: 0.5rem;
+  padding-left: 0.25rem;
 }
 
 /*-------------------

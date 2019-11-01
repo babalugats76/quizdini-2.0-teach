@@ -10,6 +10,7 @@
 @headerFont        : 'marcher-medium', sans-serif;
 @hugeFont          : 'marcher-extrabolditalic', sans-serif;
 @pageFont          : 'Lexend Deca', sans-serif;
+@dropCapFont       : @headerFont;
 @googleFontFamily  : 'Lexend+Deca';
 @googleFontRequest : '@{googleFontFamily}&subset=@{googleSubset}&display=@{googleFontDisplay}';
 @importGoogleFonts : false; /* Make false because self-hosting */
@@ -50,6 +51,7 @@
 
 @linkColor            : rgba(0, 159, 253, .77);
 @strongColor          : rgba(162, 112, 53, .9);
+@dropCapColor         : @independence;
 @summaryActiveColor   : @independence;
 @summaryInactiveColor : @grey;
 
