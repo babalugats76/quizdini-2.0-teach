@@ -57,7 +57,7 @@ Messages need to be standardized, etc.
 - Heroku
   - Investigate SSL steps
 - Google OAuth
-  - *Domain verification (contingent on DNS/using .quizdini.com TLD)*
+  - _Domain verification (contingent on DNS/using .quizdini.com TLD)_
 - Documentation
 - Server
   - Document and QA all routes callbacks
@@ -79,7 +79,6 @@ Messages need to be standardized, etc.
     - Design pattern for determining
   - About
     - Attribution
-    - *Dedication*
   - Terms
     - Terms
     - Privacy
@@ -94,15 +93,15 @@ Messages need to be standardized, etc.
     - Where to place authUser calls so that 'Credits' is up to date; currently happens after a successful game creation, etc. Change to happen upon insufficient credits or upon any fetch of Dashboard info? ComponentDidMount? Consider lifecycle method or hook?
     - Refine functional component, e.g., `MatchIntro`
     - Consider adding `isEmptyArray` utility function for use in `Match`, etc.
-  - *Icons*
+  - _Icons_
     - Migrate version of newly-created SVG component and adapt
       - Profile
       - NavBar
       - UI Components
       - About - Team
   - Profile
-      - Disposition loading issues make resilient to null or should things be visible if data isn't available.  Both?
-  - *Semantic UI* - Continue migrating work-in-progress style to semantic
+    - Disposition loading issues make resilient to null or should things be visible if data isn't available. Both?
+  - _Semantic UI_ - Continue migrating work-in-progress style to semantic
 
 Kay
 

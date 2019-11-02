@@ -82,6 +82,30 @@ export default props => (
         title="dka-celebration-of-life"
       ></iframe>
     </div>
-    <p>TBD...</p>
+    <p>
+      Donna Atherton was not only my mom but she was also an&nbsp;
+      <strong>accomplished businessperson</strong>. At a time when many thought
+      woman ill-suited to serve in any kind of leadership role, she&nbsp;
+      <strong>defied the odds</strong>&mdash;and the stereotypes&mdash;to
+      achieve great success.
+    </p>
+    <p>
+      My mom always&nbsp;<strong>wanted to become a teacher</strong> and
+      she originally attended&nbsp;
+      <a
+        href="https://www.fortlewis.edu/"
+        rel="noopener noreferrer"
+        target="_blank"
+        title="Fort Lewis College | Durango, Colorado"
+      >
+        Fort Lewis College
+      </a>
+      &nbsp;to that end, but life, ultimately, took her in another direction
+      before she could complete her studies. As with any mother, her
+      legacy&nbsp;
+      <strong>lives on through her children</strong>&nbsp;and grandchildren. To
+      me, every person that benefits from Quizdini represents, in some strange
+      way, a realization of&nbsp;<strong>her childhood dream</strong>.
+    </p>
   </Segment>
 );
