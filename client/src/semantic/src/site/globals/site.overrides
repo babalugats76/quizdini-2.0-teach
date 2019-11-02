@@ -433,6 +433,16 @@
 }
 
 /*-------------------
+  Register
+--------------------*/
+
+#register-form {
+  .ui.checkbox > label {
+    line-height: 1.3;
+  }
+}
+
+/*-------------------
   Login
 --------------------*/
 #login-form {
@@ -710,10 +720,58 @@ a#google-login {
     right: 0;
     color: @lightGrey;
   }
-}
 
-#match-table {
-  min-height: 550px;
+  #match-table {
+    tbody > tr > td {
+      color: @lightBlack;
+      &:first-of-type {
+        color: @black;
+      }
+    }
+
+    .ui.pagination.menu > .item {
+      min-width: 2em;
+      padding: 0.75em 0.9em;
+    }
+  }
+  
+  #match-expert {
+    position: relative;
+    .ui.horizontal.divider {
+      font-family: @headerFont;
+      color: @black;
+    }
+  }
+
+  .format-toolbar {
+    text-align: center;
+    > button {
+      outline: 0;
+      margin: 0;
+      padding: 0.5em;
+      text-decoration: none !important;
+      cursor: pointer;
+      position: relative;
+      text-align: center;
+      zoom: 1;
+      background-color: transparent;
+      border: none;
+      &:hover {
+        > svg.icon {
+          path {
+            fill: @fullBlack;
+          }
+        }
+      }
+      > svg.icon {
+        width: 1.3em;
+        height: 1.3em;
+        > path {
+          fill: @lightTextColor;
+        }
+      }
+    }
+  }
 }
 
 /*-------------------
@@ -884,10 +942,6 @@ svg.icon {
   opacity: 0.45;
 }
 
-/* Form Specific */
-
-/* Table container */
-
 section#intro {
   padding-top: 0;
   font-size: 1.5rem;
@@ -930,67 +984,13 @@ textarea#matchText {
   color: rgba(40, 40, 40, 0.3);
 }
 
-/*.format-toolbar {
-  display: flex;
-  position: relative;
-  padding: 1px 18px 17px;
-  margin: 0px -20px 20px;
-  border-bottom: 2px solid rgb(238, 238, 238);
-}*/
-
-/*.rich-text-editor-container {
-  display: inline-block;
-  max-width: calc(50% - 20px);
-  margin: 20px 10px;
-  padding: 20px;
-  background: white;
-}*/
-
-.match-editor {
-  position: relative;
-}
-
-.toolbar {
-  float: right;
-}
-
-.format-toolbar {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-}
-
-.format-toolbar button {
-  background-color: white;
-  padding: 3px 6px;
-  color: #4e4e4e;
-  margin-right: 3px;
-  border-radius: 3px;
-  font-size: 1rem;
-}
-
-.format-toolbar button svg {
-  fill: #d5d5d5;
-}
-
-.format-toolbar button:hover,
-.format-toolbar button:focus {
-  cursor: pointer;
-  background-color: red;
-  border-color: #222222;
-}
-
-.format-toolbar button:hover svg {
-  fill: #222222;
-}
-
-.button-toolbar {
+/*.button-toolbar {
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
   overflow: hidden;
-}
+}*/
 
 /*#match-bank button.labeled:not(.active):not(:hover) {
   background-color: rgba(40, 40, 40, 0.3) !important;
@@ -1005,9 +1005,9 @@ textarea#matchText {
   margin-bottom: 1rem;
 }
 
-svg.svg-icon {
+/*svg.svg-icon {
   vertical-align: middle;
-}
+}*/
 
 @media only screen and (max-width: 767.99px) {
   .ui.form {
@@ -1090,6 +1090,10 @@ svg.svg-icon {
 
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
     margin-top: 3em;
+  }
+
+  #match-table {
+    min-height: 550px;
   }
 
   .content-wrapper {

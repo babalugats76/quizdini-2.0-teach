@@ -255,25 +255,23 @@ const RegisterForm = props => {
               tabIndex={11}
               value={values.terms ? 1 : 0}
             >
-              <span>
-                By signing up, I agree to Quizdini's&nbsp;
-                <Link target="_blank" title="Terms and Conditions" to="/terms">
-                  Terms of Use
-                </Link>
-                ,&nbsp;
-                <Link
-                  target="_blank"
-                  title="The Privacy Policy"
-                  to="/terms/privacy"
-                >
-                  Privacy Policy
-                </Link>
-                , &nbsp;and&nbsp;
-                <Link target="_blank" title="Cookie Policy" to="/terms/cookies">
-                  Cookie Policy
-                </Link>
-                .
-              </span>
+              By signing up, I agree to Quizdini's&nbsp;
+              <Link target="_blank" title="Terms and Conditions" to="/terms">
+                Terms of Use
+              </Link>
+              ,&nbsp;
+              <Link
+                target="_blank"
+                title="The Privacy Policy"
+                to="/terms/privacy"
+              >
+                Privacy Policy
+              </Link>
+              ,&nbsp;and&nbsp;
+              <Link target="_blank" title="Cookie Policy" to="/terms/cookies">
+                Cookie Policy
+              </Link>
+              .
             </Checkbox>
           </Form.Group>
           <Form.Group>

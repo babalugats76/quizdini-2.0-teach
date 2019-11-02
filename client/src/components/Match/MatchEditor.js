@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Editor } from 'slate-react';
 import { isKeyHotkey } from 'is-hotkey';
-import FormatToolbar from '../UI/Toolbar';
+import Toolbar from '../UI/Toolbar';
 
 const schema = {
   document: {
@@ -228,7 +228,7 @@ class MatchEditor extends Component {
     }];
 
     return (
-      <div className='match-editor'>
+      <div id="match-editor">
         <Editor
           name={name}
           autoFocus={false}
@@ -245,7 +245,7 @@ class MatchEditor extends Component {
           onKeyDown={this.onKeyDown}
           renderMark={this.renderMark}
         />
-        <FormatToolbar buttons={buttons} />
+        <Toolbar buttons={buttons} className='format-toolbar' />
       </div>
     );
   }

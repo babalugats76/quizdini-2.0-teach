@@ -500,7 +500,7 @@ class MatchForm extends Component {
         hideOnMobile: true,
         menuItem: 'Expert Mode',
         render: () => (
-          <Tab.Pane as={Segment} padded>
+          <Tab.Pane id="match-expert" as={Segment} padded>
             <MatchExpert
               definition={definition}
               definitionRef={this.definitionRef}
@@ -629,13 +629,13 @@ class MatchForm extends Component {
                 title="Options"
               >
                 <Grid
-                  columns={3}
+                  columns="equal"
                   stackable
                   textAlign="center"
                   verticalAlign="middle"
                 >
                   <Grid.Row>
-                    <Grid.Column verticalAlign="top">
+                    <Grid.Column tablet={8} verticalAlign="top">
                       <IconDropdown
                         compact
                         disabled={disabled}
@@ -651,7 +651,7 @@ class MatchForm extends Component {
                         value={values.itemsPerBoard}
                       />
                     </Grid.Column>
-                    <Grid.Column verticalAlign="top">
+                    <Grid.Column tablet={8} verticalAlign="top">
                       <IconDropdown
                         compact
                         disabled={disabled}
@@ -667,7 +667,7 @@ class MatchForm extends Component {
                         value={values.duration}
                       />
                     </Grid.Column>
-                    <Grid.Column verticalAlign="top">
+                    <Grid.Column tablet={8} verticalAlign="top" >
                       <IconDropdown
                         compact
                         disabled={disabled}
