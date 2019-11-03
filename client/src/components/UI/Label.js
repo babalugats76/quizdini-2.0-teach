@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Label } from "semantic-ui-react";
-import Icon from "./Icon";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Label } from 'semantic-ui-react';
+import Icon from './Icon';
 
-const MyLabel = ({ children, icon}) => {
+const MyLabel = ({ children, icon }) => {
   return (
     <Label as="span">
-      <Icon icon={icon} />
+      <Icon name={icon} />
       <Label.Detail as="span">{children}</Label.Detail>
     </Label>
   );

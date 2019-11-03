@@ -261,13 +261,20 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   height: 100%;
   overflow-y: auto !important;
 }
-.pushable .pusher > .ui.menu {
+.pushable .pusher .ui.menu {
   display: -webkit-box;
   display: flex;
   -webkit-box-flex: 0;
           flex: 0 0 auto;
 }
-.pushable .pusher > .ui.menu.fixed {
+.pushable .pusher .ui.menu.inverted .item svg.icon {
+  width: 1.375em;
+  height: 1.375em;
+}
+.pushable .pusher .ui.menu.inverted .item svg.icon path {
+  fill: #FFFFFF;
+}
+.pushable .pusher .ui.menu.fixed {
   background-color: rgba(26, 28, 87, 0.9);
 }
 .pushable .pusher.menu-fixed > .page-wrapper {
@@ -316,6 +323,56 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 
 /*-------------------
+  Icons (Global)
+--------------------*/
+
+svg {
+  width: 1em;
+  height: 1em;
+}
+svg path {
+  -webkit-transition: fill 0.5s ease;
+  transition: fill 0.5s ease;
+}
+svg.icon.github path {
+  fill: #24292e;
+}
+svg.icon.twitter path {
+  fill: #1DA1F2;
+}
+svg.icon.youtube path {
+  fill: #FF0000;
+}
+svg.icon.linkedin path {
+  fill: #0077B5;
+}
+svg.icon.udemy path {
+  fill: #ea5252;
+}
+svg.icon.trash path {
+  fill: #9F3A38;
+}
+svg.icon.chevron-down.open {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 150ms ease-in-out;
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+svg.icon.chevron-down.closed {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition: -webkit-transform 150ms ease-in-out;
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+.ui.positive svg.icon path {
+  fill: #FFFFFF;
+}
+
+/*-------------------
   Feedback
 --------------------*/
 
@@ -324,7 +381,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   font-size: 0.9em;
 }
 .input-feedback.error {
-  text-align: left;
   color: #DB2828;
 }
 .error .label {
@@ -337,15 +393,11 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 .loader {
   position: fixed;
-  
-/* Takes out of normal page flow */
   z-index: 999;
   height: 2.3rem;
   width: 2.3rem;
   overflow: visible;
   margin: auto;
-  
-/* Positions in center of page */
   top: 0;
   left: 0;
   bottom: 0;
@@ -504,6 +556,9 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 #about.page #team .member-contact a:not(:last-of-type) {
   margin-right: 1%;
 }
+#about.page #philosophy .belief:not(:last-child) {
+  margin-bottom: 2em;
+}
 #about.page #philosophy .belief img.icon {
   margin-bottom: 1rem;
   
@@ -515,9 +570,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 #about.page #philosophy .belief img.icon.measuring-tape {
   height: 100px;
-}
-#about.page #philosophy .belief:not(:last-child) {
-  margin-bottom: 2em;
 }
 #about.page #faq #whats-new > tbody > tr > td:first-of-type {
   font-family: 'marcher-medium', sans-serif;
@@ -654,6 +706,10 @@ a#google-login:visited {
   Checkout
 --------------------*/
 
+#checkout-form .ui.horizontal.divider > .ui.header > svg.icon,
+#checkout-form .ui.horizontal.divider > .ui.header .content {
+  display: inline-block;
+}
 #checkout-form .ui.input {
   height: 43px !important;
 }
@@ -751,12 +807,9 @@ a#google-login:visited {
   background-color: #FFF6F6;
   opacity: 0.87;
 }
-.ui.cards .ui.card.match-card .content.match-card-header:hover .ui.icon.button.trash svg.icon.trash {
-  fill: #DB2828;
-}
 .ui.cards .ui.card.match-card .content.match-card-header > .header {
   text-align: center;
-  font-size: 1.4em;
+  font-size: 1.375em;
   -webkit-box-flex: 1;
           flex-grow: 1;
   padding: 0 0.5em;
@@ -772,26 +825,19 @@ a#google-login:visited {
   transition: background-color 0.5s ease;
   background-color: transparent;
 }
-.ui.cards .ui.card.match-card .content.match-card-header .ui.icon.button.trash svg.icon.trash {
-  fill: #9F3A38;
+.ui.cards .ui.card.match-card .content.match-card-header .ui.icon.button.trash svg.icon {
   width: 2em;
   height: 2em;
-}
-.ui.cards .ui.card.match-card .content.match-card-desc,
-.ui.cards .ui.card.match-card .content.match-card-btns {
-  -webkit-box-flex: 0;
-          flex-grow: 0;
 }
 .ui.cards .ui.card.match-card .content.match-card-desc {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
           justify-content: center;
+  -webkit-box-flex: 1;
+          flex-grow: 1;
 }
-.ui.cards .ui.card.match-card .content.match-card-btns {
-  background-color: rgba(0, 0, 0, 0.03);
-}
-.ui.cards .ui.card.match-card .ui.label {
+.ui.cards .ui.card.match-card .content.match-card-desc .description .ui.label {
   display: -webkit-inline-box;
   display: inline-flex;
   -webkit-box-orient: horizontal;
@@ -799,24 +845,34 @@ a#google-login:visited {
           flex-direction: row;
   -webkit-box-align: center;
           align-items: center;
-  background-color: transparent !important;
-  border: none !important;
+  background-color: transparent;
+  border: none;
 }
-.ui.cards .ui.card.match-card .ui.label .icon {
-  margin-right: 0.75em;
-}
-.ui.cards .ui.card.match-card .ui.label .detail {
-  font-size: 1.25em !important;
-  margin-left: unset !important;
+.ui.cards .ui.card.match-card .content.match-card-desc .description .ui.label .detail {
+  margin-left: 0;
   color: #767676;
 }
-.ui.cards .ui.card.match-card .ui.label svg.icon {
-  width: 22px;
-  height: 22px;
+.ui.cards .ui.card.match-card .content.match-card-desc .description .ui.label svg.icon path {
   fill: #767676;
 }
-.ui.cards .ui.card.match-card .ui.buttons .ui.button:not(:last-child) {
+.ui.cards .ui.card.match-card .content.match-card-btns {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 0;
+          flex-grow: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.ui.cards .ui.card.match-card .content.match-card-btns > .ui.three.buttons .ui.button:not(:last-child) {
   border-right: 1px inset #1B1C1D;
+}
+.ui.cards .ui.card.match-card .content.match-card-btns > .ui.three.buttons svg.icon {
+  width: 1.375em;
+  height: 1.375em;
+}
+.ui.cards .ui.card.match-card .content .ui.label,
+.ui.cards .ui.card.match-card .content .ui.labels,
+.ui.cards .ui.card.match-card .content .label {
+  font-size: 1em;
 }
 
 /*-------------------
@@ -828,6 +884,10 @@ a#google-login:visited {
 }
 #match-form .ui.accordion .content {
   padding-bottom: 1em;
+}
+#match-form .ui.accordion .content .ui.icon.header svg.icon {
+  width: 1em;
+  height: 1em;
 }
 #match-form .ui.accordion .title {
   display: -webkit-box;
@@ -864,6 +924,17 @@ a#google-login:visited {
 #match-form #match-table tbody > tr > td:first-of-type {
   color: #1B1C1D;
 }
+#match-form #match-table tbody > tr > td .ui.icon.trash.button {
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+  background-color: #FFF6F6;
+}
+#match-form #match-table tbody > tr > td .ui.icon.trash.button:hover {
+  background-color: #e25454;
+}
+#match-form #match-table tbody > tr > td .ui.icon.trash.button:hover svg.icon path {
+  fill: #FFFFFF;
+}
 #match-form #match-table .ui.pagination.menu > .item {
   min-width: 2em;
   padding: 0.75em 0.9em;
@@ -878,7 +949,7 @@ a#google-login:visited {
 #match-form .format-toolbar {
   text-align: center;
 }
-#match-form .format-toolbar > button {
+#match-form .format-toolbar button {
   outline: 0;
   margin: 0;
   padding: 0.5em;
@@ -890,77 +961,15 @@ a#google-login:visited {
   background-color: transparent;
   border: none;
 }
-#match-form .format-toolbar > button:hover > svg.icon path {
+#match-form .format-toolbar button:hover svg.icon path {
   fill: #000000;
 }
-#match-form .format-toolbar > button > svg.icon {
+#match-form .format-toolbar button svg.icon {
   width: 1.3em;
   height: 1.3em;
 }
-#match-form .format-toolbar > button > svg.icon > path {
+#match-form .format-toolbar button svg.icon path {
   fill: rgba(0, 0, 0, 0.4);
-}
-
-/*-------------------
-  Icons (Global)
---------------------*/
-
-svg {
-  width: 1em;
-  height: 1em;
-}
-svg.icon.github path {
-  fill: #24292e;
-}
-svg.icon.twitter path {
-  fill: #1DA1F2;
-}
-svg.icon.youtube path {
-  fill: #FF0000;
-}
-svg.icon.linkedin path {
-  fill: #0077B5;
-}
-svg.icon.udemy path {
-  fill: #ea5252;
-}
-svg.icon.chevron-down.open {
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 100ms ease-in-out;
-  transition: -webkit-transform 100ms ease-in-out;
-  transition: transform 100ms ease-in-out;
-  transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
-}
-svg.icon.chevron-down.closed {
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-  -webkit-transition: -webkit-transform 150ms ease-in-out;
-  transition: -webkit-transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
-}
-.ui.labeled.icon.button > svg.plus {
-  fill: white;
-}
-svg.icon.trash {
-  width: 18px;
-  height: 18px;
-  fill: black;
-}
-svg.icon.edit,
-svg.icon.play,
-svg.icon.link {
-  width: 23px;
-  height: 23px;
-}
-svg.icon.plus {
-  fill: white;
-}
-svg.icon.tiles,
-svg.icon.timer {
-  width: 48px !important;
-  height: 48px !important;
 }
 
 /*-------------------
@@ -989,8 +998,8 @@ svg.icon.timer {
   margin: 0 !important;
 }
 .ui.button.clipboard {
-  -webkit-transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 .ui.button.clipboard.copied {
   color: white !important;
@@ -1001,31 +1010,6 @@ svg.icon.timer {
 }
 .ui.visible.left.overlay.sidebar {
   background-color: #2e3235 !important;
-}
-.ui.button.trash {
-  background-color: pink;
-}
-.ui.button.trash:hover {
-  background-color: red;
-}
-.ui.button.trash:hover svg.icon.trash {
-  fill: white;
-}
-svg.icon.trash {
-  width: 18px;
-  height: 18px;
-  fill: black;
-}
-svg.icon.edit,
-svg.icon.play,
-svg.icon.link {
-  width: 23px !important;
-  height: 23px !important;
-}
-svg.icon.tiles,
-svg.icon.timer {
-  width: 48px !important;
-  height: 48px !important;
 }
 
 /* Textarea style additions */
@@ -1044,11 +1028,6 @@ textarea.editor {
   line-height: 1.3em;
   height: 120px;
 }
-/** TODO - Do I still need? **/
-/*.label {
-  font-weight: @bold;
-  display: block;
-}*/
 textarea#matchText {
   width: 100%;
   padding: 10px;
@@ -1071,16 +1050,6 @@ textarea#matchText {
   pointer-events: none;
   color: rgba(40, 40, 40, 0.3);
 }
-/*.button-toolbar {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-}*/
-/*#match-bank button.labeled:not(.active):not(:hover) {
-  background-color: rgba(40, 40, 40, 0.3) !important;
-}*/
 .animated {
   -webkit-animation-duration: 0.3s;
           animation-duration: 0.3s;
@@ -1090,17 +1059,7 @@ textarea#matchText {
 .input-group {
   margin-bottom: 1rem;
 }
-/*svg.svg-icon {
-  vertical-align: middle;
-}*/
 @media only screen and (max-width: 767.99px) {
-  .ui.form .fields {
-    /*.ui.input,
-      .ui.button,
-      .ui.dropdown {
-        margin-bottom: 1.3em !important;
-      }*/
-  }
   .ui.form .fields > .error {
     margin-bottom: 1.3em !important;
   }
@@ -1139,7 +1098,7 @@ textarea#matchText {
     flex-wrap: wrap;
     justify-content: space-around;
   }
-  .ui.cards .ui.card.match-card .ui.label {
+  .ui.cards .ui.card.match-card .content.match-card-desc .ui.label {
     display: -webkit-box;
     display: flex;
   }

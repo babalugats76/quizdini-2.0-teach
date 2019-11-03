@@ -27,8 +27,7 @@ class MatchCard extends Component {
     onMatchDelete();
   };
 
-  handleCopyUrl = (event, url) => {
-    event.preventDefault();
+  handleCopyUrl = url => {
     copyToClipboard(url);
     this.setState((state, props) => {
       return { copied: true };
@@ -70,7 +69,7 @@ class MatchCard extends Component {
           </Card.Content>
           <Card.Content className="match-card-desc">
             <Card.Description>
-              <Label icon="archive">{matches.length} Terms</Label>
+              <Label icon="book">{matches.length} Terms</Label>
               <Label icon="clock">{timeAgo}</Label>
             </Card.Description>
           </Card.Content>
@@ -100,7 +99,7 @@ class MatchCard extends Component {
                 className={`clipboard ${copied ? 'copied' : ''}`}
                 disabled={!visible}
                 icon={!copied ? 'link' : null}
-                onClick={(event, text) => this.handleCopyUrl(event, url)}
+                onClick={() => this.handleCopyUrl(url)}
                 title="Copy URL to clipboard"
                 type="button"
               >

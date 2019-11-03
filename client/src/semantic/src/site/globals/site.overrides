@@ -61,9 +61,20 @@
     flex-direction: column;
     height: 100%;
     overflow-y: auto !important;
-    > .ui.menu {
+    .ui.menu {
       display: flex;
       flex: 0 0 auto;
+      &.inverted {
+        .item {
+          svg.icon { 
+            width: 1.375em;
+            height: 1.375em;
+            path {
+              fill: @white;
+            }
+          }
+        }
+      }
       &.fixed {
         background-color: rgba(26, 28, 87, 0.9);
       }
@@ -108,6 +119,70 @@
 }
 
 /*-------------------
+  Icons (Global)
+--------------------*/
+
+svg {
+  width: 1em;
+  height: 1em;
+
+  path {
+    transition: fill 0.5s ease;
+  }
+
+  &.icon {
+    &.github {
+      path {
+        fill: @githubColor;
+      }
+    }
+    &.twitter {
+      path {
+        fill: @twitterColor;
+      }
+    }
+    &.youtube {
+      path {
+        fill: @youtubeColor;
+      }
+    }
+    &.linkedin {
+      path {
+        fill: @linkedInColor;
+      }
+    }
+    &.udemy {
+      path {
+        fill: @udemyColor;
+      }
+    }
+    &.trash {
+      path {
+        fill: @negativeTextColor;
+      }
+    }
+    &.chevron-down {
+      &.open {
+        transform: rotate(0deg);
+        transition: transform 150ms ease-in-out;
+      }
+      &.closed {
+        transform: rotate(-90deg);
+        transition: transform 150ms ease-in-out;
+      }
+    }
+  }
+}
+
+.ui.positive {
+  svg.icon {
+    path {
+      fill: @white;
+    }
+  }
+}
+
+/*-------------------
   Feedback
 --------------------*/
 
@@ -115,7 +190,6 @@
   margin-top: 0.5rem;
   font-size: 0.9em;
   &.error {
-    text-align: left;
     color: @red;
   }
 }
@@ -129,12 +203,12 @@
 --------------------*/
 
 .loader {
-  position: fixed; /* Takes out of normal page flow */
+  position: fixed;
   z-index: 999;
   height: 2.3rem;
   width: 2.3rem;
   overflow: visible;
-  margin: auto; /* Positions in center of page */
+  margin: auto;
   top: 0;
   left: 0;
   bottom: 0;
@@ -189,7 +263,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
     > .item {
       display: inline-flex;
       flex-direction: row;
@@ -208,11 +281,9 @@
         }
       }
     }
-
     > .item:hover {
       background: @subtleTransparentBlack;
     }
-
     > .item.active {
       background: @white;
       border: 1px solid @veryStrongTransparentBlack;
@@ -270,6 +341,7 @@
 /*-------------------
   About
 --------------------*/
+
 #about {
   &.page {
     section {
@@ -280,18 +352,15 @@
         }
       }
     }
-
     strong {
       font-weight: normal;
       color: @strongColor;
     }
-
     .ui.huge {
       font-family: @hugeFont;
       font-size: 2.6em;
       text-decoration: underline;
     }
-
     .ui.list {
       margin-left: 0;
       padding-left: 2.5em;
@@ -316,6 +385,9 @@
 
     #philosophy {
       .belief {
+        &:not(:last-child) {
+          margin-bottom: 2em;
+        }
         img.icon {
           margin-bottom: 1rem; /* use rem because inside element with font-size set */
           &.easel,
@@ -327,10 +399,6 @@
           }
         }
       }
-
-      .belief:not(:last-child) {
-        margin-bottom: 2em;
-      }
     }
 
     #faq {
@@ -339,7 +407,6 @@
           font-family: @headerFont;
         }
       }
-
       #rate-schedule {
         > thead {
           &:first-of-type {
@@ -359,7 +426,6 @@
             }
           }
         }
-
         > tfoot {
           font-size: 0.9em;
           tr > th {
@@ -445,6 +511,7 @@
 /*-------------------
   Login
 --------------------*/
+
 #login-form {
   a {
     &:hover {
@@ -452,12 +519,14 @@
       text-decoration: underline;
     }
   }
+
   input {
     &#username,
     &#password {
       max-width: 300px;
     }
   }
+
   > .fields:last-of-type {
     padding-top: 0.75em;
     margin-bottom: 1.25em;
@@ -494,12 +563,23 @@ a#google-login {
 --------------------*/
 
 #checkout-form {
+  .ui.horizontal.divider {
+    > .ui.header {
+      > svg.icon,
+      .content {
+        display: inline-block;
+      }
+    }
+  }
+
   .ui.input {
     height: 43px !important;
   }
+
   #credit-options {
     margin: 0 0 2em 1em;
   }
+
   #credit-card {
     &.ui.grid {
       > .row {
@@ -525,7 +605,6 @@ a#google-login {
   .ui.message {
     margin-bottom: 2em;
   }
-
   #payments {
     min-height: 330px;
     #payment-table {
@@ -572,11 +651,9 @@ a#google-login {
   .ui.message {
     margin-bottom: 2em;
   }
-
   #match-game {
     min-height: 330px;
   }
-
   #dashboard-menu > .item {
     > .image > svg {
       width: 2.5em;
@@ -611,14 +688,11 @@ a#google-login {
               display: block;
               background-color: @negativeBackgroundColor;
               opacity: 0.87;
-              svg.icon.trash {
-                fill: @negativeColor;
-              }
             }
           }
           > .header {
             text-align: center;
-            font-size: 1.4em;
+            font-size: 1.375em;
             flex-grow: 1;
             padding: 0 0.5em;
           }
@@ -631,49 +705,53 @@ a#google-login {
             height: 100%;
             transition: background-color 0.5s ease;
             background-color: transparent;
-            svg.icon.trash {
-              fill: @negativeTextColor;
+            svg.icon {
               width: 2em;
               height: 2em;
             }
           }
         }
-        &.match-card-desc,
-        &.match-card-btns {
-          flex-grow: 0;
-        }
         &.match-card-desc {
           display: flex;
           justify-content: center;
+          flex-grow: 1;
+          .description {
+            .ui.label {
+              display: inline-flex;
+              flex-direction: row;
+              align-items: center;
+              background-color: transparent;
+              border: none;
+              .detail {
+                margin-left: 0;
+                color: @grey;
+              }
+              svg.icon {
+                path {
+                  fill: @grey;
+                }
+              }
+            }
+          }
         }
         &.match-card-btns {
+          display: flex;
+          flex-grow: 0;
           background-color: @subtleTransparentBlack;
+          > .ui.three.buttons {
+            .ui.button:not(:last-child) {
+              border-right: 1px inset @black;
+            }
+            svg.icon {
+              width: 1.375em;
+              height: 1.375em;
+            }
+          }
         }
-      }
-
-      .ui.label {
-        display: inline-flex;
-        flex-direction: row;
-        align-items: center;
-        background-color: transparent !important;
-        border: none !important;
-        .icon {
-          margin-right: 0.75em;
-        }
-        .detail {
-          font-size: 1.25em !important;
-          margin-left: unset !important;
-          color: @grey;
-        }
-        svg.icon {
-          width: 22px;
-          height: 22px;
-          fill: @grey;
-        }
-      }
-      .ui.buttons {
-        .ui.button:not(:last-child) {
-          border-right: 1px inset @black;
+        .ui.label,
+        .ui.labels,
+        .label {
+          font-size: 1em;
         }
       }
     }
@@ -691,6 +769,12 @@ a#google-login {
     }
     .content {
       padding-bottom: 1em;
+      .ui.icon.header {
+        svg.icon {
+          width: 1em;
+          height: 1em;
+        }
+      }
     }
     .title {
       display: flex;
@@ -727,14 +811,25 @@ a#google-login {
       &:first-of-type {
         color: @black;
       }
+      .ui.icon.trash.button {
+        transition: background-color 0.5s ease;
+        background-color: @negativeBackgroundColor;
+        &:hover {
+          background-color: lighten(@negativeColor, 10);
+          svg.icon {
+            path {
+              fill: @white;
+            }
+          }
+        }
+      }
     }
-
     .ui.pagination.menu > .item {
       min-width: 2em;
       padding: 0.75em 0.9em;
     }
   }
-  
+
   #match-expert {
     position: relative;
     .ui.horizontal.divider {
@@ -745,7 +840,7 @@ a#google-login {
 
   .format-toolbar {
     text-align: center;
-    > button {
+    button {
       outline: 0;
       margin: 0;
       padding: 0.5em;
@@ -757,98 +852,20 @@ a#google-login {
       background-color: transparent;
       border: none;
       &:hover {
-        > svg.icon {
+        svg.icon {
           path {
             fill: @fullBlack;
           }
         }
       }
-      > svg.icon {
+      svg.icon {
         width: 1.3em;
         height: 1.3em;
-        > path {
+        path {
           fill: @lightTextColor;
         }
       }
     }
-  }
-}
-
-/*-------------------
-  Icons (Global)
---------------------*/
-
-svg {
-  width: 1em;
-  height: 1em;
-
-  &.icon {
-    &.github {
-      path {
-        fill: @githubColor;
-      }
-    }
-    &.twitter {
-      path {
-        fill: @twitterColor;
-      }
-    }
-    &.youtube {
-      path {
-        fill: @youtubeColor;
-      }
-    }
-    &.linkedin {
-      path {
-        fill: @linkedInColor;
-      }
-    }
-    &.udemy {
-      path {
-        fill: @udemyColor;
-      }
-    }
-    &.chevron-down {
-      &.open {
-        transform: rotate(0deg);
-        transition: transform 100ms ease-in-out;
-      }
-      &.closed {
-        transform: rotate(-90deg);
-        transition: transform 150ms ease-in-out;
-      }
-    }
-  }
-}
-
-.ui.labeled.icon.button > svg {
-  &.plus {
-    fill: white;
-  }
-}
-
-svg.icon {
-  &.trash {
-    width: 18px;
-    height: 18px;
-    fill: black;
-  }
-
-  &.edit,
-  &.play,
-  &.link {
-    width: 23px;
-    height: 23px;
-  }
-
-  &.plus {
-    fill: white;
-  }
-
-  &.tiles,
-  &.timer {
-    width: 48px !important;
-    height: 48px !important;
   }
 }
 
@@ -882,8 +899,7 @@ svg.icon {
 
 .ui.button {
   &.clipboard {
-    transition: color 0.5s ease-in-out,
-      background-color 0.5s ease-in-out cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
     &.copied {
       color: white !important;
       background-color: @green !important;
@@ -896,40 +912,6 @@ svg.icon {
 
 .ui.visible.left.overlay.sidebar {
   background-color: #2e3235 !important;
-}
-
-.ui.button.trash {
-  background-color: pink;
-}
-
-.ui.button.trash {
-  &:hover {
-    background-color: red;
-    svg.icon.trash {
-      fill: white;
-    }
-  }
-}
-
-svg.icon {
-  &.trash {
-    width: 18px;
-    height: 18px;
-    fill: black;
-  }
-
-  &.edit,
-  &.play,
-  &.link {
-    width: 23px !important;
-    height: 23px !important;
-  }
-
-  &.tiles,
-  &.timer {
-    width: 48px !important;
-    height: 48px !important;
-  }
 }
 
 /* Textarea style additions */
@@ -952,12 +934,6 @@ textarea.editor {
   line-height: 1.3em;
   height: 120px;
 }
-
-/** TODO - Do I still need? **/
-/*.label {
-  font-weight: @bold;
-  display: block;
-}*/
 
 textarea#matchText {
   width: 100%;
@@ -984,18 +960,6 @@ textarea#matchText {
   color: rgba(40, 40, 40, 0.3);
 }
 
-/*.button-toolbar {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-}*/
-
-/*#match-bank button.labeled:not(.active):not(:hover) {
-  background-color: rgba(40, 40, 40, 0.3) !important;
-}*/
-
 .animated {
   animation-duration: 0.3s;
   animation-fill-mode: both;
@@ -1004,10 +968,6 @@ textarea#matchText {
 .input-group {
   margin-bottom: 1rem;
 }
-
-/*svg.svg-icon {
-  vertical-align: middle;
-}*/
 
 @media only screen and (max-width: 767.99px) {
   .ui.form {
@@ -1019,11 +979,6 @@ textarea#matchText {
       .field:not(.error) {
         margin-bottom: 1.3em !important;
       }
-      /*.ui.input,
-      .ui.button,
-      .ui.dropdown {
-        margin-bottom: 1.3em !important;
-      }*/
     }
   }
 }
@@ -1073,10 +1028,10 @@ textarea#matchText {
               flex-wrap: wrap;
               justify-content: space-around;
             }
+            .ui.label {
+              display: flex;
+            }
           }
-        }
-        .ui.label {
-          display: flex;
         }
       }
     }

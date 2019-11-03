@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-/*eslint-disable */
 import { Container, List, Image } from 'semantic-ui-react';
 import Message from '../UI/Message';
 import Match from './Match';
-/*eslint-disable */
-import SVG from '../UI/SVG';
+import Icon from '../UI/Icon';
 
 /* Array of objects containing game Component metadata */
 const games = [
@@ -126,7 +124,7 @@ class Dashboard extends Component {
                 onClick={() => this.handleMenuChange(idx)}
               >
                 <Image>
-                  <SVG name={icon} />
+                  <Icon name={icon} />
                 </Image>
                 <List.Content>
                   <List.Header>{title}</List.Header>

@@ -37,7 +37,7 @@ const Footer = props => {
                   target="_blank"
                   title="Follow us on Twitter"
                 >
-                  <Icon icon="twitter" size={30} />
+                  <Icon name="twitter" />
                 </List.Item>
                 <List.Item
                   as="a"
@@ -48,7 +48,7 @@ const Footer = props => {
                   target="_blank"
                   title="Check us out on YouTube"
                 >
-                  <Icon icon="youtube" size={30} />
+                  <Icon name="youtube" />
                 </List.Item>
               </List>
             </Grid.Column>

@@ -83,7 +83,7 @@ const LostForm = props => {
           </Form.Group>
           <Divider horizontal section>
             <Header as="h4">
-              <Icon icon="key" />
+              <Icon name="key" />
               Recovery Options
             </Header>
           </Divider>

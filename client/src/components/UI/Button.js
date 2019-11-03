@@ -12,7 +12,7 @@ const MyButton = ({ children, icon, type, ...rest }) => {
       {...rest}
     >
       {children}
-      {icon && <Icon icon={icon} />}
+      {icon && <Icon name={icon} />}
     </Button>
   );
 };

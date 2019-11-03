@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Container, Sidebar, Image, Menu, Visibility } from 'semantic-ui-react';
-import SVG from './UI/SVG';
-
+import Icon from './UI/Icon';
 import logo from '../logo.svg';
 
 class NavBar extends Component {
@@ -102,7 +101,7 @@ class NavBar extends Component {
         as: 'a',
         href: '/api/logout',
         content: isMobile && (
-          <SVG width="24px" height="24px" name="logout" fill="#fff" />
+          <Icon name="logout" />
         ),
         position: 'right',
         loggedIn: true,
@@ -206,7 +205,7 @@ class NavBar extends Component {
                   position="left"
                   onClick={this.handleToggle}
                 >
-                  <SVG width="24px" height="24px" name="menu" fill="#fff" />
+                  <Icon name="menu" />
                 </Menu.Item>
               )}
               <Container>{topbarItems}</Container>

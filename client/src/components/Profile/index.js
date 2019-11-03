@@ -5,8 +5,7 @@ import { Container, Image, List } from 'semantic-ui-react';
 import Account from './Account';
 import Payment from './Payment';
 import Password from './Password';
-import SVG from '../UI/SVG';
-//import logo from '../../logo.svg';
+import Icon from '../UI/Icon';
 
 /**
  * Ordering of routes is important!
@@ -79,7 +78,7 @@ const Profile = ({ match, history, accountType }) => {
                 active={path === activePath}
               >
                 <Image avatar>
-                  <SVG name={icon} />
+                  <Icon name={icon} />
                 </Image>
                 <List.Content>
                   <List.Header>{text}</List.Header>

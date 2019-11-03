@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from './SVG';
+import Icon from './Icon';
 
 const Loader = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Header, List, Segment, Step, Table } from 'semantic-ui-react';
-import SVG from '../UI/SVG';
+import Icon from '../UI/Icon';
 
 export default props => (
   <Segment {...props}>
@@ -102,35 +102,35 @@ export default props => (
       </p>
       <Step.Group fluid vertical ordered>
         <Step>
-          <SVG name="mouse-pointer" />
+          <Icon name="mouse-pointer" />
           <Step.Content>
             <Step.Title>Pick Activity</Step.Title>
             <Step.Description>Select From Dashboard</Step.Description>
           </Step.Content>
         </Step>
         <Step>
-          <SVG name="edit" />
+          <Icon name="edit" />
           <Step.Content>
             <Step.Title>Enter Data</Step.Title>
             <Step.Description>Load Manually or Bulk</Step.Description>
           </Step.Content>
         </Step>
         <Step>
-          <SVG name="play" />
+          <Icon name="play" />
           <Step.Content>
             <Step.Title>Save &amp; Test</Step.Title>
             <Step.Description>Perfect Your Activity</Step.Description>
           </Step.Content>
         </Step>
         <Step>
-          <SVG name="link" />
+          <Icon name="link" />
           <Step.Content>
             <Step.Title>Copy URL</Step.Title>
             <Step.Description>Grab &amp; Shorten Link</Step.Description>
           </Step.Content>
         </Step>
         <Step>
-          <SVG name="share" />
+          <Icon name="share" />
           <Step.Content>
             <Step.Title>Share</Step.Title>
             <Step.Description>Provide to Students</Step.Description>

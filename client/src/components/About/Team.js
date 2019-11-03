@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider, Grid, Header, Image, Segment } from 'semantic-ui-react';
 
-import SVG from '../UI/SVG';
+import Icon from '../UI/Icon';
 
 export default props => (
   <Segment {...props}>
@@ -28,7 +28,7 @@ export default props => (
             target="_blank"
             title="Visit James' Website"
           >
-            <SVG name="globe" />
+            <Icon name="globe" />
           </a>
           <a
             href="mailto:james@colestock.com"
@@ -36,7 +36,7 @@ export default props => (
             target="_blank"
             title="Email James"
           >
-            <SVG name="mail" />
+            <Icon name="mail" />
           </a>
           <a
             href="https://twitter.com/jamescolestock"
@@ -44,7 +44,7 @@ export default props => (
             target="_blank"
             title="@JamesColestock"
           >
-            <SVG name="twitter" />
+            <Icon name="twitter" />
           </a>
           <a
             href="https://www.youtube.com/c/jamescolestock"
@@ -52,7 +52,7 @@ export default props => (
             target="_blank"
             title="YouTube - Colestock's Channel"
           >
-            <SVG name="youtube" />
+            <Icon name="youtube" />
           </a>
           <a
             href="https://github.com/babalugats76"
@@ -60,7 +60,7 @@ export default props => (
             target="_blank"
             title="GitHub - babalugats76"
           >
-            <SVG name="github" />
+            <Icon name="github" />
           </a>
           <a
             href="https://www.linkedin.com/in/jamescolestock/"
@@ -68,7 +68,7 @@ export default props => (
             target="_blank"
             title="Connect on LinkedIn"
           >
-            <SVG name="linkedin" />
+            <Icon name="linkedin" />
           </a>
           <a
             href="https://www.udemy.com/user/jamescolestock/"
@@ -76,7 +76,7 @@ export default props => (
             target="_blank"
             title="Connect on Udemy"
           >
-            <SVG name="udemy" viewBox="0 0 144 64" />
+            <Icon name="udemy" viewBox="0 0 144 64" />
           </a>
         </Grid.Column>
       </Grid.Row>
@@ -116,19 +116,21 @@ export default props => (
             &nbsp;where he studied Business Administration and Computer Science.
           </p>
           <p>
-            Before seguing into Education, James had a successful&nbsp;<strong>Information
-            Technology career</strong>, primarily as a Database Administrator and Developer. He worked
-            within organizations of every conceivable size&mdash;from startup to
-            Fortune 500&mdash; and gained experience within nearly every sector
-            of the economy.
+            Before seguing into Education, James had a successful&nbsp;
+            <strong>Information Technology career</strong>, primarily as a
+            Database Administrator and Developer. He worked within organizations
+            of every conceivable size&mdash;from startup to Fortune 500&mdash;
+            and gained experience within nearly every sector of the economy.
           </p>
           <p>
             He holds multiple industry certifications and is a licensed teacher
-            (grades 6-12) as well as&nbsp;<strong>Career and Technical Education</strong> (CTE)
-            educator.
+            (grades 6-12) as well as&nbsp;
+            <strong>Career and Technical Education</strong> (CTE) educator.
           </p>
           <p>
-            When not feverishly coding Quizdini, he can be found playing the&nbsp;<strong>guitar</strong> and rooting on his beloved&nbsp;<strong>Chicago Cubs</strong>.
+            When not feverishly coding Quizdini, he can be found playing
+            the&nbsp;<strong>guitar</strong> and rooting on his beloved&nbsp;
+            <strong>Chicago Cubs</strong>.
           </p>
         </Grid.Column>
       </Grid.Row>
@@ -139,7 +141,9 @@ export default props => (
         <Grid.Column className="member-title" floated="left">
           <Header size="large">
             Jennifer Colestock
-            <Header.Subheader>Quality Assurance &bull; Social Media</Header.Subheader>
+            <Header.Subheader>
+              Quality Assurance &bull; Social Media
+            </Header.Subheader>
           </Header>
         </Grid.Column>
         <Grid.Column
@@ -153,7 +157,7 @@ export default props => (
             target="_blank"
             title="Visit Jennifer's Website"
           >
-            <SVG name="globe" />
+            <Icon name="globe" />
           </a>
           <a
             href="mailto:jennifer@colestock.com"
@@ -161,7 +165,7 @@ export default props => (
             target="_blank"
             title="Email Jennifer"
           >
-            <SVG name="mail" />
+            <Icon name="mail" />
           </a>
           <a
             href="https://twitter.com/profecolestock"
@@ -169,7 +173,7 @@ export default props => (
             target="_blank"
             title="@profecolestock"
           >
-            <SVG name="twitter" />
+            <Icon name="twitter" />
           </a>
           <a
             href="https://www.linkedin.com/in/jennifercolestock/"
@@ -177,7 +181,7 @@ export default props => (
             target="_blank"
             title="Connect on LinkedIn"
           >
-            <SVG name="linkedin" />
+            <Icon name="linkedin" />
           </a>
         </Grid.Column>
       </Grid.Row>
@@ -192,8 +196,8 @@ export default props => (
             src="https://static.quizdini.com/images/jennifer.jpg"
           />
           <p>
-            Jennifer Colestock grew up in the Pacific Northwest,
-            just outside of <strong>Seattle, WA</strong>.
+            Jennifer Colestock grew up in the Pacific Northwest, just outside of{' '}
+            <strong>Seattle, WA</strong>.
           </p>
           <p>
             After graduating from&nbsp;
@@ -214,8 +218,8 @@ export default props => (
             >
               Whitman College
             </a>
-            &nbsp;where she majored in Spanish. 
-            Later, she spent a year abroad in Spain as part of her M.A. through&nbsp;
+            &nbsp;where she majored in Spanish. Later, she spent a year abroad
+            in Spain as part of her M.A. through&nbsp;
             <a
               href="https://www.middlebury.edu/"
               rel="noopener noreferrer"
@@ -227,16 +231,18 @@ export default props => (
             .&nbsp;
           </p>
           <p>
-            Jennifer has spent <strong>two decades in Education</strong>, teaching
-            Spanish to students from middle school to college, and in a wide
-            variety of different environments.  
+            Jennifer has spent <strong>two decades in Education</strong>,
+            teaching Spanish to students from middle school to college, and in a
+            wide variety of different environments.
           </p>
           <p>
-            She is a licensed teacher; she also holds her&nbsp;<strong>National Board Certification</strong>.
+            She is a licensed teacher; she also holds her&nbsp;
+            <strong>National Board Certification</strong>.
           </p>
           <p>
-            When not asisting with Quizdini, she can be found&nbsp;<strong>running</strong>, 
-            playing with the best dog ever, or planning her next trip.
+            When not asisting with Quizdini, she can be found&nbsp;
+            <strong>running</strong>, playing with the best dog ever, or
+            planning her next trip.
           </p>
         </Grid.Column>
       </Grid.Row>

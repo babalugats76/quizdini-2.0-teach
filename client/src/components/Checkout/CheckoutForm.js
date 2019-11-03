@@ -63,7 +63,6 @@ const validateCheckout = Yup.object().shape({
 });
 
 const CheckoutForm = props => {
- 
   const handleAmountChange = e => {
     const { setFieldValue } = props;
     const { value } = e.target;
@@ -105,8 +104,8 @@ const CheckoutForm = props => {
       <Form id="checkout-form" onSubmit={handleSubmit}>
         <Divider horizontal section>
           <Header as="h4">
-            <Icon icon="thumbs-up" />
-            Buy More, Get More!
+            <Icon name="thumbs-up" />
+            <Header.Content>Buy More, Get More!</Header.Content>
           </Header>
         </Divider>
         <Form.Group id="credit-options" grouped={true}>
@@ -121,8 +120,8 @@ const CheckoutForm = props => {
         </Form.Group>
         <Divider horizontal section>
           <Header as="h4">
-            <Icon icon="credit-card" />
-            Payment Information
+            <Icon name="credit-card" />
+            <Header.Content>Payment Information</Header.Content>
           </Header>
         </Divider>
         <Grid id="credit-card" padded>

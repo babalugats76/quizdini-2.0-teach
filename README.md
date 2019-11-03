@@ -95,12 +95,12 @@ Messages need to be standardized, etc.
     - Consider adding `isEmptyArray` utility function for use in `Match`, etc.
   - _Icons_
     - Migrate version of newly-created SVG component and adapt
-      - Profile
+      - *Profile*
       - NavBar
-      - UI Components
-      - About - Team
-  - Profile
-    - Disposition loading issues make resilient to null or should things be visible if data isn't available. Both?
+      - *UI Components*
+        - *Toolbar*
+        - Button
+      - *About - Team*
   - _Semantic UI_ - Continue migrating work-in-progress style to semantic
 
 Kay

@@ -12,12 +12,31 @@ import MatchExpert from './MatchExpert';
 import MatchBulk from './MatchBulk';
 import MatchTable from './MatchTable';
 
-/* Used to debug behind-the-scenes Formik state, etc. */
 // import DisplayFormikState from '../UI/FormikHelper';
 
-// eslint-disable-next-line
-import { Grid, Tab, Divider, Segment, Form } from 'semantic-ui-react';
+import { Form, Grid, Segment, Tab } from 'semantic-ui-react';
 import { Accordion } from '../UI/Accordion';
+
+const itemsPerBoardOptions = [
+  { text: '4', value: 4 },
+  { text: '6', value: 6 },
+  { text: '9', value: 9 }
+];
+
+const durationOptions = [
+  { text: '10', value: 10 },
+  { text: '60', value: 60 },
+  { text: '90', value: 90 },
+  { text: '120', value: 120 },
+  { text: '180', value: 180 },
+  { text: '240', value: 240 },
+  { text: '300', value: 300 }
+];
+
+const colorSchemeOptions = [
+  { text: 'Basic', value: 'Basic' },
+  { text: 'Rainbow', value: 'Rainbow' }
+];
 
 /* eslint-disable no-template-curly-in-string */
 const transformMatch = Yup.object().shape({
@@ -34,18 +53,20 @@ const transformMatch = Yup.object().shape({
       .integer()
       .positive()
       .required('Game Tiles is required.')
-      .oneOf([4, 6, 9], 'Game may contain 4, 6, or 9 tiles.')
+      .oneOf(
+        itemsPerBoardOptions.map(i => i.value),
+        'Pick a valid number of game tiles.'
+      )
       .default(9),
     duration: Yup.number()
       .integer()
       .positive()
       .required('Duration is required.')
-      .min(10, 'Games must last at least ${min} seconds.')
-      .max(300, 'Game may last no more than ${max} seconds.')
+      .oneOf(durationOptions.map(i => i.value), 'Pick a valid game duration.')
       .default(180),
     colorScheme: Yup.string()
       .required('Color Scheme is required.')
-      .oneOf(['Basic', 'Rainbow'], "Color Scheme must be 'Basic' or 'Rainbow'.")
+      .oneOf(colorSchemeOptions.map(i => i.value), 'Pick a valid color scheme.')
       .default('Basic')
   }),
   matches: Yup.array()
@@ -67,17 +88,21 @@ const validateMatch = Yup.object().shape({
     .integer()
     .positive()
     .required('Game Tiles is required.')
-    .min(4, 'Game must contain at least ${min} tiles.')
-    .max(9, 'Game may contain no more than ${max} tiles.'),
+    .oneOf(
+      itemsPerBoardOptions.map(i => i.value),
+      'Pick a valid number of game tiles.'
+    ),
   duration: Yup.number()
     .integer()
     .positive()
     .required('Duration is required.')
-    .min(10, 'Games must last at least ${min} seconds.')
-    .max(300, 'Game may last no more than ${max} seconds.'),
+    .oneOf(
+      itemsPerBoardOptions.map(i => i.value),
+      'Pick a valid game duration.'
+    ),
   colorScheme: Yup.string()
     .required('Color Scheme is required.')
-    .oneOf(['Basic', 'Rainbow'], "Color Scheme must be 'Basic' or 'Rainbow'."),
+    .oneOf(colorSchemeOptions.map(i => i.value), 'Pick a valid color scheme.'),
   matches: Yup.array().test({
     name: 'min-matches',
     params: {
@@ -103,27 +128,6 @@ const newMatchSchema = matches => {
     definition: Yup.string().required('Definition is required')
   });
 };
-
-const itemsPerBoardOptions = [
-  { text: '4', value: 4 },
-  { text: '6', value: 6 },
-  { text: '9', value: 9 }
-];
-
-const durationOptions = [
-  { text: '10', value: 10 },
-  { text: '60', value: 60 },
-  { text: '90', value: 90 },
-  { text: '120', value: 120 },
-  { text: '180', value: 180 },
-  { text: '240', value: 240 },
-  { text: '300', value: 300 }
-];
-
-const colorSchemeOptions = [
-  { text: 'Basic', value: 'Basic' },
-  { text: 'Rainbow', value: 'Rainbow' }
-];
 
 class MatchForm extends Component {
   static MATCH_TAB = 0;
@@ -615,6 +619,7 @@ class MatchForm extends Component {
                 </Form.Group>
               </Accordion>
               <Accordion
+                id="game-options"
                 forceOpen={!!errors.itemsPerBoard || !!errors.duration}
                 icon="sliders"
                 index={MatchForm.GAME_OPTS_ACCORDION}
@@ -629,14 +634,15 @@ class MatchForm extends Component {
                 title="Options"
               >
                 <Grid
-                  columns="equal"
+                  columns={2}
                   stackable
                   textAlign="center"
                   verticalAlign="middle"
                 >
                   <Grid.Row>
-                    <Grid.Column tablet={8} verticalAlign="top">
+                    <Grid.Column verticalAlign="top">
                       <IconDropdown
+                        headerSize="h5"
                         compact
                         disabled={disabled}
                         error={touched.itemsPerBoard && errors.itemsPerBoard}
@@ -651,8 +657,9 @@ class MatchForm extends Component {
                         value={values.itemsPerBoard}
                       />
                     </Grid.Column>
-                    <Grid.Column tablet={8} verticalAlign="top">
+                    <Grid.Column verticalAlign="top">
                       <IconDropdown
+                        headerSize="h5"
                         compact
                         disabled={disabled}
                         error={touched.duration && errors.duration}
@@ -667,8 +674,11 @@ class MatchForm extends Component {
                         value={values.duration}
                       />
                     </Grid.Column>
-                    <Grid.Column tablet={8} verticalAlign="top" >
+                  </Grid.Row>
+                  <Grid.Row>
+                    <Grid.Column verticalAlign="top">
                       <IconDropdown
+                        headerSize="h5"
                         compact
                         disabled={disabled}
                         error={touched.colorScheme && errors.colorScheme}

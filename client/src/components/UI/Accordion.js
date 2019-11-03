@@ -7,7 +7,7 @@ import Icon from './Icon';
  * Wraps Semantic UI's Accordion adding key functionality
  *
  * CSS styles can be found in site-level accordion.overrides file
- * Custom inline SVG icons are used in lieu of Semantic's
+ * Custom inline icons are used in lieu of Semantic's
  */
 
 const MyAccordion = ({
@@ -17,25 +17,25 @@ const MyAccordion = ({
   index,
   onClick,
   open,
-  title
+  title,
+  ...rest
 }) => {
   /**
    * Render children in wrapped Semantic Accordion component
    * Use custom Icon component throughout
    */
   return (
-    <Accordion fluid styled>
+    <Accordion fluid styled {...rest}>
       <Accordion.Title
         active={open || forceOpen}
         index={index}
         onClick={(event, titleProps) => onClick(event, titleProps)}
       >
-        <Icon icon={icon} size={20} />
+        <Icon name={icon} />
         {title}
         <Icon
-          icon="chevron-down"
-          size={20}
-          classes={open || forceOpen ? 'open' : 'closed'}
+          name="chevron-down"
+          className={open || forceOpen ? 'open' : 'closed'}
         />
       </Accordion.Title>
       <Accordion.Content active={open || forceOpen}>

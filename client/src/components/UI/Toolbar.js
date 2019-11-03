@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from './SVG';
+import Icon from './Icon';
 
 const Toolbar = ({ buttons, className, ...props }) => {
   const btns = buttons.map((btn, idx) => {

@@ -4,13 +4,14 @@ import InputFeedback from './InputFeedback';
 import Icon from './Icon';
 
 const IconDropdown = ({
-  name,
-  label,
-  icon,
-  options,
   error,
-  value,
+  headerSize,
+  icon,
+  label,
+  name,
+  options,
   setFieldValue,
+  value,
   ...props
 }) => {
   const onChange = (event, data) => {
@@ -20,8 +21,8 @@ const IconDropdown = ({
 
   return (
     <React.Fragment>
-      <Header as='h4' icon textAlign='center'>
-        <Icon size={48} icon={icon} />
+      <Header as={headerSize} icon textAlign="center">
+        <Icon name={icon} />
         {label}
       </Header>
       <Dropdown
