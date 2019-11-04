@@ -7,7 +7,7 @@ import easel from '../../easel.svg';
 export default props => (
   <Segment {...props}>
     <Header size="huge" textAlign="center">
-      Philosophy
+      <Header.Content>Philosophy</Header.Content>
     </Header>
     <br />
     <div className="belief" id="creativity">

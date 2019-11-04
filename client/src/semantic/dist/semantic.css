@@ -1039,104 +1039,70 @@ svg.icon.chevron-down.closed {
   About
 --------------------*/
 
-#about.page section a {
+#about.page section a,
+#terms.page section a {
   color: rgba(0, 159, 253, 0.77);
 }
 
-#about.page section a:hover {
+#about.page section a:hover,
+#terms.page section a:hover {
   text-decoration: underline;
 }
 
-#about.page strong {
+#about.page section > .ui.huge.header,
+#terms.page section > .ui.huge.header {
+  font-family: 'marcher-extrabolditalic', sans-serif;
+}
+
+#about.page section > .ui.huge.header .content,
+#terms.page section > .ui.huge.header .content {
+  font-size: 2.6rem;
+  text-decoration: underline;
+}
+
+#about.page section > .ui.huge.header .sub.header,
+#terms.page section > .ui.huge.header .sub.header {
+  margin-top: 1rem;
+  font-family: 'marcher-medium', sans-serif;
+}
+
+#about.page strong,
+#terms.page strong {
   font-weight: normal;
   color: rgba(162, 112, 53, 0.9);
 }
 
-#about.page .ui.huge {
-  font-family: 'marcher-extrabolditalic', sans-serif;
-  font-size: 2.6em;
-  text-decoration: underline;
-}
-
-#about.page .ui.list {
+#about.page .ui.list,
+#terms.page .ui.list {
   margin-left: 0;
   padding-left: 2.5em;
 }
 
-#about.page .ui.list > li {
+#about.page .ui.list > li,
+#terms.page .ui.list > li {
   padding: 0.3em 0;
 }
 
-#about.page #team .member-contact a > svg {
-  width: 2.2em;
-  height: 2.2em;
-}
-
-#about.page #team .member-contact a:not(:last-of-type) {
-  margin-right: 1%;
-}
-
-#about.page #philosophy .belief:not(:last-child) {
-  margin-bottom: 2em;
-}
-
-#about.page #philosophy .belief img.icon {
-  margin-bottom: 1rem;
-  /* use rem because inside element with font-size set */
-}
-
-#about.page #philosophy .belief img.icon.easel,
-#about.page #philosophy .belief img.icon.pay-to-play {
-  height: 125px;
-}
-
-#about.page #philosophy .belief img.icon.measuring-tape {
-  height: 100px;
-}
-
-#about.page #faq #whats-new > tbody > tr > td:first-of-type {
-  font-family: 'marcher-medium', sans-serif;
-}
-
-#about.page #faq #rate-schedule > thead:first-of-type tr > th {
-  background-color: #FFFFFF;
-}
-
-#about.page #faq #rate-schedule > thead:first-of-type tr > th > .ui.header {
-  margin-top: 0;
-  color: #545454;
-}
-
-#about.page #faq #rate-schedule > thead:not(:first-of-type) tr > th {
-  background-color: #f6f6f6;
-  color: #545454;
-  border-radius: 0;
-}
-
-#about.page #faq #rate-schedule > tfoot {
-  font-size: 0.9em;
-}
-
-#about.page #faq #rate-schedule > tfoot tr > th {
-  background-color: #FFFFFF;
-}
-
-#about.page #faq details {
+#about.page details,
+#terms.page details {
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
   margin: 0.5em 0;
 }
 
-#about.page #faq details[open] {
+#about.page details[open],
+#terms.page details[open] {
   margin-bottom: 2em;
 }
 
-#about.page #faq details[open] > summary {
+#about.page details[open] > summary,
+#terms.page details[open] > summary {
   margin-bottom: 0.3em;
   color: #574D68;
 }
 
-#about.page #faq details[open] > summary:before {
+#about.page details[open] > summary:before,
+#terms.page details[open] > summary:before {
   -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
   vertical-align: 0%;
@@ -1144,11 +1110,13 @@ svg.icon.chevron-down.closed {
   transition: all 300ms ease-in-out;
 }
 
-#about.page #faq details:not([open]) > summary {
+#about.page details:not([open]) > summary,
+#terms.page details:not([open]) > summary {
   color: #767676;
 }
 
-#about.page #faq details > summary {
+#about.page details > summary,
+#terms.page details > summary {
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
   font-family: 'marcher-medium', sans-serif;
@@ -1159,11 +1127,13 @@ svg.icon.chevron-down.closed {
   outline: none;
 }
 
-#about.page #faq details > summary:hover {
+#about.page details > summary:hover,
+#terms.page details > summary:hover {
   color: #574D68;
 }
 
-#about.page #faq details > summary:before {
+#about.page details > summary:before,
+#terms.page details > summary:before {
   display: inline-block;
   content: '\25bc\00a0';
   -webkit-transform: rotate(-90deg);
@@ -1173,16 +1143,86 @@ svg.icon.chevron-down.closed {
   vertical-align: 20%;
 }
 
-#about.page #faq details > summary::-webkit-details-marker {
+#about.page details > summary::-webkit-details-marker,
+#terms.page details > summary::-webkit-details-marker {
   display: none;
   list-style-type: none;
 }
 
-#about.page #faq details > summary::-moz-list-bullet {
+#about.page details > summary::-moz-list-bullet,
+#terms.page details > summary::-moz-list-bullet {
   list-style-type: none;
 }
 
-#about.page #dedication p:first-of-type:first-letter {
+#about.page #team .member-contact a > svg,
+#terms.page #team .member-contact a > svg {
+  width: 2.2em;
+  height: 2.2em;
+}
+
+#about.page #team .member-contact a:not(:last-of-type),
+#terms.page #team .member-contact a:not(:last-of-type) {
+  margin-right: 1%;
+}
+
+#about.page #philosophy .belief:not(:last-child),
+#terms.page #philosophy .belief:not(:last-child) {
+  margin-bottom: 2em;
+}
+
+#about.page #philosophy .belief img.icon,
+#terms.page #philosophy .belief img.icon {
+  margin-bottom: 1rem;
+  /* use rem because inside element with font-size set */
+}
+
+#about.page #philosophy .belief img.icon.easel,
+#terms.page #philosophy .belief img.icon.easel,
+#about.page #philosophy .belief img.icon.pay-to-play,
+#terms.page #philosophy .belief img.icon.pay-to-play {
+  height: 125px;
+}
+
+#about.page #philosophy .belief img.icon.measuring-tape,
+#terms.page #philosophy .belief img.icon.measuring-tape {
+  height: 100px;
+}
+
+#about.page #faq #whats-new > tbody > tr > td:first-of-type,
+#terms.page #faq #whats-new > tbody > tr > td:first-of-type {
+  font-family: 'marcher-medium', sans-serif;
+}
+
+#about.page #faq #rate-schedule > thead:first-of-type tr > th,
+#terms.page #faq #rate-schedule > thead:first-of-type tr > th {
+  background-color: #FFFFFF;
+}
+
+#about.page #faq #rate-schedule > thead:first-of-type tr > th > .ui.header,
+#terms.page #faq #rate-schedule > thead:first-of-type tr > th > .ui.header {
+  margin-top: 0;
+  color: #545454;
+}
+
+#about.page #faq #rate-schedule > thead:not(:first-of-type) tr > th,
+#terms.page #faq #rate-schedule > thead:not(:first-of-type) tr > th {
+  background-color: #f6f6f6;
+  color: #545454;
+  border-radius: 0;
+}
+
+#about.page #faq #rate-schedule > tfoot,
+#terms.page #faq #rate-schedule > tfoot {
+  font-size: 0.9em;
+}
+
+#about.page #faq #rate-schedule > tfoot tr > th,
+#terms.page #faq #rate-schedule > tfoot tr > th {
+  background-color: #FFFFFF;
+}
+
+#about.page #dedication p:first-of-type:first-letter,
+#terms.page #dedication p:first-of-type:first-letter {
   color: #574D68;
   float: left;
   font-family: 'marcher-medium', sans-serif;
@@ -1191,6 +1231,26 @@ svg.icon.chevron-down.closed {
   padding-top: 0.75rem;
   padding-right: 0.5rem;
   padding-left: 0.25rem;
+}
+
+#about.page #conditions .ui.icon.header,
+#terms.page #conditions .ui.icon.header {
+  margin: 1rem 0;
+}
+
+#about.page #conditions img.icon,
+#terms.page #conditions img.icon {
+  margin-bottom: 1rem;
+}
+
+#about.page #conditions img.icon.easel,
+#terms.page #conditions img.icon.easel {
+  height: 125px;
+}
+
+#about.page #privacy #what-we-collect > tbody > tr > td:first-of-type,
+#terms.page #privacy #what-we-collect > tbody > tr > td:first-of-type {
+  font-family: 'marcher-medium', sans-serif;
 }
 
 /*-------------------

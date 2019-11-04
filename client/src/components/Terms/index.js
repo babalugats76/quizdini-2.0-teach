@@ -24,7 +24,7 @@ const routes = [
   },
   {
     path: '',
-    text: 'Terms of Use',
+    text: 'Terms & Conditions',
     exact: false,
     component: Conditions,
     displayOrder: 0,

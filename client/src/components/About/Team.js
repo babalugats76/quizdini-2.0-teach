@@ -6,7 +6,7 @@ import Icon from '../UI/Icon';
 export default props => (
   <Segment {...props}>
     <Header size="huge" textAlign="center">
-      The Team
+      <Header.Content>The Team</Header.Content>
     </Header>
     <br />
     <Grid className="member" id="james" stackable>

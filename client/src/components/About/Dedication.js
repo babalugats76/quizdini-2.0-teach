@@ -3,7 +3,7 @@ import { Divider, Header, Segment } from 'semantic-ui-react';
 export default props => (
   <Segment {...props}>
     <Header size="huge" textAlign="center">
-      Dedication
+    <Header.Content>Dedication</Header.Content>
     </Header>
     <p>
       I have never understood why creative works like books have dedications,

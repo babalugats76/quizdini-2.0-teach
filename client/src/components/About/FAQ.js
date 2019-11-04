@@ -6,7 +6,7 @@ import Icon from '../UI/Icon';
 export default props => (
   <Segment {...props}>
     <Header size="huge" textAlign="center">
-      Frequently Asked Questions
+      <Header.Content>Frequently Asked Questions</Header.Content>
     </Header>
     <br />
     <details id="what-is-quizdini">
