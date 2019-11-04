@@ -96,10 +96,7 @@ const validateMatch = Yup.object().shape({
     .integer()
     .positive()
     .required('Duration is required.')
-    .oneOf(
-      itemsPerBoardOptions.map(i => i.value),
-      'Pick a valid game duration.'
-    ),
+    .oneOf(durationOptions.map(i => i.value), 'Pick a valid game duration.'),
   colorScheme: Yup.string()
     .required('Color Scheme is required.')
     .oneOf(colorSchemeOptions.map(i => i.value), 'Pick a valid color scheme.'),

@@ -738,23 +738,24 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   overflow-y: auto !important;
 }
 
-.pushable .pusher .ui.menu {
+.pushable .pusher .ui.massive.menu {
   display: -webkit-box;
   display: flex;
   -webkit-box-flex: 0;
   flex: 0 0 auto;
+  margin: 0;
 }
 
-.pushable .pusher .ui.menu.inverted .item svg.icon {
+.pushable .pusher .ui.massive.menu .item svg.icon {
   width: 1.375em;
   height: 1.375em;
 }
 
-.pushable .pusher .ui.menu.inverted .item svg.icon path {
+.pushable .pusher .ui.massive.menu .item svg.icon path {
   fill: #FFFFFF;
 }
 
-.pushable .pusher .ui.menu.fixed {
+.pushable .pusher .ui.massive.menu.fixed {
   background-color: rgba(26, 28, 87, 0.9);
 }
 
@@ -1481,6 +1482,59 @@ a#google-login:visited {
   justify-content: space-between;
 }
 
+#match-form .rich-text-editor {
+  display: block;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: inherit;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: 0.25em;
+  outline: none;
+  color: #1B1C1D;
+}
+
+#match-form .rich-text-editor:focus {
+  border-color: #85B7D9 !important;
+}
+
+#match-form .rich-text-editor:not([contenteditable='true']) {
+  cursor: not-allowed;
+  color: #767676;
+}
+
+#match-form .format-toolbar {
+  text-align: center;
+}
+
+#match-form .format-toolbar button {
+  outline: 0;
+  margin: 0;
+  padding: 0.5em;
+  text-decoration: none !important;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  zoom: 1;
+  background-color: transparent;
+  border: none;
+}
+
+#match-form .format-toolbar button:hover svg.icon path {
+  fill: #000000;
+}
+
+#match-form .format-toolbar button svg.icon {
+  width: 1.3em;
+  height: 1.3em;
+}
+
+#match-form .format-toolbar button svg.icon path {
+  fill: rgba(0, 0, 0, 0.4);
+}
+
 #match-form .match-tip {
   font-size: 0.9em;
   padding-top: 0.6em;
@@ -1532,36 +1586,6 @@ a#google-login:visited {
   color: #1B1C1D;
 }
 
-#match-form .format-toolbar {
-  text-align: center;
-}
-
-#match-form .format-toolbar button {
-  outline: 0;
-  margin: 0;
-  padding: 0.5em;
-  text-decoration: none !important;
-  cursor: pointer;
-  position: relative;
-  text-align: center;
-  zoom: 1;
-  background-color: transparent;
-  border: none;
-}
-
-#match-form .format-toolbar button:hover svg.icon path {
-  fill: #000000;
-}
-
-#match-form .format-toolbar button svg.icon {
-  width: 1.3em;
-  height: 1.3em;
-}
-
-#match-form .format-toolbar button svg.icon path {
-  fill: rgba(0, 0, 0, 0.4);
-}
-
 /*-------------------
   Stripe
 --------------------*/
@@ -1581,13 +1605,6 @@ a#google-login:visited {
 /*-------------------
   Disposition
 --------------------*/
-
-/* TODO - Move this to semantic overrides */
-
-.pusher > .ui.menu {
-  border-radius: 0 !important;
-  margin: 0 !important;
-}
 
 .ui.button.clipboard {
   -webkit-transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
@@ -1633,35 +1650,14 @@ textarea#matchText {
   overflow-y: scroll;
 }
 
-.rich-text-editor {
-  font-family: 'Roboto', sans-serif;
-  color: #000000;
-  font-size: inherit;
-  line-height: 1.5rem;
-  border: none;
-  border-radius: 0.26666667rem;
-  padding: 1rem 1rem 1.5rem;
-  outline: none;
-  width: 100;
-  display: block;
-  height: auto;
-}
-
-.rich-text-editor:not([contenteditable='true']) {
-  pointer-events: none;
-  color: rgba(40, 40, 40, 0.3);
-}
-
-.animated {
-  -webkit-animation-duration: 0.3s;
+/*.animated {
   animation-duration: 0.3s;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-}
+}*/
 
-.input-group {
+/*.input-group {
   margin-bottom: 1rem;
-}
+}*/
 
 @media only screen and (max-width: 767.99px) {
   .ui.form .fields > .error {
@@ -29548,18 +29544,6 @@ Floated Menu / Item
 /*******************************
          Theme Overrides
 *******************************/
-
-/*******************************
-         Site Overrides 
-*******************************/
-
-.ui.top.fixed.menu {
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
-.ui.tabular.menu .item {
-  font-family: 'marcher-medium', sans-serif;
-}
 /*!
  * # Fomantic-UI - Message
  * http://github.com/fomantic/Fomantic-UI/
