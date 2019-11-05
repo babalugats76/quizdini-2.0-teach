@@ -18,8 +18,8 @@ export default props => (
     <p>
       Please read these Terms and Conditions carefully before using Quizdini and
       understand that every time you visit this website, use its services, or
-      make a purchase, you are&nbsp;
-      <strong>accepting the conditions of this agreement</strong>.
+      make a purchase, you are accepting the&nbsp;
+      <strong>conditions of this agreement</strong>.
     </p>
     <List as="ul" bulleted>
       <List.Item as="li">
@@ -37,11 +37,11 @@ export default props => (
       </List.Item>
       <List.Item as="li">
         All content published on this site is property of Quizdini and/or its
-        content creators and is protected by&nbsp;
-        <strong>international copyright laws</strong>
+        content creators and is protected by international&nbsp;
+        <strong>copyright laws</strong>
       </List.Item>
       <List.Item as="li">
-        <strong>You are solely responsible</strong>&nbsp;for all activities that
+        You are&nbsp;<strong>solely responsible</strong>&nbsp;for all activities that
         occur under your account
       </List.Item>
       <List.Item as="li">
