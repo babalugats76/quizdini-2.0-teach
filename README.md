@@ -78,7 +78,6 @@ Messages need to be standardized, etc.
   - About
     - Attribution
   - Terms
-    - Terms
     - Privacy
     - Cookies
   - Login

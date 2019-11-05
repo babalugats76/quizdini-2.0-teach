@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Header, Image, List, Segment } from 'semantic-ui-react';
-import easel from '../../easel.svg';
+import handsHoldingContract from '../../hands-holding-contract.svg';
 
 export default props => (
   <Segment {...props}>
@@ -13,7 +13,7 @@ export default props => (
       </Header.Subheader>
     </Header>
     <Header size="large" icon textAlign="center">
-      <Image alt="Easel" className="icon easel" src={easel} />
+      <Image alt="Hands Holding Contract" className="icon hands-holding-contract" src={handsHoldingContract} />
     </Header>
     <p>
       Please read these Terms and Conditions carefully before using Quizdini and
