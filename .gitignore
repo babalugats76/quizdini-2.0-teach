@@ -1,2 +1,4 @@
 node_modules
 dev.js
+newrelic_agent.log
+newrelic.js

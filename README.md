@@ -50,8 +50,6 @@ Messages need to be standardized, etc.
 
 # Todo List
 
-- New Relic
-  - Local configuration - CRA
 - MongoDB
   - Add indexes to production using Atlas
 - Heroku
