@@ -35,6 +35,7 @@
 @quizdiniBlue        : rgba(1, 76, 228, 1);
 @quizdiniZaffre      : rgba(0, 19, 153, 1);
 @spaceCadet          : rgba(26, 28, 87, 1);
+@spaceCadetAlpha9    : rgba(26, 28, 87, .9);
 @primaryColor        : @spaceCadet;
 @secondaryColor      : #2e3235;
 @independence        : #574D68;

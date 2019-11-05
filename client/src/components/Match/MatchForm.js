@@ -483,7 +483,7 @@ class MatchForm extends Component {
         hideOnMobile: false,
         menuItem: 'Match Bank',
         render: () => (
-          <Tab.Pane as={Segment} padded>
+          <Tab.Pane id="match-bulk" as={Segment} padded>
             <MatchBulk
               dirty={isMatchDirty}
               disabled={disabled}

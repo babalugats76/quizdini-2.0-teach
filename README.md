@@ -68,6 +68,8 @@ Messages need to be standardized, etc.
     - Update logo to be 300px-wide friend logo with text
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Client
+  - Images
+    - Once all images are known, move to S3/Cloudfront
   - Landing Page
     - Add selling point section, etc.
   - Loading and Error
@@ -88,7 +90,6 @@ Messages need to be standardized, etc.
     - Where to place authUser calls so that 'Credits' is up to date; currently happens after a successful game creation, etc. Change to happen upon insufficient credits or upon any fetch of Dashboard info? ComponentDidMount? Consider lifecycle method or hook?
     - Refine functional component, e.g., `MatchIntro`
     - Consider adding `isEmptyArray` utility function for use in `Match`, etc.
-  - _Semantic UI_ - Continue migrating work-in-progress style to semantic
 
 Kay
 

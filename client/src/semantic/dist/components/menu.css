@@ -2207,3 +2207,15 @@ Floated Menu / Item
          Theme Overrides
 *******************************/
 
+
+
+/*******************************
+         Site Overrides 
+*******************************/
+
+.ui.top.fixed.menu {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+.ui.tabular.menu .item {
+  font-family: 'marcher-medium', sans-serif;
+}
