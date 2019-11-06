@@ -1,8 +1,8 @@
 /* https://graphicriver.net/item/cyber-crime-concept-with-hacker/22436724?s_rank=25 */
 
-import React from 'react';
-import { Header, Segment, Image, Table } from 'semantic-ui-react';
-import easel from '../../easel.svg';
+import React from "react";
+import { Header, Segment, Image, Table } from "semantic-ui-react";
+import easel from "../../easel.svg";
 
 export default props => (
   <Segment {...props}>
@@ -34,35 +34,47 @@ export default props => (
         </Table.Header>
         <Table.Body>
           <Table.Row>
-            <Table.Cell>Profile Information</Table.Cell>
+            <Table.Cell>
+              <strong>Profile Information</strong>
+            </Table.Cell>
             <Table.Cell>
               Personalize correspondance, brand activities, and enhance site
               interactions
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>Email Address</Table.Cell>
+            <Table.Cell>
+              <strong>Email Address</strong>
+            </Table.Cell>
             <Table.Cell>
               Communicate and correspond with you about your account
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>Credentials</Table.Cell>
+            <Table.Cell>
+              <strong>Credentials</strong>
+            </Table.Cell>
             <Table.Cell>Authenticate you and verify your identity</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>Google Profile</Table.Cell>
+            <Table.Cell>
+              <strong>Google Profile</strong>
+            </Table.Cell>
             <Table.Cell>Support Google OAuth authentication</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>Payment Information</Table.Cell>
+            <Table.Cell>
+              <strong>Payment Information</strong>
+            </Table.Cell>
             <Table.Cell>
               Track credits added to your account and redirect you to
               third-party payment processor (for receipt)
             </Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell>Log Data</Table.Cell>
+            <Table.Cell>
+              <strong>Log Data</strong>
+            </Table.Cell>
             <Table.Cell>
               Quantify traffic, troubleshoot issues, and provide primitive
               analytics, e.g., number of game plays
@@ -71,12 +83,32 @@ export default props => (
         </Table.Body>
       </Table>
     </details>
+    <details id="credit-card-data">
+      <summary>Credit Card Data</summary>
+      <p>
+        By using a respected&nbsp;
+        <strong>third-party processor</strong> to handle your payment
+        transactions, we are not encumbered to store the details that would put
+        you at risk.
+      </p>
+      <p>
+        While we do retain enough information to direct you back to that secure
+        payment processor, we believe that&nbsp;
+        <strong>the less we store</strong> in our system,&nbsp;
+        <strong>the better</strong>. Put simply, we do not store full credit
+        card numbers, expiration dates, CVC codes, etc., anywhere, at any time.
+      </p>
+      <p>
+        If we don't know it,&nbsp;
+        <strong>we can't possibly lose or abuse it</strong>.
+      </p>
+    </details>
     <details id="information-we-collect">
       <summary>Managing Your Information</summary>
       <p>
         You are welcome and encouraged to&nbsp;<strong>verify</strong>&nbsp;the
         information provided on your Profile page and to update it as needed.
-        You can also&nbsp;<strong>change</strong>&nbsp;your password from that
+        You may also&nbsp;<strong>change</strong>&nbsp;your password from that
         page as well.
       </p>
     </details>
