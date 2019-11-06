@@ -87,14 +87,14 @@ export default props => (
       <summary>Credit Card Data</summary>
       <p>
         By using a respected&nbsp;
-        <strong>third-party processor</strong> to handle your payment
+        <strong>third-party processor</strong>&nbsp;to handle your payment
         transactions, we are not encumbered to store the details that would put
         you at risk.
       </p>
       <p>
         While we do retain enough information to direct you back to that secure
         payment processor, we believe that&nbsp;
-        <strong>the less we store</strong> in our system,&nbsp;
+        <strong>the less we store</strong>&nbsp;in our system,&nbsp;
         <strong>the better</strong>. Put simply, we do not store full credit
         card numbers, expiration dates, CVC codes, etc., anywhere, at any time.
       </p>
