@@ -39,6 +39,9 @@
 @primaryColor        : @spaceCadet;
 @secondaryColor      : #2e3235;
 @independence        : #574D68;
+@babyPowder          : rgb(253,253,250);
+@subtleTransparentBabyPowder : rgba(253,253,250,.8);
+@subtleTransparentLightBlack: rgba(84,84,84,.87);
 
 /*-------------------
      Brand Colors
@@ -47,9 +50,11 @@
 @udemyColor          : #ea5252;     
 
 /*-------------------
-    Links etc.
+    Colors etc.
 --------------------*/
 
+@pageBackground       : #efefef;
+@inputBackground      : @white;
 @linkColor            : rgba(0, 159, 253, .77);
 @strongColor          : rgba(162, 112, 53, .9);
 @dropCapColor         : @independence;

@@ -786,7 +786,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 .pushable .pusher > .page-wrapper .banner {
   width: 100%;
-  padding: 2rem 2rem 3rem;
+  padding: 2rem;
   margin: 0;
 }
 
@@ -1047,8 +1047,16 @@ svg.icon.chevron-down.closed {
   Landing
 --------------------*/
 
+#landing .banner.stripe {
+  padding: 1rem 0;
+}
+
+#landing .banner.stripe.purple {
+  background-color: purple;
+}
+
 #landing .banner#intro {
-  background-color: #545454;
+  background-color: rgba(84, 84, 84, 0.87);
   background-size: 25px;
   background-repeat: round;
   background-image: url('/images/question.svg');
@@ -1625,6 +1633,7 @@ a#google-login:visited {
 
 #match-form #match-bulk > textarea {
   margin-top: 0.75rem;
+  line-height: 1.4;
 }
 
 #match-form #match-expert {

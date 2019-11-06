@@ -97,7 +97,7 @@
       }
       .banner {
         width: 100%;
-        padding: 2rem 2rem 3rem;
+        padding: 2rem;
         margin: 0;
       }
       .ui.container {
@@ -350,8 +350,14 @@ svg {
 #landing {
 
   .banner {
+    &.stripe {
+      padding: 1rem 0;
+      &.purple {
+        background-color: purple;
+      }
+    }
     &#intro {
-      background-color: @lightBlack;
+      background-color: @subtleTransparentLightBlack;
       background-size: 25px;
       background-repeat: round;
       background-image: url('/images/question.svg');
@@ -903,6 +909,7 @@ a#google-login {
   #match-bulk {
     > textarea {
       margin-top: 0.75rem;
+      line-height: 1.4;
     }
   }
 

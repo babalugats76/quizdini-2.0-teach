@@ -22,6 +22,7 @@ const index = () => {
           </Header>
         </Container>
       </section>
+      <section as="div" className="banner stripe purple" />
       <section id="selling-points" as="div" className="banner">
         <Container>
           <Grid centered columns="equal" divided stackable>
