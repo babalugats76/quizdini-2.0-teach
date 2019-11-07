@@ -26,11 +26,44 @@
 }
 
 @font-face {
+    font-family: 'marcher-light';
+    src: url('/fonts/marcher-light-webfont.woff2') format('woff2'),
+         url('/fonts/marcher-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'marcher-book';
+    src: url('/fonts/marcher-book-webfont.woff2') format('woff2'),
+         url('/fonts/marcher-book-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'marcher-regular';
+    src: url('/fonts/marcher-regular-webfont.woff2') format('woff2'),
+         url('/fonts/marcher-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
   font-family: 'marcher-medium';
   src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'),
     url('/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+    font-family: 'marcher-extrabold';
+    src: url('/fonts/marcher-extrabold-webfont.woff2') format('woff2'),
+         url('/fonts/marcher-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 @font-face {
@@ -121,6 +154,14 @@
       background-color: @secondaryColor;
     }
   }
+}
+
+/*-------------------
+  Page Elements (Global)
+--------------------*/
+
+.ui.massive.menu {
+  font-family: @menuFont;
 }
 
 /*-------------------
@@ -368,7 +409,7 @@ svg {
   }
 
   .ui.header {
-    font-family: @hugeFont;
+    font-family: @extraBoldFont;
     line-height: 1;
     &.huge {
       .content {
@@ -397,7 +438,7 @@ svg {
       margin: 1.375rem auto 0;
       .quote {
         font-size: 2.6rem;
-        font-family: @hugeFont;
+        font-family: @extraBoldItalicFont;
       }
     }
     p {
@@ -405,6 +446,7 @@ svg {
       line-height: 1.3;
     }
     strong {
+      font: @strongFont;
       color: @strongColor;
     }
   }
@@ -419,14 +461,17 @@ svg {
 #terms {
   &.page {
     section {
+      font-family: @bookFont;
+      font-size: 1.0625rem;
       a {
+        font-family: @strongFont;
         color: @linkColor;
         &:hover {
           text-decoration: underline;
         }
       }
       > .ui.huge.header {
-        font-family: @hugeFont;
+        font-family: @extraBoldItalicFont;
         .content {
           font-size: 2.6rem;
           text-decoration: underline;
@@ -438,6 +483,7 @@ svg {
       }
     }
     strong {
+      font-family: @strongFont;
       font-weight: normal;
       color: @strongColor;
     }
@@ -503,11 +549,11 @@ svg {
       .member-contact {
         a {
           > svg {
-            width: 2.2em;
-            height: 2.2em;
+            width: 2rem;
+            height: 2rem;
           }
           &:not(:last-of-type) {
-            margin-right: 1%;
+            margin-right: .25rem;
           }
         }
       }
@@ -606,8 +652,9 @@ svg {
 
 #login-form {
   a {
+    font-family: @strongFont;
+    color: @linkColor;
     &:hover {
-      color: @linkColor;
       text-decoration: underline;
     }
   }
@@ -982,7 +1029,9 @@ a#google-login {
 
   #match-table {
     tbody > tr > td {
+      font-family: @bookFont;
       color: @lightBlack;
+
       &:first-of-type {
         color: @black;
       }

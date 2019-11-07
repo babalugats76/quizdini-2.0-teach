@@ -193,11 +193,11 @@ ol.ui.list ol li,
 .ui.list .list > a.item,
 .ui.list > a.item {
   cursor: pointer;
-  color: rgba(0, 159, 253, 0.77);
+  color: rgba(14, 121, 178, 0.9);
 }
 .ui.list .list > a.item:hover,
 .ui.list > a.item:hover {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
 }
 
 /* Linked Item Icons */
@@ -210,11 +210,11 @@ ol.ui.list ol li,
 .ui.list .list > .item a.header,
 .ui.list > .item a.header {
   cursor: pointer;
-  color: rgba(0, 159, 253, 0.77) !important;
+  color: rgba(14, 121, 178, 0.9) !important;
 }
 .ui.list .list > .item > a.header:hover,
 .ui.list > .item > a.header:hover {
-  color: rgba(0, 135, 215, 0.77) !important;
+  color: rgba(0, 106, 163, 0.9) !important;
 }
 
 /* Floated Content */
@@ -387,7 +387,7 @@ ol.ui.list ol li,
 }
 .ui.inverted.list .list > a.item:hover,
 .ui.inverted.list > a.item:hover {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
 }
 
 /* Linking Content */
@@ -395,7 +395,7 @@ ol.ui.list ol li,
   color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.inverted.list .item a:not(.ui):hover {
-  color: rgba(0, 135, 215, 0.77) !important;
+  color: rgba(0, 106, 163, 0.9) !important;
 }
 
 /*-------------------

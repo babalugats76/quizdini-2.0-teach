@@ -485,7 +485,7 @@ body {
   overflow-x: hidden;
   min-width: 320px;
   background: #efefef;
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'marcher-regular', sans-serif;
   font-size: 16px;
   line-height: 1.4285em;
   color: #1B1C1D;
@@ -566,12 +566,12 @@ p:last-child {
 --------------------*/
 
 a {
-  color: rgba(0, 159, 253, 0.77);
+  color: rgba(14, 121, 178, 0.9);
   text-decoration: none;
 }
 
 a:hover {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
   text-decoration: none;
 }
 
@@ -698,8 +698,36 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 
 @font-face {
+  font-family: 'marcher-light';
+  src: url('/fonts/marcher-light-webfont.woff2') format('woff2'), url('/fonts/marcher-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'marcher-book';
+  src: url('/fonts/marcher-book-webfont.woff2') format('woff2'), url('/fonts/marcher-book-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'marcher-regular';
+  src: url('/fonts/marcher-regular-webfont.woff2') format('woff2'), url('/fonts/marcher-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'marcher-medium';
   src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'), url('/fonts/marcher-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'marcher-extrabold';
+  src: url('/fonts/marcher-extrabold-webfont.woff2') format('woff2'), url('/fonts/marcher-extrabold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -813,6 +841,14 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   -webkit-box-pack: center;
   justify-content: center;
   background-color: #2e3235;
+}
+
+/*-------------------
+  Page Elements (Global)
+--------------------*/
+
+.ui.massive.menu {
+  font-family: 'Lexend Deca', sans-serif;
 }
 
 /*-------------------
@@ -1067,7 +1103,7 @@ svg.icon.chevron-down.closed {
 }
 
 #landing .ui.header {
-  font-family: 'marcher-extrabolditalic', sans-serif;
+  font-family: 'marcher-extrabold', sans-serif;
   line-height: 1;
 }
 
@@ -1104,6 +1140,7 @@ svg.icon.chevron-down.closed {
 }
 
 #landing #mission strong {
+  font: 'marcher-regular', sans-serif;
   color: #C28F3C;
 }
 
@@ -1111,9 +1148,16 @@ svg.icon.chevron-down.closed {
   About
 --------------------*/
 
+#about.page section,
+#terms.page section {
+  font-family: 'marcher-book', sans-serif;
+  font-size: 1.0625rem;
+}
+
 #about.page section a,
 #terms.page section a {
-  color: rgba(0, 159, 253, 0.77);
+  font-family: 'marcher-regular', sans-serif;
+  color: rgba(14, 121, 178, 0.9);
 }
 
 #about.page section a:hover,
@@ -1140,6 +1184,7 @@ svg.icon.chevron-down.closed {
 
 #about.page strong,
 #terms.page strong {
+  font-family: 'marcher-regular', sans-serif;
   font-weight: normal;
   color: #C28F3C;
 }
@@ -1228,13 +1273,13 @@ svg.icon.chevron-down.closed {
 
 #about.page #team .member-contact a > svg,
 #terms.page #team .member-contact a > svg {
-  width: 2.2em;
-  height: 2.2em;
+  width: 2rem;
+  height: 2rem;
 }
 
 #about.page #team .member-contact a:not(:last-of-type),
 #terms.page #team .member-contact a:not(:last-of-type) {
-  margin-right: 1%;
+  margin-right: 0.25rem;
 }
 
 #about.page #philosophy .belief:not(:last-child),
@@ -1332,8 +1377,12 @@ svg.icon.chevron-down.closed {
   Login
 --------------------*/
 
+#login-form a {
+  font-family: 'marcher-regular', sans-serif;
+  color: rgba(14, 121, 178, 0.9);
+}
+
 #login-form a:hover {
-  color: rgba(0, 159, 253, 0.77);
   text-decoration: underline;
 }
 
@@ -1709,6 +1758,7 @@ a#google-login:visited {
 }
 
 #match-form #match-table tbody > tr > td {
+  font-family: 'marcher-book', sans-serif;
   color: #545454;
 }
 
@@ -6626,7 +6676,7 @@ a#google-login:visited {
 /* Text Container */
 
 .ui.text.container {
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'marcher-regular', sans-serif;
   max-width: 700px;
   line-height: 1.5;
   font-size: 1.125rem;
@@ -16889,7 +16939,7 @@ img.ui.bordered.image {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: left;
   line-height: 1.21428571em;
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'marcher-regular', sans-serif;
   padding: 0.45535714em 0.875em;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
@@ -18086,7 +18136,7 @@ a.ui.active.label:hover:before {
 a.ui.basic.label:hover {
   text-decoration: none;
   background: none #FFFFFF;
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
   box-shadow: none;
 }
 
@@ -18134,7 +18184,7 @@ a.ui.basic.label:hover {
 }
 
 .ui.inverted.basic.label:hover {
-  color: rgba(0, 159, 253, 0.77);
+  color: rgba(14, 121, 178, 0.9);
 }
 
 /*-------------------
@@ -20024,12 +20074,12 @@ ol.ui.list ol li,
 .ui.list .list > a.item,
 .ui.list > a.item {
   cursor: pointer;
-  color: rgba(0, 159, 253, 0.77);
+  color: rgba(14, 121, 178, 0.9);
 }
 
 .ui.list .list > a.item:hover,
 .ui.list > a.item:hover {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
 }
 
 /* Linked Item Icons */
@@ -20044,12 +20094,12 @@ ol.ui.list ol li,
 .ui.list .list > .item a.header,
 .ui.list > .item a.header {
   cursor: pointer;
-  color: rgba(0, 159, 253, 0.77) !important;
+  color: rgba(14, 121, 178, 0.9) !important;
 }
 
 .ui.list .list > .item > a.header:hover,
 .ui.list > .item > a.header:hover {
-  color: rgba(0, 135, 215, 0.77) !important;
+  color: rgba(0, 106, 163, 0.9) !important;
 }
 
 /* Floated Content */
@@ -20236,7 +20286,7 @@ ol.ui.list ol li,
 
 .ui.inverted.list .list > a.item:hover,
 .ui.inverted.list > a.item:hover {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
 }
 
 /* Linking Content */
@@ -20246,7 +20296,7 @@ ol.ui.list ol li,
 }
 
 .ui.inverted.list .item a:not(.ui):hover {
-  color: rgba(0, 135, 215, 0.77) !important;
+  color: rgba(0, 106, 163, 0.9) !important;
 }
 
 /*-------------------
@@ -23169,7 +23219,7 @@ ol.ui.suffixed.list li:before,
 }
 
 .ui.steps .step.active .title {
-  color: rgba(0, 159, 253, 0.77);
+  color: rgba(14, 121, 178, 0.9);
 }
 
 .ui.ordered.steps .step.active:before,
@@ -23637,7 +23687,7 @@ ol.ui.suffixed.list li:before,
 .ui.form input[type="text"],
 .ui.form input[type="file"],
 .ui.form input[type="url"] {
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'marcher-regular', sans-serif;
   margin: 0;
   outline: none;
   -webkit-appearance: none;
@@ -23671,7 +23721,7 @@ ol.ui.suffixed.list li:before,
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
   font-size: 1em;
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'marcher-regular', sans-serif;
   line-height: 1.2857;
   resize: vertical;
 }
@@ -27137,7 +27187,7 @@ ol.ui.suffixed.list li:before,
   display: -webkit-box;
   display: flex;
   margin: 1rem 0;
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'marcher-regular', sans-serif;
   background: #FFFFFF;
   font-weight: normal;
   border: 1px solid rgba(34, 36, 38, 0.15);
@@ -32230,7 +32280,7 @@ Floated Menu / Item
 
 .ui.cards > .card > .content > a.header:hover,
 .ui.card > .content > a.header:hover {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
 }
 
 /* Meta */
@@ -32355,7 +32405,7 @@ Floated Menu / Item
 
 .ui.cards > .card > .extra a:not(.ui):hover,
 .ui.card > .extra a:not(.ui):hover {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
 }
 
 /*******************************
@@ -33254,7 +33304,7 @@ a.ui.card:hover,
 
 .ui.inverted.cards > .card > .extra a:not(.ui):hover,
 .ui.inverted.card > .extra a:not(.ui):hover {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
 }
 
 /* Link card(s) */
@@ -33394,7 +33444,7 @@ a.inverted.ui.card:hover,
 }
 
 .ui.comments .comment a.author:hover {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
 }
 
 /*--------------
@@ -34166,7 +34216,7 @@ a.inverted.ui.card:hover,
 }
 
 .ui.items > .item > .content > a.header:hover {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
 }
 
 /* Meta */
@@ -34392,7 +34442,7 @@ a.inverted.ui.card:hover,
 
 .ui.items a.item:hover .content .header,
 .ui.link.items > .item:hover .content .header {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
 }
 
 /*--------------
@@ -34444,11 +34494,11 @@ a.inverted.ui.card:hover,
 }
 
 .ui.inverted.items > .item > .content a:not(.ui) {
-  color: rgba(61, 183, 255, 0.77);
+  color: rgba(0, 157, 240, 0.9);
 }
 
 .ui.inverted.items > .item > .content a:not(.ui):hover {
-  color: rgba(0, 159, 253, 0.77);
+  color: rgba(14, 121, 178, 0.9);
 }
 
 .ui.inverted.items > .item > .content > a.header {

@@ -299,7 +299,7 @@
 }
 .ui.cards > .card > .content > a.header:hover,
 .ui.card > .content > a.header:hover {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
 }
 
 /* Meta */
@@ -416,7 +416,7 @@
 }
 .ui.cards > .card > .extra a:not(.ui):hover,
 .ui.card > .extra a:not(.ui):hover {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
 }
 
 
@@ -1186,7 +1186,7 @@ a.ui.card:hover,
 }
 .ui.inverted.cards > .card > .extra a:not(.ui):hover,
 .ui.inverted.card > .extra a:not(.ui):hover {
-  color: rgba(0, 135, 215, 0.77);
+  color: rgba(0, 106, 163, 0.9);
 }
 
 /* Link card(s) */

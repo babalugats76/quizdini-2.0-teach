@@ -6,10 +6,26 @@
   Web Fonts, etc.
 --------------------*/
 
-@fontName          : 'Lexend Deca';
-@headerFont        : 'marcher-medium', sans-serif;
-@hugeFont          : 'marcher-extrabolditalic', sans-serif;
-@pageFont          : 'Lexend Deca', sans-serif;
+@lexendDeca             : 'Lexend Deca', sans-serif;
+@marcherLight           : 'marcher-light', sans-serif; 
+@marcherBook            : 'marcher-book', sans-serif;
+@marcherRegular         : 'marcher-regular', sans-serif;
+@marcherMedium          : 'marcher-medium', sans-serif;
+@marcherExtraBold       : 'marcher-extrabold', sans-serif;
+@marcherExtraBoldItalic : 'marcher-extrabolditalic', sans-serif;
+
+
+@extraBoldFont          : @marcherExtraBold;
+@extraBoldItalicFont    : @marcherExtraBoldItalic;
+
+// Override Semantic Global Values
+@fontName               : @marcherRegular;
+@pageFont               : @marcherRegular;
+@bookFont               : @marcherBook;
+@menuFont               : @lexendDeca;
+@headerFont             : @marcherMedium;
+@strongFont             : @marcherRegular;
+
 @dropCapFont       : @headerFont;
 @googleFontFamily  : 'Lexend+Deca';
 @googleFontRequest : '@{googleFontFamily}&subset=@{googleSubset}&display=@{googleFontDisplay}';
@@ -38,8 +54,8 @@
 @spaceCadetAlpha9    : rgba(26, 28, 87, .9);
 @peru                : #C28F3C;
 @independence        : #574D68;
-@vividCerulean       : #009FFD;
-@transparentSubtleVividCerulean: rgba(0, 159, 253, .77);
+@starCommandBlue     : #0E79B2;
+@transparentSubtleStarCommandBlue: rgba(14, 121, 178, .9);
 @subtleTransparentLightBlack: rgba(84,84,84,.87);
 
 @primaryColor        : @spaceCadet;
@@ -57,7 +73,7 @@
 
 @pageBackground       : #efefef;
 @inputBackground      : @white;
-@linkColor            : @transparentSubtleVividCerulean;
+@linkColor            : @transparentSubtleStarCommandBlue;
 @strongColor          : @peru;
 @dropCapColor         : @independence;
 @summaryActiveColor   : @independence;
