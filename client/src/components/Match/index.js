@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import { Container } from 'semantic-ui-react';
-import Loader from '../UI/Loader';
-import MatchForm from './MatchForm';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
+import { Container } from "semantic-ui-react";
+import Loader from "../UI/Loader";
+import MatchForm from "./MatchForm";
 
 class Match extends Component {
   // bind this way due to async/await arrow function bug in Babel
@@ -21,14 +21,14 @@ class Match extends Component {
     await fetchMatch(matchId);
     // TODO empty match logic and handling
     const {
-      matchGame: { game: { title = 'Create Match Game' } = {} } = {}
+      matchGame: { game: { title = "Create Match Game" } = {} } = {}
     } = this.props;
-    const pageTitle = [process.env.REACT_APP_WEBSITE_NAME, title].join(' | ');
+    const pageTitle = [process.env.REACT_APP_WEBSITE_NAME, title].join(" | ");
     document.title = title && pageTitle;
   }
 
   async handleSave(values, actions) {
-    const { upsertMatch } = this.props; // Redux action
+    const { upsertMatch, fetchAuth } = this.props; // Redux action
     const { setSubmitting, setStatus } = actions;
     const {
       duration,
@@ -55,42 +55,51 @@ class Match extends Component {
     const { error, game = {} } = matchGame;
 
     if (error) {
-      const {
-        message: { errorMessage }
-      } = error;
 
-      /*if (error) {
-        // If error in processing, e.g., insufficient credits
-        await setStatus({
-          color: 'red',
-          message: error.message || null
-        });
-        return await setSubmitting(false);
-      }*/
-
-      this.props.history.push('/dashboard', {
-        message: {
-          color: 'red',
-          content: errorMessage,
-          header: 'Unable to Save Game'
-        },
-        from: 'MATCH'
+      const { message: errorMessage = "" } = error;
+      
+      await setStatus({
+        header: 'Match Error',
+        content: errorMessage,
+        color: 'red'
       });
+
       return await setSubmitting(false);
+
+      /* If redirecting to dashboard is preferred */
+      /*return this.props.history.push("/dashboard", {
+        from: "MATCH",
+        message: {
+          color: "red",
+          content: errorMessage,
+          header: "Match Error"
+        },
+        skipAuth: false
+      });*/
+      
     }
 
     const newMatchId = game.matchId;
+
     if (newMatchId === this.props.location.state.matchId) {
+      // Successful save
+
       return await setSubmitting(false);
     } else {
+      // Successful create
+
+      // This is done here to show immediate reduction in credits
+      fetchAuth();
+
       /**
        * Either use this.props.history.push("/match", { matchId: newMatchId });
        * Or, render a redirect, being sure to set the state flag back to false
        * in the componentDidUpdate lifecycle method by referring to prevState argument (the second argument)
        */
+
       setTimeout(() => {
         // Wait and then redirect to self with newly created id from database
-        this.props.history.push('/match', { matchId: newMatchId });
+        this.props.history.push("/match", { matchId: newMatchId });
       }, 300);
     }
   }
@@ -99,7 +108,7 @@ class Match extends Component {
     const { matchGame = {}, isMobile } = this.props;
     const { error, loading, game } = matchGame;
 
-    if (error) {
+    if (error & !game) {
       return (
         <div>
           Error! {error.message} {error.status}

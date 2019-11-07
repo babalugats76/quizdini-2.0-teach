@@ -42,6 +42,7 @@ export const updateAccount = user => async dispatch => {
  */
 
 export const authBegin = () => async dispatch => {
+  console.log('fetching auth...');
   dispatch({ type: TYPES.AUTH_BEGIN });
 };
 
@@ -95,7 +96,6 @@ export const processCard = payment => async dispatch => {
     dispatch(chargeBegin());
     const res = await axios.post('/api/payment', payment);
     dispatch(chargeSuccess(res.data));
-    dispatch(fetchAuth()); // Successful charges should impact user credits
   } catch (e) {
     dispatch(chargeFailure(e.response.data));
   }
@@ -237,15 +237,10 @@ export const removeMatch = matchId => async dispatch => {
 
 export const upsertMatch = (matchId, match) => async dispatch => {
   try {
-    const newMatch = matchId ? false : true;
     const res = matchId
       ? await axios.put(`/api/match/${matchId}`, match)
       : await axios.post('/api/match', match);
     await dispatch(matchSuccess(res.data));
-    if (newMatch) {
-      // new games reduce user credits
-      dispatch(fetchAuth());
-    }
   } catch (e) {
     dispatch(matchFailure(e.response.data));
   }

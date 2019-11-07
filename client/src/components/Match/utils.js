@@ -47,8 +47,8 @@ const parseMatch = (bulkMatches, maxMatches) => {
 
   for (let i = 0; i < parsed.length; i++) {
     let match = parsed[i];
-    console.log('parsed match');
-    console.log(match);
+    //console.log('parsed match');
+    //console.log(match);
     if (!match.term || !match.definition) {
       continue;
     }
@@ -69,27 +69,5 @@ const parseMatch = (bulkMatches, maxMatches) => {
   }
   return matches; // Return results
 };
-
-/* parsed.reduce((accum, match) => {
-    // Reduce array of lines to valid ones
-    if (!match.term || !match.definition) {
-      return accum;
-    } // Do not attempt to parse if contents do not exist
-    const term = DOMPurify.sanitize(match.term.trim(), PURIFY_OPTS); // Trim and HTML sanitize term
-    const definition = DOMPurify.sanitize(match.definition.trim(), PURIFY_OPTS); // Trim and HTML sanitize definition
-    if (
-      term.length !== 0 && // Push if fields are non-empty
-      definition.length !== 0 &&
-      !uniqueTerms.has(term)
-    ) {
-      // Skip if term is a duplicate
-      uniqueTerms.set(term, true); // Keep track of terms seen so far
-      accum.push({ term, definition }); // Add to results
-    }
-    return accum; // In all cases, pass back work-in-progress array
-  }, matches); // start with empty array (created earlier)
-
-  return matches; // Return results
-};*/
 
 export { matchToString, parseMatch };

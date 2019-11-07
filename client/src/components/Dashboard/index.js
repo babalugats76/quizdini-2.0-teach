@@ -1,30 +1,30 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import { Container, List, Image } from 'semantic-ui-react';
-import Message from '../UI/Message';
-import Match from './Match';
-import Icon from '../UI/Icon';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
+import { Container, List, Image } from "semantic-ui-react";
+import Message from "../UI/Message";
+import Match from "./Match";
+import Icon from "../UI/Icon";
 
 /* Array of objects containing game Component metadata */
 const games = [
   {
-    name: 'MATCH',
-    title: 'Match',
+    name: "MATCH",
+    title: "Match",
     credits: 1,
-    icon: 'question',
+    icon: "question",
     render: props => <Match {...props} />
   }
 ];
 
 class Dashboard extends Component {
-  static DEFAULT_GAME = 'MATCH';
+  static DEFAULT_GAME = "MATCH";
 
   constructor(props) {
     super(props);
     const {
-      location: { state: { message, from } = {} } = {},
+      location: { state: { message, from, skipAuth = false } = {} } = {},
       history
     } = this.props;
 
@@ -33,25 +33,27 @@ class Dashboard extends Component {
         ? games.findIndex(game => game.name === from)
         : games.findIndex(game => game.name === Dashboard.DEFAULT_GAME);
 
-    this.state = {
-      activeGameIdx,
-      message
-    };
-    history.replace({ pathname: '/dashboard', state: {} });
+    this.state = { activeGameIdx, skipAuth , message };
+    history.replace({ pathname: "/dashboard", state: {} });
   }
 
   /**
    * Conditionally update data using Redux actions
    * Need to map functions manually
    *
+   * Include auth functionality added for when user
+   * is directed straight from login page,
+   * i.e., to avoid double auth calls, etc.
+   *
    * @param {string} activeGameIdx Index of active game
+   * @param {boolean} includeAuth  Whether to fetch auth
    */
-  refreshData(activeGameIdx) {
+  refreshData(activeGameIdx, includeAuth = true) {
     const { fetchMatches, fetchAuth } = this.props; // Grab all Redux actions
     const { name: activeGame } = games[activeGameIdx]; // Name of current game
     switch (activeGame) {
-      case 'MATCH':
-        fetchAuth();
+      case "MATCH":
+        if (includeAuth) fetchAuth(); 
         return fetchMatches();
       default:
         return;
@@ -59,8 +61,8 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    const { activeGameIdx } = this.state; // Index of current game
-    this.refreshData(activeGameIdx); // Refresh data
+    const { activeGameIdx, skipAuth } = this.state; // Index of current game, whether to bypass auth
+    this.refreshData(activeGameIdx, !skipAuth); // Refresh data
   }
 
   handleDismiss = e => {
@@ -113,22 +115,20 @@ class Dashboard extends Component {
           link
           selection
           size="large"
-          verticalAlign="top"
-        >
+          verticalAlign="top">
           {options.map((option, idx) => {
             const { name, title, icon, credits } = option;
             return (
               <List.Item
                 key={name}
                 active={activeGameIdx === idx}
-                onClick={() => this.handleMenuChange(idx)}
-              >
+                onClick={() => this.handleMenuChange(idx)}>
                 <Image>
                   <Icon name={icon} />
                 </Image>
                 <List.Content>
                   <List.Header>{title}</List.Header>
-                  {credits} credit{credits === 1 ? '' : 's'}
+                  {credits} credit{credits === 1 ? "" : "s"}
                 </List.Content>
               </List.Item>
             );

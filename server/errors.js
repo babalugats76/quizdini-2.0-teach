@@ -28,9 +28,10 @@ class DuplicateEmail extends CustomError {
 }
 
 class InsufficientCredits extends CustomError {
-  constructor(msg) {
+  constructor(msg, code) {
     super(msg);
     this.statusCode = BAD_REQUEST;
+    this.code = code;
   }
 }
 

@@ -57,7 +57,8 @@ class Login extends Component {
     }
 
     await fetchAuth();
-    return this.props.history.push('/dashboard');
+    return this.props.history.push({ pathname: '/dashboard', state: { from: 'LOGIN' } });
+
   }
 
   renderForm = () => {

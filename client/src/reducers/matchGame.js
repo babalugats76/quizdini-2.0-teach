@@ -26,7 +26,7 @@ export default function (state = initialState, action) {
         ...state,
         loading: false,
         error: action.payload.error,
-        game: null
+        // game: null
       };
     default:
       return state;

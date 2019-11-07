@@ -93,13 +93,12 @@ class Checkout extends Component {
    * @param {*} actions FormikBag functions
    */
   async handlePayment(values, actions) {
-    const { processCard } = this.props; // Get Redux action
+    const { processCard, fetchAuth } = this.props; // Get Redux action
     const { tokenId, amount, credits, cardholderName } = values; // Get form values (for charge)
     const { setStatus, setSubmitting, clearStripeFields } = actions; // Get Formik helper functions, etc.
     await processCard({ tokenId, amount, credits, cardholderName }); // Call Redux action passing charge values
     const { payment, error } = this.props; // Get latest version of payment props (mapped from state)
     if (error) {
-      // If error in processing
 
       // Clear form (hide sensitive info)
       clearStripeFields();
@@ -111,13 +110,19 @@ class Checkout extends Component {
       });
       return setSubmitting(false);
     } else {
+    
+       // This is done here to show credit increase ASAP
+      fetchAuth();
+
       return setTimeout(() => {
         this.props.history.push('/dashboard', {
+          from: 'CHECKOUT',
           message: {
             header: 'Payment Successful',
             content: payment.description || '',
             color: 'green'
-          }
+          },
+          skipAuth: true
         });
       }, 300);
     }

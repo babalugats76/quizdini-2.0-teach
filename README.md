@@ -42,7 +42,7 @@ Messages need to be standardized, etc.
 | **Unsuccessful login attempt**                     | <blockquote>Authentication Error</blockquote>      | <blockquote>Unable to Login - Invalid credentials or unverified account.</blockquote>   |  red  |
 | **Successful account verification**                | <blockquote>Verification Successful</blockquote>   | <blockquote>User account validated</blockquote>                                         | green |
 | **Unsuccessful account verification**              | <blockquote>Verification Unsuccessful</blockquote> | <blockquote>Token is invalid, claimed or expired</blockquote>                           |  red  |
-| **Insufficent credits (when trying to save game)** | <blockquote>Unable to Create Game</blockquote>     | <blockquote>Unable to create game - insufficient credits.</blockquote>                  |  red  |
+| **Insufficent credits (when trying to save game)** | <blockquote>Match Error</blockquote>     | <blockquote>You account has insufficient credits: `${credits}`.</blockquote>                  |  red  |
 | **Successful password change**                     | <blockquote>Success!</blockquote>                  | <blockquote>Your password has been updated.</blockquote>                                | green |
 | **Invalid credit card**                            | <blockquote>Validation Error</blockquote>          | <blockquote>Your card number is incomplete.</blockquote> (provided by Stripe)           |  red  |
 | **Failed purchase**                                | <blockquote>Transaction Failed</blockquote>        | <blockquote>Your card was declined.</blockquote> (provided by Stripe)                   |  red  |
@@ -84,7 +84,7 @@ Messages need to be standardized, etc.
     - Update sign in for to use `touch` for the errors
   - Match
     - Refine error-handling to match renderMessage-style functionality
-    - Branch to redirect on Insufficient Credits (specifc to that type of exception...all others will use `renderMessage` functionality)
+    - Branch to redirect on Insufficient Credits (specific to that type of exception...all others will use `renderMessage` functionality)
     - Force call of auth to refresh credits should credits be found to be insufficient...
   - Dashboard
     - Where to place authUser calls so that 'Credits' is up to date; currently happens after a successful game creation, etc. Change to happen upon insufficient credits or upon any fetch of Dashboard info? ComponentDidMount? Consider lifecycle method or hook?
@@ -363,3 +363,27 @@ Using File explorer, remove `.git` directory from `client`
 ## Bring legacy code and configuration forward
 
 Now that a basic project is in place, bring forward previous code for both the client and the server. Update node modules as required, etc.
+
+```
+parsed.reduce((accum, match) => {
+    // Reduce array of lines to valid ones
+    if (!match.term || !match.definition) {
+      return accum;
+    } // Do not attempt to parse if contents do not exist
+    const term = DOMPurify.sanitize(match.term.trim(), PURIFY_OPTS); // Trim and HTML sanitize term
+    const definition = DOMPurify.sanitize(match.definition.trim(), PURIFY_OPTS); // Trim and HTML sanitize definition
+    if (
+      term.length !== 0 && // Push if fields are non-empty
+      definition.length !== 0 &&
+      !uniqueTerms.has(term)
+    ) {
+      // Skip if term is a duplicate
+      uniqueTerms.set(term, true); // Keep track of terms seen so far
+      accum.push({ term, definition }); // Add to results
+    }
+    return accum; // In all cases, pass back work-in-progress array
+  }, matches); // start with empty array (created earlier)
+
+  return matches; // Return results
+};
+```

@@ -435,12 +435,13 @@ class MatchForm extends Component {
     setStatus(null);
   };
 
-  renderMessage = (message, color, setStatus) => {
+  renderMessage = ({ color, content, header, setStatus }) => {
     return (
       <Message
-        hidden={!message}
-        content={message}
         color={color}
+        content={content}
+        header={header}
+        hidden={!content}
         onDismiss={(e, data) => this.handleDismiss(e, setStatus)}
       />
     );
@@ -537,8 +538,7 @@ class MatchForm extends Component {
         <Grid columns={2} stackable>
           <Grid.Column computer={8} mobile={16} tablet={16}>
             <Segment>
-              {status &&
-                this.renderMessage(status.message, status.color, setStatus)}
+              {status && this.renderMessage({ ...status, setStatus })}
               <Form.Group inline>
                 <Button
                   active

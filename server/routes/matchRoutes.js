@@ -13,7 +13,8 @@ module.exports = app => {
 
       if (credits <= 0)
         throw new InsufficientCredits(
-          'Unable to create game - insufficient credits.'
+          `Your account has insufficient credits: ${credits}`,
+          'INSUFFICIENT_CREDITS'
         );
 
       const matchId = shortid.generate();
