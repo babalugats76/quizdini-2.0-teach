@@ -11,10 +11,6 @@ class Register extends Component {
   // Needed for async function
   handleRegister = this.handleRegister.bind(this);
 
-  /*componentWillUnmount() {
-    console.log('Register dismounting...');
-  }*/
-
   componentDidMount() {
     const { fetchStates, fetchCountries } = this.props;
     fetchStates();

@@ -15,13 +15,13 @@ class NavBar extends Component {
   }
 
   handlePusherClick = () => {
-    console.log('handle pushed clicked!');
+    //console.log('handle pushed clicked!');
     const { visible } = this.state;
     if (visible) this.setState({ visible: false });
   };
 
   handleToggle = () => {
-    console.log('toggle clicked...');
+    //console.log('toggle clicked...');
     this.setState({ visible: !this.state.visible });
   };
 

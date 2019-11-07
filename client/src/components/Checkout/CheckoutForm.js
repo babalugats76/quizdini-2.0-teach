@@ -268,7 +268,7 @@ const FormikCheckoutForm = withFormik({
       return;
     }
 
-    console.log(res.token);
+    //console.log(res.token);
 
     // Call prop function to create charge passing values and actions
     await onPayment(
