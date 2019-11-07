@@ -587,13 +587,6 @@ svg {
         }
       }
     }
-    #privacy {
-      #what-we-collect {
-        > tbody > tr > td:first-of-type {
-          font-family: @headerFont;
-        }
-      }
-    }
   }
 }
 

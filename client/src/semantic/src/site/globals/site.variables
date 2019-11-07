@@ -36,12 +36,14 @@
 @quizdiniZaffre      : rgba(0, 19, 153, 1);
 @spaceCadet          : rgba(26, 28, 87, 1);
 @spaceCadetAlpha9    : rgba(26, 28, 87, .9);
+@peru                : #C28F3C;
+@independence        : #574D68;
+@vividCerulean       : #009FFD;
+@transparentSubtleVividCerulean: rgba(0, 159, 253, .77);
+@subtleTransparentLightBlack: rgba(84,84,84,.87);
+
 @primaryColor        : @spaceCadet;
 @secondaryColor      : #2e3235;
-@independence        : #574D68;
-@babyPowder          : rgb(253,253,250);
-@subtleTransparentBabyPowder : rgba(253,253,250,.8);
-@subtleTransparentLightBlack: rgba(84,84,84,.87);
 
 /*-------------------
      Brand Colors
@@ -55,8 +57,8 @@
 
 @pageBackground       : #efefef;
 @inputBackground      : @white;
-@linkColor            : rgba(0, 159, 253, .77);
-@strongColor          : rgba(162, 112, 53, .9);
+@linkColor            : @transparentSubtleVividCerulean;
+@strongColor          : @peru;
 @dropCapColor         : @independence;
 @summaryActiveColor   : @independence;
 @summaryInactiveColor : @grey;

@@ -1104,7 +1104,7 @@ svg.icon.chevron-down.closed {
 }
 
 #landing #mission strong {
-  color: rgba(162, 112, 53, 0.9);
+  color: #C28F3C;
 }
 
 /*-------------------
@@ -1141,7 +1141,7 @@ svg.icon.chevron-down.closed {
 #about.page strong,
 #terms.page strong {
   font-weight: normal;
-  color: rgba(162, 112, 53, 0.9);
+  color: #C28F3C;
 }
 
 #about.page .ui.list,
@@ -1318,11 +1318,6 @@ svg.icon.chevron-down.closed {
 #about.page #conditions img.icon.hands-holding-contract,
 #terms.page #conditions img.icon.hands-holding-contract {
   height: 125px;
-}
-
-#about.page #privacy #what-we-collect > tbody > tr > td:first-of-type,
-#terms.page #privacy #what-we-collect > tbody > tr > td:first-of-type {
-  font-family: 'marcher-medium', sans-serif;
 }
 
 /*-------------------
