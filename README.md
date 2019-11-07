@@ -83,11 +83,8 @@ Messages need to be standardized, etc.
   - Login
     - Update sign in for to use `touch` for the errors
   - Match
-    - Refine error-handling to match renderMessage-style functionality
-    - Branch to redirect on Insufficient Credits (specific to that type of exception...all others will use `renderMessage` functionality)
-    - Force call of auth to refresh credits should credits be found to be insufficient...
+    - Whether to Branch to redirect on Insufficient Credits (specific to that type of exception...all others will use `renderMessage` functionality)
   - Dashboard
-    - Where to place authUser calls so that 'Credits' is up to date; currently happens after a successful game creation, etc. Change to happen upon insufficient credits or upon any fetch of Dashboard info? ComponentDidMount? Consider lifecycle method or hook?
     - Refine functional component, e.g., `MatchIntro`
     - Consider adding `isEmptyArray` utility function for use in `Match`, etc.
 
