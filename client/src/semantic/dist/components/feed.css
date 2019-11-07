@@ -123,7 +123,7 @@
   margin: 0;
   font-size: 1em;
   font-weight: 400;
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 
 /* Summary Image */
@@ -178,7 +178,7 @@
   margin: 0.5em 0 0;
   background: none;
   padding: 0;
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 
 /* Images */
@@ -257,7 +257,7 @@
 .ui.feed > .event > .content .meta a:hover,
 .ui.feed > .event > .content .meta a:hover .icon,
 .ui.feed > .event > .content .meta > .icon:hover {
-  color: rgba(0, 0, 0, 0.95);
+  color: rgba(10, 10, 10, 0.87);
 }
 
 

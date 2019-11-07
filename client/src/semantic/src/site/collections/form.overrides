@@ -23,3 +23,9 @@
   font-weight: @groupedLabelFontWeight;
   text-transform: @groupedLabelTextTransform;
 }
+
+
+/* Style textarea text to be initially unselected */
+.ui.form textarea {
+  color: @unselectedTextColor;  
+}

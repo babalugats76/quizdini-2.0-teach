@@ -7,6 +7,37 @@
 --------------------*/
 
 @font-face {
+font-family: 'CartoGothic Std Book';
+font-style: normal;
+font-weight: normal;
+src: local('CartoGothic Std Book'), url('/fonts/CartoGothicStd-Book.woff') format('woff');
+}
+
+
+@font-face {
+font-family: 'CartoGothic Std Italic';
+font-style: normal;
+font-weight: normal;
+src: local('CartoGothic Std Italic'), url('/fonts/CartoGothicStd-Italic.woff') format('woff');
+}
+
+
+@font-face {
+font-family: 'CartoGothic Std Bold';
+font-style: normal;
+font-weight: normal;
+src: local('CartoGothic Std Bold'), url('/fonts/CartoGothicStd-Bold.woff') format('woff');
+}
+
+
+@font-face {
+font-family: 'CartoGothic Std Bold Italic';
+font-style: normal;
+font-weight: normal;
+src: local('CartoGothic Std Bold Italic'), url('/fonts/CartoGothicStd-BoldItalic.woff') format('woff');
+}
+
+@font-face {
   font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
@@ -84,6 +115,15 @@
 }
 
 /*-------------------
+  Page Elements (Global)
+--------------------*/
+
+.ui.massive.menu, 
+.ui.pagination.menu {
+  font-family: @menuFont;
+}
+
+/*-------------------
   Page & Containers
 --------------------*/
 
@@ -154,14 +194,6 @@
       background-color: @secondaryColor;
     }
   }
-}
-
-/*-------------------
-  Page Elements (Global)
---------------------*/
-
-.ui.massive.menu {
-  font-family: @menuFont;
 }
 
 /*-------------------
@@ -446,7 +478,6 @@ svg {
       line-height: 1.3;
     }
     strong {
-      font: @strongFont;
       color: @strongColor;
     }
   }
@@ -462,9 +493,10 @@ svg {
   &.page {
     section {
       font-family: @bookFont;
-      font-size: 1.0625rem;
+      p { 
+        font-size: 1.0625em;
+      }
       a {
-        font-family: @strongFont;
         color: @linkColor;
         &:hover {
           text-decoration: underline;
@@ -483,7 +515,6 @@ svg {
       }
     }
     strong {
-      font-family: @strongFont;
       font-weight: normal;
       color: @strongColor;
     }
@@ -652,7 +683,6 @@ svg {
 
 #login-form {
   a {
-    font-family: @strongFont;
     color: @linkColor;
     &:hover {
       text-decoration: underline;
@@ -949,7 +979,7 @@ a#google-login {
   #match-bulk {
     > textarea {
       margin-top: 0.75rem;
-      line-height: 1.4;
+      line-height: 1.6;
     }
   }
 
@@ -1029,11 +1059,11 @@ a#google-login {
 
   #match-table {
     tbody > tr > td {
-      font-family: @bookFont;
       color: @lightBlack;
 
       &:first-of-type {
-        color: @black;
+        font-family: @headerFont;
+        color: @textColor;
       }
       .ui.icon.trash.button {
         transition: background-color 0.5s ease;

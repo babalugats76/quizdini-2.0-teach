@@ -140,7 +140,7 @@ ol.ui.list ol li,
 .ui.list .list > .item > .content,
 .ui.list > .item > .content {
   line-height: 1.4285em;
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 .ui.list .list > .item > .image + .content,
 .ui.list .list > .item > .icon + .content,
@@ -173,7 +173,7 @@ ol.ui.list ol li,
   margin: 0;
   font-family: 'marcher-medium', sans-serif;
   font-weight: 400;
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 
 /* Description */
@@ -193,11 +193,11 @@ ol.ui.list ol li,
 .ui.list .list > a.item,
 .ui.list > a.item {
   cursor: pointer;
-  color: rgba(14, 121, 178, 0.9);
+  color: #0E79B2;
 }
 .ui.list .list > a.item:hover,
 .ui.list > a.item:hover {
-  color: rgba(0, 106, 163, 0.9);
+  color: #006aa3;
 }
 
 /* Linked Item Icons */
@@ -210,11 +210,11 @@ ol.ui.list ol li,
 .ui.list .list > .item a.header,
 .ui.list > .item a.header {
   cursor: pointer;
-  color: rgba(14, 121, 178, 0.9) !important;
+  color: #0E79B2 !important;
 }
 .ui.list .list > .item > a.header:hover,
 .ui.list > .item > a.header:hover {
-  color: rgba(0, 106, 163, 0.9) !important;
+  color: #006aa3 !important;
 }
 
 /* Floated Content */
@@ -349,7 +349,7 @@ ol.ui.list ol li,
 
 .ui.list .list > a.item:hover > .icon,
 .ui.list > a.item:hover > .icon {
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 
 
@@ -387,7 +387,7 @@ ol.ui.list ol li,
 }
 .ui.inverted.list .list > a.item:hover,
 .ui.inverted.list > a.item:hover {
-  color: rgba(0, 106, 163, 0.9);
+  color: #006aa3;
 }
 
 /* Linking Content */
@@ -395,7 +395,7 @@ ol.ui.list ol li,
   color: rgba(255, 255, 255, 0.9) !important;
 }
 .ui.inverted.list .item a:not(.ui):hover {
-  color: rgba(0, 106, 163, 0.9) !important;
+  color: #006aa3 !important;
 }
 
 /*-------------------
@@ -425,21 +425,21 @@ ol.ui.list ol li,
 .ui.link.list .item,
 .ui.link.list a.item,
 .ui.link.list .item a:not(.ui) {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(10, 10, 10, 0.4);
   -webkit-transition: 0.1s color ease;
   transition: 0.1s color ease;
 }
 .ui.link.list.list a.item:hover,
 .ui.link.list.list .item a:not(.ui):hover {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(10, 10, 10, 0.87);
 }
 .ui.link.list.list a.item:active,
 .ui.link.list.list .item a:not(.ui):active {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(10, 10, 10, 0.87);
 }
 .ui.link.list.list .active.item,
 .ui.link.list.list .active.item a:not(.ui) {
-  color: rgba(0, 0, 0, 0.95);
+  color: rgba(10, 10, 10, 0.87);
 }
 
 /* Inverted */
@@ -471,7 +471,7 @@ ol.ui.list ol li,
   background: transparent;
   padding: 0.5em 0.5em;
   margin: 0;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(10, 10, 10, 0.4);
   border-radius: 0.5em;
   -webkit-transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
   transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
@@ -483,17 +483,17 @@ ol.ui.list ol li,
 .ui.selection.list .list > .item:hover,
 .ui.selection.list > .item:hover {
   background: rgba(0, 0, 0, 0.03);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(10, 10, 10, 0.87);
 }
 .ui.selection.list .list > .item:active,
 .ui.selection.list > .item:active {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(10, 10, 10, 0.87);
 }
 .ui.selection.list .list > .item.active,
 .ui.selection.list > .item.active {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.95);
+  color: rgba(10, 10, 10, 0.87);
 }
 
 /* Inverted */
@@ -583,7 +583,7 @@ ul.ui.list li:before,
 ul.ui.list li:before,
 .ui.bulleted.list .list > a.item:before,
 .ui.bulleted.list > a.item:before {
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 ul.ui.list ul,
 .ui.bulleted.list .list:not(.icon) {
@@ -605,7 +605,7 @@ ul.ui.horizontal.bulleted.list li:first-child,
 }
 ul.ui.horizontal.bulleted.list li::before,
 .ui.horizontal.bulleted.list > .item::before {
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 ul.ui.horizontal.bulleted.list li:first-child::before,
 .ui.horizontal.bulleted.list > .item:first-child::before {
@@ -645,7 +645,7 @@ ol.ui.list li:before,
   counter-increment: ordered;
   content: counters(ordered, ".") " ";
   text-align: right;
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
   vertical-align: middle;
   opacity: 0.8;
 }

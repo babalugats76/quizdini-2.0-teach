@@ -55,7 +55,7 @@
   background: transparent;
 }
 .ui.progress[data-percent="0"] .bar .progress {
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 .ui.inverted.progress[data-percent="0"] .bar .progress {
   color: rgba(255, 255, 255, 0.9);
@@ -87,7 +87,7 @@
   right: auto;
   left: 0;
   bottom: auto;
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
   font-weight: 400;
   text-shadow: none;
   margin-top: 0.2em;
@@ -129,25 +129,25 @@
 /* Indicating Label */
 .ui.indicating.progress[data-percent^="1"] .label,
 .ui.indicating.progress[data-percent^="2"] .label {
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 .ui.indicating.progress[data-percent^="3"] .label {
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 .ui.indicating.progress[data-percent^="4"] .label,
 .ui.indicating.progress[data-percent^="5"] .label {
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 .ui.indicating.progress[data-percent^="6"] .label {
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 .ui.indicating.progress[data-percent^="7"] .label,
 .ui.indicating.progress[data-percent^="8"] .label {
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 .ui.indicating.progress[data-percent^="9"] .label,
 .ui.indicating.progress[data-percent^="100"] .label {
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 
 /* Inverted Indicating Label */
@@ -196,7 +196,7 @@
 .ui.indicating.progress[data-percent="7"] .label,
 .ui.indicating.progress[data-percent="8"] .label,
 .ui.indicating.progress[data-percent="9"] .label {
-  color: #1B1C1D;
+  color: rgba(10, 10, 10, 0.87);
 }
 .ui.inverted.indicating.progress[data-percent="0"] .label,
 .ui.inverted.indicating.progress[data-percent="1"] .label,
