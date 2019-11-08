@@ -363,7 +363,7 @@
   background: #FFFFFF;
   display: inline-block;
   padding: 0.5625em 3.075em 0.5625em 0.875em;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.4);
   box-shadow: none;
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.25rem;
@@ -517,27 +517,27 @@ select.ui.dropdown {
 
 /* Hover */
 .ui.selection.dropdown:hover {
-  border-color: rgba(34, 36, 38, 0.35);
+  border-color: #E5DFA1;
   box-shadow: none;
 }
 
 /* Active */
 .ui.selection.active.dropdown {
-  border-color: #96C8DA;
+  border-color: #E5DFA1;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
 .ui.selection.active.dropdown .menu {
-  border-color: #96C8DA;
+  border-color: #E5DFA1;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
 
 /* Focus */
 .ui.selection.dropdown:focus {
-  border-color: #96C8DA;
+  border-color: #E5DFA1;
   box-shadow: none;
 }
 .ui.selection.dropdown:focus .menu {
-  border-color: #96C8DA;
+  border-color: #E5DFA1;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
 
@@ -549,11 +549,11 @@ select.ui.dropdown {
 
 /* Visible Hover */
 .ui.selection.active.dropdown:hover {
-  border-color: #96C8DA;
+  border-color: #E5DFA1;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
 .ui.selection.active.dropdown:hover .menu {
-  border-color: #96C8DA;
+  border-color: #E5DFA1;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
 
@@ -1786,3 +1786,7 @@ select.ui.dropdown {
         User Overrides
 *******************************/
 
+.ui.selection.dropdown:focus,
+.ui.selection.active.dropdown {
+  background-color: rgba(255, 255, 240, 0.33);
+}

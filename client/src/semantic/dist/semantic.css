@@ -456,6 +456,15 @@ button,
 [type='submit'] {
   -webkit-appearance: none !important;
 }
+
+code,
+kbd,
+samp,
+pre,
+sup,
+sub {
+  font-family: 'Fira Code', Lucida Console, Courier, monospace;
+}
 /*!
  * # Fomantic-UI - Site
  * http://github.com/fomantic/Fomantic-UI/
@@ -1499,7 +1508,7 @@ a#google-login:visited {
 }
 
 #profile #payments #payment-table tbody > tr > td {
-  font-size: 0.9375em;
+  font-size: 1em;
 }
 
 #profile #account-summary .ui.items > .item {
@@ -1561,6 +1570,7 @@ a#google-login:visited {
   min-height: 5em;
   padding: 1em 0.5em 0.5em;
   overflow: hidden;
+  word-break: break-word;
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   background-size: 25px;
   background-repeat: round;
@@ -1705,8 +1715,10 @@ a#google-login:visited {
 }
 
 #match-form #match-bulk > textarea {
-  margin-top: 0.75rem;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 0.9375rem;
   line-height: 1.6;
+  margin-top: 0.75rem;
 }
 
 #match-form #match-expert {
@@ -1729,16 +1741,22 @@ a#google-login:visited {
   border: 1px solid transparent;
   border-radius: 0.25em;
   outline: none;
-  color: rgba(10, 10, 10, 0.87);
+  background-color: #FFFFFF;
+  color: rgba(10, 10, 10, 0.4);
 }
 
 #match-form .rich-text-editor:focus {
-  border-color: #85B7D9 !important;
+  /*border-color: @focusedFormBorderColor !important;*/
+  background-color: rgba(255, 255, 240, 0.33);
+  border-color: #E5DFA1;
+  color: rgba(10, 10, 10, 0.87);
 }
 
 #match-form .rich-text-editor:not([contenteditable='true']) {
-  cursor: not-allowed;
-  color: #767676;
+  /*cursor: not-allowed;*/
+  color: rgba(10, 10, 10, 0.4);
+  background-color: transparent;
+  border-color: transparent;
 }
 
 #match-form .format-toolbar {
@@ -1792,7 +1810,12 @@ a#google-login:visited {
 
 #match-form #match-table tbody > tr > td:first-of-type {
   font-family: 'marcher-medium', sans-serif;
+  font-size: 1rem;
   color: rgba(10, 10, 10, 0.87);
+}
+
+#match-form #match-table tbody > tr > td:first-of-type > span * {
+  font-size: 0.9375rem;
 }
 
 #match-form #match-table tbody > tr > td .ui.icon.trash.button {
@@ -23726,7 +23749,7 @@ ol.ui.suffixed.list li:before,
   font-size: 1em;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.4);
   border-radius: 0.25rem;
   box-shadow: 0 0 0 0 transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
@@ -23744,7 +23767,7 @@ ol.ui.suffixed.list li:before,
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
   outline: none;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.4);
   border-radius: 0.25rem;
   box-shadow: 0 0 0 0 transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
@@ -23844,7 +23867,7 @@ ol.ui.suffixed.list li:before,
   border-radius: 0.25rem;
   box-shadow: 0 0 0 0 transparent inset;
   padding: 0.62em 0.875em;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.4);
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
 }
@@ -23997,27 +24020,27 @@ ol.ui.suffixed.list li:before,
 /* browsers require these rules separate */
 
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(201, 201, 201, 0.87);
+  color: rgba(201, 201, 201, 0.4);
 }
 
 .ui.form :-ms-input-placeholder {
-  color: rgba(201, 201, 201, 0.87) !important;
+  color: rgba(201, 201, 201, 0.4) !important;
 }
 
 .ui.form ::-moz-placeholder {
-  color: rgba(201, 201, 201, 0.87);
+  color: rgba(201, 201, 201, 0.4);
 }
 
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(125, 125, 125, 0.87);
+  color: rgba(125, 125, 125, 0.4);
 }
 
 .ui.form :focus:-ms-input-placeholder {
-  color: rgba(125, 125, 125, 0.87) !important;
+  color: rgba(125, 125, 125, 0.4) !important;
 }
 
 .ui.form :focus::-moz-placeholder {
-  color: rgba(125, 125, 125, 0.87);
+  color: rgba(125, 125, 125, 0.4);
 }
 
 /* Error Placeholder */
@@ -24434,7 +24457,7 @@ ol.ui.suffixed.list li:before,
 .ui.inverted.form input[type="url"] {
   background: #FFFFFF;
   border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.4);
   box-shadow: none;
 }
 
@@ -36177,7 +36200,7 @@ a.inverted.ui.card:hover,
   background: #FFFFFF;
   display: inline-block;
   padding: 0.5625em 3.075em 0.5625em 0.875em;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.4);
   box-shadow: none;
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.25rem;
@@ -36360,31 +36383,31 @@ select.ui.dropdown {
 /* Hover */
 
 .ui.selection.dropdown:hover {
-  border-color: rgba(34, 36, 38, 0.35);
+  border-color: #E5DFA1;
   box-shadow: none;
 }
 
 /* Active */
 
 .ui.selection.active.dropdown {
-  border-color: #96C8DA;
+  border-color: #E5DFA1;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
 
 .ui.selection.active.dropdown .menu {
-  border-color: #96C8DA;
+  border-color: #E5DFA1;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
 
 /* Focus */
 
 .ui.selection.dropdown:focus {
-  border-color: #96C8DA;
+  border-color: #E5DFA1;
   box-shadow: none;
 }
 
 .ui.selection.dropdown:focus .menu {
-  border-color: #96C8DA;
+  border-color: #E5DFA1;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
 
@@ -36398,12 +36421,12 @@ select.ui.dropdown {
 /* Visible Hover */
 
 .ui.selection.active.dropdown:hover {
-  border-color: #96C8DA;
+  border-color: #E5DFA1;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
 
 .ui.selection.active.dropdown:hover .menu {
-  border-color: #96C8DA;
+  border-color: #E5DFA1;
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
 
@@ -37800,6 +37823,11 @@ select.ui.dropdown {
 /*******************************
         User Overrides
 *******************************/
+
+.ui.selection.dropdown:focus,
+.ui.selection.active.dropdown {
+  background-color: rgba(255, 255, 240, 0.33);
+}
 /*!
  * # Fomantic-UI - Loader
  * http://github.com/fomantic/Fomantic-UI/

@@ -919,7 +919,7 @@ a#google-login:visited {
   font-size: 1em;
 }
 #profile #payments #payment-table tbody > tr > td {
-  font-size: 0.9375em;
+  font-size: 1em;
 }
 #profile #account-summary .ui.items > .item {
   line-height: 1.2;
@@ -974,6 +974,7 @@ a#google-login:visited {
   min-height: 5em;
   padding: 1em 0.5em 0.5em;
   overflow: hidden;
+  word-break: break-word;
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   background-size: 25px;
   background-repeat: round;
@@ -1097,8 +1098,10 @@ a#google-login:visited {
   opacity: 0.45;
 }
 #match-form #match-bulk > textarea {
-  margin-top: 0.75rem;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 0.9375rem;
   line-height: 1.6;
+  margin-top: 0.75rem;
 }
 #match-form #match-expert {
   position: relative;
@@ -1118,14 +1121,20 @@ a#google-login:visited {
   border: 1px solid transparent;
   border-radius: 0.25em;
   outline: none;
-  color: rgba(10, 10, 10, 0.87);
+  background-color: #FFFFFF;
+  color: rgba(10, 10, 10, 0.4);
 }
 #match-form .rich-text-editor:focus {
-  border-color: #85B7D9 !important;
+  /*border-color: @focusedFormBorderColor !important;*/
+  background-color: rgba(255, 255, 240, 0.33);
+  border-color: #E5DFA1;
+  color: rgba(10, 10, 10, 0.87);
 }
 #match-form .rich-text-editor:not([contenteditable='true']) {
-  cursor: not-allowed;
-  color: #767676;
+  /*cursor: not-allowed;*/
+  color: rgba(10, 10, 10, 0.4);
+  background-color: transparent;
+  border-color: transparent;
 }
 #match-form .format-toolbar {
   text-align: center;
@@ -1170,7 +1179,11 @@ a#google-login:visited {
 }
 #match-form #match-table tbody > tr > td:first-of-type {
   font-family: 'marcher-medium', sans-serif;
+  font-size: 1rem;
   color: rgba(10, 10, 10, 0.87);
+}
+#match-form #match-table tbody > tr > td:first-of-type > span * {
+  font-size: 0.9375rem;
 }
 #match-form #match-table tbody > tr > td .ui.icon.trash.button {
   -webkit-transition: background-color 0.5s ease;

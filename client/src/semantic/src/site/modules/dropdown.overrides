@@ -1,3 +1,7 @@
 /*******************************
         User Overrides
 *******************************/
+.ui.selection.dropdown:focus,
+.ui.selection.active.dropdown {
+  background-color: @ivory;
+}

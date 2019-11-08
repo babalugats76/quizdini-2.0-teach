@@ -33,7 +33,7 @@ class Dashboard extends Component {
         ? games.findIndex(game => game.name === from)
         : games.findIndex(game => game.name === Dashboard.DEFAULT_GAME);
 
-    this.state = { activeGameIdx, skipAuth , message };
+    this.state = { activeGameIdx, skipAuth, message };
     history.replace({ pathname: "/dashboard", state: {} });
   }
 
@@ -46,23 +46,28 @@ class Dashboard extends Component {
    * i.e., to avoid double auth calls, etc.
    *
    * @param {string} activeGameIdx Index of active game
-   * @param {boolean} includeAuth  Whether to fetch auth
    */
-  refreshData(activeGameIdx, includeAuth = true) {
-    const { fetchMatches, fetchAuth } = this.props; // Grab all Redux actions
+  refreshData(activeGameIdx) {
+    const { fetchMatches } = this.props; // Grab Redux actions
     const { name: activeGame } = games[activeGameIdx]; // Name of current game
     switch (activeGame) {
       case "MATCH":
-        if (includeAuth) fetchAuth(); 
         return fetchMatches();
       default:
         return;
     }
   }
 
+  /***
+   * Fetch initial data; thereafter handled by menu change, etc.
+   * Downstream components responsible for updating auth as necessary
+   */
   componentDidMount() {
     const { activeGameIdx, skipAuth } = this.state; // Index of current game, whether to bypass auth
-    this.refreshData(activeGameIdx, !skipAuth); // Refresh data
+    const { fetchAuth } = this.props; // Grab Redux actions
+    if (!skipAuth) fetchAuth();  // Unless directed not to, update auth
+    this.refreshData(activeGameIdx); // Refresh data
+
   }
 
   handleDismiss = e => {

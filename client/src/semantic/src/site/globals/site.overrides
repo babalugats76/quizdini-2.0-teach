@@ -781,7 +781,7 @@ a#google-login {
         font-size: 1em;
       }
       tbody > tr > td {
-        font-size: 0.9375em;
+        font-size: 1em;
       }
     }
   }
@@ -848,6 +848,7 @@ a#google-login {
           min-height: 5em;
           padding: 1em 0.5em 0.5em;
           overflow: hidden;
+          word-break: break-word;
           border-bottom: 1px solid @subtleTransparentBlack;
           background-size: 25px;
           background-repeat: round;
@@ -978,8 +979,10 @@ a#google-login {
 
   #match-bulk {
     > textarea {
-      margin-top: 0.75rem;
+      font-family: @sansSerifFont;
+      font-size: .9375rem;
       line-height: 1.6;
+      margin-top: 0.75rem;
     }
   }
 
@@ -1002,13 +1005,19 @@ a#google-login {
     border: 1px solid transparent;
     border-radius: 0.25em;
     outline: none;
-    color: @textColor;
+    background-color: @white;
+    color: @unselectedTextColor;
     &:focus {
-      border-color: @focusedFormBorderColor !important;
+      /*border-color: @focusedFormBorderColor !important;*/
+      background-color: @ivory;
+      border-color: @paleGoldenRod;
+      color: @selectedTextColor;
     }
     &:not([contenteditable='true']) {
-      cursor: not-allowed;
-      color: @greyTextColor;
+      /*cursor: not-allowed;*/
+      color: @unselectedTextColor;
+      background-color: transparent;
+      border-color: transparent;
     }
   }
 
@@ -1063,7 +1072,11 @@ a#google-login {
 
       &:first-of-type {
         font-family: @headerFont;
+        font-size: 1rem;
         color: @textColor;
+        > span * {
+          font-size: .9375rem;
+        }
       }
       .ui.icon.trash.button {
         transition: background-color 0.5s ease;

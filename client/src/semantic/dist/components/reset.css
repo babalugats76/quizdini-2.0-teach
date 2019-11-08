@@ -414,3 +414,11 @@ button,
 [type='submit'] {
   -webkit-appearance: none !important;
 }
+code,
+kbd,
+samp,
+pre,
+sup,
+sub {
+  font-family: 'Fira Code', Lucida Console, Courier, monospace;
+}

@@ -1,3 +1,8 @@
 /*******************************
     User Variable Overrides
 *******************************/
+@selectionTextColor: @unselectedTextColor; 
+@selectionFocusBorderColor: @paleGoldenRod;
+@selectionVisibleBorderColor: @paleGoldenRod;
+@selectionHoverBorderColor: @paleGoldenRod;
+@selectionActiveHoverBorderColor: @paleGoldenRod;

@@ -22,3 +22,12 @@ button,
 [type='submit'] {
   -webkit-appearance: none !important;
 }
+
+code,
+kbd,
+samp,
+pre,
+sup,
+sub {
+  font-family: @monospaceFont;
+}

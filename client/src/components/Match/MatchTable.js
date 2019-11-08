@@ -104,7 +104,7 @@ const MatchTable = ({
         )}
         <Grid.Row verticalAlign="top">
           <Grid.Column>
-            <Table celled compact="very">
+            <Table celled compact="very" striped>
               <Table.Header fullWidth>
                 <Table.Row>
                   <Table.HeaderCell>Term</Table.HeaderCell>
