@@ -420,5 +420,5 @@ samp,
 pre,
 sup,
 sub {
-  font-family: 'Fira Code', Lucida Console, Courier, monospace;
+  font-family: Lucida Console, Monaco, monospace;
 }

@@ -463,7 +463,7 @@ samp,
 pre,
 sup,
 sub {
-  font-family: 'Fira Code', Lucida Console, Courier, monospace;
+  font-family: Lucida Console, Monaco, monospace;
 }
 /*!
  * # Fomantic-UI - Site
@@ -688,33 +688,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   Self-Hosted Fonts
 --------------------*/
 
-@font-face {
-  font-family: 'CartoGothic Std Book';
-  font-style: normal;
-  font-weight: normal;
-  src: local('CartoGothic Std Book'), url('/fonts/CartoGothicStd-Book.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'CartoGothic Std Italic';
-  font-style: normal;
-  font-weight: normal;
-  src: local('CartoGothic Std Italic'), url('/fonts/CartoGothicStd-Italic.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'CartoGothic Std Bold';
-  font-style: normal;
-  font-weight: normal;
-  src: local('CartoGothic Std Bold'), url('/fonts/CartoGothicStd-Bold.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'CartoGothic Std Bold Italic';
-  font-style: normal;
-  font-weight: normal;
-  src: local('CartoGothic Std Bold Italic'), url('/fonts/CartoGothicStd-BoldItalic.woff') format('woff');
-}
+/* lexend-deca-regular - latin */
 
 @font-face {
   font-family: 'Lexend Deca';
@@ -723,22 +697,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
  url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 400;
-  src: local(''), url('/fonts/fira-code-v5-latin-regular.woff2') format('woff2'), 
- url('/fonts/fira-code-v5-latin-regular.woff') format('woff');
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-@font-face {
-  font-family: 'marcher-light';
-  src: url('/fonts/marcher-light-webfont.woff2') format('woff2'), url('/fonts/marcher-light-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
 }
 
 @font-face {
@@ -1187,12 +1145,12 @@ svg.icon.chevron-down.closed {
 
 #about.page section,
 #terms.page section {
-  font-family: 'marcher-book', sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
 }
 
 #about.page section p,
 #terms.page section p {
-  font-size: 1.0625em;
+  font-size: 1rem;
 }
 
 #about.page section a,
@@ -1715,7 +1673,7 @@ a#google-login:visited {
 }
 
 #match-form #match-bulk > textarea {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
   font-size: 0.9375rem;
   line-height: 1.6;
   margin-top: 0.75rem;

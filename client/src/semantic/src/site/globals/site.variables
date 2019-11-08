@@ -6,7 +6,6 @@
   Web Fonts, etc.
 --------------------*/
 
-@firaCode               : 'Fira Code', monospace;
 @lexendDeca             : 'Lexend Deca', sans-serif;
 @marcherLight           : 'marcher-light', sans-serif; 
 @marcherBook            : 'marcher-book', sans-serif;
@@ -14,17 +13,17 @@
 @marcherMedium          : 'marcher-medium', sans-serif;
 @marcherExtraBold       : 'marcher-extrabold', sans-serif;
 @marcherExtraBoldItalic : 'marcher-extrabolditalic', sans-serif;
-@sansSerifFont          : Verdana, Arial, Helvetica, sans-serif;
-@monospaceFont          : 'Fira Code', Lucida Console, Courier, monospace;
+@verdana                : Verdana, Geneva, sans-serif;
 
-
+@monospaceFont          : Lucida Console, Monaco, monospace;
 @extraBoldFont          : @marcherExtraBold;
 @extraBoldItalicFont    : @marcherExtraBoldItalic;
 
 // Override Semantic Global Values
 @fontName               : @marcherRegular;
 @pageFont               : @marcherRegular;
-@bookFont               : @marcherBook;
+@bookFont               : @verdana;
+@inputFont              : @verdana;
 @menuFont               : @lexendDeca;
 @headerFont             : @marcherMedium;
 
