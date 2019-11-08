@@ -298,8 +298,8 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .pushable .pusher .ui.massive.menu.fixed {
   background-color: rgba(26, 28, 87, 0.9);
 }
-.pushable .pusher.menu-fixed > .page-wrapper {
-  padding-top: 69px;
+.pushable .pusher.menu-fixed {
+  background-color: black;
 }
 .pushable .pusher > .page-wrapper {
   display: -webkit-box;

@@ -3,6 +3,7 @@ import { withRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import withSizes from 'react-sizes';
+import { Visibility } from 'semantic-ui-react';
 import MatchGame from './Match';
 import Login from './Login/';
 import Register from './Register';
@@ -69,11 +70,27 @@ const PublicRoute = ({ component: Component, title, ...rest }) => {
 };
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fixTopMenu: false
+    };
+  }
   componentDidMount() {
     this.props.fetchAuth();
   }
 
+  stickTopMenu = () => {
+    this.setState({ fixTopMenu: true });
+  };
+
+  unstickTopMenu = () => {
+    this.setState({ fixTopMenu: false });
+  };
+
   render() {
+    const { fixTopMenu } = this.state;
+
     const {
       accountType,
       credits,
@@ -87,8 +104,19 @@ class App extends Component {
     if (error) return <div>Error component here...</div>;
 
     return (
-      <NavBar credits={credits} isMobile={isMobile} loggedIn={loggedIn}>
-        <div className="page-wrapper">
+      <NavBar
+        credits={credits}
+        fixTopMenu={fixTopMenu}
+        isMobile={isMobile}
+        loggedIn={loggedIn}
+      >
+        <Visibility
+          as="div"
+          className="page-wrapper"
+          onTopPassed={this.stickTopMenu}
+          onTopVisible={this.unstickTopMenu}
+          once={false}
+        >
           <Switch>
             <PrivateRoute
               loggedIn={loggedIn}
@@ -164,7 +192,7 @@ class App extends Component {
             />
             <PublicRoute component={Landing} />
           </Switch>
-        </div>
+        </Visibility>
         <Footer />
       </NavBar>
     );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Container, Sidebar, Image, Menu, Visibility } from 'semantic-ui-react';
+import { Container, Sidebar, Image, Menu } from 'semantic-ui-react';
 import Icon from './UI/Icon';
 import logo from '../logo.svg';
 
@@ -10,7 +10,6 @@ class NavBar extends Component {
     super(props);
     this.state = {
       visible: false,
-      fixTopMenu: false
     };
   }
 
@@ -25,13 +24,10 @@ class NavBar extends Component {
     this.setState({ visible: !this.state.visible });
   };
 
-  stickTopMenu = () => this.setState({ fixTopMenu: true });
-  unstickTopMenu = () => this.setState({ fixTopMenu: false });
-
   // conditional render of bars, based upon Responsive
   render() {
-    const { children, loggedIn, credits, isMobile } = this.props;
-    const { visible, fixTopMenu } = this.state;
+    const { children, credits, fixTopMenu, isMobile,  loggedIn } = this.props;
+    const { visible } = this.state;
     const navItems = [
       {
         key: 'logo',
@@ -100,9 +96,7 @@ class NavBar extends Component {
         key: 'logout-mobile',
         as: 'a',
         href: '/api/logout',
-        content: isMobile && (
-          <Icon name="logout" />
-        ),
+        content: isMobile && <Icon name="logout" />,
         position: 'right',
         loggedIn: true,
         sidebar: false
@@ -186,11 +180,6 @@ class NavBar extends Component {
           className={fixTopMenu ? 'menu-fixed' : undefined}
           dimmed={visible}
         >
-          <Visibility
-            onBottomPassed={this.stickTopMenu}
-            onBottomVisible={this.unStickTopMenu}
-            once={false}
-          >
             <Menu
               as="nav"
               borderless
@@ -210,7 +199,6 @@ class NavBar extends Component {
               )}
               <Container>{topbarItems}</Container>
             </Menu>
-          </Visibility>
           {children}
         </Sidebar.Pusher>
       </Sidebar.Pushable>

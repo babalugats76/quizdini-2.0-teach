@@ -105,9 +105,7 @@
       }
     }
     &.menu-fixed {
-      > .page-wrapper {
-        padding-top: 69px;
-      }
+      background-color: black;
     }
     > .page-wrapper {
       display: flex;
