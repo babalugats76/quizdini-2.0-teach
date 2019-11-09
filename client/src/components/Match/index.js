@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import * as actions from "../../actions";
-import { Container } from "semantic-ui-react";
-import Loader from "../UI/Loader";
-import MatchForm from "./MatchForm";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
+import { Container } from 'semantic-ui-react';
+import Loader from '../UI/Loader';
+import MatchForm from './MatchForm';
 
 class Match extends Component {
   // bind this way due to async/await arrow function bug in Babel
@@ -21,9 +21,9 @@ class Match extends Component {
     await fetchMatch(matchId);
     // TODO empty match logic and handling
     const {
-      matchGame: { game: { title = "Create Match Game" } = {} } = {}
+      matchGame: { game: { title = 'Create Match Game' } = {} } = {}
     } = this.props;
-    const pageTitle = [process.env.REACT_APP_WEBSITE_NAME, title].join(" | ");
+    const pageTitle = [process.env.REACT_APP_WEBSITE_NAME, title].join(' | ');
     document.title = title && pageTitle;
   }
 
@@ -55,28 +55,28 @@ class Match extends Component {
     const { error, game = {} } = matchGame;
 
     if (error) {
+      const { message: errorMessage = '', code = '' } = error;
 
-      const { message: errorMessage = "" } = error;
-      
-      await setStatus({
-        header: 'Match Error',
-        content: errorMessage,
-        color: 'red'
-      });
+      switch (code) {
+        case 'InsufficientCredits':
+          return this.props.history.push('/dashboard', {
+            from: 'MATCH',
+            message: {
+              color: 'red',
+              content: errorMessage,
+              header: 'OH NO!'
+            },
+            skipAuth: false
+          });
+        default:
+          await setStatus({
+            header: 'Match Error',
+            content: errorMessage,
+            color: 'red'
+          });
 
-      return await setSubmitting(false);
-
-      /* If redirecting to dashboard is preferred */
-      /*return this.props.history.push("/dashboard", {
-        from: "MATCH",
-        message: {
-          color: "red",
-          content: errorMessage,
-          header: "Match Error"
-        },
-        skipAuth: false
-      });*/
-      
+          return await setSubmitting(false);
+      }
     }
 
     const newMatchId = game.matchId;
@@ -99,7 +99,7 @@ class Match extends Component {
 
       setTimeout(() => {
         // Wait and then redirect to self with newly created id from database
-        this.props.history.push("/match", { matchId: newMatchId });
+        this.props.history.push('/match', { matchId: newMatchId });
       }, 300);
     }
   }

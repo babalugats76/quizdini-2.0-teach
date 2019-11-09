@@ -112,7 +112,7 @@ class Checkout extends Component {
     } else {
     
        // This is done here to show credit increase ASAP
-      fetchAuth();
+      await fetchAuth();
 
       return setTimeout(() => {
         this.props.history.push('/dashboard', {

@@ -42,7 +42,7 @@ Messages need to be standardized, etc.
 | **Unsuccessful login attempt**                     | <blockquote>Authentication Error</blockquote>      | <blockquote>Unable to Login - Invalid credentials or unverified account.</blockquote>   |  red  |
 | **Successful account verification**                | <blockquote>Verification Successful</blockquote>   | <blockquote>User account validated</blockquote>                                         | green |
 | **Unsuccessful account verification**              | <blockquote>Verification Unsuccessful</blockquote> | <blockquote>Token is invalid, claimed or expired</blockquote>                           |  red  |
-| **Insufficent credits (when trying to save game)** | <blockquote>Match Error</blockquote>     | <blockquote>You account has insufficient credits: `${credits}`.</blockquote>                  |  red  |
+| **Insufficent credits (when trying to save game)** | <blockquote>OH NO!</blockquote>     | <blockquote>You account has insufficient credits: `%credits%`.</blockquote>                  |  red  |
 | **Successful password change**                     | <blockquote>Success!</blockquote>                  | <blockquote>Your password has been updated.</blockquote>                                | green |
 | **Invalid credit card**                            | <blockquote>Validation Error</blockquote>          | <blockquote>Your card number is incomplete.</blockquote> (provided by Stripe)           |  red  |
 | **Failed purchase**                                | <blockquote>Transaction Failed</blockquote>        | <blockquote>Your card was declined.</blockquote> (provided by Stripe)                   |  red  |
@@ -84,8 +84,6 @@ Messages need to be standardized, etc.
     - Cookies
   - Login
     - Update sign in for to use `touch` for the errors
-  - Match
-    - Whether to Branch to redirect on Insufficient Credits (specific to that type of exception...all others will use `renderMessage` functionality)
   - Dashboard
     - Refine functional component, e.g., `MatchIntro`
     - Consider adding `isEmptyArray` utility function for use in `Match`, etc.

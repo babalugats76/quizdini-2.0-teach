@@ -65,6 +65,7 @@ class Dashboard extends Component {
   componentDidMount() {
     const { activeGameIdx, skipAuth } = this.state; // Index of current game, whether to bypass auth
     const { fetchAuth } = this.props; // Grab Redux actions
+    console.log(skipAuth);
     if (!!skipAuth===false) fetchAuth();  // Unless directed not to, update auth
     this.refreshData(activeGameIdx); // Refresh data
   }
