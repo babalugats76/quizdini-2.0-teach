@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Container, Sidebar, Image, Menu } from 'semantic-ui-react';
+import { Container, Image, Menu, Sidebar } from 'semantic-ui-react';
 import Icon from './UI/Icon';
 import logo from '../logo.svg';
+
+const NavProfile = ({ googlePicture, username }) => {
+  return (
+    (username && <span>{username}</span>) ||
+    (googlePicture && (
+      <>
+        <span>Profile</span>
+        <Image avatar className="profile" size="mini" spaced="right" src={googlePicture} />
+      </>
+    ))
+  );
+};
 
 class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false,
+      visible: false
     };
   }
 
@@ -26,7 +38,15 @@ class NavBar extends Component {
 
   // conditional render of bars, based upon Responsive
   render() {
-    const { children, credits, fixTopMenu, isMobile,  loggedIn } = this.props;
+    const {
+      children,
+      credits,
+      fixTopMenu,
+      googlePicture,
+      isMobile,
+      loggedIn,
+      username
+    } = this.props;
     const { visible } = this.state;
     const navItems = [
       {
@@ -78,7 +98,7 @@ class NavBar extends Component {
         key: 'profile',
         as: Link,
         to: '/profile',
-        content: 'Profile',
+        content: NavProfile({ googlePicture, username }),
         position: 'left',
         loggedIn: true,
         sidebar: true
@@ -164,7 +184,7 @@ class NavBar extends Component {
       });
 
     return (
-      <Sidebar.Pushable>
+      <Sidebar.Pushable className={fixTopMenu ? 'menu-is-fixed' : undefined}>
         <Sidebar
           as={Menu}
           animation="push"
@@ -177,28 +197,28 @@ class NavBar extends Component {
           {sidebarItems}
         </Sidebar>
         <Sidebar.Pusher
-          className={fixTopMenu ? 'menu-fixed' : undefined}
           dimmed={visible}
+          onClick={isMobile && visible ? this.handlePusherClick : null}
         >
-            <Menu
-              as="nav"
-              borderless
-              fixed={fixTopMenu ? 'top' : undefined}
-              inverted
-              size="massive"
-            >
-              {sidebarItems.length > 0 && isMobile && (
-                <Menu.Item
-                  key="sidebar"
-                  as="a"
-                  position="left"
-                  onClick={this.handleToggle}
-                >
-                  <Icon name="menu" />
-                </Menu.Item>
-              )}
-              <Container>{topbarItems}</Container>
-            </Menu>
+          <Menu
+            as="nav"
+            borderless
+            fixed={fixTopMenu ? 'top' : undefined}
+            inverted
+            size="massive"
+          >
+            {sidebarItems.length > 0 && isMobile && (
+              <Menu.Item
+                key="sidebar"
+                as="a"
+                position="left"
+                onClick={this.handleToggle}
+              >
+                <Icon name="menu" />
+              </Menu.Item>
+            )}
+            <Container>{topbarItems}</Container>
+          </Menu>
           {children}
         </Sidebar.Pusher>
       </Sidebar.Pushable>

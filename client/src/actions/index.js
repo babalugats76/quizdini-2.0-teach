@@ -47,13 +47,15 @@ export const authBegin = () => async dispatch => {
 };
 
 export const authSuccess = ({
-  loggedIn,
+  accountType,
   credits,
-  accountType
+  googlePicture,
+  loggedIn,
+  username
 }) => async dispatch => {
   dispatch({
     type: TYPES.AUTH_SUCCESS,
-    payload: { loggedIn, credits, accountType }
+    payload: { accountType, credits, googlePicture, loggedIn, username }
   });
 };
 
@@ -66,9 +68,11 @@ export const fetchAuth = () => async dispatch => {
   try {
     const res = await axios.get('/api/current_user');
     const loggedIn = !!res.data;
-    const { credits, googleId } = res.data || {};
+    const { credits, googleId, googlePicture, username } = res.data || {};
     const accountType = googleId ? 'google' : 'local';
-    dispatch(authSuccess({ loggedIn, credits, accountType }));
+    dispatch(
+      authSuccess({ accountType, credits, googlePicture, loggedIn, username })
+    );
   } catch (e) {
     dispatch(authFailure(e.response.data));
   }

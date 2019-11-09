@@ -1,8 +1,11 @@
 import * as TYPES from '../actions/types';
 
 const initialState = {
-  loggedIn: null,
+  accountType: null,
   credits: null,
+  googlePicture: null,
+  loggedIn: null,
+  username: null,
   loaded: false,
   error: null
 };
@@ -19,9 +22,11 @@ export default function(state = initialState, action) {
         ...state,
         loaded: true,
         error: null,
-        loggedIn: action.payload.loggedIn,
+        accountType: action.payload.accountType,
         credits: action.payload.credits,
-        accountType: action.payload.accountType
+        googlePicture: action.payload.googlePicture,
+        loggedIn: action.payload.loggedIn,
+        username: action.payload.username
       };
     case TYPES.AUTH_FAILURE:
       return {

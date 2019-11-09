@@ -1,6 +1,7 @@
 /*******************************
     User Variable Overrides
 *******************************/
+@inputFont: @formInputFont;
 @inputColor: @unselectedTextColor;
 @inputFocusBackground: @ivory;
 @inputFocusBorderColor: @paleGoldenRod;

@@ -45,7 +45,7 @@ const LoginForm = props => {
   }) => {
     return (
       <Segment basic textAlign="center">
-        <ExternalLink href="/auth/google" id="google-login" />
+        <ExternalLink href="/auth/google" id="google-login" target="_self" />
         <Divider content="OR" horizontal section />
         <Form id="login-form" onSubmit={handleSubmit}>
           <Form.Group>

@@ -94,10 +94,12 @@ class App extends Component {
     const {
       accountType,
       credits,
+      googlePicture,
       error,
       isMobile,
       loaded,
-      loggedIn
+      loggedIn,
+      username
     } = this.props;
 
     if (!loaded) return null;
@@ -107,14 +109,17 @@ class App extends Component {
       <NavBar
         credits={credits}
         fixTopMenu={fixTopMenu}
+        googlePicture={googlePicture}
         isMobile={isMobile}
         loggedIn={loggedIn}
+        username={username}
       >
         <Visibility
           as="div"
           className="page-wrapper"
           onTopPassed={this.stickTopMenu}
-          onTopVisible={this.unstickTopMenu}
+          onTopPassedReverse={this.unstickTopMenu}
+          offset={0}
           once={false}
         >
           <Switch>

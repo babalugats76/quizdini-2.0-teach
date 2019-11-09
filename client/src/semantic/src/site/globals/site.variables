@@ -6,6 +6,7 @@
   Web Fonts, etc.
 --------------------*/
 
+@systemFont             : -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
 @lexendDeca             : 'Lexend Deca', sans-serif;
 @marcherLight           : 'marcher-light', sans-serif; 
 @marcherBook            : 'marcher-book', sans-serif;
@@ -15,17 +16,16 @@
 @marcherExtraBoldItalic : 'marcher-extrabolditalic', sans-serif;
 @verdana                : Verdana, Geneva, sans-serif;
 
-@monospaceFont          : Lucida Console, Monaco, monospace;
-@extraBoldFont          : @marcherExtraBold;
-@extraBoldItalicFont    : @marcherExtraBoldItalic;
-
 // Override Semantic Global Values
 @fontName               : @marcherRegular;
 @pageFont               : @marcherRegular;
-@bookFont               : @verdana;
-@inputFont              : @verdana;
-@menuFont               : @lexendDeca;
+@bookFont               : @systemFont;
+@formInputFont          : @verdana;
+@menuFont               : @marcherRegular;
 @headerFont             : @marcherMedium;
+@extraBoldFont          : @marcherExtraBold;
+@extraBoldItalicFont    : @marcherExtraBoldItalic;
+@monospaceFont          : Lucida Console, Monaco, monospace;
 
 @dropCapFont            : @headerFont;
 @googleFontFamily       : 'Lexend+Deca';

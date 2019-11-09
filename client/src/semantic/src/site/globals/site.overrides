@@ -18,19 +18,27 @@
 }
 
 @font-face {
-    font-family: 'marcher-book';
-    src: url('/fonts/marcher-book-webfont.woff2') format('woff2'),
-         url('/fonts/marcher-book-webfont.woff') format('woff');
+    font-family: 'marcher-light';
+    src: url('/fonts/marcher-light-webfont.woff2') format('woff2'),
+         url('/fonts/marcher-light-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'marcher-regular';
-    src: url('/fonts/marcher-regular-webfont.woff2') format('woff2'),
-         url('/fonts/marcher-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'marcher-book';
+  src: url('/fonts/marcher-book-webfont.woff2') format('woff2'),
+    url('/fonts/marcher-book-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'marcher-regular';
+  src: url('/fonts/marcher-regular-webfont.woff2') format('woff2'),
+    url('/fonts/marcher-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
@@ -42,12 +50,11 @@
 }
 
 @font-face {
-    font-family: 'marcher-extrabold';
-    src: url('/fonts/marcher-extrabold-webfont.woff2') format('woff2'),
-         url('/fonts/marcher-extrabold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: 'marcher-extrabold';
+  src: url('/fonts/marcher-extrabold-webfont.woff2') format('woff2'),
+    url('/fonts/marcher-extrabold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
@@ -68,20 +75,24 @@
 }
 
 /*-------------------
-  Page Elements (Global)
---------------------*/
-
-.ui.massive.menu, 
-.ui.pagination.menu {
-  font-family: @menuFont;
-}
-
-/*-------------------
-  Page & Containers
+  Page, Containers, Menus
 --------------------*/
 
 .pushable {
+  
   overflow-y: hidden;
+  
+  &.menu-is-fixed {
+    .ui.massive.menu {
+      background-color: @quizdiniZaffre;
+    }
+    .pusher {
+      > .page-wrapper {
+        padding-top: 69px;
+      }
+    }
+  }
+
   .pusher {
     display: flex;
     flex-direction: column;
@@ -91,6 +102,7 @@
       display: flex;
       flex: 0 0 auto;
       margin: 0;
+      transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
       .item {
         svg.icon {
           width: 1.375em;
@@ -100,12 +112,6 @@
           }
         }
       }
-      &.fixed {
-        background-color: @spaceCadetAlpha9;
-      }
-    }
-    &.menu-fixed {
-      background-color: black;
     }
     > .page-wrapper {
       display: flex;
@@ -143,6 +149,19 @@
       align-items: center;
       justify-content: center;
       background-color: @secondaryColor;
+    }
+  }
+}
+
+.ui.massive.menu,
+.ui.pagination.menu {
+  font-family: @menuFont;
+}
+
+.ui.menu {
+  .link.item {
+    img.profile {
+      margin-left: 10px;
     }
   }
 }
@@ -372,7 +391,6 @@ svg {
 --------------------*/
 
 #landing {
-
   .banner {
     &.stripe {
       padding: 1rem 0;
@@ -400,7 +418,7 @@ svg {
       }
       &#slogan {
         color: @darkWhite;
-        margin-top: .5rem;
+        margin-top: 0.5rem;
       }
     }
     &.large {
@@ -432,7 +450,6 @@ svg {
       color: @strongColor;
     }
   }
-
 }
 
 /*-------------------
@@ -444,11 +461,12 @@ svg {
   &.page {
     section {
       font-family: @bookFont;
-      p { 
+      p {
         font-size: 1rem;
       }
       a {
         color: @linkColor;
+        font-weight: 600;
         &:hover {
           text-decoration: underline;
         }
@@ -466,7 +484,7 @@ svg {
       }
     }
     strong {
-      font-weight: normal;
+      font-weight: 600;
       color: @strongColor;
     }
 
@@ -535,7 +553,7 @@ svg {
             height: 2rem;
           }
           &:not(:last-of-type) {
-            margin-right: .25rem;
+            margin-right: 0.25rem;
           }
         }
       }
@@ -930,8 +948,8 @@ a#google-login {
 
   #match-bulk {
     > textarea {
-      font-family: @inputFont;
-      font-size: .9375rem;
+      font-family: @formInputFont;
+      font-size: 0.9375rem;
       line-height: 1.6;
       margin-top: 0.75rem;
     }
@@ -1026,7 +1044,7 @@ a#google-login {
         font-size: 1rem;
         color: @textColor;
         > span * {
-          font-size: .9375rem;
+          font-size: 0.9375rem;
         }
       }
       .ui.icon.trash.button {
@@ -1058,6 +1076,16 @@ a#google-login {
   padding: 0.67857143em 1em;
   border-radius: 4px;
   border: 1px solid rgba(34, 36, 38, 0.15);
+}
+
+.StripeElement--complete {
+  color: @unselectedTextColor;
+}
+
+.StripeElement--focus {
+  color: @selectedTextColor;
+  background: @ivory;
+  border-color: @paleGoldenRod;
 }
 
 .StripeElement--invalid {

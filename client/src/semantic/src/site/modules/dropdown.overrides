@@ -5,3 +5,7 @@
 .ui.selection.active.dropdown {
   background-color: @ivory;
 }
+
+.ui.dropdown {
+  font-family: @formInputFont;
+}

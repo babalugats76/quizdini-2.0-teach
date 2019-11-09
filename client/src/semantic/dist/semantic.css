@@ -700,6 +700,13 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 
 @font-face {
+  font-family: 'marcher-light';
+  src: url('/fonts/marcher-light-webfont.woff2') format('woff2'), url('/fonts/marcher-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'marcher-book';
   src: url('/fonts/marcher-book-webfont.woff2') format('woff2'), url('/fonts/marcher-book-webfont.woff') format('woff');
   font-weight: normal;
@@ -744,20 +751,19 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 
 /*-------------------
-  Page Elements (Global)
---------------------*/
-
-.ui.massive.menu,
-.ui.pagination.menu {
-  font-family: 'Lexend Deca', sans-serif;
-}
-
-/*-------------------
-  Page & Containers
+  Page, Containers, Menus
 --------------------*/
 
 .pushable {
   overflow-y: hidden;
+}
+
+.pushable.menu-is-fixed .ui.massive.menu {
+  background-color: #001399;
+}
+
+.pushable.menu-is-fixed .pusher > .page-wrapper {
+  padding-top: 69px;
 }
 
 .pushable .pusher {
@@ -776,6 +782,8 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   -webkit-box-flex: 0;
   flex: 0 0 auto;
   margin: 0;
+  -webkit-transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .pushable .pusher .ui.massive.menu .item svg.icon {
@@ -785,14 +793,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 .pushable .pusher .ui.massive.menu .item svg.icon path {
   fill: #FFFFFF;
-}
-
-.pushable .pusher .ui.massive.menu.fixed {
-  background-color: rgba(26, 28, 87, 0.9);
-}
-
-.pushable .pusher.menu-fixed {
-  background-color: black;
 }
 
 .pushable .pusher > .page-wrapper {
@@ -845,6 +845,15 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   -webkit-box-pack: center;
   justify-content: center;
   background-color: #2e3235;
+}
+
+.ui.massive.menu,
+.ui.pagination.menu {
+  font-family: 'marcher-regular', sans-serif;
+}
+
+.ui.menu .link.item img.profile {
+  margin-left: 10px;
 }
 
 /*-------------------
@@ -1145,7 +1154,7 @@ svg.icon.chevron-down.closed {
 
 #about.page section,
 #terms.page section {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
 }
 
 #about.page section p,
@@ -1156,6 +1165,7 @@ svg.icon.chevron-down.closed {
 #about.page section a,
 #terms.page section a {
   color: #0E79B2;
+  font-weight: 600;
 }
 
 #about.page section a:hover,
@@ -1182,7 +1192,7 @@ svg.icon.chevron-down.closed {
 
 #about.page strong,
 #terms.page strong {
-  font-weight: normal;
+  font-weight: 600;
   color: #C28F3C;
 }
 
@@ -1804,6 +1814,16 @@ a#google-login:visited {
   padding: 0.67857143em 1em;
   border-radius: 4px;
   border: 1px solid rgba(34, 36, 38, 0.15);
+}
+
+.StripeElement--complete {
+  color: rgba(10, 10, 10, 0.4);
+}
+
+.StripeElement--focus {
+  color: rgba(10, 10, 10, 0.87);
+  background: rgba(255, 255, 240, 0.33);
+  border-color: #E5DFA1;
 }
 
 .StripeElement--invalid {
@@ -23697,7 +23717,7 @@ ol.ui.suffixed.list li:before,
 .ui.form input[type="text"],
 .ui.form input[type="file"],
 .ui.form input[type="url"] {
-  font-family: 'marcher-regular', sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
   margin: 0;
   outline: none;
   -webkit-appearance: none;
@@ -23731,7 +23751,7 @@ ol.ui.suffixed.list li:before,
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
   font-size: 1em;
-  font-family: 'marcher-regular', sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
   line-height: 1.2857;
   resize: vertical;
 }
@@ -37785,6 +37805,10 @@ select.ui.dropdown {
 .ui.selection.dropdown:focus,
 .ui.selection.active.dropdown {
   background-color: rgba(255, 255, 240, 0.33);
+}
+
+.ui.dropdown {
+  font-family: Verdana, Geneva, sans-serif;
 }
 /*!
  * # Fomantic-UI - Loader

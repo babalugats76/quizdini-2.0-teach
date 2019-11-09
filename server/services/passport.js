@@ -19,9 +19,23 @@ passport.serializeUser((user, done) => {
   }
 });
 
+/**
+ * 11/8/19 - Limited the # of fields deserialized 
+ * so that /api/current_user calls only have the 
+ * profile fields actually used downstream
+ */
+
 passport.deserializeUser(async (id, done) => {
   try {
-    await User.findById(id).then(user => {
+    await User.findById(id, {
+      credits: 1,
+      firstName: 1,
+      googleId: 1,
+      googlePicture: 1,
+      lastName: 1,
+      title: 1,
+      username: 1
+    }).then(user => {
       done(null, user);
     });
   } catch (e) {
@@ -47,13 +61,15 @@ passport.use(
           email_verified,
           family_name,
           given_name,
-          picture, 
+          picture,
           sub
         } = profile._json;
 
-        const existingUser = await User.findOne({
-          $and: [{ googleId: sub }, { googleId: { $exists: true } }]
-        });
+        const existingUser = await User.findOne(
+          {
+            $and: [{ googleId: sub }, { googleId: { $exists: true } }]
+          }
+        );
 
         if (existingUser) {
           return done(null, existingUser); // call Passport callback, providing error and User
@@ -91,16 +107,18 @@ passport.use(
     },
     async (req, username, password, done) => {
       try {
-        const user = await User.findOne({
-          $and: [
-            { username: username.toLowerCase() },
-            { password: md5(password) },
-            { username: { $exists: true } },
-            { password: { $exists: true } },
-            { googleId: { $exists: false } },
-            { verified: true }
-          ]
-        });
+        const user = await User.findOne(
+          {
+            $and: [
+              { username: username.toLowerCase() },
+              { password: md5(password) },
+              { username: { $exists: true } },
+              { password: { $exists: true } },
+              { googleId: { $exists: false } },
+              { verified: true }
+            ]
+          }
+        );
 
         if (!user) return done(null, null);
 

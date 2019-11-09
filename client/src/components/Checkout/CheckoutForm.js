@@ -21,14 +21,18 @@ const elementOptions = disabled => {
     disabled,
     style: {
       base: {
-        color: 'rgba(34, 34, 34, 0.87)',
-        fontFamily: "'Lexend Deca', sans-serif",
+        color: 'rgba(10, 10, 10, 0.40)',
+        fontFamily: "Verdana, Geneva, sans-serif",
         fontSmoothing: 'antialiased',
         fontSize: '17px',
         '::placeholder': {
-          fontFamily: "'Lexend Deca', sans-serif",
+          fontFamily: "Verdana, Geneva, sans-serif",
           fontWeight: 'normal',
           color: '#e1e1e1'
+        },
+        ':focus': {
+          backgroundColor: 'rgba(255,255,240,.33)',
+          color: 'rgba(10, 10, 10, 0.87)'
         },
         ':disabled': {
           color: 'rgba(0,0,0,.05)'
