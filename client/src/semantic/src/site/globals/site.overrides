@@ -948,7 +948,7 @@ a#google-login {
 
   #match-bulk {
     > textarea {
-      font-family: @formInputFont;
+      font-family: @textareaFont;
       font-size: 0.9375rem;
       line-height: 1.6;
       margin-top: 0.75rem;

@@ -20,7 +20,8 @@
 @fontName               : @marcherRegular;
 @pageFont               : @marcherRegular;
 @bookFont               : @systemFont;
-@formInputFont          : @verdana;
+@formInputFont          : @marcherRegular;
+@textareaFont           : @verdana;
 @menuFont               : @marcherRegular;
 @headerFont             : @marcherMedium;
 @extraBoldFont          : @marcherExtraBold;
