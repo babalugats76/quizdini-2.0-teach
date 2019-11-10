@@ -14,6 +14,7 @@
 @marcherMedium          : 'marcher-medium', sans-serif;
 @marcherExtraBold       : 'marcher-extrabold', sans-serif;
 @marcherExtraBoldItalic : 'marcher-extrabolditalic', sans-serif;
+@monospaceFont          : 'Consolas', 'Droid Sans Mono', 'Lucida Console', 'Liberation Mono', monospace;
 @verdana                : Verdana, Geneva, sans-serif;
 
 // Override Semantic Global Values
@@ -21,12 +22,11 @@
 @pageFont               : @marcherRegular;
 @bookFont               : @systemFont;
 @formInputFont          : @marcherRegular;
-@textareaFont           : @verdana;
+@textareaFont           : @monospaceFont;
 @menuFont               : @marcherRegular;
 @headerFont             : @marcherMedium;
 @extraBoldFont          : @marcherExtraBold;
 @extraBoldItalicFont    : @marcherExtraBoldItalic;
-@monospaceFont          : Lucida Console, Monaco, monospace;
 
 @dropCapFont            : @headerFont;
 @googleFontFamily       : 'Lexend+Deca';

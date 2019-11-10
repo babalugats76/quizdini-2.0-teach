@@ -1068,9 +1068,9 @@ a#google-login:visited {
   opacity: 0.45;
 }
 #match-form #match-bulk > textarea {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: 'Consolas', 'Droid Sans Mono', 'Lucida Console', 'Liberation Mono', monospace;
   font-size: 0.9375rem;
-  line-height: 1.6;
+  line-height: 1.375rem;
   margin-top: 0.75rem;
 }
 #match-form #match-expert {

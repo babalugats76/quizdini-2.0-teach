@@ -950,7 +950,7 @@ a#google-login {
     > textarea {
       font-family: @textareaFont;
       font-size: 0.9375rem;
-      line-height: 1.6;
+      line-height: 1.375rem;
       margin-top: 0.75rem;
     }
   }

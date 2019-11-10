@@ -68,7 +68,6 @@ Messages need to be standardized, etc.
     - Update logo to be 300px-wide friend logo with text
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Server
-  - Add `code` to all errors, e.g., InsufficientCredits
 - Client
   - Images
     - Once all images are known, move to S3/Cloudfront
