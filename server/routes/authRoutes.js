@@ -12,7 +12,7 @@ module.exports = app => {
         if (err) return next(err);
         if (!user)
           throw new LoginFailed(
-            'Unable to Login - Invalid credentials or unverified account.'
+            'Please check your credentials or verify your account.'
           );
         const message = `Welcome back, ${user.fullName}`;
         res.send(message);

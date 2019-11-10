@@ -2,6 +2,7 @@ import * as TYPES from "../actions/types";
 
 const initialState = {
   payment: null,
+  message: null,
   loading: false,
   error: null
 };
@@ -13,7 +14,8 @@ export default function (state = initialState, action) {
         ...state,
         loading: true,
         error: null,
-        payment: null
+        payment: null,
+        message: null
       };
     case TYPES.CHECKOUT_RESET_END:
       return {
@@ -24,19 +26,22 @@ export default function (state = initialState, action) {
       return {
         ...state,
         error: null,
-        payment: null
+        payment: null,
+        message: null
       };
     case TYPES.CHARGE_SUCCESS:
       return {
         ...state,
         error: null,
-        payment: action.payload.payment
+        payment: action.payload.payment,
+        message: action.payload.message
       };
     case TYPES.CHARGE_FAILURE:
       return {
         ...state,
         error: action.payload.error,
-        payment: null
+        payment: null,
+        message: null
       };
     default:
       return state;

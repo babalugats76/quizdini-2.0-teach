@@ -45,12 +45,13 @@ class Login extends Component {
     const { resetForm, setStatus, setSubmitting } = actions; // Actions from form
     await resetForm();
     await loginUser(username, password); // Redux API call / will update login prop
-    const { login: { error } = {} } = this.props; // Get latest version of login props (mapped from state)
+    const { login: { error } = {} } = this.props; // Destructure error from login props
 
     if (error) {
+      const { message: errorMessage = ''} = error;
       await setStatus({
-        header: 'Authentication Error',
-        content: error.message || '',
+        header: "Oops! We can't log you in!",
+        content: errorMessage,
         color: 'red'
       });
       return setSubmitting(false);

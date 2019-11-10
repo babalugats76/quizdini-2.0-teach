@@ -97,15 +97,17 @@ class Checkout extends Component {
     const { tokenId, amount, credits, cardholderName } = values; // Get form values (for charge)
     const { setStatus, setSubmitting, clearStripeFields } = actions; // Get Formik helper functions, etc.
     await processCard({ tokenId, amount, credits, cardholderName }); // Call Redux action passing charge values
-    const { payment, error } = this.props; // Get latest version of payment props (mapped from state)
+    
+    const { checkout: { message, error } = {} } = this.props; // Destructure message, error from checkout props
     if (error) {
+      const { message: errorMessage = ''} = error;
 
       // Clear form (hide sensitive info)
       clearStripeFields();
 
       await setStatus({
-        header: 'Transaction Failed',
-        content: error.message || '',
+        header: 'Payment Failed',
+        content: errorMessage,
         color: 'red'
       });
       return setSubmitting(false);
@@ -118,8 +120,8 @@ class Checkout extends Component {
         this.props.history.push('/dashboard', {
           from: 'CHECKOUT',
           message: {
-            header: 'Payment Successful',
-            content: payment.description || '',
+            header: "Success!",
+            content: message,
             color: 'green'
           },
           skipAuth: true
@@ -163,7 +165,7 @@ Checkout.propTypes = {
   history: PropTypes.object.isRequired
 };
 
-const mapStateToProps = ({ checkout }) => ({ ...checkout });
+const mapStateToProps = ({ checkout }) => ({ checkout });
 
 export default connect(
   mapStateToProps,

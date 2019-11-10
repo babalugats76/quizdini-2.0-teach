@@ -56,28 +56,27 @@ class Register extends Component {
       username
     }); // Call Redux action passing registration values
 
-    const { register: { user, error } = {} } = this.props; // get latest version of props (mapped from state)
+    const { register: { message, error } = {} } = this.props; // Destructure message, error from register props
 
     if (error) {
-      // If error in processing
+      const { message: errorMessage = ''} = error;
       await setStatus({
         color: 'red',
-        content: error.message || '',
+        content: errorMessage,
         header: 'Registration Error'
       });
       return setSubmitting(false);
-    } else {
-      return setTimeout(() => {
-        const { email } = { ...user };
-        this.props.history.push('/login', {
-          message: {
-            color: 'green',
-            content: `Check your email, ${email}, for a link to validate your email`,
-            header: 'Registration Successful'
-          }
-        });
-      }, 300);
     }
+
+    return setTimeout(() => {
+      this.props.history.push('/login', {
+        message: {
+          header: 'Welcome to Quizdini!',
+          content: message,
+          color: 'green',
+        }
+      });
+    }, 300);
   }
 
   renderForm = ({ stateOptions, countryOptions }) => {
@@ -94,18 +93,12 @@ class Register extends Component {
 
   render() {
     const {
-      stateOptions: {
-        error: stateError,
-        loading: stateLoading
-      } = {},
-      countryOptions: {
-        error: countryError,
-        loading: countryLoading
-      } = {}
+      stateOptions: { error: stateError, loading: stateLoading } = {},
+      countryOptions: { error: countryError, loading: countryLoading } = {}
     } = this.props;
 
     if (stateError || countryError) return <div>Error!</div>;
-    
+
     const showLoader = stateLoading || countryLoading;
     const form = this.renderForm(this.props);
 

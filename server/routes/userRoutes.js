@@ -47,9 +47,7 @@ module.exports = app => {
 
       // Conditionally, throw exception
       if (usernameTaken)
-        throw new DuplicateUsername(
-          `Duplicate user - ${username} already exists`
-        );
+        throw new DuplicateUsername(`${username} already exists.`);
 
       // Check for duplicate email
       const emailTaken = await User.findOne({
@@ -63,7 +61,7 @@ module.exports = app => {
       // Conditionally, throw exception
       if (emailTaken)
         throw new DuplicateEmail(
-          `Duplicate email - ${email} is associated with another account`
+          `${email} is already already associated with another account.`
         );
 
       // Create user record
@@ -102,7 +100,8 @@ module.exports = app => {
         console.log('Unable to queue email: %s, %s', user.fullName, user.email);
       }
 
-      res.send(user);
+      const message = `Check your email, ${user.email}, for a link to verify your account.`;
+      res.send({ user, message });
     } catch (e) {
       next(e);
     }
@@ -153,7 +152,7 @@ module.exports = app => {
     try {
       const timeZone = req.header('quizdini-timezone') || 'UTC';
       const { email, recoveryType = 'password' } = req.body;
-      const message = `If there is a Quizdini account associated with ${email}, then a ${
+      const message = `If there is an account associated with ${email}, a ${
         recoveryType === 'password' ? 'password reset' : 'username recovery'
       } email has been sent.`;
 
@@ -246,7 +245,7 @@ module.exports = app => {
       });
       // Verify credentials
       if (user.password !== md5(oldPassword))
-        throw new InvalidCredentials('Old password is incorrect');
+        throw new InvalidCredentials('Your current password is incorrect.');
 
       // Update credentials
       user.password = md5(newPassword);
@@ -274,7 +273,7 @@ module.exports = app => {
       });
 
       if (!token)
-        throw new InvalidToken('Token is invalid, claimed or expired');
+        throw new InvalidToken('Your token is invalid, claimed, or expired.');
 
       const user = await User.findOneAndUpdate(
         {
@@ -312,7 +311,7 @@ module.exports = app => {
       });
 
       if (!token)
-        throw new InvalidToken('Token is invalid, claimed or expired');
+        throw new InvalidToken('Your token is invalid, claimed, or expired.');
 
       const user = await User.findOneAndUpdate(
         {
@@ -330,7 +329,7 @@ module.exports = app => {
       token.updateDate = new Date();
       await token.save();
 
-      const message = 'User account validated';
+      const message = 'Your account has been verified.';
       res.send(message);
     } catch (e) {
       next(e);
@@ -366,7 +365,8 @@ module.exports = app => {
           { expiryDate: { $gte: new Date().toISOString() } }
         ]
       });
-      if (!token) throw new InvalidToken('Token is claimed or expired');
+      if (!token)
+        throw new InvalidToken('Your token is invalid, claimed, or expired.');
       return res.send(token);
     } catch (e) {
       next(e);

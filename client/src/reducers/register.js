@@ -2,6 +2,7 @@ import * as TYPES from '../actions/types';
 
 const initialState = {
   user: null,
+  message: null,
   loading: false,
   error: null
 };
@@ -19,14 +20,16 @@ export default function (state = initialState, action) {
         ...state,
         loading: false,
         error: null,
-        user: action.payload.user
+        user: action.payload.user,
+        message: action.payload.message
       };
     case TYPES.REGISTER_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload.error,
-        user: null
+        user: null,
+        message: null
       };
     default:
       return state;

@@ -88,7 +88,7 @@ export const chargeBegin = () => async dispatch => {
 };
 
 export const chargeSuccess = payment => async dispatch => {
-  dispatch({ type: TYPES.CHARGE_SUCCESS, payload: { payment } });
+  dispatch({ type: TYPES.CHARGE_SUCCESS, payload: { ...payment } });
 };
 
 export const chargeFailure = error => async dispatch => {
@@ -355,8 +355,8 @@ export const registerBegin = () => async dispatch => {
   dispatch({ type: TYPES.REGISTER_BEGIN });
 };
 
-export const registerSuccess = user => async dispatch => {
-  dispatch({ type: TYPES.REGISTER_SUCCESS, payload: { user } });
+export const registerSuccess = account => async dispatch => {
+  dispatch({ type: TYPES.REGISTER_SUCCESS, payload: { ...account } });
 };
 
 export const registerFailure = error => async dispatch => {
