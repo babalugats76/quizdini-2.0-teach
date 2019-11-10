@@ -120,7 +120,7 @@ class Checkout extends Component {
         this.props.history.push('/dashboard', {
           from: 'CHECKOUT',
           message: {
-            header: "Success!",
+            header: "Payment Successful!",
             content: message,
             color: 'green'
           },
