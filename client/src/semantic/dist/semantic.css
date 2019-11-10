@@ -23717,7 +23717,7 @@ ol.ui.suffixed.list li:before,
 .ui.form input[type="text"],
 .ui.form input[type="file"],
 .ui.form input[type="url"] {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: 'marcher-regular', sans-serif;
   margin: 0;
   outline: none;
   -webkit-appearance: none;
@@ -23751,7 +23751,7 @@ ol.ui.suffixed.list li:before,
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
   font-size: 1em;
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: 'marcher-regular', sans-serif;
   line-height: 1.2857;
   resize: vertical;
 }
@@ -37808,7 +37808,7 @@ select.ui.dropdown {
 }
 
 .ui.dropdown {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: 'marcher-regular', sans-serif;
 }
 /*!
  * # Fomantic-UI - Loader
