@@ -124,7 +124,7 @@ class Checkout extends Component {
             content: message,
             color: 'green'
           },
-          skipAuth: true
+          skipAuth: true // because we just did fetchAuth()
         });
       }, 300);
     }
