@@ -10,10 +10,7 @@ module.exports = app => {
     passport.authenticate('local', function(err, user) {
       try {
         if (err) return next(err);
-        if (!user)
-          throw new LoginFailed(
-            'Please check your credentials or verify your account.'
-          );
+        if (!user) throw new LoginFailed();
         const message = `Welcome back, ${user.fullName}`;
         res.send(message);
       } catch (e) {

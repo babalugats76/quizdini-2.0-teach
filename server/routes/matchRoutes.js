@@ -9,18 +9,16 @@ module.exports = app => {
   app.post('/api/match/', requireLogin, async (req, res, next) => {
     try {
       const { title, instructions, matches, options, published } = req.body;
-      const { credits = 0 } = await User.findOne({ _id: req.user.id });
 
-      if (credits <= 0)
-        throw new InsufficientCredits(
-          "You'll need more credits to create this game."
-        );
+      const user = await User.findOne({ _id: req.user.id });
+      const { credits = 0 } = user;
 
-      const matchId = shortid.generate();
+      if (credits <= 0) throw new InsufficientCredits();
+
       const match = await new Match({
         createDate: Date.now(),
         instructions,
-        matchId,
+        matchId: shortid.generate(),
         matches,
         options,
         published,
@@ -28,13 +26,8 @@ module.exports = app => {
         user_id: req.user._id
       }).save();
 
-      const newCreditTotal = credits - 1; // decrement credits
-
-      // TODO - use save() style
-      const user = await User.findOneAndUpdate(
-        { _id: req.user.id },
-        { credits: newCreditTotal }
-      ); // Update user record
+      user.credits -= 1; 
+      await user.save();
 
       res.send(match);
     } catch (e) {

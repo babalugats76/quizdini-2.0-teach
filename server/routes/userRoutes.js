@@ -13,7 +13,7 @@ const {
 const {
   DuplicateEmail,
   DuplicateUsername,
-  InvalidCredentials,
+  IncorrectPassword,
   InvalidToken
 } = require('../errors.js');
 const nanoid = require('nanoid');
@@ -46,8 +46,7 @@ module.exports = app => {
       });
 
       // Conditionally, throw exception
-      if (usernameTaken)
-        throw new DuplicateUsername(`${username} already exists.`);
+      if (usernameTaken) throw new DuplicateUsername(username);
 
       // Check for duplicate email
       const emailTaken = await User.findOne({
@@ -59,10 +58,7 @@ module.exports = app => {
       });
 
       // Conditionally, throw exception
-      if (emailTaken)
-        throw new DuplicateEmail(
-          `${email} is already already associated with another account.`
-        );
+      if (emailTaken) throw new DuplicateEmail(email);
 
       // Create user record
       const user = await new User({
@@ -244,8 +240,7 @@ module.exports = app => {
         ]
       });
       // Verify credentials
-      if (user.password !== md5(oldPassword))
-        throw new InvalidCredentials('Your current password is incorrect.');
+      if (user.password !== md5(oldPassword)) throw new IncorrectPassword();
 
       // Update credentials
       user.password = md5(newPassword);
@@ -272,8 +267,7 @@ module.exports = app => {
         ]
       });
 
-      if (!token)
-        throw new InvalidToken('Your token is invalid, claimed, or expired.');
+      if (!token) throw new InvalidToken();
 
       const user = await User.findOneAndUpdate(
         {
@@ -310,8 +304,7 @@ module.exports = app => {
         ]
       });
 
-      if (!token)
-        throw new InvalidToken('Your token is invalid, claimed, or expired.');
+      if (!token) throw new InvalidToken();
 
       const user = await User.findOneAndUpdate(
         {
@@ -365,8 +358,7 @@ module.exports = app => {
           { expiryDate: { $gte: new Date().toISOString() } }
         ]
       });
-      if (!token)
-        throw new InvalidToken('Your token is invalid, claimed, or expired.');
+      if (!token) throw new InvalidToken();
       return res.send(token);
     } catch (e) {
       next(e);
