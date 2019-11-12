@@ -22,7 +22,7 @@
 @pageFont               : @marcherRegular;
 @bookFont               : @systemFont;
 @formInputFont          : @marcherRegular;
-@textareaFont           : @monospaceFont;
+@textareaFont           : @systemFont;
 @menuFont               : @marcherRegular;
 @headerFont             : @marcherMedium;
 @extraBoldFont          : @marcherExtraBold;
@@ -43,11 +43,11 @@
 /*-------------------
   Text Colors, etc.
 --------------------*/
-@textColor                   : rgba(10, 10, 10, 0.87);
+@textColor                   : rgba(10, 10, 10, 0.75);
 @unselectedTextColor         : rgba(10, 10, 10, 0.4);
-@hoveredTextColor            : rgba(10, 10, 10, 0.87);
-@pressedTextColor            : rgba(10, 10, 10, 0.87);
-@selectedTextColor           : rgba(10, 10, 10, 0.87);
+@hoveredTextColor            : rgba(10, 10, 10, 0.75);
+@pressedTextColor            : rgba(10, 10, 10, 0.75);
+@selectedTextColor           : rgba(10, 10, 10, 0.75);
 
 @bold                        : 400;
 
@@ -65,6 +65,9 @@
 @peru                : #C28F3C;
 @independence        : #574D68;
 @starCommandBlue     : #0E79B2;
+@chiffon             : rgba(255,250,205,.03);
+@sunny               : #F2E86D;
+
 @ivory               : rgba(255,255,240,.33);
 @paleGoldenRod       : #E5DFA1;
 
@@ -84,13 +87,15 @@
     Colors etc.
 --------------------*/
 
-@pageBackground       : #efefef;
-@inputBackground      : @white;
-@linkColor            : @starCommandBlue;
-@strongColor          : @peru;
-@dropCapColor         : @independence;
-@summaryActiveColor   : @independence;
-@summaryInactiveColor : @grey;
+@pageBackground         : #efefef;
+@inputBackground        : @white;
+@linkColor              : @starCommandBlue;
+@strongColor            : @peru;
+@dropCapColor           : @independence;
+@summaryActiveColor     : @independence;
+@summaryInactiveColor   : @grey;
+@fieldFocusBackground   : @chiffon;
+@fieldFocusBorderColor  : @sunny;
 
 /*-------------------
   Padding & Margin

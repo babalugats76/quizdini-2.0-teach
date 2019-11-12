@@ -65,7 +65,7 @@
   margin: 0 0;
   padding: 1.125em 2em;
   background: #FFFFFF;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
   box-shadow: none;
   border-radius: 0;
   border: none;
@@ -133,7 +133,7 @@
 .ui.steps .step .description {
   font-weight: normal;
   font-size: 0.9375em;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
 }
 .ui.steps .step > .description {
   width: 100%;
@@ -316,7 +316,7 @@
 .ui.steps a.step:hover::after,
 .ui.steps a.step:hover {
   background: #F9FAFB;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
 }
 
 /* Link Down */
@@ -325,7 +325,7 @@
 .ui.steps a.step:active::after,
 .ui.steps a.step:active {
   background: #F3F4F5;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
 }
 
 /* Active */
@@ -365,7 +365,7 @@
 .ui.steps a.active.step:hover {
   cursor: pointer;
   background: #DCDDDE;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
 }
 
 /* Completed */

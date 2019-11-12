@@ -3,7 +3,7 @@
 *******************************/
 @inputFont: @formInputFont;
 @inputColor: @unselectedTextColor;
-@inputFocusBackground: @ivory;
-@inputFocusBorderColor: @paleGoldenRod;
-@textAreaFocusBackground: @ivory;
-@textAreaFocusBorderColor: @paleGoldenRod;
+@inputFocusBackground: @fieldFocusBackground;
+@inputFocusBorderColor: @fieldFocusBorderColor;
+@textAreaFocusBackground: @fieldFocusBackground;
+@textAreaFocusBorderColor: @fieldFocusBorderColor;

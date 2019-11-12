@@ -949,7 +949,7 @@ a#google-login {
   #match-bulk {
     > textarea {
       font-family: @textareaFont;
-      font-size: 0.9375rem;
+      font-size: 1rem;
       line-height: 1.375rem;
       margin-top: 0.75rem;
     }
@@ -978,8 +978,8 @@ a#google-login {
     color: @unselectedTextColor;
     &:focus {
       /*border-color: @focusedFormBorderColor !important;*/
-      background-color: @ivory;
-      border-color: @paleGoldenRod;
+      background-color: @fieldFocusBackground;
+      border-color: @fieldFocusBorderColor;
       color: @selectedTextColor;
     }
     &:not([contenteditable='true']) {
@@ -1044,7 +1044,7 @@ a#google-login {
         font-size: 1rem;
         color: @textColor;
         > span * {
-          font-size: 0.9375rem;
+          font-size: 1rem;
         }
       }
       .ui.icon.trash.button {
@@ -1084,8 +1084,8 @@ a#google-login {
 
 .StripeElement--focus {
   color: @selectedTextColor;
-  background: @ivory;
-  border-color: @paleGoldenRod;
+  background: @fieldFocusBackground;
+  border-color: @fieldFocusBorderColor;
 }
 
 .StripeElement--invalid {

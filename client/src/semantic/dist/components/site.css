@@ -29,7 +29,7 @@ body {
   font-family: 'marcher-regular', sans-serif;
   font-size: 16px;
   line-height: 1.4285em;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
 }
 
 
@@ -123,32 +123,32 @@ a:hover {
 /* Site */
 ::-webkit-selection {
   background-color: #CCE2FF;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
 }
 ::-moz-selection {
   background-color: #CCE2FF;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
 }
 ::selection {
   background-color: #CCE2FF;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
 }
 
 /* Form */
 textarea::-webkit-selection,
 input::-webkit-selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
 }
 textarea::-moz-selection,
 input::-moz-selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
 }
 textarea::selection,
 input::selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
 }
 
 /* Force Simple Scrollbars */
@@ -1068,8 +1068,8 @@ a#google-login:visited {
   opacity: 0.45;
 }
 #match-form #match-bulk > textarea {
-  font-family: 'Consolas', 'Droid Sans Mono', 'Lucida Console', 'Liberation Mono', monospace;
-  font-size: 0.9375rem;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
+  font-size: 1rem;
   line-height: 1.375rem;
   margin-top: 0.75rem;
 }
@@ -1096,9 +1096,9 @@ a#google-login:visited {
 }
 #match-form .rich-text-editor:focus {
   /*border-color: @focusedFormBorderColor !important;*/
-  background-color: rgba(255, 255, 240, 0.33);
-  border-color: #E5DFA1;
-  color: rgba(10, 10, 10, 0.87);
+  background-color: rgba(255, 250, 205, 0.03);
+  border-color: #F2E86D;
+  color: rgba(10, 10, 10, 0.75);
 }
 #match-form .rich-text-editor:not([contenteditable='true']) {
   /*cursor: not-allowed;*/
@@ -1150,10 +1150,10 @@ a#google-login:visited {
 #match-form #match-table tbody > tr > td:first-of-type {
   font-family: 'marcher-medium', sans-serif;
   font-size: 1rem;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
 }
 #match-form #match-table tbody > tr > td:first-of-type > span * {
-  font-size: 0.9375rem;
+  font-size: 1rem;
 }
 #match-form #match-table tbody > tr > td .ui.icon.trash.button {
   -webkit-transition: background-color 0.5s ease;
@@ -1185,9 +1185,9 @@ a#google-login:visited {
   color: rgba(10, 10, 10, 0.4);
 }
 .StripeElement--focus {
-  color: rgba(10, 10, 10, 0.87);
-  background: rgba(255, 255, 240, 0.33);
-  border-color: #E5DFA1;
+  color: rgba(10, 10, 10, 0.75);
+  background: rgba(255, 250, 205, 0.03);
+  border-color: #F2E86D;
 }
 .StripeElement--invalid {
   background: #fff6f6;

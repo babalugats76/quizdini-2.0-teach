@@ -31,7 +31,7 @@ const elementOptions = disabled => {
           color: '#e1e1e1'
         },
         ':focus': {
-          backgroundColor: 'rgba(255,255,240,.33)',
+          backgroundColor: 'rgba(255,250,205,.03)',
           color: 'rgba(10, 10, 10, 0.87)'
         },
         ':disabled': {

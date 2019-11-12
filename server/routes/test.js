@@ -6,6 +6,8 @@ const {
   sendResetEmail
 } = require('../services/email');
 
+const eventHandler = require('../middlewares/eventHandler.js');
+
 const awsConfig = {
   region: keys.awsRegion,
   accessKeyId: keys.awsAccessKeyId,
@@ -14,6 +16,21 @@ const awsConfig = {
 };
 
 module.exports = app => {
+  app.get(
+    '/testEvent',
+    async (req, res, next) => {
+      try {
+        console.log('setting event...');
+        req.event = 'Sample Event';
+        throw new Error('BOOM!');
+        next();
+      } catch (e) {
+        next(e);
+      }
+    },
+    eventHandler
+  );
+
   app.post('/testRegisterEmail', async (req, res, next) => {
     try {
       const { toEmail, firstName, fullName, verifyUrl } = req.body;
@@ -90,7 +107,7 @@ module.exports = app => {
           TemplateName: 'QUIZDINI_REGISTER',
           SubjectPart: 'Completing Your Registration',
           HtmlPart:
-          '<!DOCTYPE html> \
+            '<!DOCTYPE html> \
            <html lang="en"> \
              <head> \
                <style type="text/css"> \
@@ -179,7 +196,7 @@ module.exports = app => {
              </body> \
            </html>',
           TextPart:
-          'Dear {{firstName}},\r\n Welcome to Quizdini!\r\nYour account has been created.\r\nJust one more step and you will be creating fun activities for your students.\r\nPlease copy and paste the following link into your browser to verify your account: {{verifyUrl}}\r\nThank you for using Quizdini!\r\n--The Quizdini Team--'
+            'Dear {{firstName}},\r\n Welcome to Quizdini!\r\nYour account has been created.\r\nJust one more step and you will be creating fun activities for your students.\r\nPlease copy and paste the following link into your browser to verify your account: {{verifyUrl}}\r\nThank you for using Quizdini!\r\n--The Quizdini Team--'
         }
       };
 

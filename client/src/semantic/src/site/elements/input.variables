@@ -1,5 +1,5 @@
 /*******************************
     User Variable Overrides
 *******************************/
-@focusBackground: @ivory;
-@focusBorderColor: @paleGoldenRod;
+@focusBackground: @fieldFocusBackground;
+@focusBorderColor: @fieldFocusBorderColor;

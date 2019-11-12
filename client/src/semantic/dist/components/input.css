@@ -24,7 +24,7 @@
   font-style: normal;
   display: -webkit-inline-box;
   display: inline-flex;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
 }
 .ui.input > input {
   margin: 0;
@@ -39,7 +39,7 @@
   padding: 0.45535714em 0.875em;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
   border-radius: 0.25rem;
   -webkit-transition: box-shadow 0.1s ease, border-color 0.1s ease;
   transition: box-shadow 0.1s ease, border-color 0.1s ease;
@@ -53,13 +53,13 @@
 
 /* browsers require these rules separate */
 .ui.input > input::-webkit-input-placeholder {
-  color: rgba(201, 201, 201, 0.87);
+  color: rgba(201, 201, 201, 0.75);
 }
 .ui.input > input::-moz-placeholder {
-  color: rgba(201, 201, 201, 0.87);
+  color: rgba(201, 201, 201, 0.75);
 }
 .ui.input > input:-ms-input-placeholder {
-  color: rgba(201, 201, 201, 0.87);
+  color: rgba(201, 201, 201, 0.75);
 }
 
 
@@ -89,7 +89,7 @@
 .ui.input.down input {
   border-color: rgba(0, 0, 0, 0.3);
   background: #FAFAFA;
-  color: rgba(10, 10, 10, 0.87);
+  color: rgba(10, 10, 10, 0.75);
   box-shadow: none;
 }
 
@@ -129,22 +129,22 @@
 
 .ui.input.focus > input,
 .ui.input > input:focus {
-  border-color: #E5DFA1;
-  background: rgba(255, 255, 240, 0.33);
-  color: rgba(10, 10, 10, 0.87);
+  border-color: #F2E86D;
+  background: rgba(255, 250, 205, 0.03);
+  color: rgba(10, 10, 10, 0.75);
   box-shadow: none;
 }
 .ui.input.focus > input::-webkit-input-placeholder,
 .ui.input > input:focus::-webkit-input-placeholder {
-  color: rgba(125, 125, 125, 0.87);
+  color: rgba(125, 125, 125, 0.75);
 }
 .ui.input.focus > input::-moz-placeholder,
 .ui.input > input:focus::-moz-placeholder {
-  color: rgba(125, 125, 125, 0.87);
+  color: rgba(125, 125, 125, 0.75);
 }
 .ui.input.focus > input:-ms-input-placeholder,
 .ui.input > input:focus:-ms-input-placeholder {
-  color: rgba(125, 125, 125, 0.87);
+  color: rgba(125, 125, 125, 0.75);
 }
 
 /*--------------------
@@ -326,7 +326,7 @@
   border-left-color: transparent;
 }
 .ui.labeled.input:not([class*="corner labeled"]) .label:first-child + input:focus {
-  border-left-color: #E5DFA1;
+  border-left-color: #F2E86D;
 }
 
 /* Regular Label on Right */
@@ -340,7 +340,7 @@
   border-bottom-left-radius: 0;
 }
 .ui[class*="right labeled"].input > input:focus {
-  border-right-color: #E5DFA1 !important;
+  border-right-color: #F2E86D !important;
 }
 
 /* Corner Label */
@@ -457,7 +457,7 @@
 
 /* Input Focus */
 .ui.action.input:not([class*="left action"]) > input:focus {
-  border-right-color: #E5DFA1 !important;
+  border-right-color: #F2E86D !important;
 }
 
 /* Button on Left */
@@ -479,7 +479,7 @@
 
 /* Input Focus */
 .ui[class*="left action"].input > input:focus {
-  border-left-color: #E5DFA1 !important;
+  border-left-color: #F2E86D !important;
 }
 
 /*--------------------
