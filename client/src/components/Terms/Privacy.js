@@ -1,8 +1,6 @@
-/* https://graphicriver.net/item/cyber-crime-concept-with-hacker/22436724?s_rank=25 */
-
 import React from "react";
-import { Header, Segment, Image, Table } from "semantic-ui-react";
-import easel from "../../easel.svg";
+import { Header, Image, List, Segment, Table } from "semantic-ui-react";
+import privacy from "../../privacy.svg";
 
 export default props => (
   <Segment {...props}>
@@ -13,7 +11,7 @@ export default props => (
       </Header.Subheader>
     </Header>
     <Header size="large" icon textAlign="center">
-      <Image alt="Easel" className="icon easel" src={easel} />
+      <Image alt="Privacy" className="icon privacy" src={privacy} />
     </Header>
     <p>
       At Quizdini, we believe in protecting and honoring students' privacy. Our
@@ -85,29 +83,30 @@ export default props => (
     </details>
     <details id="credit-card-data">
       <summary>Credit Card Data</summary>
-      <p>
-        By using a respected&nbsp;
-        <strong>third-party processor</strong>&nbsp;to handle your payment
-        transactions, we are not encumbered to store the details that would put
-        you at risk.
-      </p>
-      <p>
-        While we do retain enough information to direct you back to that secure
-        payment processor, we believe that&nbsp;
-        <strong>the less we store</strong>&nbsp;in our system,&nbsp;
-        <strong>the better</strong>. Put simply, we do not store full credit
-        card numbers, expiration dates, CVC codes, etc., anywhere, at any time.
-      </p>
-      <p>
-        If we don't know it,&nbsp;
-        <strong>we can't possibly lose or abuse it</strong>.
-      </p>
+      <List as="ul" bulleted>
+         <List.Item as="li">We use&nbsp;
+        <a
+          href="https://stripe.com/"
+          rel="noopener noreferrer"
+          target="_blank"
+          title="Online payment processing for internet businesses - Stripe"
+        >
+          Stripe
+        </a>
+        &nbsp;to process all payments.</List.Item>
+         <List.Item as="li">We&nbsp;
+        <strong>do not store</strong>&nbsp;your complete credit card number.</List.Item>
+         <List.Item as="li">In your account, we retain enough information to direct you back to
+        Stripe.</List.Item>
+         <List.Item as="li">We believe&nbsp;
+        <strong>the less we store, the better</strong>.</List.Item>
+      </List>
     </details>
     <details id="information-we-collect">
       <summary>Managing Your Information</summary>
       <p>
-        You are welcome and encouraged to&nbsp;<strong>verify</strong>&nbsp;the
-        information provided on your Profile page and to update it as needed.
+        Remember, your data is exactly that: yours!&nbsp;<strong>Verify</strong>&nbsp;the
+        information on your Profile page and update it as needed.
         You may also&nbsp;<strong>change</strong>&nbsp;your password from that
         page as well.
       </p>
