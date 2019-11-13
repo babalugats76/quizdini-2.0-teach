@@ -1,10 +1,17 @@
-import React from 'react';
-import { Header, Segment } from 'semantic-ui-react';
+import React from "react";
+import { Header, Image, Segment } from "semantic-ui-react";
+import internet from "../../internet.svg";
 
 export default props => (
   <Segment {...props}>
     <Header size="huge" textAlign="center">
-      Quizdini Cookie Policy
+      <Header.Content>Cookie Policy</Header.Content>
+      <Header.Subheader>
+        Effective Date: January 1<sup>st</sup>, 2020
+      </Header.Subheader>
+    </Header>
+    <Header size="large" icon textAlign="center">
+      <Image alt="Internet" className="icon internet" src={internet} />
     </Header>
     <Header size="large">What is a Cookie?</Header>
     <p>Not just for fuzzy blue monsters anymore, people!</p>
