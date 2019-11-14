@@ -14,8 +14,7 @@ const elementOptions = {
 };
 
 class Checkout extends Component {
-  // Needed for async function
-  handlePayment = this.handlePayment.bind(this);
+  handleCheckout = this.handleCheckout.bind(this);
   constructor(props) {
     super(props);
     this.state = {
@@ -27,9 +26,9 @@ class Checkout extends Component {
 
   // Reset state upon navigation
   componentDidUpdate(prevProps) {
-    if (prevProps.location.key !== this.props.location.key) {
+    /* if (prevProps.location.key !== this.props.location.key) {
       this.props.checkoutReset();
-    }
+    }*/
   }
 
   handleStripeChange = change => {
@@ -82,7 +81,7 @@ class Checkout extends Component {
   };
 
   /**
-   * Calls processCard Redux action to finalize credit card transaction
+   * Calls checkout Redux action to finalize credit card transaction
    * To be used from Formik's handleSubmit function
    *
    * Uses setStatus Formik function to communicate API response and success/error formatting
@@ -92,46 +91,45 @@ class Checkout extends Component {
    * @param {*} values  Values from child Formik form
    * @param {*} actions FormikBag functions
    */
-  async handlePayment(values, actions) {
-    const { processCard, fetchAuth } = this.props; // Get Redux action
-    const { tokenId, amount, credits, cardholderName } = values; // Get form values (for charge)
-    const { setStatus, setSubmitting, clearStripeFields } = actions; // Get Formik helper functions, etc.
-    await processCard({ tokenId, amount, credits, cardholderName }); // Call Redux action passing charge values
-    
-    const { checkout: { message, error } = {} } = this.props; // Destructure message, error from checkout props
+  async handleCheckout(values, actions) {
+    const { checkout, fetchAuth } = this.props;
+    const { tokenId, amount, credits, cardholderName } = values;
+    const { setStatus, setSubmitting, clearStripeFields } = actions;
+    await checkout({ tokenId, amount, credits, cardholderName });
+    const { checkout: { data, error } = {} } = this.props;
+    const { message: successMessage = '' } = data || {};
+    const { message: errorMessage = '' } = error || {};
+
     if (error) {
-      const { message: errorMessage = ''} = error;
-
-      // Clear form (hide sensitive info)
       clearStripeFields();
-
       await setStatus({
-        header: 'Payment Failed',
         content: errorMessage,
-        color: 'red'
+        header: 'Payment Failed',
+        severity: 'ERROR'
       });
       return setSubmitting(false);
-    } else {
-    
-       // This is done here to show credit increase ASAP
-      await fetchAuth();
-
-      return setTimeout(() => {
-        this.props.history.push('/dashboard', {
-          from: 'CHECKOUT',
-          message: {
-            header: "Payment Successful!",
-            content: message,
-            color: 'green'
-          },
-          skipAuth: true // because we just did fetchAuth()
-        });
-      }, 300);
     }
+
+    await fetchAuth();
+    return setTimeout(() => {
+      this.props.history.push('/dashboard', {
+        from: 'CHECKOUT',
+        message: {
+          content: successMessage,
+          header: 'Payment Successful!',
+          severity: 'OK'
+        },
+        skipAuth: true
+      });
+    }, 300);
   }
 
   renderForm = () => (
-    <StripeScriptLoader uniqueId="stripe-script" script={process.env.REACT_APP_STRIPE_SCRIPT} loader={<Loader/>}>
+    <StripeScriptLoader
+      uniqueId="stripe-script"
+      script={process.env.REACT_APP_STRIPE_SCRIPT}
+      loader={<Loader />}
+    >
       <StripeProvider apiKey={process.env.REACT_APP_STRIPE_KEY}>
         <Elements {...elementOptions}>
           <CheckoutForm
@@ -139,7 +137,9 @@ class Checkout extends Component {
             onStripeReady={this.handleStripeReady}
             isCardComplete={this.isCardComplete}
             clearStripeFields={this.clearStripeFields}
-            onPayment={(values, actions) => this.handlePayment(values, actions)}
+            onCheckout={(values, actions) =>
+              this.handleCheckout(values, actions)
+            }
           />
         </Elements>
       </StripeProvider>
@@ -147,16 +147,13 @@ class Checkout extends Component {
   );
 
   render() {
-    const { loading } = this.props;
     const form = this.renderForm();
     return (
-      !loading && (
-        <Container as="main" className="page small" fluid id="checkout">
-          <LogoHeader>Purchase Credits</LogoHeader>
-          {form}
-        </Container>
-      )
-    ); // loading is used to force form rerender on navigation
+      <Container as="main" className="page small" fluid id="checkout">
+        <LogoHeader>Purchase Credits</LogoHeader>
+        {form}
+      </Container>
+    );
   }
 }
 
@@ -167,7 +164,4 @@ Checkout.propTypes = {
 
 const mapStateToProps = ({ checkout }) => ({ checkout });
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Checkout);
+export default connect(mapStateToProps, actions)(Checkout);

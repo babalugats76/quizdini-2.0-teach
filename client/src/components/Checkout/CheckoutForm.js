@@ -79,14 +79,14 @@ const CheckoutForm = props => {
     setStatus(null);
   };
 
-  const renderMessage = ({ header, content, color, setStatus }) => {
+  const renderMessage = ({ content, header, setStatus, severity }) => {
     return (
       <Message
-        color={color}
         content={content}
         header={header}
         hidden={!content}
         onDismiss={(e, data) => handleDismiss(e, setStatus)}
+        severity={severity}
       />
     );
   };
@@ -249,7 +249,7 @@ const FormikCheckoutForm = withFormik({
   },
   validationSchema: validateCheckout,
   handleSubmit: async (values, { setSubmitting, setStatus, props }) => {
-    const { stripe, onPayment, clearStripeFields } = props; // Obtain reference to stripe object
+    const { stripe, onCheckout, clearStripeFields } = props; // Obtain reference to stripe object
     const { credits, amount, cardholderName } = values;
     setStatus(null); // Clear form status
 
@@ -264,18 +264,16 @@ const FormikCheckoutForm = withFormik({
 
       // Handle validation errors
       setStatus({
-        color: 'red',
         content: res.error.message,
-        header: 'Validation Error'
+        header: 'Validation Error',
+        severity: 'ERROR'
       });
       setSubmitting(false);
       return;
     }
 
-    //console.log(res.token);
-
     // Call prop function to create charge passing values and actions
-    await onPayment(
+    await onCheckout(
       { tokenId: res.token.id, amount, credits, cardholderName },
       { setSubmitting, setStatus, clearStripeFields }
     );

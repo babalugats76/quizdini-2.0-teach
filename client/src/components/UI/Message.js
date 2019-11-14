@@ -1,9 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Message } from "semantic-ui-react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Message } from 'semantic-ui-react';
 
-const MyMessage = ({ content, ...rest }) => {
-  return <Message content={content} {...rest} />;
+const MyMessage = ({ content, severity, ...rest }) => {
+  return (
+    <Message
+      content={content}
+      error={severity === 'ERROR' ? true : false}
+      info={severity === 'INFO' ? true : false}
+      positive={severity === 'OK' ? true : false}
+      warning={severity === 'WARN' ? true : false}
+      {...rest}
+    />
+  );
 };
 
 MyMessage.propTypes = {

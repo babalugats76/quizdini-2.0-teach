@@ -80,7 +80,7 @@ module.exports = app => {
       );
       console.log('PAYMENT RECEIVED: %s %s', payment, user);
       const message = `${credits} credits have been added to your account.`;
-      res.send({ payment, message });
+      res.send({ message });
     } catch (e) {
       next(e);
     }

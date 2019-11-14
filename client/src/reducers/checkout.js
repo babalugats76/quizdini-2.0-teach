@@ -1,47 +1,33 @@
 import * as TYPES from "../actions/types";
 
 const initialState = {
-  payment: null,
-  message: null,
-  loading: false,
-  error: null
+  data: null,
+  error: null,
+  loading: false
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case TYPES.CHECKOUT_RESET_BEGIN:
+    case TYPES.CHECKOUT_BEGIN:
       return {
         ...state,
-        loading: true,
+        data: null,
         error: null,
-        payment: null,
-        message: null
+        loading: true
       };
-    case TYPES.CHECKOUT_RESET_END:
+    case TYPES.CHECKOUT_SUCCESS:
       return {
         ...state,
-        loading: false
-      };
-    case TYPES.CHARGE_BEGIN:
-      return {
-        ...state,
+        data: action.payload.data,
         error: null,
-        payment: null,
-        message: null
+        loading: false,
       };
-    case TYPES.CHARGE_SUCCESS:
+    case TYPES.CHECKOUT_FAILURE:
       return {
         ...state,
-        error: null,
-        payment: action.payload.payment,
-        message: action.payload.message
-      };
-    case TYPES.CHARGE_FAILURE:
-      return {
-        ...state,
+        data: null,
         error: action.payload.error,
-        payment: null,
-        message: null
+        loading: false
       };
     default:
       return state;
