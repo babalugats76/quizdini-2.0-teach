@@ -8,7 +8,7 @@ const MyMessage = ({ content, severity, ...rest }) => {
       content={content}
       error={severity === 'ERROR' ? true : false}
       info={severity === 'INFO' ? true : false}
-      positive={severity === 'OK' ? true : false}
+      success={severity === 'OK' ? true : false}
       warning={severity === 'WARN' ? true : false}
       {...rest}
     />

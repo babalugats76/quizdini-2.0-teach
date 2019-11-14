@@ -79,29 +79,29 @@ export const fetchAuth = () => async dispatch => {
 };
 
 /**
- * CHECKOUT SECTION
+ * PAYMENT SECTION
  * Actions used to manage user checkout/cart
  */
 
-export const checkoutBegin = () => async dispatch => {
-  dispatch({ type: TYPES.CHECKOUT_BEGIN });
+export const paymentBegin = () => async dispatch => {
+  dispatch({ type: TYPES.PAYMENT_BEGIN });
 };
 
-export const checkoutSuccess = data => async dispatch => {
-  dispatch({ type: TYPES.CHECKOUT_SUCCESS, payload: { data } });
+export const paymentSuccess = data => async dispatch => {
+  dispatch({ type: TYPES.PAYMENT_SUCCESS, payload: { data } });
 };
 
-export const checkoutFailure = error => async dispatch => {
-  dispatch({ type: TYPES.CHECKOUT_FAILURE, payload: { error } });
+export const paymentFailure = error => async dispatch => {
+  dispatch({ type: TYPES.PAYMENT_FAILURE, payload: { error } });
 };
 
-export const checkout = payment => async dispatch => {
+export const processPayment = payment => async dispatch => {
   try {
-    dispatch(checkoutBegin());
+    dispatch(paymentBegin());
     const res = await axios.post('/api/payment', payment);
-    dispatch(checkoutSuccess(res.data));
+    dispatch(paymentSuccess(res.data));
   } catch (e) {
-    dispatch(checkoutFailure(e.response.data));
+    dispatch(paymentFailure(e.response.data));
   }
 };
 

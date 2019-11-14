@@ -92,11 +92,13 @@ class Checkout extends Component {
    * @param {*} actions FormikBag functions
    */
   async handleCheckout(values, actions) {
-    const { checkout, fetchAuth } = this.props;
+    const { processPayment, fetchAuth } = this.props;
     const { tokenId, amount, credits, cardholderName } = values;
     const { setStatus, setSubmitting, clearStripeFields } = actions;
-    await checkout({ tokenId, amount, credits, cardholderName });
+    await processPayment({ tokenId, amount, credits, cardholderName });
+    console.log(this.props.checkout);
     const { checkout: { data, error } = {} } = this.props;
+    console.log(data);
     const { message: successMessage = '' } = data || {};
     const { message: errorMessage = '' } = error || {};
 
@@ -112,6 +114,8 @@ class Checkout extends Component {
 
     await fetchAuth();
     return setTimeout(() => {
+      console.log('redirecting to dashboard...');
+      console.log('message %s', successMessage);
       this.props.history.push('/dashboard', {
         from: 'CHECKOUT',
         message: {

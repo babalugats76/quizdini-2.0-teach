@@ -79,14 +79,14 @@ class Dashboard extends Component {
     });
   };
 
-  renderMessage = ({ header, content, color }) => {
+  renderMessage = ({ content, header, severity }) => {
     return (
       <Message
-        color={color}
         content={content}
         header={header}
         hidden={!content}
         onDismiss={e => this.handleDismiss(e)}
+        severity={severity}
       />
     );
   };

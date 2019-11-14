@@ -8,21 +8,22 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case TYPES.CHECKOUT_BEGIN:
+    case TYPES.PAYMENT_BEGIN:
       return {
         ...state,
         data: null,
         error: null,
         loading: true
       };
-    case TYPES.CHECKOUT_SUCCESS:
+    case TYPES.PAYMENT_SUCCESS:
+      console.log(action.payload.data);
       return {
         ...state,
         data: action.payload.data,
         error: null,
         loading: false,
       };
-    case TYPES.CHECKOUT_FAILURE:
+    case TYPES.PAYMENT_FAILURE:
       return {
         ...state,
         data: null,
