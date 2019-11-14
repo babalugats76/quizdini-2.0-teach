@@ -8,14 +8,15 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case TYPES.PAYMENT_BEGIN:
+    case TYPES.BUY_CREDITS_BEGIN:
+      console.log(action.type);
       return {
         ...state,
         data: null,
         error: null,
         loading: true
       };
-    case TYPES.PAYMENT_SUCCESS:
+    case TYPES.BUY_CREDITS_SUCCESS:
       console.log(action.payload.data);
       return {
         ...state,
@@ -23,7 +24,7 @@ export default function (state = initialState, action) {
         error: null,
         loading: false,
       };
-    case TYPES.PAYMENT_FAILURE:
+    case TYPES.BUY_CREDITS_FAILURE:
       return {
         ...state,
         data: null,

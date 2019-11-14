@@ -92,13 +92,11 @@ class Checkout extends Component {
    * @param {*} actions FormikBag functions
    */
   async handleCheckout(values, actions) {
-    const { processPayment, fetchAuth } = this.props;
+    const { buyCredits, fetchAuth } = this.props;
     const { tokenId, amount, credits, cardholderName } = values;
     const { setStatus, setSubmitting, clearStripeFields } = actions;
-    await processPayment({ tokenId, amount, credits, cardholderName });
-    console.log(this.props.checkout);
-    const { checkout: { data, error } = {} } = this.props;
-    console.log(data);
+    await buyCredits({ tokenId, amount, credits, cardholderName });
+    const { creditPurchase: { data, error } = {} } = this.props;
     const { message: successMessage = '' } = data || {};
     const { message: errorMessage = '' } = error || {};
 
@@ -114,8 +112,6 @@ class Checkout extends Component {
 
     await fetchAuth();
     return setTimeout(() => {
-      console.log('redirecting to dashboard...');
-      console.log('message %s', successMessage);
       this.props.history.push('/dashboard', {
         from: 'CHECKOUT',
         message: {
@@ -166,6 +162,6 @@ Checkout.propTypes = {
   history: PropTypes.object.isRequired
 };
 
-const mapStateToProps = ({ checkout }) => ({ checkout });
+const mapStateToProps = ({ creditPurchase }) => ({ creditPurchase });
 
 export default connect(mapStateToProps, actions)(Checkout);

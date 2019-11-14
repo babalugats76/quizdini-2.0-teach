@@ -25,8 +25,6 @@ module.exports = app => {
   app.post('/api/payment', requireLogin, async (req, res, next) => {
     try {
       const { tokenId, amount, credits, cardholderName } = req.body;
-      console.log(tokenId, amount, credits, cardholderName);
-      // Query user record using user.req.id to determine email address, i.e., gmail or local
       const { email, fullName } = await User.findOne({ _id: req.user.id });
 
       // STRIPE CHARGES MUST BE EXPRESSED IN PENNIES!
@@ -78,7 +76,7 @@ module.exports = app => {
         },
         { new: true }
       );
-      console.log('PAYMENT RECEIVED: %s %s', payment, user);
+      console.log(user.fullName + " purchased " + credits + " credits");
       const message = `${credits} credits have been added to your account.`;
       res.send({ message });
     } catch (e) {

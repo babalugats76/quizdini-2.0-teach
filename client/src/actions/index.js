@@ -79,29 +79,29 @@ export const fetchAuth = () => async dispatch => {
 };
 
 /**
- * PAYMENT SECTION
+ * BUY CREDITS SECTION
  * Actions used to manage user checkout/cart
  */
 
-export const paymentBegin = () => async dispatch => {
-  dispatch({ type: TYPES.PAYMENT_BEGIN });
+export const buyCreditsBegin = () => async dispatch => {
+  dispatch({ type: TYPES.BUY_CREDITS_BEGIN });
 };
 
-export const paymentSuccess = data => async dispatch => {
-  dispatch({ type: TYPES.PAYMENT_SUCCESS, payload: { data } });
+export const buyCreditsSuccess = data => async dispatch => {
+  dispatch({ type: TYPES.BUY_CREDITS_SUCCESS, payload: { data } });
 };
 
-export const paymentFailure = error => async dispatch => {
-  dispatch({ type: TYPES.PAYMENT_FAILURE, payload: { error } });
+export const buyCreditsFailure = error => async dispatch => {
+  dispatch({ type: TYPES.BUY_CREDITS_FAILURE, payload: { error } });
 };
 
-export const processPayment = payment => async dispatch => {
+export const buyCredits = data => async dispatch => {
   try {
-    dispatch(paymentBegin());
-    const res = await axios.post('/api/payment', payment);
-    dispatch(paymentSuccess(res.data));
+    dispatch(buyCreditsBegin());
+    const res = await axios.post('/api/payment', data);
+    dispatch(buyCreditsSuccess(res.data));
   } catch (e) {
-    dispatch(paymentFailure(e.response.data));
+    dispatch(buyCreditsFailure(e.response.data));
   }
 };
 
