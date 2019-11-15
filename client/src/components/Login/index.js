@@ -43,23 +43,36 @@ class Login extends Component {
     const { loginUser, fetchAuth } = this.props; // Redux action
     const { username, password } = values; // Values from form
     const { resetForm, setStatus, setSubmitting } = actions; // Actions from form
-    await resetForm();
+
     await loginUser(username, password); // Redux API call / will update login prop
-    const { login: { error } = {} } = this.props; // Destructure error from login props
+
+    const { login: { data, error } = {} } = this.props;
+    const { message: successMessage = '' } = data || {};
+    const { message: errorMessage = '' } = error || {};
 
     if (error) {
-      const { message: errorMessage = ''} = error;
       await setStatus({
-        header: "Oops! We can't log you in!",
         content: errorMessage,
-        color: 'red'
+        header: "Oops! We can't log you in!",
+        severity: 'ERROR'
       });
+      await resetForm();
       return setSubmitting(false);
     }
 
     await fetchAuth();
-    return this.props.history.push({ pathname: '/dashboard', state: { from: 'LOGIN', skipAuth: true } });
-
+    return this.props.history.push({
+      pathname: '/dashboard',
+      state: {
+        message: {
+          content: successMessage,
+          header: 'Welcome to Quizdini!',
+          severity: 'OK'
+        },
+        from: 'LOGIN',
+        skipAuth: true
+      }
+    });
   }
 
   renderForm = () => {
@@ -91,7 +104,4 @@ Login.propTypes = {
 
 const mapStateToProps = ({ login }) => ({ login });
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Login);
+export default connect(mapStateToProps, actions)(Login);

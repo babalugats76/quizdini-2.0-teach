@@ -21,14 +21,14 @@ const LoginForm = props => {
     setStatus(null);
   };
 
-  const renderMessage = ({ color, content, header, setStatus }) => {
+  const renderMessage = ({ content, header, setStatus, severity }) => {
     return (
       <Message
-        color={color}
         content={content}
         header={header}
         hidden={!content}
         onDismiss={(e, data) => handleDismiss(e, setStatus)}
+        severity={severity}
       />
     );
   };

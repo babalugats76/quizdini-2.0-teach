@@ -99,7 +99,7 @@ export const buyCredits = data => async dispatch => {
   try {
     dispatch(buyCreditsBegin());
     const res = await axios.post('/api/payment', data);
-    dispatch(buyCreditsSuccess(res.data));
+    return dispatch(buyCreditsSuccess(res.data));
   } catch (e) {
     dispatch(buyCreditsFailure(e.response.data));
   }
@@ -141,8 +141,8 @@ export const loginBegin = () => async dispatch => {
   dispatch({ type: TYPES.LOGIN_BEGIN });
 };
 
-export const loginSuccess = message => async dispatch => {
-  dispatch({ type: TYPES.LOGIN_SUCCESS, payload: { message } });
+export const loginSuccess = data => async dispatch => {
+  dispatch({ type: TYPES.LOGIN_SUCCESS, payload: { data } });
 };
 
 export const loginFailure = error => async dispatch => {
@@ -357,7 +357,7 @@ export const registerUser = data => async dispatch => {
   try {
     dispatch(registerBegin());
     const res = await axios.post('/api/account', data);
-    dispatch(registerSuccess(res.data));
+    return dispatch(registerSuccess(res.data));
   } catch (e) {
     dispatch(registerFailure(e.response.data));
   }
