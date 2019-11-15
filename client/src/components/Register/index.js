@@ -29,7 +29,7 @@ class Register extends Component {
    * @param {*} actions FormikBag functions
    */
   async handleRegister(values, actions) {
-    const { createAccount } = this.props; // Get Redux action
+    const { registerUser } = this.props; // Get Redux action
     const {
       city,
       countryCode,
@@ -40,11 +40,10 @@ class Register extends Component {
       stateCode,
       title,
       username
-    } = values; // Get form values (for registration)
+    } = values;
+    const { setSubmitting, setStatus } = actions;
 
-    const { setSubmitting, setStatus } = actions; // Get Formik helper functions, etc.
-
-    await createAccount({
+    await registerUser({
       city,
       countryCode,
       email,
@@ -54,16 +53,17 @@ class Register extends Component {
       stateCode,
       title,
       username
-    }); // Call Redux action passing registration values
+    });
 
-    const { register: { message, error } = {} } = this.props; // Destructure message, error from register props
+    const { registration: { data, error } = {} } = this.props;
+    const { message: successMessage = '' } = data || {};
+    const { message: errorMessage = '' } = error || {};
 
     if (error) {
-      const { message: errorMessage = ''} = error;
       await setStatus({
-        color: 'red',
         content: errorMessage,
-        header: 'Registration Error'
+        header: 'Registration Failed',
+        severity: 'ERROR'
       });
       return setSubmitting(false);
     }
@@ -71,9 +71,9 @@ class Register extends Component {
     return setTimeout(() => {
       this.props.history.push('/login', {
         message: {
+          content: successMessage,
           header: 'Welcome to Quizdini!',
-          content: message,
-          color: 'green',
+          severity: 'OK'
         }
       });
     }, 300);
@@ -83,7 +83,7 @@ class Register extends Component {
     return (
       <RegisterForm
         countryOptions={countryOptions.data}
-        handleRegister={(values, actions) =>
+        onRegister={(values, actions) =>
           this.handleRegister(values, actions)
         }
         stateOptions={stateOptions.data}
@@ -120,13 +120,10 @@ Register.propTypes = {
   location: PropTypes.object.isRequired
 };
 
-const mapStateToProps = ({ countryOptions, register, stateOptions }) => ({
+const mapStateToProps = ({ countryOptions, registration, stateOptions }) => ({
   countryOptions,
-  register,
+  registration,
   stateOptions
 });
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Register);
+export default connect(mapStateToProps, actions)(Register);

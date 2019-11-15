@@ -9,7 +9,7 @@ import matchList from './matchList';
 import password from './password';
 import paymentList from './paymentList';
 import recovery from './recovery';
-import register from './register';
+import registration from './registration';
 import stateOptions from './stateOptions';
 import token from './token';
 import verify from './verify';
@@ -25,7 +25,7 @@ export default combineReducers({
   password,
   paymentList,
   recovery,
-  register,
+  registration,
   stateOptions,
   token,
   verify

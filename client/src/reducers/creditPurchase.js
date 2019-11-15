@@ -9,7 +9,6 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case TYPES.BUY_CREDITS_BEGIN:
-      console.log(action.type);
       return {
         ...state,
         data: null,
@@ -17,12 +16,11 @@ export default function (state = initialState, action) {
         loading: true
       };
     case TYPES.BUY_CREDITS_SUCCESS:
-      console.log(action.payload.data);
       return {
         ...state,
         data: action.payload.data,
         error: null,
-        loading: false,
+        loading: false
       };
     case TYPES.BUY_CREDITS_FAILURE:
       return {

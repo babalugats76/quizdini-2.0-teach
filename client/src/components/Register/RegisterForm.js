@@ -59,14 +59,14 @@ const RegisterForm = props => {
     setStatus(null);
   };
 
-  const renderMessage = ({ color, content, header, setStatus }) => {
+  const renderMessage = ({ content, header, setStatus, severity }) => {
     return (
       <Message
-        color={color}
         content={content}
         header={header}
         hidden={!content}
         onDismiss={(e, data) => handleDismiss(e, setStatus)}
+        severity={severity}
       />
     );
   };
@@ -301,7 +301,7 @@ const RegisterForm = props => {
     <Segment padded>
       {status && renderMessage({ ...status, setStatus })}
       {form}
-      {/*<DisplayFormikState {...this.props} />*/}
+      <DisplayFormikState {...props} />
     </Segment>
   );
 };
@@ -328,11 +328,9 @@ const FormikRegisterForm = withFormik({
   },
   validationSchema: validateNewUser,
   handleSubmit: async (values, { setSubmitting, setStatus, props }) => {
-    const { handleRegister } = props; // prop function to call
+    const { onRegister } = props; // prop function to call
     setStatus(null); // Clear form status
-
-    // Call prop function to create charge passing values and actions
-    await handleRegister(values, { setSubmitting, setStatus });
+    await onRegister(values, { setSubmitting, setStatus }); // Call prop function to create charge passing values and actions
   },
   displayName: 'RegisterForm'
 })(RegisterForm);

@@ -353,10 +353,10 @@ export const registerFailure = error => async dispatch => {
   dispatch({ type: TYPES.REGISTER_FAILURE, payload: { error } });
 };
 
-export const createAccount = user => async dispatch => {
+export const registerUser = data => async dispatch => {
   try {
     dispatch(registerBegin());
-    const res = await axios.post('/api/account', user);
+    const res = await axios.post('/api/account', data);
     dispatch(registerSuccess(res.data));
   } catch (e) {
     dispatch(registerFailure(e.response.data));

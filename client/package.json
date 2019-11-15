@@ -9,7 +9,7 @@
     "date-fns": "^2.7.0",
     "dompurify": "^2.0.7",
     "fomantic-ui": "^2.7.8",
-    "formik": "^2.0.3",
+    "formik": "1.5.8",
     "http-proxy-middleware": "^0.20.0",
     "http-status-codes": "^1.4.0",
     "immutable": ">=3.8.2",

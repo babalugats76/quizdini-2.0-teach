@@ -1,10 +1,9 @@
 import * as TYPES from '../actions/types';
 
 const initialState = {
-  user: null,
-  message: null,
-  loading: false,
-  error: null
+  data: null,
+  error: null,
+  loading: false
 };
 
 export default function (state = initialState, action) {
@@ -12,24 +11,23 @@ export default function (state = initialState, action) {
     case TYPES.REGISTER_BEGIN:
       return {
         ...state,
-        loading: true,
-        error: null
+        data: null,
+        error: null,
+        loading: true
       };
     case TYPES.REGISTER_SUCCESS:
       return {
         ...state,
-        loading: false,
+        data: action.payload.data,
         error: null,
-        user: action.payload.user,
-        message: action.payload.message
+        loading: false
       };
     case TYPES.REGISTER_FAILURE:
       return {
         ...state,
-        loading: false,
+        data: null,
         error: action.payload.error,
-        user: null,
-        message: null
+        loading: false
       };
     default:
       return state;

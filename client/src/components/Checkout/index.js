@@ -95,7 +95,9 @@ class Checkout extends Component {
     const { buyCredits, fetchAuth } = this.props;
     const { tokenId, amount, credits, cardholderName } = values;
     const { setStatus, setSubmitting, clearStripeFields } = actions;
+
     await buyCredits({ tokenId, amount, credits, cardholderName });
+
     const { creditPurchase: { data, error } = {} } = this.props;
     const { message: successMessage = '' } = data || {};
     const { message: errorMessage = '' } = error || {};
@@ -111,6 +113,7 @@ class Checkout extends Component {
     }
 
     await fetchAuth();
+
     return setTimeout(() => {
       this.props.history.push('/dashboard', {
         from: 'CHECKOUT',

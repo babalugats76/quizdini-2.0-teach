@@ -34,8 +34,6 @@ module.exports = app => {
         password
       } = req.body;
 
-      let emailSent;
-
       // Check for duplicate username
       const usernameTaken = await User.findOne({
         $and: [
@@ -45,7 +43,6 @@ module.exports = app => {
         ]
       });
 
-      // Conditionally, throw exception
       if (usernameTaken) throw new DuplicateUsername(username);
 
       // Check for duplicate email
@@ -57,7 +54,6 @@ module.exports = app => {
         ]
       });
 
-      // Conditionally, throw exception
       if (emailTaken) throw new DuplicateEmail(email);
 
       // Create user record
@@ -85,19 +81,19 @@ module.exports = app => {
 
       // Send email, welcome plus verification
       try {
-        emailSent = await sendRegisterEmail({
+        await sendRegisterEmail({
           toAddress: user.email,
           firstName: user.firstName,
           fullName: user.fullName,
           verifyUrl: 'https://' + req.hostname + '/verify/' + token.secret
         });
-        console.log('Queued email: %s, %s', user.fullName, user.email);
       } catch (e) {
-        console.log('Unable to queue email: %s, %s', user.fullName, user.email);
+        console.log('Unable to queue email (registration): %s, %s', user.fullName, user.email);
       }
 
+      console.log('User Registration: %s, %s', user.fullName, user.email);
       const message = `Check your email, ${user.email}, for a link to verify your account.`;
-      res.send({ user, message });
+      res.send({ message });
     } catch (e) {
       next(e);
     }

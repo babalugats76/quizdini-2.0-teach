@@ -76,7 +76,8 @@ module.exports = app => {
         },
         { new: true }
       );
-      console.log(user.fullName + " purchased " + credits + " credits");
+
+      console.log('Credit Purchase: %s, %s', user.fullName, credits);
       const message = `${credits} credits have been added to your account.`;
       res.send({ message });
     } catch (e) {
