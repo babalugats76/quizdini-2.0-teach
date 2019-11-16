@@ -208,47 +208,47 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 /* lexend-deca-regular - latin */
 @font-face {
-  font-family: "Lexend Deca";
+  font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"), url("/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"), 
-/* Chrome 26+, Opera 23+, Firefox 39+ */ url("/fonts/lexend-deca-v1-latin-regular.woff") format("woff");
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
+/* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
   
 /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
-  font-family: "marcher-light";
-  src: url("/fonts/marcher-light-webfont.woff2") format("woff2"), url("/fonts/marcher-light-webfont.woff") format("woff");
+  font-family: 'marcher-light';
+  src: url('/fonts/marcher-light-webfont.woff2') format('woff2'), url('/fonts/marcher-light-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "marcher-book";
-  src: url("/fonts/marcher-book-webfont.woff2") format("woff2"), url("/fonts/marcher-book-webfont.woff") format("woff");
+  font-family: 'marcher-book';
+  src: url('/fonts/marcher-book-webfont.woff2') format('woff2'), url('/fonts/marcher-book-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "marcher-regular";
-  src: url("/fonts/marcher-regular-webfont.woff2") format("woff2"), url("/fonts/marcher-regular-webfont.woff") format("woff");
+  font-family: 'marcher-regular';
+  src: url('/fonts/marcher-regular-webfont.woff2') format('woff2'), url('/fonts/marcher-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "marcher-medium";
-  src: url("/fonts/marcher-medium-webfont.woff2") format("woff2"), url("/fonts/marcher-medium-webfont.woff") format("woff");
+  font-family: 'marcher-medium';
+  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'), url('/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "marcher-extrabold";
-  src: url("/fonts/marcher-extrabold-webfont.woff2") format("woff2"), url("/fonts/marcher-extrabold-webfont.woff") format("woff");
+  font-family: 'marcher-extrabold';
+  src: url('/fonts/marcher-extrabold-webfont.woff2') format('woff2'), url('/fonts/marcher-extrabold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "marcher-extrabolditalic";
-  src: url("/fonts/marcher-extrabolditalic-webfont.woff2") format("woff2"), url("/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
+  font-family: 'marcher-extrabolditalic';
+  src: url('/fonts/marcher-extrabolditalic-webfont.woff2') format('woff2'), url('/fonts/marcher-extrabolditalic-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -571,7 +571,7 @@ svg.icon.chevron-down.closed {
   background-color: rgba(84, 84, 84, 0.87);
   background-size: 25px;
   background-repeat: round;
-  background-image: url("/images/question.svg");
+  background-image: url('/images/question.svg');
 }
 #landing .banner#selling-points {
   background-color: #F9FAFB;
@@ -610,7 +610,7 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-  About & Terms
+  Information Pages
 --------------------*/
 
 #about.page section,
@@ -620,6 +620,17 @@ svg.icon.chevron-down.closed {
 #about.page section p,
 #terms.page section p {
   font-size: 1rem;
+}
+#about.page section p.dropcap:first-letter,
+#terms.page section p.dropcap:first-letter {
+  color: #574D68;
+  float: left;
+  font-family: 'marcher-medium', sans-serif;
+  font-size: 4.7rem;
+  line-height: 3rem;
+  padding-top: 0.75rem;
+  padding-right: 0.5rem;
+  padding-left: 0.25rem;
 }
 #about.page section a,
 #terms.page section a {
@@ -706,7 +717,7 @@ svg.icon.chevron-down.closed {
 #about.page section details > summary:before,
 #terms.page section details > summary:before {
   display: inline-block;
-  content: "\25bc\00a0";
+  content: '\25bc\00a0';
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
   -webkit-transition: all 300ms ease-in-out;
@@ -770,15 +781,9 @@ svg.icon.chevron-down.closed {
 #faq #rate-schedule > tfoot tr > th {
   background-color: #FFFFFF;
 }
-#dedication p:first-of-type:first-letter {
-  color: #574D68;
-  float: left;
-  font-family: 'marcher-medium', sans-serif;
-  font-size: 4.7rem;
-  line-height: 3rem;
-  padding-top: 0.75rem;
-  padding-right: 0.5rem;
-  padding-left: 0.25rem;
+#attribution img.icon.bitmoji {
+  width: 250px;
+  height: 250px;
 }
 
 /*-------------------
@@ -833,16 +838,16 @@ a#google-login {
   /** TODO - move to cloud and host on S3/Cloud Front
       Use regular, low-fidelity images?
   **/
-  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
+  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
   background-size: 191px 46px;
 }
 a#google-login:focus,
 a#google-login:hover {
-  background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
+  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
 }
 a#google-login:active,
 a#google-login:visited {
-  background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
+  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
 }
 
 /*-------------------
@@ -944,7 +949,7 @@ a#google-login:visited {
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   background-size: 25px;
   background-repeat: round;
-  background-image: url("/images/question.svg");
+  background-image: url('/images/question.svg');
 }
 .ui.cards .ui.card.match-card .content.match-card-header:hover .ui.icon.button.trash {
   display: block;
@@ -1096,7 +1101,7 @@ a#google-login:visited {
   border-color: #F2E86D;
   color: rgba(10, 10, 10, 0.75);
 }
-#match-form .rich-text-editor:not([contenteditable="true"]) {
+#match-form .rich-text-editor:not([contenteditable='true']) {
   /*cursor: not-allowed;*/
   color: rgba(10, 10, 10, 0.4);
   background-color: transparent;

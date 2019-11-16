@@ -5,7 +5,7 @@ export default props => (
     <Header size="huge" textAlign="center">
     <Header.Content>Dedication</Header.Content>
     </Header>
-    <p>
+    <p className="dropcap">
       I have never understood why creative works like books have dedications,
       but equally daunting works of digital creativity do not. Well, we are
       going to take a small step towards changing all that by dedicating
