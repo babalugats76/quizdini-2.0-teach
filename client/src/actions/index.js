@@ -42,7 +42,6 @@ export const updateAccount = user => async dispatch => {
  */
 
 export const authBegin = () => async dispatch => {
-  console.log('fetching auth...');
   dispatch({ type: TYPES.AUTH_BEGIN });
 };
 

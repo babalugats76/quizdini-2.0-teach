@@ -69,11 +69,12 @@ Messages need to be standardized, etc.
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Server
 - Client
+  - Formik upgrade 2.0.X?
   - Images
     - Once all images are known, move to S3/Cloudfront
   - Landing Page
     - Add selling point section, etc.
-       - Need running man
+       - Need running man, node visualization 
        - Determine verbiage for other two points
   - Loading and Error
     - Mock up Error
@@ -81,8 +82,8 @@ Messages need to be standardized, etc.
   - About
     - Attribution
   - Terms
-    - Privacy
-    - Cookies
+    - *Privacy*
+    - *Cookies*
   - Login
     - Update sign in for to use `touch` for the errors
   - Dashboard

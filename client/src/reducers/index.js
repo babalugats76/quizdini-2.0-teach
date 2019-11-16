@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import account from './account';
 import auth from './auth';
-import creditPayment from './creditPurchase';
+import creditPurchase from './creditPurchase';
 import countryOptions from './countryOptions';
 import login from './login';
 import matchGame from './matchGame';
@@ -17,7 +17,7 @@ import verify from './verify';
 export default combineReducers({
   account,
   auth,
-  creditPayment,
+  creditPurchase,
   countryOptions,
   login,
   matchGame, // To avoid confusion with react-router 'match' prop
