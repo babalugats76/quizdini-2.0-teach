@@ -80,10 +80,7 @@ Messages need to be standardized, etc.
     - Mock up Error
       - Return and apply to all appropriate routes
   - About
-    - Attribution
-  - Terms
-    - *Privacy*
-    - *Cookies*
+    - *Attribution*
   - Login
     - Update sign in for to use `touch` for the errors
   - Dashboard

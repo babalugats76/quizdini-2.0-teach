@@ -1,6 +1,6 @@
-import React from "react";
-import { Header, Image, Segment } from "semantic-ui-react";
-import internet from "../../internet.svg";
+import React from 'react';
+import { Header, Image, Segment } from 'semantic-ui-react';
+import internet from '../../internet.svg';
 
 export default props => (
   <Segment {...props}>
@@ -14,43 +14,33 @@ export default props => (
       <Image alt="Internet" className="icon internet" src={internet} />
     </Header>
     <Header size="large">What is a Cookie?</Header>
-    <p>Not just for fuzzy blue monsters anymore, people!</p>
     <p>
-      They may not be as tasty as Grandma used to make them, but they are almost
-      as popular these days! A cookie, at least in our world, is a
-      <strong>tiny file</strong>
-      placed on your device that <strong>allows us to remember you</strong> and
-      make your next visit easier and more efficient.
-    </p>
-    <Header size="large">
-      What Kinds of Cookies Does Quizdini Use and Why?
-    </Header>
-    <p>
-      Unlike many sites, Quizdini uses only what are called&nbsp;
-      <strong>session cookies</strong>, which&nbsp;
-      <strong>do not collect personally-identifying information</strong>. These
-      guys are kind of like those oatmeal raisin classics: still a cookie, but
-      almost good for you! These session cookies&nbsp;
-      <strong>help you stay logged in</strong> to your account while you work.
+      <a
+        href="http://whatarecookies.com/"
+        rel="noopener noreferrer"
+        target="_blank"
+        title="What Are Cookies? Computer Cookies Explained"
+      >
+        Cookies
+      </a>
+      &nbsp;are the&nbsp;<strong>tiny files</strong>&nbsp;placed on your
+      computer by websites you visit which allow them to interact with you
+      efficiently.
     </p>
     <p>
-      In case you were wondering about advertising, let's put your mind at ease
-      about <em>those</em> cookies for a moment. Since we don't allow
-      advertising on Quizdini, you <strong>never have to worry</strong> about
-      what crazy third party rando is hovering in the dark shadows, just waiting
-      to steal your info. We apologize if that comes as a disappointment, but
-      it's just not our thing.
+      Quizdini uses&nbsp;<strong>session</strong>&nbsp;cookies for the simple
+      purpose of helping you stay logged in to your account while you work.
     </p>
     <Header size="large">No Cookies for You!</Header>
     <p>
-      If you'd like to delete cookies or instruct your web browser to delete or
-      refuse cookies, please&nbsp;
-      <strong>visit the help pages of your web browser</strong>.
+      If you&apos;d like to&nbsp;<strong>delete cookies</strong>&nbsp;or
+      instruct your web browser to delete or refuse cookies, please visit the
+      help pages of your web browser.
     </p>
     <p>
-      Please note, though, that if you delete cookies or refuse to accept them,
-      you may not be able to use all of the features we offer or store your
-      preferences, and some of our pages might not display properly.
+      Please note, however, that cookies are&nbsp;
+      <strong>required for you to log in</strong>&nbsp;and take advantage of any
+      of Quizdini&apos;s personalized services.
     </p>
   </Segment>
 );

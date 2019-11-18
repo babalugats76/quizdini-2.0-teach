@@ -87,6 +87,11 @@ module.exports = app => {
           fullName: user.fullName,
           verifyUrl: 'https://' + req.hostname + '/verify/' + token.secret
         });
+        console.log(
+          'Queued email (registration): %s, %s',
+          user.fullName,
+          user.email
+        );
       } catch (e) {
         console.log(
           'Unable to queue email (registration): %s, %s',
@@ -199,9 +204,13 @@ module.exports = app => {
             resetUrl,
             resetExpiryDate: localExpiryDate
           });
-          console.log('Queued email: %s, %s', fullName, toAddress);
+          console.log('Queued email (recovery): %s, %s', fullName, toAddress);
         } catch (e) {
-          console.log('Unable to queue email: %s, %s', fullName, toAddress);
+          console.log(
+            'Unable to queue email (recovery): %s, %s',
+            fullName,
+            toAddress
+          );
         }
       } else {
         const loginUrl = 'https://' + req.hostname + '/login';
@@ -214,9 +223,13 @@ module.exports = app => {
             username,
             loginUrl
           });
-          console.log('Queued email: %s, %s', fullName, toAddress);
+          console.log('Queued email (recovery): %s, %s', fullName, toAddress);
         } catch (e) {
-          console.log('Unable to queue email: %s, %s', fullName, toAddress);
+          console.log(
+            'Unable to queue email (recovery): %s, %s',
+            fullName,
+            toAddress
+          );
         }
       }
 

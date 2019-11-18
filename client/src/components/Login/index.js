@@ -20,43 +20,39 @@ class Login extends Component {
 
   handleDismiss = e => {
     e.preventDefault();
-    this.setState((state, props) => {
-      return {
-        message: null
-      };
-    });
+    this.setState({ message: null });
   };
 
-  renderMessage = ({ header, content, color }) => {
+  renderMessage = ({ content, header, severity }) => {
     return (
       <Message
-        color={color}
         content={content}
         header={header}
         hidden={!content}
         onDismiss={e => this.handleDismiss(e)}
+        severity={severity}
       />
     );
   };
 
   async handleLogin(values, actions) {
-    const { loginUser, fetchAuth } = this.props; // Redux action
-    const { username, password } = values; // Values from form
-    const { resetForm, setStatus, setSubmitting } = actions; // Actions from form
+    const { loginUser, fetchAuth } = this.props; 
+    const { username, password } = values;
+    const { resetForm, setStatus, setSubmitting } = actions;
 
-    await loginUser(username, password); // Redux API call / will update login prop
+    await loginUser({username, password});
 
     const { login: { data, error } = {} } = this.props;
     const { message: successMessage = '' } = data || {};
     const { message: errorMessage = '' } = error || {};
 
     if (error) {
+      await resetForm();
       await setStatus({
         content: errorMessage,
         header: "Oops! We can't log you in!",
         severity: 'ERROR'
       });
-      await resetForm();
       return setSubmitting(false);
     }
 

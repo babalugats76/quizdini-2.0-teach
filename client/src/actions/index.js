@@ -148,14 +148,10 @@ export const loginFailure = error => async dispatch => {
   dispatch({ type: TYPES.LOGIN_FAILURE, payload: { error } });
 };
 
-export const loginUser = (username, password) => async dispatch => {
+export const loginUser = data => async dispatch => {
   try {
     dispatch(loginBegin());
-    const res = await axios.post('/auth/local', {
-      username,
-      password
-    });
-
+    const res = await axios.post('/auth/local', data);
     return dispatch(loginSuccess(res.data));
   } catch (e) {
     dispatch(loginFailure(e.response.data));
@@ -344,8 +340,8 @@ export const registerBegin = () => async dispatch => {
   dispatch({ type: TYPES.REGISTER_BEGIN });
 };
 
-export const registerSuccess = account => async dispatch => {
-  dispatch({ type: TYPES.REGISTER_SUCCESS, payload: { ...account } });
+export const registerSuccess = data => async dispatch => {
+  dispatch({ type: TYPES.REGISTER_SUCCESS, payload: { data } });
 };
 
 export const registerFailure = error => async dispatch => {
