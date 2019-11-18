@@ -81,7 +81,9 @@ Messages need to be standardized, etc.
   - Update Notification headers and messages throughout
   - Landing Page
     - Add selling point section, etc.
-       - Need running man, node visualization 
+       - Need running man, Create an activity during your passing period.  Create an activity in less than 60 seconds. (running man)
+       - Node visualization Gain peace of mind by protecting your students' privacy (node)
+       - Add an invaluable tool to your teacher toolbox (toolbox)
        - Determine verbiage for other two points
   - Loading and Error
     - Mock up Error
