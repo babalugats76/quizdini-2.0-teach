@@ -64,10 +64,8 @@ Messages need to be standardized, etc.
   - _Domain verification (contingent on DNS/using .quizdini.com TLD)_
 - Documentation
 - Server
-  - Document and QA all routes callbacks
-  - Update returned verbiage (once determined)
   - Investigate `cors` usage with Heroku
-  - Refine wording and style for following email templates:
+  - *Refine wording* and style for following email templates:
     - QUIZDINI_REGISTER
     - QUIZDINI_RECOVER_USERNAME
     - QUIZDINI_RESET_PASSWORD
@@ -79,7 +77,7 @@ Messages need to be standardized, etc.
   - Images
     - Once all images are known, move to S3/Cloudfront
   - Update Notification headers and messages throughout
-  - Landing Page
+  - *Landing Page*
     - Add selling point section, etc.
        - Need running man, Create an activity during your passing period.  Create an activity in less than 60 seconds. (running man)
        - Node visualization Gain peace of mind by protecting your students' privacy (node)
@@ -93,7 +91,9 @@ Messages need to be standardized, etc.
   - Login
     - Update sign in for to use `touch` for the errors
   - Dashboard
-    - Refine functional component, e.g., `MatchIntro`
+    - *Refine functional component, e.g., `MatchIntro`*
+    - *Model Games* - Show options 4, 6, 9
+       - For each: title/subject, instructions, .csv, etc. 
     - Consider adding `isEmptyArray` utility function for use in `Match`, etc.
 
 Kay
