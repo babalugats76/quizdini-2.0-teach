@@ -43,7 +43,7 @@ class Login extends Component {
     await loginUser({username, password});
 
     const { login: { data, error } = {} } = this.props;
-    const { message: successMessage = '' } = data || {};
+    //const { message: successMessage = '' } = data || {};
     const { message: errorMessage = '' } = error || {};
 
     if (error) {
