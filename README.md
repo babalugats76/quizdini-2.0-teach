@@ -38,15 +38,21 @@ Messages need to be standardized, etc.
 
 | Event                                              | Header                                             | Content                                                                                 | Color |
 | -------------------------------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------- | :---: |
-| **Successful registration**                        | <blockquote>Registration Successful</blockquote>   | <blockquote>Check your email, `%email%`, for a link to validate your email</blockquote> | green |
-| **Unsuccessful login attempt**                     | <blockquote>Authentication Error</blockquote>      | <blockquote>Unable to Login - Invalid credentials or unverified account.</blockquote>   |  red  |
-| **Successful account verification**                | <blockquote>Verification Successful</blockquote>   | <blockquote>User account validated</blockquote>                                         | green |
-| **Unsuccessful account verification**              | <blockquote>Verification Unsuccessful</blockquote> | <blockquote>Token is invalid, claimed or expired</blockquote>                           |  red  |
-| **Insufficent credits (when trying to save game)** | <blockquote>OH NO!</blockquote>     | <blockquote>You account has insufficient credits: `%credits%`.</blockquote>                  |  red  |
+| **Successful registration**                        | <blockquote>Welcome to Quizdini!</blockquote>   | <blockquote>Check your email, `%email%`, for a link to validate your account.</blockquote> | green |
+| **Unsuccessful registration (duplicate username)** | <blockquote>Have we met before?</blockquote>   | <blockquote>`%username%` already exists.</blockquote> | red |
+| **Unsuccessful registration (duplicate email)** | <blockquote>Have we met before?</blockquote>   | <blockquote>`%email%` is already associated with another account.</blockquote> | red |
+| **Successful account verification**                | <blockquote>Success!</blockquote>   | <blockquote>Your account has been verified.</blockquote> | green |
+| **Unsuccessful account verification**              | <blockquote>Check yourself...</blockquote> | <blockquote>Your token is invalid, claimed, or expired.</blockquote>                           |  red  |
 | **Successful password change**                     | <blockquote>Success!</blockquote>                  | <blockquote>Your password has been updated.</blockquote>                                | green |
-| **Invalid credit card**                            | <blockquote>Validation Error</blockquote>          | <blockquote>Your card number is incomplete.</blockquote> (provided by Stripe)           |  red  |
-| **Failed purchase**                                | <blockquote>Transaction Failed</blockquote>        | <blockquote>Your card was declined.</blockquote> (provided by Stripe)                   |  red  |
-| **Successful purchase**                            | <blockquote>Payment Successful</blockquote>        | <blockquote>Purchase of `%credits%` Quizdini credits for `%user.fullName%`</blockquote> | green |
+| **Successful password reset**                     | <blockquote>Success!</blockquote>                  | <blockquote>Your password has been reset.</blockquote>                                | green |
+| **Unsuccessful password change**                     | <blockquote>Check yourself...</blockquote>                  | <blockquote>Your current password is incorrect.</blockquote>                                | red |
+| **Unsuccessful login attempt**                     | <blockquote>Oops we can't log you in!</blockquote>      | <blockquote>Please check your credentials or verify your account.</blockquote>   |  red  |
+| **Stripe Errors** | <blockquote>Something's not quite right.</blockquote> | <em>Provided by Stripe | red | 
+| **Successful purchase**                           | <blockquote>Thank you for your purchase!</blockquote>        | <blockquote>`%credits%` have been added to your account.</blockquote> | green |
+| **Successful recovery request (username) ** | <blockquote>Check your email!</blockquoute> | <blockquote>If there is an account associated with `%email%`, a username recovery email has been sent.</blockquoute> | blue |
+| **Successful recovery request (reset) ** | <blockquote>Check your email!</blockquoute> | <blockquote>If there is an account associated with `%email%`, a password reset email has been sent.</blockquoute> | blue |
+| **Insufficent credits** | <blockquote>Not so fast!</blockquote> | <blockquote>There are not enough credits in your account.</blockquote> |  red  |
+
 
 # Todo List
 
