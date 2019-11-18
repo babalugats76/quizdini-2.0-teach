@@ -42,8 +42,7 @@ class Login extends Component {
 
     await loginUser({username, password});
 
-    const { login: { data, error } = {} } = this.props;
-    //const { message: successMessage = '' } = data || {};
+    const { login: { error } = {} } = this.props;
     const { message: errorMessage = '' } = error || {};
 
     if (error) {
@@ -60,11 +59,6 @@ class Login extends Component {
     return this.props.history.push({
       pathname: '/dashboard',
       state: {
-        /*message: {
-          content: successMessage,
-          header: 'Welcome to Quizdini!',
-          severity: 'OK'
-        },*/
         from: 'LOGIN',
         skipAuth: true
       }

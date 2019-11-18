@@ -153,7 +153,7 @@ module.exports = app => {
     try {
       const timeZone = req.header('quizdini-timezone') || 'UTC';
       const { email, recoveryType = 'password' } = req.body;
-      const message = `If there is an account associated with ${email}, a ${
+      const message = `If there is an account associated with ${email}, then a ${
         recoveryType === 'password' ? 'password reset' : 'username recovery'
       } email has been sent.`;
 
@@ -262,7 +262,7 @@ module.exports = app => {
 
       // Return "success" message
       const message = 'Your password has been updated.';
-      res.send(message);
+      res.send({ message });
     } catch (e) {
       next(e);
     }
@@ -282,7 +282,7 @@ module.exports = app => {
 
       if (!token) throw new InvalidToken();
 
-      const user = await User.findOneAndUpdate(
+      await User.findOneAndUpdate(
         {
           $and: [
             { _id: token.user_id },
@@ -299,7 +299,7 @@ module.exports = app => {
       await token.save();
 
       const message = 'Your password has been reset.';
-      res.send(message);
+      res.send({ message });
     } catch (e) {
       next(e);
     }

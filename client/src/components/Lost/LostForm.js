@@ -104,12 +104,13 @@ const LostForm = props => {
               active
               disabled={isSubmitting}
               icon="mail"
+              labelPosition="left"
+              loading={isSubmitting}
               positive={isValid && !!values.email && !!values.recoveryType}
               size="large"
               tabIndex={3}
               title="Send Email"
               type="submit"
-              labelPosition="left"
             >
               SEND EMAIL
             </Button>

@@ -231,6 +231,7 @@ const FormikAccountForm = withFormik({
   handleSubmit: (values, { setSubmitting, setStatus, props }) => {
     const { onUpdateAccount } = props; // prop function to call
     // Call prop function to update account passing values and actions
+    setStatus(null); // Clear form status
     onUpdateAccount(values, { setSubmitting, setStatus, props });
   },
   displayName: 'AccountForm'

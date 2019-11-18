@@ -34,14 +34,14 @@ class Lost extends Component {
     if (error) {
       await setStatus({
         content: errorMessage,
-        header: 'Credential Recovery Error',
+        header: 'Yikes! Something went wrong!',
         severity: 'ERROR'
       });
     } else {
       await setStatus({
         content: successMessage,
-        header: 'Success!',
-        severity: 'OK'
+        header: 'Check your email!',
+        severity: 'INFO'
       });
     }
     return setSubmitting(false);

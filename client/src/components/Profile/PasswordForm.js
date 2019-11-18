@@ -7,7 +7,7 @@ import InputText from '../UI/InputText';
 import Message from '../UI/Message';
 
 /* Used to debug behind-the-scenes Formik state, etc. */
-//import DisplayFormikState from '../UI/FormikHelper';
+// import DisplayFormikState from '../UI/FormikHelper';
 
 /* eslint-disable no-template-curly-in-string */
 const validatePassword = Yup.object().shape({
@@ -29,14 +29,14 @@ const PasswordForm = props => {
     setStatus(null);
   };
 
-  const renderMessage = ({ header, content, color, setStatus }) => {
+  const renderMessage = ({ content, header, setStatus, severity }) => {
     return (
       <Message
-        hidden={!content}
-        header={header}
         content={content}
-        color={color}
+        header={header}
+        hidden={!content}
         onDismiss={(e, data) => handleDismiss(e, setStatus)}
+        severity={severity}
       />
     );
   };
@@ -129,13 +129,14 @@ const PasswordForm = props => {
     );
   };
 
-  const { status, setStatus } = props;
+  const { status, setStatus} = props;
   const form = renderForm(props);
 
   return (
     <Segment padded>
       {status && renderMessage({ ...status, setStatus })}
       {form}
+      {/* <DisplayFormikState {...props} /> */}
     </Segment>
   );
 };
@@ -156,6 +157,7 @@ const FormikPasswordForm = withFormik({
   handleSubmit: (values, { resetForm, setSubmitting, setStatus, props }) => {
     const { onUpdatePassword } = props; // prop function to call
     // Call prop function to update account passing values and actions
+    setStatus(null); // Clear form status
     onUpdatePassword(values, {
       resetForm,
       setSubmitting,

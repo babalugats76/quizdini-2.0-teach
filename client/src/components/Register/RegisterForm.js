@@ -10,7 +10,7 @@ import Checkbox from '../UI/Checkbox';
 import Message from '../UI/Message';
 
 // eslint-disable-next-line
-import DisplayFormikState from '../UI/FormikHelper';
+//import DisplayFormikState from '../UI/FormikHelper';
 
 const titleOptions = [
   { key: 0, text: '', value: '' },
@@ -301,7 +301,7 @@ const RegisterForm = props => {
     <Segment padded>
       {status && renderMessage({ ...status, setStatus })}
       {form}
-      <DisplayFormikState {...props} />
+      {/*<DisplayFormikState {...props} />*/}
     </Segment>
   );
 };

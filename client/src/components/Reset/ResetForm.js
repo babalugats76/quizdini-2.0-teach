@@ -28,14 +28,14 @@ const ResetForm = props => {
     setStatus(null);
   };
 
-  const renderMessage = ({ header, content, color, setStatus }) => {
+  const renderMessage = ({ content, header, setStatus, severity }) => {
     return (
       <Message
-        hidden={!content}
-        header={header}
         content={content}
-        color={color}
+        header={header}
+        hidden={!content}
         onDismiss={(e, data) => handleDismiss(e, setStatus)}
+        severity={severity}
       />
     );
   };
@@ -135,6 +135,7 @@ const FormikResetForm = withFormik({
   validationSchema: validateReset,
   handleSubmit: (values, { resetForm, setSubmitting, setStatus, props }) => {
     const { onResetPassword } = props; // prop function to call
+    setStatus(null); // Clear form status
     // Call prop function to update account passing values and actions
     onResetPassword(values, {
       resetForm,

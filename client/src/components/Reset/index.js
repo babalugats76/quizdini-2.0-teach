@@ -18,20 +18,23 @@ class Reset extends Component {
 
   async componentDidMount() {
     const { secret } = this.state;
-    const { fetchToken } = this.props;
-    await fetchToken(secret);
-    const { token } = this.props;
-    const { error } = { ...token };
+    const { verifyToken } = this.props;
+    
+    await verifyToken(secret);
+    
+    const { tokenVerify: { error } = {} } = this.props;
+    const { message: errorMessage = '' } = error || {};
+
+    console.log(this.props.tokenVerify);
 
     if (error) {
-      const { message } = error;
       return setTimeout(() => {
         this.props.history.push('/login', {
           message: {
-            color: 'red',
-            content: `${message}`,
-            header: 'Reset Unsuccessful'
-          }
+            content: errorMessage,
+            header: 'Check yourself...',
+            severity: 'ERROR'
+          },
         });
       }, 300);
     }
@@ -49,30 +52,31 @@ class Reset extends Component {
    * @param {*} actions FormikBag functions
    */
   async handleResetPassword(values, actions) {
-    const { resetPassword } = this.props; // Get Redux action
-    const { secret } = this.state; // Get "secret" token
-    const { newPassword } = values; // Get form values (for reset)
-    const { setSubmitting, setStatus } = actions; // Get Formik helper functions, etc.
-    await resetPassword({ newPassword, secret }); // Call Redux action passing registration values
-    const { password: { error, message } = {} } = this.props; // Get latest version of password props (mapped from state)
+    const { resetPassword } = this.props;
+    const { secret } = this.state;
+    const { newPassword } = values;
+    const { setSubmitting, setStatus } = actions;
+    
+    await resetPassword({ newPassword, secret });
+    
+    const { passwordChange: { data, error } = {} } = this.props;
+    const { message: successMessage = '' } = data || {};
+    const { message: errorMessage = '' } = error || {};
+    
     if (error) {
-      const {
-        message: { errorMessage }
-      } = error;
       await setStatus({
-        color: 'red',
         content: errorMessage,
-        header: 'Unable to Reset Password'
+        header: 'Check yourself...',
+        severity: 'ERROR'
       });
       return setSubmitting(false);
     } else {
-      // redirect
       return setTimeout(() => {
         this.props.history.push('/login', {
           message: {
-            color: 'green',
-            content: `${message}`,
-            header: 'Password Reset Successful'
+            content: successMessage,
+            header: 'Success!',
+            severity: 'OK'
           }
         });
       }, 300);
@@ -91,7 +95,7 @@ class Reset extends Component {
 
   render() {
     const form = this.renderForm(this.props);
-    const { token: { loading, error } = {} } = this.props;
+    const { tokenVerify: { loading, error } = {} } = this.props;
     return (
       !error &&
       !loading && (
@@ -112,7 +116,7 @@ Reset.propTypes = {
   })
 };
 
-const mapStateToProps = ({ token, password }) => ({ token, password });
+const mapStateToProps = ({ tokenVerify, passwordChange }) => ({ tokenVerify, passwordChange });
 
 export default connect(
   mapStateToProps,

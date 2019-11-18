@@ -6,12 +6,12 @@ import countryOptions from './countryOptions';
 import login from './login';
 import matchGame from './matchGame';
 import matchList from './matchList';
-import password from './password';
+import passwordChange from './passwordChange';
 import paymentList from './paymentList';
 import recovery from './recovery';
 import registration from './registration';
 import stateOptions from './stateOptions';
-import token from './token';
+import tokenVerify from './tokenVerify';
 import verify from './verify';
 
 export default combineReducers({
@@ -22,11 +22,11 @@ export default combineReducers({
   login,
   matchGame, // To avoid confusion with react-router 'match' prop
   matchList, // To avoid confusion with react-router 'match' prop
-  password,
+  passwordChange, // Used in both 'update' and 'reset'
   paymentList,
   recovery,
   registration,
   stateOptions,
-  token,
+  tokenVerify,
   verify
 });

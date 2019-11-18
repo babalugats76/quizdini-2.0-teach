@@ -1,32 +1,33 @@
 import * as TYPES from '../actions/types';
 
 const initialState = {
-  token: null,
-  loading: false,
-  error: null
+  data: null,
+  error: null,
+  loading: false
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case TYPES.TOKEN_BEGIN:
+    case TYPES.TOKEN_VERIFY_BEGIN:
       return {
         ...state,
-        loading: true,
-        error: null
-      };
-    case TYPES.TOKEN_SUCCESS:
-      return {
-        ...state,
-        loading: false,
+        data: null,
         error: null,
-        token: action.payload.token
+        loading: true
       };
-    case TYPES.TOKEN_FAILURE:
+    case TYPES.TOKEN_VERIFY_SUCCESS:
       return {
         ...state,
-        loading: false,
+        data: action.payload.data,
+        error: null,
+        loading: false
+      };
+    case TYPES.TOKEN_VERIFY_FAILURE:
+      return {
+        ...state,
+        data: null,
         error: action.payload.error,
-        token: null
+        loading: false
       };
     default:
       return state;

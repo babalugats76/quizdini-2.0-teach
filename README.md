@@ -36,23 +36,22 @@
 
 Messages need to be standardized, etc.
 
-| Event                                              | Header                                             | Content                                                                                 | Color |
-| -------------------------------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------- | :---: |
-| **Successful registration**                        | <blockquote>Welcome to Quizdini!</blockquote>   | <blockquote>Check your email, `%email%`, for a link to validate your account.</blockquote> | green |
-| **Unsuccessful registration (duplicate username)** | <blockquote>Have we met before?</blockquote>   | <blockquote>`%username%` already exists.</blockquote> | red |
-| **Unsuccessful registration (duplicate email)** | <blockquote>Have we met before?</blockquote>   | <blockquote>`%email%` is already associated with another account.</blockquote> | red |
-| **Successful account verification**                | <blockquote>Success!</blockquote>   | <blockquote>Your account has been verified.</blockquote> | green |
-| **Unsuccessful account verification**              | <blockquote>Check yourself...</blockquote> | <blockquote>Your token is invalid, claimed, or expired.</blockquote>                           |  red  |
-| **Successful password change**                     | <blockquote>Success!</blockquote>                  | <blockquote>Your password has been updated.</blockquote>                                | green |
-| **Successful password reset**                     | <blockquote>Success!</blockquote>                  | <blockquote>Your password has been reset.</blockquote>                                | green |
-| **Unsuccessful password change**                     | <blockquote>Check yourself...</blockquote>                  | <blockquote>Your current password is incorrect.</blockquote>                                | red |
-| **Unsuccessful login attempt**                     | <blockquote>Oops we can't log you in!</blockquote>      | <blockquote>Please check your credentials or verify your account.</blockquote>   |  red  |
-| **Stripe Errors** | <blockquote>Something's not quite right.</blockquote> | <em>Provided by Stripe</em> | red | 
-| **Successful purchase**  | <blockquote>Thank you for your purchase!</blockquote>  | <blockquote>`%credits%` have been added to your account.</blockquote> | green |
-| **Successful recovery request (username)** | <blockquote>Check your email!</blockquoute> | <blockquote>If there is an account associated with `%email%`, a username recovery email has been sent.</blockquoute> | blue |
-| **Successful recovery request (reset)** | <blockquote>Check your email!</blockquoute> | <blockquote>If there is an account associated with `%email%`, a password reset email has been sent.</blockquoute> | blue |
-| **Insufficent credits** | <blockquote>Not so fast!</blockquote> | <blockquote>There are not enough credits in your account.</blockquote> |  red  |
-
+| Event                                              | Header                                                | Content                                                                                                                   | Color |
+| -------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | :---: |
+| **Successful registration**                        | <blockquote>Welcome to Quizdini!</blockquote>         | <blockquote>Check your email, `%email%`, for a link to validate your account.</blockquote>                                | green |
+| **Unsuccessful registration (duplicate username)** | <blockquote>Have we met before?</blockquote>          | <blockquote>`%username%` already exists.</blockquote>                                                                     |  red  |
+| **Unsuccessful registration (duplicate email)**    | <blockquote>Have we met before?</blockquote>          | <blockquote>`%email%` is already associated with another account.</blockquote>                                            |  red  |
+| **Successful account verification**                | <blockquote>Success!</blockquote>                     | <blockquote>Your account has been verified.</blockquote>                                                                  | green |
+| **Unsuccessful account verification**              | <blockquote>Check yourself...</blockquote>            | <blockquote>Your token is invalid, claimed, or expired.</blockquote>                                                      |  red  |
+| **Successful password change**                     | <blockquote>Success!</blockquote>                     | <blockquote>Your password has been updated.</blockquote>                                                                  | green |
+| **Successful password reset**                      | <blockquote>Success!</blockquote>                     | <blockquote>Your password has been reset.</blockquote>                                                                    | green |
+| **Unsuccessful password change**                   | <blockquote>Check yourself...</blockquote>            | <blockquote>Your current password is incorrect.</blockquote>                                                              |  red  |
+| **Unsuccessful login attempt**                     | <blockquote>Oops we can't log you in!</blockquote>    | <blockquote>Please check your credentials or verify your account.</blockquote>                                            |  red  |
+| **Stripe Errors**                                  | <blockquote>Something's not quite right.</blockquote> | <em>Provided by Stripe</em>                                                                                               |  red  |
+| **Successful purchase**                            | <blockquote>Thank you for your purchase!</blockquote> | <blockquote>`%credits%` have been added to your account.</blockquote>                                                     | green |
+| **Successful recovery request (username)**         | <blockquote>Check your email!</blockquoute>           | <blockquote>If there is an account associated with `%email%`, then a username recovery email has been sent.</blockquoute> | blue  |
+| **Successful recovery request (reset)**            | <blockquote>Check your email!</blockquoute>           | <blockquote>If there is an account associated with `%email%`, then a password reset email has been sent.</blockquoute>    | blue  |
+| **Insufficent credits**                            | <blockquote>Not so fast!</blockquote>                 | <blockquote>There are not enough credits in your account.</blockquote>                                                    |  red  |
 
 # Todo List
 
@@ -65,7 +64,7 @@ Messages need to be standardized, etc.
 - Documentation
 - Server
   - Investigate `cors` usage with Heroku
-  - *Refine wording* and style for following email templates:
+  - _Refine wording_ and style for following email templates:
     - QUIZDINI_REGISTER
     - QUIZDINI_RECOVER_USERNAME
     - QUIZDINI_RESET_PASSWORD
@@ -77,23 +76,23 @@ Messages need to be standardized, etc.
   - Images
     - Once all images are known, move to S3/Cloudfront
   - Update Notification headers and messages throughout
-  - *Landing Page*
+  - _Landing Page_
     - Add selling point section, etc.
-       - Need running man, Create an activity during your passing period.  Create an activity in less than 60 seconds. (running man)
-       - Node visualization Gain peace of mind by protecting your students' privacy (node)
-       - Add an invaluable tool to your teacher toolbox (toolbox)
-       - Determine verbiage for other two points
+      - Need running man, Create an activity during your passing period. Create an activity in less than 60 seconds. (running man)
+      - Node visualization Gain peace of mind by protecting your students' privacy (node)
+      - Add an invaluable tool to your teacher toolbox (toolbox)
+      - Determine verbiage for other two points
   - Loading and Error
     - Mock up Error
       - Return and apply to all appropriate routes
   - About
-    - *Attribution*
+    - _Attribution_
   - Login
     - Update sign in for to use `touch` for the errors
   - Dashboard
-    - *Refine functional component, e.g., `MatchIntro`*
-    - *Model Games* - Show options 4, 6, 9
-       - For each: title/subject, instructions, .csv, etc. 
+    - _Refine functional component, e.g., `MatchIntro`_
+    - _Model Games_ - Show options 4, 6, 9
+      - For each: title/subject, instructions, .csv, etc.
     - Consider adding `isEmptyArray` utility function for use in `Match`, etc.
 
 Kay

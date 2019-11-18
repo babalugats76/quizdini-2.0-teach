@@ -16,23 +16,27 @@ class Password extends Component {
    * @param {*} actions FormikBag functions
    */
   async handleUpdatePassword(values, actions) {
-    const { updatePassword } = this.props; // Redux action */
-    const { resetForm, setSubmitting, setStatus } = actions; // Get Formik helper functions, etc.
-    await setStatus(null); // Clear form status
-    await updatePassword(values); // Call action to updatePassword (of user)
+    const { updatePassword } = this.props;
+    const { resetForm, setSubmitting, setStatus } = actions;
+
+    await updatePassword(values);
     await resetForm();
-    const { password: { error, message } = {} } = this.props; // Get latest version of password props (mapped from state)
+
+    const { passwordChange: { data, error } = {} } = this.props;
+    const { message: successMessage = '' } = data || {};
+    const { message: errorMessage = '' } = error || {};
+
     if (error) {
       await setStatus({
-        color: 'red',
-        content: error.message || '',
-        header: 'Unable to Change Password'
+        content: errorMessage,
+        header: 'Check yourself...',
+        severity: 'ERROR'
       });
     } else {
       await setStatus({
-        color: 'green',
-        content: message || '',
-        header: 'Success!'
+        content: successMessage,
+        header: 'Success!',
+        severity: 'OK'
       });
     }
     return await setSubmitting(false);
@@ -50,13 +54,14 @@ class Password extends Component {
 
   render() {
     const form = this.renderForm(this.props);
-    return <Container className="small" fluid>{form}</Container>;
+    return (
+      <Container className="small" fluid>
+        {form}
+      </Container>
+    );
   }
 }
 
-const mapStateToProps = ({ password }) => ({ password });
+const mapStateToProps = ({ passwordChange }) => ({ passwordChange });
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Password);
+export default connect(mapStateToProps, actions)(Password);

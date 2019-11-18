@@ -106,7 +106,7 @@ class Checkout extends Component {
       clearStripeFields();
       await setStatus({
         content: errorMessage,
-        header: 'Payment Failed',
+        header: "Something's not quite right.",
         severity: 'ERROR'
       });
       return setSubmitting(false);
@@ -119,7 +119,7 @@ class Checkout extends Component {
         from: 'CHECKOUT',
         message: {
           content: successMessage,
-          header: 'Payment Successful!',
+          header: 'Thank you for your purchase!',
           severity: 'OK'
         },
         skipAuth: true

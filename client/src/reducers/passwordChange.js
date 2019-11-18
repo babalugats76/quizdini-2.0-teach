@@ -1,32 +1,33 @@
 import * as TYPES from '../actions/types';
 
 const initialState = {
-  message: null,
-  loading: false,
-  error: null
+  data: null,
+  error: null,
+  loading: false
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case TYPES.PASSWORD_BEGIN:
+    case TYPES.PASSWORD_CHANGE_BEGIN:
       return {
         ...state,
-        loading: true,
-        error: null
-      };
-    case TYPES.PASSWORD_SUCCESS:
-      return {
-        ...state,
-        loading: false,
+        data: null,
         error: null,
-        message: action.payload.message
+        loading: true
       };
-    case TYPES.PASSWORD_FAILURE:
+    case TYPES.PASSWORD_CHANGE_SUCCESS:
       return {
         ...state,
-        loading: false,
+        data: action.payload.data,
+        error: null,
+        loading: false
+      };
+    case TYPES.PASSWORD_CHANGE_FAILURE:
+      return {
+        ...state,
+        data: null,
         error: action.payload.error,
-        message: null
+        loading: false
       };
     default:
       return state;

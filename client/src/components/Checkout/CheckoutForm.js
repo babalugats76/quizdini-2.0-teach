@@ -265,7 +265,7 @@ const FormikCheckoutForm = withFormik({
       // Handle validation errors
       setStatus({
         content: res.error.message,
-        header: 'Validation Error',
+        header: "Something's not quite right.",
         severity: 'ERROR'
       });
       setSubmitting(false);

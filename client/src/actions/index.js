@@ -236,39 +236,39 @@ export const upsertMatch = (matchId, match) => async dispatch => {
 };
 
 /**
- * PASSWORD SECTION
- * Actions used to maintain user password info
+ * PASSWORD CHANGE SECTION
+ * Actions used to both "update" and "reset" users' passwords
  */
 
-export const passwordBegin = () => async dispatch => {
-  dispatch({ type: TYPES.PASSWORD_BEGIN });
+export const passwordChangeBegin = () => async dispatch => {
+  dispatch({ type: TYPES.PASSWORD_CHANGE_BEGIN });
 };
 
-export const passwordSuccess = message => async dispatch => {
-  dispatch({ type: TYPES.PASSWORD_SUCCESS, payload: { message } });
+export const passwordChangeSuccess = data => async dispatch => {
+  dispatch({ type: TYPES.PASSWORD_CHANGE_SUCCESS, payload: { data } });
 };
 
-export const passwordFailure = error => async dispatch => {
-  dispatch({ type: TYPES.PASSWORD_FAILURE, payload: { error } });
+export const passwordChangeFailure = error => async dispatch => {
+  dispatch({ type: TYPES.PASSWORD_CHANGE_FAILURE, payload: { error } });
 };
 
-export const resetPassword = password => async dispatch => {
+export const resetPassword = data => async dispatch => {
   try {
-    dispatch(passwordBegin());
-    const res = await axios.put('/api/account/password-reset', password);
-    dispatch(passwordSuccess(res.data));
+    dispatch(passwordChangeBegin());
+    const res = await axios.put('/api/account/password-reset', data);
+    dispatch(passwordChangeSuccess(res.data));
   } catch (e) {
-    dispatch(passwordFailure(e.response.data));
+    dispatch(passwordChangeFailure(e.response.data));
   }
 };
 
-export const updatePassword = password => async dispatch => {
+export const updatePassword = data => async dispatch => {
   try {
-    dispatch(passwordBegin());
-    const res = await axios.put('/api/account/password', password);
-    dispatch(passwordSuccess(res.data));
+    dispatch(passwordChangeBegin());
+    const res = await axios.put('/api/account/password', data);
+    dispatch(passwordChangeSuccess(res.data));
   } catch (e) {
-    dispatch(passwordFailure(e.response.data));
+    dispatch(passwordChangeFailure(e.response.data));
   }
 };
 
@@ -386,29 +386,29 @@ export const fetchStates = () => async dispatch => {
 };
 
 /**
- * TOKEN SECTION
+ * TOKEN VERIFY SECTION
  * Actions used to obtain token info (verification)
  */
 
-export const tokenBegin = () => async dispatch => {
-  dispatch({ type: TYPES.TOKEN_BEGIN });
+export const tokenVerifyBegin = () => async dispatch => {
+  dispatch({ type: TYPES.TOKEN_VERIFY_BEGIN });
 };
 
-export const tokenSuccess = token => async dispatch => {
-  dispatch({ type: TYPES.TOKEN_SUCCESS, payload: { token } });
+export const tokenVerifySuccess = data => async dispatch => {
+  dispatch({ type: TYPES.TOKEN_VERIFY_SUCCESS, payload: { data } });
 };
 
-export const tokenFailure = error => async dispatch => {
-  dispatch({ type: TYPES.TOKEN_FAILURE, payload: { error } });
+export const tokenVerifyFailure = error => async dispatch => {
+  dispatch({ type: TYPES.TOKEN_VERIFY_FAILURE, payload: { error } });
 };
 
-export const fetchToken = secret => async dispatch => {
+export const verifyToken = secret => async dispatch => {
   try {
-    dispatch(tokenBegin());
+    dispatch(tokenVerifyBegin());
     const res = await axios.get(`/api/token/${secret}`);
-    dispatch(tokenSuccess(res.data));
+    dispatch(tokenVerifySuccess(res.data));
   } catch (e) {
-    dispatch(tokenFailure(e.response.data));
+    dispatch(tokenVerifyFailure(e.response.data));
   }
 };
 
