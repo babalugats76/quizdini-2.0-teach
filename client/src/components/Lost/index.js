@@ -18,25 +18,30 @@ class Lost extends Component {
    * @param {*} actions FormikBag functions
    */
   async handleLostSubmit(values, actions) {
-    const { sendRecoveryEmail } = this.props; // Redux action
-    const { resetForm, setFieldValue, setStatus, setSubmitting } = actions; // Actions from form
-    const { email, recoveryType } = values; // Values from form
-    await setStatus(null); // Clear form status
+    const { sendRecoveryEmail } = this.props;
+    const { resetForm, setFieldValue, setStatus, setSubmitting } = actions;
+    const { email, recoveryType } = values;
+
     await sendRecoveryEmail({ email, recoveryType });
+
+    const { recovery: { data, error } = {} } = this.props;
+    const { message: successMessage = '' } = data || {};
+    const { message: errorMessage = '' } = error || {};
+
     await resetForm();
     await setFieldValue('recoveryType', recoveryType);
-    const { recovery: { error, message } = {} } = this.props; // Get latest version of recovery props (mapped from state)
+
     if (error) {
       await setStatus({
-        color: 'red',
-        content: error.message || '',
-        header: 'Credential Recovery Error'
+        content: errorMessage,
+        header: 'Credential Recovery Error',
+        severity: 'ERROR'
       });
     } else {
       await setStatus({
-        color: 'green',
-        content: message || '',
-        header: 'Success!'
+        content: successMessage,
+        header: 'Success!',
+        severity: 'OK'
       });
     }
     return setSubmitting(false);
@@ -66,7 +71,4 @@ class Lost extends Component {
 
 const mapStateToProps = ({ recovery }) => ({ recovery });
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Lost);
+export default connect(mapStateToProps, actions)(Lost);

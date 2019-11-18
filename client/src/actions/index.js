@@ -312,18 +312,18 @@ export const recoveryBegin = () => async dispatch => {
   dispatch({ type: TYPES.RECOVERY_BEGIN });
 };
 
-export const recoverySuccess = message => async dispatch => {
-  dispatch({ type: TYPES.RECOVERY_SUCCESS, payload: { message } });
+export const recoverySuccess = data => async dispatch => {
+  dispatch({ type: TYPES.RECOVERY_SUCCESS, payload: { data } });
 };
 
 export const recoveryFailure = error => async dispatch => {
   dispatch({ type: TYPES.RECOVERY_FAILURE, payload: { error } });
 };
 
-export const sendRecoveryEmail = recovery => async dispatch => {
+export const sendRecoveryEmail = data => async dispatch => {
   try {
     dispatch(recoveryBegin());
-    const res = await axios.post('/api/account/lost', recovery, {
+    const res = await axios.post('/api/account/lost', data, {
       headers: {
         // Application-specific header for presenting user with time relative to their local timezone
         'quizdini-timezone': Intl.DateTimeFormat().resolvedOptions().timeZone

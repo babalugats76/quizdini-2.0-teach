@@ -88,7 +88,11 @@ module.exports = app => {
           verifyUrl: 'https://' + req.hostname + '/verify/' + token.secret
         });
       } catch (e) {
-        console.log('Unable to queue email (registration): %s, %s', user.fullName, user.email);
+        console.log(
+          'Unable to queue email (registration): %s, %s',
+          user.fullName,
+          user.email
+        );
       }
 
       console.log('User Registration: %s, %s', user.fullName, user.email);
@@ -160,7 +164,7 @@ module.exports = app => {
 
       if (!user) {
         // user lookup fails
-        return res.send(message);
+        return res.send({ message });
       }
 
       // destructure fields needed to send email
@@ -188,7 +192,7 @@ module.exports = app => {
         const resetUrl = 'https://' + req.hostname + '/reset/' + token.secret;
 
         try {
-          const resetEmail = await sendResetEmail({
+          await sendResetEmail({
             toAddress,
             firstName,
             fullName,
@@ -203,7 +207,7 @@ module.exports = app => {
         const loginUrl = 'https://' + req.hostname + '/login';
 
         try {
-          const recoveryEmail = await sendRecoveryEmail({
+          await sendRecoveryEmail({
             toAddress,
             firstName,
             fullName,
@@ -216,7 +220,7 @@ module.exports = app => {
         }
       }
 
-      res.send(message);
+      res.send({ message });
     } catch (e) {
       next(e);
     }

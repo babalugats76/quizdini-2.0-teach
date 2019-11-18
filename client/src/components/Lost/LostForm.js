@@ -34,14 +34,14 @@ const LostForm = props => {
     setStatus(null);
   };
 
-  const renderMessage = ({ header, content, color, setStatus }) => {
+  const renderMessage = ({ content, header, setStatus, severity }) => {
     return (
       <Message
-        hidden={!content}
-        header={header}
         content={content}
-        color={color}
+        header={header}
+        hidden={!content}
         onDismiss={(e, data) => handleDismiss(e, setStatus)}
+        severity={severity}
       />
     );
   };
