@@ -78,6 +78,7 @@ Messages need to be standardized, etc.
   - Formik upgrade 2.0.X?
   - Images
     - Once all images are known, move to S3/Cloudfront
+  - Update Notification headers and messages throughout
   - Landing Page
     - Add selling point section, etc.
        - Need running man, node visualization 

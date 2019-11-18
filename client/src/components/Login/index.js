@@ -60,11 +60,11 @@ class Login extends Component {
     return this.props.history.push({
       pathname: '/dashboard',
       state: {
-        message: {
+        /*message: {
           content: successMessage,
           header: 'Welcome to Quizdini!',
           severity: 'OK'
-        },
+        },*/
         from: 'LOGIN',
         skipAuth: true
       }
