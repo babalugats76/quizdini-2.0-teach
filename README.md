@@ -48,7 +48,7 @@ Messages need to be standardized, etc.
 | **Unsuccessful password change**                     | <blockquote>Check yourself...</blockquote>                  | <blockquote>Your current password is incorrect.</blockquote>                                | red |
 | **Unsuccessful login attempt**                     | <blockquote>Oops we can't log you in!</blockquote>      | <blockquote>Please check your credentials or verify your account.</blockquote>   |  red  |
 | **Stripe Errors** | <blockquote>Something's not quite right.</blockquote> | <em>Provided by Stripe</em> | red | 
-| **Successful purchase**                           | <blockquote>Thank you for your purchase!</blockquote>        | <blockquote>`%credits%` have been added to your account.</blockquote> | green |
+| **Successful purchase**  | <blockquote>Thank you for your purchase!</blockquote>  | <blockquote>`%credits%` have been added to your account.</blockquote> | green |
 | **Successful recovery request (username) ** | <blockquote>Check your email!</blockquoute> | <blockquote>If there is an account associated with `%email%`, a username recovery email has been sent.</blockquoute> | blue |
 | **Successful recovery request (reset) ** | <blockquote>Check your email!</blockquoute> | <blockquote>If there is an account associated with `%email%`, a password reset email has been sent.</blockquoute> | blue |
 | **Insufficent credits** | <blockquote>Not so fast!</blockquote> | <blockquote>There are not enough credits in your account.</blockquote> |  red  |
