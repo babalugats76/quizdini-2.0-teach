@@ -25,10 +25,10 @@ class Account extends Component {
    * @param {*} actions FormikBag functions
    */
   async handleUpdateAccount(values, actions) {
-    const { updateAccount } = this.props; // Redux action
-    const { setSubmitting, setStatus } = actions; // Get Formik helper functions, etc.
+    const { updateAccount } = this.props;
+    const { setSubmitting, setStatus } = actions;
     const { city, countryCode, firstName, lastName, stateCode, title } = values;
-    await setStatus(null); // Clear form status
+
     await updateAccount({
       city,
       countryCode,
@@ -36,19 +36,18 @@ class Account extends Component {
       lastName,
       stateCode,
       title
-    }); // Call action to updateAccount (user)
+    });
 
-    const { account: { error } = {} } = this.props; // Get latest version of account props (mapped from state)
+    const { account: { error } = {} } = this.props;
+    const { message: errorMessage = '' } = error || {};
 
     if (error) {
-      // If error in processing
       await setStatus({
-        color: 'red',
-        content: error.message || '',
-        header: 'Account Update Error'
+        content: errorMessage,
+        header: "Something's not quite right.",
+        severity: 'ERROR'
       });
     }
-
     return await setSubmitting(false);
   }
 
@@ -95,13 +94,13 @@ class Account extends Component {
 
     return (
       <Container className="medium">
-          {(showLoader && <Loader />) || (
-            <Segment id="account">
-              <AccountSummary {...user} />
-              <Divider />
-              {form}
-            </Segment>
-          )}
+        {(showLoader && <Loader />) || (
+          <Segment id="account">
+            <AccountSummary {...user} />
+            <Divider />
+            {form}
+          </Segment>
+        )}
       </Container>
     );
   }
@@ -113,7 +112,4 @@ const mapStateToProps = ({ stateOptions, countryOptions, account }) => ({
   account
 });
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Account);
+export default connect(mapStateToProps, actions)(Account);

@@ -53,14 +53,14 @@ const AccountForm = props => {
     setStatus(null);
   };
 
-  const renderMessage = ({ header, content, color, setStatus }) => {
+  const renderMessage = ({ content, header, setStatus, severity }) => {
     return (
       <Message
-        hidden={!content}
-        header={header}
         content={content}
-        color={color}
+        header={header}
+        hidden={!content}
         onDismiss={(e, data) => handleDismiss(e, setStatus)}
+        severity={severity}
       />
     );
   };
@@ -230,9 +230,8 @@ const FormikAccountForm = withFormik({
   validationSchema: validateUser,
   handleSubmit: (values, { setSubmitting, setStatus, props }) => {
     const { onUpdateAccount } = props; // prop function to call
-    // Call prop function to update account passing values and actions
     setStatus(null); // Clear form status
-    onUpdateAccount(values, { setSubmitting, setStatus, props });
+    onUpdateAccount(values, { setSubmitting, setStatus, props }); // Call prop function to update account passing values and actions
   },
   displayName: 'AccountForm'
 })(AccountForm);

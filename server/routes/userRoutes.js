@@ -21,6 +21,7 @@ const { format, utcToZonedTime } = require('date-fns-tz');
 
 module.exports = app => {
   app.post('/api/account', async (req, res, next) => {
+
     try {
       const {
         title,
@@ -142,7 +143,6 @@ module.exports = app => {
         },
         { new: true, useFindAndModify: false }
       );
-
       res.send(user);
     } catch (e) {
       next(e);

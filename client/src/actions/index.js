@@ -27,9 +27,9 @@ export const fetchAccount = () => async dispatch => {
   }
 };
 
-export const updateAccount = user => async dispatch => {
+export const updateAccount = data => async dispatch => {
   try {
-    const res = await axios.put('/api/account', user);
+    const res = await axios.put('/api/account', data);
     dispatch(accountSuccess(res.data));
   } catch (e) {
     dispatch(accountFailure(e.response.data));
