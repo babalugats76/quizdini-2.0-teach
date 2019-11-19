@@ -75,7 +75,7 @@ Messages need to be standardized, etc.
   - Formik upgrade 2.0.X?
   - Images
     - Once all images are known, move to S3/Cloudfront
-  - Update Notification headers and messages throughout
+  - *Update Notification headers and messages throughout*
   - _Landing Page_
     - Add selling point section, etc.
       - Need running man, Create an activity during your passing period. Create an activity in less than 60 seconds. (running man)
