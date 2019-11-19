@@ -62,11 +62,17 @@ const transformMatch = Yup.object().shape({
       .integer()
       .positive()
       .required('Duration is required.')
-      .oneOf(durationOptions.map(i => i.value), 'Pick a valid game duration.')
+      .oneOf(
+        durationOptions.map(i => i.value),
+        'Pick a valid game duration.'
+      )
       .default(180),
     colorScheme: Yup.string()
       .required('Color Scheme is required.')
-      .oneOf(colorSchemeOptions.map(i => i.value), 'Pick a valid color scheme.')
+      .oneOf(
+        colorSchemeOptions.map(i => i.value),
+        'Pick a valid color scheme.'
+      )
       .default('Basic')
   }),
   matches: Yup.array()
@@ -96,10 +102,16 @@ const validateMatch = Yup.object().shape({
     .integer()
     .positive()
     .required('Duration is required.')
-    .oneOf(durationOptions.map(i => i.value), 'Pick a valid game duration.'),
+    .oneOf(
+      durationOptions.map(i => i.value),
+      'Pick a valid game duration.'
+    ),
   colorScheme: Yup.string()
     .required('Color Scheme is required.')
-    .oneOf(colorSchemeOptions.map(i => i.value), 'Pick a valid color scheme.'),
+    .oneOf(
+      colorSchemeOptions.map(i => i.value),
+      'Pick a valid color scheme.'
+    ),
   matches: Yup.array().test({
     name: 'min-matches',
     params: {
@@ -435,14 +447,14 @@ class MatchForm extends Component {
     setStatus(null);
   };
 
-  renderMessage = ({ color, content, header, setStatus }) => {
+  renderMessage = ({ content, header, setStatus, severity }) => {
     return (
       <Message
-        color={color}
         content={content}
         header={header}
         hidden={!content}
         onDismiss={(e, data) => this.handleDismiss(e, setStatus)}
+        severity={severity}
       />
     );
   };

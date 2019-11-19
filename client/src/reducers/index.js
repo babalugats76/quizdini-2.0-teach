@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import account from './account';
+import accountVerify from './accountVerify';
 import auth from './auth';
 import creditPurchase from './creditPurchase';
 import countryOptions from './countryOptions';
@@ -12,10 +13,10 @@ import recovery from './recovery';
 import registration from './registration';
 import stateOptions from './stateOptions';
 import tokenVerify from './tokenVerify';
-import verify from './verify';
 
 export default combineReducers({
   account,
+  accountVerify,
   auth,
   creditPurchase,
   countryOptions,
@@ -27,6 +28,5 @@ export default combineReducers({
   recovery,
   registration,
   stateOptions,
-  tokenVerify,
-  verify
+  tokenVerify
 });

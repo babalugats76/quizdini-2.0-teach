@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import Loader from '../UI/Loader';
 
 class Verify extends Component {
   constructor(props) {
@@ -11,23 +12,27 @@ class Verify extends Component {
   }
 
   async componentDidMount() {
-    let message = {}; // return object
+    let message = {};
     const { secret } = this.state;
     const { verifyAccount } = this.props;
+
     await verifyAccount(secret);
-    const { verify: { error, message: successMessage = '' } = {} } = this.props; // Get latest version of verify props (mapped from state)
+
+    const { accountVerify: { data, error } = {} } = this.props;
+    const { message: successMessage = '' } = data || {};
+    const { message: errorMessage = '' } = error || {};
+
     if (error) {
-      const { message: errorMessage } = error;
       message = {
-        color: 'red',
-        content: `${errorMessage}`,
-        header: 'Verification Unsuccessful'
+        content: errorMessage,
+        header: 'Check yourself...',
+        severity: 'ERROR'
       };
     } else {
       message = {
-        color: 'green',
-        content: `${successMessage}`,
-        header: 'Verification Successful'
+        content: successMessage,
+        header: 'Success!',
+        severity: 'OK'
       };
     }
     return setTimeout(() => {
@@ -36,8 +41,9 @@ class Verify extends Component {
   }
 
   render() {
-    const { verify: { loading, error } = {} } = this.props;
-    return !error && !loading && <div>Validating user...</div>;
+    const { accountVerify: { loading, error } = {} } = this.props;
+    const showLoader = !error || loading;
+    return showLoader && <Loader />;
   }
 }
 
@@ -49,9 +55,6 @@ Verify.propTypes = {
   })
 };
 
-const mapStateToProps = ({ verify }) => ({ verify });
+const mapStateToProps = ({ accountVerify }) => ({ accountVerify });
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Verify);
+export default connect(mapStateToProps, actions)(Verify);

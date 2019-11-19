@@ -37,6 +37,33 @@ export const updateAccount = data => async dispatch => {
 };
 
 /**
+ * ACCOUNT VERIFY SECTION
+ * Actions used to verify newly-registered users
+ */
+
+export const accountVerifyBegin = () => async dispatch => {
+  dispatch({ type: TYPES.ACCOUNT_VERIFY_BEGIN });
+};
+
+export const accountVerifySuccess = data => async dispatch => {
+  dispatch({ type: TYPES.ACCOUNT_VERIFY_SUCCESS, payload: { data } });
+};
+
+export const accountVerifyFailure = error => async dispatch => {
+  dispatch({ type: TYPES.ACCOUNT_VERIFY_FAILURE, payload: { error } });
+};
+
+export const verifyAccount = secret => async dispatch => {
+  try {
+    dispatch(accountVerifyBegin());
+    const res = await axios.put(`/api/account/verify`, { secret });
+    dispatch(accountVerifySuccess(res.data));
+  } catch (e) {
+    dispatch(accountVerifyFailure(e.response.data));
+  }
+};
+
+/**
  * AUTH SECTION
  * Actions used to determine the current user
  */
@@ -409,32 +436,5 @@ export const verifyToken = secret => async dispatch => {
     dispatch(tokenVerifySuccess(res.data));
   } catch (e) {
     dispatch(tokenVerifyFailure(e.response.data));
-  }
-};
-
-/**
- * VERIFY SECTION
- * Actions used to verify newly-registered users
- */
-
-export const verifyBegin = () => async dispatch => {
-  dispatch({ type: TYPES.VERIFY_BEGIN });
-};
-
-export const verifySuccess = message => async dispatch => {
-  dispatch({ type: TYPES.VERIFY_SUCCESS, payload: { message } });
-};
-
-export const verifyFailure = error => async dispatch => {
-  dispatch({ type: TYPES.VERIFY_FAILURE, payload: { error } });
-};
-
-export const verifyAccount = secret => async dispatch => {
-  try {
-    dispatch(verifyBegin());
-    const res = await axios.put(`/api/account/verify`, { secret });
-    dispatch(verifySuccess(res.data));
-  } catch (e) {
-    dispatch(verifyFailure(e.response.data));
   }
 };

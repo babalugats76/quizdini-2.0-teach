@@ -308,7 +308,6 @@ module.exports = app => {
   app.put('/api/account/verify', async (req, res, next) => {
     try {
       const { secret } = req.body;
-      console.log('attempting to validate %s', secret);
       const token = await Token.findOne({
         $and: [
           { secret: secret },
@@ -335,8 +334,9 @@ module.exports = app => {
       token.updateDate = new Date();
       await token.save();
 
+      console.log('Account Verified: %s, %s', user.fullName, secret);
       const message = 'Your account has been verified.';
-      res.send(message);
+      res.send({ message });
     } catch (e) {
       next(e);
     }
