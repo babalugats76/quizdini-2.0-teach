@@ -52,6 +52,7 @@ Messages need to be standardized, etc.
 | **Successful recovery request (username)**         | <blockquote>Check your email!</blockquoute>           | <blockquote>If there is an account associated with `%email%`, then a username recovery email has been sent.</blockquoute> | blue  |
 | **Successful recovery request (reset)**            | <blockquote>Check your email!</blockquoute>           | <blockquote>If there is an account associated with `%email%`, then a password reset email has been sent.</blockquoute>    | blue  |
 | **Insufficent credits**                            | <blockquote>Not so fast!</blockquote>                 | <blockquote>There are not enough credits in your account.</blockquote>                                                    |  red  |
+| **Generic site-wide error**   | <blockquote>Something's not quite right.</blockquote>                 | <em>Provided by underlying codebase.</em>                                                    |  red  |
 
 # Todo List
 
