@@ -18,8 +18,10 @@ class Match extends Component {
     const { fetchMatch } = this.props;
     const { state = {} } = this.props.location;
     const { matchId } = state;
+
     await fetchMatch(matchId);
-    // TODO empty match logic and handling
+
+    // Update title using match game info
     const {
       matchGame: { game: { title = 'Create Match Game' } = {} } = {}
     } = this.props;
@@ -39,10 +41,7 @@ class Match extends Component {
       matches,
       title
     } = values;
-
     const options = { duration, itemsPerBoard, colorScheme };
-
-    await setStatus(null); // Clear form status
 
     await upsertMatch(matchId, {
       instructions,
@@ -53,26 +52,25 @@ class Match extends Component {
 
     const { matchGame = {} } = this.props;
     const { error, game = {} } = matchGame;
+    const { message: errorMessage = '', code: errorCode = '' } = error || {};
 
     if (error) {
-      const { message: errorMessage = '', code = '' } = error;
-
-      switch (code) {
+      switch (errorCode) {
         case 'InsufficientCredits':
           return this.props.history.push('/dashboard', {
             from: 'MATCH',
             message: {
-              color: 'red',
               content: errorMessage,
-              header: 'OH NO!'
+              header: 'Not so fast!',
+              severity: 'ERROR'
             },
             skipAuth: false
           });
         default:
           await setStatus({
-            header: 'Match Error',
             content: errorMessage,
-            color: 'red'
+            header: "Something's not quite right.",
+            severity: 'ERROR'
           });
 
           return await setSubmitting(false);
@@ -83,22 +81,12 @@ class Match extends Component {
 
     if (newMatchId === this.props.location.state.matchId) {
       // Successful save
-
       return await setSubmitting(false);
     } else {
-      // Successful create
-
-      // This is done here to show immediate reduction in credits
-      fetchAuth();
-
-      /**
-       * Either use this.props.history.push("/match", { matchId: newMatchId });
-       * Or, render a redirect, being sure to set the state flag back to false
-       * in the componentDidUpdate lifecycle method by referring to prevState argument (the second argument)
-       */
-
+      // Successful create new
+      fetchAuth(); // This is done here to show immediate reduction in credits
+      // Wait and then redirect to self with newly created id from database
       setTimeout(() => {
-        // Wait and then redirect to self with newly created id from database
         this.props.history.push('/match', { matchId: newMatchId });
       }, 300);
     }
@@ -142,7 +130,4 @@ Match.propTypes = {
   isMobile: PropTypes.bool.isRequired
 };
 
-export default connect(
-  mapStateToProps,
-  actions
-)(Match);
+export default connect(mapStateToProps, actions)(Match);

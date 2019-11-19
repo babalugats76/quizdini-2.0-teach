@@ -758,6 +758,7 @@ export default withFormik({
   handleSubmit: async (values, formikBag) => {
     const { handleSave } = formikBag.props;
     const { setSubmitting, setStatus } = formikBag;
+    await setStatus(null); // Clear form status
     await handleSave(values, { setSubmitting, setStatus });
   }
 })(MatchForm);
