@@ -10,6 +10,8 @@ const INCORRECT_PASSWORD = "Your current password is incorrect.";
 const INSUFFICIENT_CREDITS = "There are not enough credits in your account.";
 const INVALID_TOKEN = "Your token is invalid, claimed, or expired.";
 const LOGIN_FAILED = "Please check your credentials or verify your account.";
+const NOT_AUTHENTICATED = "You must be logged in to access %path%."
+const NOT_ADMIN = "You must be a logged in super user to access %path%."
 
 class CustomError extends Error {
   constructor(
@@ -66,6 +68,18 @@ class LoginFailed extends CustomError {
   }
 }
 
+class NotAdmin extends CustomError {
+  constructor(path, msg = NOT_ADMIN) {
+    super(msg.replace('%path%', path), UNAUTHORIZED);
+  }
+}
+
+class NotAuthenticated extends CustomError {
+  constructor(path, msg = NOT_AUTHENTICATED) {
+    super(msg.replace('%path%', path), UNAUTHORIZED);
+  }
+}
+
 class StripeChargeError extends CustomError {
   constructor(msg, code) {
     super(msg, BAD_REQUEST, code);
@@ -80,5 +94,7 @@ module.exports = {
   InsufficientCredits,
   InvalidToken,
   LoginFailed,
+  NotAdmin,
+  NotAuthenticated,
   StripeChargeError
 };

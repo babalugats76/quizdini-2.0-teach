@@ -1,9 +1,10 @@
-const { UNAUTHORIZED } = require("http-status-codes");
+const {
+  NotAuthenticated
+} = require('../errors.js');
 
 module.exports = (req, res, next) => {
   if (!req.user) {
-    return res.status(UNAUTHORIZED).send({ error: "You must be logged in!" });
+    throw new NotAuthenticated(req.path);
   }
-
   next();
 };

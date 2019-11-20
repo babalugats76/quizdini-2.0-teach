@@ -34,7 +34,8 @@ passport.deserializeUser(async (id, done) => {
       googlePicture: 1,
       lastName: 1,
       title: 1,
-      username: 1
+      username: 1,
+      role: 1
     }).then(user => {
       done(null, user);
     });

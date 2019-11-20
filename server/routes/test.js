@@ -6,7 +6,7 @@ const {
   sendResetEmail
 } = require('../services/email');
 
-const eventHandler = require('../middlewares/eventHandler.js');
+const requireAdmin = require('../middlewares/requireAdmin.js');
 
 const awsConfig = {
   region: keys.awsRegion,
@@ -18,17 +18,15 @@ const awsConfig = {
 module.exports = app => {
   app.get(
     '/testEvent',
+    requireAdmin,
     async (req, res, next) => {
       try {
-        console.log('setting event...');
-        req.event = 'Sample Event';
-        throw new Error('BOOM!');
+        res.send("You have reached an admin route!")
         next();
       } catch (e) {
         next(e);
       }
-    },
-    eventHandler
+    }
   );
 
   app.post('/testRegisterEmail', async (req, res, next) => {
