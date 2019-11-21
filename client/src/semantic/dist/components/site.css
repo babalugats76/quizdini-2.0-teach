@@ -211,44 +211,44 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
-/* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
+/* Chrome 26+, Opera 23+, Firefox 39+ */ url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
   
 /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
   font-family: 'marcher-light';
-  src: url('/fonts/marcher-light-webfont.woff2') format('woff2'), url('/fonts/marcher-light-webfont.woff') format('woff');
+  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-light-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'marcher-book';
-  src: url('/fonts/marcher-book-webfont.woff2') format('woff2'), url('/fonts/marcher-book-webfont.woff') format('woff');
+  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-book-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'marcher-regular';
-  src: url('/fonts/marcher-regular-webfont.woff2') format('woff2'), url('/fonts/marcher-regular-webfont.woff') format('woff');
+  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'marcher-medium';
-  src: url('/fonts/marcher-medium-webfont.woff2') format('woff2'), url('/fonts/marcher-medium-webfont.woff') format('woff');
+  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'marcher-extrabold';
-  src: url('/fonts/marcher-extrabold-webfont.woff2') format('woff2'), url('/fonts/marcher-extrabold-webfont.woff') format('woff');
+  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'marcher-extrabolditalic';
-  src: url('/fonts/marcher-extrabolditalic-webfont.woff2') format('woff2'), url('/fonts/marcher-extrabolditalic-webfont.woff') format('woff');
+  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
