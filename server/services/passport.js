@@ -156,7 +156,7 @@ passport.use(
        * req.logIn must be used when utilizing
        * passport.authenticate with a custom callback
        */
-      //await req.logout();
+      await req.logout();
       await req.logIn(user, function(err) {
         if (err) {
           return done(err);
