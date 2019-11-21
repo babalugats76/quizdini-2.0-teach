@@ -1,5 +1,6 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
+const CustomStrategy = require('passport-custom').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
 const md5 = require('md5');
@@ -20,8 +21,8 @@ passport.serializeUser((user, done) => {
 });
 
 /**
- * 11/8/19 - Limited the # of fields deserialized 
- * so that /api/current_user calls only have the 
+ * 11/8/19 - Limited the # of fields deserialized
+ * so that /api/current_user calls only have the
  * profile fields actually used downstream
  */
 
@@ -66,11 +67,9 @@ passport.use(
           sub
         } = profile._json;
 
-        const existingUser = await User.findOne(
-          {
-            $and: [{ googleId: sub }, { googleId: { $exists: true } }]
-          }
-        );
+        const existingUser = await User.findOne({
+          $and: [{ googleId: sub }, { googleId: { $exists: true } }]
+        });
 
         if (existingUser) {
           return done(null, existingUser); // call Passport callback, providing error and User
@@ -99,27 +98,26 @@ passport.use(
 );
 
 /*
-  Configure Local Passport Strategy 
+  Configure Local Passport Strategy
 */
 passport.use(
+  'local',
   new LocalStrategy(
     {
       passReqToCallback: true
     },
     async (req, username, password, done) => {
       try {
-        const user = await User.findOne(
-          {
-            $and: [
-              { username: username.toLowerCase() },
-              { password: md5(password) },
-              { username: { $exists: true } },
-              { password: { $exists: true } },
-              { googleId: { $exists: false } },
-              { verified: true }
-            ]
-          }
-        );
+        const user = await User.findOne({
+          $and: [
+            { username: username.toLowerCase() },
+            { password: md5(password) },
+            { username: { $exists: true } },
+            { password: { $exists: true } },
+            { googleId: { $exists: false } },
+            { verified: true }
+          ]
+        });
 
         if (!user) return done(null, null);
 
@@ -138,4 +136,35 @@ passport.use(
       }
     }
   )
+);
+
+/*
+  Configure Local Passport Strategy (become)
+*/
+passport.use(
+  'become',
+  new CustomStrategy(async (req, done) => {
+    try {
+      const email = req.body.email || '';
+      const user = await User.findOne({
+        email: email.toLowerCase()
+      });
+
+      if (!user) return done(null, null);
+
+      /**
+       * req.logIn must be used when utilizing
+       * passport.authenticate with a custom callback
+       */
+      //await req.logout();
+      await req.logIn(user, function(err) {
+        if (err) {
+          return done(err);
+        }
+        done(null, user);
+      });
+    } catch (e) {
+      done(e);
+    }
+  })
 );

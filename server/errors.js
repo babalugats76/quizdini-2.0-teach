@@ -4,21 +4,17 @@ const {
   UNAUTHORIZED
 } = require('http-status-codes');
 
-const DUPLICATE_EMAIL = "%email% is already associated with another account.";
-const DUPLICATE_USERNAME = "%username% already exists";
-const INCORRECT_PASSWORD = "Your current password is incorrect.";
-const INSUFFICIENT_CREDITS = "There are not enough credits in your account.";
-const INVALID_TOKEN = "Your token is invalid, claimed, or expired.";
-const LOGIN_FAILED = "Please check your credentials or verify your account.";
-const NOT_AUTHENTICATED = "You must be logged in to access %path%."
-const NOT_ADMIN = "You must be a logged in super user to access %path%."
+const DUPLICATE_EMAIL = '%email% is already associated with another account.';
+const DUPLICATE_USERNAME = '%username% already exists';
+const INCORRECT_PASSWORD = 'Your current password is incorrect.';
+const INSUFFICIENT_CREDITS = 'There are not enough credits in your account.';
+const INVALID_TOKEN = 'Your token is invalid, claimed, or expired.';
+const LOGIN_FAILED = 'Please check your credentials or verify your account.';
+const NOT_AUTHENTICATED = 'You must be logged in to access %path%.';
+const NOT_ADMIN = 'You must be a logged in super user to access %path%.';
 
 class CustomError extends Error {
-  constructor(
-    msg,
-    statusCode = INTERNAL_SERVER_ERROR,
-    code = undefined
-  ) {
+  constructor(msg, statusCode = INTERNAL_SERVER_ERROR, code = undefined) {
     super(msg);
     this.statusCode = statusCode;
     this.code = code || this.constructor.name;

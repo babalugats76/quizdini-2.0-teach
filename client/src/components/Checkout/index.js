@@ -24,13 +24,6 @@ class Checkout extends Component {
     };
   }
 
-  // Reset state upon navigation
-  componentDidUpdate(prevProps) {
-    /* if (prevProps.location.key !== this.props.location.key) {
-      this.props.checkoutReset();
-    }*/
-  }
-
   handleStripeChange = change => {
     this.setState((state, props) => {
       return {

@@ -23,15 +23,19 @@ const titleOptions = [
 /* eslint-disable no-template-curly-in-string */
 const transformUser = Yup.object().shape({
   firstName: Yup.string()
+    .transform(v => (v === null ? '' : v))  
     .required('First Name is required.')
     .default(''),
   lastName: Yup.string()
+    .transform(v => (v === null ? '' : v))
     .required('Last Name is required.')
     .default(''),
   city: Yup.string()
+    .transform(v => (v === null ? '' : v))
     .max(100, 'City is too long. ${max} characters are allowed.')
     .default(''),
   countryCode: Yup.string()
+    .transform(v => (v === null ? '' : v))
     .required('Country is required.')
     .default('')
 });
@@ -208,7 +212,7 @@ const AccountForm = props => {
 
 const FormikAccountForm = withFormik({
   enableReinitialize: true,
-  validateOnChange: false,
+  validateOnChange: true,
   validateOnBlur: true,
   mapPropsToValues: ({ user }) => {
     // 1. Cast and transform incoming data as appropriate
