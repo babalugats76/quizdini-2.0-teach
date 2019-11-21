@@ -64,7 +64,6 @@ Messages need to be standardized, etc.
   - _Domain verification (contingent on DNS/using .quizdini.com TLD)_
 - Documentation
 - Server
-  - Investigate `cors` usage with Heroku
   - _Refine wording_ and style for following email templates:
     - QUIZDINI_REGISTER
     - QUIZDINI_RECOVER_USERNAME
@@ -90,6 +89,7 @@ Messages need to be standardized, etc.
     - _Attribution_
   - Login
     - Update sign in for to use `touch` for the errors
+  - Reduce no-ops where possible by migrating to hooks
   - Dashboard
     - _Refine functional component, e.g., `MatchIntro`_
     - _Model Games_ - Show options 4, 6, 9
