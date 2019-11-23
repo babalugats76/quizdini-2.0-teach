@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { useEffect, useState, useReducer, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -9,65 +10,51 @@ import LogoHeader from '../UI/LogoHeader';
 import Loader from '../UI/Loader';
 import CheckoutForm from './CheckoutForm';
 
+import useStripe from '../../hooks/useStripe';
+
 const elementOptions = {
   fonts: [{ cssSrc: 'https://fonts.googleapis.com/css?family=Lexend+Deca' }]
 };
 
-const useDidMountEffect = (func, deps) => {
+/*const useDidMountEffect = (func, deps) => {
   const didMount = useRef(false);
   useEffect(() => {
     if (didMount.current) func();
     else didMount.current = true;
   }, deps);
-};
+};*/
 
-const useRedux = deps => {
-  const [data, setData] = useState();
+/*const useRedux = deps => {
+  const [reduxData, setReduxData] = useState({});
   useEffect(() => { 
-    setData(deps);
+    setReduxData(deps);
+    const { loading, error, data } = deps || {};
+    if (loading) return console.log("LOADING");
+    if (error) return console.log("ERROR");
+    if (!data) return console.log("IDLE");
+    if (data) return console.log("SUCCESS");
   }, [deps]);
-  return data;
-};
+  return reduxData;
+};*/
 
 const Checkout = props => {
-  const isCancelled = useRef(false);
- //const didMount = useRef(false);
+  
+  //const didMount = useRef(false);
 
-  const initialState = {
-    cardNumber: { ref: undefined, complete: false },
-    cardExpiry: { ref: undefined, complete: false },
-    cardCvc: { ref: undefined, complete: false }
-  };
-
+  const [
+    state,
+    dispatch,
+    handleStripeReady,
+    clearStripeFields,
+    handleStripeChange,
+    isCardComplete
+  ] = useStripe();
+  
+  console.log(state);
+  console.log(dispatch);
+  // eslint-disable-next-line
   const { creditPurchase, buyCredits, fetchAuth } = props;
   const { error } = creditPurchase;
-  // const { message: successMessage = '' } = data || {};
-  // const { message: errorMessage = '' } = error || {};
-
-  const [state, dispatch] = useReducer((state, action) => {
-    switch (action.type) {
-      case 'STRIPE_READY':
-        return { ...state, [action.name]: { ref: action.ref } };
-      case 'STRIPE_CHANGE':
-        return {
-          ...state,
-          [action.name]: { ...state[action.name], complete: action.complete }
-        };
-      case 'CLEAR_DATA':
-        return initialState;
-      default:
-        return state;
-    }
-  }, initialState);
-
-  const safeDispatch = (...args) => !isCancelled.current && dispatch(...args);
-
-  useEffect(() => {
-    return () => {
-      console.log('tearing down');
-      isCancelled.current = true;
-    };
-  }, []);
 
   useEffect(() => {
     console.log(state);
@@ -91,54 +78,9 @@ const Checkout = props => {
     }
   }, [creditPurchase]); */
 
-  const data = useRedux(creditPurchase);
-  console.log(data);
+  //const data = useRedux(creditPurchase);
+  //console.log(data);
 
-  const handleStripeReady = StripeElement => {
-    safeDispatch({
-      type: 'STRIPE_READY',
-      name: StripeElement._componentName,
-      ref: StripeElement
-    });
-  };
-
-  const handleStripeChange = change => {
-    safeDispatch({
-      type: 'STRIPE_CHANGE',
-      name: change.elementType,
-      complete: change.complete
-    });
-  };
-
-  /**
-   * Determines whether all React Stripe Elements
-   * have been completed by the user
-   *
-   * @returns {boolean} - Whether card input is complete
-   */
-  const isCardComplete = () => {
-    const {
-      cardNumber: { complete: cardComplete = false },
-      cardExpiry: { complete: expiryComplete = false },
-      cardCvc: { complete: cvcComplete = false }
-    } = state;
-    return cardComplete && expiryComplete && cvcComplete;
-  };
-
-  /**
-   * Clears the Stripe element references
-   */
-  const clearStripeFields = () => {
-    const {
-      cardNumber: { ref: cardRef = undefined },
-      cardExpiry: { ref: expiryRef = undefined },
-      cardCvc: { ref: cvcRef = undefined }
-    } = state;
-
-    cardRef && cardRef.clear();
-    expiryRef && expiryRef.clear();
-    cvcRef && cvcRef.clear();
-  };
 
   /**
    * Calls checkout Redux action to finalize credit card transaction
@@ -151,7 +93,7 @@ const Checkout = props => {
    * @param {*} values  Values from child Formik form
    * @param {*} actions FormikBag functions
    */
-  const handleCheckout = async (values, actions) => {
+  /*const handleCheckout = async (values, actions) => {
     const { buyCredits, fetchAuth } = props;
     const { tokenId, amount, credits, cardholderName } = values;
     const { setStatus, setSubmitting, clearStripeFields } = actions;
@@ -184,8 +126,8 @@ const Checkout = props => {
         },
         skipAuth: true
       });
-    }, 300);*/
-  };
+    }, 300);
+  };*/
 
   const renderForm = () => (
     <StripeScriptLoader
@@ -200,7 +142,7 @@ const Checkout = props => {
             isCardComplete={isCardComplete}
             buyCredits={buyCredits}
             fetchAuth={fetchAuth}
-            onCheckout={(values, actions) => handleCheckout(values, actions)}
+            //  onCheckout={(values, actions) => handleCheckout(values, actions)}
             onStripeChange={handleStripeChange}
             onStripeReady={handleStripeReady}
             error={error}
