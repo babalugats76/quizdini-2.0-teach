@@ -14,7 +14,7 @@ import InputText from '../UI/InputText';
 import Button from '../UI/Button';
 import Message from '../UI/Message';
 
-/*import DisplayFormikState from '../UI/FormikHelper';*/
+import DisplayFormikState from '../UI/FormikHelper';
 
 const elementOptions = disabled => {
   return {
@@ -22,11 +22,11 @@ const elementOptions = disabled => {
     style: {
       base: {
         color: 'rgba(10, 10, 10, 0.40)',
-        fontFamily: "Verdana, Geneva, sans-serif",
+        fontFamily: 'Verdana, Geneva, sans-serif',
         fontSmoothing: 'antialiased',
         fontSize: '17px',
         '::placeholder': {
-          fontFamily: "Verdana, Geneva, sans-serif",
+          fontFamily: 'Verdana, Geneva, sans-serif',
           fontWeight: 'normal',
           color: '#e1e1e1'
         },
@@ -230,6 +230,7 @@ const CheckoutForm = props => {
     <Segment padded>
       {status && renderMessage({ ...status, setStatus })}
       {form}
+      <DisplayFormikState {...props} />
     </Segment>
   );
 };
@@ -249,7 +250,7 @@ const FormikCheckoutForm = withFormik({
   },
   validationSchema: validateCheckout,
   handleSubmit: async (values, { setSubmitting, setStatus, props }) => {
-    const { stripe, onCheckout, clearStripeFields } = props; // Obtain reference to stripe object
+    const { stripe, buyCredits, fetchAuth, clearStripeFields } = props; // Obtain reference to stripe object
     const { credits, amount, cardholderName } = values;
     setStatus(null); // Clear form status
 
@@ -273,10 +274,14 @@ const FormikCheckoutForm = withFormik({
     }
 
     // Call prop function to create charge passing values and actions
-    await onCheckout(
+    /*await onCheckout(
       { tokenId: res.token.id, amount, credits, cardholderName },
       { setSubmitting, setStatus, clearStripeFields }
-    );
+    );*/
+
+    const tokenId = res.token.id;
+    await buyCredits({ tokenId, amount, credits, cardholderName });
+    return await setSubmitting(false); 
   },
   displayName: 'CheckoutForm'
 })(CheckoutForm);
