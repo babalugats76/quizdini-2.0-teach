@@ -73,7 +73,6 @@ const useStripe = () => {
 
   return [
     state,
-    safeDispatch,
     stripeReady,
     clearFields,
     stripeChange,

@@ -121,10 +121,15 @@ export const buyCreditsFailure = error => async dispatch => {
   dispatch({ type: TYPES.BUY_CREDITS_FAILURE, payload: { error } });
 };
 
+export const buyCreditsReset = () => async dispatch => {
+  dispatch({ type: TYPES.BUY_CREDITS_RESET });
+};
+
 export const buyCredits = data => async dispatch => {
   try {
     dispatch(buyCreditsBegin());
     const res = await axios.post('/api/payment', data);
+    console.log('after api call');
     return dispatch(buyCreditsSuccess(res.data));
   } catch (e) {
     dispatch(buyCreditsFailure(e.response.data));

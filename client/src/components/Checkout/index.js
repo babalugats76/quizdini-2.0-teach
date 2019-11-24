@@ -1,8 +1,8 @@
 // eslint-disable-next-line
 import React, { useEffect, useState, useReducer, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import { useSelector, useDispatch } from 'react-redux';
+import { buyCreditsReset, buyCredits } from '../../actions';
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import StripeScriptLoader from 'react-stripe-script-loader';
 import { Container } from 'semantic-ui-react';
@@ -16,71 +16,34 @@ const elementOptions = {
   fonts: [{ cssSrc: 'https://fonts.googleapis.com/css?family=Lexend+Deca' }]
 };
 
-/*const useDidMountEffect = (func, deps) => {
-  const didMount = useRef(false);
-  useEffect(() => {
-    if (didMount.current) func();
-    else didMount.current = true;
-  }, deps);
-};*/
-
-/*const useRedux = deps => {
-  const [reduxData, setReduxData] = useState({});
-  useEffect(() => { 
-    setReduxData(deps);
-    const { loading, error, data } = deps || {};
-    if (loading) return console.log("LOADING");
-    if (error) return console.log("ERROR");
-    if (!data) return console.log("IDLE");
-    if (data) return console.log("SUCCESS");
-  }, [deps]);
-  return reduxData;
-};*/
-
 const Checkout = props => {
-  
-  //const didMount = useRef(false);
-
   const [
     state,
-    dispatch,
     handleStripeReady,
     clearStripeFields,
     handleStripeChange,
     isCardComplete
   ] = useStripe();
-  
-  console.log(state);
-  console.log(dispatch);
+
+  const creditPurchase = useSelector(state => state.creditPurchase);
+  const dispatch = useDispatch();
+
   // eslint-disable-next-line
-  const { creditPurchase, buyCredits, fetchAuth } = props;
+  //const { buyCredits, fetchAuth } = props;
   const { error } = creditPurchase;
 
   useEffect(() => {
     console.log(state);
   }, [state]);
 
-  /*useEffect(() => {
-    if (!didMount.current) {
-      console.log('creditPurchase - marking mounted...');
-      didMount.current = true;
-      return;
-    }
-
-    if (didMount.current) {
-      console.log('creditPurchase - changed...');
-      if (creditPurchase.loading) return;
-      if (creditPurchase.error) console.log('Purchase failed...');
-      else console.log('Purchase succeeded...');
-    } else {
-      console.log('creditPurchase - marking mounted...');
-      didMount.current = true;
-    }
-  }, [creditPurchase]); */
-
-  //const data = useRedux(creditPurchase);
-  //console.log(data);
-
+  const handleCheckout = async (values, actions) => {
+    const { tokenId, amount, credits, cardholderName } = values;
+    console.log('before dispatch');
+    console.log(creditPurchase);
+    await dispatch(buyCredits({ tokenId, amount, credits, cardholderName }));
+    console.log('after dispatch');
+    console.log(creditPurchase);
+  };
 
   /**
    * Calls checkout Redux action to finalize credit card transaction
@@ -140,9 +103,7 @@ const Checkout = props => {
           <CheckoutForm
             clearStripeFields={clearStripeFields}
             isCardComplete={isCardComplete}
-            buyCredits={buyCredits}
-            fetchAuth={fetchAuth}
-            //  onCheckout={(values, actions) => handleCheckout(values, actions)}
+            onCheckout={handleCheckout}
             onStripeChange={handleStripeChange}
             onStripeReady={handleStripeReady}
             error={error}
@@ -166,6 +127,52 @@ Checkout.propTypes = {
   history: PropTypes.object.isRequired
 };
 
-const mapStateToProps = ({ creditPurchase }) => ({ creditPurchase });
+//const mapStateToProps = ({ creditPurchase }) => ({ creditPurchase });
 
-export default connect(mapStateToProps, actions)(Checkout);
+export default Checkout;
+
+//export default connect(mapStateToProps, actions)(Checkout);
+
+/*useEffect(() => {
+    if (!didMount.current) {
+      console.log('creditPurchase - marking mounted...');
+      didMount.current = true;
+      return;
+    }
+
+    if (didMount.current) {
+      console.log('creditPurchase - changed...');
+      if (creditPurchase.loading) return;
+      if (creditPurchase.error) console.log('Purchase failed...');
+      else console.log('Purchase succeeded...');
+    } else {
+      console.log('creditPurchase - marking mounted...');
+      didMount.current = true;
+    }
+  }, [creditPurchase]); */
+
+//const data = useRedux(creditPurchase);
+//console.log(data);
+
+//const didMount = useRef(false);
+
+/*const useDidMountEffect = (func, deps) => {
+  const didMount = useRef(false);
+  useEffect(() => {
+    if (didMount.current) func();
+    else didMount.current = true;
+  }, deps);
+};*/
+
+/*const useRedux = deps => {
+  const [reduxData, setReduxData] = useState({});
+  useEffect(() => { 
+    setReduxData(deps);
+    const { loading, error, data } = deps || {};
+    if (loading) return console.log("LOADING");
+    if (error) return console.log("ERROR");
+    if (!data) return console.log("IDLE");
+    if (data) return console.log("SUCCESS");
+  }, [deps]);
+  return reduxData;
+};*/

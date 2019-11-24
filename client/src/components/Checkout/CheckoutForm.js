@@ -250,7 +250,7 @@ const FormikCheckoutForm = withFormik({
   },
   validationSchema: validateCheckout,
   handleSubmit: async (values, { setSubmitting, setStatus, props }) => {
-    const { stripe, buyCredits, fetchAuth, clearStripeFields } = props; // Obtain reference to stripe object
+    const { stripe, onCheckout, clearStripeFields } = props; // Obtain reference to stripe object
     const { credits, amount, cardholderName } = values;
     setStatus(null); // Clear form status
 
@@ -274,13 +274,10 @@ const FormikCheckoutForm = withFormik({
     }
 
     // Call prop function to create charge passing values and actions
-    /*await onCheckout(
+    await onCheckout(
       { tokenId: res.token.id, amount, credits, cardholderName },
       { setSubmitting, setStatus, clearStripeFields }
-    );*/
-
-    const tokenId = res.token.id;
-    await buyCredits({ tokenId, amount, credits, cardholderName });
+    );
     return await setSubmitting(false); 
   },
   displayName: 'CheckoutForm'

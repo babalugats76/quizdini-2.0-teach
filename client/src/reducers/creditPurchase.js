@@ -1,4 +1,4 @@
-import * as TYPES from "../actions/types";
+import * as TYPES from '../actions/types';
 
 const initialState = {
   data: null,
@@ -6,7 +6,7 @@ const initialState = {
   loading: false
 };
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case TYPES.BUY_CREDITS_BEGIN:
       return {
@@ -29,6 +29,8 @@ export default function (state = initialState, action) {
         error: action.payload.error,
         loading: false
       };
+    case TYPES.BUY_CREDITS_RESET:
+      return initialState;
     default:
       return state;
   }
