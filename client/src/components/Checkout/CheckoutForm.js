@@ -210,7 +210,7 @@ const CheckoutForm = props => {
                 icon="dollar-sign"
                 labelPosition="left"
                 loading={isSubmitting}
-                positive={isValid && !status && isCardComplete()}
+                positive={isValid && !status && isCardComplete}
                 size="large"
                 type="submit"
               >

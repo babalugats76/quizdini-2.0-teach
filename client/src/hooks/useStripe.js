@@ -1,6 +1,6 @@
-import { useEffect, useRef, useReducer } from 'react';
+import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 
-const useStripe = () => {
+export default function useStripe({ debug = false }) {
   const isCancelled = useRef(false);
 
   const initialState = {
@@ -43,26 +43,23 @@ const useStripe = () => {
     });
   };
 
-  const clearFields = () => {
-    const {
-      cardNumber: { ref: cardRef = undefined },
-      cardExpiry: { ref: expiryRef = undefined },
-      cardCvc: { ref: cvcRef = undefined }
-    } = state;
+  const clearFields = useCallback(() => {
+    state.cardNumber.ref && state.cardNumber.ref.clear();
+    state.cardExpiry.ref && state.cardExpiry.ref.clear();
+    state.cardCvc.ref && state.cardCvc.ref.clear();
+  }, [state.cardNumber.ref, state.cardExpiry.ref, state.cardCvc.ref]);
 
-    cardRef && cardRef.clear();
-    expiryRef && expiryRef.clear();
-    cvcRef && cvcRef.clear();
-  };
-
-  const isComplete = () => {
-    const {
-      cardNumber: { complete: cardComplete = false },
-      cardExpiry: { complete: expiryComplete = false },
-      cardCvc: { complete: cvcComplete = false }
-    } = state;
-    return cardComplete && expiryComplete && cvcComplete;
-  };
+  const isComplete = useMemo(() => {
+    return (
+      state.cardNumber.complete &&
+      state.cardExpiry.complete &&
+      state.cardCvc.complete
+    );
+  }, [
+    state.cardNumber.complete,
+    state.cardExpiry.complete,
+    state.cardCvc.complete
+  ]);
 
   useEffect(() => {
     return () => {
@@ -71,13 +68,9 @@ const useStripe = () => {
     };
   }, []);
 
-  return [
-    state,
-    stripeReady,
-    clearFields,
-    stripeChange,
-    isComplete
-  ];
-};
+  useEffect(() => {
+    debug && console.log(state);
+  }, [state, debug]);
 
-export default useStripe;
+  return [stripeReady, stripeChange, isComplete, clearFields];
+}

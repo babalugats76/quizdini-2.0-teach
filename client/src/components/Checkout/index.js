@@ -1,7 +1,7 @@
 // eslint-disable-next-line
-import React, { useEffect, useState, useReducer, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { buyCreditsReset, buyCredits } from '../../actions';
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import StripeScriptLoader from 'react-stripe-script-loader';
@@ -11,6 +11,7 @@ import Loader from '../UI/Loader';
 import CheckoutForm from './CheckoutForm';
 
 import useStripe from '../../hooks/useStripe';
+import useReset from '../../hooks/useReset';
 
 const elementOptions = {
   fonts: [{ cssSrc: 'https://fonts.googleapis.com/css?family=Lexend+Deca' }]
@@ -18,29 +19,24 @@ const elementOptions = {
 
 const Checkout = props => {
   const [
-    state,
     handleStripeReady,
-    clearStripeFields,
     handleStripeChange,
-    isCardComplete
-  ] = useStripe();
+    isCardComplete,
+    clearStripeFields
+  ] = useStripe({ debug: true });
 
+  const [isReset] = useReset(buyCreditsReset);
   const creditPurchase = useSelector(state => state.creditPurchase);
-  const dispatch = useDispatch();
 
   // eslint-disable-next-line
   //const { buyCredits, fetchAuth } = props;
   const { error } = creditPurchase;
 
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
-
   const handleCheckout = async (values, actions) => {
     const { tokenId, amount, credits, cardholderName } = values;
     console.log('before dispatch');
     console.log(creditPurchase);
-    await dispatch(buyCredits({ tokenId, amount, credits, cardholderName }));
+    //await dispatch(buyCredits({ tokenId, amount, credits, cardholderName }));
     console.log('after dispatch');
     console.log(creditPurchase);
   };

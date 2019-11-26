@@ -30,6 +30,7 @@ export default function(state = initialState, action) {
         loading: false
       };
     case TYPES.BUY_CREDITS_RESET:
+      console.log('reset called...');
       return initialState;
     default:
       return state;
