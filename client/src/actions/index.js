@@ -129,7 +129,6 @@ export const buyCredits = data => async dispatch => {
   try {
     dispatch(buyCreditsBegin());
     const res = await axios.post('/api/payment', data);
-    console.log('after api call');
     return dispatch(buyCreditsSuccess(res.data));
   } catch (e) {
     dispatch(buyCreditsFailure(e.response.data));

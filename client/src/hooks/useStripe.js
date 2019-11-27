@@ -63,10 +63,10 @@ export default function useStripe({ debug = false }) {
 
   useEffect(() => {
     return () => {
-      console.log('tearing down');
+      debug && console.log('useStripe cleanup...');
       isCancelled.current = true;
     };
-  }, []);
+  }, [debug]);
 
   useEffect(() => {
     debug && console.log(state);

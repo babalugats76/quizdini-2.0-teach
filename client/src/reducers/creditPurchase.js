@@ -16,6 +16,7 @@ export default function(state = initialState, action) {
         loading: true
       };
     case TYPES.BUY_CREDITS_SUCCESS:
+      console.log("buy credits success");
       return {
         ...state,
         data: action.payload.data,
