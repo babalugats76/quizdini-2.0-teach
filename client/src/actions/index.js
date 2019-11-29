@@ -92,6 +92,7 @@ export const authFailure = error => async dispatch => {
 export const fetchAuth = () => async dispatch => {
   dispatch(authBegin());
   try {
+    console.log('fetching auth');
     const res = await axios.get('/api/current_user');
     const loggedIn = !!res.data;
     const { credits, googleId, googlePicture, username } = res.data || {};

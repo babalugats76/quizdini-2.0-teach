@@ -88,21 +88,47 @@ const CheckoutForm = props => {
         postalCode: ''
       }}
       onSubmit={async (values, actions) => {
-        const { setSubmitting } = actions;
-        console.log(props.stripe);
-        await new Promise(resolve => setTimeout(resolve, 500));
-        alert(JSON.stringify(values, null, 2));
+        const { stripe, onCheckout } = props;
+        const {
+          credits,
+          amount,
+          cardholderName = '',
+          postalCode = ''
+        } = values;
+        const { setStatus, setSubmitting } = actions;
+
+        // Validate card; obtain token
+        const res = await stripe.createToken({
+          name: cardholderName,
+          address_zip: postalCode
+        });
+
+        if (!res.token || res.error) {
+          clearStripeFields();
+
+          // Handle token-related validation errors
+          setStatus({
+            content: res.error.message,
+            header: "Something's not quite right.",
+            severity: 'ERROR'
+          });
+          return setSubmitting(false);
+        }
+        await onCheckout({
+          tokenId: res.token.id,
+          amount,
+          credits,
+          cardholderName
+        });
         setSubmitting(false);
       }}
       validationSchema={validateCheckout}
     >
       {props => {
         const {
-          dirty,
           errors,
           handleBlur,
           handleChange,
-          handleReset,
           handleSubmit,
           isSubmitting,
           isValid,

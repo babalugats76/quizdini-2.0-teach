@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-export const generateNotifySelector = (
+export const generateNotify = (
   inputSelectors = [],
   successHeader = 'Success!',
   successSeverity = 'OK',
@@ -28,20 +28,10 @@ export const generateNotifySelector = (
   });
 };
 
-const getCreditPurchase = state => state.creditPurchase;
+const creditPurchase = state => state.creditPurchase;
 
-export const checkoutSelector = createSelector([getCreditPurchase], a => {
+export const checkoutSelector = createSelector([creditPurchase], a => {
   return {
     ...a
   };
 });
-
-//export const checkoutSelector = createSelector(getCreditPurchase, transformCreditPurchase);
-
-/*const notifySelector = createSelector(
-  [ checkoutSelector ],
-  (data = null) => {
-     if (data) return {...data};
-     return null;
-  }
-)*/
