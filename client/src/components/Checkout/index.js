@@ -6,7 +6,7 @@ import { Container } from 'semantic-ui-react';
 import * as actions from '../../actions';
 import { checkoutSelector, generateNotify } from '../../selectors/';
 import useActions from '../../hooks/useActions';
-import useDidUpdateEffect from '../../hooks/useDidUpdateEffect';
+import useRedirect from '../../hooks/useRedirect';
 import InjectedCheckoutForm from './CheckoutForm';
 import LogoHeader from '../UI/LogoHeader';
 import Loader from '../UI/Loader';
@@ -22,13 +22,25 @@ const Checkout = props => {
   const checkout = useSelector(checkoutSelector);
   const notify = useSelector(generateNotify([checkoutSelector]));
 
-  console.log(notify);
-
   useEffect(() => {
     buyCreditsReset();
+    return () => buyCreditsReset();
   }, [buyCreditsReset]);
 
-  useDidUpdateEffect(fetchAuth, [checkout.data]);
+  const checkoutRedirect = checkout => {
+    return checkout.data ? true : false;
+  };
+
+  useRedirect({
+    history: props.history,
+    ready: checkoutRedirect(checkout),
+    deps: [checkout],
+    fetchAuth: fetchAuth,
+    to: '/dashboard',
+    state: { message: { ...notify }, skipAuth: true },
+    timeout: 3000,
+    debug: true
+  });
 
   return (
     <Container as="main" className="page small" fluid id="checkout">
@@ -41,6 +53,7 @@ const Checkout = props => {
         <StripeProvider apiKey={process.env.REACT_APP_STRIPE_KEY}>
           <Elements {...elementsOptions}>
             <InjectedCheckoutForm
+              notify={notify}
               onCheckout={buyCredits}
               onDismiss={buyCreditsReset}
             />

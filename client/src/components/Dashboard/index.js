@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 import { Container, List, Image } from "semantic-ui-react";
-import Message from "../UI/Message";
+import Notify from "../UI/Notify";
 import Match from "./Match";
 import Icon from "../UI/Icon";
 
@@ -78,7 +78,7 @@ class Dashboard extends Component {
     });
   };
 
-  renderMessage = ({ content, header, severity }) => {
+  /*renderMessage = ({ content, header, severity }) => {
     return (
       <Message
         content={content}
@@ -88,7 +88,7 @@ class Dashboard extends Component {
         severity={severity}
       />
     );
-  };
+  };*/
 
   handleMenuChange = menuIdx => {
     const { activeGameIdx } = this.state; // Current game index
@@ -149,7 +149,7 @@ class Dashboard extends Component {
       <Container as="main" className="page large" id="dashboard" fluid>
         <div className="content-wrapper">
           {this.renderMenu(games, activeGameIdx)}
-          {message && this.renderMessage(message)}
+          {message && Notify({ ...message, onDismiss: (e) => this.handleDismiss(e)})}
           {games[activeGameIdx].render({
             ...this.props,
             onMatchDelete: matchId => this.handleMatchDelete(matchId)

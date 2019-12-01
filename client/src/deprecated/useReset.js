@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import useActions from './useActions';
+import useActions from '../hooks/useActions';
 
 export default function(action) {
   

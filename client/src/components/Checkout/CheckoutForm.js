@@ -13,7 +13,7 @@ import Icon from '../UI/Icon';
 import RadioGroup from '../UI/RadioGroup';
 import InputText from '../UI/InputText';
 import Button from '../UI/Button';
-import Message from '../UI/Message';
+import Notify from '../UI/Notify';
 
 const elementOptions = disabled => {
   return {
@@ -71,7 +71,9 @@ const CheckoutForm = props => {
     onStripeChange,
     isCardComplete,
     clearStripeFields
-  ] = useStripe({ debug: true });
+  ] = useStripe({ debug: false });
+
+  const { notify, onDismiss } = props;
 
   const handleAmountChange = (e, { setFieldValue }) => {
     const { value } = e.target;
@@ -88,7 +90,7 @@ const CheckoutForm = props => {
         postalCode: ''
       }}
       onSubmit={async (values, actions) => {
-        const { stripe, onCheckout } = props;
+        const { onCheckout, stripe } = props;
         const {
           credits,
           amount,
@@ -96,6 +98,10 @@ const CheckoutForm = props => {
           postalCode = ''
         } = values;
         const { setStatus, setSubmitting } = actions;
+
+        // Clear local form errors and redux state
+        await setStatus(null);
+        if (notify) await onDismiss();
 
         // Validate card; obtain token
         const res = await stripe.createToken({
@@ -120,7 +126,8 @@ const CheckoutForm = props => {
           credits,
           cardholderName
         });
-        setSubmitting(false);
+        clearStripeFields();
+        await setSubmitting(false);
       }}
       validationSchema={validateCheckout}
     >
@@ -133,12 +140,16 @@ const CheckoutForm = props => {
           isSubmitting,
           isValid,
           setFieldValue,
+          setStatus,
           status,
           touched,
           values
         } = props;
+
         return (
           <Segment padded>
+            {status && Notify({ onDismiss: () => setStatus(null), ...status })}
+            {notify && notify.severity==="ERROR" && Notify({ ...notify, onDismiss })}
             <Form id="checkout-form" onSubmit={handleSubmit}>
               <Divider horizontal section>
                 <Header as="h4">
@@ -246,7 +257,7 @@ const CheckoutForm = props => {
                       icon="dollar-sign"
                       labelPosition="left"
                       loading={isSubmitting}
-                      positive={isValid && !status && isCardComplete}
+                      positive={isValid && !status && !notify && isCardComplete}
                       size="large"
                       type="submit"
                     >
