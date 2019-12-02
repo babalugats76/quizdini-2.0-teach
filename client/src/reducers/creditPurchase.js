@@ -16,7 +16,6 @@ export default function(state = initialState, action) {
         loading: true
       };
     case TYPES.BUY_CREDITS_SUCCESS:
-      console.log("buy credits success");
       return {
         ...state,
         data: action.payload.data,
@@ -31,7 +30,6 @@ export default function(state = initialState, action) {
         loading: false
       };
     case TYPES.BUY_CREDITS_RESET:
-      console.log('reset called...');
       return initialState;
     default:
       return state;

@@ -29,6 +29,8 @@ export default function(state = initialState, action) {
         error: action.payload.error,
         loading: false
       };
+    case TYPES.LOGIN_RESET:
+      return initialState;
     default:
       return state;
   }

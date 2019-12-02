@@ -1,97 +1,62 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Container } from 'semantic-ui-react';
-import LogoHeader from '../UI/LogoHeader';
-import Message from '../UI/Message';
+import * as actions from '../../actions/';
+import * as selectors from '../../selectors/';
+import { useActions, useRedirect } from '../../hooks/';
 import LoginForm from './LoginForm';
+import { Loader, LogoHeader } from '../UI/';
 
-class Login extends Component {
-  // bind this way due to async/await arrow function bug in Babel
-  handleLogin = this.handleLogin.bind(this);
+const Login = props => {
+  // action (to perform)
+  const loginUser = useActions(actions.loginUser);
+  const loginReset = useActions(actions.loginReset);
+  const fetchAuth = useActions(actions.fetchAuth);
 
-  constructor(props) {
-    super(props);
-    const { location: { state: { message } = {} } = {}, history } = this.props;
-    this.state = { message };
-    history.replace({ pathname: '/login', state: {} });
-  }
+  // data (to subscribe to)
+  const login = useSelector(selectors.login);
+  const notify = useSelector(
+    selectors.notify({
+      inputSelectors: selectors.login,
+      successHeader: "Welcome back!",
+      errorHeader: "Oops! We can't log you in!",
+      errorSeverity: 'ERROR'
+    })
+  );
 
-  handleDismiss = e => {
-    e.preventDefault();
-    this.setState({ message: null });
+  // what to do on mount/unmount
+  useEffect(() => {
+    loginReset();
+    return () => loginReset();
+  }, [loginReset]);
+
+  // function to determine redirect
+  const loginRedirect = login => {
+    return login.data ? true : false;
   };
 
-  renderMessage = ({ content, header, severity }) => {
-    return (
-      <Message
-        content={content}
-        header={header}
-        hidden={!content}
-        onDismiss={e => this.handleDismiss(e)}
-        severity={severity}
-      />
-    );
-  };
+  // redirect hook, including metadata and dependencies
+  const [isRedirecting] = useRedirect({
+    history: props.history,
+    ready: loginRedirect(login),
+    deps: [login],
+    fetchAuth: fetchAuth,
+    to: '/dashboard',
+    state: { message: { ...notify }, skipAuth: true },
+    timeout: 500,
+    debug: true
+  });
 
-  async handleLogin(values, actions) {
-    const { loginUser, fetchAuth } = this.props; 
-    const { username, password } = values;
-    const { resetForm, setStatus, setSubmitting } = actions;
-
-    await loginUser({username, password});
-
-    const { login: { error } = {} } = this.props;
-    const { message: errorMessage = '' } = error || {};
-
-    if (error) {
-      await resetForm();
-      await setStatus({
-        content: errorMessage,
-        header: "Oops! We can't log you in!",
-        severity: 'ERROR'
-      });
-      return setSubmitting(false);
-    }
-
-    await fetchAuth();
-    return this.props.history.push({
-      pathname: '/dashboard',
-      state: {
-        from: 'LOGIN',
-        skipAuth: true
-      }
-    });
-  }
-
-  renderForm = () => {
-    return (
-      <LoginForm
-        onLogin={(values, actions) => this.handleLogin(values, actions)}
-      />
-    );
-  };
-
-  render() {
-    const { message } = this.state;
-    const form = this.renderForm();
-
-    return (
+  // what to render
+  return (
+    (isRedirecting && <Loader />) || (
       <Container as="main" className="page small" fluid id="login">
-        {message && this.renderMessage({ ...message })}
+        {/*message && this.renderMessage({ ...message }) */}
         <LogoHeader>Login to Quizdini</LogoHeader>
-        {form}
+        <LoginForm notify={notify} onLogin={loginUser} onDismiss={loginReset} />
       </Container>
-    );
-  }
-}
-
-Login.propTypes = {
-  history: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired
+    )
+  );
 };
 
-const mapStateToProps = ({ login }) => ({ login });
-
-export default connect(mapStateToProps, actions)(Login);
+export default Login;

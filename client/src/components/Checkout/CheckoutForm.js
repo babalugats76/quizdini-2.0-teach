@@ -8,12 +8,8 @@ import {
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Divider, Form, Grid, Header, Segment } from 'semantic-ui-react';
-import useStripe from '../../hooks/useStripe';
-import Icon from '../UI/Icon';
-import RadioGroup from '../UI/RadioGroup';
-import InputText from '../UI/InputText';
-import Button from '../UI/Button';
-import Notify from '../UI/Notify';
+import { useStripe } from '../../hooks/';
+import { Button, Icon, InputText, Notify, RadioGroup } from '../UI/';
 
 const elementOptions = disabled => {
   return {
@@ -127,7 +123,7 @@ const CheckoutForm = props => {
           cardholderName
         });
         clearStripeFields();
-        await setSubmitting(false);
+        return setSubmitting(false);
       }}
       validationSchema={validateCheckout}
     >
@@ -149,7 +145,9 @@ const CheckoutForm = props => {
         return (
           <Segment padded>
             {status && Notify({ onDismiss: () => setStatus(null), ...status })}
-            {notify && notify.severity==="ERROR" && Notify({ ...notify, onDismiss })}
+            {notify &&
+              notify.severity === 'ERROR' &&
+              Notify({ ...notify, onDismiss })}
             <Form id="checkout-form" onSubmit={handleSubmit}>
               <Divider horizontal section>
                 <Header as="h4">

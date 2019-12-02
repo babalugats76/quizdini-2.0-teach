@@ -16,8 +16,8 @@ export default function useRedirect({
   const timeToRedirect = useMemo(() => ready, [ready, ...deps]);
   const redirect = useCallback(async () => {
     isRedirecting.current = true;
-    if (fetchAuth) await fetchAuth();
     setTimeout(async function() {
+      if (fetchAuth) await fetchAuth();
       history.push(to, state);
     }, timeout);
   }, [history, fetchAuth, to, state, timeout]);
@@ -25,5 +25,9 @@ export default function useRedirect({
   debug && console.log('isRedirecting: %s', isRedirecting.current);
   debug && console.log('timeToRedirect: %s', timeToRedirect);
 
-  if (!isRedirecting.current && timeToRedirect) redirect();
+  if (!isRedirecting.current && timeToRedirect) {
+    redirect();
+  }
+
+  return [isRedirecting.current];
 }

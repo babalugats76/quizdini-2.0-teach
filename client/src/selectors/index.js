@@ -1,12 +1,12 @@
 import { createSelector } from 'reselect';
 
-export const generateNotify = (
+export const notify = ({
   inputSelectors = [],
   successHeader = 'Success!',
   successSeverity = 'OK',
   errorHeader = "Something's not quite right.",
   errorSeverity = 'ERROR'
-) => {
+}) => {
   return createSelector(inputSelectors, a => {
     if (!a.data && !a.error) return null;
     if (a.data) {
@@ -28,9 +28,16 @@ export const generateNotify = (
   });
 };
 
-const creditPurchase = state => state.creditPurchase;
+const getCreditPurchase = state => state.creditPurchase;
+const getLogin = state => state.login;
 
-export const checkoutSelector = createSelector([creditPurchase], a => {
+export const checkout = createSelector([getCreditPurchase], a => {
+  return {
+    ...a
+  };
+});
+
+export const login = createSelector([getLogin], a => {
   return {
     ...a
   };

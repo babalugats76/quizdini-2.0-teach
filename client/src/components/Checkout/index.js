@@ -3,17 +3,17 @@ import { useSelector } from 'react-redux';
 import StripeScriptLoader from 'react-stripe-script-loader';
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import { Container } from 'semantic-ui-react';
-import * as actions from '../../actions';
-import { checkoutSelector, generateNotify } from '../../selectors/';
-import useActions from '../../hooks/useActions';
-import useRedirect from '../../hooks/useRedirect';
+import * as actions from '../../actions/';
+import * as selectors from '../../selectors/';
+import { useActions, useRedirect } from '../../hooks/';
 import InjectedCheckoutForm from './CheckoutForm';
-import LogoHeader from '../UI/LogoHeader';
-import Loader from '../UI/Loader';
+import { Loader, LogoHeader } from '../UI/';
 
-const elementsOptions = {
+/* TODO - disposition, depends upon font ulitmately chosen for checkout form */
+/*const elementsOptions = {
   fonts: [{ cssSrc: 'https://fonts.googleapis.com/css?family=Lexend+Deca' }]
-};
+};*/
+const elementsOptions = {};
 
 const Checkout = props => {
   // action (to perform)
@@ -22,8 +22,10 @@ const Checkout = props => {
   const fetchAuth = useActions(actions.fetchAuth);
 
   // data (to subscribe to)
-  const checkout = useSelector(checkoutSelector);
-  const notify = useSelector(generateNotify([checkoutSelector]));
+  const checkout = useSelector(selectors.checkout);
+  const notify = useSelector(
+    selectors.notify({ inputSelectors: [selectors.checkout] })
+  );
 
   // what to do on mount/unmount
   useEffect(() => {
@@ -37,14 +39,14 @@ const Checkout = props => {
   };
 
   // redirect hook, including metadata and dependencies
-  useRedirect({
+ useRedirect({
     history: props.history,
     ready: checkoutRedirect(checkout),
     deps: [checkout],
     fetchAuth: fetchAuth,
     to: '/dashboard',
     state: { message: { ...notify }, skipAuth: true },
-    timeout: 3000,
+    timeout: 500,
     debug: true
   });
 

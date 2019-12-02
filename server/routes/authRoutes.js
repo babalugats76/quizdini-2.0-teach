@@ -12,7 +12,7 @@ module.exports = app => {
       try {
         if (err) return next(err);
         if (!user) throw new LoginFailed();
-        const message = `Welcome, ${user.fullName}`;
+        const message = `Glad to see you again, ${user.fullName}`;
         res.send({ message });
       } catch (e) {
         next(e);

@@ -180,6 +180,10 @@ export const loginFailure = error => async dispatch => {
   dispatch({ type: TYPES.LOGIN_FAILURE, payload: { error } });
 };
 
+export const loginReset = () => async dispatch => {
+  dispatch({ type: TYPES.LOGIN_RESET });
+};
+
 export const loginUser = data => async dispatch => {
   try {
     dispatch(loginBegin());
