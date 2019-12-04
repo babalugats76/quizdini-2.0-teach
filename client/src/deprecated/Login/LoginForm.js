@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Divider, Form, Segment } from 'semantic-ui-react';
-import { Button, ExternalLink, InputText, Notify } from '../UI/';
+import { Button, ExternalLink, InputText, Notify } from '../../components/UI';
 
 const validateLogin = Yup.object().shape({
   username: Yup.string().required('Username is required.'),
@@ -11,8 +11,6 @@ const validateLogin = Yup.object().shape({
 });
 
 const LoginForm = props => {
-  const { notify, onDismiss } = props;
-
   return (
     <Formik
       enableReinitialize={false}
@@ -23,12 +21,16 @@ const LoginForm = props => {
         password: ''
       }}
       onSubmit={async (values, actions) => {
-        const { onLogin } = props;
-        const { resetForm, setSubmitting } = actions;
-        if (notify) await onDismiss();
+        const { onLogin, onSuccess } = props;
+        const { resetForm, setStatus, setSubmitting } = actions;
         await resetForm();
-        await onLogin(values);
-        return setSubmitting(false);
+        await setStatus(null);
+        await setSubmitting(true);
+        const results = await onLogin(values);
+        setStatus(results.notify);
+        const success = results.data || false;
+        if (success) onSuccess(results.notify);
+        await setSubmitting(false);
       }}
       validationSchema={validateLogin}
     >
@@ -40,15 +42,15 @@ const LoginForm = props => {
           handleSubmit,
           isSubmitting,
           isValid,
+          setStatus,
+          status,
           touched,
           values
         } = props;
 
         return (
           <Segment padded>
-            {notify &&
-              notify.severity === 'ERROR' &&
-              Notify({ ...notify, onDismiss })}
+            {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
             <Segment basic textAlign="center">
               <ExternalLink
                 href="/auth/google"

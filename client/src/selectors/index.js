@@ -30,6 +30,7 @@ export const notify = ({
 
 const getCreditPurchase = state => state.creditPurchase;
 const getLogin = state => state.login;
+const getLoginData = state => state.login.data;
 
 export const checkout = createSelector([getCreditPurchase], a => {
   return {
@@ -42,3 +43,5 @@ export const login = createSelector([getLogin], a => {
     ...a
   };
 });
+
+export const loginDataSelector = createSelector(getLoginData, data => data);

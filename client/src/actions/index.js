@@ -106,37 +106,6 @@ export const fetchAuth = () => async dispatch => {
 };
 
 /**
- * BUY CREDITS SECTION
- * Actions used to manage user checkout/cart
- */
-
-export const buyCreditsBegin = () => async dispatch => {
-  dispatch({ type: TYPES.BUY_CREDITS_BEGIN });
-};
-
-export const buyCreditsSuccess = data => async dispatch => {
-  dispatch({ type: TYPES.BUY_CREDITS_SUCCESS, payload: { data } });
-};
-
-export const buyCreditsFailure = error => async dispatch => {
-  dispatch({ type: TYPES.BUY_CREDITS_FAILURE, payload: { error } });
-};
-
-export const buyCreditsReset = () => async dispatch => {
-  dispatch({ type: TYPES.BUY_CREDITS_RESET });
-};
-
-export const buyCredits = data => async dispatch => {
-  try {
-    dispatch(buyCreditsBegin());
-    const res = await axios.post('/api/payment', data);
-    return dispatch(buyCreditsSuccess(res.data));
-  } catch (e) {
-    dispatch(buyCreditsFailure(e.response.data));
-  }
-};
-
-/**
  * COUNTRIES SECTION
  * Actions used to obtain country info
  */
@@ -160,37 +129,6 @@ export const fetchCountries = () => async dispatch => {
     dispatch(countriesSuccess(res.data));
   } catch (e) {
     dispatch(countriesFailure(e.response.data));
-  }
-};
-
-/**
- * LOGIN SECTION
- * Actions used to authenticate user (local method only)
- */
-
-export const loginBegin = () => async dispatch => {
-  dispatch({ type: TYPES.LOGIN_BEGIN });
-};
-
-export const loginSuccess = data => async dispatch => {
-  dispatch({ type: TYPES.LOGIN_SUCCESS, payload: { data } });
-};
-
-export const loginFailure = error => async dispatch => {
-  dispatch({ type: TYPES.LOGIN_FAILURE, payload: { error } });
-};
-
-export const loginReset = () => async dispatch => {
-  dispatch({ type: TYPES.LOGIN_RESET });
-};
-
-export const loginUser = data => async dispatch => {
-  try {
-    dispatch(loginBegin());
-    const res = await axios.post('/auth/local', data);
-    return dispatch(loginSuccess(res.data));
-  } catch (e) {
-    dispatch(loginFailure(e.response.data));
   }
 };
 

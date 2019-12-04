@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 
-export default function useStripe({ debug = false }) {
+const useStripe = ({ debug = false }) => {
   const isCancelled = useRef(false);
 
   const initialState = {
@@ -74,3 +74,5 @@ export default function useStripe({ debug = false }) {
 
   return [stripeReady, stripeChange, isComplete, clearFields];
 }
+
+export default useStripe;

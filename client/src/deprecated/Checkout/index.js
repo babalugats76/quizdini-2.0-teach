@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import StripeScriptLoader from 'react-stripe-script-loader';
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import { Container } from 'semantic-ui-react';
-import * as actions from '../../actions/';
-import * as selectors from '../../selectors/';
-import { useActions, useRedirect } from '../../hooks/';
+import * as actions from '../../actions';
+import * as selectors from '../../selectors';
+import { useActions, useRedirect } from '../../hooks';
 import InjectedCheckoutForm from './CheckoutForm';
-import { Loader, LogoHeader } from '../UI/';
+import { Loader, LogoHeader } from '../../components/UI';
 
 /* TODO - disposition, depends upon font ulitmately chosen for checkout form */
 /*const elementsOptions = {

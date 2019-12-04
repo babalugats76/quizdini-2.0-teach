@@ -5,12 +5,10 @@ import * as actions from '../actions';
 import withSizes from 'react-sizes';
 import { Visibility } from 'semantic-ui-react';
 import MatchGame from './Match';
-import Login from './Login/';
 import Register from './Register';
 import Lost from './Lost/';
 import Reset from './Reset/';
 import Verify from './Verify/';
-import Checkout from './Checkout';
 import Profile from './Profile/';
 import Terms from './Terms/';
 import About from './About/';
@@ -18,6 +16,7 @@ import Landing from './Landing/';
 import Dashboard from './Dashboard/';
 import Footer from './Footer';
 import NavBar from './NavBar';
+import { Checkout, Login } from '/';
 
 const PrivateRoute = ({
   component: Component,

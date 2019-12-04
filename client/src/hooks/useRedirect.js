@@ -1,33 +1,39 @@
-import { useCallback, useMemo, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useActions } from './';
+import * as actions from '../actions/';
 
-export default function useRedirect({
+const useRedirect = ({
   history = null,
-  ready = null,
-  deps = [],
-  fetchAuth = null,
+  refreshAuth = false,
   to = '/dashboard',
   state = {},
   timeout = 300,
   debug = false
-}) {
-  const isRedirecting = useRef(false);
+}) => {
+  const isCancelled = useRef(false);
+  const [isRedirecting, setState] = useState(null);
+  const fetchAuth = useActions(actions.fetchAuth);
+  const setIsRedirecting = arg => !isCancelled.current && setState(arg);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const timeToRedirect = useMemo(() => ready, [ready, ...deps]);
-  const redirect = useCallback(async () => {
-    isRedirecting.current = true;
-    setTimeout(async function() {
-      if (fetchAuth) await fetchAuth();
-      history.push(to, state);
-    }, timeout);
-  }, [history, fetchAuth, to, state, timeout]);
+  const redirect = useCallback(
+    notify => {
+      setIsRedirecting(true);
+      setTimeout(async function() {
+        if (refreshAuth) await fetchAuth();
+        history.push(to, { ...state, message: { ...notify } });
+      }, timeout);
+    },
+    [history, refreshAuth, fetchAuth, to, state, timeout]
+  );
 
-  debug && console.log('isRedirecting: %s', isRedirecting.current);
-  debug && console.log('timeToRedirect: %s', timeToRedirect);
+  useEffect(() => {
+    return () => {
+      debug && console.log('redirect cleanup...');
+      isCancelled.current = true;
+    };
+  }, [debug]);
 
-  if (!isRedirecting.current && timeToRedirect) {
-    redirect();
-  }
-
-  return [isRedirecting.current];
+  return [isRedirecting, redirect];
 }
+
+export default useRedirect;

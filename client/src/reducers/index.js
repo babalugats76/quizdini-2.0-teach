@@ -2,9 +2,7 @@ import { combineReducers } from 'redux';
 import account from './account';
 import accountVerify from './accountVerify';
 import auth from './auth';
-import creditPurchase from './creditPurchase';
 import countryOptions from './countryOptions';
-import login from './login';
 import matchGame from './matchGame';
 import matchList from './matchList';
 import passwordChange from './passwordChange';
@@ -18,9 +16,7 @@ export default combineReducers({
   account,
   accountVerify,
   auth,
-  creditPurchase,
   countryOptions,
-  login,
   matchGame, // To avoid confusion with react-router 'match' prop
   matchList, // To avoid confusion with react-router 'match' prop
   passwordChange, // Used in both 'update' and 'reset'

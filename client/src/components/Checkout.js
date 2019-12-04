@@ -1,15 +1,77 @@
 import React from 'react';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+import StripeScriptLoader from 'react-stripe-script-loader';
 import {
   CardExpiryElement,
   CardCvcElement,
   CardNumberElement,
-  injectStripe
+  Elements,
+  injectStripe,
+  StripeProvider
 } from 'react-stripe-elements';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
-import { Divider, Form, Grid, Header, Segment } from 'semantic-ui-react';
-import { useStripe } from '../../hooks/';
-import { Button, Icon, InputText, Notify, RadioGroup } from '../UI/';
+import {
+  Container,
+  Divider,
+  Form,
+  Grid,
+  Header,
+  Segment
+} from 'semantic-ui-react';
+import { useAPI, useNotify, useRedirect, useStripe } from '../hooks/';
+import {
+  Button,
+  Icon,
+  InputText,
+  Loader,
+  LogoHeader,
+  Notify,
+  RadioGroup
+} from './UI/';
+
+/* TODO - disposition, depends upon font ulitmately chosen for checkout form */
+/*const elementsOptions = {
+  fonts: [{ cssSrc: 'https://fonts.googleapis.com/css?family=Lexend+Deca' }]
+};*/
+const elementsOptions = {};
+
+export default props => {
+  // direct API interactions (emphemeral)
+  const [buyCredits] = useAPI({ url: '/api/payment' });
+
+  // useRedirect
+  const [isRedirecting, redirect] = useRedirect({
+    history: props.history,
+    refreshAuth: true,
+    to: '/dashboard',
+    state: { skipAuth: true },
+    timeout: 1000,
+    debug: true
+  });
+
+  // what to render
+  return (
+    (isRedirecting && <Loader />) || (
+      <Container as="main" className="page small" fluid id="checkout">
+        <LogoHeader>Purchase Credits</LogoHeader>
+        <StripeScriptLoader
+          uniqueId="stripe-script"
+          script={process.env.REACT_APP_STRIPE_SCRIPT}
+          loader={<Loader />}
+        >
+          <StripeProvider apiKey={process.env.REACT_APP_STRIPE_KEY}>
+            <Elements {...elementsOptions}>
+              <InjectedCheckoutForm
+                onCheckout={buyCredits}
+                onSuccess={notify => redirect(notify)}
+              />
+            </Elements>
+          </StripeProvider>
+        </StripeScriptLoader>
+      </Container>
+    )
+  );
+};
 
 const elementOptions = disabled => {
   return {
@@ -69,8 +131,9 @@ const CheckoutForm = props => {
     clearStripeFields
   ] = useStripe({ debug: false });
 
-  const { notify, onDismiss } = props;
-
+  const [getNotify] = useNotify({
+    successHeader: 'Thank you for your purchase!'
+  });
   const handleAmountChange = (e, { setFieldValue }) => {
     const { value } = e.target;
     setFieldValue('amount', value);
@@ -79,6 +142,9 @@ const CheckoutForm = props => {
 
   return (
     <Formik
+      enableReinitialize={false}
+      validateOnBlur={false}
+      validateOnChange={true}
       initialValues={{
         amount: '10',
         cardholderName: '',
@@ -86,7 +152,7 @@ const CheckoutForm = props => {
         postalCode: ''
       }}
       onSubmit={async (values, actions) => {
-        const { onCheckout, stripe } = props;
+        const { onCheckout, onSuccess, stripe } = props;
         const {
           credits,
           amount,
@@ -95,9 +161,9 @@ const CheckoutForm = props => {
         } = values;
         const { setStatus, setSubmitting } = actions;
 
-        // Clear local form errors and redux state
+        // Clear sensitive fields and notification
         await setStatus(null);
-        if (notify) await onDismiss();
+        await setSubmitting(true);
 
         // Validate card; obtain token
         const res = await stripe.createToken({
@@ -106,9 +172,10 @@ const CheckoutForm = props => {
         });
 
         if (!res.token || res.error) {
+
           clearStripeFields();
 
-          // Handle token-related validation errors
+          // If token-related validation errors
           setStatus({
             content: res.error.message,
             header: "Something's not quite right.",
@@ -116,14 +183,20 @@ const CheckoutForm = props => {
           });
           return setSubmitting(false);
         }
-        await onCheckout({
+
+        // Process transactions using token
+        const results = await onCheckout({
           tokenId: res.token.id,
           amount,
           credits,
           cardholderName
         });
-        clearStripeFields();
-        return setSubmitting(false);
+        const success = results.data || false;
+        const notify = getNotify(results);
+        await setStatus(notify);
+        if (success) onSuccess(notify);
+        if (!success) clearStripeFields();
+        await setSubmitting(false);
       }}
       validationSchema={validateCheckout}
     >
@@ -144,10 +217,7 @@ const CheckoutForm = props => {
 
         return (
           <Segment padded>
-            {status && Notify({ onDismiss: () => setStatus(null), ...status })}
-            {notify &&
-              notify.severity === 'ERROR' &&
-              Notify({ ...notify, onDismiss })}
+            {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
             <Form id="checkout-form" onSubmit={handleSubmit}>
               <Divider horizontal section>
                 <Header as="h4">
@@ -255,7 +325,7 @@ const CheckoutForm = props => {
                       icon="dollar-sign"
                       labelPosition="left"
                       loading={isSubmitting}
-                      positive={isValid && !status && !notify && isCardComplete}
+                      positive={isValid && !status && isCardComplete}
                       size="large"
                       type="submit"
                     >
@@ -272,4 +342,4 @@ const CheckoutForm = props => {
   );
 };
 
-export default injectStripe(CheckoutForm);
+const InjectedCheckoutForm = injectStripe(CheckoutForm);
