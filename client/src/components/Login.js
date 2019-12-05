@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Container, Divider, Form, Segment } from 'semantic-ui-react';
-import { useAPI, useRedirect, useResult } from '../hooks/';
+import { useAPI, useMessage, useRedirect, useResult } from '../hooks/';
 import {
   Button,
   ExternalLink,
@@ -14,22 +14,8 @@ import {
 } from './UI/';
 
 export default props => {
-  const [message, setMessage] = useState(null);
-
-  const {
-    location: { state: { message: notify } = {}, pathname } = {},
-    history: { replace } = {}
-  } = props;
-
-  useEffect(() => {
-    console.log('useEffect fired...');
-    notify && setMessage(m => notify);
-    replace({ pathname, state: {} });
-  }, [notify, pathname, replace]);
-
-  const dismissMessage = useCallback(() => {
-    setMessage(null);
-  }, []);
+ 
+  const [message, dismissMessage] = useMessage({ props, debug: true});
 
   // direct API interactions (emphemeral)
   const [loginUser] = useAPI({ url: '/auth/local' });

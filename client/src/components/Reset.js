@@ -7,7 +7,7 @@ import { Button, InputText, Loader, LogoHeader, Notify } from './UI/';
 
 export default props => {
 
-  const { match: { params: { secret } = {} } = {} } = this.props;
+  const { match: { params: { secret } = {} } = {} } = props;
 
   // direct API interactions (emphemeral)
   const [resetPassword] = useAPI({ url: '/api/account/password-reset' });
@@ -64,7 +64,7 @@ const ResetForm = props => {
       }}
       onSubmit={async (values, actions) => {
         const { onReset, onSuccess, secret } = props;
-        const { newPassword } = values;
+        /*const { newPassword } = values;
         const { resetForm, setStatus, setSubmitting } = actions;
         await resetForm();
         await setSubmitting(true);
@@ -73,7 +73,7 @@ const ResetForm = props => {
         const notify = getNotify(results);
         await setStatus(notify);
         if (success) onSuccess(notify);
-        await setSubmitting(false);
+        await setSubmitting(false);*/
         onSuccess({ header: 'test', severity: 'OK', content: 'Yo!' });
       }}
       validationSchema={validateReset}
