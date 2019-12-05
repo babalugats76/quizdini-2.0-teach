@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-const useNotify = ({
+const useResult = ({
   successHeader = 'Success!',
   successSeverity = 'OK',
   failHeader = "Something's not quite right.",
@@ -28,4 +28,4 @@ const useNotify = ({
   return [getNotify];
 };
 
-export default useNotify;
+export default useResult;

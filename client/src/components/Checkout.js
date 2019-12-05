@@ -18,7 +18,7 @@ import {
   Header,
   Segment
 } from 'semantic-ui-react';
-import { useAPI, useNotify, useRedirect, useStripe } from '../hooks/';
+import { useAPI, useRedirect, useResult, useStripe } from '../hooks/';
 import {
   Button,
   Icon,
@@ -131,7 +131,7 @@ const CheckoutForm = props => {
     clearStripeFields
   ] = useStripe({ debug: false });
 
-  const [getNotify] = useNotify({
+  const [getNotify] = useResult({
     successHeader: 'Thank you for your purchase!'
   });
   const handleAmountChange = (e, { setFieldValue }) => {

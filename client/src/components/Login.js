@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Container, Divider, Form, Segment } from 'semantic-ui-react';
-import { useAPI, useNotify, useRedirect } from '../hooks/';
+import { useAPI, useRedirect, useResult } from '../hooks/';
 import {
   Button,
   ExternalLink,
@@ -14,6 +14,23 @@ import {
 } from './UI/';
 
 export default props => {
+  const [message, setMessage] = useState(null);
+
+  const {
+    location: { state: { message: notify } = {}, pathname } = {},
+    history: { replace } = {}
+  } = props;
+
+  useEffect(() => {
+    console.log('useEffect fired...');
+    notify && setMessage(m => notify);
+    replace({ pathname, state: {} });
+  }, [notify, pathname, replace]);
+
+  const dismissMessage = useCallback(() => {
+    setMessage(null);
+  }, []);
+
   // direct API interactions (emphemeral)
   const [loginUser] = useAPI({ url: '/auth/local' });
 
@@ -31,7 +48,7 @@ export default props => {
   return (
     (isRedirecting && <Loader />) || (
       <Container as="main" className="page small" fluid id="login">
-        {/*message && this.renderMessage({ ...message }) */}
+        {message && Notify({ ...message, onDismiss: () => dismissMessage() })}
         <LogoHeader>Login to Quizdini</LogoHeader>
         <LoginForm onLogin={loginUser} onSuccess={notify => redirect(notify)} />
       </Container>
@@ -45,7 +62,7 @@ const validateLogin = Yup.object().shape({
 });
 
 const LoginForm = props => {
-  const [getNotify] = useNotify({
+  const [getNotify] = useResult({
     failHeader: "Oops, we can't log you in!",
     successHeader: 'Welcome back!'
   });

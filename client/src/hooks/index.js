@@ -1,7 +1,7 @@
 import useActions from './useActions';
 import useAPI from './useAPI';
-import useNotify from './useNotify';
 import useRedirect from './useRedirect';
+import useResult from './useResult';
 import useStripe from './useStripe';
 
-export { useActions, useAPI, useNotify, useRedirect, useStripe };
+export { useActions, useAPI, useRedirect, useResult, useStripe };

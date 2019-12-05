@@ -7,7 +7,6 @@ import { Visibility } from 'semantic-ui-react';
 import MatchGame from './Match';
 import Register from './Register';
 import Lost from './Lost/';
-import Reset from './Reset/';
 import Verify from './Verify/';
 import Profile from './Profile/';
 import Terms from './Terms/';
@@ -16,7 +15,7 @@ import Landing from './Landing/';
 import Dashboard from './Dashboard/';
 import Footer from './Footer';
 import NavBar from './NavBar';
-import { Checkout, Login } from '/';
+import { Checkout, Login, Reset } from '/';
 
 const PrivateRoute = ({
   component: Component,
