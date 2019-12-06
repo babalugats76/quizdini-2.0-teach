@@ -36,8 +36,8 @@ import {
 const elementsOptions = {};
 
 export default props => {
-  // direct API interactions (emphemeral)
-  const [buyCredits] = useAPI({ url: '/api/payment' });
+  // direct API interactions (ephemeral)
+  const { POST: buyCredits } = useAPI({ url: '/api/payment' });
 
   // useRedirect
   const [isRedirecting, redirect] = useRedirect({

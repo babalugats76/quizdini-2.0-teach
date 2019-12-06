@@ -1,9 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const useMessage = ({ props, debug = false }) => {
-  // necessary because history.replace both mutable and a dependency
-  const isSet = useRef(false);
-
   // destructure props
   const {
     location: { state: { message: notify } = {}, pathname } = {},
@@ -13,18 +10,24 @@ const useMessage = ({ props, debug = false }) => {
   // save dismissable message in state
   const [message, setMessage] = useState(null);
 
-  // sets initial message and replaces browser history record
-  useEffect(() => {
-    debug && console.log('Effect in useMessage fired...');
-    if (!isSet.current) {
-      debug && console.log('Setting message...');
-      notify && setMessage(m => notify);
-      notify && replace({ pathname, state: {} });
-      isSet.current = true;
-    }
-  }, [notify, pathname, replace, debug]);
+  /**
+   * memoized function that sets initial message
+   * replaces browser history record
+   */
 
-  // used to clear "dismiss" message
+  const handleMessage = useCallback(() => {
+    notify && setMessage(m => notify);
+    notify && replace({ pathname, state: {} });
+  }, [notify, pathname, replace]);
+
+  // handle message on mount only
+  useEffect(() => {
+    debug && console.log('handling message...');
+    handleMessage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debug]);
+
+  // memoized clear "dismiss" message
   const dismissMessage = useCallback(() => {
     debug && console.log('Dismissing message...');
     setMessage(null);

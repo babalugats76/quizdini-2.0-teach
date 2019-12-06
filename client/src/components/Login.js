@@ -14,11 +14,11 @@ import {
 } from './UI/';
 
 export default props => {
- 
-  const [message, dismissMessage] = useMessage({ props, debug: true});
+  // handles show/dismiss of redirect messages
+  const [message, dismissMessage] = useMessage({ props, debug: true });
 
-  // direct API interactions (emphemeral)
-  const [loginUser] = useAPI({ url: '/auth/local' });
+  // direct API interactions (ephemeral)
+  const { POST: loginUser } = useAPI({ url: '/auth/local' });
 
   // useRedirect
   const [isRedirecting, redirect] = useRedirect({
