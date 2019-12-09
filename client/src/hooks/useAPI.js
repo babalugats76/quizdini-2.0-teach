@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { useCallback } from 'react';
 
+axios.defaults.headers.common[
+  'quizdini-timezone'
+] = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
 const useAPI = ({ url }) => {
   const get = useCallback(async () => {
     try {
