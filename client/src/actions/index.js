@@ -274,38 +274,6 @@ export const fetchPayments = () => async dispatch => {
 };
 
 /**
- * RECOVERY SECTION
- * Actions used to obtain help recoverying "lost" credentials
- */
-
-export const recoveryBegin = () => async dispatch => {
-  dispatch({ type: TYPES.RECOVERY_BEGIN });
-};
-
-export const recoverySuccess = data => async dispatch => {
-  dispatch({ type: TYPES.RECOVERY_SUCCESS, payload: { data } });
-};
-
-export const recoveryFailure = error => async dispatch => {
-  dispatch({ type: TYPES.RECOVERY_FAILURE, payload: { error } });
-};
-
-export const sendRecoveryEmail = data => async dispatch => {
-  try {
-    dispatch(recoveryBegin());
-    const res = await axios.post('/api/account/lost', data, {
-      headers: {
-        // Application-specific header for presenting user with time relative to their local timezone
-        'quizdini-timezone': Intl.DateTimeFormat().resolvedOptions().timeZone
-      }
-    });
-    dispatch(recoverySuccess(res.data));
-  } catch (e) {
-    dispatch(recoveryFailure(e.response.data));
-  }
-};
-
-/**
  * REGISTER SECTION
  * Actions used to register new users
  */
