@@ -6,15 +6,13 @@ import withSizes from 'react-sizes';
 import { Visibility } from 'semantic-ui-react';
 import MatchGame from './Match';
 import Register from './Register';
-import Verify from './Verify/';
 import Profile from './Profile/';
 import Terms from './Terms/';
 import About from './About/';
-import Landing from './Landing/';
 import Dashboard from './Dashboard/';
 import Footer from './Footer';
 import NavBar from './NavBar';
-import { Checkout, Login, Lost, Reset } from '/';
+import { Checkout, Landing, Login, Lost, Reset, Verify } from '/';
 
 const PrivateRoute = ({
   component: Component,

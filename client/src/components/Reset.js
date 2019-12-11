@@ -24,7 +24,9 @@ export default props => {
   // memoized verify function
   const verify = useCallback(async () => {
     const results = await verifyToken();
+    // If token verified
     if (results.data) return setVerified(true);
+    // Otherwise, redirect with error 
     const notify = getNotify(results);
     return redirect(notify);
   }, [verifyToken, getNotify, redirect]);

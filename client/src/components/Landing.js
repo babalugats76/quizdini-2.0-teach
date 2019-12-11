@@ -1,12 +1,7 @@
 import React from 'react';
-import {
-  Container,
-  Grid,
-  Header,
-  Image,
-} from 'semantic-ui-react';
+import { Container, Grid, Header, Image } from 'semantic-ui-react';
 
-const index = () => {
+export default props => {
   return (
     <main id="landing">
       <section id="intro" as="div" className="banner">
@@ -81,5 +76,3 @@ const index = () => {
     </main>
   );
 };
-
-export default index;

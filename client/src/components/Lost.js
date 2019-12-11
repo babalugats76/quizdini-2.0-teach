@@ -7,7 +7,6 @@ import {
   Button,
   Icon,
   InputText,
-  Loader,
   LogoHeader,
   Notify,
   RadioGroup

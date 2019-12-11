@@ -69,7 +69,7 @@ const useStripe = ({ debug = false }) => {
   }, [debug]);
 
   useEffect(() => {
-    debug && console.log(state);
+    debug && console.log(JSON.stringify(state));
   }, [state, debug]);
 
   return [stripeReady, stripeChange, isComplete, clearFields];

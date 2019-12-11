@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import account from './account';
-import accountVerify from './accountVerify';
 import auth from './auth';
 import countryOptions from './countryOptions';
 import matchGame from './matchGame';
@@ -13,7 +12,6 @@ import tokenVerify from './tokenVerify';
 
 export default combineReducers({
   account,
-  accountVerify,
   auth,
   countryOptions,
   matchGame, // To avoid confusion with react-router 'match' prop
