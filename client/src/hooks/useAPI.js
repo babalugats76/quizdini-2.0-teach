@@ -5,6 +5,8 @@ axios.defaults.headers.common[
   'quizdini-timezone'
 ] = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
+// TODO - remove loading in lieu of local solutions
+
 const useAPI = ({ url, debug = true }) => {
   const isCancelled = useRef(false);
 
