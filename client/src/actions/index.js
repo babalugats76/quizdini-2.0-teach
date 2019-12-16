@@ -87,8 +87,8 @@ export const countriesBegin = () => async dispatch => {
   dispatch({ type: TYPES.COUNTRIES_BEGIN });
 };
 
-export const countriesSuccess = countries => async dispatch => {
-  dispatch({ type: TYPES.COUNTRIES_SUCCESS, payload: { countries } });
+export const countriesSuccess = data => async dispatch => {
+  dispatch({ type: TYPES.COUNTRIES_SUCCESS, payload: { data } });
 };
 
 export const countriesFailure = error => async dispatch => {
@@ -282,8 +282,8 @@ export const statesBegin = () => async dispatch => {
   dispatch({ type: TYPES.STATES_BEGIN });
 };
 
-export const statesSuccess = states => async dispatch => {
-  dispatch({ type: TYPES.STATES_SUCCESS, payload: { states } });
+export const statesSuccess = data => async dispatch => {
+  dispatch({ type: TYPES.STATES_SUCCESS, payload: { data } });
 };
 
 export const statesFailure = error => async dispatch => {

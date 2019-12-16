@@ -4,21 +4,62 @@ import { useActions } from '../hooks/';
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
-// TODO move transform for state and country into selector and out of reducer
-
 export default props => {
+  /**
+   *  Remap object array keys
+   *
+   *  Needed because dropdowns want information in common, generic format
+   *
+   *  stateCode = key
+   *  stateCode = value
+   *  stateName = text
+   **/
   const stateSelector = createSelector(
-    state => state.stateOptions,
-    stateOptions => stateOptions
+    state => state.states,
+    states => {
+      const data =
+        states.data &&
+        states.data.reduce((acc, state) => {
+          acc.push({
+            key: state.stateCode,
+            value: state.stateCode,
+            text: state.stateName
+          });
+          return acc;
+        }, []);
+      return { ...states, data };
+    }
   );
 
+  /**
+   *  Remap object array keys
+   *
+   *  Needed because dropdowns want information in common, generic format
+   *
+   *  countryId = key
+   *  countryCode = value
+   *  countryName = text
+   **/
   const countrySelector = createSelector(
-    state => state.countryOptions,
-    countryOptions => countryOptions
+    state => state.countries,
+    countries => {
+      const data =
+        countries.data &&
+        countries.data.reduce((acc, country) => {
+          acc.push({
+            key: country.countryId,
+            value: country.countryCode,
+            text: country.countryName
+          });
+          return acc;
+        }, []);
+      return { ...countries, data };
+    }
   );
 
   const states = useSelector(stateSelector);
   const countries = useSelector(countrySelector);
+
   const getStates = useActions(fetchStates);
   const getCountries = useActions(fetchCountries);
 
