@@ -71,10 +71,11 @@ const validateReset = Yup.object().shape({
 });
 
 const ResetForm = props => {
-  // eslint-disable-next-line
+
   const [getNotify] = useResult({
     failHeader: 'Check yourself...'
   });
+  
   return (
     <Formik
       enableReinitialize={false}

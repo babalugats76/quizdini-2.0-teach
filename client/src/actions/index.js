@@ -246,38 +246,6 @@ export const fetchPayments = () => async dispatch => {
   }
 };
 
-/**
- * REGISTER SECTION
- * Actions used to register new users
- */
-
-export const registerBegin = () => async dispatch => {
-  dispatch({ type: TYPES.REGISTER_BEGIN });
-};
-
-export const registerSuccess = data => async dispatch => {
-  dispatch({ type: TYPES.REGISTER_SUCCESS, payload: { data } });
-};
-
-export const registerFailure = error => async dispatch => {
-  dispatch({ type: TYPES.REGISTER_FAILURE, payload: { error } });
-};
-
-export const registerUser = data => async dispatch => {
-  try {
-    dispatch(registerBegin());
-    const res = await axios.post('/api/account', data);
-    return dispatch(registerSuccess(res.data));
-  } catch (e) {
-    dispatch(registerFailure(e.response.data));
-  }
-};
-
-/**
- * REGISTER SECTION
- * Actions used to obtain state info
- */
-
 export const statesBegin = () => async dispatch => {
   dispatch({ type: TYPES.STATES_BEGIN });
 };
@@ -300,29 +268,3 @@ export const fetchStates = () => async dispatch => {
   }
 };
 
-/**
- * TOKEN VERIFY SECTION
- * Actions used to obtain token info (verification)
- */
-
-export const tokenVerifyBegin = () => async dispatch => {
-  dispatch({ type: TYPES.TOKEN_VERIFY_BEGIN });
-};
-
-export const tokenVerifySuccess = data => async dispatch => {
-  dispatch({ type: TYPES.TOKEN_VERIFY_SUCCESS, payload: { data } });
-};
-
-export const tokenVerifyFailure = error => async dispatch => {
-  dispatch({ type: TYPES.TOKEN_VERIFY_FAILURE, payload: { error } });
-};
-
-export const verifyToken = secret => async dispatch => {
-  try {
-    dispatch(tokenVerifyBegin());
-    const res = await axios.get(`/api/token/${secret}`);
-    dispatch(tokenVerifySuccess(res.data));
-  } catch (e) {
-    dispatch(tokenVerifyFailure(e.response.data));
-  }
-};
