@@ -1,7 +1,7 @@
 import * as TYPES from '../actions/types';
 
 const initialState = {
-  user: null,
+  data: null,
   loading: false,
   error: null
 };
@@ -19,14 +19,14 @@ export default function(state = initialState, action) {
         ...state,
         loading: false,
         error: null,
-        user: action.payload.user
+        data: action.payload.data
       };
     case TYPES.ACCOUNT_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload.error
-        //user: null (don't set to null to allow for update errors)
+        //data: null (leave alone to allow for update errors, etc.)
       };
     default:
       return state;

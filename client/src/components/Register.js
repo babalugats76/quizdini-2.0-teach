@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { createSelector } from 'reselect';
 import { Formik } from 'formik';
 import { Container, Form, Segment } from 'semantic-ui-react';
 import * as Yup from 'yup';
-import { fetchStates, fetchCountries } from '../actions/';
 import { useActions, useAPI, useRedirect, useResult } from '../hooks/';
+import { fetchStates, fetchCountries } from '../actions/';
+import { countrySelector, stateSelector } from '../selectors/';
 import {
   Button,
   Checkbox,
@@ -29,63 +29,13 @@ export default props => {
     debug: true
   });
 
-  /**
-   *  Remap object array keys
-   *
-   *  Needed because dropdowns want information in common, generic format
-   *
-   *  stateCode = key
-   *  stateCode = value
-   *  stateName = text
-   **/
-  const stateSelector = createSelector(
-    state => state.states,
-    states => {
-      const stateOptions =
-        states.data &&
-        states.data.reduce((acc, state) => {
-          acc.push({
-            key: state.stateCode,
-            value: state.stateCode,
-            text: state.stateName
-          });
-          return acc;
-        }, []);
-      return { ...states, data: stateOptions };
-    }
-  );
-
-  /**
-   *  Remap object array keys
-   *
-   *  Needed because dropdowns want information in common, generic format
-   *
-   *  countryId = key
-   *  countryCode = value
-   *  countryName = text
-   **/
-  const countrySelector = createSelector(
-    state => state.countries,
-    countries => {
-      const countryOptions =
-        countries.data &&
-        countries.data.reduce((acc, country) => {
-          acc.push({
-            key: country.countryId,
-            value: country.countryCode,
-            text: country.countryName
-          });
-          return acc;
-        }, []);
-      return { ...countries, data: countryOptions };
-    }
-  );
-
-  const states = useSelector(stateSelector);
-  const countries = useSelector(countrySelector);
-
+  // Redux actions
   const getStates = useActions(fetchStates);
   const getCountries = useActions(fetchCountries);
+
+  // Selectors (memoized with Reselect)
+  const states = useSelector(stateSelector);
+  const countries = useSelector(countrySelector);
 
   useEffect(() => {
     if (!states.data) getStates();

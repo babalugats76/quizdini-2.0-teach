@@ -9,8 +9,8 @@ export const accountBegin = () => async dispatch => {
   dispatch({ type: TYPES.ACCOUNT_BEGIN });
 };
 
-export const accountSuccess = user => async dispatch => {
-  dispatch({ type: TYPES.ACCOUNT_SUCCESS, payload: { user } });
+export const accountSuccess = data => async dispatch => {
+  dispatch({ type: TYPES.ACCOUNT_SUCCESS, payload: { data } });
 };
 
 export const accountFailure = error => async dispatch => {

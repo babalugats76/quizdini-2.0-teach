@@ -1,47 +1,57 @@
 import { createSelector } from 'reselect';
+/**
+ *  Remap object array keys
+ *
+ *  Needed because dropdowns want information in common, generic format
+ *
+ *  stateCode = key
+ *  stateCode = value
+ *  stateName = text
+ **/
+export const stateSelector = createSelector(
+  state => state.states,
+  states => {
+    const stateOptions =
+      states.data &&
+      states.data.reduce((acc, state) => {
+        acc.push({
+          key: state.stateCode,
+          value: state.stateCode,
+          text: state.stateName
+        });
+        return acc;
+      }, []);
+    return { ...states, data: stateOptions };
+  }
+);
 
-export const notify = ({
-  inputSelectors = [],
-  successHeader = 'Success!',
-  successSeverity = 'OK',
-  errorHeader = "Something's not quite right.",
-  errorSeverity = 'ERROR'
-}) => {
-  return createSelector(inputSelectors, a => {
-    if (!a.data && !a.error) return null;
-    if (a.data) {
-      return {
-        header: successHeader,
-        content: a.data.message,
-        severity: successSeverity,
-        ...a.data
-      };
-    } else if (a.error) {
-      return {
-        header: errorHeader,
-        content: a.error.message,
-        severity: errorSeverity,
-        ...a.error
-      };
-    }
-    return null;
-  });
-};
+/**
+ *  Remap object array keys
+ *
+ *  Needed because dropdowns want information in common, generic format
+ *
+ *  countryId = key
+ *  countryCode = value
+ *  countryName = text
+ **/
+export const countrySelector = createSelector(
+  state => state.countries,
+  countries => {
+    const countryOptions =
+      countries.data &&
+      countries.data.reduce((acc, country) => {
+        acc.push({
+          key: country.countryId,
+          value: country.countryCode,
+          text: country.countryName
+        });
+        return acc;
+      }, []);
+    return { ...countries, data: countryOptions };
+  }
+);
 
-const getCreditPurchase = state => state.creditPurchase;
-const getLogin = state => state.login;
-const getLoginData = state => state.login.data;
-
-export const checkout = createSelector([getCreditPurchase], a => {
-  return {
-    ...a
-  };
-});
-
-export const login = createSelector([getLogin], a => {
-  return {
-    ...a
-  };
-});
-
-export const loginDataSelector = createSelector(getLoginData, data => data);
+export const accountSelector = createSelector(
+  state => state.account,
+  account => account
+);

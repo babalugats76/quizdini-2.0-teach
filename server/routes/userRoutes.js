@@ -333,7 +333,6 @@ module.exports = app => {
       token.claimed = true;
       token.updateDate = new Date();
       await token.save();
-
       console.log('Account Verified: %s, %s', user.fullName, secret);
       const message = 'Your account has been verified.';
       res.send({ message });
