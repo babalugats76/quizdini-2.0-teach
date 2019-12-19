@@ -262,9 +262,11 @@ export const fetchStates = () => async dispatch => {
   try {
     dispatch(statesBegin());
     const res = await axios.get('/api/states');
-    dispatch(statesSuccess(res.data));
+  //  throw new Error('Testing Error!');
+   dispatch(statesSuccess(res.data));
   } catch (e) {
     dispatch(statesFailure(e.response.data));
+   // dispatch(statesFailure('Testing Error!'));
   }
 };
 

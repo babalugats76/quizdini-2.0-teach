@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Formik } from 'formik';
@@ -19,18 +19,12 @@ import {
   countrySelector,
   stateSelector
 } from '../../selectors/';
-import {
-  Button,
-  Checkbox,
-  Dropdown,
-  InputText,
-  Loader,
-  LogoHeader,
-  Notify
-} from '../UI/';
+import { Button, Dropdown, InputText, Loader, Notify } from '../UI/';
 import avatar from '../../avatar.svg';
 
 export default props => {
+  const [loading, setLoading] = useState(true);
+
   // Redux actions
   const getAccount = useActions(fetchAccount);
   const getCountries = useActions(fetchCountries);
@@ -41,24 +35,54 @@ export default props => {
   const countries = useSelector(countrySelector);
   const states = useSelector(stateSelector);
 
+  /**
+   * Destructure and rename data items
+   * Handles undefined keys
+   * Clarifies calculations and passing of props, etc.
+   */
+  const { data: user, error: userError } = account;
+  const { data: countryOptions, error: countryError } = countries;
+  const { data: stateOptions, error: stateError } = states;
+
+  /**
+   * Determine error and source thereof
+   * Skip user update errors: those will be presented to the user
+   */
+  const error = countryError || stateError || (!user && userError) || null;
+
+  /**
+   * ON MOUNT ONLY
+   * Fetch freshest account data
+   * Conditionally, fetch country and state data (if not already loaded)
+   */
   useEffect(() => {
-    getAccount();
-    if (!states.data) getStates();
-    if (!countries.data) getCountries();
+    let didCancel = false;
+    async function fetchData() {
+      await getAccount();
+      if (!countryOptions) await getCountries();
+      if (!stateOptions) await getStates();
+      if (!didCancel) setLoading(false); // track if data loaded
+    }
+    fetchData();
+    return () => (didCancel = true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Conditionally show error, loader, or content (form and summary)
+  // TODO - Create an integrate error component
   return (
     <Container className="medium">
-      <Segment id="account">
-        <AccountSummary {...(account.data || {})} />
-        <Divider />
-        <AccountForm
-          countryOptions={countries.data}
-          stateOptions={states.data}
-          user={account.data || {}}
-        />
-      </Segment>
+      {(error && <pre>{error}</pre>) || (loading && <Loader />) || (
+        <Segment id="account">
+          <AccountSummary {...user} />
+          <Divider />
+          <AccountForm
+            countryOptions={countryOptions}
+            stateOptions={stateOptions}
+            user={user}
+          />
+        </Segment>
+      )}
     </Container>
   );
 };
