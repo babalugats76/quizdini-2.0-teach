@@ -54,6 +54,8 @@ export default props => {
    * ON MOUNT ONLY
    * Fetch freshest account data
    * Conditionally, fetch country and state data (if not already loaded)
+   * 
+   * Marks Loading = false upon completion (used in render)
    */
   useEffect(() => {
     let didCancel = false;
