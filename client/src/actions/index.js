@@ -22,8 +22,11 @@ export const fetchAccount = () => async dispatch => {
     dispatch(accountBegin());
     const res = await axios.get('/api/account');
     dispatch(accountSuccess(res.data));
-  } catch (e) {
-    dispatch(accountFailure(e.response.data));
+    return { data: res.data };
+  } catch (err) {
+    const { data: error } = err.response;
+    dispatch(accountFailure(error));
+    return { error };
   }
 };
 
@@ -31,8 +34,11 @@ export const updateAccount = data => async dispatch => {
   try {
     const res = await axios.put('/api/account', data);
     dispatch(accountSuccess(res.data));
-  } catch (e) {
-    dispatch(accountFailure(e.response.data));
+    return { data: res.data };
+  } catch (err) {
+    const { data: error } = err.response;
+    dispatch(accountFailure(error));
+    return { error };
   }
 };
 
@@ -100,8 +106,11 @@ export const fetchCountries = () => async dispatch => {
     dispatch(countriesBegin());
     const res = await axios.get('/api/countries');
     dispatch(countriesSuccess(res.data));
-  } catch (e) {
-    dispatch(countriesFailure(e.response.data));
+    return { data: res.data };
+  } catch (err) {
+    const { data: error } = err.response;
+    dispatch(countriesFailure(error));
+    return { error };
   }
 };
 
@@ -262,11 +271,11 @@ export const fetchStates = () => async dispatch => {
   try {
     dispatch(statesBegin());
     const res = await axios.get('/api/states');
-  //  throw new Error('Testing Error!');
-   dispatch(statesSuccess(res.data));
-  } catch (e) {
-    dispatch(statesFailure(e.response.data));
-   // dispatch(statesFailure('Testing Error!'));
+    dispatch(statesSuccess(res.data));
+    return { data: res.data };
+  } catch (err) {
+    const { data: error } = err.response;
+    dispatch(statesFailure(error));
+    return { error };
   }
 };
-

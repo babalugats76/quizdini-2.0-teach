@@ -120,6 +120,7 @@ module.exports = app => {
 
   app.put('/api/account', requireLogin, async (req, res, next) => {
     try {
+      //throw new Error("Test account update error handling...");
       // Limit user updates to a narrow subset of fields
       const {
         city,
@@ -343,6 +344,7 @@ module.exports = app => {
 
   app.get('/api/countries', async (req, res, next) => {
     try {
+      //throw new Error('testing countries error...');
       const countries = await Country.find().sort({ countryId: 'asc' });
       if (!countries) return res.send({}); // Return empty Object to signify not found
       res.send(countries);
@@ -353,6 +355,7 @@ module.exports = app => {
 
   app.get('/api/states', async (req, res, next) => {
     try {
+      //throw new Error('testing states error...');
       const states = await State.find().sort({ stateCode: 'asc' });
       if (!states) return res.send({}); // Return empty Object to signify not found
       res.send(states);

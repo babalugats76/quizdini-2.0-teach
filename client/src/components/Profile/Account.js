@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Formik } from 'formik';
@@ -12,8 +12,8 @@ import {
   Segment
 } from 'semantic-ui-react';
 import * as Yup from 'yup';
-import { useActions, useAPI, useRedirect, useResult } from '../../hooks/';
-import { fetchAccount, fetchCountries, fetchStates } from '../../actions/';
+import * as actions from '../../actions/';
+import { useActions, useReduxData, useResult } from '../../hooks/';
 import {
   accountSelector,
   countrySelector,
@@ -23,68 +23,48 @@ import { Button, Dropdown, InputText, Loader, Notify } from '../UI/';
 import avatar from '../../avatar.svg';
 
 export default props => {
-  const [loading, setLoading] = useState(true);
-
-  // Redux actions
-  const getAccount = useActions(fetchAccount);
-  const getCountries = useActions(fetchCountries);
-  const getStates = useActions(fetchStates);
+  // direct redux interactions (persistent)
+  const updateAccount = useActions(actions.updateAccount);
 
   // Selectors (memoized with Reselect)
   const account = useSelector(accountSelector);
   const countries = useSelector(countrySelector);
   const states = useSelector(stateSelector);
 
-  /**
-   * Destructure and rename data items
-   * Handles undefined keys
-   * Clarifies calculations and passing of props, etc.
-   */
-  const { data: user, error: userError } = account;
-  const { data: countryOptions, error: countryError } = countries;
-  const { data: stateOptions, error: stateError } = states;
+  // Redux data
+  const fetchItems = [
+    'fetchAccount',
+    ...(!countries.data ? ['fetchCountries'] : []),
+    ...(!states.data ? ['fetchStates'] : [])
+  ];
 
-  /**
-   * Determine error and source thereof
-   * Skip user update errors: those will be presented to the user
-   */
-  const error = countryError || stateError || (!user && userError) || null;
+  // Fetch redux data
+  const { errors } = useReduxData({ items: fetchItems, deps: [], debug: true });
 
-  /**
-   * ON MOUNT ONLY
-   * Fetch freshest account data
-   * Conditionally, fetch country and state data (if not already loaded)
-   * 
-   * Marks Loading = false upon completion (used in render)
-   */
-  useEffect(() => {
-    let didCancel = false;
-    async function fetchData() {
-      await getAccount();
-      if (!countryOptions) await getCountries();
-      if (!stateOptions) await getStates();
-      if (!didCancel) setLoading(false); // track if data loaded
-    }
-    fetchData();
-    return () => (didCancel = true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // Destructure and rename data
+  const { data: countryOptions } = countries;
+  const { data: stateOptions } = states;
+  const { data: user } = account;
 
-  // Conditionally show error, loader, or content (form and summary)
-  // TODO - Create an integrate error component
+  // When to show loader
+  const showLoader = !user || !countryOptions || !stateOptions;
+  // Conditionally render error, loader, and content - in that order
+  //return <div>Hello, World!</div>;
   return (
     <Container className="medium">
-      {(error && <pre>{error}</pre>) || (loading && <Loader />) || (
-        <Segment id="account">
-          <AccountSummary {...user} />
-          <Divider />
-          <AccountForm
-            countryOptions={countryOptions}
-            stateOptions={stateOptions}
-            user={user}
-          />
-        </Segment>
-      )}
+      {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) ||
+        (showLoader && <Loader />) || (
+          <Segment id="account">
+            <AccountSummary {...user} />
+            <Divider />
+            <AccountForm
+              countryOptions={countryOptions}
+              onUpdate={updateAccount}
+              stateOptions={stateOptions}
+              user={user}
+            />
+          </Segment>
+        )}
     </Container>
   );
 };
@@ -149,26 +129,6 @@ const titleOptions = [
 ];
 
 /* eslint-disable no-template-curly-in-string */
-const transformUser = Yup.object().shape({
-  firstName: Yup.string()
-    .transform(v => (v === null ? '' : v))
-    .required('First Name is required.')
-    .default(''),
-  lastName: Yup.string()
-    .transform(v => (v === null ? '' : v))
-    .required('Last Name is required.')
-    .default(''),
-  city: Yup.string()
-    .transform(v => (v === null ? '' : v))
-    .max(100, 'City is too long. ${max} characters are allowed.')
-    .default(''),
-  countryCode: Yup.string()
-    .transform(v => (v === null ? '' : v))
-    .required('Country is required.')
-    .default('')
-});
-
-/* eslint-disable no-template-curly-in-string */
 const validateUser = Yup.object().shape({
   firstName: Yup.string().required('First Name is required.'),
   lastName: Yup.string().required('Last Name is required.'),
@@ -180,6 +140,8 @@ const validateUser = Yup.object().shape({
 });
 
 const AccountForm = props => {
+  const [getNotify] = useResult({});
+
   const { countryOptions, stateOptions } = props;
 
   return (
@@ -196,13 +158,35 @@ const AccountForm = props => {
         title: props.user.title || null
       }}
       onSubmit={async (values, actions) => {
-        const { setSubmitting } = actions;
-        return setSubmitting(false);
+        const { onUpdate } = props;
+        const {
+          city,
+          countryCode,
+          firstName,
+          lastName,
+          stateCode,
+          title
+        } = values;
+        const { setStatus, setSubmitting } = actions;
+        await setSubmitting(true);
+        const results = await onUpdate({
+          city,
+          countryCode,
+          firstName,
+          lastName,
+          stateCode,
+          title
+        });
+        const success = results.data || false;
+        const notify = getNotify(results);
+        !success && (await setStatus(notify));
+        await setSubmitting(false);
       }}
       validationSchema={validateUser}
     >
       {props => {
         const {
+          dirty,
           errors,
           handleBlur,
           handleChange,
@@ -317,11 +301,11 @@ const AccountForm = props => {
               <Form.Group>
                 <Button
                   active
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !dirty}
                   icon="user"
                   labelPosition="left"
                   loading={isSubmitting}
-                  positive={isValid && !status}
+                  positive={isValid}
                   size="large"
                   tabIndex={7}
                   title="Update"

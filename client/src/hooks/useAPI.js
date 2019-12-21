@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useCallback, useEffect } from 'react';
+import axios from 'axios';
 
 axios.defaults.headers.common[
   'quizdini-timezone'

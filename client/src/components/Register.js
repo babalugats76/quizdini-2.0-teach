@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Formik } from 'formik';
 import { Container, Form, Segment } from 'semantic-ui-react';
 import * as Yup from 'yup';
-import { useActions, useAPI, useRedirect, useResult } from '../hooks/';
-import { fetchStates, fetchCountries } from '../actions/';
+import { useAPI, useRedirect, useReduxData, useResult } from '../hooks/';
 import { countrySelector, stateSelector } from '../selectors/';
 import {
   Button,
@@ -29,32 +28,41 @@ export default props => {
     debug: true
   });
 
-  // Redux actions
-  const getStates = useActions(fetchStates);
-  const getCountries = useActions(fetchCountries);
-
   // Selectors (memoized with Reselect)
-  const states = useSelector(stateSelector);
   const countries = useSelector(countrySelector);
+  const states = useSelector(stateSelector);
 
-  useEffect(() => {
-    if (!states.data) getStates();
-    if (!countries.data) getCountries();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // Redux data
+  const fetchItems = [
+    ...(!countries.data ? ['fetchCountries'] : []),
+    ...(!states.data ? ['fetchStates'] : [])
+  ];
+
+  // Fetch redux data
+  const { errors } = useReduxData({ items: fetchItems, deps: [] });
+
+  // Destructure and rename data
+  const { data: countryOptions } = countries;
+  const { data: stateOptions } = states;
+
+  // When to show loader
+  const showLoader = !countryOptions || !stateOptions || isRedirecting;
+
+  // Conditionally render error, loader, and content - in that order
   return (
     <Container as="main" className="page medium" fluid id="register">
-      {((!states.data || !countries.data || isRedirecting) && <Loader />) || (
-        <>
-          <LogoHeader>Sign Up for Quizdini</LogoHeader>
-          <RegisterForm
-            countryOptions={countries.data}
-            onRegister={registerUser}
-            onSuccess={notify => redirect(notify)}
-            stateOptions={states.data}
-          />
-        </>
-      )}
+      {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) ||
+        (showLoader && <Loader />) || (
+          <>
+            <LogoHeader>Sign Up for Quizdini</LogoHeader>
+            <RegisterForm
+              countryOptions={countryOptions}
+              onRegister={registerUser}
+              onSuccess={notify => redirect(notify)}
+              stateOptions={stateOptions}
+            />
+          </>
+        )}
     </Container>
   );
 };
