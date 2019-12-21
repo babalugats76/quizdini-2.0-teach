@@ -15,7 +15,7 @@ import {
 
 export default props => {
   // handles show/dismiss of redirect messages
-  const [message, dismissMessage] = useMessage({ props, debug: true });
+  const [message, dismissMessage] = useMessage({ props });
 
   // direct API interactions (ephemeral)
   const { POST: loginUser } = useAPI({ url: '/auth/local' });
@@ -27,7 +27,6 @@ export default props => {
     to: '/dashboard',
     state: { skipAuth: true },
     timeout: 1000,
-    debug: true
   });
 
   // what to render

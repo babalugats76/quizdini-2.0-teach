@@ -19,8 +19,7 @@ const Verify = props => {
     history: props.history,
     refreshAuth: false,
     to: '/login',
-    timeout: 500,
-    debug: true
+    timeout: 500
   });
 
   // memoized verify function

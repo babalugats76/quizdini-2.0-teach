@@ -24,8 +24,7 @@ export default props => {
   const [isRedirecting, redirect] = useRedirect({
     history: props.history,
     to: '/login',
-    timeout: 1000,
-    debug: true
+    timeout: 1000
   });
 
   // Selectors (memoized with Reselect)

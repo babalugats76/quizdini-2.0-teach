@@ -17,8 +17,7 @@ export default props => {
     history: props.history,
     refreshAuth: false,
     to: '/login',
-    timeout: 1000,
-    debug: true
+    timeout: 1000
   });
 
   // memoized verify function

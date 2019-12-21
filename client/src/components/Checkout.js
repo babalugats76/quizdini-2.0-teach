@@ -45,8 +45,7 @@ export default props => {
     refreshAuth: true,
     to: '/dashboard',
     state: { skipAuth: true },
-    timeout: 1000,
-    debug: true
+    timeout: 1000
   });
 
   // what to render

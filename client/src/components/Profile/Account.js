@@ -39,7 +39,7 @@ export default props => {
   ];
 
   // Fetch redux data
-  const { errors } = useReduxData({ items: fetchItems, deps: [], debug: true });
+  const { errors } = useReduxData({ items: fetchItems, deps: [] });
 
   // Destructure and rename data
   const { data: countryOptions } = countries;
