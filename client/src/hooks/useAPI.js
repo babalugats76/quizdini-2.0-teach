@@ -18,9 +18,10 @@ const useAPI = ({ url, debug = true }) => {
   }, [url]);
 
   const put = useCallback(
-    async data => {
+    async (data, id = null) => {
       try {
-        const res = await axios.put(url, data);
+        const path = url + (id ? `/${id}` : '');
+        const res = await axios.put(path, data);
         return { data: res.data };
       } catch (err) {
         return {
@@ -32,9 +33,25 @@ const useAPI = ({ url, debug = true }) => {
   );
 
   const post = useCallback(
-    async data => {
+    async (data, id = null) => {
       try {
-        const res = await axios.post(url, data);
+        const path = url + (id ? `/${id}` : '');
+        const res = await axios.post(path, data);
+        return { data: res.data };
+      } catch (err) {
+        return {
+          error: err.response.data
+        };
+      }
+    },
+    [url]
+  );
+
+  const remove = useCallback(
+    async id => {
+      try {
+        const path = url + '/' + id;
+        const res = await axios.delete(path);
         return { data: res.data };
       } catch (err) {
         return {
@@ -51,7 +68,7 @@ const useAPI = ({ url, debug = true }) => {
     };
   }, [debug]);
 
-  return { GET: get, PUT: put, POST: post };
+  return { GET: get, PUT: put, POST: post, DELETE: remove };
 };
 
 export default useAPI;

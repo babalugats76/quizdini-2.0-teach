@@ -6,12 +6,8 @@ import Loader from '../UI/Loader';
 import MatchIntro from './MatchIntro';
 import MatchCardGroup from './MatchCardGroup';
 
-const Match = ({ credits, data: games, error, loading, onDelete }) => {
-
-  console.log(credits);
-  console.log(games);
-  console.log(error);
-  console.log(loading);
+const Match = ({ credits, matchList, onMatchDelete }) => {
+  const { error, loading, games } = matchList;
 
   if (error && !games) {
     return (
@@ -39,7 +35,7 @@ const Match = ({ credits, data: games, error, loading, onDelete }) => {
         </RouterButton>
         <Divider hidden />
         {(games && games.length && (
-          <MatchCardGroup games={games} onMatchDelete={onDelete} />
+          <MatchCardGroup games={games} onMatchDelete={onMatchDelete} />
         )) || <MatchIntro />}
       </Segment>
     )
@@ -48,8 +44,8 @@ const Match = ({ credits, data: games, error, loading, onDelete }) => {
 
 Match.propTypes = {
   credits: PropTypes.number.isRequired,
-  data: PropTypes.array.isRequired,
-  onDelete: PropTypes.func.isRequired
+  matchList: PropTypes.object.isRequired,
+  onMatchDelete: PropTypes.func.isRequired
 };
 
 export default Match;

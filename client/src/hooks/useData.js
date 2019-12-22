@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 import axios from 'axios';
 
-const useData = ({ url, loadOnMount = false, debug = false }) => {
+const useData = ({ url, deps = [], debug = false }) => {
   const isCancelled = useRef(false);
 
   const initialState = {
@@ -68,11 +68,9 @@ const useData = ({ url, loadOnMount = false, debug = false }) => {
   }, [state.getCount]);
 
   useEffect(() => {
-    debug && console.log('mount effect fired...');
-    if (loadOnMount) {
-      get() && debug && console.log('initializing...');
-    }
-  }, [debug, get, loadOnMount]);
+    get() && debug && console.log('fetching data...');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debug, get, ...deps]);
 
   useEffect(() => {
     return () => {
@@ -86,12 +84,8 @@ const useData = ({ url, loadOnMount = false, debug = false }) => {
   }, [debug, state]);
 
   return {
-    data: state.data,
-    error: state.error,
-    getCount: state.getCount,
+    ...state,
     initialized,
-    loading: state.loading,
-    requests: state.requests,
     GET: get
   };
 };

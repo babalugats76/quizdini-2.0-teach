@@ -1,115 +1,94 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import * as actions from "../../actions";
-import { Container, List, Image } from "semantic-ui-react";
-import Notify from "../UI/Notify";
-import Match from "./Match";
-import Icon from "../UI/Icon";
+import React, { useState } from 'react';
+import { Container, List, Image } from 'semantic-ui-react';
+import { useAPI, useData, useMessage, useReduxData } from '../../hooks/';
+import { Icon, Notify } from '../UI/';
+import Match from './Match';
 
 /* Array of objects containing game Component metadata */
 const games = [
   {
-    name: "MATCH",
-    title: "Match",
+    name: 'MATCH',
+    title: 'Match',
     credits: 1,
-    icon: "question",
-    render: props => <Match {...props} />
+    icon: 'question',
+    action: 'fetchMatches',
+    render: props => <Match {...props} />,
+    url: '/api/matches'
+  },
+  {
+    name: 'TEST',
+    title: 'test',
+    credits: 5,
+    icon: 'question',
+    action: 'fetchCountries',
+    render: props => <div>{JSON.stringify(props, null, 4)}</div>,
+    url: '/api/payments'
   }
 ];
 
-class Dashboard extends Component {
-  static DEFAULT_GAME = "MATCH";
+const DEFAULT_GAME = 'MATCH';
 
-  constructor(props) {
-    super(props);
-    const {
-      location: { state: { message, from, skipAuth = false } = {} } = {},
-      history
-    } = this.props;
+export default props => {
+  const { location: { state: { from, skipAuth = false } = {} } = {} } = props;
 
-    const activeGameIdx =
-      games.findIndex(game => game.name === from) !== -1
-        ? games.findIndex(game => game.name === from)
-        : games.findIndex(game => game.name === Dashboard.DEFAULT_GAME);
+  const activeGameIdx =
+    games.findIndex(game => game.name === from) !== -1
+      ? games.findIndex(game => game.name === from)
+      : games.findIndex(game => game.name === DEFAULT_GAME);
 
-    this.state = { activeGameIdx, skipAuth, message };
-    history.replace({ pathname: "/dashboard", state: {} });
-  }
+  // local state - track loading and API response
+  const [state, setState] = useState({
+    activeGameIdx,
+    dirty: false,
+    onSameTab: true,
+    skipAuth
+  });
 
-  /**
-   * Conditionally update data using Redux actions
-   * Need to map functions manually
-   *
-   * Include auth functionality added for when user
-   * is directed straight from login page,
-   * i.e., to avoid double auth calls, etc.
-   *
-   * @param {string} activeGameIdx Index of active game
-   */
-  refreshData(activeGameIdx) {
-    const { fetchMatches } = this.props; // Grab Redux actions
-    const { name: activeGame } = games[activeGameIdx]; // Name of current game
-    switch (activeGame) {
-      case "MATCH":
-        return fetchMatches();
-      default:
-        return;
-    }
-  }
+  // handles show/dismiss of redirect messages
+  const [message, dismissMessage] = useMessage({ props });
 
-  /***
-   * Fetch initial data; thereafter handled by menu change, etc.
-   * Downstream components responsible for updating auth as necessary
-   */
-  componentDidMount() {
-    const { activeGameIdx, skipAuth } = this.state; // Index of current game, whether to bypass auth
-    const { fetchAuth } = this.props; // Grab Redux actions
-    if (!!skipAuth===false) fetchAuth();  // Unless directed not to, update auth
-    this.refreshData(activeGameIdx); // Refresh data
-  }
+  // Redux data
+  const fetchItems = [...(!skipAuth ? ['fetchAuth'] : [])];
+  useReduxData({ items: fetchItems, deps: [] });
 
-  handleDismiss = e => {
-    e.preventDefault();
-    this.setState((state, props) => {
+  // direct API interactions (ephemeral)
+  const { DELETE: deleteGame } = useAPI({
+    url: games[state.activeGameIdx].url,
+    debug: true
+  });
+
+  const { data, error, getCount, loading, requests } = useData({
+    url: games[state.activeGameIdx].url,
+    deps: [state.onSameTab, state.dirty],
+    debug: true
+  });
+
+  console.log(JSON.stringify(state, null, 4));
+
+  const handleMenuChange = menuIdx => {
+    const { activeGameIdx } = state; // Current game index
+    const onSameTab = activeGameIdx === menuIdx ? true : false; // New game, i.e., current = target
+    setState(prevState => {
       return {
-        message: null
+        ...prevState,
+        onSameTab,
+        activeGameIdx: onSameTab ? activeGameIdx : menuIdx
       };
     });
   };
 
-  /*renderMessage = ({ content, header, severity }) => {
-    return (
-      <Message
-        content={content}
-        header={header}
-        hidden={!content}
-        onDismiss={e => this.handleDismiss(e)}
-        severity={severity}
-      />
-    );
-  };*/
-
-  handleMenuChange = menuIdx => {
-    const { activeGameIdx } = this.state; // Current game index
-    const onSameTab = activeGameIdx === menuIdx ? true : false; // New game, i.e., current = target
-    this.setState((state, props) => {
-      if (!onSameTab) {
-        return { activeGameIdx: menuIdx }; // Update state (with new index)
-      }
-    });
-    if (!onSameTab) {
-      this.refreshData(menuIdx); // Refresh game's data
-    }
+  const handleGameDelete = async id => {
+    const results = await deleteGame(id);
+    results.data &&
+      setState(prevState => {
+        return {
+          ...prevState,
+          dirty: !prevState.dirty
+        };
+      });
   };
 
-  handleMatchDelete = async matchId => {
-    const { removeMatch, fetchMatches } = this.props;
-    await removeMatch(matchId);
-    await fetchMatches();
-  };
-
-  renderMenu = (options, activeGameIdx) => {
+  const renderMenu = (options, activeGameIdx) => {
     return (
       options && (
         <List
@@ -119,20 +98,22 @@ class Dashboard extends Component {
           link
           selection
           size="large"
-          verticalAlign="top">
+          verticalAlign="top"
+        >
           {options.map((option, idx) => {
             const { name, title, icon, credits } = option;
             return (
               <List.Item
                 key={name}
                 active={activeGameIdx === idx}
-                onClick={() => this.handleMenuChange(idx)}>
+                onClick={() => handleMenuChange(idx)}
+              >
                 <Image>
                   <Icon name={icon} />
                 </Image>
                 <List.Content>
                   <List.Header>{title}</List.Header>
-                  {credits} credit{credits === 1 ? "" : "s"}
+                  {credits} credit{credits === 1 ? '' : 's'}
                 </List.Content>
               </List.Item>
             );
@@ -142,33 +123,19 @@ class Dashboard extends Component {
     );
   };
 
-  render() {
-    const { activeGameIdx, message } = this.state;
-
-    return (
-      <Container as="main" className="page large" id="dashboard" fluid>
-        <div className="content-wrapper">
-          {this.renderMenu(games, activeGameIdx)}
-          {message && Notify({ ...message, onDismiss: (e) => this.handleDismiss(e)})}
-          {games[activeGameIdx].render({
-            ...this.props,
-            onMatchDelete: matchId => this.handleMatchDelete(matchId)
-          })}
-        </div>
-      </Container>
-    );
-  }
-}
-
-Dashboard.propTypes = {
-  location: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-  credits: PropTypes.number.isRequired
+  return (
+    <Container as="main" className="page large" id="dashboard" fluid>
+      <div className="content-wrapper">
+        {renderMenu(games, state.activeGameIdx)}
+        {message && Notify({ ...message, onDismiss: () => dismissMessage() })}
+        {games[state.activeGameIdx].render({
+          ...props,
+          data,
+          error,
+          loading,
+          onDelete: id => handleGameDelete(id)
+        })}
+      </div>
+    </Container>
+  );
 };
-
-const mapStateToProps = ({ matchList }) => ({ matchList });
-
-export default connect(
-  mapStateToProps,
-  actions
-)(Dashboard);
