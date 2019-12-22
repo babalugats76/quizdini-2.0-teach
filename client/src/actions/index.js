@@ -191,43 +191,6 @@ export const upsertMatch = (matchId, match) => async dispatch => {
   }
 };
 
-/**
- * PASSWORD CHANGE SECTION
- * Actions used to both "update" and "reset" users' passwords
- */
-
-export const passwordChangeBegin = () => async dispatch => {
-  dispatch({ type: TYPES.PASSWORD_CHANGE_BEGIN });
-};
-
-export const passwordChangeSuccess = data => async dispatch => {
-  dispatch({ type: TYPES.PASSWORD_CHANGE_SUCCESS, payload: { data } });
-};
-
-export const passwordChangeFailure = error => async dispatch => {
-  dispatch({ type: TYPES.PASSWORD_CHANGE_FAILURE, payload: { error } });
-};
-
-export const resetPassword = data => async dispatch => {
-  try {
-    dispatch(passwordChangeBegin());
-    const res = await axios.put('/api/account/password-reset', data);
-    dispatch(passwordChangeSuccess(res.data));
-  } catch (e) {
-    dispatch(passwordChangeFailure(e.response.data));
-  }
-};
-
-export const updatePassword = data => async dispatch => {
-  try {
-    dispatch(passwordChangeBegin());
-    const res = await axios.put('/api/account/password', data);
-    dispatch(passwordChangeSuccess(res.data));
-  } catch (e) {
-    dispatch(passwordChangeFailure(e.response.data));
-  }
-};
-
 export const statesBegin = () => async dispatch => {
   dispatch({ type: TYPES.STATES_BEGIN });
 };

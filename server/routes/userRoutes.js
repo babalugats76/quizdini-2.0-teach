@@ -243,7 +243,7 @@ module.exports = app => {
   app.put('/api/account/password', requireLogin, async (req, res, next) => {
     try {
       // Get payload
-      const { oldPassword, newPassword } = req.body;
+      const { newPassword, oldPassword } = req.body;
       // Lookup User
       const user = await User.findOne({
         $and: [

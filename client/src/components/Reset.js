@@ -6,7 +6,6 @@ import { useAPI, useRedirect, useResult } from '../hooks/';
 import { Button, InputText, Loader, LogoHeader, Notify } from './UI/';
 
 export default props => {
-  
   const [verified, setVerified] = useState(false);
   const { match: { params: { secret } = {} } = {} } = props;
   const { GET: verifyToken } = useAPI({ url: `/api/token/${secret}` });
@@ -25,7 +24,7 @@ export default props => {
     const results = await verifyToken();
     // If token verified
     if (results.data) return setVerified(true);
-    // Otherwise, redirect with error 
+    // Otherwise, redirect with error
     const notify = getNotify(results);
     return redirect(notify);
   }, [verifyToken, getNotify, redirect]);
@@ -33,7 +32,7 @@ export default props => {
   // verify token on mount only
   useEffect(() => {
     verify();
-     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // direct API interactions (ephemeral)
@@ -70,11 +69,10 @@ const validateReset = Yup.object().shape({
 });
 
 const ResetForm = props => {
-
   const [getNotify] = useResult({
     failHeader: 'Check yourself...'
   });
-  
+
   return (
     <Formik
       enableReinitialize={false}
@@ -101,6 +99,7 @@ const ResetForm = props => {
     >
       {props => {
         const {
+          dirty,
           errors,
           handleBlur,
           handleChange,
@@ -152,7 +151,7 @@ const ResetForm = props => {
               <Form.Group>
                 <Button
                   active
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !dirty}
                   icon="key"
                   labelPosition="left"
                   loading={isSubmitting}
