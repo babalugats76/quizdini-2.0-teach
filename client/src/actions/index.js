@@ -228,33 +228,6 @@ export const updatePassword = data => async dispatch => {
   }
 };
 
-/**
- * PAYMENTS SECTION
- * Actions used to get info on payments
- */
-
-export const paymentsBegin = () => async dispatch => {
-  dispatch({ type: TYPES.PAYMENTS_BEGIN });
-};
-
-export const paymentsSuccess = payments => async dispatch => {
-  dispatch({ type: TYPES.PAYMENTS_SUCCESS, payload: { payments } });
-};
-
-export const paymentsFailure = error => async dispatch => {
-  dispatch({ type: TYPES.PAYMENTS_FAILURE, payload: { error } });
-};
-
-export const fetchPayments = () => async dispatch => {
-  try {
-    dispatch(paymentsBegin());
-    const res = await axios.get('/api/payments');
-    dispatch(paymentsSuccess(res.data));
-  } catch (e) {
-    dispatch(paymentsFailure(e.response.data));
-  }
-};
-
 export const statesBegin = () => async dispatch => {
   dispatch({ type: TYPES.STATES_BEGIN });
 };

@@ -102,6 +102,7 @@ module.exports = app => {
 
   app.get('/api/payments', requireLogin, async (req, res, next) => {
     try {
+      //throw new Error("Test payment error handling...");
       const payments = await Payment.find({ user_id: req.user.id }).sort({
         paymentDate: -1
       });

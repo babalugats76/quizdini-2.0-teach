@@ -4,14 +4,18 @@ import { useAPI, useRedirect, useResult } from '../hooks/';
 import { Loader } from './UI/';
 
 const Verify = props => {
-
-  // Track verificaton attempt
+  // local state - isComplete - whether attempt to verify is complete
   const [isComplete, setIsComplete] = useState(false);
+
+  // grab "secret" from url
   const { match: { params: { secret } = {} } = {} } = props;
+
+  // direct API interactions (ephemeral)
   const { PUT: verifyAccount } = useAPI({
     url: '/api/account/verify'
   });
 
+  // converts results to notifications
   const [getNotify] = useResult({ failHeader: 'Check yourself...' });
 
   // useRedirect
@@ -36,7 +40,7 @@ const Verify = props => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // what to render
+  // When to show loader; for this component, all that is rendered
   return (!isComplete || isRedirecting) && <Loader />;
 };
 
