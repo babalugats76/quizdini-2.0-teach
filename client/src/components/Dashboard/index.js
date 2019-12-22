@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, List, Image } from 'semantic-ui-react';
 import { useAPI, useData, useMessage, useReduxData } from '../../hooks/';
-import { Icon, Notify } from '../UI/';
+import { Icon, Loader, Notify } from '../UI/';
 import Match from './Match';
 
 /* Array of objects containing game Component metadata */
@@ -11,7 +11,6 @@ const games = [
     title: 'Match',
     credits: 1,
     icon: 'question',
-    action: 'fetchMatches',
     render: props => <Match {...props} />,
     url: '/api/matches'
   },
@@ -20,7 +19,6 @@ const games = [
     title: 'test',
     credits: 5,
     icon: 'question',
-    action: 'fetchCountries',
     render: props => <div>{JSON.stringify(props, null, 4)}</div>,
     url: '/api/payments'
   }
@@ -40,7 +38,6 @@ export default props => {
   const [state, setState] = useState({
     activeGameIdx,
     dirty: false,
-    onSameTab: true,
     skipAuth
   });
 
@@ -54,25 +51,23 @@ export default props => {
   // direct API interactions (ephemeral)
   const { DELETE: deleteGame } = useAPI({
     url: games[state.activeGameIdx].url,
-    debug: true
+    debug: false
   });
 
-  const { data, error, getCount, loading, requests } = useData({
+  const { data, error, loading, reset } = useData({
     url: games[state.activeGameIdx].url,
-    deps: [state.onSameTab, state.dirty],
-    debug: true
+    deps: [state.activeGameIdx],
+    debug: false
   });
-
-  console.log(JSON.stringify(state, null, 4));
 
   const handleMenuChange = menuIdx => {
     const { activeGameIdx } = state; // Current game index
-    const onSameTab = activeGameIdx === menuIdx ? true : false; // New game, i.e., current = target
+    const switching = activeGameIdx !== menuIdx;
+    switching && reset();
     setState(prevState => {
       return {
         ...prevState,
-        onSameTab,
-        activeGameIdx: onSameTab ? activeGameIdx : menuIdx
+        activeGameIdx: switching ? menuIdx : activeGameIdx
       };
     });
   };
@@ -123,18 +118,23 @@ export default props => {
     );
   };
 
+  const showLoader = loading || !data;
+
+  console.log(state.activeGameIdx, data && data.length);
+
   return (
     <Container as="main" className="page large" id="dashboard" fluid>
       <div className="content-wrapper">
         {renderMenu(games, state.activeGameIdx)}
         {message && Notify({ ...message, onDismiss: () => dismissMessage() })}
-        {games[state.activeGameIdx].render({
-          ...props,
-          data,
-          error,
-          loading,
-          onDelete: id => handleGameDelete(id)
-        })}
+        {(showLoader && <Loader />) ||
+          games[state.activeGameIdx].render({
+            ...props,
+            data,
+            error,
+            loading,
+            onDelete: id => handleGameDelete(id)
+          })}
       </div>
     </Container>
   );

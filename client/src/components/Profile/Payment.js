@@ -32,6 +32,8 @@ export default props => {
   // Destructure and rename data
   const { loading, response } = state;
   const { data: payments, error } = response || {};
+  
+  // When to show loader
   const showLoader = loading || !payments;
 
   return (

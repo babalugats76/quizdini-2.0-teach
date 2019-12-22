@@ -48,7 +48,9 @@ const Match = ({ credits, data: games, error, loading, onDelete }) => {
 
 Match.propTypes = {
   credits: PropTypes.number.isRequired,
-  data: PropTypes.array.isRequired,
+  data: PropTypes.any,
+  error: PropTypes.any,
+  loading: PropTypes.bool,
   onDelete: PropTypes.func.isRequired
 };
 

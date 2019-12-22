@@ -14,13 +14,15 @@ const useData = ({ url, deps = [], debug = false }) => {
 
   const [state, setState] = useReducer((state, action) => {
     switch (action.type) {
-      case 'GET_BEGIN':
+      case 'BEGIN':
+        console.log('beginning fetch...');
         return {
           ...state,
+          data: null,
           error: null,
           loading: true
         };
-      case 'GET_SUCCESS':
+      case 'SUCCESS':
         return {
           ...state,
           data: action.data,
@@ -29,7 +31,7 @@ const useData = ({ url, deps = [], debug = false }) => {
           loading: false,
           requests: state.requests + 1
         };
-      case 'GET_FAILURE':
+      case 'FAILURE':
         return {
           ...state,
           error: action.error,
@@ -37,6 +39,8 @@ const useData = ({ url, deps = [], debug = false }) => {
           loading: false,
           requests: state.requests + 1
         };
+      case 'RESET':
+        return initialState;
       default:
         return state;
     }
@@ -51,17 +55,21 @@ const useData = ({ url, deps = [], debug = false }) => {
 
   const get = useCallback(async () => {
     try {
-      dispatch({ type: 'GET_BEGIN' });
+      dispatch({ type: 'BEGIN' });
       const res = await axios.get(url);
       const { data } = res;
-      dispatch({ type: 'GET_SUCCESS', data });
+      dispatch({ type: 'SUCCESS', data });
       return { data };
     } catch (err) {
       const { data: error } = err.response;
-      dispatch({ type: 'GET_FAILURE', error });
+      dispatch({ type: 'FAILURE', error });
       return { error };
     }
   }, [dispatch, url]);
+
+  const reset = useCallback(() => {
+    dispatch({ type: 'RESET' });
+  }, [dispatch]);
 
   const initialized = useMemo(() => {
     return state.getCount > 0;
@@ -86,7 +94,7 @@ const useData = ({ url, deps = [], debug = false }) => {
   return {
     ...state,
     initialized,
-    GET: get
+    reset
   };
 };
 
