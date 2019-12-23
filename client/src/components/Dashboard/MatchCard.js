@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Transition } from 'semantic-ui-react';
 import { copyToClipboard } from './utils';
-import { Button } from '../UI/Button';
-import { Label } from '../UI/Label';
-import RouterButton from '../UI/RouterButton';
+import { Button, Label, RouterButton } from '../UI/';
 
 const { formatDistanceToNow } = require('date-fns');
 
 const MatchCard = props => {
-
   const [visible, setVisible] = useState(true);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    const copiedTimer = copied && setTimeout(() => {
-      setCopied(prevState => !prevState);
-    }, 2000);
-    return () => clearTimeout(copiedTimer); 
+    const copiedTimer =
+      copied &&
+      setTimeout(() => {
+        setCopied(prevState => !prevState);
+      }, 2000);
+    return () => clearTimeout(copiedTimer);
   }, [copied]);
 
   const handleExit = event => {

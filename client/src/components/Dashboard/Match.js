@@ -5,7 +5,7 @@ import { RouterButton } from '../UI/';
 import MatchIntro from './MatchIntro';
 import MatchCardGroup from './MatchCardGroup';
 
-const Match = ({ credits, data: games, error, loading, onDelete }) => {
+const Match = ({ credits, data: games, onDelete }) => {
   return (
     <Segment id="match-game" padded>
       <RouterButton
