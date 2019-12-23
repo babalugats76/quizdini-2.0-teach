@@ -15,10 +15,8 @@ const useData = ({ url, deps = [], debug = false }) => {
   const [state, setState] = useReducer((state, action) => {
     switch (action.type) {
       case 'BEGIN':
-        console.log('beginning fetch...');
         return {
           ...state,
-          data: null,
           error: null,
           loading: true
         };

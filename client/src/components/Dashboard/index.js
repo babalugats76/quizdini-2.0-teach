@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Container, List, Image } from 'semantic-ui-react';
 import { useAPI, useData, useMessage, useReduxData } from '../../hooks/';
 import { Icon, Loader, Notify } from '../UI/';
@@ -12,7 +13,8 @@ const games = [
     credits: 1,
     icon: 'question',
     render: props => <Match {...props} />,
-    url: '/api/matches'
+    collectionUrl: '/api/matches',
+    singleUrl: '/api/match'
   },
   {
     name: 'TEST',
@@ -20,13 +22,14 @@ const games = [
     credits: 5,
     icon: 'question',
     render: props => <div>{JSON.stringify(props, null, 4)}</div>,
-    url: '/api/payments'
+    collectionUrl: '/api/payments',
+    singleUrl: '/api/payment'
   }
 ];
 
 const DEFAULT_GAME = 'MATCH';
 
-export default props => {
+const Dashboard = props => {
   const { location: { state: { from, skipAuth = false } = {} } = {} } = props;
 
   const activeGameIdx =
@@ -34,7 +37,7 @@ export default props => {
       ? games.findIndex(game => game.name === from)
       : games.findIndex(game => game.name === DEFAULT_GAME);
 
-  // local state - track loading and API response
+  // local state - track menu, dirty toggle, and whether to fetch auth (or not)
   const [state, setState] = useState({
     activeGameIdx,
     dirty: false,
@@ -50,13 +53,13 @@ export default props => {
 
   // direct API interactions (ephemeral)
   const { DELETE: deleteGame } = useAPI({
-    url: games[state.activeGameIdx].url,
+    url: games[state.activeGameIdx].singleUrl,
     debug: false
   });
 
-  const { data, error, loading, reset } = useData({
-    url: games[state.activeGameIdx].url,
-    deps: [state.activeGameIdx],
+  const { data, error, initialized, loading, reset } = useData({
+    url: games[state.activeGameIdx].collectionUrl,
+    deps: [state.activeGameIdx, state.dirty],
     debug: false
   });
 
@@ -78,7 +81,7 @@ export default props => {
       setState(prevState => {
         return {
           ...prevState,
-          dirty: !prevState.dirty
+          dirty: !prevState.dirty // toggle dirty (for api refresh)
         };
       });
   };
@@ -118,9 +121,7 @@ export default props => {
     );
   };
 
-  const showLoader = loading || !data;
-
-  console.log(state.activeGameIdx, data && data.length);
+  const showLoader = !initialized && (loading || !data);
 
   return (
     <Container as="main" className="page large" id="dashboard" fluid>
@@ -139,3 +140,11 @@ export default props => {
     </Container>
   );
 };
+
+Dashboard.propTypes = {
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  credits: PropTypes.number.isRequired
+};
+
+export default Dashboard;

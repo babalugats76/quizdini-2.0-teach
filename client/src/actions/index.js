@@ -115,33 +115,6 @@ export const fetchCountries = () => async dispatch => {
 };
 
 /**
- * MATCHES SECTION
- * Actions used to obtain match game info
- */
-
-export const matchesBegin = () => async dispatch => {
-  dispatch({ type: TYPES.MATCHES_BEGIN });
-};
-
-export const matchesSuccess = matches => async dispatch => {
-  dispatch({ type: TYPES.MATCHES_SUCCESS, payload: { matches } });
-};
-
-export const matchesFailure = error => async dispatch => {
-  dispatch({ type: TYPES.MATCHES_FAILURE, payload: { error } });
-};
-
-export const fetchMatches = () => async dispatch => {
-  try {
-    dispatch(matchesBegin());
-    const res = await axios.get('/api/matches');
-    dispatch(matchesSuccess(res.data));
-  } catch (e) {
-    dispatch(matchesFailure(e.response.data));
-  }
-};
-
-/**
  * MATCH SECTION
  * Actions used to perform get match info and perform CRUD operations
  */
