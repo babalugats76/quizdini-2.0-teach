@@ -21,6 +21,7 @@ import {
 } from '../../selectors/';
 import { Button, Dropdown, InputText, Loader, Notify } from '../UI/';
 import avatar from '../../avatar.svg';
+import DisplayFormikState from '../UI/FormikHelper';
 
 export default props => {
   // direct redux interactions (persistent)
@@ -305,7 +306,7 @@ const AccountForm = props => {
                   icon="user"
                   labelPosition="left"
                   loading={isSubmitting}
-                  positive={isValid}
+                  positive={isValid && dirty}
                   size="large"
                   tabIndex={7}
                   title="Update"
@@ -315,6 +316,7 @@ const AccountForm = props => {
                 </Button>
               </Form.Group>
             </Form>
+            {<DisplayFormikState {...props} />}
           </Segment>
         );
       }}

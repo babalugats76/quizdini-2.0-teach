@@ -171,7 +171,6 @@ const CheckoutForm = props => {
         });
 
         if (!res.token || res.error) {
-
           clearStripeFields();
 
           // If token-related validation errors
@@ -192,9 +191,9 @@ const CheckoutForm = props => {
         });
         const success = results.data || false;
         const notify = getNotify(results);
+        if (success) return onSuccess(notify);
+        clearStripeFields();
         await setStatus(notify);
-        if (success) onSuccess(notify);
-        if (!success) clearStripeFields();
         await setSubmitting(false);
       }}
       validationSchema={validateCheckout}
@@ -320,7 +319,7 @@ const CheckoutForm = props => {
                   <Grid.Column textAlign="center" width={16}>
                     <Button
                       active
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || !isCardComplete || !isValid}
                       icon="dollar-sign"
                       labelPosition="left"
                       loading={isSubmitting}

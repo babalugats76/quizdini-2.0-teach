@@ -26,7 +26,7 @@ export default props => {
     refreshAuth: true,
     to: '/dashboard',
     state: { skipAuth: true },
-    timeout: 1000,
+    timeout: 1000
   });
 
   // what to render
@@ -68,14 +68,15 @@ const LoginForm = props => {
         const results = await onLogin(values);
         const success = results.data || false;
         const notify = getNotify(results);
+        if (success) return onSuccess(notify);
         await setStatus(notify);
-        if (success) onSuccess(notify);
         await setSubmitting(false);
       }}
       validationSchema={validateLogin}
     >
       {props => {
         const {
+          dirty,
           errors,
           handleBlur,
           handleChange,
@@ -130,7 +131,7 @@ const LoginForm = props => {
                 <Form.Group>
                   <Button
                     active
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !isValid || !dirty}
                     icon="login"
                     id="login-btn"
                     labelPosition="left"
