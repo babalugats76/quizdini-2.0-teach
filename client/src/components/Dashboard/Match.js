@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Divider, Segment, Transition } from 'semantic-ui-react';
 import { useTimeout } from '../../hooks';
-import { Button, Label, RouterButton } from '../UI/';
+import { Button, Label, RouterButton } from '../UI';
 import { copyToClipboard } from './utils';
 const { formatDistanceToNow } = require('date-fns');
 
