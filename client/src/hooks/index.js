@@ -7,6 +7,7 @@ import useRedirect from './useRedirect';
 import useReduxData from '././useReduxData';
 import useResult from './useResult';
 import useStripe from './useStripe';
+import useTimeout from './useTimeout';
 
 export {
   useActions,
@@ -16,5 +17,6 @@ export {
   useRedirect,
   useReduxData,
   useResult,
-  useStripe
+  useStripe,
+  useTimeout
 };

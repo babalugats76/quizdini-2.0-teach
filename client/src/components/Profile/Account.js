@@ -22,6 +22,7 @@ import {
 import { Button, Dropdown, InputText, Loader, Notify } from '../UI/';
 import avatar from '../../avatar.svg';
 import DisplayFormikState from '../UI/FormikHelper';
+const { format } = require('date-fns');
 
 export default props => {
   // direct redux interactions (persistent)
@@ -69,8 +70,6 @@ export default props => {
     </Container>
   );
 };
-
-const { format } = require('date-fns');
 
 const AccountSummary = ({
   createDate,

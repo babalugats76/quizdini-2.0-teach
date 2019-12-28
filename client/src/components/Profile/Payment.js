@@ -4,6 +4,8 @@ import { Segment, Table } from 'semantic-ui-react';
 import { useAPI } from '../../hooks/';
 import { ExternalLink, Loader } from '../UI/';
 
+const { format } = require('date-fns');
+
 export default props => {
   // local state - track loading and API response
   const [state, setState] = useState({
@@ -45,8 +47,6 @@ export default props => {
     )
   );
 };
-
-const { format } = require('date-fns');
 
 const PaymentTable = ({ id, payments }) => {
   const renderRows = payments => {
