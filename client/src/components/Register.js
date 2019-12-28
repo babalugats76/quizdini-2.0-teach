@@ -15,6 +15,7 @@ import {
   LogoHeader,
   Notify
 } from './UI/';
+import DisplayFormikState from './UI/FormikHelper';
 
 export default props => {
   // direct API interactions (ephemeral)
@@ -162,14 +163,15 @@ const RegisterForm = props => {
         });
         const success = results.data || false;
         const notify = getNotify(results);
+        if (success) return onSuccess(notify);
         await setStatus(notify);
-        if (success) onSuccess(notify);
         await setSubmitting(false);
       }}
       validationSchema={validateNewUser}
     >
       {props => {
         const {
+          dirty,
           errors,
           handleBlur,
           handleChange,
@@ -353,7 +355,7 @@ const RegisterForm = props => {
                     onBlur={handleBlur}
                     onChange={handleChange}
                     tabIndex={11}
-                    value={values.terms ? 1 : 0}
+                    value={values.terms ? true : false}
                   >
                     By signing up, I agree to Quizdini's&nbsp;
                     <Link
@@ -385,11 +387,11 @@ const RegisterForm = props => {
                 <Form.Group>
                   <Button
                     active
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !isValid || !dirty}
                     icon="user-plus"
                     labelPosition="left"
                     loading={isSubmitting}
-                    positive={isValid && !status}
+                    positive={isValid && !status && dirty}
                     size="large"
                     tabIndex={7}
                     title="Register"
@@ -399,6 +401,7 @@ const RegisterForm = props => {
                   </Button>
                 </Form.Group>
               </Form>
+              {<DisplayFormikState {...props} />}
             </Segment>
           </Segment>
         );

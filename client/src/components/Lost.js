@@ -80,6 +80,7 @@ const LostForm = props => {
     >
       {props => {
         const {
+          dirty,
           errors,
           handleBlur,
           handleChange,
@@ -137,7 +138,7 @@ const LostForm = props => {
                 <Form.Group>
                   <Button
                     active
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !isValid || !dirty }
                     icon="mail"
                     labelPosition="left"
                     loading={isSubmitting}

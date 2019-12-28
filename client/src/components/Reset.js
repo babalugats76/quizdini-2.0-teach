@@ -91,8 +91,8 @@ const ResetForm = props => {
         const results = await onReset({ newPassword, secret });
         const success = results.data || false;
         const notify = getNotify(results);
+        if (success) return onSuccess(notify);
         await setStatus(notify);
-        if (success) onSuccess(notify);
         await setSubmitting(false);
       }}
       validationSchema={validateReset}
@@ -151,7 +151,7 @@ const ResetForm = props => {
               <Form.Group>
                 <Button
                   active
-                  disabled={isSubmitting || !dirty}
+                  disabled={isSubmitting || !isValid || !dirty}
                   icon="key"
                   labelPosition="left"
                   loading={isSubmitting}

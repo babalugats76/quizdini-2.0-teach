@@ -77,7 +77,7 @@ const PasswordForm = props => {
 
         return (
           <Segment padded>
-            <Segment basic textAlign="center">
+            <Segment basic>
               {status &&
                 Notify({ ...status, onDismiss: () => setStatus(null) })}
               <Form id="password-form" onSubmit={handleSubmit}>
@@ -132,7 +132,7 @@ const PasswordForm = props => {
                 <Form.Group>
                   <Button
                     active
-                    disabled={isSubmitting || !dirty}
+                    disabled={isSubmitting || !isValid || !dirty}
                     icon="key"
                     labelPosition="left"
                     loading={isSubmitting}
