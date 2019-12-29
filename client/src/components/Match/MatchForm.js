@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
-import { Form } from 'semantic-ui-react';
+import { Form, Grid, Segment, Tab } from 'semantic-ui-react';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
+import { Button } from '../UI/';
+import HtmlSerializer from './HtmlSerializer';
 import { matchToString, parseMatch } from './utils';
 import DisplayFormikState from '../UI/FormikHelper';
 
@@ -70,7 +73,47 @@ const validateMatch = Yup.object().shape({
   })
 });
 
+const MATCH_TAB = 0;
+const BULK_TAB = 1;
+const GAME_OPTS_ACCORDION = 'gameOptions';
+const GAME_DESC_ACCORDION = 'gameDescription';
+const HAS_COMMA = RegExp('^(.?)+([,]+)(.?)+$');
+
+// Use to track open/close state of accordions
+const initialState = {
+  accordion: {
+    [GAME_OPTS_ACCORDION]: false, // Closed by default
+    [GAME_DESC_ACCORDION]: true // Open by default
+  },
+  activePage: 1,
+  activeTab: MATCH_TAB,
+  definition: {
+    placeholder: '',
+    touched: false,
+    value: HtmlSerializer.deserialize('')
+  },
+  dirty: {
+    bulkMatches: false
+  },
+  itemsPerPage: 10,
+  term: {
+    placeholder: '',
+    touched: false,
+    value: HtmlSerializer.deserialize('')
+  }
+};
+
 const MatchForm = props => {
+  const [state, setState] = useState(initialState);
+
+  const {
+    accordion,
+    activePage,
+    activeTab,
+    definition,
+    dirty: { bulkMatches: isMatchDirty }
+  } = state;
+
   return (
     <Formik
       enableReinitialize={true}
@@ -111,6 +154,40 @@ const MatchForm = props => {
             <span id="match-id">
               {values.matchId ? values.matchId : 'UNPUBLISHED'}
             </span>
+            <Grid columns={2} stackable>
+              <Grid.Column computer={8} mobile={16} tablet={16}>
+                <Segment>
+                  <Form.Group inline>
+                    <Button
+                      active
+                      as={Link}
+                      disabled={isSubmitting}
+                      icon="back"
+                      labelPosition="left"
+                      tabIndex={-1}
+                      title="Back to Dashboard"
+                      to={{ pathname: '/dashboard', state: { from: 'MATCH' } }}
+                      type="button"
+                    >
+                      BACK
+                    </Button>
+                    <Button
+                      active
+                      disabled={isSubmitting}
+                      icon="save"
+                      labelPosition="left"
+                      loading={isSubmitting}
+                      positive={dirty && isValid && !isMatchDirty}
+                      tabIndex={6}
+                      title="Save Game"
+                      type="submit"
+                    >
+                      SAVE
+                    </Button>
+                  </Form.Group>
+                </Segment>
+              </Grid.Column>
+            </Grid>
             <div>{<DisplayFormikState {...props} />}</div>
           </Form>
         );

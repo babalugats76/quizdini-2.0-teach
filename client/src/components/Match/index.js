@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Container } from 'semantic-ui-react';
 import { useData } from '../../hooks/';
 import { Loader } from '../UI/';
 import MatchForm from './MatchForm';
@@ -19,7 +20,6 @@ export default props => {
   });
 
   useEffect(() => {
-    console.log('page title updating...');
     const { title = 'Create Match Game' } = game || {};
     const pageTitle = [process.env.REACT_APP_WEBSITE_NAME, title].join(' | ');
     document.title = title && pageTitle;
@@ -27,5 +27,13 @@ export default props => {
 
   const showLoader = !initialized && (loading || !game);
 
-  return (showLoader && <Loader />) || <MatchForm game={game} />;
+  return (
+    <Container as="main" className="page large" fluid id="match-edit">
+      {(showLoader && <Loader />) || (
+        <div className="content-wrapper">
+          <MatchForm game={game} />
+        </div>
+      )}
+    </Container>
+  );
 };
