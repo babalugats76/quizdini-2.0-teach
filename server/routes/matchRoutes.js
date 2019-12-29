@@ -90,6 +90,7 @@ module.exports = app => {
 
   app.get('/api/matches', requireLogin, async (req, res, next) => {
     try {
+      //throw new Error('Testing matches api error...');
       const matches = await Match.find({ user_id: req.user.id }, null, {
         sort: '-updateDate'
       });

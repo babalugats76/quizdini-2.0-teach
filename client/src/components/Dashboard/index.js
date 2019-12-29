@@ -128,7 +128,8 @@ const Dashboard = props => {
       <div className="content-wrapper">
         {renderMenu(games, state.activeGameIdx)}
         {message && Notify({ ...message, onDismiss: () => dismissMessage() })}
-        {(showLoader && <Loader />) ||
+        {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
+          (showLoader && <Loader />) ||
           games[state.activeGameIdx].render({
             ...props,
             data,
