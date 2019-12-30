@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik } from 'formik';
 import { Form, Grid, Segment, Tab } from 'semantic-ui-react';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
-import { Button } from '../UI/';
+import { Accordion, Button, InputText } from '../UI/';
 import HtmlSerializer from './HtmlSerializer';
+import MatchTable from './MatchTable';
 import { matchToString, parseMatch } from './utils';
 import DisplayFormikState from '../UI/FormikHelper';
 
@@ -79,7 +80,7 @@ const GAME_OPTS_ACCORDION = 'gameOptions';
 const GAME_DESC_ACCORDION = 'gameDescription';
 const HAS_COMMA = RegExp('^(.?)+([,]+)(.?)+$');
 
-// Use to track open/close state of accordions
+// Used as the original shape of match edit state
 const initialState = {
   accordion: {
     [GAME_OPTS_ACCORDION]: false, // Closed by default
@@ -106,12 +107,99 @@ const initialState = {
 const MatchForm = props => {
   const [state, setState] = useState(initialState);
 
+  /**
+   * If title is clicked, toggle state of accordion
+   * Used to expand/collapse accordions
+   *
+   * @param {Event} event Event to handle
+   * @param {Object} titleProps Props from <Accordion.Title>
+   * @param {boolean} invalid Validation state of accordion contents
+   */
+  const handleAccordionClick = (event, titleProps, invalid) => {
+    event.preventDefault();
+    !invalid &&
+      setState(prevState => {
+        return {
+          ...prevState,
+          accordion: {
+            ...prevState.accordion,
+            [titleProps.index]: !prevState.accordion[titleProps.index]
+          }
+        };
+      });
+  };
+
+  /**
+   * Update state with new value for the active editor tab
+   *
+   * @param {Event} event Event to handle
+   * @param {Object} data Contains all form data and props, including activeIndex
+   */
+  const handleTabChange = (event, data) => {
+    event.preventDefault();
+    const activeTab = data.activeIndex; // activeIndex is the current tab pane
+    setState(prevState => {
+      return {
+        ...prevState,
+        activeTab
+      };
+    });
+  };
+
+  /**
+   * Update state with new `activePage` value of the paginator
+   *
+   * @param {number} activePage Value to set for activePage
+   */
+  const setActivePage = activePage => {
+    setState(prevState => {
+      return { ...prevState, activePage };
+    });
+  };
+
+  /**
+   * Update state with new value for the active page in match paginator
+   *
+   * @param {Event} event Event to handle
+   * @param {Object} data Contains all form data and props, including activePage
+   */
+  const handlePageChange = (event, data) => {
+    event.preventDefault();
+    const activePage = data.activePage;
+    setActivePage(activePage);
+  };
+
+  /**
+   * Remove a match
+   *
+   * @param {string} term The term to be removed from matches
+   */
+  const handleMatchDelete = (event, term, matches, setFieldValue) => {
+    event.preventDefault();
+    const filtered = matches.filter(match => match.term !== term);
+    setFieldValue('matches', filtered); // Update state (in Formik) with matches minus (deleted) term
+    setFieldValue('bulkMatches', matchToString(filtered)); // Format bulkMatches then update Formik state
+    const { activePage, itemsPerPage } = state; // Grab pagination value from state
+    const totalPages = Math.ceil(
+      (filtered.length ? filtered.length : 0) / itemsPerPage
+    ); // Calculate total # of pages
+    if (activePage > totalPages) setActivePage(totalPages); // If active page no longer exists (because of delete)
+  };
+
+  // Temporary while migrating...
+  useEffect(() => {
+    console.log(JSON.stringify(state));
+  }, [state]);
+
+  const { isMobile } = props;
+
   const {
     accordion,
     activePage,
     activeTab,
     definition,
-    dirty: { bulkMatches: isMatchDirty }
+    dirty: { bulkMatches: isMatchDirty },
+    itemsPerPage
   } = state;
 
   return (
@@ -143,11 +231,39 @@ const MatchForm = props => {
           handleSubmit,
           isSubmitting,
           isValid,
+          setFieldValue,
           setStatus,
           status,
           touched,
           values
         } = props;
+
+        const editorPanes = [
+          {
+            hideOnMobile: false,
+            menuItem: 'Match Bank',
+            render: () => (
+              <Tab.Pane id="match-bulk" as={Segment} padded>
+                <div>Match Bulk Goes Here...</div>
+              </Tab.Pane>
+            )
+          },
+          {
+            hideOnMobile: true,
+            menuItem: 'Expert Mode',
+            render: () => (
+              <Tab.Pane id="match-expert" as={Segment} padded>
+                <div>Expert Goes Here..</div>
+              </Tab.Pane>
+            )
+          }
+        ]
+          .filter(pane => {
+            return !isMobile || pane.hideOnMobile !== isMobile;
+          })
+          .map(pane => {
+            return { menuItem: pane.menuItem, render: pane.render };
+          });
 
         return (
           <Form id="match-form" onSubmit={handleSubmit}>
@@ -185,7 +301,90 @@ const MatchForm = props => {
                       SAVE
                     </Button>
                   </Form.Group>
+                  <Accordion
+                    forceOpen={!!errors.title || !!errors.instructions}
+                    icon="tag"
+                    index={GAME_DESC_ACCORDION}
+                    onClick={(event, titleProps, invalid) =>
+                      handleAccordionClick(
+                        event,
+                        titleProps,
+                        !!errors.title || !!errors.instructions
+                      )
+                    }
+                    open={accordion[GAME_DESC_ACCORDION]}
+                    title="Description"
+                  >
+                    <Form.Group>
+                      <InputText
+                        disabled={isSubmitting}
+                        error={touched.title && errors.title}
+                        label="Title"
+                        maxLength={40}
+                        name="title"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        placeholder=""
+                        required
+                        tabIndex={1}
+                        type="text"
+                        value={values.title}
+                        width={16}
+                      />
+                    </Form.Group>
+                    <Form.Group>
+                      <InputText
+                        disabled={isSubmitting}
+                        error={touched.instructions && errors.instructions}
+                        label="Instructions"
+                        maxLength={60}
+                        name="instructions"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        placeholder=""
+                        tabIndex={2}
+                        type="text"
+                        value={values.instructions}
+                        width={16}
+                      />
+                    </Form.Group>
+                  </Accordion>
                 </Segment>
+                <Tab
+                  as="div"
+                  activeIndex={activeTab}
+                  onTabChange={(event, data) => handleTabChange(event, data)}
+                  panes={editorPanes}
+                  renderActiveOnly={true}
+                />
+              </Grid.Column>
+              <Grid.Column computer={8} mobile={16} tablet={16}>
+                <MatchTable
+                  activePage={activePage}
+                  disabled={isSubmitting}
+                  error={
+                    errors.matches &&
+                    `Add at least ${values.itemsPerBoard -
+                      values.matches.length} more term${
+                      values.itemsPerBoard - values.matches.length === 1
+                        ? ''
+                        : 's'
+                    }...`
+                  }
+                  id="match-table"
+                  isMobile={isMobile}
+                  itemsPerPage={itemsPerPage}
+                  matches={values.matches}
+                  onMatchDelete={(event, term) =>
+                    handleMatchDelete(
+                      event,
+                      term,
+                      values.matches,
+                      setFieldValue
+                    )
+                  }
+                  onPageChange={(event, data) => handlePageChange(event, data)}
+                />
               </Grid.Column>
             </Grid>
             <div>{<DisplayFormikState {...props} />}</div>

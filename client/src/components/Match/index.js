@@ -5,7 +5,10 @@ import { Loader } from '../UI/';
 import MatchForm from './MatchForm';
 
 export default props => {
-  const { location: { state: { matchId = undefined } = {} } = {} } = props;
+  const {
+    location: { state: { matchId = undefined } = {} } = {},
+    isMobile
+  } = props;
 
   // local state - dirty toggle
   const [state, setState] = useState({
@@ -16,7 +19,7 @@ export default props => {
   const { data: game, error, initialized, loading, reset } = useData({
     url: '/api/match/' + state.matchId,
     deps: [state.matchId, state.dirty],
-    debug: true
+    debug: false
   });
 
   useEffect(() => {
@@ -31,7 +34,7 @@ export default props => {
     <Container as="main" className="page large" fluid id="match-edit">
       {(showLoader && <Loader />) || (
         <div className="content-wrapper">
-          <MatchForm game={game} />
+          <MatchForm game={game} isMobile={isMobile} maxMatches={100} />
         </div>
       )}
     </Container>
