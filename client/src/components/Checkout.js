@@ -133,8 +133,17 @@ const CheckoutForm = props => {
   const [getNotify] = useResult({
     successHeader: 'Thank you for your purchase!'
   });
-  const handleAmountChange = (e, { setFieldValue }) => {
-    const { value } = e.target;
+
+  
+  /**
+   * Updates Formik state with credit/cost selection
+   *
+   * @param {Event} event Event to handle
+   * @param {Object} data Contains components data value and props
+   * @param {function} setFieldValue Reference to Formik `setFieldValue` function
+   */
+  const handleAmountChange = (event, data, setFieldValue) => {
+    const { value } = event.target;
     setFieldValue('amount', value);
     setFieldValue('credits', amountToCredits(value));
   };
@@ -228,8 +237,8 @@ const CheckoutForm = props => {
                   disabled={isSubmitting}
                   name="amount"
                   onBlur={handleBlur}
-                  onChange={(e, data) =>
-                    handleAmountChange(e, { setFieldValue })
+                  onChange={(event, data) =>
+                    handleAmountChange(event, data, setFieldValue)
                   }
                   options={getPaymentOptions(['5', '10', '15', '20'])}
                   value={values.amount}
