@@ -1,85 +1,98 @@
-import React, { useEffect, useState } from "react";
-import { Formik } from "formik";
-import { Form, Grid, Segment, Tab } from "semantic-ui-react";
-import * as Yup from "yup";
-import { Link } from "react-router-dom";
-import { Accordion, Button, IconDropdown, InputText } from "../UI/";
-import HtmlSerializer from "./HtmlSerializer";
-import MatchBulk from "./MatchBulk";
-import MatchTable from "./MatchTable";
-import { matchToString, parseMatch } from "./utils";
-import DisplayFormikState from "../UI/FormikHelper";
+import React, { useEffect, useRef, useState } from 'react';
+import { Formik } from 'formik';
+import { Form, Grid, Segment, Tab } from 'semantic-ui-react';
+import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
+import { Accordion, Button, IconDropdown, InputText } from '../UI/';
+import HtmlSerializer from './HtmlSerializer';
+import MatchBulk from './MatchBulk';
+import MatchExpert from './MatchExpert';
+import MatchTable from './MatchTable';
+import { matchToString, parseMatch } from './utils';
+import DisplayFormikState from '../UI/FormikHelper';
 
 const itemsPerBoardOptions = [
-  { text: "4", value: 4 },
-  { text: "6", value: 6 },
-  { text: "9", value: 9 }
+  { text: '4', value: 4 },
+  { text: '6', value: 6 },
+  { text: '9', value: 9 }
 ];
 
 const durationOptions = [
-  { text: "10", value: 10 },
-  { text: "60", value: 60 },
-  { text: "90", value: 90 },
-  { text: "120", value: 120 },
-  { text: "180", value: 180 },
-  { text: "240", value: 240 },
-  { text: "300", value: 300 }
+  { text: '10', value: 10 },
+  { text: '60', value: 60 },
+  { text: '90', value: 90 },
+  { text: '120', value: 120 },
+  { text: '180', value: 180 },
+  { text: '240', value: 240 },
+  { text: '300', value: 300 }
 ];
 
 const colorSchemeOptions = [
-  { text: "Basic", value: "Basic" },
-  { text: "Rainbow", value: "Rainbow" }
+  { text: 'Basic', value: 'Basic' },
+  { text: 'Rainbow', value: 'Rainbow' }
 ];
 
 /* eslint-disable no-template-curly-in-string */
 const validateMatch = Yup.object().shape({
   title: Yup.string()
-    .min(2, "Title is too short. ${min} characters are required.")
-    .max(40, "Title is too long. ${max} characters are allowed.")
-    .required("Title is required."),
+    .min(2, 'Title is too short. ${min} characters are required.')
+    .max(40, 'Title is too long. ${max} characters are allowed.')
+    .required('Title is required.'),
   instructions: Yup.string().max(
     60,
-    "Instructions are too long. ${max} characters are allowed."
+    'Instructions are too long. ${max} characters are allowed.'
   ),
   itemsPerBoard: Yup.number()
     .integer()
     .positive()
-    .required("Game Tiles is required.")
+    .required('Game Tiles is required.')
     .oneOf(
       itemsPerBoardOptions.map(i => i.value),
-      "Pick a valid number of game tiles."
+      'Pick a valid number of game tiles.'
     ),
   duration: Yup.number()
     .integer()
     .positive()
-    .required("Duration is required.")
+    .required('Duration is required.')
     .oneOf(
       durationOptions.map(i => i.value),
-      "Pick a valid game duration."
+      'Pick a valid game duration.'
     ),
   colorScheme: Yup.string()
-    .required("Color Scheme is required.")
+    .required('Color Scheme is required.')
     .oneOf(
       colorSchemeOptions.map(i => i.value),
-      "Pick a valid color scheme."
+      'Pick a valid color scheme.'
     ),
   matches: Yup.array().test({
-    name: "min-matches",
+    name: 'min-matches',
     params: {
-      itemsPerBoard: Yup.ref("itemsPerBoard")
+      itemsPerBoard: Yup.ref('itemsPerBoard')
     },
-    message: "${itemsPerBoard} matches required in bank.",
+    message: '${itemsPerBoard} matches required in bank.',
     test: function(value) {
       return value.length >= this.parent.itemsPerBoard;
     }
   })
 });
 
-const MATCH_TAB = 0;
-const BULK_TAB = 1;
-const GAME_OPTS_ACCORDION = "gameOptions";
-const GAME_DESC_ACCORDION = "gameDescription";
-const HAS_COMMA = RegExp("^(.?)+([,]+)(.?)+$");
+const newMatchSchema = matches => {
+  return Yup.object().shape({
+    term: Yup.string()
+      .required('Term is required')
+      .test('duplicate term', 'Duplicate term', function(value) {
+        const passed = !matches.some(element => {
+          return element.term === value;
+        }); // check for duplicate terms
+        return passed;
+      }),
+    definition: Yup.string().required('Definition is required')
+  });
+};
+
+const GAME_OPTS_ACCORDION = 'gameOptions';
+const GAME_DESC_ACCORDION = 'gameDescription';
+const HAS_COMMA = RegExp('^(.?)+([,]+)(.?)+$');
 
 // Used as the original shape of match edit state
 const initialState = {
@@ -88,25 +101,27 @@ const initialState = {
     [GAME_DESC_ACCORDION]: true // Open by default
   },
   activePage: 1,
-  activeTab: MATCH_TAB,
+  activeTab: 0,
   definition: {
-    placeholder: "",
+    placeholder: '',
     touched: false,
-    value: HtmlSerializer.deserialize("")
+    value: HtmlSerializer.deserialize('')
   },
   dirty: {
     bulkMatches: false
   },
   itemsPerPage: 10,
   term: {
-    placeholder: "",
+    placeholder: '',
     touched: false,
-    value: HtmlSerializer.deserialize("")
+    value: HtmlSerializer.deserialize('')
   }
 };
 
 const MatchForm = props => {
   const [state, setState] = useState(initialState);
+  const termRef = useRef();
+  const definitionRef = useRef();
 
   /**
    * If title is clicked, toggle state of accordion
@@ -148,36 +163,6 @@ const MatchForm = props => {
   };
 
   /**
-   * Update state with new `value` from textarea
-   *
-   * @param {Event} event Event to handle
-   * @param {Object} data Contains components data value and props
-   * @param {string} prevBulkMatches The value of `bulkMatches` as of last save (from initialValues)
-   * @param {function} setFieldValue Reference to Formik `setFieldValue` function
-   */
-  const handleBulkChange = (event, data, prevBulkMatches, setFieldValue) => {
-    event.preventDefault();
-    setFieldValue("bulkMatches", data.value);
-    setState(prevState => {
-      return {
-        ...prevState,
-        dirty: {
-          ...prevState.dirty,
-          bulkMatches: prevBulkMatches !== data.value
-        }
-      };
-    });
-  };
-
-  const handleFileChange = () => {
-    console.log('handle file change goes here...')
-  }
-
-  const handleUpdateMatches = () => {
-    console.log('handle update matches goes here...')
-  }
-
-  /**
    * Update state with new `activePage` value of the paginator
    *
    * @param {number} activePage Value to set for activePage
@@ -201,6 +186,221 @@ const MatchForm = props => {
   };
 
   /**
+   * Update state with new `value` from textarea
+   *
+   * @param {Event} event Event to handle
+   * @param {Object} data Contains components data value and props
+   * @param {string} prevBulkMatches The value of `bulkMatches` as of last save (from initialValues)
+   * @param {function} setFieldValue Reference to Formik `setFieldValue` function
+   */
+  const handleBulkChange = (event, data, prevBulkMatches, setFieldValue) => {
+    event.preventDefault();
+    setFieldValue('bulkMatches', data.value);
+    setState(prevState => {
+      return {
+        ...prevState,
+        dirty: {
+          ...prevState.dirty,
+          bulkMatches: prevBulkMatches !== data.value
+        }
+      };
+    });
+  };
+
+  /**
+   * Perform shared bulk match processing
+   *
+   * @param {string} bulkMatches Matches in unprocessed csv form
+   * @param {function} setFieldValue Reference to Formik `setFieldValue` function
+   */
+  const updateMatches = (bulkMatches, setFieldValue) => {
+    const { maxMatches } = props; // Grab Formik function (to update state)
+    const parsed = parseMatch(bulkMatches, maxMatches); // Split, Sanitize, Dedup -> array of matches
+    setFieldValue('matches', parsed); // Update matches in Formik state
+    setFieldValue('bulkMatches', matchToString(parsed)); // Flatten parsed matches
+    setActivePage(1); // Reset pagination to beginning
+  };
+
+  /**
+   * Process bulk matches from user-provided text file.
+   *
+   * @param {Event} event Event to handle
+   * @param {function} setFieldValue Reference to Formik `setFieldValue` function
+   */
+  const handleFileChange = (event, setFieldValue) => {
+    event.preventDefault();
+
+    if (event.target.files.length) {
+      const file = event.target.files[0]; // Assumes single file processing
+      const contents = event.target.files[0].slice(0, file.size, ''); // 0, size, '' are defaults
+      const reader = new FileReader(); // To read file from disk
+
+      reader.onload = (function(file, updateMatches) {
+        // Closure run upon read completion
+        return function(event) {
+          console.log(`Loaded ${file.size} bytes from ${file.name}...`);
+          if (event.target.result) {
+            // If results are returned
+            updateMatches(event.target.result, setFieldValue); // Call common function to parse, santize, dedup, and update state, etc.
+            event.target.value = null;
+          }
+        };
+      })(file, updateMatches);
+
+      reader.readAsText(contents, 'UTF-8'); // Initiate file read, assuming UTF-8 encoding
+    }
+  };
+
+  /**
+   * Process bulk matches, updating Formik state, etc.
+   *
+   * @param {Event} event Event to handle
+   * @param {string} bulkMatches Current value of `bulkMatches`
+   * @param {function} setFieldValue Reference to Formik `setFieldValue` function
+   */
+  const handleUpdateMatches = (event, bulkMatches, setFieldValue) => {
+    event.preventDefault();
+    updateMatches(bulkMatches, setFieldValue); // Call common function to parse, santize, dedup, and update state, etc.
+    setState(prevState => {
+      return {
+        ...prevState,
+        dirty: { ...prevState.dirty, bulkMatches: false }
+      };
+    });
+  };
+
+  /**
+   * Update state with new `value` (Map) of the editor
+   *
+   * @param {Editor} editor Editor object to grab `value` from
+   * @param {string} field Name of the field
+   */
+  const handleEditorChange = ({ value }, field) => {
+    setState(prevState => {
+      return {
+        ...prevState,
+        [field]: { ...prevState[field], value: value }
+      };
+    });
+  };
+
+  /**
+   * Updated `touched` state of field
+   *
+   * @param {string} field Name of the field
+   * @param {boolean} touched Whether interactive with field has occurred (or not)
+   */
+  const handleEditorTouch = (field, touched) => {
+    setState(prevState => {
+      return {
+        ...prevState,
+        [field]: {
+          ...prevState[field],
+          touched: touched
+        }
+      };
+    });
+  };
+
+  /**
+   * Updated `error` state of field
+   *
+   * @param {string} field Name of the field
+   * @param {boolean} error Error message
+   */
+  const setError = (field, error) => {
+    setState(prevState => {
+      return {
+        ...prevState,
+        [field]: {
+          ...prevState[field],
+          error: error
+        }
+      };
+    });
+  };
+
+  /**
+   * Sets focus for the given ref
+   *
+   * @param {*} ref Reference to set focus upon
+   */
+  const setFocus = ref => {
+    ref.current.focus();
+  };
+
+  /***
+   * Validates and processes new matches input by the 'Expert' editor
+   *
+   * There is a lot going on here:
+   *
+   *  Get current matches from Formik (props), term and definition (state)
+   *  Serialize using custom HTMLSerializer
+   *  Quote (as needed - regex test) to match bulk editor, allow for duplicate detection, etc.
+   *  Validate using Yup
+   *  If valid, add to matches and update state
+   *  Reset editors' contents, clear errors, set focus, etc.
+   *
+   * @param {Event} event Event to handle
+   * @param {array} matches The current value of `matches`
+   * @param {function} setFieldValue Reference to Formik `setFieldValue` function
+   *
+   */
+  const handleNewMatch = (event, matches, setFieldValue) => {
+    event.preventDefault();
+
+    // const { matches } = this.props.values; // Get matches (from Formik)
+    const term = state.term.value; // Get editors' contents (from state)
+    const definition = state.definition.value;
+
+    let termHtml = HtmlSerializer.serialize(term);
+    termHtml = HAS_COMMA.test(termHtml) ? `"${termHtml}"` : termHtml;
+
+    let definitionHtml = HtmlSerializer.serialize(definition);
+    definitionHtml = HAS_COMMA.test(definitionHtml)
+      ? `"${definitionHtml}"`
+      : definitionHtml;
+
+    //const { setFieldValue } = this.props; // Get function used to update matches (in Formik)
+
+    newMatchSchema(matches)
+      .validate(
+        { term: termHtml, definition: definitionHtml },
+        { abortEarly: false }
+      ) // Validate serialized term and definition
+      .then(valid => {
+        // If valid, merge into matches
+        const updated = [
+          {
+            term: termHtml,
+            definition: definitionHtml
+          },
+          ...matches
+        ];
+        setFieldValue('matches', updated); // Update Formik state
+        setFieldValue('bulkMatches', matchToString(updated)); // Format bulkMatches then update Formik state
+        handleEditorChange({ value: HtmlSerializer.deserialize('') }, 'term'); // Reset editors' contents
+        handleEditorChange(
+          { value: HtmlSerializer.deserialize('') },
+          'definition'
+        );
+        setError('term', ''); // Clear errors (using custom function)
+        setError('definition', '');
+        setFocus(termRef); // Move focus to term editor
+      })
+      .catch(errors => {
+        // If invalid, update state with errors
+        errors.inner.forEach((value, index) => {
+          let { path, message } = value;
+          setError(path, message);
+        });
+      });
+    handleEditorTouch('term', false); // Mark fields untouched
+    handleEditorTouch('definition', false);
+    setActivePage(1); // Reset pagination to beginning
+  };
+
+  /**
    * Remove a match
    *
    * @param {Event} event Event to handle
@@ -211,8 +411,8 @@ const MatchForm = props => {
   const handleMatchDelete = (event, term, matches, setFieldValue) => {
     event.preventDefault();
     const filtered = matches.filter(match => match.term !== term);
-    setFieldValue("matches", filtered); // Update state (in Formik) with matches minus (deleted) term
-    setFieldValue("bulkMatches", matchToString(filtered)); // Format bulkMatches then update Formik state
+    setFieldValue('matches', filtered); // Update state (in Formik) with matches minus (deleted) term
+    setFieldValue('bulkMatches', matchToString(filtered)); // Format bulkMatches then update Formik state
     const { activePage, itemsPerPage } = state; // Grab pagination value from state
     const totalPages = Math.ceil(
       (filtered.length ? filtered.length : 0) / itemsPerPage
@@ -233,7 +433,8 @@ const MatchForm = props => {
     activeTab,
     definition,
     dirty: { bulkMatches: isMatchDirty },
-    itemsPerPage
+    itemsPerPage,
+    term
   } = state;
 
   return (
@@ -243,13 +444,13 @@ const MatchForm = props => {
       validateOnChange={true}
       initialValues={{
         matchId: props.game.matchId || null,
-        title: props.game.title || "",
-        instructions: props.game.instructions || "",
+        title: props.game.title || '',
+        instructions: props.game.instructions || '',
         itemsPerBoard:
           (props.game.options && props.game.options.itemsPerBoard) || 9,
         duration: (props.game.options && props.game.options.duration) || 90,
         colorScheme:
-          (props.game.options && props.game.options.colorScheme) || "Basic",
+          (props.game.options && props.game.options.colorScheme) || 'Basic',
         matches: props.game.matches || [],
         bulkMatches: matchToString(props.game.matches || [])
       }}
@@ -276,7 +477,7 @@ const MatchForm = props => {
         const editorPanes = [
           {
             hideOnMobile: false,
-            menuItem: "Match Bank",
+            menuItem: 'Match Bank',
             render: () => (
               <Tab.Pane id="match-bulk" as={Segment} padded>
                 <MatchBulk
@@ -291,8 +492,14 @@ const MatchForm = props => {
                       setFieldValue
                     )
                   }
-                  onFileChange={event => handleFileChange(event)}
-                  onUpdateMatches={event => handleUpdateMatches(event)}
+                  onFileChange={event => handleFileChange(event, setFieldValue)}
+                  onUpdateMatches={event =>
+                    handleUpdateMatches(
+                      event,
+                      values.bulkMatches,
+                      setFieldValue
+                    )
+                  }
                   placeholder="Term, Definition"
                   value={values.bulkMatches}
                 />
@@ -301,10 +508,27 @@ const MatchForm = props => {
           },
           {
             hideOnMobile: true,
-            menuItem: "Expert Mode",
+            menuItem: 'Expert Mode',
             render: () => (
               <Tab.Pane id="match-expert" as={Segment} padded>
-                <div>Expert Goes Here..</div>
+                <MatchExpert
+                  definition={definition}
+                  definitionRef={definitionRef}
+                  disabled={isSubmitting || values.matches.length >= maxMatches}
+                  maxMatches={maxMatches}
+                  error={errors.matches}
+                  onEditorChange={(value, field) =>
+                    handleEditorChange(value, field)
+                  }
+                  onEditorTouch={(field, touched) =>
+                    handleEditorTouch(field, touched)
+                  }
+                  onNewMatch={event =>
+                    handleNewMatch(event, values.matches, setFieldValue)
+                  }
+                  term={term}
+                  termRef={termRef}
+                />
               </Tab.Pane>
             )
           }
@@ -319,7 +543,7 @@ const MatchForm = props => {
         return (
           <Form id="match-form" onSubmit={handleSubmit}>
             <span id="match-id">
-              {values.matchId ? values.matchId : "UNPUBLISHED"}
+              {values.matchId ? values.matchId : 'UNPUBLISHED'}
             </span>
             <Grid columns={2} stackable>
               <Grid.Column computer={8} mobile={16} tablet={16}>
@@ -333,7 +557,7 @@ const MatchForm = props => {
                       labelPosition="left"
                       tabIndex={-1}
                       title="Back to Dashboard"
-                      to={{ pathname: "/dashboard", state: { from: "MATCH" } }}
+                      to={{ pathname: '/dashboard', state: { from: 'MATCH' } }}
                       type="button"
                     >
                       BACK
@@ -498,8 +722,8 @@ const MatchForm = props => {
                     `Add at least ${values.itemsPerBoard -
                       values.matches.length} more term${
                       values.itemsPerBoard - values.matches.length === 1
-                        ? ""
-                        : "s"
+                        ? ''
+                        : 's'
                     }...`
                   }
                   id="match-table"

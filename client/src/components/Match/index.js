@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Container } from 'semantic-ui-react';
 import { useData } from '../../hooks/';
 import { Loader } from '../UI/';
 import MatchForm from './MatchForm';
 
-export default props => {
+const Match = props => {
   const {
     location: { state: { matchId = undefined } = {} } = {},
     isMobile
@@ -40,3 +41,10 @@ export default props => {
     </Container>
   );
 };
+
+Match.propTypes = {
+  isMobile: PropTypes.bool.isRequired,
+  location: PropTypes.object.isRequired
+};
+
+export default Match;
