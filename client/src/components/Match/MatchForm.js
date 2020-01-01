@@ -421,9 +421,9 @@ const MatchForm = props => {
   };
 
   // Temporary while migrating...
-  useEffect(() => {
+  /*useEffect(() => {
     console.log(JSON.stringify(state));
-  }, [state]);
+  }, [state]);*/
 
   const { isMobile, maxMatches } = props;
 
@@ -742,7 +742,7 @@ const MatchForm = props => {
                 />
               </Grid.Column>
             </Grid>
-            <div>{<DisplayFormikState {...props} />}</div>
+            <div>{ /*<DisplayFormikState {...props} />*/}</div>
           </Form>
         );
       }}

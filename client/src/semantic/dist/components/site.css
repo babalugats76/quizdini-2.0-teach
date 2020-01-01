@@ -145,6 +145,10 @@ input::-moz-selection {
   background-color: rgba(100, 100, 100, 0.4);
   color: rgba(10, 10, 10, 0.75);
 }
+textarea::-moz-selection, input::-moz-selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(10, 10, 10, 0.75);
+}
 textarea::selection,
 input::selection {
   background-color: rgba(100, 100, 100, 0.4);
@@ -208,47 +212,47 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 /* lexend-deca-regular - latin */
 @font-face {
-  font-family: 'Lexend Deca';
+  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 400;
-  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
-/* Chrome 26+, Opera 23+, Firefox 39+ */ url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
+  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"), url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"), 
+/* Chrome 26+, Opera 23+, Firefox 39+ */ url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff") format("woff");
   
 /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
-  font-family: 'marcher-light';
-  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-light-webfont.woff') format('woff');
+  font-family: "marcher-light";
+  src: url("https://static.quizdini.com/fonts/marcher-light-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'marcher-book';
-  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-book-webfont.woff') format('woff');
+  font-family: "marcher-book";
+  src: url("https://static.quizdini.com/fonts/marcher-book-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-book-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'marcher-regular';
-  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff') format('woff');
+  font-family: "marcher-regular";
+  src: url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'marcher-medium';
-  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff') format('woff');
+  font-family: "marcher-medium";
+  src: url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'marcher-extrabold';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff') format('woff');
+  font-family: "marcher-extrabold";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'marcher-extrabolditalic';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff') format('woff');
+  font-family: "marcher-extrabolditalic";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -277,17 +281,21 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 .pushable .pusher {
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+      -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
   overflow-y: auto !important;
 }
 .pushable .pusher .ui.massive.menu {
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   margin: 0;
   -webkit-transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
@@ -302,17 +310,21 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 .pushable .pusher > .page-wrapper {
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   
 /* Make its content grow */
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+      -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
   height: auto;
-  align-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   
 /* center the children */
   background-color: #efefef;
@@ -337,14 +349,17 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 .pushable .pusher > #footer {
   -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
           flex: 0 1 auto;
   
 /* Makes the footer shrink */
   width: 100%;
   padding: 1rem;
   -webkit-box-align: center;
+      -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
+      -ms-flex-pack: center;
           justify-content: center;
   background-color: #2e3235;
 }
@@ -481,18 +496,24 @@ svg.icon.chevron-down.closed {
 
 .icon-menu-list.ui.selection.list {
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
+      -ms-flex-pack: center;
           justify-content: center;
 }
 .icon-menu-list.ui.selection.list > .item {
   display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
+      -ms-flex-direction: row;
           flex-direction: row;
   -webkit-box-align: center;
+      -ms-flex-align: center;
           align-items: center;
   background-color: none;
   padding: 0.5em 1em;
@@ -545,6 +566,7 @@ svg.icon.chevron-down.closed {
 #register-form > .fields:last-of-type,
 #reset-form > .fields {
   -webkit-box-pack: center;
+      -ms-flex-pack: center;
           justify-content: center;
 }
 #account-form > .fields:last-of-type,
@@ -571,7 +593,7 @@ svg.icon.chevron-down.closed {
   background-color: rgba(84, 84, 84, 0.87);
   background-size: 25px;
   background-repeat: round;
-  background-image: url('/images/question.svg');
+  background-image: url("/images/question.svg");
 }
 #landing .banner#selling-points {
   background-color: #F9FAFB;
@@ -717,7 +739,7 @@ svg.icon.chevron-down.closed {
 #about.page section details > summary:before,
 #terms.page section details > summary:before {
   display: inline-block;
-  content: '\25bc\00a0';
+  content: "\25bc\00a0";
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
   -webkit-transition: all 300ms ease-in-out;
@@ -838,16 +860,16 @@ a#google-login {
   /** TODO - move to cloud and host on S3/Cloud Front
       Use regular, low-fidelity images?
   **/
-  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
+  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
   background-size: 191px 46px;
 }
 a#google-login:focus,
 a#google-login:hover {
-  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
+  background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
 }
 a#google-login:active,
 a#google-login:visited {
-  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
+  background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
 }
 
 /*-------------------
@@ -930,17 +952,21 @@ a#google-login:visited {
 
 .ui.cards .ui.card.match-card {
   display: -webkit-inline-box !important;
+  display: -ms-inline-flexbox !important;
   display: inline-flex !important;
   
 /* Allows for controlling vertical growth of card sections, when side by side */
 }
 .ui.cards .ui.card.match-card .content.match-card-header {
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
   -webkit-box-pack: center;
+      -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
+      -ms-flex-align: center;
           align-items: center;
   min-height: 5em;
   padding: 1em 0.5em 0.5em;
@@ -949,7 +975,7 @@ a#google-login:visited {
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   background-size: 25px;
   background-repeat: round;
-  background-image: url('/images/question.svg');
+  background-image: url("/images/question.svg");
 }
 .ui.cards .ui.card.match-card .content.match-card-header:hover .ui.icon.button.trash {
   display: block;
@@ -960,6 +986,7 @@ a#google-login:visited {
   text-align: center;
   font-size: 1.375em;
   -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
           flex-grow: 1;
   padding: 0 0.5em;
 }
@@ -980,19 +1007,25 @@ a#google-login:visited {
 }
 .ui.cards .ui.card.match-card .content.match-card-desc {
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
+      -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
           flex-grow: 1;
 }
 .ui.cards .ui.card.match-card .content.match-card-desc .description .ui.label {
   display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
+      -ms-flex-direction: row;
           flex-direction: row;
   -webkit-box-align: center;
+      -ms-flex-align: center;
           align-items: center;
   background-color: transparent;
   border: none;
@@ -1006,8 +1039,10 @@ a#google-login:visited {
 }
 .ui.cards .ui.card.match-card .content.match-card-btns {
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
           flex-grow: 0;
   background-color: rgba(0, 0, 0, 0.03);
 }
@@ -1042,8 +1077,26 @@ a#google-login:visited {
 #match-form .ui.accordion:not(:last-of-type) {
   margin-bottom: 0.75em;
 }
+#match-form .ui.accordion .title ~ .content:not(.active) {
+  display: block !important;
+  max-height: 0;
+  overflow-y: hidden;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  -webkit-transition: all 0.5s cubic-bezier(0, 1.05, 0, 1);
+  transition: all 0.5s cubic-bezier(0, 1.05, 0, 1);
+  background-color: rgba(0, 0, 0, 0);
+}
 #match-form .ui.accordion .content {
+  padding-top: 1em;
   padding-bottom: 1em;
+}
+#match-form .ui.accordion .content.active {
+  max-height: 1000px;
+  -webkit-transition: all 0.5s cubic-bezier(0, 0.03, 0.685, 0.22);
+  transition: all 0.5s cubic-bezier(0, 0.03, 0.685, 0.22);
+  background-color: rgba(0, 0, 0, 0.0075);
+  border-top: 1px solid rgba(0, 0, 0, 0.13);
 }
 #match-form .ui.accordion .content .ui.icon.header svg.icon {
   width: 1em;
@@ -1051,11 +1104,14 @@ a#google-login:visited {
 }
 #match-form .ui.accordion .title {
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
+      -ms-flex-direction: row;
           flex-direction: row;
   -webkit-box-align: center;
+      -ms-flex-align: center;
           align-items: center;
 }
 #match-form .ui.accordion .title :first-child {
@@ -1063,6 +1119,7 @@ a#google-login:visited {
 }
 #match-form .inline.fields {
   -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
           justify-content: space-between;
 }
 #match-form textarea[disabled] {
@@ -1101,7 +1158,7 @@ a#google-login:visited {
   border-color: #F2E86D;
   color: rgba(10, 10, 10, 0.75);
 }
-#match-form .rich-text-editor:not([contenteditable='true']) {
+#match-form .rich-text-editor:not([contenteditable="true"]) {
   /*cursor: not-allowed;*/
   color: rgba(10, 10, 10, 0.4);
   background-color: transparent;
@@ -1220,6 +1277,7 @@ a#google-login:visited {
   }
   .icon-menu-list.ui.horizontal.list {
     -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
   }
   .icon-menu-list.ui.horizontal.list > .item {
@@ -1227,12 +1285,16 @@ a#google-login:visited {
   }
   .ui.cards .ui.card.match-card .content.match-card-desc .description {
     display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
   .ui.cards .ui.card.match-card .content.match-card-desc .ui.label {
     display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
 }
