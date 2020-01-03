@@ -111,8 +111,8 @@
 
 
 /*--------------
-     Styled
----------------*/
+       Styled
+  ---------------*/
 
 .ui.styled.accordion {
   width: 600px;
@@ -121,7 +121,8 @@
 .ui.styled.accordion .accordion {
   border-radius: 0.25rem;
   background: #FFFFFF;
-  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.15);
+          box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.15);
 }
 .ui.styled.accordion .title,
 .ui.styled.accordion .accordion .title {
@@ -195,8 +196,8 @@
 
 
 /*--------------
-     Fluid
----------------*/
+       Fluid
+  ---------------*/
 
 .ui.fluid.accordion,
 .ui.fluid.accordion .accordion {
@@ -204,8 +205,8 @@
 }
 
 /*--------------
-     Inverted
----------------*/
+       Inverted
+  ---------------*/
 
 .ui.inverted.accordion .title:not(.ui) {
   color: rgba(255, 255, 255, 0.9);

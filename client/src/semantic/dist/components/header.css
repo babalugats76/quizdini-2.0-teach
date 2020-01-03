@@ -33,8 +33,8 @@
 }
 
 /*--------------
-   Sub Header
----------------*/
+     Sub Header
+  ---------------*/
 
 .ui.header .sub.header {
   display: block;
@@ -133,33 +133,37 @@
 h1.ui.header {
   font-size: 2rem;
 }
-h2.ui.header {
-  font-size: 1.71428571rem;
-}
-h3.ui.header {
-  font-size: 1.28571429rem;
-}
-h4.ui.header {
-  font-size: 1.07142857rem;
-}
-h5.ui.header {
-  font-size: 1rem;
-}
-
-/* Sub Header */
 h1.ui.header .sub.header {
   font-size: 1.125rem;
+}
+h2.ui.header {
+  font-size: 1.71428571rem;
 }
 h2.ui.header .sub.header {
   font-size: 1.125rem;
 }
+h3.ui.header {
+  font-size: 1.28571429rem;
+}
 h3.ui.header .sub.header {
   font-size: 1rem;
+}
+h4.ui.header {
+  font-size: 1.07142857rem;
 }
 h4.ui.header .sub.header {
   font-size: 1rem;
 }
+h5.ui.header {
+  font-size: 1rem;
+}
 h5.ui.header .sub.header {
+  font-size: 0.9375rem;
+}
+h6.ui.header {
+  font-size: 0.85714286rem;
+}
+h6.ui.header .sub.header {
   font-size: 0.9375rem;
 }
 
@@ -167,43 +171,75 @@ h5.ui.header .sub.header {
  Content Heading
 ---------------*/
 
-.ui.huge.header {
-  min-height: 1em;
-  font-size: 2em;
+.ui.mini.header {
+  font-size: 0.85714286em;
 }
-.ui.large.header {
-  font-size: 1.71428571em;
+.ui.mini.header .sub.header {
+  font-size: 0.9375rem;
 }
-.ui.medium.header {
-  font-size: 1.28571429em;
-}
-.ui.small.header {
-  font-size: 1.07142857em;
+.ui.mini.sub.header {
+  font-size: 0.8125em;
 }
 .ui.tiny.header {
   font-size: 1em;
 }
-
-/* Sub Header */
-.ui.huge.header .sub.header {
-  font-size: 1.125rem;
+.ui.tiny.header .sub.header {
+  font-size: 0.9375rem;
 }
-.ui.large.header .sub.header {
-  font-size: 1.125rem;
+.ui.tiny.sub.header {
+  font-size: 0.8125em;
 }
-.ui.header .sub.header {
-  font-size: 1rem;
+.ui.small.header {
+  font-size: 1.07142857em;
 }
 .ui.small.header .sub.header {
   font-size: 1rem;
 }
-.ui.tiny.header .sub.header {
-  font-size: 0.9375rem;
+.ui.small.sub.header {
+  font-size: 0.8125em;
+}
+.ui.large.header {
+  font-size: 1.71428571em;
+}
+.ui.large.header .sub.header {
+  font-size: 1.125rem;
+}
+.ui.large.sub.header {
+  font-size: 0.9375em;
+}
+.ui.big.header {
+  font-size: 1.85714286em;
+}
+.ui.big.header .sub.header {
+  font-size: 1.125rem;
+}
+.ui.big.sub.header {
+  font-size: 1em;
+}
+.ui.huge.header {
+  font-size: 2em;
+  min-height: 1em;
+}
+.ui.huge.header .sub.header {
+  font-size: 1.125rem;
+}
+.ui.huge.sub.header {
+  font-size: 1em;
+}
+.ui.massive.header {
+  font-size: 2.28571429em;
+  min-height: 1em;
+}
+.ui.massive.header .sub.header {
+  font-size: 1.4375rem;
+}
+.ui.massive.sub.header {
+  font-size: 1.125em;
 }
 
 /*--------------
-   Sub Heading
----------------*/
+     Sub Heading
+  ---------------*/
 
 .ui.sub.header {
   padding: 0;
@@ -213,19 +249,10 @@ h5.ui.header .sub.header {
   text-transform: uppercase;
   color: '';
 }
-.ui.small.sub.header {
-  font-size: 0.8125em;
-}
-.ui.large.sub.header {
-  font-size: 0.9375em;
-}
-.ui.huge.sub.header {
-  font-size: 1em;
-}
 
 /*-------------------
-        Icon
---------------------*/
+          Icon
+  --------------------*/
 
 .ui.icon.header {
   display: inline-block;
@@ -291,8 +318,8 @@ h5.ui.header .sub.header {
 
 
 /*-------------------
-      Inverted
---------------------*/
+        Inverted
+  --------------------*/
 
 .ui.inverted.header {
   color: #FFFFFF;
@@ -302,14 +329,16 @@ h5.ui.header .sub.header {
 }
 .ui.inverted.attached.header {
   background: #1B1C1D;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-color: transparent;
 }
 .ui.inverted.block.header {
   background: #545454 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #545454 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #545454 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-bottom: none;
 }
 
@@ -589,8 +618,8 @@ a.ui.inverted.black.header.header.header:hover {
 }
 
 /*-------------------
-       Aligned
---------------------*/
+         Aligned
+  --------------------*/
 
 .ui.left.aligned.header {
   text-align: left;
@@ -612,8 +641,8 @@ a.ui.inverted.black.header.header.header:hover {
 }
 
 /*-------------------
-       Floated
---------------------*/
+         Floated
+  --------------------*/
 
 .ui.floated.header,
 .ui[class*="left floated"].header {
@@ -628,16 +657,16 @@ a.ui.inverted.black.header.header.header:hover {
 }
 
 /*-------------------
-       Fitted
---------------------*/
+         Fitted
+  --------------------*/
 
 .ui.fitted.header {
   padding: 0;
 }
 
 /*-------------------
-      Dividing
---------------------*/
+        Dividing
+  --------------------*/
 
 .ui.dividing.header {
   padding-bottom: 0.1875rem;
@@ -654,15 +683,22 @@ a.ui.inverted.black.header.header.header:hover {
 }
 
 /*-------------------
-        Block
---------------------*/
+          Block
+  --------------------*/
 
 .ui.block.header {
   background: #F3F4F5;
   padding: 0.8125rem 1rem;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border: 1px solid #D4D4D5;
   border-radius: 0.25rem;
+}
+.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: 1rem;
+}
+.ui.mini.block.header {
+  font-size: 0.8125rem;
 }
 .ui.tiny.block.header {
   font-size: 0.875rem;
@@ -670,25 +706,29 @@ a.ui.inverted.black.header.header.header:hover {
 .ui.small.block.header {
   font-size: 0.9375rem;
 }
-.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1rem;
-}
 .ui.large.block.header {
   font-size: 1.125rem;
+}
+.ui.big.block.header {
+  font-size: 1.3125rem;
 }
 .ui.huge.block.header {
   font-size: 1.4375rem;
 }
+.ui.massive.block.header {
+  font-size: 1.6875rem;
+}
 
 /*-------------------
-       Attached
---------------------*/
+         Attached
+  --------------------*/
 
 .ui.attached.header {
   background: #FFFFFF;
   padding: 0.8125rem 1rem;
   margin: 0 -1px 0 -1px;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border: 1px solid #D4D4D5;
   border-radius: 0;
 }
@@ -706,20 +746,29 @@ a.ui.inverted.black.header.header.header:hover {
 }
 
 /* Attached Sizes */
+.ui.attached.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: 1em;
+}
+.ui.mini.attached.header {
+  font-size: 0.8125em;
+}
 .ui.tiny.attached.header {
   font-size: 0.875em;
 }
 .ui.small.attached.header {
   font-size: 0.9375em;
 }
-.ui.attached.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1em;
-}
 .ui.large.attached.header {
   font-size: 1.125em;
 }
+.ui.big.attached.header {
+  font-size: 1.3125em;
+}
 .ui.huge.attached.header {
   font-size: 1.4375em;
+}
+.ui.massive.attached.header {
+  font-size: 1.6875em;
 }
 
 /*-------------------

@@ -23,6 +23,7 @@
   font-weight: normal;
   font-style: normal;
   display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   color: rgba(10, 10, 10, 0.75);
 }
@@ -30,6 +31,7 @@
   margin: 0;
   max-width: 100%;
   -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -41,9 +43,12 @@
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(10, 10, 10, 0.75);
   border-radius: 0.25rem;
-  -webkit-transition: box-shadow 0.1s ease, border-color 0.1s ease;
+  -webkit-transition: border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  transition: border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
   transition: box-shadow 0.1s ease, border-color 0.1s ease;
-  box-shadow: none;
+  transition: box-shadow 0.1s ease, border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /*--------------------
@@ -69,8 +74,8 @@
 
 
 /*--------------------
-        Disabled
----------------------*/
+          Disabled
+  ---------------------*/
 
 .ui.disabled.input,
 .ui.input:not(.disabled) input[disabled] {
@@ -90,12 +95,13 @@
   border-color: rgba(0, 0, 0, 0.3);
   background: #FAFAFA;
   color: rgba(10, 10, 10, 0.75);
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /*--------------------
-       Loading
----------------------*/
+         Loading
+  ---------------------*/
 
 .ui.loading.loading.input > i.icon:before {
   position: absolute;
@@ -120,7 +126,8 @@
           animation: loader 0.6s infinite linear;
   border: 0.2em solid #767676;
   border-radius: 500rem;
-  box-shadow: 0 0 0 1px transparent;
+  -webkit-box-shadow: 0 0 0 1px transparent;
+          box-shadow: 0 0 0 1px transparent;
 }
 
 /*--------------------
@@ -132,7 +139,8 @@
   border-color: #F2E86D;
   background: rgba(255, 250, 205, 0.03);
   color: rgba(10, 10, 10, 0.75);
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.input.focus > input::-webkit-input-placeholder,
 .ui.input > input:focus::-webkit-input-placeholder {
@@ -148,17 +156,18 @@
 }
 
 /*--------------------
-        Error
----------------------*/
+          States
+  ---------------------*/
 
 .ui.input.error > input {
   background-color: #FFF6F6;
   border-color: #E0B4B4;
   color: #9F3A38;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
-/* Error Placeholder */
+/* Placeholder */
 .ui.input.error > input::-webkit-input-placeholder {
   color: #e7bdbc;
 }
@@ -166,10 +175,10 @@
   color: #e7bdbc;
 }
 .ui.input.error > input:-ms-input-placeholder {
-  color: #e7bdbc !important;
+  color: #e7bdbc;
 }
 
-/* Focused Error Placeholder */
+/* Focused Placeholder */
 .ui.input.error > input:focus::-webkit-input-placeholder {
   color: #da9796;
 }
@@ -177,7 +186,94 @@
   color: #da9796;
 }
 .ui.input.error > input:focus:-ms-input-placeholder {
-  color: #da9796 !important;
+  color: #da9796;
+}
+.ui.input.info > input {
+  background-color: #F8FFFF;
+  border-color: #A9D5DE;
+  color: #276F86;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+/* Placeholder */
+.ui.input.info > input::-webkit-input-placeholder {
+  color: #98cfe1;
+}
+.ui.input.info > input::-moz-placeholder {
+  color: #98cfe1;
+}
+.ui.input.info > input:-ms-input-placeholder {
+  color: #98cfe1;
+}
+
+/* Focused Placeholder */
+.ui.input.info > input:focus::-webkit-input-placeholder {
+  color: #70bdd6;
+}
+.ui.input.info > input:focus::-moz-placeholder {
+  color: #70bdd6;
+}
+.ui.input.info > input:focus:-ms-input-placeholder {
+  color: #70bdd6;
+}
+.ui.input.success > input {
+  background-color: #FCFFF5;
+  border-color: #A3C293;
+  color: #2C662D;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+/* Placeholder */
+.ui.input.success > input::-webkit-input-placeholder {
+  color: #8fcf90;
+}
+.ui.input.success > input::-moz-placeholder {
+  color: #8fcf90;
+}
+.ui.input.success > input:-ms-input-placeholder {
+  color: #8fcf90;
+}
+
+/* Focused Placeholder */
+.ui.input.success > input:focus::-webkit-input-placeholder {
+  color: #6cbf6d;
+}
+.ui.input.success > input:focus::-moz-placeholder {
+  color: #6cbf6d;
+}
+.ui.input.success > input:focus:-ms-input-placeholder {
+  color: #6cbf6d;
+}
+.ui.input.warning > input {
+  background-color: #FFFAF3;
+  border-color: #C9BA9B;
+  color: #573A08;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+/* Placeholder */
+.ui.input.warning > input::-webkit-input-placeholder {
+  color: #edad3e;
+}
+.ui.input.warning > input::-moz-placeholder {
+  color: #edad3e;
+}
+.ui.input.warning > input:-ms-input-placeholder {
+  color: #edad3e;
+}
+
+/* Focused Placeholder */
+.ui.input.warning > input:focus::-webkit-input-placeholder {
+  color: #e39715;
+}
+.ui.input.warning > input:focus::-moz-placeholder {
+  color: #e39715;
+}
+.ui.input.warning > input:focus:-ms-input-placeholder {
+  color: #e39715;
 }
 
 
@@ -187,15 +283,16 @@
 
 
 /*--------------------
-      Transparent
----------------------*/
+        Transparent
+  ---------------------*/
 
 .ui.transparent.input > textarea,
 .ui.transparent.input > input {
   border-color: transparent !important;
   background-color: transparent !important;
   padding: 0;
-  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
   border-radius: 0 !important;
 }
 .field .ui.transparent.input > textarea {
@@ -206,11 +303,11 @@
 :not(.field) > .ui.transparent.icon.input > i.icon {
   width: 1.1em;
 }
-:not(.field) > .ui.transparent.icon.input > input {
+:not(.field) > .ui.ui.ui.transparent.icon.input > input {
   padding-left: 0;
   padding-right: 2em;
 }
-:not(.field) > .ui.transparent[class*="left icon"].input > input {
+:not(.field) > .ui.ui.ui.transparent[class*="left icon"].input > input {
   padding-left: 2em;
   padding-right: 0;
 }
@@ -234,8 +331,8 @@
 }
 
 /*--------------------
-         Icon
----------------------*/
+           Icon
+  ---------------------*/
 
 .ui.icon.input > i.icon {
   cursor: default;
@@ -255,8 +352,8 @@
 .ui.icon.input > i.icon:not(.link) {
   pointer-events: none;
 }
-.ui.ui.icon.input > textarea,
-.ui.ui.icon.input > input {
+.ui.ui.ui.ui.icon.input > textarea,
+.ui.ui.ui.ui.icon.input > input {
   padding-right: 2.225em;
 }
 .ui.icon.input > i.icon:before,
@@ -286,8 +383,8 @@
   right: auto;
   left: 0.5em;
 }
-.ui.ui[class*="left icon"].input > textarea,
-.ui.ui[class*="left icon"].input > input {
+.ui.ui.ui.ui[class*="left icon"].input > textarea,
+.ui.ui.ui.ui[class*="left icon"].input > input {
   padding-left: 2.225em;
   padding-right: 0.875em;
 }
@@ -299,13 +396,14 @@
 }
 
 /*--------------------
-        Labeled
----------------------*/
+          Labeled
+  ---------------------*/
 
 
 /* Adjacent Label */
 .ui.labeled.input > .label {
   -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   margin: 0;
   font-size: 1em;
@@ -393,42 +491,114 @@
   left: 1px;
 }
 
-/* Labeled and action input error */
+/* Labeled and action input states */
 .ui.form > .field.error > .ui.action.input > .ui.button,
 .ui.form > .field.error > .ui.labeled.input:not([class*="corner labeled"]) > .ui.label,
 .ui.action.input.error > .ui.button,
 .ui.labeled.input.error:not([class*="corner labeled"]) > .ui.label {
-  border-top: 1px solid #E0B4B4;
-  border-bottom: 1px solid #E0B4B4;
+  border-top: 1px solid #9F3A38;
+  border-bottom: 1px solid #9F3A38;
 }
 .ui.form > .field.error > .ui.left.action.input > .ui.button,
 .ui.form > .field.error > .ui.labeled.input:not(.right):not([class*="corner labeled"]) > .ui.label,
 .ui.left.action.input.error > .ui.button,
 .ui.labeled.input.error:not(.right):not([class*="corner labeled"]) > .ui.label {
-  border-left: 1px solid #E0B4B4;
+  border-left: 1px solid #9F3A38;
 }
 .ui.form > .field.error > .ui.action.input:not(.left) > input + .ui.button,
 .ui.form > .field.error > .ui.right.labeled.input:not([class*="corner labeled"]) > input + .ui.label,
 .ui.action.input.error:not(.left) > input + .ui.button,
 .ui.right.labeled.input.error:not([class*="corner labeled"]) > input + .ui.label {
-  border-right: 1px solid #E0B4B4;
+  border-right: 1px solid #9F3A38;
 }
 .ui.form > .field.error > .ui.right.labeled.input:not([class*="corner labeled"]) > .ui.label:first-child,
 .ui.right.labeled.input.error:not([class*="corner labeled"]) > .ui.label:first-child {
-  border-left: 1px solid #E0B4B4;
+  border-left: 1px solid #9F3A38;
+}
+.ui.form > .field.info > .ui.action.input > .ui.button,
+.ui.form > .field.info > .ui.labeled.input:not([class*="corner labeled"]) > .ui.label,
+.ui.action.input.info > .ui.button,
+.ui.labeled.input.info:not([class*="corner labeled"]) > .ui.label {
+  border-top: 1px solid #276F86;
+  border-bottom: 1px solid #276F86;
+}
+.ui.form > .field.info > .ui.left.action.input > .ui.button,
+.ui.form > .field.info > .ui.labeled.input:not(.right):not([class*="corner labeled"]) > .ui.label,
+.ui.left.action.input.info > .ui.button,
+.ui.labeled.input.info:not(.right):not([class*="corner labeled"]) > .ui.label {
+  border-left: 1px solid #276F86;
+}
+.ui.form > .field.info > .ui.action.input:not(.left) > input + .ui.button,
+.ui.form > .field.info > .ui.right.labeled.input:not([class*="corner labeled"]) > input + .ui.label,
+.ui.action.input.info:not(.left) > input + .ui.button,
+.ui.right.labeled.input.info:not([class*="corner labeled"]) > input + .ui.label {
+  border-right: 1px solid #276F86;
+}
+.ui.form > .field.info > .ui.right.labeled.input:not([class*="corner labeled"]) > .ui.label:first-child,
+.ui.right.labeled.input.info:not([class*="corner labeled"]) > .ui.label:first-child {
+  border-left: 1px solid #276F86;
+}
+.ui.form > .field.success > .ui.action.input > .ui.button,
+.ui.form > .field.success > .ui.labeled.input:not([class*="corner labeled"]) > .ui.label,
+.ui.action.input.success > .ui.button,
+.ui.labeled.input.success:not([class*="corner labeled"]) > .ui.label {
+  border-top: 1px solid #2C662D;
+  border-bottom: 1px solid #2C662D;
+}
+.ui.form > .field.success > .ui.left.action.input > .ui.button,
+.ui.form > .field.success > .ui.labeled.input:not(.right):not([class*="corner labeled"]) > .ui.label,
+.ui.left.action.input.success > .ui.button,
+.ui.labeled.input.success:not(.right):not([class*="corner labeled"]) > .ui.label {
+  border-left: 1px solid #2C662D;
+}
+.ui.form > .field.success > .ui.action.input:not(.left) > input + .ui.button,
+.ui.form > .field.success > .ui.right.labeled.input:not([class*="corner labeled"]) > input + .ui.label,
+.ui.action.input.success:not(.left) > input + .ui.button,
+.ui.right.labeled.input.success:not([class*="corner labeled"]) > input + .ui.label {
+  border-right: 1px solid #2C662D;
+}
+.ui.form > .field.success > .ui.right.labeled.input:not([class*="corner labeled"]) > .ui.label:first-child,
+.ui.right.labeled.input.success:not([class*="corner labeled"]) > .ui.label:first-child {
+  border-left: 1px solid #2C662D;
+}
+.ui.form > .field.warning > .ui.action.input > .ui.button,
+.ui.form > .field.warning > .ui.labeled.input:not([class*="corner labeled"]) > .ui.label,
+.ui.action.input.warning > .ui.button,
+.ui.labeled.input.warning:not([class*="corner labeled"]) > .ui.label {
+  border-top: 1px solid #573A08;
+  border-bottom: 1px solid #573A08;
+}
+.ui.form > .field.warning > .ui.left.action.input > .ui.button,
+.ui.form > .field.warning > .ui.labeled.input:not(.right):not([class*="corner labeled"]) > .ui.label,
+.ui.left.action.input.warning > .ui.button,
+.ui.labeled.input.warning:not(.right):not([class*="corner labeled"]) > .ui.label {
+  border-left: 1px solid #573A08;
+}
+.ui.form > .field.warning > .ui.action.input:not(.left) > input + .ui.button,
+.ui.form > .field.warning > .ui.right.labeled.input:not([class*="corner labeled"]) > input + .ui.label,
+.ui.action.input.warning:not(.left) > input + .ui.button,
+.ui.right.labeled.input.warning:not([class*="corner labeled"]) > input + .ui.label {
+  border-right: 1px solid #573A08;
+}
+.ui.form > .field.warning > .ui.right.labeled.input:not([class*="corner labeled"]) > .ui.label:first-child,
+.ui.right.labeled.input.warning:not([class*="corner labeled"]) > .ui.label:first-child {
+  border-left: 1px solid #573A08;
 }
 
 /*--------------------
-        Action
----------------------*/
+          Action
+  ---------------------*/
 
 .ui.action.input > .button,
 .ui.action.input > .buttons {
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
+      -ms-flex-align: center;
           align-items: center;
   -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
           flex: 0 0 auto;
 }
 .ui.action.input > .button,
@@ -438,53 +608,46 @@
   margin: 0;
 }
 
-/* Button on Right */
-.ui.action.input:not([class*="left action"]) > input {
-  border-top-right-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-  border-right-color: transparent !important;
+/* Input when ui Left*/
+.ui[class*="left action"].input > input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left-color: transparent;
 }
-.ui.action.input:not([class*="left action"]) > .dropdown:not(:first-child),
-.ui.action.input:not([class*="left action"]) > .button:not(:first-child),
-.ui.action.input:not([class*="left action"]) > .buttons:not(:first-child) > .button {
+/* Input when ui Right*/
+.ui.action.input:not([class*="left action"]) > input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right-color: transparent;
+}
+/* Button and Dropdown */
+.ui.action.input > .dropdown:first-child,
+.ui.action.input > .button:first-child,
+.ui.action.input > .buttons:first-child > .button {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+.ui.action.input > .dropdown:not(:first-child),
+.ui.action.input > .button:not(:first-child),
+.ui.action.input > .buttons:not(:first-child) > .button {
   border-radius: 0;
 }
-.ui.action.input:not([class*="left action"]) > .dropdown:last-child,
-.ui.action.input:not([class*="left action"]) > .button:last-child,
-.ui.action.input:not([class*="left action"]) > .buttons:last-child > .button {
+.ui.action.input > .dropdown:last-child,
+.ui.action.input > .button:last-child,
+.ui.action.input > .buttons:last-child > .button {
   border-radius: 0 0.25rem 0.25rem 0;
 }
 
 /* Input Focus */
 .ui.action.input:not([class*="left action"]) > input:focus {
-  border-right-color: #F2E86D !important;
+  border-right-color: #F2E86D;
 }
-
-/* Button on Left */
-.ui[class*="left action"].input > input {
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-  border-left-color: transparent !important;
-}
-.ui[class*="left action"].input > .dropdown,
-.ui[class*="left action"].input > .button,
-.ui[class*="left action"].input > .buttons > .button {
-  border-radius: 0;
-}
-.ui[class*="left action"].input > .dropdown:first-child,
-.ui[class*="left action"].input > .button:first-child,
-.ui[class*="left action"].input > .buttons:first-child > .button {
-  border-radius: 0.25rem 0 0 0.25rem;
-}
-
-/* Input Focus */
-.ui[class*="left action"].input > input:focus {
-  border-left-color: #F2E86D !important;
+.ui.ui[class*="left action"].input > input:focus {
+  border-left-color: #F2E86D;
 }
 
 /*--------------------
-       Inverted
----------------------*/
+         Inverted
+  ---------------------*/
 
 
 /* Standard */
@@ -493,11 +656,12 @@
 }
 
 /*--------------------
-        Fluid
----------------------*/
+          Fluid
+  ---------------------*/
 
 .ui.fluid.input {
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .ui.fluid.input > input {
@@ -508,6 +672,9 @@
         Size
 ---------------------*/
 
+.ui.input {
+  font-size: 1em;
+}
 .ui.mini.input {
   font-size: 0.8125em;
 }
@@ -516,9 +683,6 @@
 }
 .ui.small.input {
   font-size: 0.9375em;
-}
-.ui.input {
-  font-size: 1em;
 }
 .ui.large.input {
   font-size: 1.125em;

@@ -135,8 +135,7 @@
       align-content: center; /* center the children */
       background-color: @pageBackground;
       > .page {
-        margin-top: 2rem;
-        margin-bottom: 3rem;
+        margin: 2rem auto 3rem;
       }
       .banner {
         width: 100%;
@@ -1005,6 +1004,7 @@ a#google-login {
   }
 
   #match-bulk {
+    min-height: 494px;
     > textarea {
       font-family: @textareaFont;
       font-size: 0.9375rem;
@@ -1013,7 +1013,7 @@ a#google-login {
     }
   }
 
-  #match-expert {
+  #match-add {
     position: relative;
     .ui.horizontal.divider {
       font-family: @headerFont;

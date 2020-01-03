@@ -51,7 +51,8 @@
           animation: loader 0.6s infinite linear;
   border: 0.2em solid #767676;
   border-radius: 500rem;
-  box-shadow: 0 0 0 1px transparent;
+  -webkit-box-shadow: 0 0 0 1px transparent;
+          box-shadow: 0 0 0 1px transparent;
 }
 
 /* Speeds */
@@ -82,56 +83,6 @@
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
-}
-
-/* Sizes */
-.ui.mini.loader:before,
-.ui.mini.loader:after {
-  width: 0.875rem;
-  height: 0.875rem;
-  margin: 0 0 0 -0.4375rem;
-}
-.ui.tiny.loader:before,
-.ui.tiny.loader:after {
-  width: 1rem;
-  height: 1rem;
-  margin: 0 0 0 -0.5rem;
-}
-.ui.small.loader:before,
-.ui.small.loader:after {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin: 0 0 0 -0.75rem;
-}
-.ui.loader:before,
-.ui.loader:after {
-  width: 2rem;
-  height: 2rem;
-  margin: 0 0 0 -1rem;
-}
-.ui.large.loader:before,
-.ui.large.loader:after {
-  width: 3rem;
-  height: 3rem;
-  margin: 0 0 0 -1.5rem;
-}
-.ui.big.loader:before,
-.ui.big.loader:after {
-  width: 3.25rem;
-  height: 3.25rem;
-  margin: 0 0 0 -1.625rem;
-}
-.ui.huge.loader:before,
-.ui.huge.loader:after {
-  width: 3.625rem;
-  height: 3.625rem;
-  margin: 0 0 0 -1.8125rem;
-}
-.ui.massive.loader:before,
-.ui.massive.loader:after {
-  width: 4rem;
-  height: 4rem;
-  margin: 0 0 0 -2rem;
 }
 
 /*-------------------
@@ -167,8 +118,8 @@
 
 
 /*-------------------
-        Text
---------------------*/
+          Text
+  --------------------*/
 
 .ui.ui.ui.ui.text.loader {
   width: auto;
@@ -206,77 +157,121 @@
         Sizes
 --------------------*/
 
-
-/* Loader */
+.ui.loader {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1em;
+}
+.ui.loader:before,
+.ui.loader:after {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0 0 -1rem;
+}
+.ui.text.loader {
+  min-width: 2rem;
+  padding-top: 2.8125rem;
+}
 .ui.mini.loader {
   width: 0.875rem;
   height: 0.875rem;
   font-size: 0.8125em;
+}
+.ui.mini.loader:before,
+.ui.mini.loader:after {
+  width: 0.875rem;
+  height: 0.875rem;
+  margin: 0 0 0 -0.4375rem;
+}
+.ui.mini.text.loader {
+  min-width: 0.875rem;
+  padding-top: 1.6875rem;
 }
 .ui.tiny.loader {
   width: 1rem;
   height: 1rem;
   font-size: 0.875em;
 }
+.ui.tiny.loader:before,
+.ui.tiny.loader:after {
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0 0 -0.5rem;
+}
+.ui.tiny.text.loader {
+  min-width: 1rem;
+  padding-top: 1.8125rem;
+}
 .ui.small.loader {
   width: 1.5rem;
   height: 1.5rem;
   font-size: 0.9375em;
 }
-.ui.loader {
-  width: 2rem;
-  height: 2rem;
-  font-size: 1em;
+.ui.small.loader:before,
+.ui.small.loader:after {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 0 0 -0.75rem;
+}
+.ui.small.text.loader {
+  min-width: 1.5rem;
+  padding-top: 2.3125rem;
 }
 .ui.large.loader {
   width: 3rem;
   height: 3rem;
   font-size: 1.125em;
 }
+.ui.large.loader:before,
+.ui.large.loader:after {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 0 0 -1.5rem;
+}
+.ui.large.text.loader {
+  min-width: 3rem;
+  padding-top: 3.8125rem;
+}
 .ui.big.loader {
   width: 3.25rem;
   height: 3.25rem;
   font-size: 1.3125em;
+}
+.ui.big.loader:before,
+.ui.big.loader:after {
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: 0 0 0 -1.625rem;
+}
+.ui.big.text.loader {
+  min-width: 3.25rem;
+  padding-top: 4.0625rem;
 }
 .ui.huge.loader {
   width: 3.625rem;
   height: 3.625rem;
   font-size: 1.4375em;
 }
+.ui.huge.loader:before,
+.ui.huge.loader:after {
+  width: 3.625rem;
+  height: 3.625rem;
+  margin: 0 0 0 -1.8125rem;
+}
+.ui.huge.text.loader {
+  min-width: 3.625rem;
+  padding-top: 4.4375rem;
+}
 .ui.massive.loader {
   width: 4rem;
   height: 4rem;
   font-size: 1.6875em;
 }
-
-/* Text Loader */
-.ui.mini.text.loader {
-  min-width: 0.875rem;
-  padding-top: 1.6875rem;
-}
-.ui.tiny.text.loader {
-  min-width: 1rem;
-  padding-top: 1.8125rem;
-}
-.ui.small.text.loader {
-  min-width: 1.5rem;
-  padding-top: 2.3125rem;
-}
-.ui.text.loader {
-  min-width: 2rem;
-  padding-top: 2.8125rem;
-}
-.ui.large.text.loader {
-  min-width: 3rem;
-  padding-top: 3.8125rem;
-}
-.ui.big.text.loader {
-  min-width: 3.25rem;
-  padding-top: 4.0625rem;
-}
-.ui.huge.text.loader {
-  min-width: 3.625rem;
-  padding-top: 4.4375rem;
+.ui.massive.loader:before,
+.ui.massive.loader:after {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 0 0 -2rem;
 }
 .ui.massive.text.loader {
   min-width: 4rem;
@@ -639,8 +634,8 @@
 }
 
 /*-------------------
-       Inline
---------------------*/
+         Inline
+  --------------------*/
 
 .ui.inline.loader {
   position: relative;
@@ -687,8 +682,8 @@
 }
 
 /*-------------------
-       Elastic
---------------------*/
+         Elastic
+  --------------------*/
 
 .ui.dimmer > .ui.elastic.loader {
   color: #FFFFFF;

@@ -27,13 +27,13 @@
     margin-left: 0;
     margin-right: 0;
   }
-  .ui.ui.grid.container {
+  .ui.ui.ui.grid.container {
     width: auto;
   }
-  .ui.ui.relaxed.grid.container {
+  .ui.ui.ui.relaxed.grid.container {
     width: auto;
   }
-  .ui.ui.very.relaxed.grid.container {
+  .ui.ui.ui.very.relaxed.grid.container {
     width: auto;
   }
 }
@@ -45,13 +45,13 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .ui.ui.grid.container {
+  .ui.ui.ui.grid.container {
     width: calc(719px + 2rem);
   }
-  .ui.ui.relaxed.grid.container {
+  .ui.ui.ui.relaxed.grid.container {
     width: calc(719px + 3rem);
   }
-  .ui.ui.very.relaxed.grid.container {
+  .ui.ui.ui.very.relaxed.grid.container {
     width: calc(719px + 5rem);
   }
 }
@@ -63,13 +63,13 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .ui.ui.grid.container {
+  .ui.ui.ui.grid.container {
     width: calc(927px + 2rem);
   }
-  .ui.ui.relaxed.grid.container {
+  .ui.ui.ui.relaxed.grid.container {
     width: calc(927px + 3rem);
   }
-  .ui.ui.very.relaxed.grid.container {
+  .ui.ui.ui.very.relaxed.grid.container {
     width: calc(927px + 5rem);
   }
 }
@@ -81,13 +81,13 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .ui.ui.grid.container {
+  .ui.ui.ui.grid.container {
     width: calc(1119px + 2rem);
   }
-  .ui.ui.relaxed.grid.container {
+  .ui.ui.ui.relaxed.grid.container {
     width: calc(1119px + 3rem);
   }
-  .ui.ui.very.relaxed.grid.container {
+  .ui.ui.ui.very.relaxed.grid.container {
     width: calc(1119px + 5rem);
   }
 }
@@ -137,10 +137,6 @@
          Theme Overrides
 *******************************/
 
-.ui.fluid.container {
-  margin-left: auto;
-  margin-right: auto;
-}
 
 
 /*******************************

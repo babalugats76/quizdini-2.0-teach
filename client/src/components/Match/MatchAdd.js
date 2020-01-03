@@ -1,13 +1,11 @@
 import React from 'react';
-// eslint-disable-next-line
-import { Grid, Divider } from 'semantic-ui-react';
-// eslint-disable-next-line
 import PropTypes from 'prop-types';
+import { Grid, Divider } from 'semantic-ui-react';
 import MatchEditor from './MatchEditor';
 import InputFeedback from '../UI/InputFeedback';
 import Button from '../UI/Button';
 
-const MatchExpert = ({
+const MatchAdd = ({
   definition,
   definitionRef,
   disabled,
@@ -78,7 +76,7 @@ const MatchExpert = ({
   );
 };
 
-MatchExpert.propTypes = {
+MatchAdd.propTypes = {
   definition: PropTypes.object.isRequired,
   definitionRef: PropTypes.shape({ current: PropTypes.any }),
   disabled: PropTypes.bool,
@@ -90,4 +88,4 @@ MatchExpert.propTypes = {
   termRef: PropTypes.shape({ current: PropTypes.any })
 };
 
-export default MatchExpert;
+export default MatchAdd;

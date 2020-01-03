@@ -330,8 +330,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   background-color: #efefef;
 }
 .pushable .pusher > .page-wrapper > .page {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin: 2rem auto 3rem;
 }
 .pushable .pusher > .page-wrapper .banner {
   width: 100%;
@@ -1125,16 +1124,19 @@ a#google-login:visited {
 #match-form textarea[disabled] {
   opacity: 0.45;
 }
+#match-form #match-bulk {
+  min-height: 494px;
+}
 #match-form #match-bulk > textarea {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
   font-size: 0.9375rem;
   line-height: 1.5rem;
   margin-top: 0.75rem;
 }
-#match-form #match-expert {
+#match-form #match-add {
   position: relative;
 }
-#match-form #match-expert .ui.horizontal.divider {
+#match-form #match-add .ui.horizontal.divider {
   font-family: 'marcher-medium', sans-serif;
   color: #1B1C1D;
 }
