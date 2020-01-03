@@ -71,6 +71,9 @@ const validateMatch = Yup.object().shape({
     },
     message: "${itemsPerBoard} matches required in bank.",
     test: function(value) {
+      console.log(value,'in test function...')
+      console.log(value.length,'in test function...')
+      console.log(this.parent.itemsPerBoard,'in test function...')
       return value.length >= this.parent.itemsPerBoard;
     }
   })
@@ -171,11 +174,10 @@ const MatchForm = props => {
    */
   const handleTabChange = (event, data) => {
     event.preventDefault();
-    const activeTab = data.activeIndex; // activeIndex is the current tab pane
     setState(prevState => {
       return {
         ...prevState,
-        activeTab
+        activeTab: data.activeIndex // activeIndex is the current tab pane
       };
     });
   };
@@ -199,8 +201,7 @@ const MatchForm = props => {
    */
   const handlePageChange = (event, data) => {
     event.preventDefault();
-    const activePage = data.activePage;
-    setActivePage(activePage);
+    setActivePage(data.activePage);
   };
 
   /**
@@ -231,11 +232,13 @@ const MatchForm = props => {
    * @param {string} bulkMatches Matches in unprocessed csv form
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
    */
-  const updateMatches = (bulkMatches, setFieldValue) => {
+  const updateMatches = async (bulkMatches, setFieldValue, validateForm) => {
     const parsed = parseMatch(bulkMatches, maxMatches); // Split, Sanitize, Dedup -> array of matches
-    setFieldValue("matches", parsed); // Update matches in Formik state
-    setFieldValue("bulkMatches", matchToString(parsed)); // Flatten parsed matches
+    console.log(JSON.stringify(parsed, null, 4));
+    await setFieldValue("matches", parsed, false); // Update matches in Formik state
+    await setFieldValue("bulkMatches", matchToString(parsed), false); // Flatten parsed matches
     setActivePage(1); // Reset pagination to beginning
+    await validateForm();
   };
 
   /**
@@ -275,9 +278,9 @@ const MatchForm = props => {
    * @param {string} bulkMatches Current value of `bulkMatches`
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
    */
-  const handleUpdateMatches = (event, bulkMatches, setFieldValue) => {
+  const handleUpdateMatches = (event, bulkMatches, setFieldValue, validateForm) => {
     event.preventDefault();
-    updateMatches(bulkMatches, setFieldValue); // Call common function to parse, santize, dedup, and update state, etc.
+    updateMatches(bulkMatches, setFieldValue, validateForm); // Call common function to parse, santize, dedup, and update state, etc.
     setState(prevState => {
       return {
         ...prevState,
@@ -365,13 +368,11 @@ const MatchForm = props => {
    */
   const handleNewMatch = (event, matches, setFieldValue) => {
     event.preventDefault();
-    const term = term.value; // Get editors' contents (from state)
-    const definition = definition.value;
 
-    let termHtml = HtmlSerializer.serialize(term);
+    let termHtml = HtmlSerializer.serialize(term.value);
     termHtml = HAS_COMMA.test(termHtml) ? `"${termHtml}"` : termHtml;
 
-    let definitionHtml = HtmlSerializer.serialize(definition);
+    let definitionHtml = HtmlSerializer.serialize(definition.value);
     definitionHtml = HAS_COMMA.test(definitionHtml)
       ? `"${definitionHtml}"`
       : definitionHtml;
@@ -433,15 +434,16 @@ const MatchForm = props => {
   };
 
   // Temporary while migrating...
-  /*useEffect(() => {
-    console.log(JSON.stringify(state));
-  }, [state]);*/
+  useEffect(() => {
+    console.log(JSON.stringify(state, null, 5));
+  }, [state]);
 
   return (
     <Formik
       enableReinitialize={true}
       validateOnBlur={true}
       validateOnChange={true}
+      validateOnMount={false}
       initialValues={{
         matchId: props.game.matchId || null,
         title: props.game.title || "",
@@ -509,6 +511,7 @@ const MatchForm = props => {
           setStatus,
           status,
           touched,
+          validateForm,
           values
         } = props;
 
@@ -561,7 +564,8 @@ const MatchForm = props => {
                     handleUpdateMatches(
                       event,
                       values.bulkMatches,
-                      setFieldValue
+                      setFieldValue,
+                      validateForm
                     )
                   }
                   placeholder="Term, Definition"
@@ -602,7 +606,7 @@ const MatchForm = props => {
                     </Button>
                     <Button
                       active
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || !isValid}
                       icon="save"
                       labelPosition="left"
                       loading={isSubmitting}
@@ -780,7 +784,7 @@ const MatchForm = props => {
                 />
               </Grid.Column>
             </Grid>
-            <div>{/*<DisplayFormikState {...props} />*/}</div>
+            <div>{<DisplayFormikState {...props} />}</div>
           </Form>
         );
       }}
