@@ -298,14 +298,14 @@ const MatchForm = props => {
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
    * @param {function} validateForm Reference to Formik `validateForm` function
    */
-  const handleUpdateMatches = (
+  const handleUpdateMatches = async (
     event,
     bulkMatches,
     setFieldValue,
     validateForm
   ) => {
     event.preventDefault();
-    updateMatches(bulkMatches, setFieldValue, validateForm); // Call common function to parse, santize, dedup, and update state, etc.
+    await updateMatches(bulkMatches, setFieldValue, validateForm); // Call common function to parse, santize, dedup, and update state, etc.
     setState(prevState => {
       return {
         ...prevState,

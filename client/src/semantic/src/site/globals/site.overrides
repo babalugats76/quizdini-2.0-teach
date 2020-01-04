@@ -1175,7 +1175,7 @@ a#google-login {
     .ui.floated.image {
       display: block;
       float: unset;
-      margin: 1rem auto 2rem;
+      margin: 1rem 0 2rem;
     }
 
     #team {

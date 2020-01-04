@@ -1796,3 +1796,22 @@
 .ui.form textarea {
   color: rgba(10, 10, 10, 0.4);
 }
+
+/* Prevent semantic from hiding messages on forms */
+
+/*--------------------
+   Types of Messages
+---------------------*/
+
+.ui.form .error.message {
+  display: block;
+}
+.ui.form .info.message {
+  display: block;
+}
+.ui.form .success.message {
+  display: block;
+}
+.ui.form .warning.message {
+  display: block;
+}

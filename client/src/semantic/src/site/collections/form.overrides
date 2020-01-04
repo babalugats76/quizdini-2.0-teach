@@ -29,3 +29,16 @@
 .ui.form textarea {
   color: @unselectedTextColor;  
 }
+
+/* Prevent semantic from hiding messages on forms */
+/*--------------------
+   Types of Messages
+---------------------*/
+& when (@variationFormStates) {
+  each(@formStates, {
+    @state: replace(@key, '@', '');
+    .ui.form .@{state}.message{
+      display: block;
+    }
+  })
+}

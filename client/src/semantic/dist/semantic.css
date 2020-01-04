@@ -1923,7 +1923,7 @@ a#google-login:visited {
   #about.page .ui.floated.image {
     display: block;
     float: unset;
-    margin: 1rem auto 2rem;
+    margin: 1rem 0 2rem;
   }
 
   #about.page #team .ui.grid.member > .row > .column.member-title,
@@ -26368,6 +26368,28 @@ ol.ui.suffixed.list li:before,
 
 .ui.form textarea {
   color: rgba(10, 10, 10, 0.4);
+}
+
+/* Prevent semantic from hiding messages on forms */
+
+/*--------------------
+   Types of Messages
+---------------------*/
+
+.ui.form .error.message {
+  display: block;
+}
+
+.ui.form .info.message {
+  display: block;
+}
+
+.ui.form .success.message {
+  display: block;
+}
+
+.ui.form .warning.message {
+  display: block;
 }
 /*!
  * # Fomantic-UI - Grid
