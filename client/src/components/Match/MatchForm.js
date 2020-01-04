@@ -821,7 +821,7 @@ const MatchForm = props => {
                 />
               </Grid.Column>
             </Grid>
-            <div>{<DisplayFormikState {...props} />}</div>
+            <div>{/*<DisplayFormikState {...props} />*/}</div>
           </Form>
         );
       }}
