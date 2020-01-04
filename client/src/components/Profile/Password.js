@@ -12,7 +12,7 @@ export default props => {
   });
 
   return (
-    <Container className="small" fluid>
+    <Container className="small">
       <PasswordForm onUpdate={changePassword} />
     </Container>
   );

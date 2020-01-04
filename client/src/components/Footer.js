@@ -54,7 +54,7 @@ const Footer = props => {
             </Grid.Column>
             <Grid.Column>
               <List horizontal inverted divided link size="big">
-                <List.Item>Copyright &copy; Quizdini, 2013-2019</List.Item>
+                <List.Item>Copyright &copy; Quizdini, 2013-2020</List.Item>
               </List>
             </Grid.Column>
           </Grid.Row>
