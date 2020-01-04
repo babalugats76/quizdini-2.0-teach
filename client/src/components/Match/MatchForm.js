@@ -71,9 +71,6 @@ const validateMatch = Yup.object().shape({
     },
     message: "${itemsPerBoard} matches required in bank.",
     test: function(value) {
-      console.log(value,'in test function...')
-      console.log(value.length,'in test function...')
-      console.log(this.parent.itemsPerBoard,'in test function...')
       return value.length >= this.parent.itemsPerBoard;
     }
   })
@@ -211,10 +208,17 @@ const MatchForm = props => {
    * @param {Object} data Contains components data value and props
    * @param {string} prevBulkMatches The value of `bulkMatches` as of last save (from initialValues)
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
+   * @param {function} validateForm Reference to Formik `validateForm` function
    */
-  const handleBulkChange = (event, data, prevBulkMatches, setFieldValue) => {
+  const handleBulkChange = async (
+    event,
+    data,
+    prevBulkMatches,
+    setFieldValue,
+    validateForm
+  ) => {
     event.preventDefault();
-    setFieldValue("bulkMatches", data.value);
+    await setFieldValue("bulkMatches", data.value, false);
     setState(prevState => {
       return {
         ...prevState,
@@ -224,6 +228,7 @@ const MatchForm = props => {
         }
       };
     });
+    await validateForm();
   };
 
   /**
@@ -231,10 +236,19 @@ const MatchForm = props => {
    *
    * @param {string} bulkMatches Matches in unprocessed csv form
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
+   * @param {function} validateForm Reference to Formik `validateForm` function
+   *
+   * There is a bug in Formik which required the use of ValidateForm
+   * Once validateField works, retro fit to use this instead
+   * https://github.com/jaredpalmer/formik/pull/1784
+   *
+   * The idea here is to programmatically update the field,
+   * forcing the user of `await` and setting not to validate
+   * (because this is broken too)
+   * Then, we validate the form using validateForm because validateField is busted
    */
   const updateMatches = async (bulkMatches, setFieldValue, validateForm) => {
     const parsed = parseMatch(bulkMatches, maxMatches); // Split, Sanitize, Dedup -> array of matches
-    console.log(JSON.stringify(parsed, null, 4));
     await setFieldValue("matches", parsed, false); // Update matches in Formik state
     await setFieldValue("bulkMatches", matchToString(parsed), false); // Flatten parsed matches
     setActivePage(1); // Reset pagination to beginning
@@ -246,8 +260,9 @@ const MatchForm = props => {
    *
    * @param {Event} event Event to handle
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
+   * @param {function} validateForm Reference to Formik `validateForm` function
    */
-  const handleFileChange = (event, setFieldValue) => {
+  const handleFileChange = async (event, setFieldValue, validateForm) => {
     event.preventDefault();
 
     if (event.target.files.length) {
@@ -257,11 +272,15 @@ const MatchForm = props => {
 
       reader.onload = (function(file, updateMatches) {
         // Closure run upon read completion
-        return function(event) {
+        return async function(event) {
           console.log(`Loaded ${file.size} bytes from ${file.name}...`);
           if (event.target.result) {
             // If results are returned
-            updateMatches(event.target.result, setFieldValue); // Call common function to parse, santize, dedup, and update state, etc.
+            await updateMatches(
+              event.target.result,
+              setFieldValue,
+              validateForm
+            ); // Call common function to parse, santize, dedup, and update state, etc.
             event.target.value = null;
           }
         };
@@ -277,8 +296,14 @@ const MatchForm = props => {
    * @param {Event} event Event to handle
    * @param {string} bulkMatches Current value of `bulkMatches`
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
+   * @param {function} validateForm Reference to Formik `validateForm` function
    */
-  const handleUpdateMatches = (event, bulkMatches, setFieldValue, validateForm) => {
+  const handleUpdateMatches = (
+    event,
+    bulkMatches,
+    setFieldValue,
+    validateForm
+  ) => {
     event.preventDefault();
     updateMatches(bulkMatches, setFieldValue, validateForm); // Call common function to parse, santize, dedup, and update state, etc.
     setState(prevState => {
@@ -364,9 +389,9 @@ const MatchForm = props => {
    * @param {Event} event Event to handle
    * @param {array} matches The current value of `matches`
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
-   *
+   * @param {function} validateForm Reference to Formik `validateForm` function
    */
-  const handleNewMatch = (event, matches, setFieldValue) => {
+  const handleNewMatch = async (event, matches, setFieldValue, validateForm) => {
     event.preventDefault();
 
     let termHtml = HtmlSerializer.serialize(term.value);
@@ -382,7 +407,7 @@ const MatchForm = props => {
         { term: termHtml, definition: definitionHtml },
         { abortEarly: false }
       ) // Validate serialized term and definition
-      .then(valid => {
+      .then(async valid => {
         // If valid, merge into matches
         const updated = [
           {
@@ -391,8 +416,8 @@ const MatchForm = props => {
           },
           ...matches
         ];
-        setFieldValue("matches", updated); // Update Formik state
-        setFieldValue("bulkMatches", matchToString(updated)); // Format bulkMatches then update Formik state
+        await setFieldValue("matches", updated, false); // Update Formik state
+        await setFieldValue("bulkMatches", matchToString(updated), false); // Format bulkMatches then update Formik state
         handleEditorChange({ value: HtmlSerializer.deserialize("") }, "term"); // Reset editors' contents
         handleEditorChange(
           { value: HtmlSerializer.deserialize("") },
@@ -401,6 +426,7 @@ const MatchForm = props => {
         setError("term", ""); // Clear errors (using custom function)
         setError("definition", "");
         setFocus(termRef); // Move focus to term editor
+        await validateForm();
       })
       .catch(errors => {
         // If invalid, update state with errors
@@ -421,22 +447,30 @@ const MatchForm = props => {
    * @param {string} term The term to be removed from matches
    * @param {array} matches The current value of `matches`
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
+   * @param {function} validateForm Reference to Formik `validateForm` function
    */
-  const handleMatchDelete = (event, term, matches, setFieldValue) => {
+  const handleMatchDelete = async (
+    event,
+    term,
+    matches,
+    setFieldValue,
+    validateForm
+  ) => {
     event.preventDefault();
     const filtered = matches.filter(match => match.term !== term);
-    setFieldValue("matches", filtered); // Update state (in Formik) with matches minus (deleted) term
-    setFieldValue("bulkMatches", matchToString(filtered)); // Format bulkMatches then update Formik state
+    await setFieldValue("matches", filtered, false); // Update state (in Formik) with matches minus (deleted) term
+    await setFieldValue("bulkMatches", matchToString(filtered), false); // Format bulkMatches then update Formik state
     const totalPages = Math.ceil(
       (filtered.length ? filtered.length : 0) / itemsPerPage
     ); // Calculate total # of pages
     if (activePage > totalPages) setActivePage(totalPages); // If active page no longer exists (because of delete)
+    await validateForm();
   };
 
   // Temporary while migrating...
-  useEffect(() => {
+  /*useEffect(() => {
     console.log(JSON.stringify(state, null, 5));
-  }, [state]);
+  }, [state]);*/
 
   return (
     <Formik
@@ -482,14 +516,12 @@ const MatchForm = props => {
           const success = results.data || false;
           if (success) await onSuccess();
         } else {
-          const results = await onCreateMatch(
-            {
-              instructions,
-              matches,
-              options,
-              title
-            }
-          );
+          const results = await onCreateMatch({
+            instructions,
+            matches,
+            options,
+            title
+          });
           const success = results.data || false;
           if (success) await onSuccess(results.data.matchId);
         }
@@ -509,6 +541,7 @@ const MatchForm = props => {
           isValid,
           setFieldValue,
           setStatus,
+          setSubmitting,
           status,
           touched,
           validateForm,
@@ -534,7 +567,7 @@ const MatchForm = props => {
                     handleEditorTouch(field, touched)
                   }
                   onNewMatch={event =>
-                    handleNewMatch(event, values.matches, setFieldValue)
+                    handleNewMatch(event, values.matches, setFieldValue, validateForm)
                   }
                   term={term}
                   termRef={termRef}
@@ -556,10 +589,13 @@ const MatchForm = props => {
                       event,
                       data,
                       initialValues.bulkMatches,
-                      setFieldValue
+                      setFieldValue,
+                      validateForm
                     )
                   }
-                  onFileChange={event => handleFileChange(event, setFieldValue)}
+                  onFileChange={event =>
+                    handleFileChange(event, setFieldValue, validateForm)
+                  }
                   onUpdateMatches={event =>
                     handleUpdateMatches(
                       event,
@@ -606,7 +642,7 @@ const MatchForm = props => {
                     </Button>
                     <Button
                       active
-                      disabled={isSubmitting || !isValid}
+                      disabled={isSubmitting || !isValid || !dirty || isMatchDirty}
                       icon="save"
                       labelPosition="left"
                       loading={isSubmitting}
@@ -777,7 +813,8 @@ const MatchForm = props => {
                       event,
                       term,
                       values.matches,
-                      setFieldValue
+                      setFieldValue,
+                      validateForm
                     )
                   }
                   onPageChange={(event, data) => handlePageChange(event, data)}
