@@ -30,7 +30,7 @@ const Match = props => {
   // direct API interactions (ephemeral)
   const { POST: createMatch, PUT: updateMatch } = useAPI({ url: "/api/match" });
 
-  const { data: game, error, initialized, loading, reset } = useData({
+  const { data: game, error, initialized, loading } = useData({
     url: "/api/match/" + state.matchId,
     deps: [state.matchId, state.dirty],
     debug: false
@@ -46,18 +46,20 @@ const Match = props => {
 
   return (
     <Container as="main" className="page large" fluid id="match-edit">
-      {(showLoader && <Loader />) || (
-        <div className="content-wrapper">
-          <MatchForm
-            game={game}
-            isMobile={isMobile}
-            maxMatches={100}
-            onCreateMatch={createMatch}
-            onSuccess={onSuccess}
-            onUpdateMatch={updateMatch}
-          />
-        </div>
-      )}
+      {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
+        (showLoader && <Loader />) || (
+          <div className="content-wrapper">
+            <MatchForm
+              game={game}
+              isMobile={isMobile}
+              loading={loading}
+              maxMatches={100}
+              onCreateMatch={createMatch}
+              onSuccess={onSuccess}
+              onUpdateMatch={updateMatch}
+            />
+          </div>
+        )}
     </Container>
   );
 };

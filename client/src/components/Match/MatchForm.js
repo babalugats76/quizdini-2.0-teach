@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { useEffect, useRef, useState } from "react";
 import { Formik } from "formik";
 import { Form, Grid, Segment, Tab } from "semantic-ui-react";
@@ -9,6 +10,7 @@ import MatchAdd from "./MatchAdd";
 import MatchBulk from "./MatchBulk";
 import MatchTable from "./MatchTable";
 import { matchToString, parseMatch } from "./utils";
+// eslint-disable-next-line
 import DisplayFormikState from "../UI/FormikHelper";
 
 const itemsPerBoardOptions = [
@@ -79,14 +81,14 @@ const validateMatch = Yup.object().shape({
 const newMatchSchema = matches => {
   return Yup.object().shape({
     term: Yup.string()
-      .required("Term is required")
-      .test("duplicate term", "Duplicate term", function(value) {
+      .required("Term is required.")
+      .test("duplicate term", "Duplicate term.", function(value) {
         const passed = !matches.some(element => {
           return element.term === value;
         }); // check for duplicate terms
         return passed;
       }),
-    definition: Yup.string().required("Definition is required")
+    definition: Yup.string().required("Definition is required.")
   });
 };
 
@@ -125,6 +127,7 @@ const MatchForm = props => {
 
   const {
     isMobile,
+    loading,
     maxMatches,
     onCreateMatch,
     onSuccess,
@@ -540,14 +543,15 @@ const MatchForm = props => {
           isSubmitting,
           isValid,
           setFieldValue,
-          setStatus,
-          setSubmitting,
-          status,
+          //setStatus,
+          //status,
           touched,
           validateForm,
           values
         } = props;
 
+        const disabled = loading || isSubmitting
+   
         const editorPanes = [
           {
             hideOnMobile: true,
@@ -557,7 +561,7 @@ const MatchForm = props => {
                 <MatchAdd
                   definition={definition}
                   definitionRef={definitionRef}
-                  disabled={isSubmitting || values.matches.length >= maxMatches}
+                  disabled={disabled || values.matches.length >= maxMatches}
                   maxMatches={maxMatches}
                   error={errors.matches}
                   onEditorChange={(value, field) =>
@@ -582,7 +586,7 @@ const MatchForm = props => {
               <Tab.Pane id="match-bulk" as={Segment} padded>
                 <MatchBulk
                   dirty={isMatchDirty}
-                  disabled={isSubmitting}
+                  disabled={disabled}
                   maxMatches={maxMatches}
                   onBulkChange={(event, data) =>
                     handleBulkChange(
@@ -630,7 +634,7 @@ const MatchForm = props => {
                     <Button
                       active
                       as={Link}
-                      disabled={isSubmitting}
+                      disabled={disabled}
                       icon="back"
                       labelPosition="left"
                       tabIndex={-1}
@@ -642,7 +646,7 @@ const MatchForm = props => {
                     </Button>
                     <Button
                       active
-                      disabled={isSubmitting || !isValid || !dirty || isMatchDirty}
+                      disabled={disabled|| !isValid || !dirty || isMatchDirty}
                       icon="save"
                       labelPosition="left"
                       loading={isSubmitting}
@@ -670,7 +674,7 @@ const MatchForm = props => {
                   >
                     <Form.Group>
                       <InputText
-                        disabled={isSubmitting}
+                        disabled={disabled}
                         error={touched.title && errors.title}
                         label="Title"
                         maxLength={40}
@@ -687,7 +691,7 @@ const MatchForm = props => {
                     </Form.Group>
                     <Form.Group>
                       <InputText
-                        disabled={isSubmitting}
+                        disabled={disabled}
                         error={touched.instructions && errors.instructions}
                         label="Instructions"
                         maxLength={60}
@@ -728,7 +732,7 @@ const MatchForm = props => {
                           <IconDropdown
                             headerSize="h5"
                             compact
-                            disabled={isSubmitting}
+                            disabled={disabled}
                             error={
                               touched.itemsPerBoard && errors.itemsPerBoard
                             }
@@ -747,7 +751,7 @@ const MatchForm = props => {
                           <IconDropdown
                             headerSize="h5"
                             compact
-                            disabled={isSubmitting}
+                            disabled={disabled}
                             error={touched.duration && errors.duration}
                             icon="watch"
                             label="Seconds"
@@ -766,7 +770,7 @@ const MatchForm = props => {
                           <IconDropdown
                             headerSize="h5"
                             compact
-                            disabled={isSubmitting}
+                            disabled={disabled}
                             error={touched.colorScheme && errors.colorScheme}
                             icon="palette"
                             label="Color Scheme"
@@ -794,7 +798,7 @@ const MatchForm = props => {
               <Grid.Column computer={8} mobile={16} tablet={16}>
                 <MatchTable
                   activePage={activePage}
-                  disabled={isSubmitting}
+                  disabled={disabled}
                   error={
                     errors.matches &&
                     `Add at least ${values.itemsPerBoard -

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Card, Divider, Segment, Transition } from 'semantic-ui-react';
-import { useTimeout } from '../../hooks';
-import { Button, Label, RouterButton } from '../UI';
-import { copyToClipboard } from './utils';
-const { formatDistanceToNow } = require('date-fns');
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { Card, Divider, Segment, Transition } from "semantic-ui-react";
+import { useTimeout } from "../../hooks";
+import { Button, Label, RouterButton } from "../UI";
+import { copyToClipboard } from "./utils";
+const { formatDistanceToNow } = require("date-fns");
 
 const Match = ({ credits, data: games, onDelete }) => {
   return (
@@ -77,12 +77,15 @@ MatchCardGroup.propTypes = {
 
 const MatchCard = ({ game, onDelete }) => {
   const [visible, setVisible] = useState(true);
+  const [canDelete, setCanDelete] = useState(false);
   const [copied, setCopied] = useTimeout({ millseconds: 2000 });
 
   const { matchId, matches, title, updateDate } = game;
 
-  const handleExit = () => {
-    setVisible(prevState => !prevState);
+  const handleDelete = () => {
+    return !canDelete
+      ? setCanDelete(true)
+      : setVisible(prevState => !prevState);
   };
 
   const handleHide = () => {
@@ -109,14 +112,18 @@ const MatchCard = ({ game, onDelete }) => {
       visible={visible}
     >
       <Card className="match-card" key={matchId} raised>
-        <Card.Content className="match-card-header">
+        <Card.Content className={`match-card-header ${(canDelete ? 'delete' : '')}`}>
           <Card.Header>{title}</Card.Header>
           <Button
             as="button"
             disabled={!visible}
             icon="trash"
-            onClick={handleExit}
-            title={`Delete ${title}`}
+            onClick={handleDelete}
+            onMouseLeave={event => {
+              console.log("setting canDelete to false...");
+              setCanDelete(false);
+            }}
+            title={`Delete ${title}?`}
             type="button"
           />
         </Card.Content>
@@ -149,14 +156,14 @@ const MatchCard = ({ game, onDelete }) => {
             <Button
               active
               as="button"
-              className={`clipboard ${copied ? 'copied' : ''}`}
+              className={`clipboard ${copied ? "copied" : ""}`}
               disabled={!visible}
-              icon={!copied ? 'link' : null}
+              icon={!copied ? "link" : null}
               onClick={() => handleCopyUrl(url)}
               title="Copy URL to clipboard"
               type="button"
             >
-              {copied ? 'Copied!' : null}
+              {copied ? "Copied!" : null}
             </Button>
           </div>
         </Card.Content>

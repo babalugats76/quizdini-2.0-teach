@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Divider } from 'semantic-ui-react';
+import { Divider, Grid } from 'semantic-ui-react';
+import { Button, InputFeedback } from "../UI/";
 import MatchEditor from './MatchEditor';
-import InputFeedback from '../UI/InputFeedback';
-import Button from '../UI/Button';
 
 const MatchAdd = ({
   definition,
@@ -21,7 +20,6 @@ const MatchAdd = ({
       <Grid.Row>
         <Grid.Column>
           <Divider horizontal>Term</Divider>
-          <InputFeedback error={!term.touched ? term.error : null} />
           <MatchEditor
             name="term"
             ref={termRef}
@@ -32,14 +30,12 @@ const MatchAdd = ({
             onEditorTouch={(field, touched) => onEditorTouch(field, touched)}
             onChange={(value, field) => onEditorChange(value, field)}
           />
+          <InputFeedback error={!term.touched ? term.error : null} />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
         <Grid.Column>
           <Divider horizontal>Definition</Divider>
-          <InputFeedback
-            error={!definition.touched ? definition.error : null}
-          />
           <MatchEditor
             name="definition"
             ref={definitionRef}
@@ -49,6 +45,9 @@ const MatchAdd = ({
             readOnly={disabled}
             onEditorTouch={(field, touched) => onEditorTouch(field, touched)}
             onChange={(value, field) => onEditorChange(value, field)}
+          />
+          <InputFeedback
+            error={!definition.touched ? definition.error : null}
           />
         </Grid.Column>
       </Grid.Row>
