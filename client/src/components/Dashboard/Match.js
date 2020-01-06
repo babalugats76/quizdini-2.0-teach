@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Card, Divider, Segment, Transition } from "semantic-ui-react";
 import { useTimeout } from "../../hooks";
@@ -82,15 +82,8 @@ const MatchCard = ({ game, onDelete }) => {
   });
 
   const [copied, setCopied] = useTimeout({ millseconds: 2000 });
-
   const { matchId, matches, title, updateDate } = game;
-
   const { canDelete, visible } = state;
-
-  // Temporary while migrating...
-  useEffect(() => {
-    console.log(JSON.stringify(state, null, 5));
-  }, [state]);
 
   const handleMouseLeave = () => {
     setState(prevState => {
