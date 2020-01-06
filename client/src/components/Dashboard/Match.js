@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Card, Divider, Segment, Transition } from "semantic-ui-react";
 import { useTimeout } from "../../hooks";
@@ -76,16 +76,41 @@ MatchCardGroup.propTypes = {
 };
 
 const MatchCard = ({ game, onDelete }) => {
-  const [visible, setVisible] = useState(true);
-  const [canDelete, setCanDelete] = useState(false);
+  const [state, setState] = useState({
+    canDelete: false,
+    visible: true
+  });
+
   const [copied, setCopied] = useTimeout({ millseconds: 2000 });
 
   const { matchId, matches, title, updateDate } = game;
 
+  const { canDelete, visible } = state;
+
+  // Temporary while migrating...
+  useEffect(() => {
+    console.log(JSON.stringify(state, null, 5));
+  }, [state]);
+
+  const handleMouseLeave = () => {
+    setState(prevState => {
+      return {
+        ...prevState,
+        canDelete: false
+      };
+    });
+  };
+
   const handleDelete = () => {
-    return !canDelete
-      ? setCanDelete(true)
-      : setVisible(prevState => !prevState);
+    // First click enables deletion capability
+    // Second click triggers deletion by setting visible -> false
+    setState(prevState => {
+      return {
+        ...prevState,
+        canDelete: !canDelete ? true : false,
+        visible: canDelete ? false : true
+      };
+    });
   };
 
   const handleHide = () => {
@@ -112,18 +137,16 @@ const MatchCard = ({ game, onDelete }) => {
       visible={visible}
     >
       <Card className="match-card" key={matchId} raised>
-        <Card.Content className={`match-card-header ${(canDelete ? 'delete' : '')}`}>
+        <Card.Content
+          className={`match-card-header${canDelete ? " can-delete" : ""}`}
+        >
           <Card.Header>{title}</Card.Header>
           <Button
             as="button"
             disabled={!visible}
             icon="trash"
             onClick={handleDelete}
-            onMouseLeave={event => {
-              console.log("setting canDelete to false...");
-              setCanDelete(false);
-            }}
-            title={`Delete ${title}?`}
+            onMouseLeave={handleMouseLeave}
             type="button"
           />
         </Card.Content>

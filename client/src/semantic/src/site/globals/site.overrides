@@ -869,6 +869,12 @@ a#google-login {
               background-color: @negativeBackgroundColor;
               opacity: 0.87;
             }
+            &.can-delete {
+              .ui.icon.button.trash {
+                background-color: @negativeBorderColor ;
+                opacity: .95;
+              }
+            }
           }
           > .header {
             text-align: center;
@@ -883,12 +889,12 @@ a#google-login {
             top: 0;
             width: 100%;
             height: 100%;
-            transition: background-color 0.5s ease;
             background-color: transparent;
             svg.icon {
               width: 2em;
               height: 2em;
             }
+            transition: background-color .3s ease-in-out, opacity .3s ease-in-out;
           }
         }
         &.match-card-desc {

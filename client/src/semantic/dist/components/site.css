@@ -981,6 +981,10 @@ a#google-login:visited {
   background-color: #FFF6F6;
   opacity: 0.87;
 }
+.ui.cards .ui.card.match-card .content.match-card-header:hover.can-delete .ui.icon.button.trash {
+  background-color: #E0B4B4;
+  opacity: 0.95;
+}
 .ui.cards .ui.card.match-card .content.match-card-header > .header {
   text-align: center;
   font-size: 1.375em;
@@ -996,9 +1000,9 @@ a#google-login:visited {
   top: 0;
   width: 100%;
   height: 100%;
-  -webkit-transition: background-color 0.5s ease;
-  transition: background-color 0.5s ease;
   background-color: transparent;
+  -webkit-transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 .ui.cards .ui.card.match-card .content.match-card-header .ui.icon.button.trash svg.icon {
   width: 2em;

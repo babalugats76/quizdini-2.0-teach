@@ -114,56 +114,6 @@ export const fetchCountries = () => async dispatch => {
   }
 };
 
-/**
- * MATCH SECTION
- * Actions used to perform get match info and perform CRUD operations
- */
-
-export const matchBegin = () => async dispatch => {
-  dispatch({ type: TYPES.MATCH_BEGIN });
-};
-
-export const matchSuccess = match => async dispatch => {
-  dispatch({ type: TYPES.MATCH_SUCCESS, payload: { match } });
-};
-
-export const matchFailure = error => async dispatch => {
-  dispatch({ type: TYPES.MATCH_FAILURE, payload: { error } });
-};
-
-export const fetchMatch = matchId => async dispatch => {
-  try {
-    dispatch(matchBegin());
-    const res = matchId
-      ? await axios.get(`/api/match/${matchId}`)
-      : { data: {} };
-    dispatch(matchSuccess(res.data));
-  } catch (e) {
-    dispatch(matchFailure(e.response.data));
-  }
-};
-
-export const removeMatch = matchId => async dispatch => {
-  try {
-    dispatch(matchBegin());
-    const res = await axios.delete(`/api/match/${matchId}`);
-    matchSuccess(res.data);
-  } catch (e) {
-    dispatch(matchFailure(e.response.data));
-  }
-};
-
-export const upsertMatch = (matchId, match) => async dispatch => {
-  try {
-    const res = matchId
-      ? await axios.put(`/api/match/${matchId}`, match)
-      : await axios.post('/api/match', match);
-    await dispatch(matchSuccess(res.data));
-  } catch (e) {
-    dispatch(matchFailure(e.response.data));
-  }
-};
-
 export const statesBegin = () => async dispatch => {
   dispatch({ type: TYPES.STATES_BEGIN });
 };
