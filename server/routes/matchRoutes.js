@@ -50,6 +50,7 @@ module.exports = app => {
 
   app.put('/api/match/:id', requireLogin, async (req, res, next) => {
     try {
+      //throw new Error('Test handling match update error...');
       const { title, instructions, matches, options, published } = req.body;
       const match = await Match.findOneAndUpdate(
         {

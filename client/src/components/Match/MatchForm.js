@@ -4,7 +4,8 @@ import { Formik } from "formik";
 import { Form, Grid, Segment, Tab } from "semantic-ui-react";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
-import { Accordion, Button, IconDropdown, InputText } from "../UI/";
+import { useResult } from "../../hooks/";
+import { Accordion, Button, IconDropdown, InputText, Notify } from "../UI/";
 import HtmlSerializer from "./HtmlSerializer";
 import MatchAdd from "./MatchAdd";
 import MatchBulk from "./MatchBulk";
@@ -124,6 +125,8 @@ const MatchForm = props => {
   const [state, setState] = useState(initialState);
   const termRef = useRef();
   const definitionRef = useRef();
+
+  const [getNotify] = useResult({});
 
   const {
     isMobile,
@@ -394,7 +397,12 @@ const MatchForm = props => {
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
    * @param {function} validateForm Reference to Formik `validateForm` function
    */
-  const handleNewMatch = async (event, matches, setFieldValue, validateForm) => {
+  const handleNewMatch = async (
+    event,
+    matches,
+    setFieldValue,
+    validateForm
+  ) => {
     event.preventDefault();
 
     let termHtml = HtmlSerializer.serialize(term.value);
@@ -421,6 +429,7 @@ const MatchForm = props => {
         ];
         await setFieldValue("matches", updated, false); // Update Formik state
         await setFieldValue("bulkMatches", matchToString(updated), false); // Format bulkMatches then update Formik state
+        await validateForm();
         handleEditorChange({ value: HtmlSerializer.deserialize("") }, "term"); // Reset editors' contents
         handleEditorChange(
           { value: HtmlSerializer.deserialize("") },
@@ -429,7 +438,6 @@ const MatchForm = props => {
         setError("term", ""); // Clear errors (using custom function)
         setError("definition", "");
         setFocus(termRef); // Move focus to term editor
-        await validateForm();
       })
       .catch(errors => {
         // If invalid, update state with errors
@@ -494,7 +502,8 @@ const MatchForm = props => {
         bulkMatches: matchToString(props.game.matches || [])
       }}
       onSubmit={async (values, actions) => {
-        const { setSubmitting } = actions;
+        let results;
+        const { setStatus, setSubmitting } = actions;
         await setSubmitting(true);
         const {
           duration,
@@ -507,7 +516,7 @@ const MatchForm = props => {
         } = values;
         const options = { duration, itemsPerBoard, colorScheme };
         if (matchId) {
-          const results = await onUpdateMatch(
+          results = await onUpdateMatch(
             {
               instructions,
               matches,
@@ -516,17 +525,20 @@ const MatchForm = props => {
             },
             matchId
           );
-          const success = results.data || false;
-          if (success) await onSuccess();
         } else {
-          const results = await onCreateMatch({
+          results = await onCreateMatch({
             instructions,
             matches,
             options,
             title
           });
-          const success = results.data || false;
-          if (success) await onSuccess(results.data.matchId);
+        }
+        const success = results.data || false;
+        const notify = getNotify(results);
+        if (success) {
+          await onSuccess(results.data.matchId);
+        } else {
+          await setStatus(notify);
         }
         await setSubmitting(false);
       }}
@@ -543,15 +555,15 @@ const MatchForm = props => {
           isSubmitting,
           isValid,
           setFieldValue,
-          //setStatus,
-          //status,
+          setStatus,
+          status,
           touched,
           validateForm,
           values
         } = props;
 
-        const disabled = loading || isSubmitting
-   
+        const disabled = loading || isSubmitting;
+
         const editorPanes = [
           {
             hideOnMobile: true,
@@ -571,7 +583,12 @@ const MatchForm = props => {
                     handleEditorTouch(field, touched)
                   }
                   onNewMatch={event =>
-                    handleNewMatch(event, values.matches, setFieldValue, validateForm)
+                    handleNewMatch(
+                      event,
+                      values.matches,
+                      setFieldValue,
+                      validateForm
+                    )
                   }
                   term={term}
                   termRef={termRef}
@@ -627,6 +644,7 @@ const MatchForm = props => {
             <span id="match-id">
               {values.matchId ? values.matchId : "UNPUBLISHED"}
             </span>
+            {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
             <Grid columns={2} stackable>
               <Grid.Column computer={8} mobile={16} tablet={16}>
                 <Segment>
@@ -646,7 +664,7 @@ const MatchForm = props => {
                     </Button>
                     <Button
                       active
-                      disabled={disabled|| !isValid || !dirty || isMatchDirty}
+                      disabled={disabled || !isValid || !dirty || isMatchDirty}
                       icon="save"
                       labelPosition="left"
                       loading={isSubmitting}
