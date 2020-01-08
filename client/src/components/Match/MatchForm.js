@@ -97,6 +97,9 @@ const GAME_OPTS_ACCORDION = "gameOptions";
 const GAME_DESC_ACCORDION = "gameDescription";
 const HAS_COMMA = RegExp("^(.?)+([,]+)(.?)+$");
 
+const EMPTY_EDITOR =
+  '{"object":"value","document":{"object":"document","data":{},"nodes":[{"object":"block","type":"paragraph","data":{},"nodes":[{"object":"text","text":"","marks":[]}]}]}}';
+
 // Used as the original shape of match edit state
 const initialState = {
   accordion: {
@@ -106,6 +109,7 @@ const initialState = {
   activePage: 1,
   activeTab: 0,
   definition: {
+    dirty: false,
     placeholder: "",
     touched: false,
     value: HtmlSerializer.deserialize("")
@@ -115,6 +119,7 @@ const initialState = {
   },
   itemsPerPage: 10,
   term: {
+    dirty: false,
     placeholder: "",
     touched: false,
     value: HtmlSerializer.deserialize("")
@@ -330,7 +335,11 @@ const MatchForm = props => {
     setState(prevState => {
       return {
         ...prevState,
-        [field]: { ...prevState[field], value: value }
+        [field]: {
+          ...prevState[field],
+          dirty: EMPTY_EDITOR !== JSON.stringify(value) ? true : false,
+          value: value
+        }
       };
     });
   };
@@ -843,7 +852,7 @@ const MatchForm = props => {
                 />
               </Grid.Column>
             </Grid>
-            <div>{/*<DisplayFormikState {...props} />*/}</div>
+            <div>{<DisplayFormikState {...props} />}</div>
           </Form>
         );
       }}

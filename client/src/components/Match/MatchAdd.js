@@ -15,6 +15,7 @@ const MatchAdd = ({
   term,
   termRef
 }) => {
+
   return (
     <Grid columns={1}>
       <Grid.Row>
@@ -56,11 +57,10 @@ const MatchAdd = ({
           <Button
             title="Add to the Match Bank"
             icon="plus"
-            positive={term.touched && definition.touched}
+            positive={!disabled && term.dirty && definition.dirty}
             type="button"
-            active={term.touched && definition.touched}
             tabIndex={5}
-            disabled={disabled}
+            disabled={disabled || !term.dirty || !definition.dirty }
             onClick={event => onNewMatch(event)}
             labelPosition="left"
           >

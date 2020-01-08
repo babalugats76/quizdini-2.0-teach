@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Route, Switch, matchPath } from 'react-router-dom';
 import { Container, Image, List } from 'semantic-ui-react';
+import { Icon } from '../UI/';
 import Account from './Account';
 import Payment from './Payment';
 import Password from './Password';
-import Icon from '../UI/Icon';
 
 /**
  * Ordering of routes is important!

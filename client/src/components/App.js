@@ -4,15 +4,9 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import withSizes from 'react-sizes';
 import { Visibility } from 'semantic-ui-react';
-import MatchGame from './Match';
-import Register from './Register';
-import Profile from './Profile/';
-import Terms from './Terms/';
-import About from './About/';
-import Dashboard from './Dashboard/';
 import Footer from './Footer';
 import NavBar from './NavBar';
-import { Checkout, Landing, Login, Lost, Reset, Verify } from '/';
+import { About, Checkout, Dashboard, Landing, Login, Lost, Match, Profile, Register, Reset, Terms, Verify } from '/';
 
 const PrivateRoute = ({
   component: Component,
@@ -130,7 +124,7 @@ class App extends Component {
               loggedIn={loggedIn}
               exact
               path="/match"
-              component={MatchGame}
+              component={Match}
               isMobile={isMobile}
             />
             <PrivateRoute

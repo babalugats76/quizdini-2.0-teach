@@ -19,12 +19,12 @@ const MatchBulk = ({
       <div id="btn-group-bulk-match">
         <Button
           as="label"
-          title="Upload Bank of Matches"
+          title="Update Bank of Matches"
           icon="update"
           size="small"
           type="button"
           tabIndex={-1}
-          disabled={disabled}
+          disabled={disabled || !dirty}
           positive={dirty}
           onClick={event => onUpdateMatches(event)}
           labelPosition="left"
