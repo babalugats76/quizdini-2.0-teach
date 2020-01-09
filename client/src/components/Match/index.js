@@ -65,7 +65,6 @@ const Match = props => {
 };
 
 Match.propTypes = {
-  isMobile: PropTypes.bool.isRequired,
   location: PropTypes.object.isRequired
 };
 

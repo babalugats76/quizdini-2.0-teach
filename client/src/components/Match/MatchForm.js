@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import { Form, Grid, Segment, Tab } from "semantic-ui-react";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
-import { useResult } from "../../hooks/";
+import { useResult, useWindowSize } from "../../hooks/";
 import { Accordion, Button, IconDropdown, InputText, Notify } from "../UI/";
 import HtmlSerializer from "./HtmlSerializer";
 import MatchAdd from "./MatchAdd";
@@ -131,10 +131,11 @@ const MatchForm = props => {
   const termRef = useRef();
   const definitionRef = useRef();
 
+  const [isMobile] = useWindowSize();
+
   const [getNotify] = useResult({});
 
   const {
-    isMobile,
     loading,
     maxMatches,
     onCreateMatch,

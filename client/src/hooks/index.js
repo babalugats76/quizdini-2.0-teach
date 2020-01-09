@@ -1,13 +1,13 @@
 import useActions from './useActions';
 import useAPI from './useAPI';
 import useData from './useData';
-
 import useMessage from './useMessage';
 import useRedirect from './useRedirect';
 import useReduxData from '././useReduxData';
 import useResult from './useResult';
 import useStripe from './useStripe';
 import useTimeout from './useTimeout';
+import useWindowSize from './useWindowSize';
 
 export {
   useActions,
@@ -18,5 +18,6 @@ export {
   useReduxData,
   useResult,
   useStripe,
-  useTimeout
+  useTimeout,
+  useWindowSize
 };

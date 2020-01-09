@@ -125,7 +125,6 @@ class App extends Component {
               exact
               path="/match"
               component={Match}
-              isMobile={isMobile}
             />
             <PrivateRoute
               loggedIn={loggedIn}
