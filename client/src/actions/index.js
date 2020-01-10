@@ -1,5 +1,5 @@
-import axios from 'axios';
-import * as TYPES from './types';
+import axios from "axios";
+import * as TYPES from "./types";
 
 /**
  * ACCOUNT SECTION
@@ -20,7 +20,7 @@ export const accountFailure = error => async dispatch => {
 export const fetchAccount = () => async dispatch => {
   try {
     dispatch(accountBegin());
-    const res = await axios.get('/api/account');
+    const res = await axios.get("/api/account");
     dispatch(accountSuccess(res.data));
     return { data: res.data };
   } catch (err) {
@@ -32,7 +32,7 @@ export const fetchAccount = () => async dispatch => {
 
 export const updateAccount = data => async dispatch => {
   try {
-    const res = await axios.put('/api/account', data);
+    const res = await axios.put("/api/account", data);
     dispatch(accountSuccess(res.data));
     return { data: res.data };
   } catch (err) {
@@ -51,16 +51,10 @@ export const authBegin = () => async dispatch => {
   dispatch({ type: TYPES.AUTH_BEGIN });
 };
 
-export const authSuccess = ({
-  accountType,
-  credits,
-  googlePicture,
-  loggedIn,
-  username
-}) => async dispatch => {
+export const authSuccess = data => async dispatch => {
   dispatch({
     type: TYPES.AUTH_SUCCESS,
-    payload: { accountType, credits, googlePicture, loggedIn, username }
+    payload: { data }
   });
 };
 
@@ -69,18 +63,16 @@ export const authFailure = error => async dispatch => {
 };
 
 export const fetchAuth = () => async dispatch => {
-  dispatch(authBegin());
   try {
-    console.log('fetching auth');
-    const res = await axios.get('/api/current_user');
-    const loggedIn = !!res.data;
-    const { credits, googleId, googlePicture, username } = res.data || {};
-    const accountType = googleId ? 'google' : 'local';
-    dispatch(
-      authSuccess({ accountType, credits, googlePicture, loggedIn, username })
-    );
-  } catch (e) {
-    dispatch(authFailure(e.response.data));
+    console.log("fetching auth");
+    dispatch(authBegin());
+    const res = await axios.get("/api/current_user");
+    dispatch(authSuccess(res.data));
+    return { data: res.data };
+  } catch (err) {
+    const { data: error } = err.response;
+    dispatch(authFailure(error));
+    return { error };
   }
 };
 
@@ -104,7 +96,7 @@ export const countriesFailure = error => async dispatch => {
 export const fetchCountries = () => async dispatch => {
   try {
     dispatch(countriesBegin());
-    const res = await axios.get('/api/countries');
+    const res = await axios.get("/api/countries");
     dispatch(countriesSuccess(res.data));
     return { data: res.data };
   } catch (err) {
@@ -129,7 +121,7 @@ export const statesFailure = error => async dispatch => {
 export const fetchStates = () => async dispatch => {
   try {
     dispatch(statesBegin());
-    const res = await axios.get('/api/states');
+    const res = await axios.get("/api/states");
     dispatch(statesSuccess(res.data));
     return { data: res.data };
   } catch (err) {

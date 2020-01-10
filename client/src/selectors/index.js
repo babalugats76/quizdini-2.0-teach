@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect';
+import { createSelector } from "reselect";
 /**
  *  Remap object array keys
  *
@@ -54,4 +54,25 @@ export const countrySelector = createSelector(
 export const accountSelector = createSelector(
   state => state.account,
   account => account
+);
+
+export const authSelector = createSelector(
+  state => state.auth,
+  auth => {
+    const { googleId, id = null } = auth.data || {};
+    return id
+      ? {
+          ...auth.data,
+          accountType: googleId ? "google" : "local",
+          loggedIn: true
+        }
+      : {
+          accountType: null,
+          credits: null,
+          googlePicture: null,
+          error: null,
+          loggedIn: false,
+          username: null
+        };
+  }
 );

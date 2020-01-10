@@ -14,7 +14,7 @@ const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <App />
+      <App isMobile={false} />
     </Router>
   </Provider>,
   document.getElementById('quizdini')

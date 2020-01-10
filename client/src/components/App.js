@@ -1,12 +1,35 @@
-import React, { Component, useEffect } from 'react';
-import { withRouter, Redirect, Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
-import withSizes from 'react-sizes';
-import { Visibility } from 'semantic-ui-react';
-import Footer from './Footer';
-import NavBar from './NavBar';
-import { About, Checkout, Dashboard, Landing, Login, Lost, Match, Profile, Register, Reset, Terms, Verify } from '/';
+import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { Link, Redirect, Route, Switch, withRouter } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {
+  Container,
+  Grid,
+  Image,
+  List,
+  Menu,
+  Segment,
+  Sidebar,
+  Visibility
+} from "semantic-ui-react";
+import { useReduxData, useWindowSize } from "../hooks/";
+import { authSelector } from "../selectors/";
+import { Icon } from "./UI/";
+import logo from "../logo.svg";
+import {
+  About,
+  Checkout,
+  Dashboard,
+  Landing,
+  Login,
+  Lost,
+  Match,
+  Profile,
+  Register,
+  Reset,
+  Terms,
+  Verify
+} from "/";
 
 const PrivateRoute = ({
   component: Component,
@@ -17,7 +40,7 @@ const PrivateRoute = ({
   useEffect(() => {
     title &&
       (document.title = [process.env.REACT_APP_WEBSITE_NAME, title].join(
-        ' | '
+        " | "
       ));
   });
   return (
@@ -36,7 +59,7 @@ const PublicOnlyRoute = ({
   useEffect(() => {
     title &&
       (document.title = [process.env.REACT_APP_WEBSITE_NAME, title].join(
-        ' | '
+        " | "
       ));
   });
   return (
@@ -50,7 +73,7 @@ const PublicRoute = ({ component: Component, title, ...rest }) => {
   useEffect(() => {
     title &&
       (document.title = [process.env.REACT_APP_WEBSITE_NAME, title].join(
-        ' | '
+        " | "
       ));
   });
   return (
@@ -58,147 +81,333 @@ const PublicRoute = ({ component: Component, title, ...rest }) => {
   );
 };
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fixTopMenu: false
-    };
-  }
-  componentDidMount() {
-    this.props.fetchAuth();
-  }
+const App = props => {
+  // Selectors (memoized with Reselect)
+  const auth = useSelector(authSelector);
 
-  stickTopMenu = () => {
-    this.setState({ fixTopMenu: true });
+  // Redux data
+  useReduxData({ items: ["fetchAuth"], deps: [] });
+
+  // Destructure data
+  const { isMobile } = props;
+  const {
+    accountType,
+    credits,
+    googlePicture,
+    error,
+    loggedIn,
+    username
+  } = auth;
+
+  //if (!user) return null;
+  if (error) return <div>Error component here...</div>;
+
+  return (
+    <Layout {...auth}>
+      <Switch>
+        <PrivateRoute
+          loggedIn={loggedIn}
+          exact
+          path="/dashboard"
+          component={Dashboard}
+          title="Dashboard"
+          credits={credits || 0}
+        />
+        <PrivateRoute
+          loggedIn={loggedIn}
+          exact
+          path="/match"
+          component={Match}
+        />
+        <PrivateRoute
+          loggedIn={loggedIn}
+          exact
+          path="/credits"
+          component={Checkout}
+          title="Buy Credits"
+        />
+        <PrivateRoute
+          loggedIn={loggedIn}
+          accountType={accountType}
+          path="/profile"
+          component={Profile}
+          title="Profile"
+        />
+        <PublicRoute path="/about" component={About} title="About" />
+        <PublicRoute path="/terms" component={Terms} title="Terms" />
+        <PublicOnlyRoute
+          loggedIn={loggedIn}
+          exact
+          path="/auth/google"
+          render={() => <Redirect to="/auth/google" />}
+        />
+        <PublicOnlyRoute
+          loggedIn={loggedIn}
+          exact
+          path="/register"
+          component={Register}
+          title="Sign Up"
+        />
+        <PublicOnlyRoute
+          loggedIn={loggedIn}
+          exact
+          path="/verify/:secret"
+          component={Verify}
+          title="Verify"
+        />
+        <PublicOnlyRoute
+          loggedIn={loggedIn}
+          exact
+          path="/lost"
+          component={Lost}
+          title="Recovery"
+        />
+        <PublicOnlyRoute
+          loggedIn={loggedIn}
+          exact
+          path="/reset/:secret"
+          component={Reset}
+          title="Reset"
+        />
+        <PublicOnlyRoute
+          loggedIn={loggedIn}
+          exact
+          path="/login"
+          component={Login}
+          title="Login"
+        />
+        <PublicRoute component={Landing} />
+      </Switch>
+    </Layout>
+  );
+};
+
+export default withRouter(App);
+
+const Layout = props => {
+  const [state, setState] = useState({ fixTopMenu: false, showSidebar: false });
+  const [isMobile] = useWindowSize();
+
+  const { children } = props;
+  const { fixTopMenu, showSidebar } = state;
+
+  useEffect(() => {
+    console.log(JSON.stringify(state, null, 4));
+    console.log("isMobile", isMobile);
+  }, [state, isMobile]);
+
+  const stickTopMenu = () => {
+    setState(prevState => {
+      return {
+        ...prevState,
+        fixTopMenu: true
+      };
+    });
   };
 
-  unstickTopMenu = () => {
-    this.setState({ fixTopMenu: false });
+  const unstickTopMenu = () => {
+    setState(prevState => {
+      return {
+        ...prevState,
+        fixTopMenu: false
+      };
+    });
   };
 
-  render() {
-    const { fixTopMenu } = this.state;
+  const handlePusherClick = () => {
+    console.log("handle pushed clicked!");
+    setState(prevState => {
+      return {
+        ...prevState,
+        ...(prevState.showSidebar && { showSidebar: false })
+      };
+    });
+  };
 
-    const {
-      accountType,
-      credits,
-      googlePicture,
-      error,
-      isMobile,
-      loaded,
-      loggedIn,
-      username
-    } = this.props;
+  const handleToggle = () => {
+    console.log("toggle clicked...");
+    setState(prevState => {
+      return {
+        ...prevState,
+        showSidebar: !prevState.showSidebar
+      };
+    });
+  };
 
-    if (!loaded) return null;
-    if (error) return <div>Error component here...</div>;
-
-    return (
-      <NavBar
-        credits={credits}
-        fixTopMenu={fixTopMenu}
-        googlePicture={googlePicture}
-        isMobile={isMobile}
-        loggedIn={loggedIn}
-        username={username}
-      >
+  return (
+    <Sidebar.Pushable className={fixTopMenu ? "menu-is-fixed" : undefined}>
+      <SidebarNav {...props} visible={showSidebar} />
+      <Sidebar.Pusher onClick={showSidebar ? handlePusherClick : null}>
+        <div onClick={handleToggle}>Hello, World!</div>
         <Visibility
           as="div"
           className="page-wrapper"
-          onTopPassed={this.stickTopMenu}
-          onTopPassedReverse={this.unstickTopMenu}
+          onTopPassed={stickTopMenu}
+          onTopPassedReverse={unstickTopMenu}
           offset={0}
           once={false}
         >
-          <Switch>
-            <PrivateRoute
-              loggedIn={loggedIn}
-              exact
-              path="/dashboard"
-              component={Dashboard}
-              title="Dashboard"
-              credits={credits || 0}
-            />
-            <PrivateRoute
-              loggedIn={loggedIn}
-              exact
-              path="/match"
-              component={Match}
-            />
-            <PrivateRoute
-              loggedIn={loggedIn}
-              exact
-              path="/credits"
-              component={Checkout}
-              title="Buy Credits"
-            />
-            <PrivateRoute
-              loggedIn={loggedIn}
-              accountType={accountType}
-              path="/profile"
-              component={Profile}
-              title="Profile"
-            />
-            <PublicRoute path="/about" component={About} title="About" />
-            <PublicRoute path="/terms" component={Terms} title="Terms" />
-            <PublicOnlyRoute
-              loggedIn={loggedIn}
-              exact
-              path="/auth/google"
-              render={() => <Redirect to="/auth/google" />}
-            />
-            <PublicOnlyRoute
-              loggedIn={loggedIn}
-              exact
-              path="/register"
-              component={Register}
-              title="Sign Up"
-            />
-            <PublicOnlyRoute
-              loggedIn={loggedIn}
-              exact
-              path="/verify/:secret"
-              component={Verify}
-              title="Verify"
-            />
-            <PublicOnlyRoute
-              loggedIn={loggedIn}
-              exact
-              path="/lost"
-              component={Lost}
-              title="Recovery"
-            />
-            <PublicOnlyRoute
-              loggedIn={loggedIn}
-              exact
-              path="/reset/:secret"
-              component={Reset}
-              title="Reset"
-            />
-            <PublicOnlyRoute
-              loggedIn={loggedIn}
-              exact
-              path="/login"
-              component={Login}
-              title="Login"
-            />
-            <PublicRoute component={Landing} />
-          </Switch>
+          {children}
         </Visibility>
         <Footer />
-      </NavBar>
-    );
-  }
-}
+      </Sidebar.Pusher>
+    </Sidebar.Pushable>
+  );
+};
 
-const mapStateToProps = ({ auth }) => ({ ...auth });
+const SidebarNav = ({ googlePicture, loggedIn, username, visible }) => {
+  const navItems = [
+    {
+      key: "dashboard",
+      as: Link,
+      to: "/dashboard",
+      content: "Dashboard",
+      position: "left",
+      loggedIn: true
+    },
+    {
+      key: "buy",
+      as: Link,
+      to: "/credits",
+      content: "Buy Credits",
+      position: "left",
+      loggedIn: true
+    },
+    {
+      key: "profile",
+      as: Link,
+      to: "/profile",
+      content: NavProfile({ googlePicture, username }),
+      position: "left",
+      loggedIn: true
+    },
+    {
+      key: "logout",
+      as: "a",
+      href: "/api/logout",
+      content: "Logout",
+      position: "left",
+      loggedIn: true
+    }
+  ];
 
-const mapSizesToProps = ({ width }) => ({
-  isMobile: width < 768
-});
+  const sidebarItems = navItems
+    .filter(item => loggedIn === item.loggedIn)
+    .map(item => {
+      const { key, as, position, content, loggedIn, ...rest } = item;
+      return (
+        <Menu.Item
+          link={!!as}
+          key={key}
+          as={as}
+          position={position}
+          content={content}
+          tabIndex={-1}
+          {...rest}
+        />
+      );
+    });
 
-export default connect(
-  mapStateToProps,
-  actions
-)(withRouter(withSizes(mapSizesToProps)(App)));
+  return (
+    (sidebarItems.length > 0 && (
+      <Sidebar
+        as={Menu}
+        animation="push"
+        direction="left"
+        inverted
+        vertical
+        visible={visible}
+        size="massive"
+      >
+        {sidebarItems}
+      </Sidebar>
+    )) ||
+    null
+  );
+};
+
+SidebarNav.propTypes = {
+  googlePicture: PropTypes.string,
+  loggedIn: PropTypes.bool.isRequired,
+  username: PropTypes.string,
+  visible: PropTypes.bool.isRequired
+};
+
+const NavProfile = ({ googlePicture, username }) => {
+  return (
+    (username && <span>{username}</span>) ||
+    (googlePicture && (
+      <>
+        <span>Profile</span>
+        <Image
+          avatar
+          className="profile"
+          size="mini"
+          spaced="right"
+          src={googlePicture}
+        />
+      </>
+    ))
+  );
+};
+
+const Footer = props => {
+  return (
+    <Segment as="footer" id="footer" inverted vertical>
+      <Container textAlign="center">
+        <Grid columns={3} stackable inverted verticalAlign="middle">
+          <Grid.Row>
+            <Grid.Column>
+              <List divided horizontal inverted link size="big">
+                <List.Item key="about" as={Link} to="/about" tabIndex={-1}>
+                  About
+                </List.Item>
+                <List.Item key="terms" as={Link} to="/terms" tabIndex={-1}>
+                  Terms
+                </List.Item>
+                <List.Item
+                  key="contact"
+                  href="mailto:james@colestock.com"
+                  tabIndex={-1}
+                >
+                  Contact Us
+                </List.Item>
+              </List>
+            </Grid.Column>
+            <Grid.Column>
+              <List divided horizontal inverted link size="big">
+                <List.Item
+                  as="a"
+                  href="https://twitter.com/quizdini"
+                  key="twitter"
+                  style={{ fill: "#ffffff" }}
+                  tabIndex={-1}
+                  target="_blank"
+                  title="Follow us on Twitter"
+                >
+                  <Icon name="twitter" />
+                </List.Item>
+                <List.Item
+                  as="a"
+                  href="https://www.youtube.com/user/quizdini"
+                  key="youtube"
+                  style={{ fill: "#ffffff" }}
+                  tabIndex={-1}
+                  target="_blank"
+                  title="Check us out on YouTube"
+                >
+                  <Icon name="youtube" />
+                </List.Item>
+              </List>
+            </Grid.Column>
+            <Grid.Column>
+              <List horizontal inverted divided link size="big">
+                <List.Item>Copyright &copy; Quizdini, 2013-2020</List.Item>
+              </List>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    </Segment>
+  );
+};
