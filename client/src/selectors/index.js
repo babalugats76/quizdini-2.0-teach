@@ -62,11 +62,13 @@ export const authSelector = createSelector(
     const { googleId, id = null } = auth.data || {};
     return id
       ? {
+          loaded: auth.loaded,
           ...auth.data,
           accountType: googleId ? "google" : "local",
-          loggedIn: true
+          loggedIn: true,
         }
       : {
+          loaded: auth.loaded,
           accountType: null,
           credits: null,
           googlePicture: null,

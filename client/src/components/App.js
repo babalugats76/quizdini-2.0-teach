@@ -14,7 +14,7 @@ import {
 } from "semantic-ui-react";
 import { useReduxData, useWindowSize } from "../hooks/";
 import { authSelector } from "../selectors/";
-import { Icon } from "./UI/";
+import { Icon, Loader  } from "./UI/";
 import logo from "../logo.svg";
 import {
   About,
@@ -89,17 +89,18 @@ const App = props => {
   useReduxData({ items: ["fetchAuth"], deps: [] });
 
   // Destructure data
-  const { isMobile } = props;
   const {
     accountType,
     credits,
     googlePicture,
     error,
+    loaded,
     loggedIn,
     username
   } = auth;
 
-  //if (!user) return null;
+  console.log(loaded);
+  if (!loaded) return <Loader/>;
   if (error) return <div>Error component here...</div>;
 
   return (
@@ -184,17 +185,13 @@ const App = props => {
 
 export default withRouter(App);
 
-const Layout = props => {
+const Layout = ({ children, ...rest }) => {
   const [state, setState] = useState({ fixTopMenu: false, showSidebar: false });
-  const [isMobile] = useWindowSize();
-
-  const { children } = props;
   const { fixTopMenu, showSidebar } = state;
 
-  useEffect(() => {
+  /*useEffect(() => {
     console.log(JSON.stringify(state, null, 4));
-    console.log("isMobile", isMobile);
-  }, [state, isMobile]);
+  }, [state]);*/
 
   const stickTopMenu = () => {
     setState(prevState => {
@@ -214,8 +211,8 @@ const Layout = props => {
     });
   };
 
-  const handlePusherClick = () => {
-    console.log("handle pushed clicked!");
+  const hideSidebar = () => {
+    console.log("hide sidebar...");
     setState(prevState => {
       return {
         ...prevState,
@@ -224,8 +221,8 @@ const Layout = props => {
     });
   };
 
-  const handleToggle = () => {
-    console.log("toggle clicked...");
+  const toggleMenu = () => {
+    console.log("toggle menu...");
     setState(prevState => {
       return {
         ...prevState,
@@ -236,9 +233,12 @@ const Layout = props => {
 
   return (
     <Sidebar.Pushable className={fixTopMenu ? "menu-is-fixed" : undefined}>
-      <SidebarNav {...props} visible={showSidebar} />
-      <Sidebar.Pusher onClick={showSidebar ? handlePusherClick : null}>
-        <div onClick={handleToggle}>Hello, World!</div>
+      <SidebarNav onItemClick={hideSidebar} visible={showSidebar} {...rest} />
+      <Sidebar.Pusher
+        dimmed={showSidebar}
+        onClick={showSidebar ? hideSidebar : null}
+      >
+        <HeaderNav fixTopMenu={fixTopMenu} onMenuClick={toggleMenu} {...rest} />
         <Visibility
           as="div"
           className="page-wrapper"
@@ -255,7 +255,13 @@ const Layout = props => {
   );
 };
 
-const SidebarNav = ({ googlePicture, loggedIn, username, visible }) => {
+const SidebarNav = ({
+  googlePicture,
+  loggedIn,
+  onItemClick,
+  username,
+  visible
+}) => {
   const navItems = [
     {
       key: "dashboard",
@@ -300,6 +306,7 @@ const SidebarNav = ({ googlePicture, loggedIn, username, visible }) => {
           link={!!as}
           key={key}
           as={as}
+          onClick={onItemClick}
           position={position}
           content={content}
           tabIndex={-1}
@@ -331,6 +338,144 @@ SidebarNav.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   username: PropTypes.string,
   visible: PropTypes.bool.isRequired
+};
+
+const HeaderNav = ({
+  credits,
+  fixTopMenu,
+  googlePicture,
+  loggedIn,
+  onMenuClick,
+  username
+}) => {
+  const [isMobile] = useWindowSize();
+
+  const navItems = [
+    {
+      key: "logo",
+      as: Link,
+      to: "/dashboard",
+      content: <Image size="mini" src={logo} />,
+      position: "left",
+      loggedIn: true,
+      mobile: true
+    },
+    {
+      key: "logo",
+      as: Link,
+      to: "/",
+      content: <Image size="mini" src={logo} />,
+      position: "left",
+      loggedIn: false,
+      mobile: true
+    },
+    {
+      key: "dashboard",
+      as: Link,
+      to: "/dashboard",
+      content: "Dashboard",
+      position: "left",
+      loggedIn: true,
+      mobile: false
+    },
+    {
+      key: "credits",
+      as: null,
+      to: null,
+      content: `Credits: ${credits}`,
+      position: "left",
+      loggedIn: true,
+      mobile: true
+    },
+    {
+      key: "buy",
+      as: Link,
+      to: "/credits",
+      content: "Buy Credits",
+      position: "left",
+      loggedIn: true,
+      mobile: false
+    },
+    {
+      key: "profile",
+      as: Link,
+      to: "/profile",
+      content: NavProfile({ googlePicture, username }),
+      position: "left",
+      loggedIn: true,
+      mobile: false
+    },
+    {
+      key: "logout",
+      as: "a",
+      href: "/api/logout",
+      content: isMobile ? <Icon name="logout" /> : "Logout",
+      position: "right",
+      loggedIn: true,
+      mobile: true
+    },
+    {
+      key: "register",
+      as: Link,
+      to: "/register",
+      content: "Register",
+      position: "right",
+      loggedIn: false,
+      mobile: true
+    },
+    {
+      key: "login",
+      as: Link,
+      to: "/login",
+      content: "Login",
+      position: "right",
+      loggedIn: false,
+      mobile: true
+    }
+  ];
+
+  const headerItems = navItems
+    .filter(
+      item =>
+        loggedIn === item.loggedIn && (!isMobile || isMobile === item.mobile)
+    )
+    .map(item => {
+      const { key, as, position, content, loggedIn, mobile, ...rest } = item;
+      return (
+        <Menu.Item
+          link={!!as}
+          key={key}
+          as={as}
+          position={position}
+          content={content}
+          tabIndex={-1}
+          {...rest}
+        />
+      );
+    });
+
+  return (
+    <Menu
+      as="nav"
+      borderless
+      fixed={fixTopMenu ? "top" : undefined}
+      inverted
+      size="massive"
+    >
+      {loggedIn && isMobile && (
+        <Menu.Item key="sidebar" as="a" position="left" onClick={onMenuClick}>
+          <Icon name="menu" />
+        </Menu.Item>
+      )}
+      <Container>{headerItems}</Container>
+    </Menu>
+  );
+};
+
+HeaderNav.propTypes = {
+  googlePicture: PropTypes.string,
+  loggedIn: PropTypes.bool.isRequired,
+  username: PropTypes.string
 };
 
 const NavProfile = ({ googlePicture, username }) => {

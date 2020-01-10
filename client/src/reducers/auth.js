@@ -2,6 +2,7 @@ import * as TYPES from '../actions/types';
 
 const initialState = {
   data: null,
+  loaded: false,
   loading: false,
   error: null
 };
@@ -17,6 +18,7 @@ export default function(state = initialState, action) {
     case TYPES.AUTH_SUCCESS:
       return {
         ...state,
+        loaded: true,
         loading: false,
         error: null,
         data: action.payload.data
@@ -24,6 +26,7 @@ export default function(state = initialState, action) {
     case TYPES.AUTH_FAILURE:
       return {
         ...state,
+        loaded: true,
         loading: false,
         error: action.payload.error,
         data: null
