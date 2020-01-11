@@ -12,9 +12,9 @@ import {
   Sidebar,
   Visibility
 } from "semantic-ui-react";
-import { useReduxData, useWindowSize } from "../hooks/";
+import { useReduxData, useTitle, useWindowSize } from "../hooks/";
 import { authSelector } from "../selectors/";
-import { Icon, Loader  } from "./UI/";
+import { Icon, Loader } from "./UI/";
 import logo from "../logo.svg";
 import {
   About,
@@ -37,12 +37,7 @@ const PrivateRoute = ({
   loggedIn = false,
   ...rest
 }) => {
-  useEffect(() => {
-    title &&
-      (document.title = [process.env.REACT_APP_WEBSITE_NAME, title].join(
-        " | "
-      ));
-  });
+  useTitle({ title, deps: [Component] });
   return (
     (loggedIn && (
       <Route render={props => <Component {...props} {...rest} />} {...rest} />
@@ -56,12 +51,7 @@ const PublicOnlyRoute = ({
   loggedIn = false,
   ...rest
 }) => {
-  useEffect(() => {
-    title &&
-      (document.title = [process.env.REACT_APP_WEBSITE_NAME, title].join(
-        " | "
-      ));
-  });
+  useTitle({ title, deps: [Component] });
   return (
     (!loggedIn && (
       <Route render={props => <Component {...props} {...rest} />} {...rest} />
@@ -70,12 +60,7 @@ const PublicOnlyRoute = ({
 };
 
 const PublicRoute = ({ component: Component, title, ...rest }) => {
-  useEffect(() => {
-    title &&
-      (document.title = [process.env.REACT_APP_WEBSITE_NAME, title].join(
-        " | "
-      ));
-  });
+  useTitle({ title, deps: [Component] });
   return (
     <Route render={props => <Component {...props} {...rest} />} {...rest} />
   );
@@ -100,7 +85,7 @@ const App = props => {
   } = auth;
 
   console.log(loaded);
-  if (!loaded) return <Loader/>;
+  if (!loaded) return <Loader />;
   if (error) return <div>Error component here...</div>;
 
   return (
@@ -177,7 +162,7 @@ const App = props => {
           component={Login}
           title="Login"
         />
-        <PublicRoute component={Landing} />
+        <PublicRoute component={Landing} title="Home" />
       </Switch>
     </Layout>
   );
