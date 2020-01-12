@@ -64,7 +64,7 @@ export const authFailure = error => async dispatch => {
 
 export const fetchAuth = () => async dispatch => {
   try {
-    console.log("fetching auth");
+    console.log("fetching auth...");
     dispatch(authBegin());
     const res = await axios.get("/api/current_user");
     dispatch(authSuccess(res.data));

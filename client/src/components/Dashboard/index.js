@@ -131,7 +131,7 @@ const Dashboard = props => {
         {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
           (showLoader && <Loader />) ||
           games[state.activeGameIdx].render({
-            ...props,
+            ...props, // including credits
             data,
             error,
             loading,

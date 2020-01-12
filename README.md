@@ -72,7 +72,16 @@ Messages need to be standardized, etc.
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Server
 - Client
-  - Formik upgrade 2.0.X?
+  - rename `onSuccess` to `handleSuccess` and `onSuccess`
+  - move selector logic into reducers for all 4 entities
+  - document hooks 
+  - remove `debug` from hooks
+  - investigate default empty object for hooks args; otherwise, change to positional params
+  - Fix register checkbox form (because of Formik)
+  - Remove formik props logging on completed forms
+  - Remove sample additional sub menu from Dashboard (comment out a dummy example of what next game needs to provide)
+  - One-off styling for Buy Credits because there is no way to provide our webfont to Stripe :(
+  - Work on field outline on Buy Credits; try to get custom and Stripe rendered fields to match
   - Images
     - Once all images are known, move to S3/Cloudfront
   - *Update Notification headers and messages throughout*

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link, Redirect, Route, Switch, withRouter } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -74,22 +74,13 @@ const App = props => {
   useReduxData({ items: ["fetchAuth"], deps: [] });
 
   // Destructure data
-  const {
-    accountType,
-    credits,
-    googlePicture,
-    error,
-    loaded,
-    loggedIn,
-    username
-  } = auth;
+  const { accountType, credits, error, loaded, loggedIn } = auth;
 
-  console.log(loaded);
   if (!loaded) return <Loader />;
   if (error) return <div>Error component here...</div>;
 
   return (
-    <Layout {...auth}>
+    <Layout auth={auth}>
       <Switch>
         <PrivateRoute
           loggedIn={loggedIn}
@@ -170,13 +161,9 @@ const App = props => {
 
 export default withRouter(App);
 
-const Layout = ({ children, ...rest }) => {
+const Layout = ({ children, auth }) => {
   const [state, setState] = useState({ fixTopMenu: false, showSidebar: false });
   const { fixTopMenu, showSidebar } = state;
-
-  /*useEffect(() => {
-    console.log(JSON.stringify(state, null, 4));
-  }, [state]);*/
 
   const stickTopMenu = () => {
     setState(prevState => {
@@ -197,7 +184,6 @@ const Layout = ({ children, ...rest }) => {
   };
 
   const hideSidebar = () => {
-    console.log("hide sidebar...");
     setState(prevState => {
       return {
         ...prevState,
@@ -207,7 +193,6 @@ const Layout = ({ children, ...rest }) => {
   };
 
   const toggleMenu = () => {
-    console.log("toggle menu...");
     setState(prevState => {
       return {
         ...prevState,
@@ -218,12 +203,12 @@ const Layout = ({ children, ...rest }) => {
 
   return (
     <Sidebar.Pushable className={fixTopMenu ? "menu-is-fixed" : undefined}>
-      <SidebarNav onItemClick={hideSidebar} visible={showSidebar} {...rest} />
+      <SidebarNav onItemClick={hideSidebar} visible={showSidebar} {...auth} />
       <Sidebar.Pusher
         dimmed={showSidebar}
         onClick={showSidebar ? hideSidebar : null}
       >
-        <HeaderNav fixTopMenu={fixTopMenu} onMenuClick={toggleMenu} {...rest} />
+        <HeaderNav fixTopMenu={fixTopMenu} onMenuClick={toggleMenu} {...auth} />
         <Visibility
           as="div"
           className="page-wrapper"
@@ -238,6 +223,11 @@ const Layout = ({ children, ...rest }) => {
       </Sidebar.Pusher>
     </Sidebar.Pushable>
   );
+};
+
+Layout.propTypes = {
+  children: PropTypes.any,
+  auth: PropTypes.object.isRequired
 };
 
 const SidebarNav = ({
@@ -321,6 +311,7 @@ const SidebarNav = ({
 SidebarNav.propTypes = {
   googlePicture: PropTypes.string,
   loggedIn: PropTypes.bool.isRequired,
+  onItemClick: PropTypes.func.isRequired,
   username: PropTypes.string,
   visible: PropTypes.bool.isRequired
 };
@@ -458,8 +449,11 @@ const HeaderNav = ({
 };
 
 HeaderNav.propTypes = {
+  credits: PropTypes.any,
+  fixTopMenu: PropTypes.bool.isRequired,
   googlePicture: PropTypes.string,
   loggedIn: PropTypes.bool.isRequired,
+  onMenuClick: PropTypes.func.isRequired,
   username: PropTypes.string
 };
 
@@ -479,6 +473,11 @@ const NavProfile = ({ googlePicture, username }) => {
       </>
     ))
   );
+};
+
+NavProfile.propTypes = {
+  googlePicture: PropTypes.string,
+  username: PropTypes.string
 };
 
 const Footer = props => {

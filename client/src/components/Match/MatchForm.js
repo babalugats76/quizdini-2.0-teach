@@ -665,7 +665,7 @@ const MatchForm = props => {
                       labelPosition="left"
                       tabIndex={-1}
                       title="Back to Dashboard"
-                      to={{ pathname: "/dashboard", state: { from: "MATCH" } }}
+                      to={{ pathname: "/dashboard", state: { from: "MATCH", skipAuth: true } }}
                       type="button"
                     >
                       BACK

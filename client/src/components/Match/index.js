@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Container } from "semantic-ui-react";
-import { useAPI, useData, useTitle } from "../../hooks/";
+import { useAPI, useData, useReduxData, useTitle } from "../../hooks/";
 import { Loader } from "../UI/";
 import MatchForm from "./MatchForm";
 
@@ -17,24 +17,18 @@ const Match = props => {
     matchId: matchId
   });
 
-  // toggles data as "dirty" (used to prompt fetch)
-  const onSuccess = (matchId = null) => {
-    setState(prevState => {
-      return {
-        matchId: prevState.matchId || matchId,
-        dirty: !prevState.dirty
-      };
-    });
-  };
+  // Redux data
+  useReduxData({ items: ["fetchAuth"], deps: [state.dirty] });
 
-  // direct API interactions (ephemeral)
-  const { POST: createMatch, PUT: updateMatch } = useAPI({ url: "/api/match" });
-
+  // API data
   const { data: game, error, initialized, loading } = useData({
     url: "/api/match/" + state.matchId,
     deps: [state.matchId, state.dirty],
     debug: false
   });
+
+  // direct API interactions (ephemeral)
+  const { POST: createMatch, PUT: updateMatch } = useAPI({ url: "/api/match" });
 
   useTitle({
     title: state.matchId
@@ -44,6 +38,16 @@ const Match = props => {
       : "Create New Match",
     deps: [state.matchId]
   });
+
+  // toggles data as "dirty" (used to prompt fetch)
+  const onSuccess = (matchId = null) => {
+    setState(prevState => {
+      return {
+        matchId: prevState.matchId || matchId,
+        dirty: !prevState.dirty
+      };
+    });
+  };
 
   const showLoader = !initialized && (loading || !game);
 
