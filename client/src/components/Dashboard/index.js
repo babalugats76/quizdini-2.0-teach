@@ -1,33 +1,33 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Container, List, Image } from 'semantic-ui-react';
-import { useAPI, useData, useMessage, useReduxData } from '../../hooks/';
-import { Icon, Loader, Notify } from '../UI/';
-import Match from './Match';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { Container, List, Image } from "semantic-ui-react";
+import { useAPI, useData, useMessage, useReduxData } from "../../hooks/";
+import { Icon, Loader, Notify } from "../UI/";
+import Match from "./Match";
 
 /* Array of objects containing game Component metadata */
 const games = [
   {
-    name: 'MATCH',
-    title: 'Match',
+    name: "MATCH",
+    title: "Match",
     credits: 1,
-    icon: 'question',
+    icon: "question",
     render: props => <Match {...props} />,
-    collectionUrl: '/api/matches',
-    singleUrl: '/api/match'
+    collectionUrl: "/api/matches",
+    singleUrl: "/api/match"
   },
   {
-    name: 'TEST',
-    title: 'test',
+    name: "TEST",
+    title: "test",
     credits: 5,
-    icon: 'question',
+    icon: "question",
     render: props => <div>{JSON.stringify(props, null, 4)}</div>,
-    collectionUrl: '/api/payments',
-    singleUrl: '/api/payment'
+    collectionUrl: "/api/payments",
+    singleUrl: "/api/payment"
   }
 ];
 
-const DEFAULT_GAME = 'MATCH';
+const DEFAULT_GAME = "MATCH";
 
 const Dashboard = props => {
   const { location: { state: { from, skipAuth = false } = {} } = {} } = props;
@@ -48,13 +48,12 @@ const Dashboard = props => {
   const [message, dismissMessage] = useMessage({ props });
 
   // Redux data
-  const fetchItems = [...(!skipAuth ? ['fetchAuth'] : [])];
+  const fetchItems = [...(!skipAuth ? ["fetchAuth"] : [])];
   useReduxData({ items: fetchItems, deps: [] });
 
   // direct API interactions (ephemeral)
   const { DELETE: deleteGame } = useAPI({
-    url: games[state.activeGameIdx].singleUrl,
-    debug: false
+    url: games[state.activeGameIdx].singleUrl
   });
 
   const { data, error, initialized, loading, reset } = useData({
@@ -111,7 +110,7 @@ const Dashboard = props => {
                 </Image>
                 <List.Content>
                   <List.Header>{title}</List.Header>
-                  {credits} credit{credits === 1 ? '' : 's'}
+                  {credits} credit{credits === 1 ? "" : "s"}
                 </List.Content>
               </List.Item>
             );

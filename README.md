@@ -82,6 +82,7 @@ Messages need to be standardized, etc.
   - Remove sample additional sub menu from Dashboard (comment out a dummy example of what next game needs to provide)
   - One-off styling for Buy Credits because there is no way to provide our webfont to Stripe :(
   - Work on field outline on Buy Credits; try to get custom and Stripe rendered fields to match
+  - Increase size of bulk match font `1rem`?
   - Images
     - Once all images are known, move to S3/Cloudfront
   - *Update Notification headers and messages throughout*
@@ -98,7 +99,6 @@ Messages need to be standardized, etc.
     - _Attribution_
   - Login
     - Update sign in for to use `touch` for the errors
-  - Reduce no-ops where possible by migrating to hooks
   - Dashboard
     - _Refine functional component, e.g., `MatchIntro`_
     - _Model Games_ - Show options 4, 6, 9
