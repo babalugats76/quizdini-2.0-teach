@@ -3,7 +3,7 @@ import axios from "axios";
 
 /***
  * Custom Hook for direct API interactions using the axios library.
- * 
+ *
  * Saves responses, successful and unsuccesful, to state.
  * Fetches via GET method are updatable (through use of user-defined deps).
  * Tracks executions (state.executions) and whether initialized (executions > 0).
@@ -11,7 +11,7 @@ import axios from "axios";
  *
  * @param {object}        Params, including: url (path to resource), deps (array for get)
  * @returns {object}      Containing state items and reset function
- * 
+ *
  * To debug:
  * ```
  *   useEffect(() => {
@@ -60,8 +60,12 @@ export default function useData({ url, deps = [] }) {
     }
   }, initialState);
 
-  // Wraps setState to avoid no-ops
-  // Attempts to setState on dismounted components will be short-circuited
+  /***
+   * Wraps `setState` to avoid no-ops.
+   *
+   * Attempts to `setState` on dismounted components will be short-circuited.
+   * Relies upon `isCancelled` ref and side effect that maintains its value.
+   */
   const dispatch = useCallback(
     (...args) => {
       !isCancelled.current && setState(...args);
@@ -69,6 +73,13 @@ export default function useData({ url, deps = [] }) {
     [isCancelled, setState]
   );
 
+  /***
+   * Calls GET method of url using axios.
+   *
+   * Appropriate action is dispatched to the reducer (to update state).
+   *
+   * @returns {object}  data or error object (from server)
+   */
   const get = useCallback(async () => {
     try {
       dispatch({ type: "BEGIN" });
@@ -83,31 +94,53 @@ export default function useData({ url, deps = [] }) {
     }
   }, [dispatch, url]);
 
+  /***
+   * Dispatches action to reducer which resets state to initialState
+   * Used by client in order to switch data sources, etc.
+   */
   const reset = useCallback(() => {
     dispatch({ type: "RESET" });
   }, [dispatch]);
 
+  /***
+   * Memoized calculations indicating whether data
+   * has been initialized, i.e., state.executions > 0.
+   *
+   * @returns {boolean}  Whether data has been initialized
+   */
   const initialized = useMemo(() => {
     return state.executions > 0;
   }, [state.executions]);
 
+  /***
+   * Side effect which calls `get()` to fetch data from resource (url).
+   * Will fetch on mount and should provided `deps` change.
+   */
   useEffect(() => {
     get();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [get, ...deps]);
 
+  /***
+   * Side effect whose cancel function updates current
+   * value of `isCancelled` ref.
+   *
+   * Used to prevent no-ops that stem from `setState` calls
+   * made after the component dismounts
+   *
+   * Runs once (on mount only); cancel function called on dismount.
+   */
   useEffect(() => {
-    return () =>  {
-      console.log('component dismounting...');
+    return () => {
       isCancelled.current = true;
-    }
+    };
   }, []);
 
   return {
-    data: state.data,          // successful response (from API)
-    error: state.error,        // unsuccessful response (from API) 
-    initialized,               // if there has been at least one execution attempt
-    loading: state.loading,    // if fetch is in progress
-    reset                      // function to "reset" state to initialState
+    data: state.data, // successful response (from API)
+    error: state.error, // unsuccessful response (from API)
+    initialized, // if there has been at least one execution attempt
+    loading: state.loading, // if fetch is in progress
+    reset // function to "reset" state to initialState
   };
 }

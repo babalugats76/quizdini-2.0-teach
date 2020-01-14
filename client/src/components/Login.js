@@ -15,7 +15,7 @@ import {
 
 export default props => {
   // handles show/dismiss of redirect messages
-  const [message, dismissMessage] = useMessage({ props });
+  const [message, dismissMessage] = useMessage(props);
 
   // direct API interactions (ephemeral)
   const { POST: loginUser } = useAPI({ url: '/auth/local' });

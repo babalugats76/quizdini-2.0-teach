@@ -45,7 +45,7 @@ const Dashboard = props => {
   });
 
   // handles show/dismiss of redirect messages
-  const [message, dismissMessage] = useMessage({ props });
+  const [message, dismissMessage] = useMessage(props);
 
   // Redux data
   const fetchItems = [...(!skipAuth ? ["fetchAuth"] : [])];
