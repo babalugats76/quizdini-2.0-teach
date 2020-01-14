@@ -109,7 +109,7 @@ const validateNewUser = Yup.object().shape({
 });
 
 const RegisterForm = props => {
-  const [getNotify] = useResult({
+  const getNotify = useResult({
     failHeader: 'Have we met before?',
     successHeader: 'Welcome to Quizdini!'
   });

@@ -9,8 +9,8 @@ import axios from "axios";
  * Tracks executions (state.executions) and whether initialized (executions > 0).
  * State can be reset to initialState (useful in switching data sources, i.e., url).
  *
- * @param {object}        Params, including: url (path to resource), deps (array for get)
- * @returns {object}      Containing state items and reset function
+ * @param {object}        Params, including: `url` (path to resource), `deps` (array for `get`)
+ * @returns {object}      State items and reset function
  *
  * To debug:
  * ```
@@ -122,18 +122,12 @@ export default function useData({ url, deps = [] }) {
   }, [get, ...deps]);
 
   /***
-   * Side effect whose cancel function updates current
-   * value of `isCancelled` ref.
-   *
-   * Used to prevent no-ops that stem from `setState` calls
-   * made after the component dismounts
-   *
+   * Side effect whose cancel function updates current value of `isCancelled` ref.
+   * Used to prevent no-ops from `setState` calls made after the component dismounts.
    * Runs once (on mount only); cancel function called on dismount.
    */
   useEffect(() => {
-    return () => {
-      isCancelled.current = true;
-    };
+    return () => (isCancelled.current = true);
   }, []);
 
   return {

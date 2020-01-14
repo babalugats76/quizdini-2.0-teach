@@ -140,7 +140,7 @@ const validateUser = Yup.object().shape({
 });
 
 const AccountForm = props => {
-  const [getNotify] = useResult({});
+  const getNotify = useResult();
 
   const { countryOptions, stateOptions } = props;
 

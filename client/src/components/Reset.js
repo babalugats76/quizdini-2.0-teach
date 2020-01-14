@@ -1,21 +1,21 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { Formik } from 'formik';
-import { Container, Form, Segment } from 'semantic-ui-react';
-import * as Yup from 'yup';
-import { useAPI, useRedirect, useResult } from '../hooks/';
-import { Button, InputText, Loader, LogoHeader, Notify } from './UI/';
+import React, { useCallback, useEffect, useState } from "react";
+import { Formik } from "formik";
+import { Container, Form, Segment } from "semantic-ui-react";
+import * as Yup from "yup";
+import { useAPI, useRedirect, useResult } from "../hooks/";
+import { Button, InputText, Loader, LogoHeader, Notify } from "./UI/";
 
 export default props => {
   const [verified, setVerified] = useState(false);
   const { match: { params: { secret } = {} } = {} } = props;
   const { GET: verifyToken } = useAPI({ url: `/api/token/${secret}` });
-  const [getNotify] = useResult({ failHeader: 'Check yourself...' });
+  const getNotify = useResult({ failHeader: "Check yourself..." });
 
   // useRedirect
   const [isRedirecting, redirect] = useRedirect({
     history: props.history,
     refreshAuth: false,
-    to: '/login',
+    to: "/login",
     timeout: 1000
   });
 
@@ -37,7 +37,7 @@ export default props => {
 
   // direct API interactions (ephemeral)
   const { PUT: resetPassword } = useAPI({
-    url: '/api/account/password-reset'
+    url: "/api/account/password-reset"
   });
 
   // what to render
@@ -58,20 +58,18 @@ export default props => {
 /* eslint-disable no-template-curly-in-string */
 const validateReset = Yup.object().shape({
   newPassword: Yup.string()
-    .required('New Password is required.')
+    .required("New Password is required.")
     .matches(
       /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z0-9@$!%*#?&]{8,}$/,
-      'New password must be at least 8 characters and include: uppercase, lowercase, numeric, and special characters, e.g., @$!%*#?&'
+      "New password must be at least 8 characters and include: uppercase, lowercase, numeric, and special characters, e.g., @$!%*#?&"
     ),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref('newPassword'), null], 'Passwords must match.')
-    .required('Confirm Password is required.')
+    .oneOf([Yup.ref("newPassword"), null], "Passwords must match.")
+    .required("Confirm Password is required.")
 });
 
 const ResetForm = props => {
-  const [getNotify] = useResult({
-    failHeader: 'Check yourself...'
-  });
+  const getNotify = useResult({ failHeader: "Check yourself..." });
 
   return (
     <Formik
@@ -79,8 +77,8 @@ const ResetForm = props => {
       validateOnBlur={false}
       validateOnChange={true}
       initialValues={{
-        confirmPassword: '',
-        newPassword: ''
+        confirmPassword: "",
+        newPassword: ""
       }}
       onSubmit={async (values, actions) => {
         const { onReset, onSuccess, secret } = props;

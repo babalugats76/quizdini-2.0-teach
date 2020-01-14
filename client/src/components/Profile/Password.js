@@ -1,14 +1,14 @@
-import React from 'react';
-import { Formik } from 'formik';
-import { Container, Form, Segment } from 'semantic-ui-react';
-import * as Yup from 'yup';
-import { useAPI, useResult } from '../../hooks/';
-import { Button, InputText, Notify } from '../UI/';
+import React from "react";
+import { Formik } from "formik";
+import { Container, Form, Segment } from "semantic-ui-react";
+import * as Yup from "yup";
+import { useAPI, useResult } from "../../hooks/";
+import { Button, InputText, Notify } from "../UI/";
 
 export default props => {
   // direct API interactions (ephemeral)
   const { PUT: changePassword } = useAPI({
-    url: '/api/account/password'
+    url: "/api/account/password"
   });
 
   return (
@@ -20,22 +20,20 @@ export default props => {
 
 /* eslint-disable no-template-curly-in-string */
 const validatePassword = Yup.object().shape({
-  oldPassword: Yup.string().required('Current Password is required.'),
+  oldPassword: Yup.string().required("Current Password is required."),
   newPassword: Yup.string()
-    .required('New Password is required.')
+    .required("New Password is required.")
     .matches(
       /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z0-9@$!%*#?&]{8,}$/,
-      'New password must be at least 8 characters and include: uppercase, lowercase, numeric, and special characters, e.g., @$!%*#?&'
+      "New password must be at least 8 characters and include: uppercase, lowercase, numeric, and special characters, e.g., @$!%*#?&"
     ),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref('newPassword'), null], 'Passwords must match.')
-    .required('Confirm Password is required.')
+    .oneOf([Yup.ref("newPassword"), null], "Passwords must match.")
+    .required("Confirm Password is required.")
 });
 
 const PasswordForm = props => {
-  const [getNotify] = useResult({
-    failHeader: 'Check yourself...'
-  });
+  const getNotify = useResult({ failHeader: "Check yourself..." });
 
   return (
     <Formik
@@ -43,9 +41,9 @@ const PasswordForm = props => {
       validateOnBlur={false}
       validateOnChange={true}
       initialValues={{
-        confirmPassword: '',
-        newPassword: '',
-        oldPassword: ''
+        confirmPassword: "",
+        newPassword: "",
+        oldPassword: ""
       }}
       onSubmit={async (values, actions) => {
         const { onUpdate } = props;

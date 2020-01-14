@@ -47,7 +47,7 @@ const validateLogin = Yup.object().shape({
 });
 
 const LoginForm = props => {
-  const [getNotify] = useResult({
+  const getNotify = useResult({
     failHeader: "Oops, we can't log you in!",
     successHeader: 'Welcome back!'
   });

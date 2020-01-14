@@ -1,11 +1,26 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 
-const useResult = ({
-  successHeader = 'Success!',
-  successSeverity = 'OK',
+/**
+ * Custom Hook to convert results into notifications.
+ *
+ * Faciliates the ability to perform simultaneous redux fetches.
+ *
+ * @param {object}       Params, including: `failHeader`, `failSeverity`, `successHeader`, and `successSeverity`
+ * @returns {function}   Function that returns notification object.
+ */
+export default function useResult({
   failHeader = "Something's not quite right.",
-  failSeverity = 'ERROR'
-}) => {
+  failSeverity = "ERROR",
+  successHeader = "Success!",
+  successSeverity = "OK"
+} = {}) {
+  /***
+   * Memoized function that converts results
+   * to properly-formatted notification objects.
+   *
+   * @param {object} results  Results objects (normally obtained from api call)
+   * @returns {object}        Notification object (normally presented to user as dismissable message)
+   */
   const getNotify = useCallback(
     results => {
       if (!results) return null;
@@ -25,7 +40,5 @@ const useResult = ({
     [failHeader, failSeverity, successHeader, successSeverity]
   );
 
-  return [getNotify];
-};
-
-export default useResult;
+  return getNotify; // function that converts results to a notification
+}

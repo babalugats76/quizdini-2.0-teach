@@ -9,8 +9,8 @@ import { useCallback, useEffect, useState } from "react";
  * Refer to: `https://reacttraining.com/react-router/web/api/history`
  * This is required so that the user cannot abuse back button.
  *
- * @param {object} props  Props object from component (must include location and history!)
- * @returns {array}       Containing state and dismiss function
+ * @param {object} props  Props object from component (must include location and `history`!)
+ * @returns {array}       State items and dismiss function
  *
  * To debug:
  * ```

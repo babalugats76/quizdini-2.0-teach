@@ -1,20 +1,13 @@
-import React from 'react';
-import { Formik } from 'formik';
-import { Container, Divider, Form, Header, Segment } from 'semantic-ui-react';
-import * as Yup from 'yup';
-import { useAPI, useResult } from '../hooks/';
-import {
-  Button,
-  Icon,
-  InputText,
-  LogoHeader,
-  Notify,
-  RadioGroup
-} from './UI/';
+import React from "react";
+import { Formik } from "formik";
+import { Container, Divider, Form, Header, Segment } from "semantic-ui-react";
+import * as Yup from "yup";
+import { useAPI, useResult } from "../hooks/";
+import { Button, Icon, InputText, LogoHeader, Notify, RadioGroup } from "./UI/";
 
 export default props => {
   // direct API interactions (ephemeral)
-  const { POST: sendRecoveryEmail } = useAPI({ url: '/api/account/lost' });
+  const { POST: sendRecoveryEmail } = useAPI({ url: "/api/account/lost" });
 
   // what to render
   return (
@@ -27,32 +20,30 @@ export default props => {
 
 const validateLost = Yup.object().shape({
   email: Yup.string()
-    .email('Valid email required.')
-    .required('Email is required.')
+    .email("Valid email required.")
+    .required("Email is required.")
 });
 
 const recoveryTypes = [
   {
-    key: '0',
-    label: 'recoverying my username',
-    value: 'username'
+    key: "0",
+    label: "recoverying my username",
+    value: "username"
   },
   {
-    key: '1',
-    label: 'resetting my password',
-    value: 'password'
+    key: "1",
+    label: "resetting my password",
+    value: "password"
   }
 ];
 
 const LostForm = props => {
-  const [getNotify] = useResult({
-    failHeader: 'Check yourself...'
-  });
+  const getNotify = useResult({ failHeader: "Check yourself..." });
 
   const handleRecoveryTypeChange = (e, data) => {
     const { value } = e.target;
     const { setFieldValue } = data;
-    setFieldValue('recoveryType', value);
+    setFieldValue("recoveryType", value);
   };
 
   return (
@@ -61,8 +52,8 @@ const LostForm = props => {
       validateOnBlur={false}
       validateOnChange={true}
       initialValues={{
-        email: '',
-        recoveryType: 'username'
+        email: "",
+        recoveryType: "username"
       }}
       onSubmit={async (values, actions) => {
         const { onRecovery } = props;
@@ -72,7 +63,7 @@ const LostForm = props => {
         const results = await onRecovery({ email, recoveryType });
         const notify = getNotify(results);
         await resetForm();
-        await setFieldValue('recoveryType', recoveryType);
+        await setFieldValue("recoveryType", recoveryType);
         await setStatus(notify);
         await setSubmitting(false);
       }}
@@ -138,7 +129,7 @@ const LostForm = props => {
                 <Form.Group>
                   <Button
                     active
-                    disabled={isSubmitting || !isValid || !dirty }
+                    disabled={isSubmitting || !isValid || !dirty}
                     icon="mail"
                     labelPosition="left"
                     loading={isSubmitting}

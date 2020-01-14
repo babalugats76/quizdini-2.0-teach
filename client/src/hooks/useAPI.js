@@ -15,8 +15,8 @@ axios.defaults.headers.common[
  * Basically, a set of memoized functions that facilitates interactions
  * with a backend URL.
  *
- * @param {object}        Params, including: url (path to resource)
- * @returns {object}      Aliased, method-centric CRUD functions, e.g., GET, PUT, etc.
+ * @param {object}        Params, including: `url` (path to resource)
+ * @returns {object}      Aliased, method-centric CRUD functions, e.g., `GET`, `PUT`, etc.
  */
 
 export default function useAPI({ url }) {

@@ -1,7 +1,7 @@
-import React from 'react';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
-import StripeScriptLoader from 'react-stripe-script-loader';
+import React from "react";
+import { Formik } from "formik";
+import * as Yup from "yup";
+import StripeScriptLoader from "react-stripe-script-loader";
 import {
   CardExpiryElement,
   CardCvcElement,
@@ -9,7 +9,7 @@ import {
   Elements,
   injectStripe,
   StripeProvider
-} from 'react-stripe-elements';
+} from "react-stripe-elements";
 import {
   Container,
   Divider,
@@ -17,8 +17,8 @@ import {
   Grid,
   Header,
   Segment
-} from 'semantic-ui-react';
-import { useAPI, useRedirect, useResult, useStripe } from '../hooks/';
+} from "semantic-ui-react";
+import { useAPI, useRedirect, useResult, useStripe } from "../hooks/";
 import {
   Button,
   Icon,
@@ -27,7 +27,7 @@ import {
   LogoHeader,
   Notify,
   RadioGroup
-} from './UI/';
+} from "./UI/";
 
 /* TODO - disposition, depends upon font ulitmately chosen for checkout form */
 /*const elementsOptions = {
@@ -37,13 +37,13 @@ const elementsOptions = {};
 
 export default props => {
   // direct API interactions (ephemeral)
-  const { POST: buyCredits } = useAPI({ url: '/api/payment' });
+  const { POST: buyCredits } = useAPI({ url: "/api/payment" });
 
   // useRedirect
   const [isRedirecting, redirect] = useRedirect({
     history: props.history,
     refreshAuth: true,
-    to: '/dashboard',
+    to: "/dashboard",
     state: { skipAuth: true },
     timeout: 1000
   });
@@ -77,26 +77,26 @@ const elementOptions = disabled => {
     disabled,
     style: {
       base: {
-        color: 'rgba(10, 10, 10, 0.40)',
-        fontFamily: 'Verdana, Geneva, sans-serif',
-        fontSmoothing: 'antialiased',
-        fontSize: '17px',
-        '::placeholder': {
-          fontFamily: 'Verdana, Geneva, sans-serif',
-          fontWeight: 'normal',
-          color: '#e1e1e1'
+        color: "rgba(10, 10, 10, 0.40)",
+        fontFamily: "Verdana, Geneva, sans-serif",
+        fontSmoothing: "antialiased",
+        fontSize: "17px",
+        "::placeholder": {
+          fontFamily: "Verdana, Geneva, sans-serif",
+          fontWeight: "normal",
+          color: "#e1e1e1"
         },
-        ':focus': {
-          backgroundColor: 'rgba(255,250,205,.03)',
-          color: 'rgba(10, 10, 10, 0.87)'
+        ":focus": {
+          backgroundColor: "rgba(255,250,205,.03)",
+          color: "rgba(10, 10, 10, 0.87)"
         },
-        ':disabled': {
-          color: 'rgba(0,0,0,.05)'
+        ":disabled": {
+          color: "rgba(0,0,0,.05)"
         }
       },
       invalid: {
-        color: '#e0b4b4',
-        iconColor: '#e0b4b4'
+        color: "#e0b4b4",
+        iconColor: "#e0b4b4"
       }
     }
   };
@@ -118,8 +118,8 @@ const getPaymentOptions = increments => {
 };
 
 const validateCheckout = Yup.object().shape({
-  cardholderName: Yup.string().required('Cardholder Name is required.'),
-  postalCode: Yup.string().required('Postal / Zip is required.')
+  cardholderName: Yup.string().required("Cardholder Name is required."),
+  postalCode: Yup.string().required("Postal / Zip is required.")
 });
 
 const CheckoutForm = props => {
@@ -128,13 +128,12 @@ const CheckoutForm = props => {
     onStripeChange,
     isCardComplete,
     clearStripeFields
-  ] = useStripe({ debug: false });
+  ] = useStripe();
 
-  const [getNotify] = useResult({
-    successHeader: 'Thank you for your purchase!'
+  const getNotify = useResult({
+    successHeader: "Thank you for your purchase!"
   });
 
-  
   /**
    * Updates Formik state with credit/cost selection
    *
@@ -144,8 +143,8 @@ const CheckoutForm = props => {
    */
   const handleAmountChange = (event, data, setFieldValue) => {
     const { value } = event.target;
-    setFieldValue('amount', value);
-    setFieldValue('credits', amountToCredits(value));
+    setFieldValue("amount", value);
+    setFieldValue("credits", amountToCredits(value));
   };
 
   return (
@@ -154,18 +153,18 @@ const CheckoutForm = props => {
       validateOnBlur={false}
       validateOnChange={true}
       initialValues={{
-        amount: '10',
-        cardholderName: '',
-        credits: amountToCredits('10'),
-        postalCode: ''
+        amount: "10",
+        cardholderName: "",
+        credits: amountToCredits("10"),
+        postalCode: ""
       }}
       onSubmit={async (values, actions) => {
         const { onCheckout, onSuccess, stripe } = props;
         const {
           credits,
           amount,
-          cardholderName = '',
-          postalCode = ''
+          cardholderName = "",
+          postalCode = ""
         } = values;
         const { setStatus, setSubmitting } = actions;
 
@@ -186,7 +185,7 @@ const CheckoutForm = props => {
           setStatus({
             content: res.error.message,
             header: "Something's not quite right.",
-            severity: 'ERROR'
+            severity: "ERROR"
           });
           return setSubmitting(false);
         }
@@ -240,7 +239,7 @@ const CheckoutForm = props => {
                   onChange={(event, data) =>
                     handleAmountChange(event, data, setFieldValue)
                   }
-                  options={getPaymentOptions(['5', '10', '15', '20'])}
+                  options={getPaymentOptions(["5", "10", "15", "20"])}
                   value={values.amount}
                 />
               </Form.Group>

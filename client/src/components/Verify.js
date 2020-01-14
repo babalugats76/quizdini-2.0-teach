@@ -16,7 +16,7 @@ const Verify = props => {
   });
 
   // converts results to notifications
-  const [getNotify] = useResult({ failHeader: 'Check yourself...' });
+  const getNotify = useResult({ failHeader: 'Check yourself...' });
 
   // useRedirect
   const [isRedirecting, redirect] = useRedirect({
