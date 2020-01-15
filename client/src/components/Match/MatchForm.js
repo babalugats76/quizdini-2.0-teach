@@ -130,7 +130,7 @@ const MatchForm = props => {
   const [state, setState] = useState(initialState);
   const termRef = useRef();
   const definitionRef = useRef();
-  const [isMobile] = useWindowSize();
+  const { isMobile } = useWindowSize();
   const getNotify = useResult();
 
   const {

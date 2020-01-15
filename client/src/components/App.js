@@ -324,7 +324,7 @@ const HeaderNav = ({
   onMenuClick,
   username
 }) => {
-  const [isMobile] = useWindowSize();
+  const { isMobile } = useWindowSize();
 
   const navItems = [
     {

@@ -81,7 +81,7 @@ const MatchCard = ({ game, onDelete }) => {
     visible: true
   });
 
-  const [copied, setCopied] = useTimeout({ millseconds: 2000 });
+  const [copied, setCopied] = useTimeout(2000);
   const { matchId, matches, title, updateDate } = game;
   const { canDelete, visible } = state;
 

@@ -6,7 +6,7 @@ import { useCallback } from "react";
  * Faciliates the ability to perform simultaneous redux fetches.
  *
  * @param {object}       Params, including: `failHeader`, `failSeverity`, `successHeader`, and `successSeverity`
- * @returns {function}   Function that returns notification object.
+ * @returns {function}   Function that returns notification object
  */
 export default function useResult({
   failHeader = "Something's not quite right.",

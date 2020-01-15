@@ -149,7 +149,7 @@ export default function useReduxData({ items = [], deps = [] }) {
     errors, // array of errors (if they exist)
     executions: 0, // running fetch count, successful or not
     hasError: false, // whether one or more errors occured during last fetch
-    loading: false, // whehter fetch underway
+    loading: false, // whether fetch underway
     requests: 0, // running total of api calls
     results: null // results
   };

@@ -23,7 +23,6 @@ export default function useActions(actions) {
       }
       return bindActionCreators(actions, dispatch);
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [actions, dispatch]
   );
 
