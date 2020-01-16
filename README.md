@@ -68,7 +68,6 @@ Messages need to be standardized, etc.
     - QUIZDINI_RESET_PASSWORD
     - Update logo to be 300px-wide friend logo with text
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
-- Server
 - Client
   - One-off styling for Buy Credits because there is no way to provide our webfont to Stripe :(
   - Work on field outline on Buy Credits; try to get custom and Stripe rendered fields to match
@@ -91,7 +90,6 @@ Messages need to be standardized, etc.
     - _Refine functional component, e.g., `MatchIntro`_
     - _Model Games_ - Show options 4, 6, 9
       - For each: title/subject, instructions, .csv, etc.
-    - Consider adding `isEmptyArray` utility function for use in `Match`, etc.
 
 Kay
 
