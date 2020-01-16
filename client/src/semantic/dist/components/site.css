@@ -1133,7 +1133,7 @@ a#google-login:visited {
 }
 #match-form #match-bulk > textarea {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   line-height: 1.5rem;
   margin-top: 0.75rem;
 }

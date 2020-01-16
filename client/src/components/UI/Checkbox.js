@@ -18,7 +18,6 @@ const MyCheckbox = ({
         label={<label htmlFor={name}>{children}</label>}
         name={name}
         onChange={onChange}
-        type='checkbox'
         value={value}
         {...rest}
       />

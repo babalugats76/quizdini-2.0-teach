@@ -349,13 +349,14 @@ const RegisterForm = props => {
                 </Form.Group>
                 <Form.Group>
                   <Checkbox
+                    checked={values.terms ? true : false}
                     disabled={isSubmitting}
                     error={touched.terms && errors.terms}
                     name="terms"
                     onBlur={handleBlur}
                     onChange={handleChange}
                     tabIndex={11}
-                    value={values.terms ? true : false}
+                    value={values.terms ? 1 : 0}
                   >
                     By signing up, I agree to Quizdini's&nbsp;
                     <Link

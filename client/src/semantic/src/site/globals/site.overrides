@@ -1013,7 +1013,7 @@ a#google-login {
     min-height: 494px;
     > textarea {
       font-family: @textareaFont;
-      font-size: 0.9375rem;
+      font-size: 1rem;
       line-height: 1.5rem;
       margin-top: 0.75rem;
     }

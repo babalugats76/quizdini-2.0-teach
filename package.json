@@ -37,7 +37,6 @@
     "passport-custom": "^1.1.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
-    "reselect": "^4.0.0",
     "shortid": "^2.2.15",
     "stripe": "^7.14.0"
   }

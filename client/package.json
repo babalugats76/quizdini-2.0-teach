@@ -27,6 +27,7 @@
     "react-transition-group": "^4.3.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
     "semantic-ui-react": "^0.88.2",
     "slate": "^0.47.9",
     "slate-html-serializer": "^0.8.11",
