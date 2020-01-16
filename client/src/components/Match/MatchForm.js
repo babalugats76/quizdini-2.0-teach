@@ -1,5 +1,4 @@
-// eslint-disable-next-line
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Formik } from "formik";
 import { Form, Grid, Segment, Tab } from "semantic-ui-react";
 import * as Yup from "yup";
@@ -11,8 +10,12 @@ import MatchAdd from "./MatchAdd";
 import MatchBulk from "./MatchBulk";
 import MatchTable from "./MatchTable";
 import { matchToString, parseMatch } from "./utils";
-// eslint-disable-next-line
-import DisplayFormikState from "../UI/FormikHelper";
+
+/***
+ * To test:
+ * import DisplayFormikState from '../UI/FormikHelper';
+ * <div>{<DisplayFormikState {...props} />}</div>
+ */
 
 const itemsPerBoardOptions = [
   { text: "4", value: 4 },
@@ -486,10 +489,13 @@ const MatchForm = props => {
     await validateForm();
   };
 
-  // Temporary while migrating...
-  /*useEffect(() => {
-    console.log(JSON.stringify(state, null, 5));
-  }, [state]);*/
+  /***
+   * To debug:
+   * Add `useEffect` to imports and then add
+   * useEffect(() => {
+   *   console.log(JSON.stringify(state, null, 5));
+   * }, [state]);
+   */
 
   return (
     <Formik
@@ -665,7 +671,10 @@ const MatchForm = props => {
                       labelPosition="left"
                       tabIndex={-1}
                       title="Back to Dashboard"
-                      to={{ pathname: "/dashboard", state: { from: "MATCH", skipAuth: true } }}
+                      to={{
+                        pathname: "/dashboard",
+                        state: { from: "MATCH", skipAuth: true }
+                      }}
                       type="button"
                     >
                       BACK
@@ -851,7 +860,6 @@ const MatchForm = props => {
                 />
               </Grid.Column>
             </Grid>
-            <div>{<DisplayFormikState {...props} />}</div>
           </Form>
         );
       }}

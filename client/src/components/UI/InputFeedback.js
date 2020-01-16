@@ -1,11 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
 
 const InputFeedback = ({ error }) => {
-  const classes = classnames('input-feedback', {
-    error: !!error
-  });
+  const classes = ["input-feedback", !!error ? ["error"] : []].join(" ").trim();
   return error ? <div className={classes}>{error}</div> : null;
 };
 

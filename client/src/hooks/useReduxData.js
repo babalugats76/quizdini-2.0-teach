@@ -101,8 +101,10 @@ export default function useReduxData({ items = [], deps = [] }) {
     Promise.all(
       items.map(async action => {
         const res = await boundActions[action]();
-        if (res.data) return { action, data: res.data };
-        if (res.error) return { action, error: res.error };
+        return {
+          action,
+          ...(res.error ? { error: res.error } : { data: res.data })
+        };
       })
     )
       .then(res => {

@@ -5,6 +5,21 @@ import { useAPI, useData, useMessage, useReduxData } from "../../hooks/";
 import { Icon, Loader, Notify } from "../UI/";
 import Match from "./Match";
 
+/***
+ * To add additional games:
+ * Create new component (using Match as model)
+ * Once complete, add to Dashboard submenu by adding object to games array; for example:
+ * {
+ *  name: "NEXT_GAME",
+ *  title: "Next Game",
+ *  credits: 1,
+ *  icon: "next-game",
+ *  render: props => <NextGame {...props} />
+ *  collectionUrl: "/api/next-games",
+ *  singleUrl: "/api/next-game"
+ * }
+ */
+
 /* Array of objects containing game Component metadata */
 const games = [
   {
@@ -15,15 +30,6 @@ const games = [
     render: props => <Match {...props} />,
     collectionUrl: "/api/matches",
     singleUrl: "/api/match"
-  },
-  {
-    name: "TEST",
-    title: "test",
-    credits: 5,
-    icon: "question",
-    render: props => <div>{JSON.stringify(props, null, 4)}</div>,
-    collectionUrl: "/api/payments",
-    singleUrl: "/api/payment"
   }
 ];
 

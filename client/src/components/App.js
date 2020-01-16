@@ -13,7 +13,6 @@ import {
   Visibility
 } from "semantic-ui-react";
 import { useReduxData, useTitle, useWindowSize } from "../hooks/";
-import { authSelector } from "../selectors/";
 import { Icon, Loader } from "./UI/";
 import logo from "../logo.svg";
 import {
@@ -67,20 +66,21 @@ const PublicRoute = ({ component: Component, title, ...rest }) => {
 };
 
 const App = props => {
-  // Selectors (memoized with Reselect)
-  const auth = useSelector(authSelector);
+
+  const auth = useSelector(state => state.auth);
 
   // Redux data
-  useReduxData({ items: ["fetchAuth"], deps: [] });
+  const { errors } = useReduxData({ items: ["fetchAuth"], deps: [] });
 
-  // Destructure data
-  const { accountType, credits, error, loaded, loggedIn } = auth;
+  // Destructure and rename data
+  const { data: user, loaded } = auth;
+  const { accountType, credits, loggedIn } = user;
 
-  if (!loaded) return <Loader />;
-  if (error) return <div>Error component here...</div>;
+  // When to show loader
+  const showLoader = !loaded;
 
   return (
-    <Layout auth={auth}>
+    <Layout errors={errors} showLoader={showLoader} user={user}>
       <Switch>
         <PrivateRoute
           loggedIn={loggedIn}
@@ -161,7 +161,7 @@ const App = props => {
 
 export default withRouter(App);
 
-const Layout = ({ children, auth }) => {
+const Layout = ({ children, errors, showLoader, user }) => {
   const [state, setState] = useState({ fixTopMenu: false, showSidebar: false });
   const { fixTopMenu, showSidebar } = state;
 
@@ -203,12 +203,12 @@ const Layout = ({ children, auth }) => {
 
   return (
     <Sidebar.Pushable className={fixTopMenu ? "menu-is-fixed" : undefined}>
-      <SidebarNav onItemClick={hideSidebar} visible={showSidebar} {...auth} />
+      <SidebarNav onItemClick={hideSidebar} visible={showSidebar} {...user} />
       <Sidebar.Pusher
         dimmed={showSidebar}
         onClick={showSidebar ? hideSidebar : null}
       >
-        <HeaderNav fixTopMenu={fixTopMenu} onMenuClick={toggleMenu} {...auth} />
+        <HeaderNav fixTopMenu={fixTopMenu} onMenuClick={toggleMenu} {...user} />
         <Visibility
           as="div"
           className="page-wrapper"
@@ -217,7 +217,9 @@ const Layout = ({ children, auth }) => {
           offset={0}
           once={false}
         >
-          {children}
+          {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) ||
+            (showLoader && <Loader />) ||
+            children}
         </Visibility>
         <Footer />
       </Sidebar.Pusher>
@@ -227,7 +229,9 @@ const Layout = ({ children, auth }) => {
 
 Layout.propTypes = {
   children: PropTypes.any,
-  auth: PropTypes.object.isRequired
+  errors: PropTypes.any,
+  showLoader: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired
 };
 
 const SidebarNav = ({

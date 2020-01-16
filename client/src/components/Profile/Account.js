@@ -14,30 +14,30 @@ import {
 import * as Yup from 'yup';
 import * as actions from '../../actions/';
 import { useActions, useReduxData, useResult } from '../../hooks/';
-import {
-  accountSelector,
-  countrySelector,
-  stateSelector
-} from '../../selectors/';
 import { Button, Dropdown, InputText, Loader, Notify } from '../UI/';
 import avatar from '../../avatar.svg';
-import DisplayFormikState from '../UI/FormikHelper';
+
+/***
+ * To test:
+ * import DisplayFormikState from '../UI/FormikHelper';
+ * {<DisplayFormikState {...props} />}
+ */
+
 const { format } = require('date-fns');
 
 export default props => {
   // direct redux interactions (persistent)
   const updateAccount = useActions(actions.updateAccount);
-
-  // Selectors (memoized with Reselect)
-  const account = useSelector(accountSelector);
-  const countries = useSelector(countrySelector);
-  const states = useSelector(stateSelector);
+  
+  const account = useSelector(state => state.account);
+  const countries = useSelector(state => state.countries);
+  const states = useSelector(state => state.states);
 
   // Redux data
   const fetchItems = [
-    'fetchAccount',
-    ...(!countries.data ? ['fetchCountries'] : []),
-    ...(!states.data ? ['fetchStates'] : [])
+    'fetchAccount', // fetch latest account data on mount 
+    ...(!countries.data ? ['fetchCountries'] : []), // conditionally fetch country data
+    ...(!states.data ? ['fetchStates'] : []) // conditionally fetch state data
   ];
 
   // Fetch redux data
@@ -315,7 +315,6 @@ const AccountForm = props => {
                 </Button>
               </Form.Group>
             </Form>
-            {<DisplayFormikState {...props} />}
           </Segment>
         );
       }}

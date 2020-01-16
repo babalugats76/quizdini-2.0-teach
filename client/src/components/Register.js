@@ -1,11 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { Formik } from 'formik';
-import { Container, Form, Segment } from 'semantic-ui-react';
-import * as Yup from 'yup';
-import { useAPI, useRedirect, useReduxData, useResult } from '../hooks/';
-import { countrySelector, stateSelector } from '../selectors/';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Formik } from "formik";
+import { Container, Form, Segment } from "semantic-ui-react";
+import * as Yup from "yup";
+import { useAPI, useRedirect, useReduxData, useResult } from "../hooks/";
 import {
   Button,
   Checkbox,
@@ -14,28 +13,28 @@ import {
   Loader,
   LogoHeader,
   Notify
-} from './UI/';
-import DisplayFormikState from './UI/FormikHelper';
+} from "./UI/";
+import DisplayFormikState from "./UI/FormikHelper";
 
 export default props => {
   // direct API interactions (ephemeral)
-  const { POST: registerUser } = useAPI({ url: '/api/account' });
+  const { POST: registerUser } = useAPI({ url: "/api/account" });
 
   // useRedirect
   const [isRedirecting, redirect] = useRedirect({
     history: props.history,
-    to: '/login',
+    to: "/login",
     timeout: 1000
   });
 
-  // Selectors (memoized with Reselect)
-  const countries = useSelector(countrySelector);
-  const states = useSelector(stateSelector);
+  // Selectors
+  const countries = useSelector(state => state.countries);
+  const states = useSelector(state => state.states);
 
   // Redux data
   const fetchItems = [
-    ...(!countries.data ? ['fetchCountries'] : []),
-    ...(!states.data ? ['fetchStates'] : [])
+    ...(!countries.data ? ["fetchCountries"] : []),
+    ...(!states.data ? ["fetchStates"] : [])
   ];
 
   // Fetch redux data
@@ -68,50 +67,50 @@ export default props => {
 };
 
 const titleOptions = [
-  { key: 0, text: '', value: '' },
-  { key: 1, text: 'Mr.', value: 'Mr.' },
-  { key: 2, text: 'Mrs.', value: 'Mrs.' },
-  { key: 3, text: 'Ms.', value: 'Ms.' },
-  { key: 4, text: 'Prof.', value: 'Prof.' },
-  { key: 5, text: 'Miss', value: 'Miss' },
-  { key: 6, text: 'Dr.', value: 'Dr.' }
+  { key: 0, text: "", value: "" },
+  { key: 1, text: "Mr.", value: "Mr." },
+  { key: 2, text: "Mrs.", value: "Mrs." },
+  { key: 3, text: "Ms.", value: "Ms." },
+  { key: 4, text: "Prof.", value: "Prof." },
+  { key: 5, text: "Miss", value: "Miss" },
+  { key: 6, text: "Dr.", value: "Dr." }
 ];
 
 /* eslint-disable no-template-curly-in-string */
 const validateNewUser = Yup.object().shape({
-  firstName: Yup.string().required('First Name is required.'),
-  lastName: Yup.string().required('Last Name is required.'),
+  firstName: Yup.string().required("First Name is required."),
+  lastName: Yup.string().required("Last Name is required."),
   city: Yup.string().max(
     100,
-    'City is too long. ${max} characters are allowed.'
+    "City is too long. ${max} characters are allowed."
   ),
-  countryCode: Yup.string().required('Country is required.'),
+  countryCode: Yup.string().required("Country is required."),
   email: Yup.string()
-    .email('Valid email required.')
-    .required('Email is required.'),
+    .email("Valid email required.")
+    .required("Email is required."),
   username: Yup.string()
-    .min(6, 'Username is too short. ${min} characters are required.')
-    .max(20, 'Username is too long. ${max} characters are allowed.')
-    .required('Username is required.'),
+    .min(6, "Username is too short. ${min} characters are required.")
+    .max(20, "Username is too long. ${max} characters are allowed.")
+    .required("Username is required."),
   password: Yup.string() /* Add rules for password complexity */
-    .required('Password is required.')
+    .required("Password is required.")
     .matches(
       /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z0-9@$!%*#?&]{8,}$/,
-      'Password must be at least 8 characters and include: uppercase, lowercase, numeric, and special characters, e.g., @$!%*#?&'
+      "Password must be at least 8 characters and include: uppercase, lowercase, numeric, and special characters, e.g., @$!%*#?&"
     ),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'Passwords must match.')
-    .required('Confirm Password is required.'),
+    .oneOf([Yup.ref("password"), null], "Passwords must match.")
+    .required("Confirm Password is required."),
   terms: Yup.boolean().oneOf(
     [true],
-    'Please read and accept our Terms and Conditions'
+    "Please read and accept our Terms and Conditions"
   )
 });
 
 const RegisterForm = props => {
   const getNotify = useResult({
-    failHeader: 'Have we met before?',
-    successHeader: 'Welcome to Quizdini!'
+    failHeader: "Have we met before?",
+    successHeader: "Welcome to Quizdini!"
   });
 
   const { countryOptions, stateOptions } = props;
@@ -122,17 +121,17 @@ const RegisterForm = props => {
       validateOnBlur={false}
       validateOnChange={true}
       initialValues={{
-        city: '',
-        confirmPassword: '',
-        countryCode: '',
-        email: '',
-        firstName: '',
-        lastName: '',
-        password: '',
+        city: "",
+        confirmPassword: "",
+        countryCode: "",
+        email: "",
+        firstName: "",
+        lastName: "",
+        password: "",
         stateCode: null,
         terms: false,
         title: null,
-        username: ''
+        username: ""
       }}
       onSubmit={async (values, actions) => {
         const { onRegister, onSuccess } = props;
@@ -266,7 +265,7 @@ const RegisterForm = props => {
                     value={values.countryCode}
                     width={6}
                   />
-                  {values.countryCode === 'US' && (
+                  {values.countryCode === "US" && (
                     <Dropdown
                       disabled={isSubmitting}
                       error={touched.stateCode && errors.stateCode}

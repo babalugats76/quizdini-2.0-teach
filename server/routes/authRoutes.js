@@ -54,6 +54,7 @@ module.exports = app => {
   });
 
   app.get('/api/current_user', (req, res) => {
+    //throw new Error('unable to obtain current user...');
     res.send(req.user);
   });
 };
