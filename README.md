@@ -56,8 +56,6 @@ Messages need to be standardized, etc.
 
 # Todo List
 
-- MongoDB
-  - Add indexes to production using Atlas
 - Heroku
   - Investigate SSL steps
 - Google OAuth
