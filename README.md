@@ -80,13 +80,13 @@ Messages need to be standardized, etc.
       - Node visualization Gain peace of mind by protecting your students' privacy (node)
       - Add an invaluable tool to your teacher toolbox (toolbox)
       - Determine verbiage for other two points
-  - Loading and Error
+  - Error
     - Mock up Error
       - Return and apply to all appropriate routes
+      - Create component that interrogates errors sent to it
+      - Leave a placeholder image 
   - About
     - _Attribution_
-  - Login
-    - Update sign in for to use `touch` for the errors
   - Dashboard
     - _Refine functional component, e.g., `MatchIntro`_
     - _Model Games_ - Show options 4, 6, 9
@@ -97,6 +97,7 @@ Kay
 
 - Custom match icon
 - Design for match-card-header
+- Error image
 
 # User Migration
 
