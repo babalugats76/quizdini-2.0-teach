@@ -64,8 +64,7 @@ const Dashboard = props => {
 
   const { data, error, initialized, loading, reset } = useData({
     url: games[state.activeGameIdx].collectionUrl,
-    deps: [state.activeGameIdx, state.dirty],
-    debug: false
+    deps: [state.activeGameIdx, state.dirty]
   });
 
   const handleMenuChange = menuIdx => {

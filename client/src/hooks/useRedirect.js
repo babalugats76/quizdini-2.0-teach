@@ -30,7 +30,7 @@ export default function useRedirect({
   timeout = 300
 }) {
   const isCancelled = useRef(false); // for tracking dismounting
-  const [isRedirecting, setState] = useState(null); // local state
+  const [isRedirecting, setState] = useState(false); // local state
   const fetchAuth = useActions(actions.fetchAuth); // bound, dispatchable action to update `auth` in redux
 
   /***

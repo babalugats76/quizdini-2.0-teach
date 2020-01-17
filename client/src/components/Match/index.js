@@ -23,13 +23,13 @@ const Match = props => {
   // API data
   const { data: game, error, initialized, loading } = useData({
     url: "/api/match/" + state.matchId,
-    deps: [state.matchId, state.dirty],
-    debug: false
+    deps: [state.matchId, state.dirty]
   });
 
   // direct API interactions (ephemeral)
   const { POST: createMatch, PUT: updateMatch } = useAPI({ url: "/api/match" });
 
+  // set page title
   useTitle({
     title: state.matchId
       ? game
