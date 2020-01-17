@@ -27,9 +27,9 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^0.88.2",
-    "slate": "^0.57.1",
+    "slate": "0.47.0",
     "slate-html-serializer": "^0.8.11",
-    "slate-react": "^0.57.1",
+    "slate-react": "^0.22.10",
     "yup": "^0.28.0"
   },
   "scripts": {
