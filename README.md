@@ -58,10 +58,15 @@ Messages need to be standardized, etc.
 
 - Heroku
   - Investigate SSL steps
-- Google OAuth
-  - _Domain verification (contingent on DNS/using .quizdini.com TLD)_
 - Documentation
 - Server
+  - POC of Amazon DocumentDB
+    - Setup in dev
+    - Does it work with existing Mongoose, etc.
+  - POC of `elasicache`
+    - Setup in dev and prod 
+    - Update config with keys
+    - Document setup (on Amazon side)
   - _Refine wording_ and style for following email templates:
     - QUIZDINI_REGISTER
     - QUIZDINI_RECOVER_USERNAME
@@ -87,9 +92,42 @@ Messages need to be standardized, etc.
   - About
     - _Attribution_
   - Dashboard
+    - Stats
+      - Button
+        - Implement and style 4-button `MatchCard`
+        - Add `copy` and `bar-chart-2` feather icon
+        - Change `copied` logic to dynamically swap icon class, e.g., `link` to `copy`
     - _Refine functional component, e.g., `MatchIntro`_
     - _Model Games_ - Show options 4, 6, 9
       - For each: title/subject, instructions, .csv, etc.
+  - Match
+    - Rename `index.js` to `MatchEdit`
+    - Update path, component, etc. in `App.js` to `MatchEdit`
+    - Stub out `MatchStats` component and `/match/stats/` route for development
+  - MatchStats
+    - Investigate use of `chart.js` 
+    - Develop crude POC
+  - Register
+    - POC of incorporating Google Recaptcha
+      - Obtain key
+      - Obtain path of v3 .js file
+      - Update creditials, i.e, `key.js`, `prod.js`
+      - Test loading and adding to `RegisterForm`
+  - Hooks
+    - useScript || useMedia
+      - Create `media` hook that can dynamically load 3rd party script
+      - `id`, `scriptUrl`, `loader`
+      - `onLoad` callbacks
+      - Investiage replacing `react-stripe-script-loader`
+    - useWindow
+      - Investigate removing hook in lieu of CSS media queries
+        - `HeaderNav`
+        - `MatchForm`
+        - `MatchTable`
+  - auth
+    - diagram what true auth strategy should be, i.e., when and how to update
+    - remove from `useRedirect`?
+    - use `useReduxData` instead?
 
 Kay
 
