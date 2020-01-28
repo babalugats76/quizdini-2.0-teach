@@ -60,9 +60,6 @@ Messages need to be standardized, etc.
   - Investigate SSL steps
 - Documentation
 - Server
-  - POC of Amazon DocumentDB
-    - Setup in dev
-    - Does it work with existing Mongoose, etc.
   - POC of `elasicache`
     - Setup in dev and prod 
     - Update config with keys
@@ -114,11 +111,8 @@ Messages need to be standardized, etc.
       - Update creditials, i.e, `key.js`, `prod.js`
       - Test loading and adding to `RegisterForm`
   - Hooks
-    - useScript || useMedia
-      - Create `media` hook that can dynamically load 3rd party script
-      - `id`, `scriptUrl`, `loader`
-      - `onLoad` callbacks
-      - Investiage replacing `react-stripe-script-loader`
+    - useScript
+      - Add ref to track cancelled and protect `setState` (similar to other async hooks)
     - useWindow
       - Investigate removing hook in lieu of CSS media queries
         - `HeaderNav`

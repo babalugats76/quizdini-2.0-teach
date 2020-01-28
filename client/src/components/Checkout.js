@@ -1,7 +1,6 @@
 import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import StripeScriptLoader from "react-stripe-script-loader";
 import {
   CardExpiryElement,
   CardCvcElement,
@@ -10,24 +9,9 @@ import {
   injectStripe,
   StripeProvider
 } from "react-stripe-elements";
-import {
-  Container,
-  Divider,
-  Form,
-  Grid,
-  Header,
-  Segment
-} from "semantic-ui-react";
-import { useAPI, useRedirect, useResult, useStripe } from "../hooks/";
-import {
-  Button,
-  Icon,
-  InputText,
-  Loader,
-  LogoHeader,
-  Notify,
-  RadioGroup
-} from "./UI/";
+import { Container, Divider, Form, Grid, Header, Segment } from "semantic-ui-react";
+import { useAPI, useRedirect, useResult, useScript, useStripe } from "../hooks/";
+import { Button, Icon, InputText, Loader, LogoHeader, Notify, RadioGroup } from "./UI/";
 
 /* TODO - disposition, depends upon font ulitmately chosen for checkout form */
 /*const elementsOptions = {
@@ -36,6 +20,9 @@ import {
 const elementsOptions = {};
 
 export default props => {
+  // load 3rd-party payment processor script
+  const [loaded, error] = useScript(process.env.REACT_APP_STRIPE_SCRIPT, "stripe-v3");
+
   // direct API interactions (ephemeral)
   const { POST: buyCredits } = useAPI({ url: "/api/payment" });
 
@@ -48,25 +35,20 @@ export default props => {
     timeout: 1000
   });
 
+  // when to show loader
+  const showLoader = isRedirecting || !loaded;
+
   // what to render
   return (
-    (isRedirecting && <Loader />) || (
+    (error && <pre>Unable to load Stripe script...</pre>) ||
+    (showLoader && <Loader />) || (
       <Container as="main" className="page small" fluid id="checkout">
         <LogoHeader>Purchase Credits</LogoHeader>
-        <StripeScriptLoader
-          uniqueId="stripe-script"
-          script={process.env.REACT_APP_STRIPE_SCRIPT}
-          loader={<Loader />}
-        >
-          <StripeProvider apiKey={process.env.REACT_APP_STRIPE_KEY}>
-            <Elements {...elementsOptions}>
-              <InjectedCheckoutForm
-                onCheckout={buyCredits}
-                onSuccess={notify => redirect(notify)}
-              />
-            </Elements>
-          </StripeProvider>
-        </StripeScriptLoader>
+        <StripeProvider apiKey={process.env.REACT_APP_STRIPE_KEY}>
+          <Elements {...elementsOptions}>
+            <InjectedCheckoutForm onCheckout={buyCredits} onSuccess={notify => redirect(notify)} />
+          </Elements>
+        </StripeProvider>
       </Container>
     )
   );
@@ -123,12 +105,7 @@ const validateCheckout = Yup.object().shape({
 });
 
 const CheckoutForm = props => {
-  const [
-    onStripeReady,
-    onStripeChange,
-    isCardComplete,
-    clearStripeFields
-  ] = useStripe();
+  const [onStripeReady, onStripeChange, isCardComplete, clearStripeFields] = useStripe();
 
   const getNotify = useResult({
     successHeader: "Thank you for your purchase!"
@@ -160,12 +137,7 @@ const CheckoutForm = props => {
       }}
       onSubmit={async (values, actions) => {
         const { onCheckout, onSuccess, stripe } = props;
-        const {
-          credits,
-          amount,
-          cardholderName = "",
-          postalCode = ""
-        } = values;
+        const { credits, amount, cardholderName = "", postalCode = "" } = values;
         const { setStatus, setSubmitting } = actions;
 
         // Clear sensitive fields and notification
@@ -236,9 +208,7 @@ const CheckoutForm = props => {
                   disabled={isSubmitting}
                   name="amount"
                   onBlur={handleBlur}
-                  onChange={(event, data) =>
-                    handleAmountChange(event, data, setFieldValue)
-                  }
+                  onChange={(event, data) => handleAmountChange(event, data, setFieldValue)}
                   options={getPaymentOptions(["5", "10", "15", "20"])}
                   value={values.amount}
                 />

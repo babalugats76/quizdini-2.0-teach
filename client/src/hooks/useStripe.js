@@ -96,16 +96,8 @@ export default function useStripe() {
    * @returns {boolean}  Whether all react-stripe-elements' fields are complete (or not)
    */
   const isComplete = useMemo(() => {
-    return (
-      state.cardNumber.complete &&
-      state.cardExpiry.complete &&
-      state.cardCvc.complete
-    );
-  }, [
-    state.cardNumber.complete,
-    state.cardExpiry.complete,
-    state.cardCvc.complete
-  ]);
+    return state.cardNumber.complete && state.cardExpiry.complete && state.cardCvc.complete;
+  }, [state.cardNumber.complete, state.cardExpiry.complete, state.cardCvc.complete]);
 
   /***
    * Side effect whose cancel function updates current value of `isCancelled` ref.

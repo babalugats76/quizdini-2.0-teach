@@ -5,6 +5,7 @@ import useMessage from './useMessage';
 import useRedirect from './useRedirect';
 import useReduxData from '././useReduxData';
 import useResult from './useResult';
+import useScript from './useScript';
 import useStripe from './useStripe';
 import useTimeout from './useTimeout';
 import useTitle from './useTitle';
@@ -18,6 +19,7 @@ export {
   useRedirect,
   useReduxData,
   useResult,
+  useScript,
   useStripe,
   useTimeout,
   useTitle,
