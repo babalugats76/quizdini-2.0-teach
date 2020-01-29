@@ -69,7 +69,8 @@ module.exports = (app, memcache) => {
       );
 
       if (!match) return res.send({}); // Return empty Object to signify not found
-      memcache.delete(`match-${match.matchId}`);
+      const cacheKey = `match-${match.matchId}`;
+      memcache.delete(cacheKey);
       res.send(match);
     } catch (e) {
       next(e);
@@ -84,7 +85,8 @@ module.exports = (app, memcache) => {
       });
 
       if (!match) return res.send({}); // Return empty Object to signify not found
-      memcache.delete(`match-${match.matchId}`);
+      const cacheKey = `match-${match.matchId}`;
+      memcache.delete(cacheKey);
       res.send(match);
     } catch (e) {
       next(e);
@@ -93,7 +95,6 @@ module.exports = (app, memcache) => {
 
   app.get("/api/matches", requireLogin, async (req, res, next) => {
     try {
-
       const matches = await Match.find({ user_id: req.user.id }, null, {
         sort: "-updateDate"
       });
