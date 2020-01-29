@@ -5,7 +5,7 @@ const User = mongoose.model("users");
 const Match = mongoose.model("matches");
 const { InsufficientCredits } = require("../errors.js");
 
-module.exports = (app, cache) => {
+module.exports = (app, memcache) => {
   app.post("/api/match/", requireLogin, async (req, res, next) => {
     try {
       const { title, instructions, matches, options, published } = req.body;
@@ -69,6 +69,7 @@ module.exports = (app, cache) => {
       );
 
       if (!match) return res.send({}); // Return empty Object to signify not found
+      memcache.delete(`match-${match.matchId}`);
       res.send(match);
     } catch (e) {
       next(e);
@@ -83,6 +84,7 @@ module.exports = (app, cache) => {
       });
 
       if (!match) return res.send({}); // Return empty Object to signify not found
+      memcache.delete(`match-${match.matchId}`);
       res.send(match);
     } catch (e) {
       next(e);
@@ -91,14 +93,6 @@ module.exports = (app, cache) => {
 
   app.get("/api/matches", requireLogin, async (req, res, next) => {
     try {
-      //throw new Error('Testing matches api error...');
-
-       let remove = await cache.remove("hello2");
-       console.log(remove);
-       remove = await cache.remove("hello");
-       console.log(remove);
-      const lookup = await cache.getJson("hello");
-      console.log("hit", lookup);
 
       const matches = await Match.find({ user_id: req.user.id }, null, {
         sort: "-updateDate"

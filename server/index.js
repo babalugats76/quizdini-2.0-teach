@@ -18,8 +18,7 @@ require("./models/Token"); // Used in user routes
 require("./models/Payment"); // Used in payment route
 require("./services/passport"); // Since nothing is being exported
 
-const cache = require("./services/cache")(keys);
-cache.setJson("hello", { "message": "world" }, { expires: 100 });
+const memcache = require("./services/memcache")(keys);
 
 mongoose.connect(keys.mongoURI, {
   useNewUrlParser: true,
@@ -49,7 +48,7 @@ app.use(passport.session());
 require("./routes/authRoutes")(app);
 require("./routes/userRoutes")(app);
 require("./routes/paymentRoutes")(app);
-require("./routes/matchRoutes")(app, cache);
+require("./routes/matchRoutes")(app, memcache);
 require("./routes/test")(app);
 
 app.use(errorHandler); // Custom default, i.e., catch-all, error handler middleware
