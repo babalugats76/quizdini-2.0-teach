@@ -8,5 +8,8 @@ module.exports = {
   stripeSecretKey: process.env.STRIPE_SECRET_KEY,
   awsRegion: process.env.AWS_REGION,
   awsAccessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  awsSecretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+  awsSecretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  memcachierServers: process.env.MEMCACHIER_SERVERS,
+  memcachierUsername: process.env.MEMCACHIER_USERNAME,
+  memcachierPassword: process.env.MEMCACHIER_PASSWORD
 };

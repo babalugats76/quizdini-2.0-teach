@@ -29,6 +29,7 @@
     "heroku-ssl-redirect": "0.0.4",
     "http-status-codes": "^1.4.0",
     "md5": "^2.2.1",
+    "memjs": "^1.2.2",
     "mongoose": "^5.8.7",
     "nanoid": "^2.1.9",
     "newrelic": "^6.2.0",

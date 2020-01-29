@@ -1,12 +1,12 @@
-const mongoose = require('mongoose');
-const shortid = require('shortid');
-const requireLogin = require('../middlewares/requireLogin');
-const User = mongoose.model('users');
-const Match = mongoose.model('matches');
-const { InsufficientCredits } = require('../errors.js');
+const mongoose = require("mongoose");
+const shortid = require("shortid");
+const requireLogin = require("../middlewares/requireLogin");
+const User = mongoose.model("users");
+const Match = mongoose.model("matches");
+const { InsufficientCredits } = require("../errors.js");
 
-module.exports = app => {
-  app.post('/api/match/', requireLogin, async (req, res, next) => {
+module.exports = (app, cache) => {
+  app.post("/api/match/", requireLogin, async (req, res, next) => {
     try {
       const { title, instructions, matches, options, published } = req.body;
 
@@ -26,7 +26,7 @@ module.exports = app => {
         user_id: req.user._id
       }).save();
 
-      user.credits -= 1; 
+      user.credits -= 1;
       await user.save();
 
       res.send(match);
@@ -35,7 +35,7 @@ module.exports = app => {
     }
   });
 
-  app.get('/api/match/:id', requireLogin, async (req, res, next) => {
+  app.get("/api/match/:id", requireLogin, async (req, res, next) => {
     try {
       const match = await Match.findOne({
         user_id: req.user.id,
@@ -48,7 +48,7 @@ module.exports = app => {
     }
   });
 
-  app.put('/api/match/:id', requireLogin, async (req, res, next) => {
+  app.put("/api/match/:id", requireLogin, async (req, res, next) => {
     try {
       //throw new Error('Test handling match update error...');
       const { title, instructions, matches, options, published } = req.body;
@@ -75,7 +75,7 @@ module.exports = app => {
     }
   });
 
-  app.delete('/api/match/:id', requireLogin, async (req, res, next) => {
+  app.delete("/api/match/:id", requireLogin, async (req, res, next) => {
     try {
       const match = await Match.findOneAndDelete({
         user_id: req.user.id,
@@ -89,11 +89,19 @@ module.exports = app => {
     }
   });
 
-  app.get('/api/matches', requireLogin, async (req, res, next) => {
+  app.get("/api/matches", requireLogin, async (req, res, next) => {
     try {
       //throw new Error('Testing matches api error...');
+
+       let remove = await cache.remove("hello2");
+       console.log(remove);
+       remove = await cache.remove("hello");
+       console.log(remove);
+      const lookup = await cache.getJson("hello");
+      console.log("hit", lookup);
+
       const matches = await Match.find({ user_id: req.user.id }, null, {
-        sort: '-updateDate'
+        sort: "-updateDate"
       });
 
       if (!matches) return res.send([]); // Return empty array to signify not found
