@@ -21,9 +21,9 @@ const Match = ({ credits, data: games, onDelete }) => {
         NEW GAME
       </RouterButton>
       <Divider hidden />
-      {(games && games.length && (
-        <MatchCardGroup games={games} onDelete={onDelete} />
-      )) || <MatchIntro />}
+      {(games && games.length && <MatchCardGroup games={games} onDelete={onDelete} />) || (
+        <MatchIntro />
+      )}
     </Segment>
   );
 };
@@ -42,15 +42,13 @@ const MatchIntro = () => (
   <div>
     <h1>The Match Game...</h1>
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the
-      1500s, when an unknown printer took a galley of type and scrambled it to
-      make a type specimen book. It has survived not only five centuries, but
-      also the leap into electronic typesetting, remaining essentially
-      unchanged. It was popularised in the 1960s with the release of Letraset
-      sheets containing Lorem Ipsum passages, and more recently with desktop
-      publishing software like Aldus PageMaker including versions of Lorem
-      Ipsum.
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+      been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+      galley of type and scrambled it to make a type specimen book. It has survived not only five
+      centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It
+      was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+      passages, and more recently with desktop publishing software like Aldus PageMaker including
+      versions of Lorem Ipsum.
     </p>
   </div>
 );
@@ -60,11 +58,7 @@ const MatchCardGroup = ({ games, onDelete }) => {
     <Card.Group itemsPerRow={3} stackable>
       {games &&
         games.map(game => (
-          <MatchCard
-            key={game.matchId}
-            game={game}
-            onDelete={matchId => onDelete(game.matchId)}
-          />
+          <MatchCard key={game.matchId} game={game} onDelete={matchId => onDelete(game.matchId)} />
         ))}
     </Card.Group>
   );
@@ -123,16 +117,9 @@ const MatchCard = ({ game, onDelete }) => {
   const url = `${process.env.REACT_APP_GAME_BASE_URL}/match/${matchId}`;
 
   return (
-    <Transition
-      animation="fade"
-      duration={1000}
-      onHide={handleHide}
-      visible={visible}
-    >
+    <Transition animation="fade" duration={1000} onHide={handleHide} visible={visible}>
       <Card className="match-card" key={matchId} raised>
-        <Card.Content
-          className={`match-card-header${canDelete ? " can-delete" : ""}`}
-        >
+        <Card.Content className={`match-card-header${canDelete ? " can-delete" : ""}`}>
           <Card.Header>{title}</Card.Header>
           <Button
             as="button"
@@ -150,14 +137,22 @@ const MatchCard = ({ game, onDelete }) => {
           </Card.Description>
         </Card.Content>
         <Card.Content className="match-card-btns" extra>
-          <div className="ui three buttons">
+          <div className="ui four buttons">
             <RouterButton
               active
               disabled={!visible}
               icon="edit"
-              pathname="/match"
+              pathname="/match/edit"
               state={{ matchId: matchId }}
               title={`Edit ${title}`}
+            />
+            <RouterButton
+              active
+              disabled={!visible}
+              icon="bar-chart-2"
+              pathname="/match/stats"
+              state={{ matchId: matchId }}
+              title={`View Stats for ${title}`}
             />
             <Button
               active
@@ -172,15 +167,13 @@ const MatchCard = ({ game, onDelete }) => {
             <Button
               active
               as="button"
-              className={`clipboard ${copied ? "copied" : ""}`}
+              className={`clipboard${copied ? " copied" : ""}`}
               disabled={!visible}
-              icon={!copied ? "link" : null}
+              icon={!copied ? "link" : "copy"}
               onClick={() => handleCopyUrl(url)}
               title="Copy URL to clipboard"
               type="button"
-            >
-              {copied ? "Copied!" : null}
-            </Button>
+            />
           </div>
         </Card.Content>
       </Card>

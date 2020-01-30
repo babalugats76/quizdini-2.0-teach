@@ -924,7 +924,7 @@ a#google-login {
           display: flex;
           flex-grow: 0;
           background-color: @subtleTransparentBlack;
-          > .ui.three.buttons {
+          > .ui.four.buttons {
             .ui.button {
               &.clipboard {
                 transition: color 0.3s ease-in-out,

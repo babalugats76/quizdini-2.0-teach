@@ -1049,21 +1049,21 @@ a#google-login:visited {
           flex-grow: 0;
   background-color: rgba(0, 0, 0, 0.03);
 }
-.ui.cards .ui.card.match-card .content.match-card-btns > .ui.three.buttons .ui.button.clipboard {
+.ui.cards .ui.card.match-card .content.match-card-btns > .ui.four.buttons .ui.button.clipboard {
   -webkit-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
-.ui.cards .ui.card.match-card .content.match-card-btns > .ui.three.buttons .ui.button.clipboard.copied {
+.ui.cards .ui.card.match-card .content.match-card-btns > .ui.four.buttons .ui.button.clipboard.copied {
   color: #FFFFFF;
   background-color: #21BA45;
   font-size: 0.875rem;
   margin: 0;
   padding: 0;
 }
-.ui.cards .ui.card.match-card .content.match-card-btns > .ui.three.buttons .ui.button:not(:last-child) {
+.ui.cards .ui.card.match-card .content.match-card-btns > .ui.four.buttons .ui.button:not(:last-child) {
   border-right: 1px inset #1B1C1D;
 }
-.ui.cards .ui.card.match-card .content.match-card-btns > .ui.three.buttons svg.icon {
+.ui.cards .ui.card.match-card .content.match-card-btns > .ui.four.buttons svg.icon {
   width: 1.375em;
   height: 1.375em;
 }

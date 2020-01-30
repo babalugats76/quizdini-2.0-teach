@@ -92,7 +92,6 @@ const App = props => {
         />
         <PrivateRoute
           loggedIn={loggedIn}
-          exact
           path="/match"
           component={Match}
         />

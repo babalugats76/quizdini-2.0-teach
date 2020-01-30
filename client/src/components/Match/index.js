@@ -1,78 +1,55 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { Container } from "semantic-ui-react";
-import { useAPI, useData, useReduxData, useTitle } from "../../hooks/";
-import { Loader } from "../UI/";
-import MatchForm from "./MatchForm";
+import { Switch, Route } from "react-router-dom";
+import MatchEdit from "./MatchEdit";
+import MatchStats from "./MatchStats";
 
-const Match = props => {
-  const {
-    location: { state: { matchId = undefined } = {} } = {},
-    isMobile
-  } = props;
+// Match subroutes ( order is important )
+const routes = [
+  {
+    path: "edit",
+    exact: true,
+    component: MatchEdit,
+    id: "edit"
+  },
+  {
+    path: "stats",
+    exact: true,
+    component: MatchStats,
+    id: "stats"
+  },
+  {
+    path: "",
+    exact: false,
+    component: MatchEdit,
+    id: "default"
+  }
+];
 
-  // local state - dirty toggle
-  const [state, setState] = useState({
-    dirty: false,
-    matchId: matchId
-  });
+const index = props => {
 
-  // Redux data
-  useReduxData({ items: ["fetchAuth"], deps: [state.dirty] });
-
-  // API data
-  const { data: game, error, initialized, loading } = useData({
-    url: "/api/match/" + state.matchId,
-    deps: [state.matchId, state.dirty]
-  });
-
-  // direct API interactions (ephemeral)
-  const { POST: createMatch, PUT: updateMatch } = useAPI({ url: "/api/match" });
-
-  // set page title
-  useTitle({
-    title: state.matchId
-      ? game
-        ? game.title
-        : "Loading..."
-      : "Create New Match",
-    deps: [state.matchId]
-  });
-
-  // toggles data as "dirty" (used to prompt fetch)
-  const onSuccess = (matchId = null) => {
-    setState(prevState => {
-      return {
-        matchId: prevState.matchId || matchId,
-        dirty: !prevState.dirty
-      };
-    });
-  };
-
-  const showLoader = !initialized && (loading || !game);
+  const { match: { path: basePath } = {} } = props; // grab basePath from `match`
 
   return (
-    <Container as="main" className="page large" fluid id="match-edit">
-      {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
-        (showLoader && <Loader />) || (
-          <div className="content-wrapper">
-            <MatchForm
-              game={game}
-              isMobile={isMobile}
-              loading={loading}
-              maxMatches={100}
-              onCreateMatch={createMatch}
-              onSuccess={onSuccess}
-              onUpdateMatch={updateMatch}
-            />
-          </div>
-        )}
-    </Container>
+    <Switch>
+      {routes.map(({ path, exact, component: Component, id }) => {
+        return (
+          <Route
+            key={id}
+            path={`${basePath}/${path}`}
+            exact={exact}
+            render={() => <Component {...props} />}
+          />
+        );
+      })}
+    </Switch>
   );
 };
 
-Match.propTypes = {
-  location: PropTypes.object.isRequired
+index.propTypes = {
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired
 };
 
-export default Match;
+export default index;
