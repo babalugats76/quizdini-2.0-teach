@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Chart from "chart.js";
-
+import { Container } from "semantic-ui-react";
 let myChart;
 
 const MatchStats = props => {
@@ -23,12 +23,18 @@ const MatchStats = props => {
         ]
       },
       options: {
-        //Customize chart options
+        animation: {
+          easing: "linear"
+        }
       }
     });
   }, []);
 
-  return <canvas ref={ref => (canvasRef.current = ref)} />;
+  return (
+    <Container as="main" className="page large" fluid id="match-stats">
+      <canvas ref={ref => (canvasRef.current = ref)} />
+    </Container>
+  );
 };
 
 export default MatchStats;
