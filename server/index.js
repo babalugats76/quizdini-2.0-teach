@@ -16,7 +16,7 @@ require("./models/User"); // Load before passport, etc.,
 require("./models/Match"); // Used in match routes, etc.
 require("./models/Token"); // Used in user routes
 require("./models/Payment"); // Used in payment route
-require("./models/Ping"); // Used in ping/stat routes
+require("./models/Ping"); // Used in match routes (for stats)
 require("./services/passport"); // Since nothing is being exported
 
 const memcache = require("./services/memcache")(keys);
@@ -49,7 +49,6 @@ app.use(passport.session());
 require("./routes/authRoutes")(app);
 require("./routes/matchRoutes")(app, memcache);
 require("./routes/paymentRoutes")(app);
-require("./routes/pingRoutes")(app, memcache);
 require("./routes/test")(app);
 require("./routes/userRoutes")(app);
 

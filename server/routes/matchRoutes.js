@@ -3,6 +3,7 @@ const shortid = require("shortid");
 const requireLogin = require("../middlewares/requireLogin");
 const User = mongoose.model("users");
 const Match = mongoose.model("matches");
+const Ping = mongoose.model("pings");
 const { InsufficientCredits } = require("../errors.js");
 
 module.exports = (app, memcache) => {
@@ -37,10 +38,7 @@ module.exports = (app, memcache) => {
 
   app.get("/api/match/:id", requireLogin, async (req, res, next) => {
     try {
-      const match = await Match.findOne({
-        user_id: req.user.id,
-        matchId: req.params.id
-      });
+      const match = await Match.findOne({ user_id: req.user.id, matchId: req.params.id });
       if (!match) return res.send({}); // Return empty Object to signify not found
       res.send(match);
     } catch (e) {
@@ -69,8 +67,10 @@ module.exports = (app, memcache) => {
       );
 
       if (!match) return res.send({}); // Return empty Object to signify not found
-      const cacheKey = `match-${match.matchId}`;
-      memcache.delete(cacheKey);
+      const gameKey = `m-${match.matchId}`;
+      const statKey = `m-s-${match.matchId}`;
+      memcache.delete(gameKey);
+      memcache.delete(statKey);
       res.send(match);
     } catch (e) {
       next(e);
@@ -85,8 +85,10 @@ module.exports = (app, memcache) => {
       });
 
       if (!match) return res.send({}); // Return empty Object to signify not found
-      const cacheKey = `match-${match.matchId}`;
-      memcache.delete(cacheKey);
+      const gameKey = `m-${match.matchId}`;
+      const statKey = `m-s-${match.matchId}`;
+      memcache.delete(gameKey);
+      memcache.delete(statKey);
       res.send(match);
     } catch (e) {
       next(e);
@@ -101,6 +103,106 @@ module.exports = (app, memcache) => {
 
       if (!matches) return res.send([]); // Return empty array to signify not found
       res.send(matches);
+    } catch (e) {
+      next(e);
+    }
+  });
+
+  app.get("/api/match/stats/:id", requireLogin, async (req, res, next) => {
+    try {
+      let results;
+
+      // Lookup game in cache; if found, return...
+      const statKey = `m-s-${req.params.id}`;
+      const cached = await memcache.get(statKey);
+      if (cached && cached.userId === req.user.id) {
+        return res.send(cached);
+      }
+
+      let match = await Match.findOne({ user_id: req.user.id, matchId: req.params.id });
+      if (!match) return res.send({}); // Return empty Object to signify not found
+      const stats = await Ping.aggregate([
+        {
+          $facet: {
+            totals: [
+              { $match: { gameId: req.params.id } },
+              {
+                $group: {
+                  _id: null,
+                  plays: { $sum: 1 },
+                  avgScore: { $avg: "$results.score" }
+                }
+              },
+              {
+                $project: {
+                  _id: false,
+                  avgScore: 1,
+                  plays: 1
+                }
+              }
+            ],
+            last30: [
+              {
+                $match: {
+                  gameId: req.params.id,
+                  createDate: { $gte: new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000) }
+                }
+              },
+              {
+                $group: {
+                  _id: {
+                    $toDate: {
+                      $subtract: [
+                        { $toLong: "$createDate" },
+                        { $mod: [{ $toLong: "$createDate" }, 1000 * 60 * 60 * 24] }
+                      ]
+                    }
+                  },
+                  count: { $sum: 1 }
+                }
+              },
+              { $sort: { _id: 1 } },
+              {
+                $project: {
+                  _id: false,
+                  plays: "$count",
+                  day: { $dateToString: { format: "%m/%d/%Y", date: "$_id" } }
+                }
+              }
+            ],
+            terms: [
+              { $match: { gameId: req.params.id } },
+              { $group: { _id: { gameId: "$gameId", results: "$results.data" } } },
+              { $unwind: { path: "$_id.results" } },
+              {
+                $group: {
+                  _id: "$_id.results.term",
+                  tries: { $sum: { $add: ["$_id.results.hit", "$_id.results.miss"] } },
+                  hits: { $sum: "$_id.results.hit" },
+                  misses: { $sum: "$_id.results.miss" }
+                }
+              },
+              {
+                $project: {
+                  _id: 0,
+                  term: "$_id",
+                  tries: 1,
+                  hits: 1,
+                  misses: 1,
+                  hitRate: { $multiply: [{ $divide: ["$hits", "$tries"] }, 100] },
+                  missRate: { $multiply: [{ $divide: ["$misses", "$tries"] }, 100] }
+                }
+              },
+              { $sort: { hitRate: 1, tries: -1 } }
+            ]
+          }
+        }
+      ]);
+
+      const { matchId, title, options } = match.toJSON(); // convert to POJO and destructure
+      results = { matchId, userId: req.user.id, title, options, ...stats[0] };
+      memcache.set(statKey, results, { expires: 15 * 60 });
+      res.send(results);
     } catch (e) {
       next(e);
     }
