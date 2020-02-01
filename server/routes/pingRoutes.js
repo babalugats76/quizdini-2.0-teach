@@ -50,25 +50,30 @@ module.exports = (app, memcache) => {
       const breakdown = await Ping.aggregate([
         {
           $facet: {
-            alltime: [
+            totals: [
               { $match: { gameId: req.params.id } },
               {
                 $group: {
                   _id: null,
-                  totalPlays: { $sum: 1 },
-                  averageScore: { $avg: "$results.score" }
+                  plays: { $sum: 1 },
+                  avgScore: { $avg: "$results.score" }
                 }
               },
               {
                 $project: {
                   _id: false,
-                  averageScore: 1,
-                  totalPlays: 1
+                  avgScore: 1,
+                  plays: 1
                 }
               }
             ],
-            playsByDay: [
-              { $match: { gameId: req.params.id } },
+            last30: [
+              {
+                $match: {
+                  gameId: req.params.id,
+                  createDate: { $gte: new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000) }
+                }
+              },
               {
                 $group: {
                   _id: {
