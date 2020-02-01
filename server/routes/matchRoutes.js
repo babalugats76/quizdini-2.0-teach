@@ -115,9 +115,7 @@ module.exports = (app, memcache) => {
       // Lookup game in cache; if found, return...
       const statKey = `m-s-${req.params.id}`;
       const cached = await memcache.get(statKey);
-      if (cached && cached.userId === req.user.id) {
-        return res.send(cached);
-      }
+      if (cached && cached.userId === req.user.id) return res.send(cached);
 
       let match = await Match.findOne({ user_id: req.user.id, matchId: req.params.id });
       if (!match) return res.send({}); // Return empty Object to signify not found

@@ -1,9 +1,44 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Chart from "chart.js";
 import { Container } from "semantic-ui-react";
+import { useData, useTitle } from "../../hooks";
+import { Loader } from "../UI";
+
 let myChart;
 
 const MatchStats = props => {
+  const { location: { state: { matchId = undefined } = {} } = {} } = props;
+
+  // local state - dirty toggle
+  const [state, setState] = useState({
+    dirty: false,
+    matchId: matchId
+  });
+
+  // API data
+  const { data: stats, error, initialized, loading } = useData({
+    url: "/api/match/stats/" + state.matchId,
+    deps: [state.matchId, state.dirty]
+  });
+
+  // set page title
+  useTitle({
+    title: state.matchId ? (stats ? stats.title : "Loading...") : "",
+    deps: [state.matchId]
+  });
+
+  const showLoader = !initialized && (loading || !stats);
+
+  return (
+    <Container as="main" className="page large" fluid id="match-stats">
+      {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) || (showLoader && <Loader />) || (
+        <TestChart {...stats} />
+      )}
+    </Container>
+  );
+};
+
+const TestChart = props => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -115,11 +150,11 @@ const MatchStats = props => {
       }
     });
   }, []);
-
   return (
-    <Container as="main" className="page large" fluid id="match-stats">
+    <div>
+      <pre>{JSON.stringify(props, null, 4)}</pre>
       <canvas ref={ref => (canvasRef.current = ref)} />
-    </Container>
+    </div>
   );
 };
 
