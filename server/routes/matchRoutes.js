@@ -1,13 +1,14 @@
-const mongoose = require("mongoose");
-const shortid = require("shortid");
-const requireLogin = require("../middlewares/requireLogin");
-const User = mongoose.model("users");
-const Match = mongoose.model("matches");
-const Ping = mongoose.model("pings");
-const { InsufficientCredits } = require("../errors.js");
+const mongoose = require('mongoose');
+const shortid = require('shortid');
+const { format } = require('date-fns');
+const requireLogin = require('../middlewares/requireLogin');
+const User = mongoose.model('users');
+const Match = mongoose.model('matches');
+const Ping = mongoose.model('pings');
+const { InsufficientCredits } = require('../errors.js');
 
 module.exports = (app, memcache) => {
-  app.post("/api/match/", requireLogin, async (req, res, next) => {
+  app.post('/api/match/', requireLogin, async (req, res, next) => {
     try {
       const { title, instructions, matches, options, published } = req.body;
 
@@ -36,9 +37,12 @@ module.exports = (app, memcache) => {
     }
   });
 
-  app.get("/api/match/:id", requireLogin, async (req, res, next) => {
+  app.get('/api/match/:id', requireLogin, async (req, res, next) => {
     try {
-      const match = await Match.findOne({ user_id: req.user.id, matchId: req.params.id });
+      const match = await Match.findOne({
+        user_id: req.user.id,
+        matchId: req.params.id
+      });
       if (!match) return res.send({}); // Return empty Object to signify not found
       res.send(match);
     } catch (e) {
@@ -46,7 +50,7 @@ module.exports = (app, memcache) => {
     }
   });
 
-  app.put("/api/match/:id", requireLogin, async (req, res, next) => {
+  app.put('/api/match/:id', requireLogin, async (req, res, next) => {
     try {
       //throw new Error('Test handling match update error...');
       const { title, instructions, matches, options, published } = req.body;
@@ -77,7 +81,7 @@ module.exports = (app, memcache) => {
     }
   });
 
-  app.delete("/api/match/:id", requireLogin, async (req, res, next) => {
+  app.delete('/api/match/:id', requireLogin, async (req, res, next) => {
     try {
       const match = await Match.findOneAndDelete({
         user_id: req.user.id,
@@ -95,10 +99,10 @@ module.exports = (app, memcache) => {
     }
   });
 
-  app.get("/api/matches", requireLogin, async (req, res, next) => {
+  app.get('/api/matches', requireLogin, async (req, res, next) => {
     try {
       const matches = await Match.find({ user_id: req.user.id }, null, {
-        sort: "-updateDate"
+        sort: '-updateDate'
       });
 
       if (!matches) return res.send([]); // Return empty array to signify not found
@@ -108,16 +112,19 @@ module.exports = (app, memcache) => {
     }
   });
 
-  app.get("/api/match/stats/:id", requireLogin, async (req, res, next) => {
+  app.get('/api/match/stats/:id', requireLogin, async (req, res, next) => {
     try {
       let results;
 
       // Lookup game in cache; if found, return...
       const statKey = `m-s-${req.params.id}`;
-      const cached = await memcache.get(statKey);
-      if (cached && cached.userId === req.user.id) return res.send(cached);
+      //  const cached = await memcache.get(statKey);
+      //  if (cached && cached.userId === req.user.id) return res.send(cached);
 
-      let match = await Match.findOne({ user_id: req.user.id, matchId: req.params.id });
+      let match = await Match.findOne({
+        user_id: req.user.id,
+        matchId: req.params.id
+      });
       if (!match) return res.send({}); // Return empty Object to signify not found
       const stats = await Ping.aggregate([
         {
@@ -128,7 +135,7 @@ module.exports = (app, memcache) => {
                 $group: {
                   _id: null,
                   plays: { $sum: 1 },
-                  avgScore: { $avg: "$results.score" }
+                  avgScore: { $avg: '$results.score' }
                 }
               },
               {
@@ -143,7 +150,11 @@ module.exports = (app, memcache) => {
               {
                 $match: {
                   gameId: req.params.id,
-                  createDate: { $gte: new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000) }
+                  createDate: {
+                    $gte: new Date(
+                      new Date().getTime() - 30 * 24 * 60 * 60 * 1000
+                    )
+                  }
                 }
               },
               {
@@ -151,8 +162,13 @@ module.exports = (app, memcache) => {
                   _id: {
                     $toDate: {
                       $subtract: [
-                        { $toLong: "$createDate" },
-                        { $mod: [{ $toLong: "$createDate" }, 1000 * 60 * 60 * 24] }
+                        { $toLong: '$createDate' },
+                        {
+                          $mod: [
+                            { $toLong: '$createDate' },
+                            1000 * 60 * 60 * 24
+                          ]
+                        }
                       ]
                     }
                   },
@@ -163,32 +179,40 @@ module.exports = (app, memcache) => {
               {
                 $project: {
                   _id: false,
-                  plays: "$count",
-                  day: { $dateToString: { format: "%m/%d/%Y", date: "$_id" } }
+                  plays: '$count',
+                  day: { $dateToString: { format: '%m/%d/%Y', date: '$_id' } }
                 }
               }
             ],
             terms: [
               { $match: { gameId: req.params.id } },
-              { $group: { _id: { gameId: "$gameId", results: "$results.data" } } },
-              { $unwind: { path: "$_id.results" } },
+              {
+                $group: { _id: { gameId: '$gameId', results: '$results.data' } }
+              },
+              { $unwind: { path: '$_id.results' } },
               {
                 $group: {
-                  _id: "$_id.results.term",
-                  tries: { $sum: { $add: ["$_id.results.hit", "$_id.results.miss"] } },
-                  hits: { $sum: "$_id.results.hit" },
-                  misses: { $sum: "$_id.results.miss" }
+                  _id: '$_id.results.term',
+                  tries: {
+                    $sum: { $add: ['$_id.results.hit', '$_id.results.miss'] }
+                  },
+                  hits: { $sum: '$_id.results.hit' },
+                  misses: { $sum: '$_id.results.miss' }
                 }
               },
               {
                 $project: {
                   _id: 0,
-                  term: "$_id",
+                  term: '$_id',
                   tries: 1,
                   hits: 1,
                   misses: 1,
-                  hitRate: { $multiply: [{ $divide: ["$hits", "$tries"] }, 100] },
-                  missRate: { $multiply: [{ $divide: ["$misses", "$tries"] }, 100] }
+                  hitRate: {
+                    $multiply: [{ $divide: ['$hits', '$tries'] }, 100]
+                  },
+                  missRate: {
+                    $multiply: [{ $divide: ['$misses', '$tries'] }, 100]
+                  }
                 }
               },
               { $sort: { hitRate: 1, tries: -1 } }
@@ -197,8 +221,15 @@ module.exports = (app, memcache) => {
         }
       ]);
 
-      const { matchId, title, options } = match.toJSON(); // convert to POJO and destructure
-      results = { matchId, userId: req.user.id, title, options, ...stats[0] };
+      const { createDate, matchId, options, title } = match.toJSON(); // convert to POJO and destructure
+      results = {
+        matchId,
+        title,
+        userId: req.user.id,
+        createDate: `${format(createDate, 'MM/dd/yyyy')}`,
+        options,
+        ...stats[0]
+      };
       memcache.set(statKey, results, { expires: 15 * 60 });
       res.send(results);
     } catch (e) {

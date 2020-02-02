@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import Chart from "chart.js";
-import { Container } from "semantic-ui-react";
-import { useData, useTitle } from "../../hooks";
-import { Loader } from "../UI";
+import React, { useEffect, useRef, useState } from 'react';
+import Chart from 'chart.js';
+import { Container } from 'semantic-ui-react';
+import { useData, useTitle } from '../../hooks';
+import { Loader } from '../UI';
+const { addDays, eachDayOfInterval, format, max, parse } = require('date-fns');
 
 let myChart;
 
@@ -17,13 +18,13 @@ const MatchStats = props => {
 
   // API data
   const { data: stats, error, initialized, loading } = useData({
-    url: "/api/match/stats/" + state.matchId,
+    url: '/api/match/stats/' + state.matchId,
     deps: [state.matchId, state.dirty]
   });
 
   // set page title
   useTitle({
-    title: state.matchId ? (stats ? stats.title : "Loading...") : "",
+    title: state.matchId ? (stats ? stats.title : 'Loading...') : '',
     deps: [state.matchId]
   });
 
@@ -31,9 +32,8 @@ const MatchStats = props => {
 
   return (
     <Container as="main" className="page large" fluid id="match-stats">
-      {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) || (showLoader && <Loader />) || (
-        <TestChart {...stats} />
-      )}
+      {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
+        (showLoader && <Loader />) || <TestChart {...stats} />}
     </Container>
   );
 };
@@ -42,70 +42,47 @@ const TestChart = props => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    if (typeof myChart !== "undefined") myChart.destroy();
+    let chartRange,
+      dateRange,
+      labels,
+      createDate,
+      maxBound,
+      minBound,
+      startDate,
+      values;
+
+    if (typeof myChart !== 'undefined') myChart.destroy();
+
+    if (props.last30 && props.last30.length > 0) {
+      createDate = parse(props.createDate, 'MM/dd/yyyy', new Date());
+      startDate = max([addDays(Date.now(), -30), createDate]);
+      dateRange = props.last30.reduce((accum, item) => {
+        accum[item.day] = item.plays;
+        return accum;
+      }, []);
+      chartRange = eachDayOfInterval({
+        start: startDate,
+        end: Date.now()
+      }).map(day => format(day, 'MM/dd/yyyy'));
+      values = chartRange.map(item => dateRange[item] || 0);
+      minBound = format(addDays(startDate, -1), '"MM/dd/yyyy"');
+      maxBound = format(addDays(Date.now(), 1), '"MM/dd/yyyy"');
+    }
 
     myChart = new Chart(canvasRef.current, {
-      type: "bar",
+      type: 'bar',
       data: {
         //Bring in data
-        labels: [
-          "01/01/2020",
-          "01/02/2020",
-          "01/23/2020",
-          "01/26/2020",
-          "01/27/2020",
-          "01/28/2020",
-          "01/29/2020",
-          "01/30/2020",
-          "01/31/2020",
-          "02/01/2020"
-        ],
+        labels: chartRange,
         datasets: [
           {
-            label: "Plays",
+            label: 'Plays',
             fill: false,
             spanGaps: true,
             showLine: true,
             steppedLine: false,
             lineTension: 0.1,
-            data: [
-              {
-                x: "01/01/2020",
-                y: 50
-              },
-              {
-                x: "01/02/2020",
-                y: 5
-              },
-              {
-                x: "01/23/2020",
-                y: 45
-              },
-              {
-                x: "01/26/2020",
-                y: 10
-              },
-              {
-                x: "01/27/2020",
-                y: 10
-              },
-              {
-                x: "01/28/2020",
-                y: 18
-              },
-              {
-                x: "01/29/2020",
-                y: 0
-              },
-              {
-                x: "01/30/2020",
-                y: 9
-              },
-              {
-                x: "01/31/2020",
-                y: 1
-              }
-            ]
+            data: values
           }
         ]
       },
@@ -113,10 +90,10 @@ const TestChart = props => {
         responsive: true,
         title: {
           display: true,
-          text: "Sample Chart"
+          text: 'Sample Chart'
         },
         animation: {
-          easing: "linear"
+          easing: 'linear'
         },
         scales: {
           xAxes: [
@@ -124,20 +101,21 @@ const TestChart = props => {
               gridLines: {
                 offsetGridLines: true
               },
-              distribution: "linear",
-              type: "time",
+              distribution: 'linear',
+              type: 'time',
               ticks: {
-                stepSize: 7
+                min: minBound,
+                max: maxBound
               },
               time: {
-                unit: "week",
-                format: "MM/DD/YYYY",
+                unit: 'week',
+                parser: 'MM/DD/YYYY',
                 round: true,
                 isoWeekday: true
               },
               scaleLabel: {
                 display: true,
-                labelString: "Date"
+                labelString: 'Date'
               }
             }
           ],
@@ -149,7 +127,7 @@ const TestChart = props => {
         }
       }
     });
-  }, []);
+  }, [props.last30, props.createDate]);
   return (
     <div>
       <pre>{JSON.stringify(props, null, 4)}</pre>
