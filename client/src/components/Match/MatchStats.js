@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chart from 'chart.js';
-import { Container } from 'semantic-ui-react';
+import { Container, Segment } from 'semantic-ui-react';
 import { useData, useTitle } from '../../hooks';
 import { Loader } from '../UI';
 const { addDays, eachDayOfInterval, format, max, parse } = require('date-fns');
@@ -42,47 +42,38 @@ const TestChart = props => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    let chartRange,
-      dateRange,
-      labels,
-      createDate,
-      maxBound,
-      minBound,
-      startDate,
-      values;
+    let createDate, maxTick, minTick, playsByDay, startDate, x, y, yMax;
 
     if (typeof myChart !== 'undefined') myChart.destroy();
 
-    if (props.last30 && props.last30.length > 0) {
+    if (props.pings && props.pings.length > 0) {
       createDate = parse(props.createDate, 'MM/dd/yyyy', new Date());
       startDate = max([addDays(Date.now(), -30), createDate]);
-      dateRange = props.last30.reduce((accum, item) => {
-        accum[item.day] = item.plays;
+      playsByDay = props.pings.reduce((accum, i) => {
+        accum[i.day] = i.plays;
         return accum;
       }, []);
-      chartRange = eachDayOfInterval({
+      x = eachDayOfInterval({
         start: startDate,
         end: Date.now()
       }).map(day => format(day, 'MM/dd/yyyy'));
-      values = chartRange.map(item => dateRange[item] || 0);
-      minBound = format(addDays(startDate, -1), '"MM/dd/yyyy"');
-      maxBound = format(addDays(Date.now(), 1), '"MM/dd/yyyy"');
+      y = x.map(day => playsByDay[day] || 0);
+      yMax = Math.max(...y);
+      console.log('yMax', yMax);
+      minTick = format(addDays(startDate, -1), '"MM/dd/yyyy"');
+      maxTick = format(addDays(Date.now(), 1), '"MM/dd/yyyy"');
     }
 
     myChart = new Chart(canvasRef.current, {
       type: 'bar',
       data: {
-        //Bring in data
-        labels: chartRange,
+        labels: x,
         datasets: [
           {
             label: 'Plays',
-            fill: false,
-            spanGaps: true,
-            showLine: true,
-            steppedLine: false,
-            lineTension: 0.1,
-            data: values
+            data: y,
+            barThickness: 'flex',
+            backgroundColor: 'rgba(255,0,0,1.0)'
           }
         ]
       },
@@ -90,28 +81,29 @@ const TestChart = props => {
         responsive: true,
         title: {
           display: true,
-          text: 'Sample Chart'
+          text: 'Game Plays By Day'
         },
         animation: {
-          easing: 'linear'
+          easing: 'easeInOutQuart'
         },
         scales: {
           xAxes: [
             {
               gridLines: {
-                offsetGridLines: true
+                offsetGridLines: false
               },
-              distribution: 'linear',
               type: 'time',
               ticks: {
-                min: minBound,
-                max: maxBound
+                min: minTick,
+                max: maxTick
               },
               time: {
                 unit: 'week',
                 parser: 'MM/DD/YYYY',
-                round: true,
-                isoWeekday: true
+                isoWeekday: true,
+                displayFormats: {
+                  week: 'ddd, MMM Do'
+              }
               },
               scaleLabel: {
                 display: true,
@@ -121,17 +113,25 @@ const TestChart = props => {
           ],
           yAxes: [
             {
-              ticks: { beginAtZero: true }
+              type: 'linear',
+              ticks: {
+                beginAtZero: true,
+                maxTicksLimit: 5,
+                precision: 0,
+                suggestedMax: yMax + yMax / 5
+              }
             }
           ]
         }
       }
     });
-  }, [props.last30, props.createDate]);
+  }, [props.pings, props.createDate]);
   return (
     <div>
+      <Segment padded style={{ backgroundColor: '#fff' }}>
+        <canvas ref={ref => (canvasRef.current = ref)} />
+      </Segment>
       <pre>{JSON.stringify(props, null, 4)}</pre>
-      <canvas ref={ref => (canvasRef.current = ref)} />
     </div>
   );
 };

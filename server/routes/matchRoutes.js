@@ -126,7 +126,7 @@ module.exports = (app, memcache) => {
         matchId: req.params.id
       });
       if (!match) return res.send({}); // Return empty Object to signify not found
-      const stats = await Ping.aggregate([
+      const aggs = await Ping.aggregate([
         {
           $facet: {
             totals: [
@@ -146,7 +146,7 @@ module.exports = (app, memcache) => {
                 }
               }
             ],
-            last30: [
+            pings: [
               {
                 $match: {
                   gameId: req.params.id,
@@ -222,13 +222,16 @@ module.exports = (app, memcache) => {
       ]);
 
       const { createDate, matchId, options, title } = match.toJSON(); // convert to POJO and destructure
+      const { 0: stats } = aggs;
       results = {
         matchId,
         title,
         userId: req.user.id,
         createDate: `${format(createDate, 'MM/dd/yyyy')}`,
         options,
-        ...stats[0]
+        totals: { ...stats.totals[0] },
+        pings: stats.pings,
+        terms: stats.terms
       };
       memcache.set(statKey, results, { expires: 15 * 60 });
       res.send(results);
