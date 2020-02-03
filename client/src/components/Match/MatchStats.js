@@ -3,7 +3,8 @@ import Chart from 'chart.js';
 import { Container, Segment } from 'semantic-ui-react';
 import { useData, useTitle } from '../../hooks';
 import { Loader } from '../UI';
-const { addDays, eachDayOfInterval, format, max, parse } = require('date-fns');
+import { zonedTimeToUtc } from 'date-fns-tz';
+import { addDays, eachDayOfInterval, format, max, parseISO } from 'date-fns';
 
 let myChart;
 
@@ -42,26 +43,39 @@ const TestChart = props => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    let createDate, maxTick, minTick, playsByDay, startDate, x, y, yMax;
+    let end, maxTick, minTick, playsByDay, start, x, y, yMax;
 
     if (typeof myChart !== 'undefined') myChart.destroy();
 
     if (props.pings && props.pings.length > 0) {
-      createDate = parse(props.createDate, 'MM/dd/yyyy', new Date());
-      startDate = max([addDays(Date.now(), -30), createDate]);
+      start = max([
+        zonedTimeToUtc(
+          addDays(new Date(), -30),
+          Intl.DateTimeFormat().resolvedOptions().timeZone
+        ),
+        zonedTimeToUtc(
+          parseISO(props.createDate),
+          Intl.DateTimeFormat().resolvedOptions().timeZone
+        )
+      ]);
+      end = zonedTimeToUtc(
+        new Date(),
+        Intl.DateTimeFormat().resolvedOptions().timeZone
+      );
       playsByDay = props.pings.reduce((accum, i) => {
         accum[i.day] = i.plays;
         return accum;
       }, []);
-      x = eachDayOfInterval({ start: startDate, end: Date.now() }).map(day =>
-        format(day, 'MM/dd/yyyy')
-      );
+      x = eachDayOfInterval({
+        start: start,
+        end: end
+      }).map(day => format(day, 'MM/dd/yyyy'));
       console.log(x);
       y = x.map(day => playsByDay[day] || 0);
       console.log(y);
       yMax = Math.max(...y);
-      minTick = format(addDays(startDate, -1), '"MM/dd/yyyy"');
-      maxTick = format(addDays(Date.now(), 1), '"MM/dd/yyyy"');
+      minTick = format(addDays(start, -1), '"MM/dd/yyyy"');
+      maxTick = format(addDays(end, 1), '"MM/dd/yyyy"');
     }
 
     myChart = new Chart(canvasRef.current, {

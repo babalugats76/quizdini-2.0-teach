@@ -227,7 +227,7 @@ module.exports = (app, memcache) => {
         matchId,
         title,
         userId: req.user.id,
-        createDate: `${format(createDate, 'MM/dd/yyyy')}`,
+        createDate: createDate,
         options,
         totals: { ...stats.totals[0] },
         pings: stats.pings,
