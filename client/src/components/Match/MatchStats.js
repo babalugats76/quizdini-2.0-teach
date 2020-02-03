@@ -53,13 +53,13 @@ const TestChart = props => {
         accum[i.day] = i.plays;
         return accum;
       }, []);
-      x = eachDayOfInterval({
-        start: startDate,
-        end: Date.now()
-      }).map(day => format(day, 'MM/dd/yyyy'));
+      x = eachDayOfInterval({ start: startDate, end: Date.now() }).map(day =>
+        format(day, 'MM/dd/yyyy')
+      );
+      console.log(x);
       y = x.map(day => playsByDay[day] || 0);
+      console.log(y);
       yMax = Math.max(...y);
-      console.log('yMax', yMax);
       minTick = format(addDays(startDate, -1), '"MM/dd/yyyy"');
       maxTick = format(addDays(Date.now(), 1), '"MM/dd/yyyy"');
     }
@@ -103,7 +103,7 @@ const TestChart = props => {
                 isoWeekday: true,
                 displayFormats: {
                   week: 'ddd, MMM Do'
-              }
+                }
               },
               scaleLabel: {
                 display: true,
