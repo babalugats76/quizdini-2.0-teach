@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chart from 'chart.js';
-import { Container, Segment } from 'semantic-ui-react';
+import { Container, Grid, Header, Label, Segment } from 'semantic-ui-react';
 import { useData, useTitle } from '../../hooks';
-import { Loader } from '../UI';
+import { Icon, Loader } from '../UI';
 import { zonedTimeToUtc } from 'date-fns-tz';
 import { addDays, eachDayOfInterval, format, max, parseISO } from 'date-fns';
 
@@ -32,7 +32,7 @@ const MatchStats = props => {
   const showLoader = !initialized && (loading || !stats);
 
   return (
-    <Container as="main" className="page large" fluid id="match-stats">
+    <Container as="main" className="page medium" fluid id="match-stats">
       {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
         (showLoader && <Loader />) || <TestChart {...stats} />}
     </Container>
@@ -58,10 +58,14 @@ const TestChart = props => {
           Intl.DateTimeFormat().resolvedOptions().timeZone
         )
       ]);
+      console.log(start);
+      console.log(format(start, 'MM/dd/yyyy'));
       end = zonedTimeToUtc(
         new Date(),
         Intl.DateTimeFormat().resolvedOptions().timeZone
       );
+      console.log('end in utc', end);
+      console.log(format(end, 'MM/dd/yyyy'));
       playsByDay = props.pings.reduce((accum, i) => {
         accum[i.day] = i.plays;
         return accum;
@@ -141,11 +145,49 @@ const TestChart = props => {
     });
   }, [props.pings, props.createDate]);
   return (
-    <div>
-      <Segment padded style={{ backgroundColor: '#fff' }}>
-        <canvas ref={ref => (canvasRef.current = ref)} />
-      </Segment>
-      <pre>{JSON.stringify(props, null, 4)}</pre>
+    <div className="content-wrapper">
+      <Grid divided>
+        <Grid.Row>
+          <Grid.Column textAlign="center">
+            <Segment>
+              <Header size="medium">
+                <Icon name="question" />
+                <Header.Content className="game-title">
+                  {props.title}
+                </Header.Content>
+              </Header>
+            </Segment>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row columns="equal">
+          <Grid.Column textAlign="center">
+            <Segment className="stat-total">
+              <span className="stat-value">{props.totals.plays}</span>
+              <span className="stat-label">Plays</span>
+            </Segment>
+          </Grid.Column>
+          <Grid.Column textAlign="center">
+            <Segment className="stat-total">
+              <span className="stat-value">{props.totals.avgScore}</span>
+              <span className="stat-label">Avg. Score</span>
+            </Segment>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column>
+            <Segment
+              id="plays-bar-chart"
+              padded
+              style={{ backgroundColor: '#fff' }}
+            >
+              <canvas ref={ref => (canvasRef.current = ref)} />
+            </Segment>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <pre>{JSON.stringify(props, null, 4)}</pre>
+        </Grid.Row>
+      </Grid>
     </div>
   );
 };
