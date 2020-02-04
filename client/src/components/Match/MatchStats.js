@@ -41,6 +41,10 @@ const MatchStats = props => {
 };
 
 const TestChart = props => {
+  Chart.defaults.global.defaultFontFamily = "'Lexend Deca', sans-serif";
+  Chart.defaults.global.defaultFontSize = 14;
+
+
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -51,11 +55,11 @@ const TestChart = props => {
         zonedTimeToUtc(addDays(Date.now(), -30), Intl.DateTimeFormat().resolvedOptions().timeZone),
         zonedTimeToUtc(parseISO(props.createDate), Intl.DateTimeFormat().resolvedOptions().timeZone)
       ]);
-/*       console.log("start", format(utcToZonedTime(start, "UTC"), "MM/dd/yyyy"));
+      /*       console.log("start", format(utcToZonedTime(start, "UTC"), "MM/dd/yyyy"));
       console.log("start-1", format(addDays(utcToZonedTime(start, "UTC"), -1), "MM/dd/yyyy")); */
 
       end = zonedTimeToUtc(Date.now(), Intl.DateTimeFormat().resolvedOptions().timeZone);
-/*       console.log("end", format(utcToZonedTime(end, "UTC"), "MM/dd/yyyy"));
+      /*       console.log("end", format(utcToZonedTime(end, "UTC"), "MM/dd/yyyy"));
       console.log("end+1", format(addDays(utcToZonedTime(end, "UTC"), 1), "MM/dd/yyyy")); */
 
       playsByDay = props.pings.reduce((accum, i) => {
@@ -85,7 +89,7 @@ const TestChart = props => {
           {
             label: "Plays",
             data: y,
-            barThickness: 'flex',
+            barThickness: "flex",
             maxBarThickness: 40,
             minBarLength: 2,
             backgroundColor: "rgba(255,0,0,1.0)"
@@ -96,10 +100,16 @@ const TestChart = props => {
         responsive: true,
         title: {
           display: true,
-          text: "Game Plays By Day"
+          fontSize: 18,
+          lineHeight: 1.3,
+          position: "top",
+          text: "Game Plays / Day"
+        },
+        legend: {
+          display: true
         },
         animation: {
-          easing: "easeInOutQuart"
+          easing: "easeInQuart"
         },
         scales: {
           xAxes: [
@@ -122,7 +132,7 @@ const TestChart = props => {
               },
               scaleLabel: {
                 display: true,
-                labelString: "Date"
+                labelString: "Date (GMT/UTC)"
               }
             }
           ],
