@@ -42,7 +42,7 @@ const MatchStats = props => {
 
 const TestChart = props => {
   Chart.defaults.global.defaultFontFamily = "'Lexend Deca', sans-serif";
-  Chart.defaults.global.defaultFontSize = 14;
+  Chart.defaults.global.defaultFontSize = 13;
 
 
   const canvasRef = useRef(null);
@@ -100,6 +100,7 @@ const TestChart = props => {
         responsive: true,
         title: {
           display: true,
+          fontFamily: "'marcher-regular', sans-serif",
           fontSize: 18,
           lineHeight: 1.3,
           position: "top",
@@ -173,7 +174,7 @@ const TestChart = props => {
           </Grid.Column>
           <Grid.Column textAlign="center">
             <Segment className="stat-total">
-              <span className="stat-value">{props.totals.avgScore}</span>
+              <span className="stat-value">{+props.totals.avgScore.toFixed(2)}</span>
               <span className="stat-label">Avg. Score</span>
             </Segment>
           </Grid.Column>
