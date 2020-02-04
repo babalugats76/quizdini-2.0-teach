@@ -1147,6 +1147,19 @@ a#google-login {
       font-size: 1.6rem;
     }
   }
+
+  .ui.grid {
+    > .column:not(.row),
+    > .row {
+      padding-top: 0.125rem;
+      padding-bottom: 0.125rem;
+      > .column {
+        padding-left: 0.125rem;
+        padding-right: 0.125rem;
+      }
+    }
+  }
+
   .stat-total {
     display: flex;
     flex-direction: column;

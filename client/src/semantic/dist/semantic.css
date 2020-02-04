@@ -1918,6 +1918,18 @@ a#google-login:visited {
   font-size: 1.6rem;
 }
 
+#match-stats .ui.grid > .column:not(.row),
+#match-stats .ui.grid > .row {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+
+#match-stats .ui.grid > .column:not(.row) > .column,
+#match-stats .ui.grid > .row > .column {
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+}
+
 #match-stats .stat-total {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -135,6 +135,8 @@ module.exports = (app, memcache) => {
                 $group: {
                   _id: null,
                   plays: { $sum: 1 },
+                  correct: { $sum: '$results.correct' },
+                  incorrect: { $sum: '$results.incorrect' },
                   avgScore: { $avg: '$results.score' }
                 }
               },
@@ -142,6 +144,23 @@ module.exports = (app, memcache) => {
                 $project: {
                   _id: false,
                   avgScore: 1,
+                  avgHitRate: {
+                    $cond: [
+                      { $eq: ['$correct', 0] },
+                      0,
+                      {
+                        $multiply: [
+                          {
+                            $divide: [
+                              '$correct',
+                              { $add: ['$correct', '$incorrect'] }
+                            ]
+                          },
+                          100
+                        ]
+                      }
+                    ]
+                  },
                   plays: 1
                 }
               }
