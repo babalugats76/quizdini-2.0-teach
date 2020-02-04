@@ -100,11 +100,12 @@ const TestChart = props => {
         responsive: true,
         title: {
           display: true,
-          fontFamily: "'marcher-regular', sans-serif",
+          fontFamily: "'marcher-medium', sans-serif",
           fontSize: 18,
+          fontStyle: "normal",
           lineHeight: 1.3,
           position: "top",
-          text: "Game Plays / Day"
+          text: "Daily Game Plays"
         },
         legend: {
           display: true
