@@ -40,20 +40,21 @@ const MatchStats = props => {
   );
 };
 
-const TestChart = props => {
+const TestChart = ({ totals, pings, title, createDate }) => {
   Chart.defaults.global.defaultFontFamily = "'Lexend Deca', sans-serif";
   Chart.defaults.global.defaultFontSize = 13;
 
-
   const canvasRef = useRef(null);
+
+  const { plays = 0, avgScore = 0 } = totals;
 
   useEffect(() => {
     let end, maxTick, minTick, playsByDay, start, x, y, yMax;
     if (typeof myChart !== "undefined") myChart.destroy();
-    if (props.pings && props.pings.length > 0) {
+    if (pings && pings.length > 0) {
       start = max([
         zonedTimeToUtc(addDays(Date.now(), -30), Intl.DateTimeFormat().resolvedOptions().timeZone),
-        zonedTimeToUtc(parseISO(props.createDate), Intl.DateTimeFormat().resolvedOptions().timeZone)
+        zonedTimeToUtc(parseISO(createDate), Intl.DateTimeFormat().resolvedOptions().timeZone)
       ]);
       /*       console.log("start", format(utcToZonedTime(start, "UTC"), "MM/dd/yyyy"));
       console.log("start-1", format(addDays(utcToZonedTime(start, "UTC"), -1), "MM/dd/yyyy")); */
@@ -62,7 +63,7 @@ const TestChart = props => {
       /*       console.log("end", format(utcToZonedTime(end, "UTC"), "MM/dd/yyyy"));
       console.log("end+1", format(addDays(utcToZonedTime(end, "UTC"), 1), "MM/dd/yyyy")); */
 
-      playsByDay = props.pings.reduce((accum, i) => {
+      playsByDay = pings.reduce((accum, i) => {
         accum[i.day] = i.plays;
         return accum;
       }, []);
@@ -152,7 +153,8 @@ const TestChart = props => {
         }
       }
     });
-  }, [props.pings, props.createDate]);
+  }, [pings, createDate]);
+
   return (
     <div className="content-wrapper">
       <Grid divided>
@@ -161,7 +163,7 @@ const TestChart = props => {
             <Segment>
               <Header size="medium">
                 <Icon name="question" />
-                <Header.Content className="game-title">{props.title}</Header.Content>
+                <Header.Content className="game-title">{title}</Header.Content>
               </Header>
             </Segment>
           </Grid.Column>
@@ -169,13 +171,13 @@ const TestChart = props => {
         <Grid.Row columns="equal">
           <Grid.Column textAlign="center">
             <Segment className="stat-total">
-              <span className="stat-value">{props.totals.plays}</span>
+              <span className="stat-value">{plays}</span>
               <span className="stat-label">Plays</span>
             </Segment>
           </Grid.Column>
           <Grid.Column textAlign="center">
             <Segment className="stat-total">
-              <span className="stat-value">{+props.totals.avgScore.toFixed(2)}</span>
+              <span className="stat-value">{+avgScore.toFixed(2)}</span>
               <span className="stat-label">Avg. Score</span>
             </Segment>
           </Grid.Column>
@@ -187,9 +189,9 @@ const TestChart = props => {
             </Segment>
           </Grid.Column>
         </Grid.Row>
-        <Grid.Row>
+        {/* <Grid.Row>
           <pre>{JSON.stringify(props, null, 4)}</pre>
-        </Grid.Row>
+        </Grid.Row> */}
       </Grid>
     </div>
   );
