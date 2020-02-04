@@ -89,7 +89,6 @@ Messages need to be standardized, etc.
     - _Model Games_ - Show options 4, 6, 9
       - For each: title/subject, instructions, .csv, etc.
   - MatchStats
-    - Investigate use of `chart.js` 
     - Develop crude POC
   - Register
     - POC of incorporating Google Recaptcha
