@@ -7,6 +7,8 @@ import { zonedTimeToUtc, format, utcToZonedTime } from "date-fns-tz";
 import { addDays, eachDayOfInterval, max, parseISO } from "date-fns";
 
 let myChart;
+Chart.defaults.global.defaultFontFamily = "'Lexend Deca', sans-serif";
+Chart.defaults.global.defaultFontSize = 13;
 
 const MatchStats = props => {
   const { location: { state: { matchId = undefined } = {} } = {} } = props;
@@ -40,28 +42,26 @@ const MatchStats = props => {
   );
 };
 
-const TestChart = ({ totals, pings, title, createDate }) => {
-  Chart.defaults.global.defaultFontFamily = "'Lexend Deca', sans-serif";
-  Chart.defaults.global.defaultFontSize = 13;
-
+const TestChart = props => {
   const canvasRef = useRef(null);
-
-  const { plays = 0, avgScore = 0 } = totals;
+  const { title, createDate, pings = [], totals: { plays = 0, avgScore = 0 } = {} } = props;
 
   useEffect(() => {
     let end, maxTick, minTick, playsByDay, start, x, y, yMax;
-    if (typeof myChart !== "undefined") myChart.destroy();
-    if (pings && pings.length > 0) {
+
+    function renderChart() {
+      if (typeof myChart !== "undefined") myChart.destroy();
+/*       if (pings && !pings.length) return; */
       start = max([
         zonedTimeToUtc(addDays(Date.now(), -30), Intl.DateTimeFormat().resolvedOptions().timeZone),
         zonedTimeToUtc(parseISO(createDate), Intl.DateTimeFormat().resolvedOptions().timeZone)
       ]);
       /*       console.log("start", format(utcToZonedTime(start, "UTC"), "MM/dd/yyyy"));
-      console.log("start-1", format(addDays(utcToZonedTime(start, "UTC"), -1), "MM/dd/yyyy")); */
+        console.log("start-1", format(addDays(utcToZonedTime(start, "UTC"), -1), "MM/dd/yyyy")); */
 
       end = zonedTimeToUtc(Date.now(), Intl.DateTimeFormat().resolvedOptions().timeZone);
       /*       console.log("end", format(utcToZonedTime(end, "UTC"), "MM/dd/yyyy"));
-      console.log("end+1", format(addDays(utcToZonedTime(end, "UTC"), 1), "MM/dd/yyyy")); */
+        console.log("end+1", format(addDays(utcToZonedTime(end, "UTC"), 1), "MM/dd/yyyy")); */
 
       playsByDay = pings.reduce((accum, i) => {
         accum[i.day] = i.plays;
@@ -80,79 +80,79 @@ const TestChart = ({ totals, pings, title, createDate }) => {
       console.log(minTick);
       maxTick = format(addDays(utcToZonedTime(end, "UTC"), 1), "MM/dd/yyyy");
       console.log(maxTick);
-    }
-
-    myChart = new Chart(canvasRef.current, {
-      type: "bar",
-      data: {
-        labels: x,
-        datasets: [
-          {
-            label: "Plays",
-            data: y,
-            barThickness: "flex",
-            maxBarThickness: 40,
-            minBarLength: 2,
-            backgroundColor: "rgba(255,0,0,1.0)"
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        title: {
-          display: true,
-          fontFamily: "'marcher-medium', sans-serif",
-          fontSize: 18,
-          fontStyle: "normal",
-          lineHeight: 1.3,
-          position: "top",
-          text: "Daily Game Plays"
-        },
-        legend: {
-          display: true
-        },
-        animation: {
-          easing: "easeInQuart"
-        },
-        scales: {
-          xAxes: [
+      myChart = new Chart(canvasRef.current, {
+        type: "bar",
+        data: {
+          labels: x,
+          datasets: [
             {
-              gridLines: {
-                offsetGridLines: false
-              },
-              type: "time",
-              ticks: {
-                min: minTick,
-                max: maxTick
-              },
-              time: {
-                unit: "week",
-                parser: "MM/DD/YYYY",
-                isoWeekday: true,
-                displayFormats: {
-                  week: "ddd, MMM Do"
-                }
-              },
-              scaleLabel: {
-                display: true,
-                labelString: "Date (GMT/UTC)"
-              }
-            }
-          ],
-          yAxes: [
-            {
-              type: "linear",
-              ticks: {
-                beginAtZero: true,
-                maxTicksLimit: 5,
-                precision: 0,
-                suggestedMax: yMax + yMax / 5
-              }
+              label: "Plays",
+              data: y,
+              barThickness: "flex",
+              maxBarThickness: 40,
+              minBarLength: 2,
+              backgroundColor: "rgba(255,0,0,1.0)"
             }
           ]
+        },
+        options: {
+          responsive: true,
+          title: {
+            display: true,
+            fontFamily: "'marcher-medium', sans-serif",
+            fontSize: 18,
+            fontStyle: "normal",
+            lineHeight: 1.3,
+            position: "top",
+            text: "Daily Game Plays"
+          },
+          legend: {
+            display: true
+          },
+          animation: {
+            easing: "easeInQuart"
+          },
+          scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  offsetGridLines: false
+                },
+                type: "time",
+                ticks: {
+                  min: minTick,
+                  max: maxTick
+                },
+                time: {
+                  unit: "week",
+                  parser: "MM/DD/YYYY",
+                  isoWeekday: true,
+                  displayFormats: {
+                    week: "ddd, MMM Do"
+                  }
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Date (GMT/UTC)"
+                }
+              }
+            ],
+            yAxes: [
+              {
+                type: "linear",
+                ticks: {
+                  beginAtZero: true,
+                  maxTicksLimit: 5,
+                  precision: 0,
+                  suggestedMax: Math.max(yMax + yMax / 5, 10)
+                }
+              }
+            ]
+          }
         }
-      }
-    });
+      });
+    }
+    renderChart();
   }, [pings, createDate]);
 
   return (
@@ -170,13 +170,13 @@ const TestChart = ({ totals, pings, title, createDate }) => {
         </Grid.Row>
         <Grid.Row columns="equal">
           <Grid.Column textAlign="center">
-            <Segment className="stat-total">
+            <Segment className="stat-total" disabled={!plays}>
               <span className="stat-value">{plays.toLocaleString()}</span>
               <span className="stat-label">Plays</span>
             </Segment>
           </Grid.Column>
           <Grid.Column textAlign="center">
-            <Segment className="stat-total">
+            <Segment className="stat-total" disabled={!avgScore}>
               <span className="stat-value">{+avgScore.toFixed(2)}</span>
               <span className="stat-label">Avg. Score</span>
             </Segment>
@@ -184,14 +184,23 @@ const TestChart = ({ totals, pings, title, createDate }) => {
         </Grid.Row>
         <Grid.Row>
           <Grid.Column>
-            <Segment id="plays-bar-chart" padded style={{ backgroundColor: "#fff" }}>
-              <canvas ref={ref => (canvasRef.current = ref)} />
+            <Segment
+              disabled={!pings.length}
+              id="plays-bar-chart"
+              padded
+              style={{ backgroundColor: "#fff" }}
+            >
+              {!pings.length && <span>No Recent Activity...</span>}
+              <canvas
+               // style={{ ...(!pings.length ? { display: "none" } : null) }}
+                ref={ref => (canvasRef.current = ref)}
+              />
             </Segment>
           </Grid.Column>
         </Grid.Row>
-        {/* <Grid.Row>
+        <Grid.Row>
           <pre>{JSON.stringify(props, null, 4)}</pre>
-        </Grid.Row> */}
+        </Grid.Row>
       </Grid>
     </div>
   );
