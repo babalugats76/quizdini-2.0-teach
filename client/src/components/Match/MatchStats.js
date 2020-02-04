@@ -171,7 +171,7 @@ const TestChart = ({ totals, pings, title, createDate }) => {
         <Grid.Row columns="equal">
           <Grid.Column textAlign="center">
             <Segment className="stat-total">
-              <span className="stat-value">{plays}</span>
+              <span className="stat-value">{plays.toLocaleString()}</span>
               <span className="stat-label">Plays</span>
             </Segment>
           </Grid.Column>
