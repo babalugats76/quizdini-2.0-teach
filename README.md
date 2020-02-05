@@ -89,7 +89,7 @@ Messages need to be standardized, etc.
     - _Model Games_ - Show options 4, 6, 9
       - For each: title/subject, instructions, .csv, etc.
   - MatchStats
-    - Develop crude POC
+    - Continue development of successful POC
   - Register
     - POC of incorporating Google Recaptcha
       - Obtain key
@@ -104,10 +104,6 @@ Messages need to be standardized, etc.
         - `HeaderNav`
         - `MatchForm`
         - `MatchTable`
-  - auth
-    - diagram what true auth strategy should be, i.e., when and how to update
-    - remove from `useRedirect`?
-    - use `useReduxData` instead?
 
 Kay
 

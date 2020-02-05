@@ -1,6 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useActions } from "./";
-import * as actions from "../actions/";
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 /***
  * Custom Hook for redirecting from one component to another.
@@ -8,10 +6,9 @@ import * as actions from "../actions/";
  * Performs redirect by calling `push` method of `history` object.
  * Refer to: `https://reacttraining.com/react-router/web/api/history`
  *
- * Incorporates a timeout and, optionally, the ability
- * to refresh `auth` object in redux store, i.e., `refreshAuth`.
+ * Incorporates a timeout.
  *
- * @param {object}        Params, including: `history`, `refreshAuth`, `to`, `state`, and `timeout`
+ * @param {object}        Params, including: `history`, `to`, `state`, and `timeout`
  * @returns {array}       State items and redirect function
  *
  * To debug:
@@ -24,14 +21,12 @@ import * as actions from "../actions/";
 
 export default function useRedirect({
   history = null,
-  refreshAuth = false,
-  to = "/dashboard",
+  to = '/',
   state = {},
   timeout = 300
 }) {
   const isCancelled = useRef(false); // for tracking dismounting
   const [isRedirecting, setState] = useState(false); // local state
-  const fetchAuth = useActions(actions.fetchAuth); // bound, dispatchable action to update `auth` in redux
 
   /***
    * Wraps `setState` to avoid no-ops.
@@ -46,18 +41,16 @@ export default function useRedirect({
    * @param {object} notify Optional, object containing message info to pass along
    *
    * Wraps in timeout to faciliate brief delay.
-   * Optionally updates `auth` in redux.
    * Redirects using react-router's mutable `history` object.
    */
   const redirect = useCallback(
     notify => {
       setIsRedirecting(true);
-      setTimeout(async function() {
-        if (refreshAuth) await fetchAuth();
+      setTimeout(() => {
         history.push(to, { ...state, message: { ...notify } });
       }, timeout);
     },
-    [history, refreshAuth, fetchAuth, to, state, timeout]
+    [history, to, state, timeout]
   );
 
   /***

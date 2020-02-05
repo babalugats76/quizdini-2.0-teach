@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Container, List, Image } from "semantic-ui-react";
-import { useAPI, useData, useMessage, useReduxData } from "../../hooks/";
-import { Icon, Loader, Notify } from "../UI/";
-import Match from "./Match";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Container, List, Image } from 'semantic-ui-react';
+import { useAPI, useData, useMessage } from '../../hooks/';
+import { Icon, Loader, Notify } from '../UI/';
+import Match from './Match';
 
 /***
  * To add additional games:
@@ -23,39 +23,39 @@ import Match from "./Match";
 /* Array of objects containing game Component metadata */
 const games = [
   {
-    name: "MATCH",
-    title: "Match",
+    name: 'MATCH',
+    title: 'Match',
     credits: 1,
-    icon: "question",
+    icon: 'question',
     render: props => <Match {...props} />,
-    collectionUrl: "/api/matches",
-    singleUrl: "/api/match"
+    collectionUrl: '/api/matches',
+    singleUrl: '/api/match'
   }
 ];
 
-const DEFAULT_GAME = "MATCH";
+const DEFAULT_GAME = 'MATCH';
 
 const Dashboard = props => {
-  const { location: { state: { from, skipAuth = false } = {} } = {} } = props;
+  const { location: { state: { from } = {} } = {} } = props;
 
   const activeGameIdx =
     games.findIndex(game => game.name === from) !== -1
       ? games.findIndex(game => game.name === from)
       : games.findIndex(game => game.name === DEFAULT_GAME);
 
-  // local state - track menu, dirty toggle, and whether to fetch auth (or not)
+  // local state - track menu, dirty toggle (for transitioning)
   const [state, setState] = useState({
     activeGameIdx,
-    dirty: false,
-    skipAuth
+    dirty: false
   });
 
   // handles show/dismiss of redirect messages
   const [message, dismissMessage] = useMessage(props);
 
-  // Redux data
-  const fetchItems = [...(!skipAuth ? ["fetchAuth"] : [])];
-  useReduxData({ items: fetchItems, deps: [] });
+  /* 
+  useEffect(() => {
+     console.log(JSON.stringify(state, null, 4));
+  }, [state]); */
 
   // direct API interactions (ephemeral)
   const { DELETE: deleteGame } = useAPI({
@@ -115,7 +115,7 @@ const Dashboard = props => {
                 </Image>
                 <List.Content>
                   <List.Header>{title}</List.Header>
-                  {credits} credit{credits === 1 ? "" : "s"}
+                  {credits} credit{credits === 1 ? '' : 's'}
                 </List.Content>
               </List.Item>
             );

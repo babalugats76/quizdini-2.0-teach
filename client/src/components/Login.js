@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Container, Divider, Form, Segment } from 'semantic-ui-react';
-import { useAPI, useMessage, useRedirect, useResult } from '../hooks/';
+import { useAPI, useAuth, useMessage, useRedirect, useResult } from '../hooks/';
 import {
   Button,
   ExternalLink,
@@ -20,14 +20,21 @@ export default props => {
   // direct API interactions (ephemeral)
   const { POST: loginUser } = useAPI({ url: '/auth/local' });
 
-  // useRedirect
+  // used to refresh redux store with initial auth
+  const fetchAuth = useAuth();
+
+  // used to redirect 
   const [isRedirecting, redirect] = useRedirect({
     history: props.history,
-    refreshAuth: true,
-    to: '/dashboard',
-    state: { skipAuth: true },
+    to: '/',
     timeout: 1000
   });
+
+  // upon successful logon
+  const onSuccess = () => {
+    fetchAuth(); // updates redux store
+    redirect(); // go home
+  };
 
   // what to render
   return (
@@ -35,7 +42,7 @@ export default props => {
       <Container as="main" className="page small" fluid id="login">
         {message && Notify({ ...message, onDismiss: () => dismissMessage() })}
         <LogoHeader>Login to Quizdini</LogoHeader>
-        <LoginForm onLogin={loginUser} onSuccess={notify => redirect(notify)} />
+        <LoginForm onLogin={loginUser} onSuccess={() => onSuccess()} />
       </Container>
     )
   );
@@ -68,7 +75,7 @@ const LoginForm = props => {
         const results = await onLogin(values);
         const success = results.data || false;
         const notify = getNotify(results);
-        if (success) return onSuccess(notify);
+        if (success) return onSuccess();
         await setStatus(notify);
         await setSubmitting(false);
       }}

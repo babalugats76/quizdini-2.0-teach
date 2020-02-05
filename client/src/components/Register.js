@@ -44,7 +44,7 @@ export default props => {
   const { data: countryOptions } = countries;
   const { data: stateOptions } = states;
 
-  // When to show loader
+  // when to show loader
   const showLoader = !countryOptions || !stateOptions || isRedirecting;
 
   // Conditionally render error, loader, and content - in that order

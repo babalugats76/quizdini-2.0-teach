@@ -21,7 +21,6 @@ const Verify = props => {
   // useRedirect
   const [isRedirecting, redirect] = useRedirect({
     history: props.history,
-    refreshAuth: false,
     to: '/login',
     timeout: 500
   });

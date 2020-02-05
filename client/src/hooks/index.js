@@ -1,5 +1,6 @@
 import useActions from './useActions';
 import useAPI from './useAPI';
+import useAuth from './useAuth';
 import useData from './useData';
 import useMessage from './useMessage';
 import useRedirect from './useRedirect';
@@ -14,6 +15,7 @@ import useWindowSize from './useWindowSize';
 export {
   useActions,
   useAPI,
+  useAuth,
   useData,
   useMessage,
   useRedirect,
