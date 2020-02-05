@@ -8,73 +8,60 @@
 
 /* lexend-deca-regular - latin */
 @font-face {
-  font-family: 'Lexend Deca';
+  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 400;
-  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'),
-    url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2')
-      format('woff2'),
+  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"),
+    url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff')
-      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: 'marcher-light';
-  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-light-webfont.woff')
-      format('woff');
+  font-family: "marcher-light";
+  src: url("https://static.quizdini.com/fonts/marcher-light-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-book';
-  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-book-webfont.woff')
-      format('woff');
+  font-family: "marcher-book";
+  src: url("https://static.quizdini.com/fonts/marcher-book-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-book-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-regular';
-  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff')
-      format('woff');
+  font-family: "marcher-regular";
+  src: url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-medium';
-  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff')
-      format('woff');
+  font-family: "marcher-medium";
+  src: url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-extrabold';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff')
-      format('woff');
+  font-family: "marcher-extrabold";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-extrabolditalic';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff')
-      format('woff');
+  font-family: "marcher-extrabolditalic";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2")
+      format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -414,7 +401,7 @@ svg {
       background-color: @subtleTransparentLightBlack;
       background-size: 25px;
       background-repeat: round;
-      background-image: url('/images/question.svg');
+      background-image: url("/images/question.svg");
     }
     &#selling-points {
       background-color: @offWhite;
@@ -550,7 +537,7 @@ svg {
           }
           &:before {
             display: inline-block;
-            content: '\25bc\00a0';
+            content: "\25bc\00a0";
             transform: rotate(-90deg);
             transition: all 300ms ease-in-out;
             vertical-align: 20%;
@@ -724,16 +711,15 @@ a#google-login {
   /** TODO - move to cloud and host on S3/Cloud Front
       Use regular, low-fidelity images?
   **/
-  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png')
-    no-repeat;
+  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
   background-size: 191px 46px;
   &:focus,
   &:hover {
-    background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
+    background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
   }
   &:active,
   &:visited {
-    background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
+    background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
   }
 }
 
@@ -862,7 +848,7 @@ a#google-login {
           border-bottom: 1px solid @subtleTransparentBlack;
           background-size: 25px;
           background-repeat: round;
-          background-image: url('/images/question.svg');
+          background-image: url("/images/question.svg");
           &:hover {
             .ui.icon.button.trash {
               display: block;
@@ -894,8 +880,7 @@ a#google-login {
               width: 2em;
               height: 2em;
             }
-            transition: background-color 0.3s ease-in-out,
-              opacity 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
           }
         }
         &.match-card-desc {
@@ -928,8 +913,7 @@ a#google-login {
           > .ui.four.buttons {
             .ui.button {
               &.clipboard {
-                transition: color 0.3s ease-in-out,
-                  background-color 0.3s ease-in-out;
+                transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
                 &.copied {
                   color: @white;
                   background-color: @positiveColor;
@@ -1047,7 +1031,7 @@ a#google-login {
       border-color: @fieldFocusBorderColor;
       color: @selectedTextColor;
     }
-    &:not([contenteditable='true']) {
+    &:not([contenteditable="true"]) {
       /*cursor: not-allowed;*/
       color: @unselectedTextColor;
       background-color: transparent;
@@ -1165,12 +1149,12 @@ a#google-login {
     flex-direction: column;
     align-items: center;
 
-    .stat-value {
-      font-size: 2rem;
-      font-family: @extraBoldFont;
-      line-height: 1.3;
-    }
-    .stat-label {
+    span {
+      &:first-child {
+        font-size: 2rem;
+        font-family: @extraBoldFont;
+        line-height: 1.3;
+      }
     }
   }
 }
