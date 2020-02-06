@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Container, Divider, Form, Segment } from 'semantic-ui-react';
-import { useAPI, useAuth, useMessage, useRedirect, useResult } from '../hooks/';
+import { useAPI, useAuth, useMessage, useResult } from '../hooks/';
 import {
   Button,
   ExternalLink,
@@ -16,6 +16,7 @@ import {
 export default props => {
   // handles show/dismiss of redirect messages
   const [message, dismissMessage] = useMessage(props);
+  const [isRedirecting, setRedirecting] = useState(false);
 
   // direct API interactions (ephemeral)
   const { POST: loginUser } = useAPI({ url: '/auth/local' });
@@ -23,22 +24,18 @@ export default props => {
   // used to refresh redux store with initial auth
   const fetchAuth = useAuth();
 
-  // used to redirect 
-  const [isRedirecting, redirect] = useRedirect({
-    history: props.history,
-    to: '/',
-    timeout: 1000
-  });
-
   // upon successful logon
   const onSuccess = () => {
-    fetchAuth(); // updates redux store
-    redirect(); // go home
+    setRedirecting(true);
+    setTimeout(() => fetchAuth(), 2000);
   };
+
+  // when to show loader
+  const showLoader = isRedirecting;
 
   // what to render
   return (
-    (isRedirecting && <Loader />) || (
+    (showLoader && <Loader />) || (
       <Container as="main" className="page small" fluid id="login">
         {message && Notify({ ...message, onDismiss: () => dismissMessage() })}
         <LogoHeader>Login to Quizdini</LogoHeader>
