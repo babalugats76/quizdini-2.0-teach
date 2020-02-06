@@ -119,6 +119,7 @@
       flex-direction: column;
       width: 100%;
       height: auto;
+      min-height: 100%;
       align-content: center; /* center the children */
       background-color: @pageBackground;
       > .page {
@@ -1049,7 +1050,7 @@ a#google-login {
       cursor: pointer;
       position: relative;
       text-align: center;
-      zoom: 1;
+      transform: scale(1);
       background-color: transparent;
       border: none;
       &:hover {

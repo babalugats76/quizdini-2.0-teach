@@ -323,6 +323,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
           flex-direction: column;
   width: 100%;
   height: auto;
+  min-height: 100%;
   -ms-flex-line-pack: center;
       align-content: center;
   
@@ -1192,7 +1193,8 @@ a#google-login:visited {
   cursor: pointer;
   position: relative;
   text-align: center;
-  zoom: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
   background-color: transparent;
   border: none;
 }
