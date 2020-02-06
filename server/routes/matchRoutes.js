@@ -101,10 +101,13 @@ module.exports = (app, memcache) => {
 
   app.get('/api/matches', requireLogin, async (req, res, next) => {
     try {
-      const matches = await Match.find({ user_id: req.user.id }, null, {
-        sort: '-updateDate'
-      });
-
+      const matches = await Match.aggregate([
+        { $match: { user_id: mongoose.Types.ObjectId(req.user.id) } },
+        { $addFields: { termCount: { $size: '$matches' } } },
+        { $unset: ['user_id', 'matches', '__v'] },
+        { $sort: { updateDate: -1 } },
+        { $project: { _id: false } }
+      ]);
       if (!matches) return res.send([]); // Return empty array to signify not found
       res.send(matches);
     } catch (e) {

@@ -82,7 +82,7 @@ const MatchCard = ({ game, onDelete }) => {
   });
 
   const [copied, setCopied] = useTimeout(2000);
-  const { matchId, matches, title, updateDate } = game;
+  const { matchId, termCount, title, updateDate } = game;
   const { canDelete, visible } = state;
 
   const handleMouseLeave = () => {
@@ -145,7 +145,7 @@ const MatchCard = ({ game, onDelete }) => {
         </Card.Content>
         <Card.Content className="match-card-desc">
           <Card.Description>
-            <Label icon="book">{matches.length} Terms</Label>
+            <Label icon="book">{termCount} Terms</Label>
             <Label icon="clock">{timeAgo}</Label>
           </Card.Description>
         </Card.Content>
