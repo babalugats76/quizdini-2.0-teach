@@ -11,7 +11,7 @@ import {
 import { useData, useTitle } from '../../hooks';
 import { Icon, Loader } from '../UI';
 import { zonedTimeToUtc, format, utcToZonedTime } from 'date-fns-tz';
-import { addDays, eachDayOfInterval, max, parseISO } from 'date-fns';
+import { addDays, eachDayOfInterval, max, parse, parseISO } from 'date-fns';
 
 let myChart;
 Chart.defaults.global.defaultFontFamily = "'marcher-regular', sans-serif";
@@ -113,10 +113,10 @@ const TestChart = props => {
               barThickness: 'flex',
               maxBarThickness: 40,
               minBarLength: 2,
-              backgroundColor: 'rgba(1, 231, 228, .55)',
-              borderColor: 'rgba(1, 190, 187, 1.0)',
+              backgroundColor: 'rgba(170, 84, 255, .15)',
+              borderColor: 'rgba(113, 28, 255, .75)',
               borderWidth: 1,
-              hoverBackgroundColor: 'rgba(1, 190, 187, 1.0)',
+              hoverBackgroundColor: 'rgba(113, 28, 255, 1.0)',
               hoverBorderWidth: 0
             }
           ]
@@ -131,6 +131,19 @@ const TestChart = props => {
             lineHeight: 1.3,
             position: 'top',
             text: 'Daily Activity'
+          },
+          tooltips: {
+            callbacks: {
+              title: function(tooltipItem, data) {
+                return format(
+                  zonedTimeToUtc(
+                    parse(tooltipItem[0].xLabel, 'MM/dd/yyyy', new Date()),
+                    Intl.DateTimeFormat().resolvedOptions().timeZone
+                  ),
+                  'EEE, LLL do'
+                );
+              }
+            }
           },
           legend: {
             display: true
@@ -269,7 +282,9 @@ const TermTable = ({ id, terms }) => {
           <Table.Cell content={renderHtml(term)} />
           <Table.Cell textAlign="center">{hits.toLocaleString()}</Table.Cell>
           <Table.Cell textAlign="center">{misses.toLocaleString()}</Table.Cell>
-          <Table.Cell textAlign="center" {...rateProp}>{hitRate}%</Table.Cell>
+          <Table.Cell textAlign="center" {...rateProp}>
+            {hitRate}%
+          </Table.Cell>
         </Table.Row>
       );
     });
@@ -282,10 +297,16 @@ const TermTable = ({ id, terms }) => {
       <Table celled compact="very" striped>
         <Table.Header fullWidth>
           <Table.Row>
-            <Table.HeaderCell>Term</Table.HeaderCell>
-            <Table.HeaderCell textAlign="center">Hits</Table.HeaderCell>
-            <Table.HeaderCell textAlign="center">Misses</Table.HeaderCell>
-            <Table.HeaderCell textAlign="center">Hit Ratio</Table.HeaderCell>
+            <Table.HeaderCell width={7}>Term</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" width={3}>
+              Hits
+            </Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" width={3}>
+              Misses
+            </Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" width={3}>
+              Hit Rate
+            </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
