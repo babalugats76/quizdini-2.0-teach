@@ -1,14 +1,22 @@
-import React, { useEffect, useRef, useState } from "react";
-import Chart from "chart.js";
-import { Container, Grid, Header, Segment, Table, Pagination } from "semantic-ui-react";
-import { useData, useTitle } from "../../hooks";
-import { Icon, Loader } from "../UI";
-import { zonedTimeToUtc, format, utcToZonedTime } from "date-fns-tz";
-import { addDays, eachDayOfInterval, max, parseISO } from "date-fns";
+import React, { useEffect, useRef, useState } from 'react';
+import Chart from 'chart.js';
+import {
+  Container,
+  Grid,
+  Header,
+  Segment,
+  Table,
+  Pagination
+} from 'semantic-ui-react';
+import { useData, useTitle } from '../../hooks';
+import { Icon, Loader } from '../UI';
+import { zonedTimeToUtc, format, utcToZonedTime } from 'date-fns-tz';
+import { addDays, eachDayOfInterval, max, parseISO } from 'date-fns';
 
 let myChart;
-Chart.defaults.global.defaultFontFamily = "'Lexend Deca', sans-serif";
+Chart.defaults.global.defaultFontFamily = "'marcher-regular', sans-serif";
 Chart.defaults.global.defaultFontSize = 13;
+Chart.defaults.global.defaultFontColor = 'rgba(10,10,10,.75)';
 
 const MatchStats = props => {
   const { location: { state: { matchId = undefined } = {} } = {} } = props;
@@ -21,13 +29,13 @@ const MatchStats = props => {
 
   // API data
   const { data: stats, error, initialized, loading } = useData({
-    url: "/api/match/stats/" + state.matchId,
+    url: '/api/match/stats/' + state.matchId,
     deps: [state.matchId, state.dirty]
   });
 
   // set page title
   useTitle({
-    title: state.matchId ? (stats ? stats.title : "Loading...") : "",
+    title: state.matchId ? (stats ? stats.title : 'Loading...') : '',
     deps: [state.matchId]
   });
 
@@ -35,9 +43,8 @@ const MatchStats = props => {
 
   return (
     <Container as="main" className="page medium" fluid id="match-stats">
-      {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) || (showLoader && <Loader />) || (
-        <TestChart {...stats} />
-      )}
+      {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
+        (showLoader && <Loader />) || <TestChart {...stats} />}
     </Container>
   );
 };
@@ -56,16 +63,25 @@ const TestChart = props => {
     let end, maxTick, minTick, playsByDay, start, x, y, yMax;
 
     function renderChart() {
-      if (typeof myChart !== "undefined") myChart.destroy();
+      if (typeof myChart !== 'undefined') myChart.destroy();
       /*       if (pings && !pings.length) return; */
       start = max([
-        zonedTimeToUtc(addDays(Date.now(), -30), Intl.DateTimeFormat().resolvedOptions().timeZone),
-        zonedTimeToUtc(parseISO(createDate), Intl.DateTimeFormat().resolvedOptions().timeZone)
+        zonedTimeToUtc(
+          addDays(Date.now(), -30),
+          Intl.DateTimeFormat().resolvedOptions().timeZone
+        ),
+        zonedTimeToUtc(
+          parseISO(createDate),
+          Intl.DateTimeFormat().resolvedOptions().timeZone
+        )
       ]);
       /*       console.log("start", format(utcToZonedTime(start, "UTC"), "MM/dd/yyyy"));
         console.log("start-1", format(addDays(utcToZonedTime(start, "UTC"), -1), "MM/dd/yyyy")); */
 
-      end = zonedTimeToUtc(Date.now(), Intl.DateTimeFormat().resolvedOptions().timeZone);
+      end = zonedTimeToUtc(
+        Date.now(),
+        Intl.DateTimeFormat().resolvedOptions().timeZone
+      );
       /*       console.log("end", format(utcToZonedTime(end, "UTC"), "MM/dd/yyyy"));
         console.log("end+1", format(addDays(utcToZonedTime(end, "UTC"), 1), "MM/dd/yyyy")); */
 
@@ -74,30 +90,34 @@ const TestChart = props => {
         return accum;
       }, []);
       x = eachDayOfInterval({
-        start: utcToZonedTime(start, "UTC"),
-        end: utcToZonedTime(end, "UTC")
-      }).map(day => format(day, "MM/dd/yyyy"));
+        start: utcToZonedTime(start, 'UTC'),
+        end: utcToZonedTime(end, 'UTC')
+      }).map(day => format(day, 'MM/dd/yyyy'));
 
       console.log(x);
       y = x.map(day => playsByDay[day] || 0);
       console.log(y);
       yMax = Math.max(...y);
-      minTick = format(addDays(utcToZonedTime(start, "UTC"), -1), "MM/dd/yyyy");
+      minTick = format(addDays(utcToZonedTime(start, 'UTC'), -1), 'MM/dd/yyyy');
       console.log(minTick);
-      maxTick = format(addDays(utcToZonedTime(end, "UTC"), 1), "MM/dd/yyyy");
+      maxTick = format(addDays(utcToZonedTime(end, 'UTC'), 1), 'MM/dd/yyyy');
       console.log(maxTick);
       myChart = new Chart(canvasRef.current, {
-        type: "bar",
+        type: 'bar',
         data: {
           labels: x,
           datasets: [
             {
-              label: "Plays",
+              label: 'Plays',
               data: y,
-              barThickness: "flex",
+              barThickness: 'flex',
               maxBarThickness: 40,
               minBarLength: 2,
-              backgroundColor: "rgba(255,0,0,1.0)"
+              backgroundColor: 'rgba(1, 231, 228, .55)',
+              borderColor: 'rgba(1, 190, 187, 1.0)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(1, 190, 187, 1.0)',
+              hoverBorderWidth: 0
             }
           ]
         },
@@ -105,18 +125,18 @@ const TestChart = props => {
           responsive: true,
           title: {
             display: true,
-            fontFamily: "'marcher-medium', sans-serif",
             fontSize: 18,
-            fontStyle: "normal",
+            fontStyle: 'normal',
+            fontFamily: "'marcher-medium', sans-serif",
             lineHeight: 1.3,
-            position: "top",
-            text: "Daily Game Plays"
+            position: 'top',
+            text: 'Daily Activity'
           },
           legend: {
             display: true
           },
           animation: {
-            easing: "easeInQuart"
+            easing: 'easeInQuart'
           },
           scales: {
             xAxes: [
@@ -124,28 +144,28 @@ const TestChart = props => {
                 gridLines: {
                   offsetGridLines: false
                 },
-                type: "time",
+                type: 'time',
                 ticks: {
                   min: minTick,
                   max: maxTick
                 },
                 time: {
-                  unit: "week",
-                  parser: "MM/DD/YYYY",
+                  unit: 'week',
+                  parser: 'MM/DD/YYYY',
                   isoWeekday: true,
                   displayFormats: {
-                    week: "ddd, MMM Do"
+                    week: 'ddd, MMM Do'
                   }
                 },
                 scaleLabel: {
                   display: true,
-                  labelString: "Date (GMT/UTC)"
+                  labelString: 'Date (GMT/UTC)'
                 }
               }
             ],
             yAxes: [
               {
-                type: "linear",
+                type: 'linear',
                 ticks: {
                   beginAtZero: true,
                   maxTicksLimit: 5,
@@ -183,7 +203,7 @@ const TestChart = props => {
           </Grid.Column>
           <Grid.Column textAlign="center">
             <Segment className="stat-total" disabled={!avgHitRate}>
-              <span>{+avgHitRate.toFixed(2)}%</span>
+              <span>{+avgHitRate.toFixed(1)}%</span>
               <span>Avg. Hit Rate</span>
             </Segment>
           </Grid.Column>
@@ -200,7 +220,7 @@ const TestChart = props => {
               disabled={!pings.length}
               id="plays-bar-chart"
               padded
-              style={{ backgroundColor: "#fff" }}
+              style={{ backgroundColor: '#fff' }}
             >
               {!pings.length && <span>No Recent Activity...</span>}
               <canvas
@@ -227,17 +247,20 @@ export default MatchStats;
 
 const TermTable = ({ id, terms }) => {
   const renderHtml = value => (
-    <span dangerouslySetInnerHTML={{ __html: value.replace(/(^")|("$)/g, "") }} />
+    <span
+      dangerouslySetInnerHTML={{ __html: value.replace(/(^")|("$)/g, '') }}
+    />
   );
 
   const renderRows = ({ terms }) => {
     return terms.map(val => {
       const { term, hits, misses, hitRate } = val;
-      const rateStrata = hitRate <= 60 ? "negative" : hitRate <= 80 ? "warning" : "positive";
+      const rateStrata =
+        hitRate <= 60 ? 'negative' : hitRate <= 80 ? 'warning' : 'positive';
       const rateProp =
-        rateStrata === "negative"
+        rateStrata === 'negative'
           ? { negative: true }
-          : rateStrata === "warning"
+          : rateStrata === 'warning'
           ? { warning: true }
           : { positive: true };
 
@@ -246,9 +269,7 @@ const TermTable = ({ id, terms }) => {
           <Table.Cell content={renderHtml(term)} />
           <Table.Cell textAlign="center">{hits.toLocaleString()}</Table.Cell>
           <Table.Cell textAlign="center">{misses.toLocaleString()}</Table.Cell>
-          <Table.Cell textAlign="center" {...rateProp}>
-            {+hitRate.toFixed(2)}%
-          </Table.Cell>
+          <Table.Cell textAlign="center" {...rateProp}>{hitRate}%</Table.Cell>
         </Table.Row>
       );
     });

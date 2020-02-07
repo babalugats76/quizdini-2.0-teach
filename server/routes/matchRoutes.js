@@ -146,20 +146,27 @@ module.exports = (app, memcache) => {
               {
                 $project: {
                   _id: false,
-                  avgScore: 1,
+                  avgScore: {
+                    $round: ['$avgScore', 2]
+                  },
                   avgHitRate: {
                     $cond: [
                       { $eq: ['$correct', 0] },
                       0,
                       {
-                        $multiply: [
+                        $round: [
                           {
-                            $divide: [
-                              '$correct',
-                              { $add: ['$correct', '$incorrect'] }
+                            $multiply: [
+                              {
+                                $divide: [
+                                  '$correct',
+                                  { $add: ['$correct', '$incorrect'] }
+                                ]
+                              },
+                              100
                             ]
                           },
-                          100
+                          1
                         ]
                       }
                     ]
@@ -230,10 +237,16 @@ module.exports = (app, memcache) => {
                   hits: 1,
                   misses: 1,
                   hitRate: {
-                    $multiply: [{ $divide: ['$hits', '$tries'] }, 100]
+                    $round: [
+                      { $multiply: [{ $divide: ['$hits', '$tries'] }, 100] },
+                      0
+                    ]
                   },
                   missRate: {
-                    $multiply: [{ $divide: ['$misses', '$tries'] }, 100]
+                    $round: [
+                      { $multiply: [{ $divide: ['$misses', '$tries'] }, 100] },
+                      0
+                    ]
                   }
                 }
               },
