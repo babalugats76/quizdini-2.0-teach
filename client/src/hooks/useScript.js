@@ -7,11 +7,10 @@ import { useState, useEffect } from 'react';
  *
  * @param {string} src        Fully-qualified URL of script to load
  * @param {string} uniqueId   `id` attribute to give the script tag
- * @param {function} onLoad   Function to fire on Load
  * @returns {array}           State item(s)
  */
 
-export default function useScript(src, uniqueId, onLoad = null) {
+export default function useScript(src, uniqueId) {
   const [state, setState] = useState({
     loaded: false,
     error: false
@@ -28,11 +27,12 @@ export default function useScript(src, uniqueId, onLoad = null) {
     } else {
       let script = document.createElement('script');
       script.src = src;
-      script.async = false;
+      script.async = true;
       script.id = uniqueId;
-      script.onload = onLoad || (() => console.log(uniqueId, 'loaded...'));
+      script.defer = true;
 
       const onScriptLoad = () => {
+        console.log('on script load...');
         setState({ loaded: true, error: false });
       };
 
@@ -50,7 +50,7 @@ export default function useScript(src, uniqueId, onLoad = null) {
         script.removeEventListener('error', onScriptError);
       };
     }
-  }, [src, uniqueId, onLoad]);
+  }, [src, uniqueId]);
 
   return [
     state.loaded, // if script has been added to page
