@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 /**
  * Custom Hook to dynamically load 3rd-party scripts.
@@ -7,10 +7,11 @@ import { useState, useEffect } from "react";
  *
  * @param {string} src        Fully-qualified URL of script to load
  * @param {string} uniqueId   `id` attribute to give the script tag
+ * @param {function} onLoad   Function to fire on Load
  * @returns {array}           State item(s)
  */
 
-export default function useScript(src, uniqueId) {
+export default function useScript(src, uniqueId, onLoad = null) {
   const [state, setState] = useState({
     loaded: false,
     error: false
@@ -25,10 +26,11 @@ export default function useScript(src, uniqueId) {
     if (document.getElementById(uniqueId)) {
       setState({ loaded: true, error: false });
     } else {
-      let script = document.createElement("script");
+      let script = document.createElement('script');
       script.src = src;
       script.async = false;
       script.id = uniqueId;
+      script.onload = onLoad || (() => console.log(uniqueId, 'loaded...'));
 
       const onScriptLoad = () => {
         setState({ loaded: true, error: false });
@@ -38,17 +40,17 @@ export default function useScript(src, uniqueId) {
         setState({ loaded: true, error: true });
       };
 
-      script.addEventListener("load", onScriptLoad);
-      script.addEventListener("error", onScriptError);
+      script.addEventListener('load', onScriptLoad);
+      script.addEventListener('error', onScriptError);
 
       document.body.appendChild(script);
 
       return () => {
-        script.removeEventListener("load", onScriptLoad);
-        script.removeEventListener("error", onScriptError);
+        script.removeEventListener('load', onScriptLoad);
+        script.removeEventListener('error', onScriptError);
       };
     }
-  }, [src, uniqueId]);
+  }, [src, uniqueId, onLoad]);
 
   return [
     state.loaded, // if script has been added to page

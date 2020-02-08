@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Formik } from "formik";
 import { Container, Form, Segment } from "semantic-ui-react";
 import * as Yup from "yup";
-import { useAPI, useRedirect, useReduxData, useResult } from "../hooks/";
+import { useAPI, useRedirect, useReduxData, useResult, useScript} from "../hooks/";
 import {
   Button,
   Checkbox,
@@ -26,6 +26,11 @@ export default props => {
     to: "/login",
     timeout: 1000
   });
+
+  const [loaded, error] = useScript(
+    `https://www.google.com/recaptcha/api.js?render=${process.env.REACT_APP_RECAPTCHA_SITE_KEY}`,
+    'recaptcha-v3'
+  );
 
   // Selectors
   const countries = useSelector(state => state.countries);
