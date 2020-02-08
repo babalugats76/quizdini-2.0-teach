@@ -16,15 +16,6 @@ import { Button, Checkbox, Dropdown, InputText, Loader, LogoHeader, Notify } fro
 import DisplayFormikState from "./UI/FormikHelper";
 
 export default props => {
-  //
-  const ref = useRef(null);
-
-  const setRecaptcha = e => {
-    ref.current = e;
-    console.log(ref.current);
-  };
-
-  const callExecute = useCallback(() => {}, [ref]);
 
   // direct API interactions (ephemeral)
   const { POST: registerUser } = useAPI({ url: "/api/account" });
@@ -36,11 +27,6 @@ export default props => {
     timeout: 1000
   });
 
-  /* const onCaptchaLoad = useEventCallback(() => {
-    ref.current = window.grecaptcha;
-    console.log(ref.current);
-  }, [ref]); */
-
   const [loaded, error] = useScript(process.env.REACT_APP_RECAPTCHA_SCRIPT, "recaptcha-v2");
 
   function onRecaptcha() {
@@ -48,14 +34,26 @@ export default props => {
   }
 
   useEffect(() => {
+
+    let widgitId;
+
     if (loaded) {
+      
       console.log(window.grecaptcha);
       window.grecaptcha.ready(() => {
-        window.grecaptcha.render("recaptcha", {
+        widgitId = window.grecaptcha.render("recaptcha", {
           sitekey: process.env.REACT_APP_RECAPTCHA_SITE_KEY,
           callback: onRecaptcha
         });
+        console.log(widgitId);
       });
+    }
+    return () => {
+      if (loaded && window.grecaptcha) {
+        console.log('unloading', widgitId);
+        console.log(window.grecaptcha);
+        window.grecaptcha.reset();
+      }
     }
   }, [loaded]);
 
@@ -94,7 +92,7 @@ export default props => {
         </>
       )}
       <form action="?" method="POST">
-        <button id="recaptcha">Submit</button>
+        <button type="button" id="recaptcha">Submit</button>
       </form>
     </Container>
   );
