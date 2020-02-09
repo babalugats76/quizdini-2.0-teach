@@ -2,7 +2,6 @@ import useActions from './useActions';
 import useAPI from './useAPI';
 import useAuth from './useAuth';
 import useData from './useData';
-import useEventCallback from './useEventCallback';
 import useMessage from './useMessage';
 import useRedirect from './useRedirect';
 import useReduxData from '././useReduxData';
@@ -18,7 +17,6 @@ export {
   useAPI,
   useAuth,
   useData,
-  useEventCallback,
   useMessage,
   useRedirect,
   useReduxData,

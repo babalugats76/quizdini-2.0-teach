@@ -6,11 +6,10 @@ import { useState, useEffect } from 'react';
  * Adapted from: `https://usehooks.com/useScript/`
  *
  * @param {string} src        Fully-qualified URL of script to load
- * @param {string} uniqueId   `id` attribute to give the script tag
  * @returns {array}           State item(s)
  */
 
-export default function useScript(src, uniqueId) {
+export default function useScript(src, attributes = {}) {
   const [state, setState] = useState({
     loaded: false,
     error: false
@@ -21,23 +20,29 @@ export default function useScript(src, uniqueId) {
    * Scripts are attached to page and event listeners handle `load` and `error` callbacks.
    * Runs on mount and whenever `src` or `uniqueId` changes.
    */
-  useEffect(() => {
-    if (document.getElementById(uniqueId)) {
-      setState({ loaded: true, error: false });
-    } else {
+  useEffect(
+    () => {
+      let didCancel = false;
+
+      console.log('effect fired...');
+
+      if (document.querySelector(`script[src="${src}"]`)) {
+        console.log('script already loaded...');
+        if (!didCancel) setState({ loaded: true, error: false });
+        return;
+      }
+
       let script = document.createElement('script');
       script.src = src;
-      script.async = true;
-      script.id = uniqueId;
-      script.defer = true;
+
+      Object.keys(attributes).forEach(key => (script[key] = attributes[key]));
 
       const onScriptLoad = () => {
-        console.log('on script load...');
-        setState({ loaded: true, error: false });
+        if (!didCancel) setState({ loaded: true, error: false });
       };
 
       const onScriptError = () => {
-        setState({ loaded: true, error: true });
+        if (!didCancel) setState({ loaded: true, error: true });
       };
 
       script.addEventListener('load', onScriptLoad);
@@ -46,11 +51,13 @@ export default function useScript(src, uniqueId) {
       document.body.appendChild(script);
 
       return () => {
+        didCancel = true;
         script.removeEventListener('load', onScriptLoad);
         script.removeEventListener('error', onScriptError);
       };
-    }
-  }, [src, uniqueId]);
+    }, // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  ); // Only run effect on mount (new instance is required for each script)
 
   return [
     state.loaded, // if script has been added to page

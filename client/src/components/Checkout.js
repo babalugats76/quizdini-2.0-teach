@@ -43,10 +43,10 @@ const elementsOptions = {};
 
 export default props => {
   // load 3rd-party payment processor script
-  const [loaded, error] = useScript(
-    process.env.REACT_APP_STRIPE_SCRIPT,
-    'stripe-v3'
-  );
+  const [loaded, error] = useScript(process.env.REACT_APP_STRIPE_SCRIPT, {
+    async: true,
+    onload: () => console.log('stripe loaded...')
+  });
 
   // direct API interactions (ephemeral)
   const { POST: buyCredits } = useAPI({ url: '/api/payment' });
