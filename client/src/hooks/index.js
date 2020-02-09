@@ -3,8 +3,9 @@ import useAPI from './useAPI';
 import useAuth from './useAuth';
 import useData from './useData';
 import useMessage from './useMessage';
+import useRecaptcha from './useRecaptcha';
 import useRedirect from './useRedirect';
-import useReduxData from '././useReduxData';
+import useReduxData from './useReduxData';
 import useResult from './useResult';
 import useScript from './useScript';
 import useStripe from './useStripe';
@@ -18,6 +19,7 @@ export {
   useAuth,
   useData,
   useMessage,
+  useRecaptcha,
   useRedirect,
   useReduxData,
   useResult,

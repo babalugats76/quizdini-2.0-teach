@@ -1,35 +1,21 @@
-import React, { useCallback, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { Formik } from 'formik';
-import { Container, Form, Segment } from 'semantic-ui-react';
-import * as Yup from 'yup';
-import {
-  useAPI,
-  useRedirect,
-  useReduxData,
-  useResult,
-  useScript,
-} from '../hooks/';
-import {
-  Button,
-  Checkbox,
-  Dropdown,
-  InputText,
-  Loader,
-  LogoHeader,
-  Notify
-} from './UI/';
-import DisplayFormikState from './UI/FormikHelper';
+import React, { useCallback, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Formik } from "formik";
+import { Container, Form, Segment } from "semantic-ui-react";
+import * as Yup from "yup";
+import { useAPI, useRecaptcha, useRedirect, useReduxData, useResult, useScript } from "../hooks/";
+import { Button, Checkbox, Dropdown, InputText, Loader, LogoHeader, Notify } from "./UI/";
+import DisplayFormikState from "./UI/FormikHelper";
 
 export default props => {
   // direct API interactions (ephemeral)
-  const { POST: registerUser } = useAPI({ url: '/api/account' });
+  const { POST: registerUser } = useAPI({ url: "/api/account" });
 
   // useRedirect
   const [isRedirecting, redirect] = useRedirect({
     history: props.history,
-    to: '/login',
+    to: "/login",
     timeout: 1000
   });
 
@@ -39,8 +25,8 @@ export default props => {
 
   // Redux data
   const fetchItems = [
-    ...(!countries.data ? ['fetchCountries'] : []),
-    ...(!states.data ? ['fetchStates'] : [])
+    ...(!countries.data ? ["fetchCountries"] : []),
+    ...(!states.data ? ["fetchStates"] : [])
   ];
 
   // Fetch redux data
@@ -56,92 +42,79 @@ export default props => {
   // Conditionally render error, loader, and content - in that order
   return (
     <Container as="main" className="page medium" fluid id="register">
-      {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) ||
-        (showLoader && <Loader />) || (
-          <>
-            <LogoHeader>Sign Up for Quizdini</LogoHeader>
-            <RegisterForm
-              countryOptions={countryOptions}
-              onRegister={registerUser}
-              onSuccess={notify => redirect(notify)}
-              stateOptions={stateOptions}
-            />
-          </>
-        )}
+      {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) || (showLoader && <Loader />) || (
+        <>
+          <LogoHeader>Sign Up for Quizdini</LogoHeader>
+          <RegisterForm
+            countryOptions={countryOptions}
+            onRegister={registerUser}
+            onSuccess={notify => redirect(notify)}
+            stateOptions={stateOptions}
+          />
+        </>
+      )}
     </Container>
   );
 };
 
 const titleOptions = [
-  { key: 0, text: '', value: '' },
-  { key: 1, text: 'Mr.', value: 'Mr.' },
-  { key: 2, text: 'Mrs.', value: 'Mrs.' },
-  { key: 3, text: 'Ms.', value: 'Ms.' },
-  { key: 4, text: 'Prof.', value: 'Prof.' },
-  { key: 5, text: 'Miss', value: 'Miss' },
-  { key: 6, text: 'Dr.', value: 'Dr.' }
+  { key: 0, text: "", value: "" },
+  { key: 1, text: "Mr.", value: "Mr." },
+  { key: 2, text: "Mrs.", value: "Mrs." },
+  { key: 3, text: "Ms.", value: "Ms." },
+  { key: 4, text: "Prof.", value: "Prof." },
+  { key: 5, text: "Miss", value: "Miss" },
+  { key: 6, text: "Dr.", value: "Dr." }
 ];
 
 /* eslint-disable no-template-curly-in-string */
 const validateNewUser = Yup.object().shape({
-  firstName: Yup.string().required('First Name is required.'),
-  lastName: Yup.string().required('Last Name is required.'),
-  city: Yup.string().max(
-    100,
-    'City is too long. ${max} characters are allowed.'
-  ),
-  countryCode: Yup.string().required('Country is required.'),
+  firstName: Yup.string().required("First Name is required."),
+  lastName: Yup.string().required("Last Name is required."),
+  city: Yup.string().max(100, "City is too long. ${max} characters are allowed."),
+  countryCode: Yup.string().required("Country is required."),
   email: Yup.string()
-    .email('Valid email required.')
-    .required('Email is required.'),
+    .email("Valid email required.")
+    .required("Email is required."),
   username: Yup.string()
-    .min(6, 'Username is too short. ${min} characters are required.')
-    .max(20, 'Username is too long. ${max} characters are allowed.')
-    .required('Username is required.'),
+    .min(6, "Username is too short. ${min} characters are required.")
+    .max(20, "Username is too long. ${max} characters are allowed.")
+    .required("Username is required."),
   password: Yup.string() /* Add rules for password complexity */
-    .required('Password is required.')
+    .required("Password is required.")
     .matches(
       /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z0-9@$!%*#?&]{8,}$/,
-      'Password must be at least 8 characters and include: uppercase, lowercase, numeric, and special characters, e.g., @$!%*#?&'
+      "Password must be at least 8 characters and include: uppercase, lowercase, numeric, and special characters, e.g., @$!%*#?&"
     ),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'Passwords must match.')
-    .required('Confirm Password is required.'),
-  recaptcha: Yup.boolean().oneOf([true], 'Confirm that you are human.'),
-  terms: Yup.boolean().oneOf(
-    [true],
-    'Please read and accept our Terms and Conditions'
-  )
+    .oneOf([Yup.ref("password"), null], "Passwords must match.")
+    .required("Confirm Password is required."),
+  recaptcha: Yup.boolean().oneOf([true], "Confirm that you are human."),
+  terms: Yup.boolean().oneOf([true], "Please read and accept our Terms and Conditions")
 });
 
 const RegisterForm = props => {
-  const [loaded, error] = useScript(process.env.REACT_APP_RECAPTCHA_SCRIPT);
+  const [render, reset] = useRecaptcha({
+    url: process.env.REACT_APP_RECAPTCHA_SCRIPT,
+    sitekey: process.env.REACT_APP_RECAPTCHA_SITE_KEY,
+    htmlElement: "recaptcha"
+  });
 
-  useEffect(() => {
-    let widgitId;
-
-    if (loaded) {
-      console.log(window.grecaptcha);
-      /* window.grecaptcha.ready(() => {
-        widgitId = window.grecaptcha.render('recaptcha', {
-          sitekey: process.env.REACT_APP_RECAPTCHA_SITE_KEY,
-          callback: onRecaptcha
-        });
-        console.log(widgitId);
-      }); */
-    }
-    return () => {
-      if (loaded && window.grecaptcha) {
-        console.log('unloading', widgitId);
-        console.log(window.grecaptcha);
-        window.grecaptcha.reset();
-      }
-    };
-  }, [loaded]);
+  useEffect(
+    () => {
+      let widgitId;
+      const renderRecaptcha = async () => (widgitId = await render());
+      const resetRecaptcha = async widgitId => await reset(widgitId);
+      renderRecaptcha();
+      return () => resetRecaptcha(widgitId);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   const getNotify = useResult({
-    failHeader: 'Have we met before?',
-    successHeader: 'Welcome to Quizdini!'
+    failHeader: "Have we met before?",
+    successHeader: "Welcome to Quizdini!"
   });
 
   const { countryOptions, stateOptions } = props;
@@ -152,18 +125,18 @@ const RegisterForm = props => {
       validateOnBlur={false}
       validateOnChange={true}
       initialValues={{
-        city: '',
-        confirmPassword: '',
-        countryCode: '',
-        email: '',
-        firstName: '',
-        lastName: '',
-        password: '',
+        city: "",
+        confirmPassword: "",
+        countryCode: "",
+        email: "",
+        firstName: "",
+        lastName: "",
+        password: "",
         stateCode: null,
         terms: false,
         title: null,
         recaptcha: false,
-        username: ''
+        username: ""
       }}
       onSubmit={async (values, actions) => {
         const { onRegister, onSuccess } = props;
@@ -208,7 +181,6 @@ const RegisterForm = props => {
           handleSubmit,
           isSubmitting,
           isValid,
-          onSubmit,
           setFieldValue,
           setStatus,
           status,
@@ -216,8 +188,9 @@ const RegisterForm = props => {
           values
         } = props;
 
-        window.onRecaptcha = function() {
-          setFieldValue('recaptcha', true);
+        window.onRecaptcha = function(arg) {
+          console.log(arg);
+          setFieldValue("recaptcha", true);
         };
 
         return (
@@ -301,7 +274,7 @@ const RegisterForm = props => {
                     value={values.countryCode}
                     width={6}
                   />
-                  {values.countryCode === 'US' && (
+                  {values.countryCode === "US" && (
                     <Dropdown
                       disabled={isSubmitting}
                       error={touched.stateCode && errors.stateCode}
@@ -394,38 +367,22 @@ const RegisterForm = props => {
                     value={values.terms ? 1 : 0}
                   >
                     By signing up, I agree to Quizdini's&nbsp;
-                    <Link
-                      target="_blank"
-                      title="Terms and Conditions"
-                      to="/terms"
-                    >
+                    <Link target="_blank" title="Terms and Conditions" to="/terms">
                       Terms of Use
                     </Link>
                     ,&nbsp;
-                    <Link
-                      target="_blank"
-                      title="The Privacy Policy"
-                      to="/terms/privacy"
-                    >
+                    <Link target="_blank" title="The Privacy Policy" to="/terms/privacy">
                       Privacy Policy
                     </Link>
                     ,&nbsp;and&nbsp;
-                    <Link
-                      target="_blank"
-                      title="Cookie Policy"
-                      to="/terms/cookies"
-                    >
+                    <Link target="_blank" title="Cookie Policy" to="/terms/cookies">
                       Cookie Policy
                     </Link>
                     .
                   </Checkbox>
                 </Form.Group>
                 <Form.Group>
-                  <div
-                    className="g-recaptcha"
-                    data-callback="onRecaptcha"
-                    data-sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-                  ></div>
+                  <div id="recaptcha" data-callback="onRecaptcha"></div>
                 </Form.Group>
                 <Form.Group>
                   <Button
