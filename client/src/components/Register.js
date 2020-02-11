@@ -1,23 +1,10 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useReducer,
-  useRef
-} from 'react';
+import React, { useCallback, useReducer } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Formik } from 'formik';
 import { Container, Divider, Form, Header, Segment } from 'semantic-ui-react';
 import * as Yup from 'yup';
-import {
-  useAPI,
-  useRecaptcha,
-  useRedirect,
-  useReduxData,
-  useResult,
-  useScript
-} from '../hooks/';
+import { useAPI, useRedirect, useReduxData, useResult } from '../hooks/';
 import {
   Button,
   Checkbox,
@@ -113,7 +100,7 @@ const validateNewUser = Yup.object().shape({
       'Password must be at least 8 characters and include: uppercase, lowercase, numeric, and special characters, e.g., @$!%*#?&'
     ),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'Passwords must match.')
+    .oneOf([Yup.ref('password')], 'Passwords must match.')
     .required('Confirm Password is required.'),
   recaptcha: Yup.boolean().oneOf([true], 'Confirm that you are human.'),
   terms: Yup.boolean().oneOf(
@@ -127,6 +114,11 @@ const RegisterForm = props => {
 
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
+      case 'HOME':
+        return {
+          ...state,
+          step: 1
+        };
       case 'NEXT':
         return {
           ...state,
@@ -142,24 +134,6 @@ const RegisterForm = props => {
     }
   }, initialState);
 
-  /*   const [render, reset] = useRecaptcha({
-    url: process.env.REACT_APP_RECAPTCHA_SCRIPT,
-    sitekey: process.env.REACT_APP_RECAPTCHA_SITE_KEY,
-    htmlElement: "recaptcha"
-  }); */
-
-  /*   useEffect(
-    () => {
-      let widgitId;
-      const renderRecaptcha = async () => (widgitId = await render());
-      const resetRecaptcha = async widgitId => await reset(widgitId);
-      renderRecaptcha();
-      return () => resetRecaptcha(widgitId);
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  ); */
-
   const getNotify = useResult({
     failHeader: 'Have we met before?',
     successHeader: 'Welcome to Quizdini!'
@@ -173,6 +147,7 @@ const RegisterForm = props => {
       enableReinitialize={false}
       validateOnBlur={false}
       validateOnChange={true}
+      validateOnMount={true}
       initialValues={{
         city: '',
         confirmPassword: '',
@@ -215,6 +190,7 @@ const RegisterForm = props => {
         const success = results.data || false;
         const notify = getNotify(results);
         if (success) return onSuccess(notify);
+        dispatch({ type: 'HOME' });
         await setStatus(notify);
         await setSubmitting(false);
       }}
@@ -247,10 +223,11 @@ const RegisterForm = props => {
             <Segment basic textAlign="left">
               <Form id="register-form" onSubmit={handleSubmit}>
                 <Step
-                  step={1}
-                  currentStep={step}
+                  errors={errors}
                   icon="user"
                   onNext={() => dispatch({ type: 'NEXT' })}
+                  show={step === 1}
+                  step={1}
                   title="Profile"
                 >
                   <Form.Group>
@@ -348,11 +325,13 @@ const RegisterForm = props => {
                   )}
                 </Step>
                 <Step
-                  step={2}
                   currentStep={step}
+                  errors={errors}
                   icon="user"
                   onNext={() => dispatch({ type: 'NEXT' })}
                   onPrevious={() => dispatch({ type: 'PREVIOUS' })}
+                  show={step === 2}
+                  step={2}
                   title="Account"
                 >
                   <InputText
@@ -412,10 +391,12 @@ const RegisterForm = props => {
                   />
                 </Step>
                 <Step
-                  step={3}
                   currentStep={step}
+                  errors={errors}
                   icon="user"
                   onPrevious={() => dispatch({ type: 'PREVIOUS' })}
+                  show={step === 3}
+                  step={3}
                   title="Terms of Use"
                 >
                   <Checkbox
@@ -454,28 +435,27 @@ const RegisterForm = props => {
                     </Link>
                     .
                   </Checkbox>
-                  {/*                   <Form.Group>
-                    <div id="recaptcha" data-callback="onRecaptcha"></div>
-                  </Form.Group> */}
+                  {isValid && (
+                    <Form.Group>
+                      <Button
+                        active
+                        disabled={isSubmitting || !isValid || !dirty}
+                        icon="user-plus"
+                        labelPosition="left"
+                        loading={isSubmitting}
+                        positive={isValid && !status && dirty}
+                        size="large"
+                        tabIndex={7}
+                        title="Register"
+                        type="submit"
+                      >
+                        SIGN UP
+                      </Button>
+                    </Form.Group>
+                  )}
                 </Step>
-                <Form.Group>
-                  <Button
-                    active
-                    disabled={isSubmitting || !isValid || !dirty}
-                    icon="user-plus"
-                    labelPosition="left"
-                    loading={isSubmitting}
-                    positive={isValid && !status && dirty}
-                    size="large"
-                    tabIndex={7}
-                    title="Register"
-                    type="submit"
-                  >
-                    SIGN UP
-                  </Button>
-                </Form.Group>
               </Form>
-              {<DisplayFormikState {...props} />}
+              { /* <DisplayFormikState {...props} /> */}
             </Segment>
           </Segment>
         );
@@ -486,43 +466,44 @@ const RegisterForm = props => {
 
 const Step = ({
   children,
-  currentStep,
+  errors,
   icon,
   onPrevious,
   onNext,
+  show,
   step,
   title
 }) => {
   const incomplete = useCallback(() => {
+    let innerFound = false;
     return React.Children.toArray(children).some(child => {
       if (child.type.name === 'FormGroup') {
-        const innerFound = React.Children.toArray(child.props.children).some(
-          inner => {
-            if (
-              inner.props.error ||
-              (inner.props.required && !inner.props.value)
-            )
-              return true;
-          }
+        innerFound = React.Children.toArray(child.props.children).some(
+          inner =>
+            errors[inner.props.name] ||
+            (inner.props.required && !inner.props.value)
         );
-        if (innerFound) return true;
       }
-      if (child.props.error || (child.props.required && !child.props.value)) {
-        return true;
-      }
+      return (
+        innerFound ||
+        errors[child.props.name] ||
+        (child.props.required && !child.props.value)
+      );
     });
-  }, [children]);
+  }, [children, errors]);
 
-  return step === currentStep ? (
+  return show ? (
     <div className="step">
-      <Divider horizontal section>
-        <Header as="h4">
-          <Icon name={icon} />
-          <Header.Content>
-            Step {step} - {title}
-          </Header.Content>
-        </Header>
-      </Divider>
+      {title && (
+        <Divider horizontal section>
+          <Header as="h4">
+            <Icon name={icon} />
+            <Header.Content>
+              Step {step} - {title}
+            </Header.Content>
+          </Header>
+        </Divider>
+      )}
       {children}
       {onPrevious && (
         <Button onClick={onPrevious} floated="left">
