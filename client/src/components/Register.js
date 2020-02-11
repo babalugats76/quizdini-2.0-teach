@@ -1,21 +1,43 @@
-import React, { useCallback, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { Formik } from "formik";
-import { Container, Form, Segment } from "semantic-ui-react";
-import * as Yup from "yup";
-import { useAPI, useRecaptcha, useRedirect, useReduxData, useResult, useScript } from "../hooks/";
-import { Button, Checkbox, Dropdown, InputText, Loader, LogoHeader, Notify } from "./UI/";
-import DisplayFormikState from "./UI/FormikHelper";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useReducer,
+  useRef
+} from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Formik } from 'formik';
+import { Container, Divider, Form, Header, Segment } from 'semantic-ui-react';
+import * as Yup from 'yup';
+import {
+  useAPI,
+  useRecaptcha,
+  useRedirect,
+  useReduxData,
+  useResult,
+  useScript
+} from '../hooks/';
+import {
+  Button,
+  Checkbox,
+  Dropdown,
+  Icon,
+  InputText,
+  Loader,
+  LogoHeader,
+  Notify
+} from './UI/';
+import DisplayFormikState from './UI/FormikHelper';
 
 export default props => {
   // direct API interactions (ephemeral)
-  const { POST: registerUser } = useAPI({ url: "/api/account" });
+  const { POST: registerUser } = useAPI({ url: '/api/account' });
 
   // useRedirect
   const [isRedirecting, redirect] = useRedirect({
     history: props.history,
-    to: "/login",
+    to: '/login',
     timeout: 1000
   });
 
@@ -25,8 +47,8 @@ export default props => {
 
   // Redux data
   const fetchItems = [
-    ...(!countries.data ? ["fetchCountries"] : []),
-    ...(!states.data ? ["fetchStates"] : [])
+    ...(!countries.data ? ['fetchCountries'] : []),
+    ...(!states.data ? ['fetchStates'] : [])
   ];
 
   // Fetch redux data
@@ -41,66 +63,92 @@ export default props => {
 
   // Conditionally render error, loader, and content - in that order
   return (
-    <Container as="main" className="page medium" fluid id="register">
-      {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) || (showLoader && <Loader />) || (
-        <>
-          <LogoHeader>Sign Up for Quizdini</LogoHeader>
-          <RegisterForm
-            countryOptions={countryOptions}
-            onRegister={registerUser}
-            onSuccess={notify => redirect(notify)}
-            stateOptions={stateOptions}
-          />
-        </>
-      )}
+    <Container as="main" className="page small" fluid id="register">
+      {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) ||
+        (showLoader && <Loader />) || (
+          <>
+            <LogoHeader>Sign Up for Quizdini</LogoHeader>
+            <RegisterForm
+              countryOptions={countryOptions}
+              onRegister={registerUser}
+              onSuccess={notify => redirect(notify)}
+              stateOptions={stateOptions}
+            />
+          </>
+        )}
     </Container>
   );
 };
 
 const titleOptions = [
-  { key: 0, text: "", value: "" },
-  { key: 1, text: "Mr.", value: "Mr." },
-  { key: 2, text: "Mrs.", value: "Mrs." },
-  { key: 3, text: "Ms.", value: "Ms." },
-  { key: 4, text: "Prof.", value: "Prof." },
-  { key: 5, text: "Miss", value: "Miss" },
-  { key: 6, text: "Dr.", value: "Dr." }
+  { key: 0, text: '', value: '' },
+  { key: 1, text: 'Mr.', value: 'Mr.' },
+  { key: 2, text: 'Mrs.', value: 'Mrs.' },
+  { key: 3, text: 'Ms.', value: 'Ms.' },
+  { key: 4, text: 'Prof.', value: 'Prof.' },
+  { key: 5, text: 'Miss', value: 'Miss' },
+  { key: 6, text: 'Dr.', value: 'Dr.' }
 ];
 
 /* eslint-disable no-template-curly-in-string */
 const validateNewUser = Yup.object().shape({
-  firstName: Yup.string().required("First Name is required."),
-  lastName: Yup.string().required("Last Name is required."),
-  city: Yup.string().max(100, "City is too long. ${max} characters are allowed."),
-  countryCode: Yup.string().required("Country is required."),
+  firstName: Yup.string().required('First Name is required.'),
+  lastName: Yup.string().required('Last Name is required.'),
+  city: Yup.string().max(
+    100,
+    'City is too long. ${max} characters are allowed.'
+  ),
+  countryCode: Yup.string().required('Country is required.'),
   email: Yup.string()
-    .email("Valid email required.")
-    .required("Email is required."),
+    .email('Valid email required.')
+    .required('Email is required.'),
   username: Yup.string()
-    .min(6, "Username is too short. ${min} characters are required.")
-    .max(20, "Username is too long. ${max} characters are allowed.")
-    .required("Username is required."),
+    .min(6, 'Username is too short. ${min} characters are required.')
+    .max(20, 'Username is too long. ${max} characters are allowed.')
+    .required('Username is required.'),
   password: Yup.string() /* Add rules for password complexity */
-    .required("Password is required.")
+    .required('Password is required.')
     .matches(
       /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z0-9@$!%*#?&]{8,}$/,
-      "Password must be at least 8 characters and include: uppercase, lowercase, numeric, and special characters, e.g., @$!%*#?&"
+      'Password must be at least 8 characters and include: uppercase, lowercase, numeric, and special characters, e.g., @$!%*#?&'
     ),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Passwords must match.")
-    .required("Confirm Password is required."),
-  recaptcha: Yup.boolean().oneOf([true], "Confirm that you are human."),
-  terms: Yup.boolean().oneOf([true], "Please read and accept our Terms and Conditions")
+    .oneOf([Yup.ref('password'), null], 'Passwords must match.')
+    .required('Confirm Password is required.'),
+  recaptcha: Yup.boolean().oneOf([true], 'Confirm that you are human.'),
+  terms: Yup.boolean().oneOf(
+    [true],
+    'Please read and accept our Terms and Conditions'
+  )
 });
 
 const RegisterForm = props => {
-  const [render, reset] = useRecaptcha({
+  const initialState = { step: 1 };
+
+  const [state, dispatch] = useReducer((state, action) => {
+    switch (action.type) {
+      case 'NEXT':
+        return {
+          ...state,
+          step: state.step + 1
+        };
+      case 'PREVIOUS':
+        return {
+          ...state,
+          step: Math.max(state.step - 1, 1)
+        };
+      default:
+        return state;
+    }
+  }, initialState);
+
+  /*   const [render, reset] = useRecaptcha({
     url: process.env.REACT_APP_RECAPTCHA_SCRIPT,
     sitekey: process.env.REACT_APP_RECAPTCHA_SITE_KEY,
     htmlElement: "recaptcha"
-  });
+  }); */
 
-  useEffect(
+  /*   useEffect(
     () => {
       let widgitId;
       const renderRecaptcha = async () => (widgitId = await render());
@@ -110,13 +158,14 @@ const RegisterForm = props => {
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
-  );
+  ); */
 
   const getNotify = useResult({
-    failHeader: "Have we met before?",
-    successHeader: "Welcome to Quizdini!"
+    failHeader: 'Have we met before?',
+    successHeader: 'Welcome to Quizdini!'
   });
 
+  const { step } = state;
   const { countryOptions, stateOptions } = props;
 
   return (
@@ -125,18 +174,17 @@ const RegisterForm = props => {
       validateOnBlur={false}
       validateOnChange={true}
       initialValues={{
-        city: "",
-        confirmPassword: "",
-        countryCode: "",
-        email: "",
-        firstName: "",
-        lastName: "",
-        password: "",
+        city: '',
+        confirmPassword: '',
+        countryCode: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        password: '',
         stateCode: null,
         terms: false,
         title: null,
-        recaptcha: false,
-        username: ""
+        username: ''
       }}
       onSubmit={async (values, actions) => {
         const { onRegister, onSuccess } = props;
@@ -190,7 +238,7 @@ const RegisterForm = props => {
 
         window.onRecaptcha = function(arg) {
           console.log(arg);
-          setFieldValue("recaptcha", true);
+          setFieldValue('recaptcha', true);
         };
 
         return (
@@ -198,39 +246,49 @@ const RegisterForm = props => {
             {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
             <Segment basic textAlign="left">
               <Form id="register-form" onSubmit={handleSubmit}>
-                <Form.Group>
-                  <Dropdown
-                    disabled={isSubmitting}
-                    error={touched.title && errors.title}
-                    label="Title"
-                    name="title"
-                    onBlur={handleBlur}
-                    options={titleOptions}
-                    selection
-                    setFieldValue={setFieldValue}
-                    tabIndex={1}
-                    upward={false}
-                    value={values.title}
-                    width={3}
-                  />
-                  <InputText
-                    disabled={isSubmitting}
-                    error={touched.firstName && errors.firstName}
-                    label="First Name"
-                    maxLength={40}
-                    name="firstName"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    placeholder=""
-                    required
-                    tabIndex={2}
-                    type="text"
-                    value={values.firstName}
-                    width={5}
-                  />
+                <Step
+                  step={1}
+                  currentStep={step}
+                  icon="user"
+                  onNext={() => dispatch({ type: 'NEXT' })}
+                  title="Profile"
+                >
+                  <Form.Group>
+                    <Dropdown
+                      disabled={isSubmitting}
+                      error={touched.title && errors.title}
+                      label="Title"
+                      name="title"
+                      onBlur={handleBlur}
+                      options={titleOptions}
+                      selection
+                      setFieldValue={setFieldValue}
+                      tabIndex={1}
+                      upward={false}
+                      value={values.title}
+                      width={6}
+                    />
+                    <InputText
+                      disabled={isSubmitting}
+                      error={touched.firstName && errors.firstName}
+                      fluid
+                      label="First Name"
+                      maxLength={40}
+                      name="firstName"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      placeholder=""
+                      required
+                      tabIndex={2}
+                      type="text"
+                      value={values.firstName}
+                      width={10}
+                    />
+                  </Form.Group>
                   <InputText
                     disabled={isSubmitting}
                     error={touched.lastName && errors.lastName}
+                    fluid
                     label="Last Name"
                     maxLength={60}
                     name="lastName"
@@ -241,13 +299,11 @@ const RegisterForm = props => {
                     tabIndex={3}
                     type="text"
                     value={values.lastName}
-                    width={8}
                   />
-                </Form.Group>
-                <Form.Group>
                   <InputText
                     disabled={isSubmitting}
                     error={touched.city && errors.city}
+                    fluid
                     label="City"
                     maxLength={100}
                     name="city"
@@ -257,11 +313,11 @@ const RegisterForm = props => {
                     tabIndex={4}
                     type="text"
                     value={values.city}
-                    width={5}
                   />
                   <Dropdown
                     disabled={isSubmitting}
                     error={touched.countryCode && errors.countryCode}
+                    fluid
                     label="Country"
                     name="countryCode"
                     onBlur={handleBlur}
@@ -272,12 +328,12 @@ const RegisterForm = props => {
                     tabIndex={5}
                     upward={false}
                     value={values.countryCode}
-                    width={6}
                   />
-                  {values.countryCode === "US" && (
+                  {values.countryCode === 'US' && (
                     <Dropdown
                       disabled={isSubmitting}
                       error={touched.stateCode && errors.stateCode}
+                      fluid
                       label="State"
                       name="stateCode"
                       onBlur={handleBlur}
@@ -288,11 +344,17 @@ const RegisterForm = props => {
                       tabIndex={6}
                       upward={false}
                       value={values.stateCode}
-                      width={5}
                     />
                   )}
-                </Form.Group>
-                <Form.Group>
+                </Step>
+                <Step
+                  step={2}
+                  currentStep={step}
+                  icon="user"
+                  onNext={() => dispatch({ type: 'NEXT' })}
+                  onPrevious={() => dispatch({ type: 'PREVIOUS' })}
+                  title="Account"
+                >
                   <InputText
                     disabled={isSubmitting}
                     error={touched.email && errors.email}
@@ -305,7 +367,6 @@ const RegisterForm = props => {
                     tabIndex={7}
                     type="email"
                     value={values.email}
-                    width={8}
                   />
                   <InputText
                     disabled={isSubmitting}
@@ -320,10 +381,7 @@ const RegisterForm = props => {
                     tabIndex={8}
                     type="text"
                     value={values.username}
-                    width={8}
                   />
-                </Form.Group>
-                <Form.Group>
                   <InputText
                     disabled={isSubmitting}
                     error={touched.password && errors.password}
@@ -337,7 +395,6 @@ const RegisterForm = props => {
                     tabIndex={9}
                     type="password"
                     value={values.password}
-                    width={8}
                   />
                   <InputText
                     disabled={isSubmitting}
@@ -352,10 +409,15 @@ const RegisterForm = props => {
                     tabIndex={10}
                     type="password"
                     value={values.confirmPassword}
-                    width={8}
                   />
-                </Form.Group>
-                <Form.Group>
+                </Step>
+                <Step
+                  step={3}
+                  currentStep={step}
+                  icon="user"
+                  onPrevious={() => dispatch({ type: 'PREVIOUS' })}
+                  title="Terms of Use"
+                >
                   <Checkbox
                     checked={values.terms ? true : false}
                     disabled={isSubmitting}
@@ -367,23 +429,35 @@ const RegisterForm = props => {
                     value={values.terms ? 1 : 0}
                   >
                     By signing up, I agree to Quizdini's&nbsp;
-                    <Link target="_blank" title="Terms and Conditions" to="/terms">
+                    <Link
+                      target="_blank"
+                      title="Terms and Conditions"
+                      to="/terms"
+                    >
                       Terms of Use
                     </Link>
                     ,&nbsp;
-                    <Link target="_blank" title="The Privacy Policy" to="/terms/privacy">
+                    <Link
+                      target="_blank"
+                      title="The Privacy Policy"
+                      to="/terms/privacy"
+                    >
                       Privacy Policy
                     </Link>
                     ,&nbsp;and&nbsp;
-                    <Link target="_blank" title="Cookie Policy" to="/terms/cookies">
+                    <Link
+                      target="_blank"
+                      title="Cookie Policy"
+                      to="/terms/cookies"
+                    >
                       Cookie Policy
                     </Link>
                     .
                   </Checkbox>
-                </Form.Group>
-                <Form.Group>
-                  <div id="recaptcha" data-callback="onRecaptcha"></div>
-                </Form.Group>
+                  {/*                   <Form.Group>
+                    <div id="recaptcha" data-callback="onRecaptcha"></div>
+                  </Form.Group> */}
+                </Step>
                 <Form.Group>
                   <Button
                     active
@@ -408,4 +482,58 @@ const RegisterForm = props => {
       }}
     </Formik>
   );
+};
+
+const Step = ({
+  children,
+  currentStep,
+  icon,
+  onPrevious,
+  onNext,
+  step,
+  title
+}) => {
+  const incomplete = useCallback(() => {
+    return React.Children.toArray(children).some(child => {
+      if (child.type.name === 'FormGroup') {
+        const innerFound = React.Children.toArray(child.props.children).some(
+          inner => {
+            if (
+              inner.props.error ||
+              (inner.props.required && !inner.props.value)
+            )
+              return true;
+          }
+        );
+        if (innerFound) return true;
+      }
+      if (child.props.error || (child.props.required && !child.props.value)) {
+        return true;
+      }
+    });
+  }, [children]);
+
+  return step === currentStep ? (
+    <div className="step">
+      <Divider horizontal section>
+        <Header as="h4">
+          <Icon name={icon} />
+          <Header.Content>
+            Step {step} - {title}
+          </Header.Content>
+        </Header>
+      </Divider>
+      {children}
+      {onPrevious && (
+        <Button onClick={onPrevious} floated="left">
+          BACK
+        </Button>
+      )}
+      {onNext && !incomplete() && (
+        <Button onClick={onNext} floated="right">
+          NEXT
+        </Button>
+      )}
+    </div>
+  ) : null;
 };
