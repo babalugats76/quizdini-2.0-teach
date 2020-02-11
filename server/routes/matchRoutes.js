@@ -250,7 +250,7 @@ module.exports = (app, memcache) => {
                   }
                 }
               },
-              { $sort: { misses: -1, hitRate: 1, tries: -1 } }
+              { $sort: { term: 1 } }
             ]
           }
         }
