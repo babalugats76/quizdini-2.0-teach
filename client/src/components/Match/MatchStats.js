@@ -1,19 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chart from 'chart.js';
-import {
-  Container,
-  Grid,
-  Header,
-  Segment,
-  Table,
-  Pagination
-} from 'semantic-ui-react';
+import { Container, Grid, Header, Segment, Table } from 'semantic-ui-react';
 import { useData, useTitle } from '../../hooks';
 import { Icon, Loader } from '../UI';
 import { zonedTimeToUtc, format, utcToZonedTime } from 'date-fns-tz';
 import { addDays, eachDayOfInterval, max, parse, parseISO } from 'date-fns';
 
-let myChart;
+let pingChart;
+
 Chart.defaults.global.defaultFontFamily = "'marcher-regular', sans-serif";
 Chart.defaults.global.defaultFontSize = 13;
 Chart.defaults.global.defaultFontColor = 'rgba(10,10,10,.75)';
@@ -63,7 +57,7 @@ const TestChart = props => {
     let end, maxTick, minTick, playsByDay, start, x, y, yMax;
 
     function renderChart() {
-      if (typeof myChart !== 'undefined') myChart.destroy();
+      if (typeof pingChart !== 'undefined') pingChart.destroy();
       /*       if (pings && !pings.length) return; */
       start = max([
         zonedTimeToUtc(
@@ -102,7 +96,7 @@ const TestChart = props => {
       console.log(minTick);
       maxTick = format(addDays(utcToZonedTime(end, 'UTC'), 1), 'MM/dd/yyyy');
       console.log(maxTick);
-      myChart = new Chart(canvasRef.current, {
+      pingChart = new Chart(canvasRef.current, {
         type: 'bar',
         data: {
           labels: x,

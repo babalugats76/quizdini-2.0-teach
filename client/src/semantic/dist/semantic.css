@@ -1115,6 +1115,15 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
+  Steps
+--------------------*/
+
+.step .step-nav {
+  overflow: auto;
+  padding: 0.5em 0;
+}
+
+/*-------------------
   Landing
 --------------------*/
 

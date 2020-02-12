@@ -6,7 +6,7 @@ import Icon from './Icon';
 const MyButton = ({ children, icon, type, ...rest }) => {
   return (
     <Button
-      className={`${icon}`}
+      className={icon ? `${icon}` : null}
       icon={icon ? true : null}
       type={type} // Defaulting to type="submit"; all other must provide, e.g., type="button"
       {...rest}

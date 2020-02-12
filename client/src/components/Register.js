@@ -1,21 +1,21 @@
-import React, { useCallback, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Formik } from 'formik';
-import { Container, Divider, Form, Header, Segment } from 'semantic-ui-react';
+import { Container, Form, Segment } from 'semantic-ui-react';
 import * as Yup from 'yup';
 import { useAPI, useRedirect, useReduxData, useResult } from '../hooks/';
 import {
   Button,
   Checkbox,
   Dropdown,
-  Icon,
   InputText,
   Loader,
   LogoHeader,
-  Notify
+  Notify,
+  Step
 } from './UI/';
-import DisplayFormikState from './UI/FormikHelper';
+// import DisplayFormikState from './UI/FormikHelper';
 
 export default props => {
   // direct API interactions (ephemeral)
@@ -325,7 +325,6 @@ const RegisterForm = props => {
                   )}
                 </Step>
                 <Step
-                  currentStep={step}
                   errors={errors}
                   icon="user"
                   onNext={() => dispatch({ type: 'NEXT' })}
@@ -391,7 +390,6 @@ const RegisterForm = props => {
                   />
                 </Step>
                 <Step
-                  currentStep={step}
                   errors={errors}
                   icon="user"
                   onPrevious={() => dispatch({ type: 'PREVIOUS' })}
@@ -455,66 +453,11 @@ const RegisterForm = props => {
                   )}
                 </Step>
               </Form>
-              { /* <DisplayFormikState {...props} /> */}
+              {/* <DisplayFormikState {...props} /> */}
             </Segment>
           </Segment>
         );
       }}
     </Formik>
   );
-};
-
-const Step = ({
-  children,
-  errors,
-  icon,
-  onPrevious,
-  onNext,
-  show,
-  step,
-  title
-}) => {
-  const incomplete = useCallback(() => {
-    let innerFound = false;
-    return React.Children.toArray(children).some(child => {
-      if (child.type.name === 'FormGroup') {
-        innerFound = React.Children.toArray(child.props.children).some(
-          inner =>
-            errors[inner.props.name] ||
-            (inner.props.required && !inner.props.value)
-        );
-      }
-      return (
-        innerFound ||
-        errors[child.props.name] ||
-        (child.props.required && !child.props.value)
-      );
-    });
-  }, [children, errors]);
-
-  return show ? (
-    <div className="step">
-      {title && (
-        <Divider horizontal section>
-          <Header as="h4">
-            <Icon name={icon} />
-            <Header.Content>
-              Step {step} - {title}
-            </Header.Content>
-          </Header>
-        </Divider>
-      )}
-      {children}
-      {onPrevious && (
-        <Button onClick={onPrevious} floated="left">
-          BACK
-        </Button>
-      )}
-      {onNext && !incomplete() && (
-        <Button onClick={onNext} floated="right">
-          NEXT
-        </Button>
-      )}
-    </div>
-  ) : null;
 };
