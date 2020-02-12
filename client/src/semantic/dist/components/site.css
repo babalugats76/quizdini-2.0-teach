@@ -583,9 +583,14 @@ svg.icon.chevron-down.closed {
   Steps
 --------------------*/
 
-.step .step-nav {
+.step {
+  min-height: 300px;
+  margin-top: -0.5em;
+}
+.step nav {
   overflow: auto;
-  padding: 0.5em 0;
+  margin: auto 0 0 0;
+  padding: 1.5em 0 0;
 }
 
 /*-------------------

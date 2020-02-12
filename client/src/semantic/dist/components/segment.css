@@ -19,7 +19,7 @@
   -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
           box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
   margin: 1rem 0;
-  padding: 1em 1em;
+  padding: 0.5em 0.5em;
   border-radius: 0.25rem;
   border: 1px solid rgba(34, 36, 38, 0.15);
 }
@@ -95,7 +95,7 @@
           box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
 }
 .ui[class*="very basic"].table.segment {
-  padding: 1em 1em;
+  padding: 0.5em 0.5em;
 }
 
 /* Tab */
@@ -131,7 +131,7 @@
   -webkit-animation: none;
           animation: none;
   overflow: visible;
-  padding: 1em 1em;
+  padding: 0.5em 0.5em;
   min-height: 18rem;
   background: #F9FAFB;
   border-color: rgba(34, 36, 38, 0.15);
@@ -282,10 +282,10 @@
   --------------------*/
 
 .ui.padded.segment {
-  padding: 1.5em;
+  padding: 1.5em 2.25em;
 }
 .ui[class*="very padded"].segment {
-  padding: 3em;
+  padding: 3em 3em;
 }
 
 /* Padded vertical */
@@ -858,9 +858,12 @@
 
 @media only screen and (min-width: 320px) and (max-width: 767.98px) {
   .ui.padded.segment {
-    padding: 0.75em;
+    padding: 1em 1em;
   }
   .ui[class*='very padded'].segment {
-    padding: 3em 1em;
+    padding: 1.5em 1.5em;
   }
+}
+.ui.segment.padded > .ui.segment {
+  padding: 0;
 }

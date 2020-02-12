@@ -3,9 +3,15 @@
 *******************************/
 @media only screen and (min-width: @mobileBreakpoint) and (max-width: @largestMobileScreen) {
   .ui.padded.segment {
-    padding: 0.75em;
+    padding: @mobilePaddedSegmentVertical @mobilePaddedSegmentHorizontal;
   }
   .ui[class*='very padded'].segment {
-    padding: @veryPaddedSegmentPadding 1em;
+    padding: @mobileVeryPaddedSegmentVertical @mobileVeryPaddedSegmentHorizontal;
+  }
+}
+
+.ui.segment.padded {
+  > .ui.segment {
+    padding: 0;
   }
 }
