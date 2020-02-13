@@ -673,7 +673,7 @@ const MatchForm = props => {
                       title="Back to Dashboard"
                       to={{
                         pathname: "/dashboard",
-                        state: { from: "MATCH", skipAuth: true }
+                        state: { from: "MATCH"  }
                       }}
                       type="button"
                     >

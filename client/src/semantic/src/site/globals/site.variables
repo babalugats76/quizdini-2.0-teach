@@ -102,8 +102,8 @@
 --------------------*/
 
 @inputVerticalPadding: @relative9px;
-@segmentPaddingVertical: .5em; 
-@segmentPaddingHorizontal: .5em;
+@segmentPaddingVertical: 1em; 
+@segmentPaddingHorizontal: 1em;
 @paddedSegmentVertical: 2em;
 @paddedSegmentHorizontal: 2em;
 @mobilePaddedSegmentVertical: 1em;

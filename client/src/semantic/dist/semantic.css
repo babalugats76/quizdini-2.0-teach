@@ -22849,7 +22849,7 @@ ol.ui.suffixed.list li:before,
   -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
   box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
   margin: 1rem 0;
-  padding: 0.5em 0.5em;
+  padding: 1em 1em;
   border-radius: 0.25rem;
   border: 1px solid rgba(34, 36, 38, 0.15);
 }
@@ -22937,7 +22937,7 @@ ol.ui.suffixed.list li:before,
 }
 
 .ui[class*="very basic"].table.segment {
-  padding: 0.5em 0.5em;
+  padding: 1em 1em;
 }
 
 /* Tab */
@@ -22972,7 +22972,7 @@ ol.ui.suffixed.list li:before,
   -webkit-animation: none;
   animation: none;
   overflow: visible;
-  padding: 0.5em 0.5em;
+  padding: 1em 1em;
   min-height: 18rem;
   background: #F9FAFB;
   border-color: rgba(34, 36, 38, 0.15);

@@ -1,35 +1,45 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Chart from 'chart.js';
-import { Container, Grid, Header, Segment, Table } from 'semantic-ui-react';
-import { useData, useTitle } from '../../hooks';
-import { Icon, Loader } from '../UI';
-import { zonedTimeToUtc, format, utcToZonedTime } from 'date-fns-tz';
-import { addDays, eachDayOfInterval, max, parse, parseISO } from 'date-fns';
-
-let pingChart;
+import React, { useEffect, useReducer, useRef } from "react";
+import { Link } from "react-router-dom";
+import Chart from "chart.js";
+import { Container, Grid, Header, Segment, Table } from "semantic-ui-react";
+import { useData, useTitle } from "../../hooks";
+import { Button, Icon, Loader } from "../UI";
+import { zonedTimeToUtc, format, utcToZonedTime } from "date-fns-tz";
+import { addDays, eachDayOfInterval, max, parse, parseISO } from "date-fns";
 
 Chart.defaults.global.defaultFontFamily = "'marcher-regular', sans-serif";
 Chart.defaults.global.defaultFontSize = 13;
-Chart.defaults.global.defaultFontColor = 'rgba(10,10,10,.75)';
+Chart.defaults.global.defaultFontColor = "rgba(10,10,10,.75)";
 
 const MatchStats = props => {
   const { location: { state: { matchId = undefined } = {} } = {} } = props;
 
-  // local state - dirty toggle
-  const [state, setState] = useState({
+  const initialState = {
     dirty: false,
     matchId: matchId
-  });
+  };
+
+  const [state, dispatch] = useReducer((state, action) => {
+    switch (action.type) {
+      case "REFRESH":
+        return {
+          ...state,
+          dirty: !state.dirty // toggle dirty (for api refresh)
+        };
+      default:
+        return state;
+    }
+  }, initialState);
 
   // API data
   const { data: stats, error, initialized, loading } = useData({
-    url: '/api/match/stats/' + state.matchId,
+    url: "/api/match/stats/" + state.matchId,
     deps: [state.matchId, state.dirty]
   });
 
   // set page title
   useTitle({
-    title: state.matchId ? (stats ? stats.title : 'Loading...') : '',
+    title: state.matchId ? (stats ? stats.title : "Loading...") : "",
     deps: [state.matchId]
   });
 
@@ -37,160 +47,60 @@ const MatchStats = props => {
 
   return (
     <Container as="main" className="page medium" fluid id="match-stats">
-      {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
-        (showLoader && <Loader />) || <TestChart {...stats} />}
+      {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) || (showLoader && <Loader />) || (
+        <Stats {...stats} refreshing={loading} onRefresh={() => dispatch({ type: "REFRESH" })} />
+      )}
     </Container>
   );
 };
 
-const TestChart = props => {
-  const canvasRef = useRef(null);
+const Stats = props => {
   const {
+    onRefresh,
+    refreshing,
     title,
-    createDate,
-    pings = [],
     terms,
     totals: { plays = 0, avgScore = 0, avgHitRate = 0 } = {}
   } = props;
 
-  useEffect(() => {
-    let end, maxTick, minTick, playsByDay, start, x, y, yMax;
-
-    function renderChart() {
-      if (typeof pingChart !== 'undefined') pingChart.destroy();
-      /*       if (pings && !pings.length) return; */
-      start = max([
-        zonedTimeToUtc(
-          addDays(Date.now(), -30),
-          Intl.DateTimeFormat().resolvedOptions().timeZone
-        ),
-        zonedTimeToUtc(
-          parseISO(createDate),
-          Intl.DateTimeFormat().resolvedOptions().timeZone
-        )
-      ]);
-      /*       console.log("start", format(utcToZonedTime(start, "UTC"), "MM/dd/yyyy"));
-        console.log("start-1", format(addDays(utcToZonedTime(start, "UTC"), -1), "MM/dd/yyyy")); */
-
-      end = zonedTimeToUtc(
-        Date.now(),
-        Intl.DateTimeFormat().resolvedOptions().timeZone
-      );
-      /*       console.log("end", format(utcToZonedTime(end, "UTC"), "MM/dd/yyyy"));
-        console.log("end+1", format(addDays(utcToZonedTime(end, "UTC"), 1), "MM/dd/yyyy")); */
-
-      playsByDay = pings.reduce((accum, i) => {
-        accum[i.day] = i.plays;
-        return accum;
-      }, []);
-      x = eachDayOfInterval({
-        start: utcToZonedTime(start, 'UTC'),
-        end: utcToZonedTime(end, 'UTC')
-      }).map(day => format(day, 'MM/dd/yyyy'));
-
-      console.log(x);
-      y = x.map(day => playsByDay[day] || 0);
-      console.log(y);
-      yMax = Math.max(...y);
-      minTick = format(addDays(utcToZonedTime(start, 'UTC'), -1), 'MM/dd/yyyy');
-      console.log(minTick);
-      maxTick = format(addDays(utcToZonedTime(end, 'UTC'), 1), 'MM/dd/yyyy');
-      console.log(maxTick);
-      pingChart = new Chart(canvasRef.current, {
-        type: 'bar',
-        data: {
-          labels: x,
-          datasets: [
-            {
-              label: 'Plays',
-              data: y,
-              barThickness: 'flex',
-              maxBarThickness: 40,
-              minBarLength: 2,
-              backgroundColor: 'rgba(170, 84, 255, .15)',
-              borderColor: 'rgba(113, 28, 255, .75)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(113, 28, 255, 1.0)',
-              hoverBorderWidth: 0
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          title: {
-            display: true,
-            fontSize: 18,
-            fontStyle: 'normal',
-            fontFamily: "'marcher-medium', sans-serif",
-            lineHeight: 1.3,
-            position: 'top',
-            text: 'Daily Activity'
-          },
-          tooltips: {
-            callbacks: {
-              title: function(tooltipItem, data) {
-                return format(
-                  zonedTimeToUtc(
-                    parse(tooltipItem[0].xLabel, 'MM/dd/yyyy', new Date()),
-                    Intl.DateTimeFormat().resolvedOptions().timeZone
-                  ),
-                  'EEE, LLL do'
-                );
-              }
-            }
-          },
-          legend: {
-            display: true
-          },
-          animation: {
-            easing: 'easeInQuart'
-          },
-          scales: {
-            xAxes: [
-              {
-                gridLines: {
-                  offsetGridLines: false
-                },
-                type: 'time',
-                ticks: {
-                  min: minTick,
-                  max: maxTick
-                },
-                time: {
-                  unit: 'week',
-                  parser: 'MM/DD/YYYY',
-                  isoWeekday: true,
-                  displayFormats: {
-                    week: 'ddd, MMM Do'
-                  }
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: 'Date (GMT/UTC)'
-                }
-              }
-            ],
-            yAxes: [
-              {
-                type: 'linear',
-                ticks: {
-                  beginAtZero: true,
-                  maxTicksLimit: 5,
-                  precision: 0,
-                  suggestedMax: Math.max(yMax + yMax / 5, 10)
-                }
-              }
-            ]
-          }
-        }
-      });
-    }
-    renderChart();
-  }, [pings, createDate]);
-
   return (
     <div className="content-wrapper">
       <Grid stackable>
+        <Grid.Row>
+          <Grid.Column>
+            <nav>
+              <Button
+                active
+                as={Link}
+                disabled={refreshing}
+                icon="back"
+                labelPosition="left"
+                tabIndex={-1}
+                title="Back to Dashboard"
+                to={{
+                  pathname: "/dashboard",
+                  state: { from: "MATCH-STATS" }
+                }}
+                type="button"
+              >
+                BACK
+              </Button>
+              <Button
+                active
+                floated="right"
+                icon="refresh-cw"
+                labelPosition="left"
+                loading={refreshing}
+                onClick={onRefresh}
+                tabIndex={1}
+                title="Refresh"
+                type="button"
+              >
+                REFRESH
+              </Button>
+            </nav>
+          </Grid.Column>
+        </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign="center">
             <Segment>
@@ -223,27 +133,13 @@ const TestChart = props => {
         </Grid.Row>
         <Grid.Row>
           <Grid.Column>
-            <Segment
-              disabled={!pings.length}
-              id="plays-bar-chart"
-              padded
-              style={{ backgroundColor: '#fff' }}
-            >
-              {!pings.length && <span>No Recent Activity...</span>}
-              <canvas
-                // style={{ ...(!pings.length ? { display: "none" } : null) }}
-                ref={ref => (canvasRef.current = ref)}
-              />
-            </Segment>
+            <PingChart {...props} />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column>
             <TermTable id="terms-table" terms={terms} />
           </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <pre>{JSON.stringify(props, null, 4)}</pre>
         </Grid.Row>
       </Grid>
     </div>
@@ -252,22 +148,157 @@ const TestChart = props => {
 
 export default MatchStats;
 
+let pingChart;
+
+const PingChart = ({ createDate, pings = [] }) => {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    let end, maxTick, minTick, playsByDay, start, x, y, yMax;
+
+    function renderChart() {
+      if (typeof pingChart !== "undefined") pingChart.destroy();
+      start = max([
+        zonedTimeToUtc(addDays(Date.now(), -30), Intl.DateTimeFormat().resolvedOptions().timeZone),
+        zonedTimeToUtc(parseISO(createDate), Intl.DateTimeFormat().resolvedOptions().timeZone)
+      ]);
+
+      end = zonedTimeToUtc(Date.now(), Intl.DateTimeFormat().resolvedOptions().timeZone);
+      playsByDay = pings.reduce((accum, i) => {
+        accum[i.day] = i.plays;
+        return accum;
+      }, []);
+      x = eachDayOfInterval({
+        start: utcToZonedTime(start, "UTC"),
+        end: utcToZonedTime(end, "UTC")
+      }).map(day => format(day, "MM/dd/yyyy"));
+
+      y = x.map(day => playsByDay[day] || 0);
+      yMax = Math.max(...y);
+      minTick = format(addDays(utcToZonedTime(start, "UTC"), -1), "MM/dd/yyyy");
+      maxTick = format(addDays(utcToZonedTime(end, "UTC"), 1), "MM/dd/yyyy");
+      pingChart = new Chart(canvasRef.current, {
+        type: "bar",
+        data: {
+          labels: x,
+          datasets: [
+            {
+              label: "Plays",
+              data: y,
+              barThickness: "flex",
+              maxBarThickness: 40,
+              minBarLength: 2,
+              backgroundColor: "rgba(170, 84, 255, .15)",
+              borderColor: "rgba(113, 28, 255, .75)",
+              borderWidth: 1,
+              hoverBackgroundColor: "rgba(113, 28, 255, 1.0)",
+              hoverBorderWidth: 0
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          title: {
+            display: true,
+            fontSize: 18,
+            fontStyle: "normal",
+            fontFamily: "'marcher-medium', sans-serif",
+            lineHeight: 1.3,
+            position: "top",
+            text: "Daily Activity"
+          },
+          tooltips: {
+            callbacks: {
+              title: function(tooltipItem) {
+                return format(
+                  zonedTimeToUtc(
+                    parse(tooltipItem[0].xLabel, "MM/dd/yyyy", new Date()),
+                    Intl.DateTimeFormat().resolvedOptions().timeZone
+                  ),
+                  "EEE, LLL do"
+                );
+              }
+            }
+          },
+          legend: {
+            display: true
+          },
+          animation: {
+            easing: "easeInQuart"
+          },
+          scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  offsetGridLines: false
+                },
+                type: "time",
+                ticks: {
+                  fontSize: 12,
+                  max: maxTick,
+                  maxRotation: 180,
+                  maxTicksLimit: 5,
+                  min: minTick,
+                  minRotation: 0
+                },
+                time: {
+                  unit: "week",
+                  parser: "MM/DD/YYYY",
+                  isoWeekday: true,
+                  displayFormats: {
+                    week: "ddd, MMM D"
+                  }
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Date (GMT/UTC)"
+                }
+              }
+            ],
+            yAxes: [
+              {
+                type: "linear",
+                ticks: {
+                  beginAtZero: true,
+                  fontSize: 12,
+                  maxTicksLimit: 5,
+                  precision: 0,
+                  suggestedMax: Math.max(yMax + yMax / 5, 10)
+                }
+              }
+            ]
+          }
+        }
+      });
+    }
+    renderChart();
+  }, [pings, createDate]);
+
+  return (
+    <Segment
+      disabled={!pings.length}
+      id="plays-bar-chart"
+      padded
+      style={{ backgroundColor: "#fff" }}
+    >
+      <canvas ref={ref => (canvasRef.current = ref)} />
+    </Segment>
+  );
+};
+
 const TermTable = ({ id, terms }) => {
   const renderHtml = value => (
-    <span
-      dangerouslySetInnerHTML={{ __html: value.replace(/(^")|("$)/g, '') }}
-    />
+    <span dangerouslySetInnerHTML={{ __html: value.replace(/(^")|("$)/g, "") }} />
   );
 
   const renderRows = ({ terms }) => {
     return terms.map(val => {
       const { term, hits, misses, hitRate } = val;
-      const rateStrata =
-        hitRate <= 60 ? 'negative' : hitRate <= 80 ? 'warning' : 'positive';
+      const rateStrata = hitRate <= 60 ? "negative" : hitRate <= 80 ? "warning" : "positive";
       const rateProp =
-        rateStrata === 'negative'
+        rateStrata === "negative"
           ? { negative: true }
-          : rateStrata === 'warning'
+          : rateStrata === "warning"
           ? { warning: true }
           : { positive: true };
 

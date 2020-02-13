@@ -150,7 +150,6 @@ const LoginForm = props => {
                   labelPosition="left"
                   loading={isSubmitting}
                   positive={isValid && !!values.username && !!values.password}
-                  size="large"
                   tabIndex={3}
                   title="Log in to Quizdini"
                   type="submit"
