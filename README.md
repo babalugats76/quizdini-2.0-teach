@@ -84,21 +84,14 @@ Messages need to be standardized, etc.
       - Leave a placeholder image 
   - About
     - _Attribution_
+  - Match
+    - Change layout to resemble Stats
+    - Create `Match Header` which includes `title` and `options` info
   - Dashboard
     - _Refine functional component, e.g., `MatchIntro`_
     - _Model Games_ - Show options 4, 6, 9
       - For each: title/subject, instructions, .csv, etc.
-  - MatchStats
-    - Continue development of successful POC
-  - Register
-    - POC of incorporating Google Recaptcha
-      - Obtain key
-      - Obtain path of v3 .js file
-      - Update creditials, i.e, `key.js`, `prod.js`
-      - Test loading and adding to `RegisterForm`
   - Hooks
-    - useScript
-      - Add ref to track cancelled and protect `setState` (similar to other async hooks)
     - useWindow
       - Investigate removing hook in lieu of CSS media queries
         - `HeaderNav`
