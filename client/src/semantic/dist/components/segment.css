@@ -282,7 +282,7 @@
   --------------------*/
 
 .ui.padded.segment {
-  padding: 1.5em 2.25em;
+  padding: 2em 2em;
 }
 .ui[class*="very padded"].segment {
   padding: 3em 3em;
@@ -863,7 +863,4 @@
   .ui[class*='very padded'].segment {
     padding: 1.5em 1.5em;
   }
-}
-.ui.segment.padded > .ui.segment {
-  padding: 0;
 }

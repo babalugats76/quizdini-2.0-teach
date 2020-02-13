@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { Container, Divider, Form, Segment } from 'semantic-ui-react';
+import {
+  Container,
+  Divider,
+  Form,
+  Segment,
+  FormGroup
+} from 'semantic-ui-react';
 import { useAPI, useAuth, useMessage, useResult } from '../hooks/';
 import {
   Button,
@@ -12,6 +18,7 @@ import {
   LogoHeader,
   Notify
 } from './UI/';
+import DisplayFormikState from './UI/FormikHelper';
 
 export default props => {
   // handles show/dismiss of redirect messages
@@ -60,6 +67,7 @@ const LoginForm = props => {
       enableReinitialize={false}
       validateOnBlur={false}
       validateOnChange={true}
+      validateOnMount={true}
       initialValues={{
         username: '',
         password: ''
@@ -94,62 +102,62 @@ const LoginForm = props => {
         } = props;
 
         return (
-          <Segment padded>
+          <Segment padded="very">
             {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
-            <Segment basic textAlign="center">
-              <ExternalLink
-                href="/auth/google"
-                id="google-login"
-                target="_self"
+            <ExternalLink
+              href="/auth/google"
+              id="google-login"
+              target="_self"
+            />
+            <Divider content="OR" horizontal section />
+            <Form id="login-form" onSubmit={handleSubmit}>
+              <InputText
+                disabled={isSubmitting}
+                error={touched.username && errors.username}
+                id="username"
+                name="username"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                placeholder="Username"
+                required
+                tabIndex={1}
+                type="text"
+                value={values.username}
+                width={10}
               />
-              <Divider content="OR" horizontal section />
-              <Form id="login-form" onSubmit={handleSubmit}>
-                <Form.Group>
-                  <InputText
-                    disabled={isSubmitting}
-                    error={touched.username && errors.username}
-                    id="username"
-                    name="username"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    placeholder="Username"
-                    tabIndex={1}
-                    type="text"
-                    value={values.username}
-                  />
-                </Form.Group>
-                <Form.Group>
-                  <InputText
-                    disabled={isSubmitting}
-                    error={touched.password && errors.password}
-                    id="password"
-                    name="password"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    placeholder="Password"
-                    tabIndex={2}
-                    type="password"
-                    value={values.password}
-                  />
-                </Form.Group>
-                <Form.Group>
-                  <Button
-                    active
-                    disabled={isSubmitting || !isValid || !dirty}
-                    icon="login"
-                    id="login-btn"
-                    labelPosition="left"
-                    loading={isSubmitting}
-                    positive={isValid && !!values.username && !!values.password}
-                    size="large"
-                    tabIndex={3}
-                    title="Log in to Quizdini"
-                    type="submit"
-                  >
-                    LOG IN
-                  </Button>
-                </Form.Group>
-              </Form>
+              {values.username && !('username' in errors) && (
+                <InputText
+                  disabled={isSubmitting}
+                  error={touched.password && errors.password}
+                  id="password"
+                  name="password"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  placeholder="Password"
+                  required
+                  tabIndex={2}
+                  type="password"
+                  value={values.password}
+                  width={10}
+                />
+              )}
+              {isValid && touched.username && (
+                <Button
+                  active
+                  disabled={isSubmitting || !isValid || !dirty}
+                  icon="login"
+                  id="login-btn"
+                  labelPosition="left"
+                  loading={isSubmitting}
+                  positive={isValid && !!values.username && !!values.password}
+                  size="large"
+                  tabIndex={3}
+                  title="Log in to Quizdini"
+                  type="submit"
+                >
+                  LOG IN
+                </Button>
+              )}
               <p>
                 <Link
                   id="lost"
@@ -159,7 +167,8 @@ const LoginForm = props => {
                   Forgot your username or password?
                 </Link>
               </p>
-            </Segment>
+            </Form>
+            {/* <DisplayFormikState {...props} /> */}
           </Segment>
         );
       }}

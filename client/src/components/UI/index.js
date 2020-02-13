@@ -4,6 +4,7 @@ import Checkbox from './Checkbox';
 import Dropdown from './Dropdown';
 import ExternalLink from './ExternalLink';
 import FormikHelper from './FormikHelper';
+import FormStep from './FormStep';
 import Icon from './Icon';
 import IconDropdown from './IconDropdown';
 import InputFeedback from './InputFeedback';
@@ -16,7 +17,6 @@ import Message from './Message';
 import Notify from './Notify';
 import RadioGroup from './RadioGroup';
 import RouterButton from './RouterButton';
-import Step from './Step';
 import TextArea from './TextArea';
 import Toolbar from './Toolbar';
 
@@ -27,6 +27,7 @@ export {
   Dropdown,
   ExternalLink,
   FormikHelper,
+  FormStep,
   Icon,
   IconDropdown,
   InputFeedback,
@@ -39,7 +40,6 @@ export {
   Notify,
   RadioGroup,
   RouterButton,
-  Step,
   TextArea,
   Toolbar
 }

@@ -400,16 +400,20 @@ svg {
 }
 
 /*-------------------
-  Steps
+  Form Steps
 --------------------*/
-
-.step {
-  min-height: @stepMinHeight;
-  margin-top: -.5em;
+.form-step {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
+  button[type='submit'] {
+    display: flex;
+    margin: 1em auto;
+  }
   nav {
-    overflow: auto;
-    margin: auto 0 0 0;
-    padding: @paddedSegmentVertical 0 0;
+    margin: auto 0 0;
+    padding: 1em 0 0;
   }
 }
 
@@ -716,6 +720,11 @@ svg {
 --------------------*/
 
 #login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 110px;
+
   a {
     color: @linkColor;
     &:hover {
@@ -723,16 +732,13 @@ svg {
     }
   }
 
-  input {
-    &#username,
-    &#password {
-      max-width: 300px;
-    }
+  button[type='submit'] {
+    display: flex;
+    margin: 1em auto;
   }
 
-  > .fields:last-of-type {
-    padding-top: 0.75em;
-    margin-bottom: 1.25em;
+  .input-feedback {
+    text-align: center;
   }
 }
 
@@ -745,9 +751,6 @@ a#google-login {
   color: transparent;
   border: 0;
   outline: none;
-  /** TODO - move to cloud and host on S3/Cloud Front
-      Use regular, low-fidelity images?
-  **/
   background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png')
     no-repeat;
   background-size: 191px 46px;

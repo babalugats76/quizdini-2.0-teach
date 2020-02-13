@@ -580,17 +580,31 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-  Steps
+  Form Steps
 --------------------*/
 
-.step {
+.form-step {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   min-height: 300px;
-  margin-top: -0.5em;
 }
-.step nav {
-  overflow: auto;
-  margin: auto 0 0 0;
-  padding: 1.5em 0 0;
+.form-step button[type='submit'] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1em auto;
+}
+.form-step nav {
+  margin: auto 0 0;
+  padding: 1em 0 0;
 }
 
 /*-------------------
@@ -863,19 +877,33 @@ svg.icon.chevron-down.closed {
   Login
 --------------------*/
 
+#login-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 110px;
+}
 #login-form a {
   color: #0E79B2;
 }
 #login-form a:hover {
   text-decoration: underline;
 }
-#login-form input#username,
-#login-form input#password {
-  max-width: 300px;
+#login-form button[type='submit'] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1em auto;
 }
-#login-form > .fields:last-of-type {
-  padding-top: 0.75em;
-  margin-bottom: 1.25em;
+#login-form .input-feedback {
+  text-align: center;
 }
 a#google-login {
   display: block;
@@ -886,9 +914,6 @@ a#google-login {
   color: transparent;
   border: 0;
   outline: none;
-  /** TODO - move to cloud and host on S3/Cloud Front
-      Use regular, low-fidelity images?
-  **/
   background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
   background-size: 191px 46px;
 }

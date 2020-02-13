@@ -104,8 +104,8 @@
 @inputVerticalPadding: @relative9px;
 @segmentPaddingVertical: .5em; 
 @segmentPaddingHorizontal: .5em;
-@paddedSegmentVertical: 1.5em;
-@paddedSegmentHorizontal: 2.25em;
+@paddedSegmentVertical: 2em;
+@paddedSegmentHorizontal: 2em;
 @mobilePaddedSegmentVertical: 1em;
 @mobilePaddedSegmentHorizontal: 1em;
 @veryPaddedSegmentVertical: 3em;
@@ -128,9 +128,3 @@
 @containerPadding          : 0 1rem;
 @mobileContainerPadding    : 0 .5rem;
 @mobileGutter              : 0;
-
-/*-------------------
-    Component Specific
---------------------*/
-
-@stepMinHeight: 300px;

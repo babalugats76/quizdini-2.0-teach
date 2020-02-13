@@ -9,9 +9,3 @@
     padding: @mobileVeryPaddedSegmentVertical @mobileVeryPaddedSegmentHorizontal;
   }
 }
-
-.ui.segment.padded {
-  > .ui.segment {
-    padding: 0;
-  }
-}
