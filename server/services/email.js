@@ -69,6 +69,7 @@ const sendRegisterEmail = async function({
   fullName,
   verifyUrl
 }) {
+
   const config = new AWS.Config({ ...awsConfig, apiVersion: '2010-12-01' });
   const ses = new AWS.SES(config);
 
