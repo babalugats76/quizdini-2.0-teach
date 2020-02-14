@@ -1443,6 +1443,6 @@ a#google-login:visited {
     padding: 0 5%;
   }
   #register-form > :first-child {
-    margin-top: -1.5rem;
+    margin-top: -1rem;
   }
 }
