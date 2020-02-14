@@ -407,6 +407,7 @@ svg {
   flex-direction: column;
   justify-content: space-between;
   min-height: 300px;
+
   button[type='submit'] {
     display: flex;
     margin: 1em auto;
@@ -712,6 +713,14 @@ svg {
 
   .ui.checkbox > label {
     line-height: 1.3;
+  }
+
+  a {
+    color: @linkColor;
+    font-weight: 600;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -1309,5 +1318,11 @@ a#google-login {
 
   .content-wrapper {
     padding: 0 5%;
+  }
+
+  #register-form {
+    > :first-child {
+      margin-top: -1.5rem;
+    }
   }
 }

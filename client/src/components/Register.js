@@ -106,6 +106,14 @@ const validateNewUser = Yup.object().shape({
   terms: Yup.boolean().oneOf(
     [true],
     'Please read and accept our Terms and Conditions'
+  ),
+  cookie: Yup.boolean().oneOf(
+    [true],
+    'Please read and accept our Cookie policy'
+  ),
+  privacy: Yup.boolean().oneOf(
+    [true],
+    'Please read and accept our Privacy policy'
   )
 });
 
@@ -151,11 +159,13 @@ const RegisterForm = props => {
       initialValues={{
         city: '',
         confirmPassword: '',
+        cookie: false,
         countryCode: '',
         email: '',
         firstName: '',
         lastName: '',
         password: '',
+        privacy: false,
         stateCode: null,
         terms: false,
         title: null,
@@ -213,240 +223,254 @@ const RegisterForm = props => {
         } = props;
 
         return (
-          <Segment padded>
+          <>
             {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
-            <Form id="register-form" onSubmit={handleSubmit}>
-              <FormStep
-                errors={errors}
-                icon="user"
-                onNext={() => dispatch({ type: 'NEXT' })}
-                show={step === 1}
-                step={1}
-                title="Profile"
-              >
-                <Form.Group>
-                  <Dropdown
-                    disabled={isSubmitting}
-                    error={touched.title && errors.title}
-                    label="Title"
-                    name="title"
-                    onBlur={handleBlur}
-                    options={titleOptions}
-                    selection
-                    setFieldValue={setFieldValue}
-                    tabIndex={1}
-                    upward={false}
-                    value={values.title}
-                    width={6}
-                  />
+            <Segment padded>
+              <Form id="register-form" onSubmit={handleSubmit}>
+                <FormStep
+                  errors={errors}
+                  icon="user"
+                  onNext={() => dispatch({ type: 'NEXT' })}
+                  show={step === 1}
+                  step={1}
+                  title="Profile"
+                >
+                  <Form.Group>
+                    <Dropdown
+                      disabled={isSubmitting}
+                      error={touched.title && errors.title}
+                      label="Title"
+                      name="title"
+                      onBlur={handleBlur}
+                      options={titleOptions}
+                      selection
+                      setFieldValue={setFieldValue}
+                      tabIndex={1}
+                      upward={false}
+                      value={values.title}
+                      width={6}
+                    />
+                    <InputText
+                      disabled={isSubmitting}
+                      error={touched.firstName && errors.firstName}
+                      fluid
+                      label="First Name"
+                      maxLength={40}
+                      name="firstName"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      placeholder=""
+                      required
+                      tabIndex={2}
+                      type="text"
+                      value={values.firstName}
+                      width={10}
+                    />
+                  </Form.Group>
                   <InputText
                     disabled={isSubmitting}
-                    error={touched.firstName && errors.firstName}
+                    error={touched.lastName && errors.lastName}
                     fluid
-                    label="First Name"
-                    maxLength={40}
-                    name="firstName"
+                    label="Last Name"
+                    maxLength={60}
+                    name="lastName"
                     onBlur={handleBlur}
                     onChange={handleChange}
                     placeholder=""
                     required
-                    tabIndex={2}
+                    tabIndex={3}
                     type="text"
-                    value={values.firstName}
-                    width={10}
+                    value={values.lastName}
                   />
-                </Form.Group>
-                <InputText
-                  disabled={isSubmitting}
-                  error={touched.lastName && errors.lastName}
-                  fluid
-                  label="Last Name"
-                  maxLength={60}
-                  name="lastName"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  placeholder=""
-                  required
-                  tabIndex={3}
-                  type="text"
-                  value={values.lastName}
-                />
-                <InputText
-                  disabled={isSubmitting}
-                  error={touched.city && errors.city}
-                  fluid
-                  label="City"
-                  maxLength={100}
-                  name="city"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  placeholder=""
-                  tabIndex={4}
-                  type="text"
-                  value={values.city}
-                />
-                <Dropdown
-                  disabled={isSubmitting}
-                  error={touched.countryCode && errors.countryCode}
-                  fluid
-                  label="Country"
-                  name="countryCode"
-                  onBlur={handleBlur}
-                  options={countryOptions}
-                  required
-                  selection
-                  setFieldValue={setFieldValue}
-                  tabIndex={5}
-                  upward={false}
-                  value={values.countryCode}
-                />
-                {values.countryCode === 'US' && (
+                  <InputText
+                    disabled={isSubmitting}
+                    error={touched.city && errors.city}
+                    fluid
+                    label="City"
+                    maxLength={100}
+                    name="city"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder=""
+                    tabIndex={4}
+                    type="text"
+                    value={values.city}
+                  />
                   <Dropdown
                     disabled={isSubmitting}
-                    error={touched.stateCode && errors.stateCode}
+                    error={touched.countryCode && errors.countryCode}
                     fluid
-                    label="State"
-                    name="stateCode"
+                    label="Country"
+                    name="countryCode"
                     onBlur={handleBlur}
-                    options={stateOptions}
-                    required={false}
+                    options={countryOptions}
+                    required
                     selection
                     setFieldValue={setFieldValue}
-                    tabIndex={6}
+                    tabIndex={5}
                     upward={false}
-                    value={values.stateCode}
+                    value={values.countryCode}
                   />
-                )}
-              </FormStep>
-              <FormStep
-                errors={errors}
-                icon="user"
-                onNext={() => dispatch({ type: 'NEXT' })}
-                onPrevious={() => dispatch({ type: 'PREVIOUS' })}
-                show={step === 2}
-                step={2}
-                title="Account"
-              >
-                <InputText
-                  disabled={isSubmitting}
-                  error={touched.email && errors.email}
-                  label="Email"
-                  name="email"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  placeholder=""
-                  required
-                  tabIndex={7}
-                  type="email"
-                  value={values.email}
-                />
-                <InputText
-                  disabled={isSubmitting}
-                  error={touched.username && errors.username}
-                  label="Username"
-                  maxLength={20}
-                  name="username"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  placeholder=""
-                  required
-                  tabIndex={8}
-                  type="text"
-                  value={values.username}
-                />
-                <InputText
-                  disabled={isSubmitting}
-                  error={touched.password && errors.password}
-                  label="Password"
-                  maxLength={20}
-                  name="password"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  placeholder=""
-                  required
-                  tabIndex={9}
-                  type="password"
-                  value={values.password}
-                />
-                <InputText
-                  disabled={isSubmitting}
-                  error={touched.confirmPassword && errors.confirmPassword}
-                  label="Confirm Password"
-                  maxLength={20}
-                  name="confirmPassword"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  placeholder=""
-                  required
-                  tabIndex={10}
-                  type="password"
-                  value={values.confirmPassword}
-                />
-              </FormStep>
-              <FormStep
-                errors={errors}
-                icon="user"
-                onPrevious={() => dispatch({ type: 'PREVIOUS' })}
-                show={step === 3}
-                step={3}
-                title="Terms of Use"
-              >
-                <Checkbox
-                  checked={values.terms ? true : false}
-                  disabled={isSubmitting}
-                  error={touched.terms && errors.terms}
-                  name="terms"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  tabIndex={11}
-                  value={values.terms ? 1 : 0}
+                  {values.countryCode === 'US' && (
+                    <Dropdown
+                      disabled={isSubmitting}
+                      error={touched.stateCode && errors.stateCode}
+                      fluid
+                      label="State"
+                      name="stateCode"
+                      onBlur={handleBlur}
+                      options={stateOptions}
+                      required={false}
+                      selection
+                      setFieldValue={setFieldValue}
+                      tabIndex={6}
+                      upward={false}
+                      value={values.stateCode}
+                    />
+                  )}
+                </FormStep>
+                <FormStep
+                  errors={errors}
+                  icon="user"
+                  onNext={() => dispatch({ type: 'NEXT' })}
+                  onPrevious={() => dispatch({ type: 'PREVIOUS' })}
+                  show={step === 2}
+                  step={2}
+                  title="Account"
                 >
-                  By signing up, I agree to Quizdini's&nbsp;
-                  <Link
-                    target="_blank"
-                    title="Terms and Conditions"
-                    to="/terms"
-                  >
-                    Terms of Use
-                  </Link>
-                  ,&nbsp;
-                  <Link
-                    target="_blank"
-                    title="The Privacy Policy"
-                    to="/terms/privacy"
-                  >
-                    Privacy Policy
-                  </Link>
-                  ,&nbsp;and&nbsp;
-                  <Link
-                    target="_blank"
-                    title="Cookie Policy"
-                    to="/terms/cookies"
-                  >
-                    Cookie Policy
-                  </Link>
-                  .
-                </Checkbox>
-                {isValid && (
-                  <Button
-                    active
-                    disabled={isSubmitting || !isValid || !dirty}
-                    icon="user-plus"
-                    labelPosition="left"
-                    loading={isSubmitting}
-                    positive={isValid && !status && dirty}
-                    size="large"
+                  <InputText
+                    disabled={isSubmitting}
+                    error={touched.email && errors.email}
+                    label="Email"
+                    name="email"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder=""
+                    required
                     tabIndex={7}
-                    title="Register"
-                    type="submit"
+                    type="email"
+                    value={values.email}
+                  />
+                  <InputText
+                    disabled={isSubmitting}
+                    error={touched.username && errors.username}
+                    label="Username"
+                    maxLength={20}
+                    name="username"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder=""
+                    required
+                    tabIndex={8}
+                    type="text"
+                    value={values.username}
+                  />
+                  <InputText
+                    disabled={isSubmitting}
+                    error={touched.password && errors.password}
+                    label="Password"
+                    maxLength={20}
+                    name="password"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder=""
+                    required
+                    tabIndex={9}
+                    type="password"
+                    value={values.password}
+                  />
+                  <InputText
+                    disabled={isSubmitting}
+                    error={touched.confirmPassword && errors.confirmPassword}
+                    label="Confirm Password"
+                    maxLength={20}
+                    name="confirmPassword"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder=""
+                    required
+                    tabIndex={10}
+                    type="password"
+                    value={values.confirmPassword}
+                  />
+                </FormStep>
+                <FormStep
+                  errors={errors}
+                  icon="user"
+                  onPrevious={() => dispatch({ type: 'PREVIOUS' })}
+                  show={step === 3}
+                  step={3}
+                  title="Terms"
+                >
+                  <Checkbox
+                    checked={values.terms ? true : false}
+                    disabled={isSubmitting}
+                    error={touched.terms && errors.terms}
+                    name="terms"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    tabIndex={11}
+                    value={values.terms ? 1 : 0}
                   >
-                    SIGN UP
-                  </Button>
-                )}
-              </FormStep>
-            </Form>
-            {/* <DisplayFormikState {...props} /> */}
-          </Segment>
+                    I agree to Quizdini's&nbsp;
+                    <Link target="_blank" to="/terms">
+                      Terms of Use
+                    </Link>
+                    .
+                  </Checkbox>
+                  <Checkbox
+                    checked={values.privacy ? true : false}
+                    disabled={isSubmitting}
+                    error={touched.privacy && errors.privacy}
+                    name="privacy"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    tabIndex={12}
+                    value={values.privacy ? 1 : 0}
+                  >
+                    I agree to Quizdini's&nbsp;
+                    <Link target="_blank" to="/terms/privacy">
+                      Privacy Policy
+                    </Link>
+                    .
+                  </Checkbox>
+                  <Checkbox
+                    checked={values.cookie ? true : false}
+                    disabled={isSubmitting}
+                    error={touched.cookie && errors.cookie}
+                    name="cookie"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    tabIndex={13}
+                    value={values.cookie ? 1 : 0}
+                  >
+                    I agree to Quizdini's&nbsp;
+                    <Link target="_blank" to="/terms/cookies">
+                      Cookie Policy
+                    </Link>
+                    .
+                  </Checkbox>
+                  {isValid && (
+                    <Button
+                      active
+                      disabled={isSubmitting || !isValid || !dirty}
+                      icon="user-plus"
+                      labelPosition="left"
+                      loading={isSubmitting}
+                      positive={isValid && !status && dirty}
+                      size="large"
+                      tabIndex={7}
+                      title="Register"
+                      type="submit"
+                    >
+                      SIGN UP
+                    </Button>
+                  )}
+                </FormStep>
+              </Form>
+              {/* <DisplayFormikState {...props} /> */}
+            </Segment>
+          </>
         );
       }}
     </Formik>
