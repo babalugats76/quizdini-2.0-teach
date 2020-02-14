@@ -1322,7 +1322,7 @@ a#google-login {
 
   #register-form {
     > :first-child {
-      margin-top: -1.5rem;
+      margin-top: -1rem;
     }
   }
 }
