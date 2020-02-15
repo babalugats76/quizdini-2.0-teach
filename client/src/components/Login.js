@@ -144,7 +144,8 @@ const LoginForm = props => {
                     id="login-btn"
                     labelPosition="right"
                     loading={isSubmitting}
-                    primary={isValid && !!values.username && !!values.password}
+                    primary
+                    //primary={isValid && !!values.username && !!values.password}
                     size="large"
                     tabIndex={3}
                     type="submit"

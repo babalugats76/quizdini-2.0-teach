@@ -104,8 +104,8 @@ i.link.icon:not(.disabled),
 i.link.icons:not(.disabled) {
   cursor: pointer;
   opacity: 0.8;
-  -webkit-transition: opacity 0.1s ease;
-  transition: opacity 0.1s ease;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 i.link.icon:hover,
 i.link.icons:hover {

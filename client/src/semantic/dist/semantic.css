@@ -2158,10 +2158,10 @@ a#google-login:visited {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, background 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, background 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
-  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: opacity 0.5s ease, background-color 0.5s ease, color 0.5s ease, background 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: opacity 0.5s ease, background-color 0.5s ease, color 0.5s ease, background 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: opacity 0.5s ease, background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
+  transition: opacity 0.5s ease, background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, background 0.5s ease, -webkit-box-shadow 0.5s ease;
   will-change: auto;
   -webkit-tap-highlight-color: transparent;
 }
@@ -2251,8 +2251,8 @@ a#google-login:visited {
   color: transparent;
   opacity: 1;
   pointer-events: auto;
-  -webkit-transition: all 0s linear, opacity 0.1s ease;
-  transition: all 0s linear, opacity 0.1s ease;
+  -webkit-transition: all 0s linear, opacity 0.5s ease;
+  transition: all 0s linear, opacity 0.5s ease;
 }
 
 .ui.loading.button:before {
@@ -2819,8 +2819,8 @@ a#google-login:visited {
   height: auto;
   opacity: 0.8;
   margin: 0 0.375em 0 -0.1875em;
-  -webkit-transition: opacity 0.1s ease;
-  transition: opacity 0.1s ease;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
   vertical-align: '';
   color: '';
 }
@@ -3116,8 +3116,8 @@ a#google-login:visited {
 /* Overline Mixin */
 
 .ui.tertiary.button {
-  -webkit-transition: color 0.1s ease !important;
-  transition: color 0.1s ease !important;
+  -webkit-transition: color 0.5s ease !important;
+  transition: color 0.5s ease !important;
   border-radius: 0;
   margin: 0.0625em 0.25em 0.0625em 0 !important;
   padding: 0.5em !important;
@@ -7099,6 +7099,33 @@ a#google-login:visited {
   padding-top: 0.6875em !important;
   padding-bottom: 0.6875em !important;
 }
+
+.ui.primary.button,
+.ui.primary.buttons .button {
+  background-color: #f8f4ff;
+  border: 1px solid rgba(113, 28, 255, 0.33);
+  color: #711cff;
+}
+
+.ui.primary.button:hover,
+.ui.primary.buttons .button:hover,
+.ui.primary.button:focus,
+.ui.primary.buttons .button:focus,
+.ui.primary.button:active,
+.ui.primary.buttons .button:active {
+  background-color: #711cff;
+  color: #FFFFFF;
+  border: 1px solid #f8f4ff;
+}
+
+.ui.primary.button:hover svg path,
+.ui.primary.buttons .button:hover svg path,
+.ui.primary.button:focus svg path,
+.ui.primary.buttons .button:focus svg path,
+.ui.primary.button:active svg path,
+.ui.primary.buttons .button:active svg path {
+  fill: #FFFFFF;
+}
 /*!
  * # Fomantic-UI - Container
  * http://github.com/fomantic/Fomantic-UI/
@@ -8629,8 +8656,8 @@ i.link.icon:not(.disabled),
 i.link.icons:not(.disabled) {
   cursor: pointer;
   opacity: 0.8;
-  -webkit-transition: opacity 0.1s ease;
-  transition: opacity 0.1s ease;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 i.link.icon:hover,
@@ -17668,10 +17695,10 @@ img.ui.bordered.image {
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(10, 10, 10, 0.75);
   border-radius: 0.125rem;
-  -webkit-transition: border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: box-shadow 0.1s ease, border-color 0.1s ease;
-  transition: box-shadow 0.1s ease, border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: border-color 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: border-color 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease, border-color 0.5s ease;
+  transition: box-shadow 0.5s ease, border-color 0.5s ease, -webkit-box-shadow 0.5s ease;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -18456,8 +18483,8 @@ img.ui.bordered.image {
   font-weight: 400;
   border: 0 solid transparent;
   border-radius: 0.125rem;
-  -webkit-transition: background 0.1s ease;
-  transition: background 0.1s ease;
+  -webkit-transition: background 0.5s ease;
+  transition: background 0.5s ease;
 }
 
 .ui.label:first-child {
@@ -18480,8 +18507,8 @@ a.ui.label {
   cursor: pointer;
   color: inherit;
   opacity: 0.5;
-  -webkit-transition: 0.1s opacity ease;
-  transition: 0.1s opacity ease;
+  -webkit-transition: 0.5s opacity ease;
+  transition: 0.5s opacity ease;
 }
 
 .ui.label > a:hover {
@@ -18525,8 +18552,8 @@ a.ui.label {
   cursor: pointer;
   font-size: 0.9375em;
   opacity: 0.5;
-  -webkit-transition: background 0.1s ease;
-  transition: background 0.1s ease;
+  -webkit-transition: background 0.5s ease;
+  transition: background 0.5s ease;
 }
 
 .ui.label > .close.icon:hover,
@@ -18714,8 +18741,8 @@ a.ui.label {
   width: 4em;
   height: 4em;
   z-index: 1;
-  -webkit-transition: border-color 0.1s ease;
-  transition: border-color 0.1s ease;
+  -webkit-transition: border-color 0.5s ease;
+  transition: border-color 0.5s ease;
 }
 
 /* Icon Label */
@@ -18738,8 +18765,8 @@ a.ui.label {
   border-bottom: 4em solid transparent;
   border-left: 0 solid transparent;
   border-right-color: inherit;
-  -webkit-transition: border-color 0.1s ease;
-  transition: border-color 0.1s ease;
+  -webkit-transition: border-color 0.5s ease;
+  transition: border-color 0.5s ease;
 }
 
 .ui.corner.label .icon {
@@ -20889,8 +20916,8 @@ ol.ui.list ol li,
   min-width: 1.55em;
   margin: 0;
   padding-top: 0;
-  -webkit-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .ui.list .list > .item > i.icon:not(.loading),
@@ -21259,8 +21286,8 @@ ol.ui.list ol li,
 .ui.link.list a.item,
 .ui.link.list .item a:not(.ui) {
   color: rgba(10, 10, 10, 0.4);
-  -webkit-transition: 0.1s color ease;
-  transition: 0.1s color ease;
+  -webkit-transition: 0.5s color ease;
+  transition: 0.5s color ease;
 }
 
 .ui.link.list.list a.item:hover,
@@ -21313,8 +21340,8 @@ ol.ui.list ol li,
   margin: 0;
   color: rgba(10, 10, 10, 0.4);
   border-radius: 0.5em;
-  -webkit-transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
-  transition: 0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease;
+  -webkit-transition: 0.5s color ease, 0.5s padding-left ease, 0.5s background-color ease;
+  transition: 0.5s color ease, 0.5s padding-left ease, 0.5s background-color ease;
 }
 
 .ui.selection.list .list > .item:last-child,
@@ -23884,10 +23911,10 @@ ol.ui.suffixed.list li:before,
   border-radius: 0;
   border: none;
   border-right: 1px solid rgba(34, 36, 38, 0.15);
-  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
-  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+  transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, -webkit-box-shadow 0.5s ease;
 }
 
 /* Arrow */
@@ -23905,10 +23932,10 @@ ol.ui.suffixed.list li:before,
   border-style: solid;
   border-color: rgba(34, 36, 38, 0.15);
   border-width: 0 1px 1px 0;
-  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
-  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+  transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, -webkit-box-shadow 0.5s ease;
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
   transform: translateY(-50%) translateX(50%) rotate(-45deg);
 }
@@ -24681,8 +24708,8 @@ ol.ui.suffixed.list li:before,
   border-radius: 0.125rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
   box-shadow: 0 0 0 0 transparent inset;
-  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
-  transition: color 0.1s ease, border-color 0.1s ease;
+  -webkit-transition: color 0.5s ease, border-color 0.5s ease;
+  transition: color 0.5s ease, border-color 0.5s ease;
 }
 
 /* Text Area */
@@ -24700,8 +24727,8 @@ ol.ui.suffixed.list li:before,
   border-radius: 0.125rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
   box-shadow: 0 0 0 0 transparent inset;
-  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
-  transition: color 0.1s ease, border-color 0.1s ease;
+  -webkit-transition: color 0.5s ease, border-color 0.5s ease;
+  transition: color 0.5s ease, border-color 0.5s ease;
   font-size: 1em;
   font-family: 'marcher-regular', sans-serif;
   line-height: 1.2857;
@@ -24792,8 +24819,8 @@ ol.ui.suffixed.list li:before,
   box-shadow: 0 0 0 0 transparent inset;
   padding: 0.62em 0.875em;
   color: rgba(10, 10, 10, 0.4);
-  -webkit-transition: color 0.1s ease, border-color 0.1s ease;
-  transition: color 0.1s ease, border-color 0.1s ease;
+  -webkit-transition: color 0.5s ease, border-color 0.5s ease;
+  transition: color 0.5s ease, border-color 0.5s ease;
 }
 
 /*--------------------
@@ -29063,10 +29090,10 @@ ol.ui.suffixed.list li:before,
   text-transform: none;
   color: rgba(10, 10, 10, 0.75);
   font-weight: normal;
-  -webkit-transition: background 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: background 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
-  transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: background 0.5s ease, color 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: background 0.5s ease, color 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: background 0.5s ease, box-shadow 0.5s ease, color 0.5s ease;
+  transition: background 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, -webkit-box-shadow 0.5s ease;
 }
 
 .ui.menu > .item:first-child {
@@ -29897,8 +29924,8 @@ Floated Menu / Item
   padding: 0.8125em 0.9375em;
   margin: 0 0.3125em;
   background: none;
-  -webkit-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
   border-radius: 0.125rem;
 }
 
@@ -30041,8 +30068,8 @@ Floated Menu / Item
   margin: 0 0 -2px;
   padding: 0.875em 1.125em;
   border-bottom-width: 2px;
-  -webkit-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .ui.secondary.pointing.menu .ui.dropdown .menu .item {
@@ -30192,8 +30219,8 @@ Floated Menu / Item
   padding: 0.3125em 0.4375em;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.6);
-  -webkit-transition: opacity 0.1s ease;
-  transition: opacity 0.1s ease;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 /* Border */
@@ -31163,8 +31190,8 @@ Floated Menu / Item
   border-bottom: 1px solid #D4D4D5;
   border-right: 1px solid #D4D4D5;
   z-index: 2;
-  -webkit-transition: background 0.1s ease;
-  transition: background 0.1s ease;
+  -webkit-transition: background 0.5s ease;
+  transition: background 0.5s ease;
 }
 
 .ui.vertical.pointing.menu .item:after {
@@ -31522,10 +31549,10 @@ Floated Menu / Item
   padding: 1em 1.5em;
   line-height: 1.4285em;
   color: rgba(10, 10, 10, 0.75);
-  -webkit-transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
-  transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
+  transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease, -webkit-box-shadow 0.5s ease;
   border-radius: 0.125rem;
   -webkit-box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.22) inset, 0 0 0 0 rgba(0, 0, 0, 0);
   box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.22) inset, 0 0 0 0 rgba(0, 0, 0, 0);
@@ -31629,8 +31656,8 @@ Floated Menu / Item
   top: 0.78575em;
   right: 0.5em;
   opacity: 0.7;
-  -webkit-transition: opacity 0.1s ease;
-  transition: opacity 0.1s ease;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .ui.message > .close.icon:hover {
@@ -32302,8 +32329,8 @@ Floated Menu / Item
 
 .ui.table th,
 .ui.table td {
-  -webkit-transition: background 0.1s ease, color 0.1s ease;
-  transition: background 0.1s ease, color 0.1s ease;
+  -webkit-transition: background 0.5s ease, color 0.5s ease;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
 /* Headers */
@@ -34869,10 +34896,10 @@ Floated Menu / Item
   border-radius: 0.125rem;
   -webkit-box-shadow: 0 1px 3px 0 #D4D4D5, 0 0 0 1px #D4D4D5;
   box-shadow: 0 1px 3px 0 #D4D4D5, 0 0 0 1px #D4D4D5;
-  -webkit-transition: -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
-  transition: -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
-  transition: box-shadow 0.1s ease, transform 0.1s ease;
-  transition: box-shadow 0.1s ease, transform 0.1s ease, -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  -webkit-transition: -webkit-box-shadow 0.5s ease, -webkit-transform 0.5s ease;
+  transition: -webkit-box-shadow 0.5s ease, -webkit-transform 0.5s ease;
+  transition: box-shadow 0.5s ease, transform 0.5s ease;
+  transition: box-shadow 0.5s ease, transform 0.5s ease, -webkit-box-shadow 0.5s ease, -webkit-transform 0.5s ease;
   z-index: '';
   word-wrap: break-word;
 }
@@ -35148,8 +35175,8 @@ Floated Menu / Item
 .ui.cards > .card > .content a:not(.ui),
 .ui.card > .content a:not(.ui) {
   color: '';
-  -webkit-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .ui.cards > .card > .content a:not(.ui):hover,
@@ -35222,8 +35249,8 @@ Floated Menu / Item
 .ui.card > .content .star.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .ui.cards > .card > .content .star.icon:hover,
@@ -35245,8 +35272,8 @@ Floated Menu / Item
 .ui.card > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .ui.cards > .card > .content .like.icon:hover,
@@ -35282,8 +35309,8 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: none;
   box-shadow: none;
-  -webkit-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .ui.cards > .card > .extra a:not(.ui),
@@ -36347,10 +36374,10 @@ a.inverted.ui.card:hover,
   border-radius: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
-  -webkit-transition: -webkit-box-shadow 0.1s ease;
-  transition: -webkit-box-shadow 0.1s ease;
-  transition: box-shadow 0.1s ease;
-  transition: box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: -webkit-box-shadow 0.5s ease;
+  transition: -webkit-box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease, -webkit-box-shadow 0.5s ease;
   z-index: '';
 }
 
@@ -36563,8 +36590,8 @@ a.inverted.ui.card:hover,
 
 .ui.items > .item > .content a:not(.ui) {
   color: '';
-  -webkit-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .ui.items > .item > .content a:not(.ui):hover {
@@ -36602,8 +36629,8 @@ a.inverted.ui.card:hover,
 .ui.items > .item > .content .favorite.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .ui.items > .item > .content .favorite.icon:hover {
@@ -36622,8 +36649,8 @@ a.inverted.ui.card:hover,
 .ui.items > .item > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .ui.items > .item > .content .like.icon:hover {
@@ -36651,8 +36678,8 @@ a.inverted.ui.card:hover,
   color: rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: none;
   box-shadow: none;
-  -webkit-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
   border-top: none;
 }
 
@@ -37016,10 +37043,10 @@ a.inverted.ui.card:hover,
   margin: 0 0.25rem 0 0;
   padding: 0;
   font-size: 1em;
-  -webkit-transition: opacity 0.1s ease, -webkit-transform 0.1s ease;
-  transition: opacity 0.1s ease, -webkit-transform 0.1s ease;
-  transition: transform 0.1s ease, opacity 0.1s ease;
-  transition: transform 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease;
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease;
   vertical-align: baseline;
   -webkit-transform: none;
   transform: none;
@@ -37092,8 +37119,8 @@ a.inverted.ui.card:hover,
   color: rgba(10, 10, 10, 0.4);
   font-weight: 400;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
-  -webkit-transition: background 0.1s ease, color 0.1s ease;
-  transition: background 0.1s ease, color 0.1s ease;
+  -webkit-transition: background 0.5s ease, color 0.5s ease;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
 .ui.styled.accordion > .title:first-child,
@@ -37273,10 +37300,10 @@ a.inverted.ui.card:hover,
   content: '';
   background: #FFFFFF;
   border-radius: 0.1875rem;
-  -webkit-transition: border 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: border 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease;
-  transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: border 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: border 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: border 0.5s ease, opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+  transition: border 0.5s ease, opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease, -webkit-transform 0.5s ease, -webkit-box-shadow 0.5s ease;
   border: 1px solid #D4D4D5;
 }
 
@@ -37294,10 +37321,10 @@ a.inverted.ui.card:hover,
   text-align: center;
   opacity: 0;
   color: rgba(10, 10, 10, 0.75);
-  -webkit-transition: border 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: border 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease;
-  transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: border 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: border 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: border 0.5s ease, opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+  transition: border 0.5s ease, opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease, -webkit-transform 0.5s ease, -webkit-box-shadow 0.5s ease;
 }
 
 /*--------------
@@ -37309,8 +37336,8 @@ a.inverted.ui.card:hover,
 .ui.checkbox label,
 .ui.checkbox + label {
   color: rgba(10, 10, 10, 0.75);
-  -webkit-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 /* Outside */
@@ -38075,10 +38102,10 @@ a.inverted.ui.card:hover,
   display: inline-block;
   outline: none;
   text-align: left;
-  -webkit-transition: width 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: width 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: box-shadow 0.1s ease, width 0.1s ease;
-  transition: box-shadow 0.1s ease, width 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: width 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: width 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease, width 0.5s ease;
+  transition: box-shadow 0.5s ease, width 0.5s ease, -webkit-box-shadow 0.5s ease;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -38113,8 +38140,8 @@ a.inverted.ui.card:hover,
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.125rem;
-  -webkit-transition: opacity 0.1s ease;
-  transition: opacity 0.1s ease;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
   z-index: 11;
   will-change: transform, opacity;
 }
@@ -38451,10 +38478,10 @@ select.ui.dropdown {
   box-shadow: none;
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.125rem;
-  -webkit-transition: width 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: width 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: box-shadow 0.1s ease, width 0.1s ease;
-  transition: box-shadow 0.1s ease, width 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: width 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: width 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease, width 0.5s ease;
+  transition: box-shadow 0.5s ease, width 0.5s ease, -webkit-box-shadow 0.5s ease;
 }
 
 .ui.selection.dropdown.visible,
@@ -38476,8 +38503,8 @@ select.ui.dropdown {
   margin: -0.5625em;
   padding: 0.75em;
   opacity: 0.8;
-  -webkit-transition: opacity 0.1s ease;
-  transition: opacity 0.1s ease;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 /* Compact */
@@ -38503,8 +38530,8 @@ select.ui.dropdown {
   border-radius: 0 0 0.125rem 0.125rem;
   -webkit-box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
   box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-  -webkit-transition: opacity 0.1s ease;
-  transition: opacity 0.1s ease;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .ui.selection.dropdown .menu:after,
@@ -39286,8 +39313,8 @@ select.ui.dropdown {
 
 .ui.dropdown > .clear.dropdown.icon {
   opacity: 0.8;
-  -webkit-transition: opacity 0.1s ease;
-  transition: opacity 0.1s ease;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .ui.dropdown > .clear.dropdown.icon:hover {
@@ -39569,8 +39596,8 @@ select.ui.dropdown {
   opacity: 0;
   width: 0;
   height: 0;
-  -webkit-transition: opacity 0.1s ease;
-  transition: opacity 0.1s ease;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
   margin-top: 0 !important;
 }
 

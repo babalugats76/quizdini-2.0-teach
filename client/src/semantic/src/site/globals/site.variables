@@ -5,7 +5,6 @@
 /*-------------------
   Web Fonts, etc.
 --------------------*/
-
 @systemFont             : -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
 @lexendDeca             : 'Lexend Deca', sans-serif;
 @marcherLight           : 'marcher-light', sans-serif; 
@@ -36,7 +35,6 @@
 /*-------------------
   Base Sizes
 --------------------*/
-
 @emSize   : 16px;
 @fontSize : 16px;
 
@@ -54,7 +52,6 @@
 /*-------------------
   Colors
 --------------------*/
-
 @subtleTransparentLightBlack: rgba(84,84,84,.87);
 
 @indigo              : rgba(113, 28, 255, 1);
@@ -69,6 +66,7 @@
 @spaceCadet          : rgba(26, 28, 87, 1);
 @spaceCadetDark      : rgba(26, 28, 87, .9);
 @jet                 : rgba(46, 50, 53, 1);
+@magnolia            : rgba(248, 244, 255, 1);
 @peru                : #C28F3C;
 @independence        : #574D68;
 
@@ -84,7 +82,6 @@
 /*-------------------
     Colors etc.
 --------------------*/
-
 @pageBackground             : #efefef;
 @invertedMenuColor          : @spaceCadet;
 @fixedMenuColor             : @zaffre;
@@ -102,9 +99,14 @@
 @dropHoveredItemBackground  : @navyPurple; 
 
 /*-------------------
-  Padding & Margin
+     Button Colors
 --------------------*/
 
+
+
+/*-------------------
+  Padding & Margin
+--------------------*/
 @inputVerticalPadding: @relative9px;
 @segmentPaddingVertical: 1em; 
 @segmentPaddingHorizontal: 1em;
@@ -125,13 +127,18 @@
 /*-------------------
        States
 --------------------*/
-
 @disabledOpacity: 0.33;
+
+/*-------------------
+     Transitions
+--------------------*/
+
+@defaultDuration : 0.5s;
+@defaultEasing   : ease;
 
 /*-------------------
         Page
 --------------------*/
-
 @pageBackground        : #efefef;
 
 /*-------------------

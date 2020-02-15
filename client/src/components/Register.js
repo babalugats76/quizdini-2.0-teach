@@ -452,12 +452,12 @@ const RegisterForm = props => {
                   </Checkbox>
                   {isValid && (
                     <Button
-                      active
                       disabled={isSubmitting || !isValid || !dirty}
                       icon="user-plus"
                       labelPosition="left"
                       loading={isSubmitting}
-                      positive={isValid && !status && dirty}
+                      primary
+                      //positive={isValid && !status && dirty}
                       size="large"
                       tabIndex={7}
                       type="submit"

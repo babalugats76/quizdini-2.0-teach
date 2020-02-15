@@ -26,8 +26,8 @@
   font-weight: 400;
   border: 0 solid transparent;
   border-radius: 0.125rem;
-  -webkit-transition: background 0.1s ease;
-  transition: background 0.1s ease;
+  -webkit-transition: background 0.5s ease;
+  transition: background 0.5s ease;
 }
 .ui.label:first-child {
   margin-left: 0;
@@ -46,8 +46,8 @@ a.ui.label {
   cursor: pointer;
   color: inherit;
   opacity: 0.5;
-  -webkit-transition: 0.1s opacity ease;
-  transition: 0.1s opacity ease;
+  -webkit-transition: 0.5s opacity ease;
+  transition: 0.5s opacity ease;
 }
 .ui.label > a:hover {
   opacity: 1;
@@ -85,8 +85,8 @@ a.ui.label {
   cursor: pointer;
   font-size: 0.9375em;
   opacity: 0.5;
-  -webkit-transition: background 0.1s ease;
-  transition: background 0.1s ease;
+  -webkit-transition: background 0.5s ease;
+  transition: background 0.5s ease;
 }
 .ui.label > .close.icon:hover,
 .ui.label > .delete.icon:hover {
@@ -258,8 +258,8 @@ a.ui.label {
   width: 4em;
   height: 4em;
   z-index: 1;
-  -webkit-transition: border-color 0.1s ease;
-  transition: border-color 0.1s ease;
+  -webkit-transition: border-color 0.5s ease;
+  transition: border-color 0.5s ease;
 }
 
 /* Icon Label */
@@ -280,8 +280,8 @@ a.ui.label {
   border-bottom: 4em solid transparent;
   border-left: 0 solid transparent;
   border-right-color: inherit;
-  -webkit-transition: border-color 0.1s ease;
-  transition: border-color 0.1s ease;
+  -webkit-transition: border-color 0.5s ease;
+  transition: border-color 0.5s ease;
 }
 .ui.corner.label .icon {
   cursor: inherit;

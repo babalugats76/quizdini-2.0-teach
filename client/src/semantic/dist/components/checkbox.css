@@ -62,10 +62,10 @@
   content: '';
   background: #FFFFFF;
   border-radius: 0.1875rem;
-  -webkit-transition: border 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: border 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease;
-  transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: border 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: border 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: border 0.5s ease, opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+  transition: border 0.5s ease, opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease, -webkit-transform 0.5s ease, -webkit-box-shadow 0.5s ease;
   border: 1px solid #D4D4D5;
 }
 
@@ -83,10 +83,10 @@
   text-align: center;
   opacity: 0;
   color: rgba(10, 10, 10, 0.75);
-  -webkit-transition: border 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: border 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease;
-  transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: border 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: border 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease, -webkit-box-shadow 0.5s ease;
+  transition: border 0.5s ease, opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+  transition: border 0.5s ease, opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease, -webkit-transform 0.5s ease, -webkit-box-shadow 0.5s ease;
 }
 
 /*--------------
@@ -98,8 +98,8 @@
 .ui.checkbox label,
 .ui.checkbox + label {
   color: rgba(10, 10, 10, 0.75);
-  -webkit-transition: color 0.1s ease;
-  transition: color 0.1s ease;
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 /* Outside */
