@@ -5,5 +5,6 @@
 @inputColor: @unselectedTextColor;
 @inputFocusBackground: @fieldFocusBackground;
 @inputFocusBorderColor: @fieldFocusBorderColor;
+@inputFocusBoxShadow: @fieldFocusBoxShadow;
 @textAreaFocusBackground: @fieldFocusBackground;
 @textAreaFocusBorderColor: @fieldFocusBorderColor;

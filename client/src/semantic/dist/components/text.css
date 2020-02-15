@@ -14,7 +14,7 @@
 *******************************/
 
 span.ui.primary.text {
-  color: #1a1c57;
+  color: #711cff;
 }
 span.ui.inverted.primary.text {
   color: #54C8FF;
@@ -62,7 +62,7 @@ span.ui.inverted.teal.text {
   color: #6DFFFF;
 }
 span.ui.blue.text {
-  color: #2185D0;
+  color: #014ce4;
 }
 span.ui.inverted.blue.text {
   color: #54C8FF;
@@ -104,7 +104,7 @@ span.ui.inverted.black.text {
   color: #545454;
 }
 span.ui.disabled.text {
-  opacity: 0.45;
+  opacity: 0.33;
 }
 
 /* Sizes */

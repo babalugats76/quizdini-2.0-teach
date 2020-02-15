@@ -3,7 +3,7 @@
 *******************************/
 .ui.selection.dropdown:focus,
 .ui.selection.active.dropdown {
-  background-color: @ivory;
+  background-color: @white;
 }
 
 .ui.dropdown {

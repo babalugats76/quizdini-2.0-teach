@@ -460,7 +460,6 @@ const RegisterForm = props => {
                       positive={isValid && !status && dirty}
                       size="large"
                       tabIndex={7}
-                      title="Register"
                       type="submit"
                     >
                       SIGN UP

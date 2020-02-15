@@ -100,11 +100,11 @@ p:last-child {
 --------------------*/
 
 a {
-  color: #0E79B2;
+  color: #0075f2;
   text-decoration: none;
 }
 a:hover {
-  color: #006aa3;
+  color: #0063ce;
   text-decoration: none;
 }
 
@@ -684,8 +684,7 @@ svg.icon.chevron-down.closed {
 }
 #about.page section a,
 #terms.page section a {
-  color: #0E79B2;
-  font-weight: 600;
+  color: #0075f2;
 }
 #about.page section a:hover,
 #terms.page section a:hover {
@@ -873,8 +872,7 @@ svg.icon.chevron-down.closed {
   line-height: 1.3;
 }
 #register-form a {
-  color: #0E79B2;
-  font-weight: 600;
+  color: #0075f2;
 }
 #register-form a:hover {
   text-decoration: underline;
@@ -898,7 +896,7 @@ svg.icon.chevron-down.closed {
   min-height: 110px;
 }
 #login-form a {
-  color: #0E79B2;
+  color: #0075f2;
 }
 #login-form a:hover {
   text-decoration: underline;
@@ -1226,19 +1224,19 @@ a#google-login:visited {
   font-size: inherit;
   line-height: 1.5;
   border: 1px solid transparent;
-  border-radius: 0.25em;
+  border-radius: 0.125rem;
   outline: none;
   background-color: #FFFFFF;
   color: rgba(10, 10, 10, 0.4);
 }
 #match-form .rich-text-editor:focus {
-  /*border-color: @focusedFormBorderColor !important;*/
-  background-color: rgba(255, 250, 205, 0.03);
-  border-color: #F2E86D;
+  background-color: #FFFFFF;
+  border-color: rgba(113, 28, 255, 0.33);
   color: rgba(10, 10, 10, 0.75);
+  -webkit-box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
+          box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
 }
 #match-form .rich-text-editor:not([contenteditable='true']) {
-  /*cursor: not-allowed;*/
   color: rgba(10, 10, 10, 0.4);
   background-color: transparent;
   border-color: transparent;
@@ -1375,8 +1373,8 @@ a#google-login:visited {
 }
 .StripeElement--focus {
   color: rgba(10, 10, 10, 0.75);
-  background: rgba(255, 250, 205, 0.03);
-  border-color: #F2E86D;
+  background: #FFFFFF;
+  border-color: rgba(113, 28, 255, 0.33);
 }
 .StripeElement--invalid {
   background: #fff6f6;

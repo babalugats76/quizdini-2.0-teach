@@ -97,22 +97,14 @@ Messages need to be standardized, etc.
         - `HeaderNav`
         - `MatchForm`
         - `MatchTable`
-  - Register
-    - Turn terms into multiple checkboxes
-        - Term
-        - Privacy
-        - Cookie
   - Style Punchlist
-    - Include a `:focus` on input fields, altering `border-color` and `box-shadow`
     - Move feedback errors outside (and above) segments
     - Remove title from input fields (old skool and makes UX messy)
     - Investigate and implement the best graph transitions
-    - Reduce `border-radius`, e.g., `.125rem from .25rem`
     - Different colors for alerts
         - info could be `#e6f2f5` background and `#003440` color
         - success could be `#e9f7f1` background and `#004025` color
     - Change positive/primary button background color to `#ec5252` or a Quizdini purple
-    - Change link cover to match major sites like Google
     - Find better emphasis color for places like Terms and About
 
 Kay

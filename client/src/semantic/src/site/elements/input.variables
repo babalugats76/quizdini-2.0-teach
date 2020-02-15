@@ -3,3 +3,4 @@
 *******************************/
 @focusBackground: @fieldFocusBackground;
 @focusBorderColor: @fieldFocusBorderColor;
+@focusBoxShadow: @fieldFocusBoxShadow;

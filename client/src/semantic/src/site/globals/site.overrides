@@ -97,7 +97,7 @@
 
   &.menu-is-fixed {
     .ui.massive.menu {
-      background-color: @quizdiniZaffre;
+      background-color: @fixedMenuColor;
     }
     .pusher {
       > .page-wrapper {
@@ -278,7 +278,7 @@ svg {
     width: 2.3rem;
     height: 2.3rem;
     path {
-      fill: @quizdiniPurple;
+      fill: @spinnerColor;
     }
   }
 }
@@ -508,7 +508,6 @@ svg {
       }
       a {
         color: @linkColor;
-        font-weight: 600;
         &:hover {
           text-decoration: underline;
         }
@@ -717,7 +716,6 @@ svg {
 
   a {
     color: @linkColor;
-    font-weight: 600;
     &:hover {
       text-decoration: underline;
     }
@@ -844,7 +842,7 @@ a#google-login {
               font-size: 1.0625em;
             }
             &.email {
-              color: @quizdiniPurple;
+              color: @navyPurple;
             }
           }
           > .extra {
@@ -1073,18 +1071,17 @@ a#google-login {
     font-size: inherit;
     line-height: 1.5;
     border: 1px solid transparent;
-    border-radius: 0.25em;
+    border-radius: @defaultBorderRadius;
     outline: none;
     background-color: @white;
     color: @unselectedTextColor;
     &:focus {
-      /*border-color: @focusedFormBorderColor !important;*/
       background-color: @fieldFocusBackground;
       border-color: @fieldFocusBorderColor;
       color: @selectedTextColor;
+      box-shadow: @fieldFocusBoxShadow;
     }
     &:not([contenteditable='true']) {
-      /*cursor: not-allowed;*/
       color: @unselectedTextColor;
       background-color: transparent;
       border-color: transparent;

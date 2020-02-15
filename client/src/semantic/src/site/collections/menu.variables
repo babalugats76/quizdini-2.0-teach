@@ -1,6 +1,6 @@
 /*******************************
     User Variable Overrides
 *******************************/
-@invertedBackground: @primaryColor;
+@invertedBackground: @invertedMenuColor;
 @boxShadow: none;
 @borderRadius: 0;

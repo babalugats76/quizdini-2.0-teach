@@ -55,27 +55,25 @@
   Colors
 --------------------*/
 
-@quizdiniIndigo      : rgba(113, 28, 255, 1);
-@quizdiniPurple      : rgba(170, 84, 255, 1);
-@quizdiniTurquoise   : rgba(1, 231, 228, 1);
-@quizdiniBlue        : rgba(1, 76, 228, 1);
-@quizdiniZaffre      : rgba(0, 19, 153, 1);
-
-@spaceCadet          : rgba(26, 28, 87, 1);
-@peru                : #C28F3C;
-@independence        : #574D68;
-@starCommandBlue     : #0E79B2;
-@chiffon             : rgba(255,250,205,.03);
-@sunny               : #F2E86D;
-
-@ivory               : rgba(255,255,240,.33);
-@paleGoldenRod       : #E5DFA1;
-
-@spaceCadetAlpha9    : rgba(26, 28, 87, .9);
 @subtleTransparentLightBlack: rgba(84,84,84,.87);
 
-@primaryColor        : @spaceCadet;
-@secondaryColor      : #2e3235;
+@indigo              : rgba(113, 28, 255, 1);
+@indigoLight         : rgba(113, 28, 255, .33);
+@navyPurple          : rgba(170, 84, 255, 1);
+@navyPurpleLight     : rgba(170, 84, 255, .33);
+@brightTurquoise     : rgba(1, 231, 228, 1);
+@blue                : rgba(1, 76, 228, 1);
+@bdazzledBlue        : rgba(52, 76, 132, 1);
+@brandeisBlue        : rgba(0, 117, 242, 1);
+@zaffre              : rgba(0, 19, 153, 1);
+@spaceCadet          : rgba(26, 28, 87, 1);
+@spaceCadetDark      : rgba(26, 28, 87, .9);
+@jet                 : rgba(46, 50, 53, 1);
+@peru                : #C28F3C;
+@independence        : #574D68;
+
+@primaryColor        : @indigo;
+@secondaryColor      : @jet;
 
 /*-------------------
      Brand Colors
@@ -87,15 +85,21 @@
     Colors etc.
 --------------------*/
 
-@pageBackground         : #efefef;
-@inputBackground        : @white;
-@linkColor              : @starCommandBlue;
-@strongColor            : @peru;
-@dropCapColor           : @independence;
-@summaryActiveColor     : @independence;
-@summaryInactiveColor   : @grey;
-@fieldFocusBackground   : @chiffon;
-@fieldFocusBorderColor  : @sunny;
+@pageBackground             : #efefef;
+@invertedMenuColor          : @spaceCadet;
+@fixedMenuColor             : @zaffre;
+@spinnerColor               : @navyPurple;
+@inputBackground            : @white;
+@linkColor                  : @brandeisBlue;
+@strongColor                : @peru;
+@dropCapColor               : @independence;
+@summaryActiveColor         : @independence;
+@summaryInactiveColor       : @grey;
+@fieldFocusBackground       : @white;
+@fieldFocusBorderColor      : @indigoLight;
+@fieldFocusBoxShadow        : 0 0 0 1px @navyPurpleLight;
+@dropHoveredItemColor       : @white;
+@dropHoveredItemBackground  : @navyPurple; 
 
 /*-------------------
   Padding & Margin
@@ -112,6 +116,17 @@
 @veryPaddedSegmentHorizontal: 3em;
 @mobileVeryPaddedSegmentVertical: 1.5em;
 @mobileVeryPaddedSegmentHorizontal: 1.5em; 
+
+/*-------------------
+       Borders
+--------------------*/
+@absoluteBorderRadius: @2px;
+
+/*-------------------
+       States
+--------------------*/
+
+@disabledOpacity: 0.33;
 
 /*-------------------
         Page

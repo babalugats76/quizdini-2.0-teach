@@ -2,7 +2,11 @@
     User Variable Overrides
 *******************************/
 @selectionTextColor: @unselectedTextColor; 
-@selectionFocusBorderColor: @paleGoldenRod;
-@selectionVisibleBorderColor: @paleGoldenRod;
-@selectionHoverBorderColor: @paleGoldenRod;
-@selectionActiveHoverBorderColor: @paleGoldenRod;
+@selectionFocusBorderColor: @fieldFocusBorderColor;
+@selectionFocusBoxShadow: @fieldFocusBoxShadow;
+@selectionFocusMenuBoxShadow: @fieldFocusBoxShadow;
+@selectionVisibleBorderColor: @fieldFocusBorderColor;
+@selectionHoverBorderColor: @fieldFocusBorderColor;
+@selectionActiveHoverBorderColor: @fieldFocusBorderColor;
+@hoveredItemBackground: @dropHoveredItemBackground;
+@hoveredItemColor: @dropHoveredItemColor;

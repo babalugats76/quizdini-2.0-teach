@@ -25,7 +25,7 @@
   transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, -webkit-box-shadow 0.1s ease;
   transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
   transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease;
-  border-radius: 0.25rem;
+  border-radius: 0.125rem;
   -webkit-box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.22) inset, 0 0 0 0 rgba(0, 0, 0, 0);
           box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.22) inset, 0 0 0 0 rgba(0, 0, 0, 0);
 }
@@ -190,7 +190,7 @@
 
 .ui.attached.message {
   margin-bottom: -1px;
-  border-radius: 0.25rem 0.25rem 0 0;
+  border-radius: 0.125rem 0.125rem 0 0;
   -webkit-box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.15) inset;
   margin-left: -1px;
@@ -202,7 +202,7 @@
 }
 .ui.bottom.attached.message {
   margin-top: -1px;
-  border-radius: 0 0 0.25rem 0.25rem;
+  border-radius: 0 0 0.125rem 0.125rem;
   -webkit-box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.15) inset, 0 1px 2px 0 rgba(34, 36, 38, 0.15);
           box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.15) inset, 0 1px 2px 0 rgba(34, 36, 38, 0.15);
 }
@@ -371,12 +371,12 @@
 }
 .ui.primary.message,
 .ui.attached.primary.message {
-  -webkit-box-shadow: 0 0 0 0px #1a1c57 inset, 0 0 0 0 rgba(0, 0, 0, 0);
-          box-shadow: 0 0 0 0px #1a1c57 inset, 0 0 0 0 rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 0 0 0 0px #711cff inset, 0 0 0 0 rgba(0, 0, 0, 0);
+          box-shadow: 0 0 0 0px #711cff inset, 0 0 0 0 rgba(0, 0, 0, 0);
 }
 .ui.floating.primary.message {
-  -webkit-box-shadow: 0 0 0 0px #1a1c57 inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
-          box-shadow: 0 0 0 0px #1a1c57 inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: 0 0 0 0px #711cff inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
+          box-shadow: 0 0 0 0px #711cff inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
 }
 .ui.primary.message .header {
   color: rgba(242, 242, 242, 0.9);
@@ -495,19 +495,19 @@
 }
 .ui.blue.message {
   background-color: #DFF0FF;
-  color: #2185D0;
+  color: #014ce4;
 }
 .ui.blue.message,
 .ui.attached.blue.message {
-  -webkit-box-shadow: 0 0 0 0px #2185D0 inset, 0 0 0 0 rgba(0, 0, 0, 0);
-          box-shadow: 0 0 0 0px #2185D0 inset, 0 0 0 0 rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 0 0 0 0px #014ce4 inset, 0 0 0 0 rgba(0, 0, 0, 0);
+          box-shadow: 0 0 0 0px #014ce4 inset, 0 0 0 0 rgba(0, 0, 0, 0);
 }
 .ui.floating.blue.message {
-  -webkit-box-shadow: 0 0 0 0px #2185D0 inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
-          box-shadow: 0 0 0 0px #2185D0 inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: 0 0 0 0px #014ce4 inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
+          box-shadow: 0 0 0 0px #014ce4 inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
 }
 .ui.blue.message .header {
-  color: #1e77ba;
+  color: #0144cb;
 }
 .ui.violet.message {
   background-color: #EAE7FF;
