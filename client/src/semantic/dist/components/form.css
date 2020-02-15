@@ -403,8 +403,8 @@
   border-color: rgba(113, 28, 255, 0.33);
   border-radius: 0.125rem;
   background: #FFFFFF;
-  -webkit-box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
-          box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.form .ui.action.input:not(.left) input:not([type]):focus,
 .ui.form .ui.action.input:not(.left) input[type="date"]:focus,
@@ -441,8 +441,8 @@
   border-color: rgba(113, 28, 255, 0.33);
   border-radius: 0.125rem;
   background: #FFFFFF;
-  -webkit-box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
-          box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
+  -webkit-box-shadow: none;
+          box-shadow: none;
   -webkit-appearance: none;
 }
 

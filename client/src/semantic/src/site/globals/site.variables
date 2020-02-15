@@ -94,7 +94,8 @@
 @summaryInactiveColor       : @grey;
 @fieldFocusBackground       : @white;
 @fieldFocusBorderColor      : @indigoLight;
-@fieldFocusBoxShadow        : 0 0 0 1px @navyPurpleLight;
+/*@fieldFocusBoxShadow      : 0 0 0 1px @navyPurpleLight;*/
+@fieldFocusBoxShadow        : none;
 @dropHoveredItemColor       : @white;
 @dropHoveredItemBackground  : @navyPurple; 
 

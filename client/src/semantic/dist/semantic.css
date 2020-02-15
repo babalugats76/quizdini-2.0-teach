@@ -1871,8 +1871,8 @@ a#google-login:visited {
   background-color: #FFFFFF;
   border-color: rgba(113, 28, 255, 0.33);
   color: rgba(10, 10, 10, 0.75);
-  -webkit-box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
-  box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 #match-form .rich-text-editor:not([contenteditable='true']) {
@@ -17793,8 +17793,8 @@ img.ui.bordered.image {
   border-color: rgba(113, 28, 255, 0.33);
   background: #FFFFFF;
   color: rgba(10, 10, 10, 0.75);
-  -webkit-box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
-  box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.input.focus > input::-webkit-input-placeholder,
@@ -25023,8 +25023,8 @@ ol.ui.suffixed.list li:before,
   border-color: rgba(113, 28, 255, 0.33);
   border-radius: 0.125rem;
   background: #FFFFFF;
-  -webkit-box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
-  box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.form .ui.action.input:not(.left) input:not([type]):focus,
@@ -25064,8 +25064,8 @@ ol.ui.suffixed.list li:before,
   border-color: rgba(113, 28, 255, 0.33);
   border-radius: 0.125rem;
   background: #FFFFFF;
-  -webkit-box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
-  box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
+  -webkit-box-shadow: none;
+  box-shadow: none;
   -webkit-appearance: none;
 }
 
@@ -38676,14 +38676,14 @@ select.ui.dropdown {
 
 .ui.selection.dropdown:focus {
   border-color: rgba(113, 28, 255, 0.33);
-  -webkit-box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
-  box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.selection.dropdown:focus .menu {
   border-color: rgba(113, 28, 255, 0.33);
-  -webkit-box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
-  box-shadow: 0 0 0 1px rgba(170, 84, 255, 0.33);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 /* Visible */
