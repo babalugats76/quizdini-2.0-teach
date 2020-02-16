@@ -42,7 +42,7 @@
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(10, 10, 10, 0.75);
-  border-radius: 0.125rem;
+  border-radius: 0.1875rem;
   -webkit-transition: border-color 0.5s ease, -webkit-box-shadow 0.5s ease;
   transition: border-color 0.5s ease, -webkit-box-shadow 0.5s ease;
   transition: box-shadow 0.5s ease, border-color 0.5s ease;
@@ -136,7 +136,7 @@
 
 .ui.input.focus > input,
 .ui.input > input:focus {
-  border-color: rgba(113, 28, 255, 0.33);
+  border-color: rgba(113, 28, 255, 0.25);
   background: #FFFFFF;
   color: rgba(10, 10, 10, 0.75);
   -webkit-box-shadow: none;
@@ -345,7 +345,7 @@
   height: 100%;
   width: 2.225em;
   opacity: 0.5;
-  border-radius: 0 0.125rem 0.125rem 0;
+  border-radius: 0 0.1875rem 0.1875rem 0;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
@@ -377,7 +377,7 @@
 .ui[class*="left icon"].input > i.icon {
   right: auto;
   left: 1px;
-  border-radius: 0.125rem 0 0 0.125rem;
+  border-radius: 0.1875rem 0 0 0.1875rem;
 }
 .ui[class*="left icon"].input > i.circular.icon {
   right: auto;
@@ -424,7 +424,7 @@
   border-left-color: transparent;
 }
 .ui.labeled.input:not([class*="corner labeled"]) .label:first-child + input:focus {
-  border-left-color: rgba(113, 28, 255, 0.33);
+  border-left-color: rgba(113, 28, 255, 0.25);
 }
 
 /* Regular Label on Right */
@@ -438,7 +438,7 @@
   border-bottom-left-radius: 0;
 }
 .ui[class*="right labeled"].input > input:focus {
-  border-right-color: rgba(113, 28, 255, 0.33) !important;
+  border-right-color: rgba(113, 28, 255, 0.25) !important;
 }
 
 /* Corner Label */
@@ -446,7 +446,7 @@
   top: 1px;
   right: 1px;
   font-size: 0.5625em;
-  border-radius: 0 0.125rem 0 0;
+  border-radius: 0 0.1875rem 0 0;
 }
 
 /* Spacing with corner label */
@@ -624,7 +624,7 @@
 .ui.action.input > .dropdown:first-child,
 .ui.action.input > .button:first-child,
 .ui.action.input > .buttons:first-child > .button {
-  border-radius: 0.125rem 0 0 0.125rem;
+  border-radius: 0.1875rem 0 0 0.1875rem;
 }
 .ui.action.input > .dropdown:not(:first-child),
 .ui.action.input > .button:not(:first-child),
@@ -634,15 +634,15 @@
 .ui.action.input > .dropdown:last-child,
 .ui.action.input > .button:last-child,
 .ui.action.input > .buttons:last-child > .button {
-  border-radius: 0 0.125rem 0.125rem 0;
+  border-radius: 0 0.1875rem 0.1875rem 0;
 }
 
 /* Input Focus */
 .ui.action.input:not([class*="left action"]) > input:focus {
-  border-right-color: rgba(113, 28, 255, 0.33);
+  border-right-color: rgba(113, 28, 255, 0.25);
 }
 .ui.ui[class*="left action"].input > input:focus {
-  border-left-color: rgba(113, 28, 255, 0.33);
+  border-left-color: rgba(113, 28, 255, 0.25);
 }
 
 /*--------------------

@@ -491,13 +491,13 @@ a.ui.inverted.teal.header.header.header:hover {
   border-bottom: 2px solid #6DFFFF;
 }
 .ui.blue.header {
-  color: #014ce4;
+  color: #006bdc;
 }
 a.ui.blue.header:hover {
-  color: #0043cc;
+  color: #005fc3;
 }
 .ui.blue.dividing.header {
-  border-bottom: 2px solid #014ce4;
+  border-bottom: 2px solid #006bdc;
 }
 .ui.inverted.blue.header.header.header {
   color: #54C8FF;
@@ -692,7 +692,7 @@ a.ui.inverted.black.header.header.header:hover {
   -webkit-box-shadow: none;
           box-shadow: none;
   border: 1px solid #D4D4D5;
-  border-radius: 0.125rem;
+  border-radius: 0.1875rem;
 }
 .ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
   font-size: 1rem;
@@ -739,10 +739,10 @@ a.ui.inverted.black.header.header.header:hover {
   border-top: none;
 }
 .ui.top.attached.header {
-  border-radius: 0.125rem 0.125rem 0 0;
+  border-radius: 0.1875rem 0.1875rem 0 0;
 }
 .ui.bottom.attached.header {
-  border-radius: 0 0 0.125rem 0.125rem;
+  border-radius: 0 0 0.1875rem 0.1875rem;
 }
 
 /* Attached Sizes */

@@ -110,8 +110,8 @@
   font-size: 1em;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(10, 10, 10, 0.4);
-  border-radius: 0.125rem;
+  color: rgba(10, 10, 10, 0.5);
+  border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
   -webkit-transition: color 0.5s ease, border-color 0.5s ease;
@@ -128,8 +128,8 @@
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
   outline: none;
-  color: rgba(10, 10, 10, 0.4);
-  border-radius: 0.125rem;
+  color: rgba(10, 10, 10, 0.5);
+  border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
   -webkit-transition: color 0.5s ease, border-color 0.5s ease;
@@ -210,11 +210,11 @@
   width: 100%;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  border-radius: 0.125rem;
+  border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
   padding: 0.62em 0.875em;
-  color: rgba(10, 10, 10, 0.4);
+  color: rgba(10, 10, 10, 0.5);
   -webkit-transition: color 0.5s ease, border-color 0.5s ease;
   transition: color 0.5s ease, border-color 0.5s ease;
 }
@@ -365,22 +365,22 @@
 
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(201, 201, 201, 0.4);
+  color: rgba(201, 201, 201, 0.5);
 }
 .ui.form :-ms-input-placeholder {
-  color: rgba(201, 201, 201, 0.4) !important;
+  color: rgba(201, 201, 201, 0.5) !important;
 }
 .ui.form ::-moz-placeholder {
-  color: rgba(201, 201, 201, 0.4);
+  color: rgba(201, 201, 201, 0.5);
 }
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(125, 125, 125, 0.4);
+  color: rgba(125, 125, 125, 0.5);
 }
 .ui.form :focus:-ms-input-placeholder {
-  color: rgba(125, 125, 125, 0.4) !important;
+  color: rgba(125, 125, 125, 0.5) !important;
 }
 .ui.form :focus::-moz-placeholder {
-  color: rgba(125, 125, 125, 0.4);
+  color: rgba(125, 125, 125, 0.5);
 }
 
 /*--------------------
@@ -400,8 +400,8 @@
 .ui.form input[type="file"]:focus,
 .ui.form input[type="url"]:focus {
   color: rgba(10, 10, 10, 0.75);
-  border-color: rgba(113, 28, 255, 0.33);
-  border-radius: 0.125rem;
+  border-color: rgba(113, 28, 255, 0.25);
+  border-radius: 0.1875rem;
   background: #FFFFFF;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -438,8 +438,8 @@
 }
 .ui.form textarea:focus {
   color: rgba(10, 10, 10, 0.75);
-  border-color: rgba(113, 28, 255, 0.33);
-  border-radius: 0.125rem;
+  border-color: rgba(113, 28, 255, 0.25);
+  border-radius: 0.1875rem;
   background: #FFFFFF;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -1341,7 +1341,7 @@
   z-index: 100;
 }
 .ui.loading.form.segments:before {
-  border-radius: 0.125rem;
+  border-radius: 0.1875rem;
 }
 .ui.loading.form:after {
   position: absolute;
@@ -1440,7 +1440,7 @@
 .ui.inverted.form input[type="url"] {
   background: #FFFFFF;
   border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(10, 10, 10, 0.4);
+  color: rgba(10, 10, 10, 0.5);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -1825,7 +1825,7 @@
 
 /* Style textarea text to be initially unselected */
 .ui.form textarea {
-  color: rgba(10, 10, 10, 0.4);
+  color: rgba(10, 10, 10, 0.5);
 }
 
 /* Prevent semantic from hiding messages on forms */

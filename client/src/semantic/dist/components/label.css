@@ -25,7 +25,7 @@
   text-transform: none;
   font-weight: 400;
   border: 0 solid transparent;
-  border-radius: 0.125rem;
+  border-radius: 0.1875rem;
   -webkit-transition: background 0.5s ease;
   transition: background 0.5s ease;
 }
@@ -169,7 +169,7 @@ a.ui.label {
   text-transform: none;
   background: #E8E8E8;
   padding: 0.5833em 0.833em 0.5833em 0.5em;
-  border-radius: 0.125rem;
+  border-radius: 0.1875rem;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -178,13 +178,13 @@ a.ui.label {
   vertical-align: top;
   height: 2.1666em;
   margin: -0.5833em 0.5em -0.5833em -0.5em;
-  border-radius: 0.125rem 0 0 0.125rem;
+  border-radius: 0.1875rem 0 0 0.1875rem;
 }
 .ui.image.label .detail {
   background: rgba(0, 0, 0, 0.1);
   margin: -0.5833em -0.833em -0.5833em 0.5em;
   padding: 0.5833em 0.833em;
-  border-radius: 0 0.125rem 0.125rem 0;
+  border-radius: 0 0.1875rem 0.1875rem 0;
 }
 
 /*-------------------
@@ -197,7 +197,7 @@ a.ui.label {
   position: relative;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  border-radius: 0 0.125rem 0.125rem 0;
+  border-radius: 0 0.1875rem 0.1875rem 0;
   -webkit-transition: none;
   transition: none;
 }
@@ -331,7 +331,7 @@ a.ui.label {
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
-  border-radius: 0 0.125rem 0.125rem 0;
+  border-radius: 0 0.1875rem 0.1875rem 0;
   border-color: rgba(0, 0, 0, 0.15);
 }
 .ui.ribbon.label:after {
@@ -387,7 +387,7 @@ a.ui.label {
   text-align: left;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
-  border-radius: 0.125rem 0 0 0.125rem;
+  border-radius: 0.1875rem 0 0 0.1875rem;
 }
 .ui[class*="right ribbon"].label:after {
   left: auto;
@@ -445,19 +445,19 @@ a.ui.label {
 .ui[class*="top left attached"].label {
   width: auto;
   margin-top: 0 !important;
-  border-radius: 0.1875rem 0 0.125rem 0;
+  border-radius: 0.1875rem 0 0.1875rem 0;
 }
 .ui[class*="top right attached"].label {
   width: auto;
   left: auto;
   right: 0;
-  border-radius: 0 0.1875rem 0 0.125rem;
+  border-radius: 0 0.1875rem 0 0.1875rem;
 }
 .ui[class*="bottom left attached"].label {
   width: auto;
   top: auto;
   bottom: 0;
-  border-radius: 0 0.125rem 0 0.1875rem;
+  border-radius: 0 0.1875rem 0 0.1875rem;
 }
 .ui[class*="bottom right attached"].label {
   top: auto;
@@ -465,7 +465,7 @@ a.ui.label {
   left: auto;
   right: 0;
   width: auto;
-  border-radius: 0.125rem 0 0.1875rem 0;
+  border-radius: 0.1875rem 0 0.1875rem 0;
 }
 
 
@@ -574,7 +574,7 @@ a.ui.active.label:hover:before {
 a.ui.basic.label:hover {
   text-decoration: none;
   background: none #FFFFFF;
-  color: #0063ce;
+  color: #2c3e95;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -619,7 +619,7 @@ a.ui.basic.label:hover {
   background: #1B1C1D;
 }
 .ui.inverted.basic.label:hover {
-  color: #0075f2;
+  color: #4a5899;
 }
 
 /*-------------------
@@ -1284,36 +1284,36 @@ a.ui.ui.ui.inverted.basic.teal.label:hover {
 }
 .ui.blue.labels .label,
 .ui.ui.ui.blue.label {
-  background-color: #014ce4;
-  border-color: #014ce4;
+  background-color: #006bdc;
+  border-color: #006bdc;
   color: #FFFFFF;
 }
 
 /* Link */
 .ui.blue.labels a.label:hover,
 a.ui.ui.ui.blue.label:hover {
-  background-color: #0043cc;
-  border-color: #0043cc;
+  background-color: #005fc3;
+  border-color: #005fc3;
   color: #FFFFFF;
 }
 
 /* Ribbon */
 .ui.ui.ui.blue.ribbon.label {
-  border-color: #013bb1;
+  border-color: #0052a9;
 }
 
 /* Basic */
 .ui.basic.labels .blue.label,
 .ui.ui.ui.basic.blue.label {
   background: none #FFFFFF;
-  border-color: #014ce4;
-  color: #014ce4;
+  border-color: #006bdc;
+  color: #006bdc;
 }
 .ui.basic.labels a.blue.label:hover,
 a.ui.ui.ui.basic.blue.label:hover {
   background: none #FFFFFF;
-  border-color: #0043cc;
-  color: #0043cc;
+  border-color: #005fc3;
+  color: #005fc3;
 }
 
 /* Inverted */

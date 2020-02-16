@@ -99,7 +99,7 @@ const LoginForm = props => {
         return (
           <>
             {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
-            <Segment padded="very">
+            <Segment padded>
               <ExternalLink
                 href="/auth/google"
                 id="google-login"
@@ -150,7 +150,7 @@ const LoginForm = props => {
                     tabIndex={3}
                     type="submit"
                   >
-                    LOG IN
+                    LOGIN
                   </Button>
                 )}
                 <p>

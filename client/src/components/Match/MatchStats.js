@@ -1,15 +1,16 @@
-import React, { useEffect, useReducer, useRef } from "react";
-import { Link } from "react-router-dom";
-import Chart from "chart.js";
-import { Container, Grid, Header, Segment, Table } from "semantic-ui-react";
-import { useData, useTitle } from "../../hooks";
-import { Button, Icon, Loader } from "../UI";
-import { zonedTimeToUtc, format, utcToZonedTime } from "date-fns-tz";
-import { addDays, eachDayOfInterval, max, parse, parseISO } from "date-fns";
+import React, { useEffect, useReducer, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import Chart from 'chart.js';
+import { Container, Grid, Segment, Table } from 'semantic-ui-react';
+import { zonedTimeToUtc, format, utcToZonedTime } from 'date-fns-tz';
+import { addDays, eachDayOfInterval, max, parse, parseISO } from 'date-fns';
+import { useData, useTitle } from '../../hooks';
+import { Button, Loader } from '../UI';
+import MatchHeader from './MatchHeader';
 
 Chart.defaults.global.defaultFontFamily = "'marcher-regular', sans-serif";
 Chart.defaults.global.defaultFontSize = 13;
-Chart.defaults.global.defaultFontColor = "rgba(10,10,10,.75)";
+Chart.defaults.global.defaultFontColor = 'rgba(10,10,10,.75)';
 
 const MatchStats = props => {
   const { location: { state: { matchId = undefined } = {} } = {} } = props;
@@ -21,7 +22,7 @@ const MatchStats = props => {
 
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
-      case "REFRESH":
+      case 'REFRESH':
         return {
           ...state,
           dirty: !state.dirty // toggle dirty (for api refresh)
@@ -33,13 +34,13 @@ const MatchStats = props => {
 
   // API data
   const { data: stats, error, initialized, loading } = useData({
-    url: "/api/match/stats/" + state.matchId,
+    url: '/api/match/stats/' + state.matchId,
     deps: [state.matchId, state.dirty]
   });
 
   // set page title
   useTitle({
-    title: state.matchId ? (stats ? stats.title : "Loading...") : "",
+    title: state.matchId ? (stats ? stats.title : 'Loading...') : '',
     deps: [state.matchId]
   });
 
@@ -47,9 +48,14 @@ const MatchStats = props => {
 
   return (
     <Container as="main" className="page medium" fluid id="match-stats">
-      {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) || (showLoader && <Loader />) || (
-        <Stats {...stats} refreshing={loading} onRefresh={() => dispatch({ type: "REFRESH" })} />
-      )}
+      {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
+        (showLoader && <Loader />) || (
+          <Stats
+            {...stats}
+            refreshing={loading}
+            onRefresh={() => dispatch({ type: 'REFRESH' })}
+          />
+        )}
     </Container>
   );
 };
@@ -57,8 +63,10 @@ const MatchStats = props => {
 const Stats = props => {
   const {
     onRefresh,
+    options: { duration, itemsPerBoard },
     refreshing,
     title,
+    termCount,
     terms,
     totals: { plays = 0, avgScore = 0, avgHitRate = 0 } = {}
   } = props;
@@ -75,11 +83,11 @@ const Stats = props => {
                 disabled={refreshing}
                 icon="back"
                 labelPosition="left"
+                size="tiny"
                 tabIndex={-1}
-                title="Back to Dashboard"
                 to={{
-                  pathname: "/dashboard",
-                  state: { from: "MATCH-STATS" }
+                  pathname: '/dashboard',
+                  state: { from: 'MATCH' }
                 }}
                 type="button"
               >
@@ -89,11 +97,11 @@ const Stats = props => {
                 active
                 floated="right"
                 icon="refresh-cw"
-                labelPosition="left"
+                labelPosition="right"
                 loading={refreshing}
                 onClick={onRefresh}
+                size="tiny"
                 tabIndex={1}
-                title="Refresh"
                 type="button"
               >
                 REFRESH
@@ -103,12 +111,13 @@ const Stats = props => {
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign="center">
-            <Segment>
-              <Header size="medium">
-                <Icon name="question" />
-                <Header.Content className="game-title">{title}</Header.Content>
-              </Header>
-            </Segment>
+            <MatchHeader
+              duration={duration}
+              itemsPerBoard={itemsPerBoard}
+              size="large"
+              termCount={termCount}
+              title={title}
+            />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row columns="3" stretched>
@@ -157,41 +166,50 @@ const PingChart = ({ createDate, pings = [] }) => {
     let end, maxTick, minTick, playsByDay, start, x, y, yMax;
 
     function renderChart() {
-      if (typeof pingChart !== "undefined") pingChart.destroy();
+      if (typeof pingChart !== 'undefined') pingChart.destroy();
       start = max([
-        zonedTimeToUtc(addDays(Date.now(), -30), Intl.DateTimeFormat().resolvedOptions().timeZone),
-        zonedTimeToUtc(parseISO(createDate), Intl.DateTimeFormat().resolvedOptions().timeZone)
+        zonedTimeToUtc(
+          addDays(Date.now(), -30),
+          Intl.DateTimeFormat().resolvedOptions().timeZone
+        ),
+        zonedTimeToUtc(
+          parseISO(createDate),
+          Intl.DateTimeFormat().resolvedOptions().timeZone
+        )
       ]);
 
-      end = zonedTimeToUtc(Date.now(), Intl.DateTimeFormat().resolvedOptions().timeZone);
+      end = zonedTimeToUtc(
+        Date.now(),
+        Intl.DateTimeFormat().resolvedOptions().timeZone
+      );
       playsByDay = pings.reduce((accum, i) => {
         accum[i.day] = i.plays;
         return accum;
       }, []);
       x = eachDayOfInterval({
-        start: utcToZonedTime(start, "UTC"),
-        end: utcToZonedTime(end, "UTC")
-      }).map(day => format(day, "MM/dd/yyyy"));
+        start: utcToZonedTime(start, 'UTC'),
+        end: utcToZonedTime(end, 'UTC')
+      }).map(day => format(day, 'MM/dd/yyyy'));
 
       y = x.map(day => playsByDay[day] || 0);
       yMax = Math.max(...y);
-      minTick = format(addDays(utcToZonedTime(start, "UTC"), -1), "MM/dd/yyyy");
-      maxTick = format(addDays(utcToZonedTime(end, "UTC"), 1), "MM/dd/yyyy");
+      minTick = format(addDays(utcToZonedTime(start, 'UTC'), -1), 'MM/dd/yyyy');
+      maxTick = format(addDays(utcToZonedTime(end, 'UTC'), 1), 'MM/dd/yyyy');
       pingChart = new Chart(canvasRef.current, {
-        type: "bar",
+        type: 'bar',
         data: {
           labels: x,
           datasets: [
             {
-              label: "Plays",
+              label: 'Plays',
               data: y,
-              barThickness: "flex",
+              barThickness: 'flex',
               maxBarThickness: 40,
               minBarLength: 2,
-              backgroundColor: "rgba(170, 84, 255, .15)",
-              borderColor: "rgba(113, 28, 255, .75)",
+              backgroundColor: 'rgba(170, 84, 255, .15)',
+              borderColor: 'rgba(113, 28, 255, .75)',
               borderWidth: 1,
-              hoverBackgroundColor: "rgba(113, 28, 255, 1.0)",
+              hoverBackgroundColor: 'rgba(113, 28, 255, 1.0)',
               hoverBorderWidth: 0
             }
           ]
@@ -201,21 +219,21 @@ const PingChart = ({ createDate, pings = [] }) => {
           title: {
             display: true,
             fontSize: 18,
-            fontStyle: "normal",
+            fontStyle: 'normal',
             fontFamily: "'marcher-medium', sans-serif",
             lineHeight: 1.3,
-            position: "top",
-            text: "Daily Activity"
+            position: 'top',
+            text: 'Daily Activity'
           },
           tooltips: {
             callbacks: {
               title: function(tooltipItem) {
                 return format(
                   zonedTimeToUtc(
-                    parse(tooltipItem[0].xLabel, "MM/dd/yyyy", new Date()),
+                    parse(tooltipItem[0].xLabel, 'MM/dd/yyyy', new Date()),
                     Intl.DateTimeFormat().resolvedOptions().timeZone
                   ),
-                  "EEE, LLL do"
+                  'EEE, LLL do'
                 );
               }
             }
@@ -224,7 +242,7 @@ const PingChart = ({ createDate, pings = [] }) => {
             display: true
           },
           animation: {
-            easing: "easeInQuart"
+            easing: 'easeInQuart'
           },
           scales: {
             xAxes: [
@@ -232,7 +250,7 @@ const PingChart = ({ createDate, pings = [] }) => {
                 gridLines: {
                   offsetGridLines: false
                 },
-                type: "time",
+                type: 'time',
                 ticks: {
                   fontSize: 12,
                   max: maxTick,
@@ -242,22 +260,22 @@ const PingChart = ({ createDate, pings = [] }) => {
                   minRotation: 0
                 },
                 time: {
-                  unit: "week",
-                  parser: "MM/DD/YYYY",
+                  unit: 'week',
+                  parser: 'MM/DD/YYYY',
                   isoWeekday: true,
                   displayFormats: {
-                    week: "ddd, MMM D"
+                    week: 'ddd, MMM D'
                   }
                 },
                 scaleLabel: {
                   display: true,
-                  labelString: "Date (GMT/UTC)"
+                  labelString: 'Date (GMT/UTC)'
                 }
               }
             ],
             yAxes: [
               {
-                type: "linear",
+                type: 'linear',
                 ticks: {
                   beginAtZero: true,
                   fontSize: 12,
@@ -279,7 +297,7 @@ const PingChart = ({ createDate, pings = [] }) => {
       disabled={!pings.length}
       id="plays-bar-chart"
       padded
-      style={{ backgroundColor: "#fff" }}
+      style={{ backgroundColor: '#fff' }}
     >
       <canvas ref={ref => (canvasRef.current = ref)} />
     </Segment>
@@ -288,17 +306,20 @@ const PingChart = ({ createDate, pings = [] }) => {
 
 const TermTable = ({ id, terms }) => {
   const renderHtml = value => (
-    <span dangerouslySetInnerHTML={{ __html: value.replace(/(^")|("$)/g, "") }} />
+    <span
+      dangerouslySetInnerHTML={{ __html: value.replace(/(^")|("$)/g, '') }}
+    />
   );
 
   const renderRows = ({ terms }) => {
     return terms.map(val => {
       const { term, hits, misses, hitRate } = val;
-      const rateStrata = hitRate <= 60 ? "negative" : hitRate <= 80 ? "warning" : "positive";
+      const rateStrata =
+        hitRate <= 60 ? 'negative' : hitRate <= 80 ? 'warning' : 'positive';
       const rateProp =
-        rateStrata === "negative"
+        rateStrata === 'negative'
           ? { negative: true }
-          : rateStrata === "warning"
+          : rateStrata === 'warning'
           ? { warning: true }
           : { positive: true };
 

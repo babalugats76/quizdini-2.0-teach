@@ -266,6 +266,7 @@ module.exports = (app, memcache) => {
         options,
         totals: { ...stats.totals[0] },
         pings: stats.pings,
+        termCount: match.matches.length,
         terms: stats.terms
       };
       memcache.set(statKey, results, { expires: 15 * 60 });
