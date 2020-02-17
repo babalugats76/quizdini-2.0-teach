@@ -121,7 +121,7 @@
   border-top: none;
   line-height: 1em;
   font-size: 1rem;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
   padding: 0.8125rem 1.125rem !important;
   text-transform: none;
   font-weight: normal;
@@ -527,31 +527,31 @@ select.ui.dropdown {
 
 /* Hover */
 .ui.selection.dropdown:hover {
-  border-color: #57419b;
+  border-color: rgba(113, 28, 255, 0.65);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
 /* Active */
 .ui.selection.active.dropdown {
-  border-color: #57419b;
+  border-color: rgba(113, 28, 255, 0.65);
   -webkit-box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
           box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
 .ui.selection.active.dropdown .menu {
-  border-color: #57419b;
+  border-color: rgba(113, 28, 255, 0.65);
   -webkit-box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
           box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
 
 /* Focus */
 .ui.selection.dropdown:focus {
-  border-color: #57419b;
+  border-color: rgba(113, 28, 255, 0.65);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 .ui.selection.dropdown:focus .menu {
-  border-color: #57419b;
+  border-color: rgba(113, 28, 255, 0.65);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -559,17 +559,17 @@ select.ui.dropdown {
 /* Visible */
 .ui.selection.visible.dropdown > .text:not(.default) {
   font-weight: normal;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 
 /* Visible Hover */
 .ui.selection.active.dropdown:hover {
-  border-color: #57419b;
+  border-color: rgba(113, 28, 255, 0.65);
   -webkit-box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
           box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
 .ui.selection.active.dropdown:hover .menu {
-  border-color: #57419b;
+  border-color: rgba(113, 28, 255, 0.65);
   -webkit-box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
           box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 }
@@ -666,7 +666,7 @@ select.ui.dropdown {
   opacity: 0.33;
 }
 .ui.active.search.dropdown input.search:focus + .text {
-  color: rgba(125, 125, 125, 0.75) !important;
+  color: rgba(125, 125, 125, 0.82) !important;
 }
 
 /* Search Menu */
@@ -848,7 +848,7 @@ select.ui.dropdown {
 .ui.dropdown .menu .active.item {
   background: transparent;
   font-weight: 400;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
   -webkit-box-shadow: none;
           box-shadow: none;
   z-index: 12;
@@ -861,7 +861,7 @@ select.ui.dropdown {
 
 /* Menu Item Hover */
 .ui.dropdown .menu > .item:hover {
-  background: #57419b;
+  background: #711cff;
   color: #FFFFFF;
   z-index: 13;
 }
@@ -872,11 +872,11 @@ select.ui.dropdown {
 
 .ui.dropdown:not(.button) > .default.text,
 .ui.default.dropdown:not(.button) > .text {
-  color: rgba(201, 201, 201, 0.75);
+  color: rgba(201, 201, 201, 0.82);
 }
 .ui.dropdown:not(.button) > input:focus ~ .default.text,
 .ui.default.dropdown:not(.button) > input:focus ~ .text {
-  color: rgba(125, 125, 125, 0.75);
+  color: rgba(125, 125, 125, 0.82);
 }
 
 /*--------------------
@@ -950,7 +950,7 @@ select.ui.dropdown {
 .ui.dropdown.selected,
 .ui.dropdown .menu .selected.item {
   background: rgba(0, 0, 0, 0.03);
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 
 /*--------------------

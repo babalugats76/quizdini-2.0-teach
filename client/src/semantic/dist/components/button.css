@@ -62,7 +62,7 @@
   background-image: none;
   -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 .ui.button:hover .icon {
   opacity: 0.85;
@@ -74,7 +74,7 @@
 
 .ui.button:focus {
   background-color: #CACBCD;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
   background-image: none;
   -webkit-box-shadow: '';
           box-shadow: '';
@@ -91,7 +91,7 @@
 .ui.active.button:active {
   background-color: #BABBBC;
   background-image: '';
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
   -webkit-box-shadow: 0 0 0 1px transparent inset, none;
           box-shadow: 0 0 0 1px transparent inset, none;
 }
@@ -105,12 +105,12 @@
   background-image: none;
   -webkit-box-shadow: 0 0 0 1px transparent inset;
           box-shadow: 0 0 0 1px transparent inset;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 .ui.active.button:hover {
   background-color: #C0C1C2;
   background-image: none;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 .ui.active.button:active {
   background-color: #C0C1C2;
@@ -352,7 +352,7 @@
   background: #FFFFFF;
   -webkit-box-shadow: 0 0 0 2px #FFFFFF inset;
           box-shadow: 0 0 0 2px #FFFFFF inset;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 
 /* Active / Focus */
@@ -361,7 +361,7 @@
   background: #FFFFFF;
   -webkit-box-shadow: 0 0 0 2px #FFFFFF inset;
           box-shadow: 0 0 0 2px #FFFFFF inset;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 
 /* Active Focus */
@@ -369,7 +369,7 @@
   background: #DCDDDE;
   -webkit-box-shadow: 0 0 0 2px #DCDDDE inset;
           box-shadow: 0 0 0 2px #DCDDDE inset;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 
 /*-------------------
@@ -791,21 +791,21 @@
 .ui.basic.buttons .button:hover,
 .ui.basic.button:hover {
   background: #FFFFFF;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
   -webkit-box-shadow: 0 0 0 1px rgba(34, 36, 38, 0.35) inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 1px rgba(34, 36, 38, 0.35) inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
 }
 .ui.basic.buttons .button:focus,
 .ui.basic.button:focus {
   background: #FFFFFF;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
   -webkit-box-shadow: 0 0 0 1px rgba(34, 36, 38, 0.35) inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 1px rgba(34, 36, 38, 0.35) inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
 }
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
   background: #F8F8F8;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
   -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 1px 4px 0 rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 1px 4px 0 rgba(34, 36, 38, 0.15) inset;
 }
@@ -814,7 +814,7 @@
   background: rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: '';
           box-shadow: '';
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 .ui.basic.buttons .active.button:hover,
 .ui.basic.active.button:hover {
@@ -4374,30 +4374,4 @@
 .ui.labeled.icon.button {
   padding-top: 0.6875em !important;
   padding-bottom: 0.6875em !important;
-}
-.ui.primary.button,
-.ui.primary.buttons .button {
-  background-color: #f8f4ff;
-  color: rgba(87, 65, 155, 0.65);
-}
-.ui.primary.button svg path,
-.ui.primary.buttons .button svg path {
-  fill: rgba(113, 28, 255, 0.65);
-}
-.ui.primary.button:hover,
-.ui.primary.buttons .button:hover,
-.ui.primary.button:focus,
-.ui.primary.buttons .button:focus,
-.ui.primary.button:active,
-.ui.primary.buttons .button:active {
-  background-color: #711cff;
-  color: #FFFFFF;
-}
-.ui.primary.button:hover svg path,
-.ui.primary.buttons .button:hover svg path,
-.ui.primary.button:focus svg path,
-.ui.primary.buttons .button:focus svg path,
-.ui.primary.button:active svg path,
-.ui.primary.buttons .button:active svg path {
-  fill: #f0f0f0;
 }

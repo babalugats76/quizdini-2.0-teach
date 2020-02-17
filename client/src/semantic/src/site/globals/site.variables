@@ -5,27 +5,29 @@
 /*-------------------
   Web Fonts, etc.
 --------------------*/
-@systemFont             : -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
+@fantasy                : Impact, fantasy;
 @lexendDeca             : 'Lexend Deca', sans-serif;
-@marcherLight           : 'marcher-light', sans-serif; 
 @marcherBook            : 'marcher-book', sans-serif;
-@marcherRegular         : 'marcher-regular', sans-serif;
-@marcherMedium          : 'marcher-medium', sans-serif;
 @marcherExtraBold       : 'marcher-extrabold', sans-serif;
 @marcherExtraBoldItalic : 'marcher-extrabolditalic', sans-serif;
+@marcherLight           : 'marcher-light', sans-serif; 
+@marcherMedium          : 'marcher-medium', sans-serif;
+@marcherRegular         : 'marcher-regular', sans-serif;
 @monospaceFont          : 'Consolas', 'Droid Sans Mono', 'Lucida Console', 'Liberation Mono', monospace;
+@systemFont             : -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
 @verdana                : Verdana, Geneva, sans-serif;
 
 // Override Semantic Global Values
-@fontName               : @marcherRegular;
-@pageFont               : @marcherRegular;
 @bookFont               : @systemFont;
-@formInputFont          : @marcherRegular;
-@textareaFont           : @systemFont;
-@menuFont               : @marcherRegular;
-@headerFont             : @marcherMedium;
 @extraBoldFont          : @marcherExtraBold;
 @extraBoldItalicFont    : @marcherExtraBoldItalic;
+@fantasyFont            : @fantasy;
+@fontName               : @marcherRegular;
+@formInputFont          : @marcherRegular;
+@headerFont             : @marcherMedium;
+@menuFont               : @marcherRegular;
+@pageFont               : @marcherRegular;
+@textareaFont           : @systemFont;
 
 @dropCapFont            : @headerFont;
 @googleFontFamily       : 'Lexend+Deca';
@@ -41,50 +43,40 @@
 /*-------------------
   Text Colors, etc.
 --------------------*/
-@textColor                   : rgba(10, 10, 10, 0.75);
+@textColor                   : rgba(10, 10, 10, 0.82);
 @unselectedTextColor         : rgba(10, 10, 10, 0.5);
-@hoveredTextColor            : rgba(10, 10, 10, 0.75);
-@pressedTextColor            : rgba(10, 10, 10, 0.75);
-@selectedTextColor           : rgba(10, 10, 10, 0.75);
+@hoveredTextColor            : rgba(10, 10, 10, 0.82);
+@pressedTextColor            : rgba(10, 10, 10, 0.82);
+@selectedTextColor           : rgba(10, 10, 10, 0.82);
 
 @bold                        : 400;
 
 /*-------------------
   Colors
 --------------------*/
-@subtleTransparentLightBlack: rgba(84,84,84,.87);
-
-@fuchsia             : rgba(188, 63, 188, 1);
-@tealBlue            : rgba(46, 110, 140, 1);
-@pixiePowder         : rgba(72, 18, 152, 1);
-@cobaltBlue          : rgba(6, 69, 173, 1);
-@darkImperialBlue    : rgba(0, 16, 128, 1);
-@isabelline          : rgba(240, 240, 240, 1);
-@spanishGray         : rgba(0, 0, 60, 1);
-@spanishGrayLight    : rgba(0, 0, 60, .25);
-@violet              : rgba(87, 65, 155, 1);
-@violetDark          : rgba(87, 65, 155, .65);
-@indigo              : rgba(113, 28, 255, 1);
-@indigoLight         : rgba(113, 28, 255, .25);
-@indigoDark          : rgba(113, 28, 255, .65);
-@navyPurple          : rgba(170, 84, 255, 1);
-@navyPurpleLight     : rgba(170, 84, 255, .5);
-@royalPurple         : rgba(125, 91, 166, 1);
-@richLavender        : rgba(167, 100, 188, 1);
-@liberty             : rgba(74, 88, 153, 1);
-@grape               : rgba(134, 42, 164, 1);
-@grapeLight          : rgba(134, 42, 164, .5);
-@brightTurquoise     : rgba(1, 231, 228, 1);
+@blackTransDark      : rgba(84, 84, 84, .87);
 @blue                : rgba(0, 107, 220, 1);
-@zaffre              : rgba(0, 19, 153, 1);
-@spaceCadet          : rgba(26, 28, 87, 1);
-@spaceCadetDark      : rgba(26, 28, 87, .9);
+@cobaltBlue          : rgba(6, 69, 173, 1);
+@grape               : rgba(134, 42, 164, 1);
+@grapeTrans          : rgba(134, 42, 164, .5);
+@indigo              : rgba(113, 28, 255, 1);
+@indigoTransDark     : rgba(113, 28, 255, .65);
+@indigoTransLight    : rgba(113, 28, 255, .25);
+@isabelline          : rgba(240, 240, 240, 1);
 @jet                 : rgba(46, 50, 53, 1);
-@magnolia            : rgba(248, 244, 255, 1);
-@independence        : rgba(72, 70, 102, 1);
-@peru                : #C28F3C;
+@liberty             : rgba(74, 88, 153, 1);
+@navyPurple          : rgba(170, 84, 255, 1);
+@navyPurpleTrans     : rgba(170, 84, 255, .5);
+@pixiePowder         : rgba(57, 18, 133, 1);
+@spaceCadet          : rgba(26, 28, 87, 1);
+@spaceCadetTransDark : rgba(26, 28, 87, .9);
+@turquoise           : rgba(1, 231, 228, 1);
+@violet              : rgba(87, 65, 155, 1);
+@violetTrans         : rgba(87, 65, 155, .5);
+@zaffre              : rgba(0, 19, 153, 1);
 
 @primaryColor        : @indigo;
+@primaryColorTrans   : @indigoTransDark;
 @secondaryColor      : @jet;
 
 /*-------------------
@@ -96,33 +88,29 @@
 /*-------------------
     Colors etc.
 --------------------*/
-@pageBackground             : #f0f0f0;
-@invertedMenuColor          : @spaceCadet;
-@fixedMenuColor             : @zaffre;
-@spinnerColor               : @navyPurple;
-@inputBackground            : @white;
-@linkColor                  : @cobaltBlue;
-@emphasisColor              : @grape;
-@strongColor                : @jet;
-@dropCapColor               : @jet;
-@summaryActiveColor         : @violet;
-@summaryHoverColor          : @jet;
-@summaryInactiveColor       : @grey;
-@fieldFocusBackground       : @white;
-@fieldFocusBorderColor      : @violet;
-@fieldFocusBoxShadow        : none;
+@captionColor               : @pixiePowder; 
+@dropCapColor               : @secondaryColor;
+@dropHoveredItemBackground  : @primaryColor;
 @dropHoveredItemColor       : @white;
-@dropHoveredItemBackground  : @violet; 
+@emphasisColor              : @grape;
+@fieldFocusBackground       : @white;
+@fieldFocusBorderColor      : @primaryColorTrans;
+@fieldFocusBoxShadow        : none;
+@fixedMenuColor             : @zaffre;
+@inputBackground            : @white;
+@invertedMenuColor          : @spaceCadet;
+@linkColor                  : @cobaltBlue;
+@pageBackground             : @isabelline;
+@spinnerColor               : @navyPurple;
+@strongColor                : @secondaryColor;
+@summaryActiveColor         : @violet;
+@summaryHoverColor          : @secondaryColor;
+@summaryInactiveColor       : @grey;
 
 /*-------------------
      Button Colors
 --------------------*/
-@buttonPrimaryBackground: @magnolia;
-@buttonPrimarySVG: @indigoDark;
-@buttonPrimaryColor: @violetDark;
-@activeButtonPrimaryBackground: @indigo;
-@activeButtonPrimarySVG: @isabelline;
-@activeButtonPrimaryColor: @white;
+
 
 /*-------------------
   Padding & Margin
@@ -152,14 +140,8 @@
 /*-------------------
      Transitions
 --------------------*/
-
 @defaultDuration : 0.2s;
 @defaultEasing   : ease;
-
-/*-------------------
-        Page
---------------------*/
-@pageBackground            : @isabelline;
 
 /*-------------------
     Containers

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider, Header, Image, Segment } from 'semantic-ui-react';
+import { Header, Image, Segment } from 'semantic-ui-react';
 import measuringTape from '../../measuring-tape.svg';
 import payToPlay from '../../pay-to-play.svg';
 import easel from '../../easel.svg';

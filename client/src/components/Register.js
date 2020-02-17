@@ -15,7 +15,7 @@ import {
   LogoHeader,
   Notify
 } from './UI/';
-import DisplayFormikState from './UI/FormikHelper';
+//import DisplayFormikState from './UI/FormikHelper';
 
 export default props => {
   // direct API interactions (ephemeral)

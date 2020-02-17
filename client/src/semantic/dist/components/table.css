@@ -25,7 +25,7 @@
   border-radius: 0.1875rem;
   text-align: left;
   vertical-align: middle;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
   border-collapse: separate;
   border-spacing: 0;
 }
@@ -63,7 +63,7 @@
   cursor: auto;
   background: #F9FAFB;
   text-align: inherit;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
   padding: 0.9375em 0.8125em;
   vertical-align: inherit;
   font-style: none;
@@ -96,7 +96,7 @@
   border-top: 1px solid rgba(34, 36, 38, 0.15);
   background: #F9FAFB;
   text-align: inherit;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
   padding: 0.8125em 0.8125em;
   vertical-align: middle;
   font-style: normal;
@@ -550,7 +550,7 @@
 .ui.definition.table tr td.definition {
   background: rgba(0, 0, 0, 0.03);
   font-weight: 400;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
   text-transform: '';
   -webkit-box-shadow: '';
           box-shadow: '';
@@ -633,10 +633,10 @@
 
 .ui.ui.ui.ui.table tr.active,
 .ui.ui.table td.active {
-  -webkit-box-shadow: 0 0 0 rgba(10, 10, 10, 0.75) inset;
-          box-shadow: 0 0 0 rgba(10, 10, 10, 0.75) inset;
+  -webkit-box-shadow: 0 0 0 rgba(10, 10, 10, 0.82) inset;
+          box-shadow: 0 0 0 rgba(10, 10, 10, 0.82) inset;
   background: #E0E0E0;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 
 /*--------------
@@ -1023,7 +1023,7 @@
 .ui.ui.selectable.table > tbody > tr:hover,
 .ui.table tbody tr td.selectable:hover {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 .ui.ui.selectable.inverted.table > tbody > tr:hover,
 .ui.inverted.table tbody tr td.selectable:hover {
@@ -1064,7 +1064,7 @@
 .ui.table tr td.selectable.active:hover,
 .ui.selectable.table tr:hover td.active {
   background: #E0E0E0;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 .ui.ui.selectable.table tr.positive:hover,
 .ui.table tr td.selectable.positive:hover,
@@ -1146,7 +1146,7 @@
 /* Allow striped active hover */
 .ui.striped.selectable.selectable.selectable.table tbody tr.active:hover {
   background: #EFEFEF;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 
 /*--------------
@@ -1862,7 +1862,7 @@
   cursor: pointer;
   white-space: nowrap;
   border-left: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 .ui.sortable.table > thead > tr > th:first-child {
   border-left: none;
@@ -1899,7 +1899,7 @@
   color: rgba(40, 40, 40, 0.3);
 }
 .ui.sortable.table > thead > tr > th:hover {
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 .ui.sortable.table:not(.basic) > thead > tr > th:hover {
   background: rgba(0, 0, 0, 0.05);
@@ -1907,7 +1907,7 @@
 
 /* Sorted */
 .ui.sortable.table thead th.sorted {
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 .ui.sortable.table:not(.basic) thead th.sorted {
   background: rgba(0, 0, 0, 0.05);
@@ -1918,7 +1918,7 @@
 
 /* Sorted Hover */
 .ui.sortable.table thead th.sorted:hover {
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(10, 10, 10, 0.82);
 }
 .ui.sortable.table:not(.basic) thead th.sorted:hover {
   background: rgba(0, 0, 0, 0.05);

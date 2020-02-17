@@ -14,9 +14,8 @@ const Match = ({ credits, data: games, onDelete }) => {
         labelPosition="left"
         icon="plus"
         pathname="/match"
-        positive={credits >= 1}
+        primary={credits >= 1}
         state={{ matchId: null }}
-        title="Create a new match game"
       >
         NEW GAME
       </RouterButton>
