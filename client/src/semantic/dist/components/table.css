@@ -50,8 +50,8 @@
 /* Table Content */
 .ui.table th,
 .ui.table td {
-  -webkit-transition: background 0.5s ease, color 0.5s ease;
-  transition: background 0.5s ease, color 0.5s ease;
+  -webkit-transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 /* Headers */
@@ -372,12 +372,12 @@
             box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #54C8FF inset;
   }
   .ui.ui.ui.ui.table:not(.unstackable) tr.marked.violet.left {
-    -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #6435C9 inset;
-            box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #6435C9 inset;
+    -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #57419b inset;
+            box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #57419b inset;
   }
   .ui.ui.ui.ui.table:not(.unstackable) tr.marked.violet.right {
-    -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #6435C9 inset;
-            box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #6435C9 inset;
+    -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #57419b inset;
+            box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #57419b inset;
   }
   .ui.ui.ui.ui.inverted.table:not(.unstackable) tr.marked.violet.left {
     -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #A291FB inset;
@@ -863,12 +863,12 @@
           box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #54C8FF inset;
 }
 .ui.ui.ui.ui[class*="tablet stackable"].table tr.marked.violet.left {
-  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #6435C9 inset;
-          box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #6435C9 inset;
+  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #57419b inset;
+          box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #57419b inset;
 }
 .ui.ui.ui.ui[class*="tablet stackable"].table tr.marked.violet.right {
-  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #6435C9 inset;
-          box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #6435C9 inset;
+  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #57419b inset;
+          box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, -0.2em 0 0 0 #57419b inset;
 }
 .ui.ui.ui.ui[class*="tablet stackable"].inverted.table tr.marked.violet.left {
   -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1) inset, 0.2em 0 0 0 #A291FB inset;
@@ -1505,32 +1505,32 @@
           box-shadow: -0.2em 0 0 0 #54C8FF inset;
 }
 .ui.violet.table {
-  border-top: 0.2em solid #6435C9;
+  border-top: 0.2em solid #57419b;
 }
 .ui.inverted.violet.table {
-  background-color: #6435C9;
+  background-color: #57419b;
   color: #FFFFFF;
 }
 .ui.ui.ui.ui.table tr.violet:not(.marked),
 .ui.ui.table td.violet:not(.marked) {
   background: #ece9fe;
-  color: #6435C9;
+  color: #57419b;
 }
 .ui.ui.selectable.table tr.violet:not(.marked):hover,
 .ui.table tr td.selectable.violet:not(.marked):hover,
 .ui.selectable.table tr:hover td.violet:not(.marked) {
   background: #e3deff;
-  color: #6435C9;
+  color: #57419b;
 }
 .ui.table td.marked.violet.left,
 .ui.table tr.marked.violet.left {
-  -webkit-box-shadow: 0.2em 0 0 0 #6435C9 inset;
-          box-shadow: 0.2em 0 0 0 #6435C9 inset;
+  -webkit-box-shadow: 0.2em 0 0 0 #57419b inset;
+          box-shadow: 0.2em 0 0 0 #57419b inset;
 }
 .ui.table td.marked.violet.right,
 .ui.table tr.marked.violet.right {
-  -webkit-box-shadow: -0.2em 0 0 0 #6435C9 inset;
-          box-shadow: -0.2em 0 0 0 #6435C9 inset;
+  -webkit-box-shadow: -0.2em 0 0 0 #57419b inset;
+          box-shadow: -0.2em 0 0 0 #57419b inset;
 }
 .ui.inverted.table td.marked.violet.left,
 .ui.inverted.table tr.marked.violet.left {

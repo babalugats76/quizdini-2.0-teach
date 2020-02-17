@@ -21,10 +21,10 @@
   padding: 1em 1.5em;
   line-height: 1.4285em;
   color: rgba(10, 10, 10, 0.75);
-  -webkit-transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, -webkit-box-shadow 0.5s ease;
-  transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, -webkit-box-shadow 0.5s ease;
-  transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
-  transition: opacity 0.5s ease, color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease, -webkit-box-shadow 0.5s ease;
+  -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
+  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
+  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.22) inset, 0 0 0 0 rgba(0, 0, 0, 0);
           box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.22) inset, 0 0 0 0 rgba(0, 0, 0, 0);
@@ -113,8 +113,8 @@
   top: 0.78575em;
   right: 0.5em;
   opacity: 0.7;
-  -webkit-transition: opacity 0.5s ease;
-  transition: opacity 0.5s ease;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 .ui.message > .close.icon:hover {
   opacity: 1;
@@ -511,19 +511,19 @@
 }
 .ui.violet.message {
   background-color: #EAE7FF;
-  color: #6435C9;
+  color: #57419b;
 }
 .ui.violet.message,
 .ui.attached.violet.message {
-  -webkit-box-shadow: 0 0 0 0px #6435C9 inset, 0 0 0 0 rgba(0, 0, 0, 0);
-          box-shadow: 0 0 0 0px #6435C9 inset, 0 0 0 0 rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 0 0 0 0px #57419b inset, 0 0 0 0 rgba(0, 0, 0, 0);
+          box-shadow: 0 0 0 0px #57419b inset, 0 0 0 0 rgba(0, 0, 0, 0);
 }
 .ui.floating.violet.message {
-  -webkit-box-shadow: 0 0 0 0px #6435C9 inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
-          box-shadow: 0 0 0 0px #6435C9 inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: 0 0 0 0px #57419b inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
+          box-shadow: 0 0 0 0px #57419b inset, 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
 }
 .ui.violet.message .header {
-  color: #5a30b5;
+  color: #4d3989;
 }
 .ui.purple.message {
   background-color: #F6E7FF;

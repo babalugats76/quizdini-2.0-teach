@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Image, Segment } from 'semantic-ui-react';
+import { Divider, Header, Image, Segment } from 'semantic-ui-react';
 import measuringTape from '../../measuring-tape.svg';
 import payToPlay from '../../pay-to-play.svg';
 import easel from '../../easel.svg';
@@ -11,7 +11,7 @@ export default props => (
     </Header>
     <br />
     <div className="belief" id="creativity">
-      <Header size="large" icon textAlign="center">
+      <Header icon size="large" textAlign="center">
         <Image alt="Easel" className="icon easel" src={easel} />
         <Header.Content>
           &quot;Creativity Is in the Constraints&quot;
@@ -51,7 +51,7 @@ export default props => (
       </p>
     </div>
     <div className="belief" id="formative">
-      <Header size="large" icon textAlign="center">
+      <Header icon size="large" textAlign="center">
         <Image
           alt="Measuring Tape"
           className="icon measuring-tape"
@@ -86,7 +86,7 @@ export default props => (
       </p>
     </div>
     <div className="belief" id="pay-to-play">
-      <Header size="large" icon textAlign="center">
+      <Header icon size="large" textAlign="center">
         <Image alt="Pay to Play" className="icon pay-to-play" src={payToPlay} />
         <Header.Content>&quot;You Gotta Pay to Play&quot;</Header.Content>
       </Header>

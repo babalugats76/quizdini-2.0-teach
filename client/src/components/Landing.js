@@ -42,16 +42,19 @@ export default props => {
       <section id="mission" as="div" className="banner">
         <Container>
           <Grid centered columns="equal" stackable>
-            <Grid.Column id="mission" verticalAlign="middle">
+            <Grid.Column id="mission-statement" verticalAlign="middle">
               <Header size="huge" textAlign="center">
                 <Header.Content>Our Mission</Header.Content>
               </Header>
               <p>
                 <span className="quote">&quot;</span>To put out as many
                 worksheet-fueled, Fyre Fest-inspired classroom dumpster fires as
-                possible by&nbsp;<strong>empowering teachers</strong>&nbsp;with
-                the tools to bring drill n&apos; <del>kill</del> thrill
-                opportunities to their students.
+                possible by&nbsp;
+                <strong>
+                  <em>empowering teachers</em>
+                </strong>
+                &nbsp;with the tools to bring drill n&apos; <del>kill</del>{' '}
+                thrill opportunities to their students.
                 <span className="quote">&quot;</span>
               </p>
             </Grid.Column>
@@ -62,13 +65,7 @@ export default props => {
                 src="/images/dumpster-fire.gif"
                 style={{ maxWidth: '320px' }}
               />
-              <p className="caption">
-                <em>
-                  "Hey, hey...ho, ho...
-                  <br />
-                  all those worksheets got &apos;ta go!"
-                </em>
-              </p>
+              <p className="caption">&#x266b;&nbsp;...No, we didn&apos;t light it,<br/>but we&apos;re tryin&apos; to fight it...&nbsp;&#x266b;</p>
             </Grid.Column>
           </Grid>
         </Container>

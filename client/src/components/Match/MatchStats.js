@@ -78,7 +78,6 @@ const Stats = props => {
           <Grid.Column>
             <nav>
               <Button
-                active
                 as={Link}
                 disabled={refreshing}
                 icon="back"
@@ -94,7 +93,6 @@ const Stats = props => {
                 BACK
               </Button>
               <Button
-                active
                 floated="right"
                 icon="refresh-cw"
                 labelPosition="right"
@@ -111,13 +109,14 @@ const Stats = props => {
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign="center">
-            <MatchHeader
-              duration={duration}
-              itemsPerBoard={itemsPerBoard}
-              size="large"
-              termCount={termCount}
-              title={title}
-            />
+            <Segment>
+              <MatchHeader
+                duration={duration}
+                itemsPerBoard={itemsPerBoard}
+                termCount={termCount}
+                title={title}
+              />
+            </Segment>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row columns="3" stretched>

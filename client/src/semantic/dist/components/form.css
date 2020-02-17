@@ -114,8 +114,8 @@
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
-  -webkit-transition: color 0.5s ease, border-color 0.5s ease;
-  transition: color 0.5s ease, border-color 0.5s ease;
+  -webkit-transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 /* Text Area */
@@ -132,8 +132,8 @@
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
-  -webkit-transition: color 0.5s ease, border-color 0.5s ease;
-  transition: color 0.5s ease, border-color 0.5s ease;
+  -webkit-transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease;
   font-size: 1em;
   font-family: 'marcher-regular', sans-serif;
   line-height: 1.2857;
@@ -215,8 +215,8 @@
           box-shadow: 0 0 0 0 transparent inset;
   padding: 0.62em 0.875em;
   color: rgba(10, 10, 10, 0.5);
-  -webkit-transition: color 0.5s ease, border-color 0.5s ease;
-  transition: color 0.5s ease, border-color 0.5s ease;
+  -webkit-transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 /*--------------------
@@ -400,7 +400,7 @@
 .ui.form input[type="file"]:focus,
 .ui.form input[type="url"]:focus {
   color: rgba(10, 10, 10, 0.75);
-  border-color: rgba(113, 28, 255, 0.25);
+  border-color: #57419b;
   border-radius: 0.1875rem;
   background: #FFFFFF;
   -webkit-box-shadow: none;
@@ -438,7 +438,7 @@
 }
 .ui.form textarea:focus {
   color: rgba(10, 10, 10, 0.75);
-  border-color: rgba(113, 28, 255, 0.25);
+  border-color: #57419b;
   border-radius: 0.1875rem;
   background: #FFFFFF;
   -webkit-box-shadow: none;

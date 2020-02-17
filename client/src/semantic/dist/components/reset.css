@@ -428,3 +428,10 @@ sup,
 sub {
   font-family: 'Consolas', 'Droid Sans Mono', 'Lucida Console', 'Liberation Mono', monospace;
 }
+strong {
+  color: #2e3235;
+}
+em {
+  color: #862aa4;
+  font-style: normal;
+}

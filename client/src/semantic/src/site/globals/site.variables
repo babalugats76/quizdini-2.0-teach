@@ -54,9 +54,16 @@
 --------------------*/
 @subtleTransparentLightBlack: rgba(84,84,84,.87);
 
-@isabelline          : rgba(239, 239, 239, 1);
+@fuchsia             : rgba(188, 63, 188, 1);
+@tealBlue            : rgba(46, 110, 140, 1);
+@pixiePowder         : rgba(72, 18, 152, 1);
+@cobaltBlue          : rgba(6, 69, 173, 1);
+@darkImperialBlue    : rgba(0, 16, 128, 1);
+@isabelline          : rgba(240, 240, 240, 1);
 @spanishGray         : rgba(0, 0, 60, 1);
 @spanishGrayLight    : rgba(0, 0, 60, .25);
+@violet              : rgba(87, 65, 155, 1);
+@violetDark          : rgba(87, 65, 155, .65);
 @indigo              : rgba(113, 28, 255, 1);
 @indigoLight         : rgba(113, 28, 255, .25);
 @indigoDark          : rgba(113, 28, 255, .65);
@@ -89,32 +96,33 @@
 /*-------------------
     Colors etc.
 --------------------*/
-@pageBackground             : #efefef;
+@pageBackground             : #f0f0f0;
 @invertedMenuColor          : @spaceCadet;
 @fixedMenuColor             : @zaffre;
 @spinnerColor               : @navyPurple;
 @inputBackground            : @white;
-@linkColor                  : @liberty;
-@strongColor                : @grape;
-@dropCapColor               : @independence;
-@summaryActiveColor         : @independence;
+@linkColor                  : @cobaltBlue;
+@emphasisColor              : @grape;
+@strongColor                : @jet;
+@dropCapColor               : @jet;
+@summaryActiveColor         : @violet;
+@summaryHoverColor          : @jet;
 @summaryInactiveColor       : @grey;
 @fieldFocusBackground       : @white;
-@fieldFocusBorderColor      : @indigoLight;
+@fieldFocusBorderColor      : @violet;
 @fieldFocusBoxShadow        : none;
 @dropHoveredItemColor       : @white;
-@dropHoveredItemBackground  : @indigo; 
+@dropHoveredItemBackground  : @violet; 
 
 /*-------------------
      Button Colors
 --------------------*/
 @buttonPrimaryBackground: @magnolia;
-@buttonPrimaryBorder: @spanishGrayLight; 
-@buttonPrimaryColor: @indigoDark;
+@buttonPrimarySVG: @indigoDark;
+@buttonPrimaryColor: @violetDark;
 @activeButtonPrimaryBackground: @indigo;
-@activeButtonPrimaryBorder: @indigo;
+@activeButtonPrimarySVG: @isabelline;
 @activeButtonPrimaryColor: @white;
-
 
 /*-------------------
   Padding & Margin
@@ -145,7 +153,7 @@
      Transitions
 --------------------*/
 
-@defaultDuration : 0.5s;
+@defaultDuration : 0.2s;
 @defaultEasing   : ease;
 
 /*-------------------

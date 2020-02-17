@@ -104,8 +104,8 @@ i.link.icon:not(.disabled),
 i.link.icons:not(.disabled) {
   cursor: pointer;
   opacity: 0.8;
-  -webkit-transition: opacity 0.5s ease;
-  transition: opacity 0.5s ease;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 i.link.icon:hover,
 i.link.icons:hover {
@@ -338,14 +338,14 @@ i.inverted.circular.blue.icon.icon.icon.icon {
   color: #FFFFFF;
 }
 i.violet.icon.icon.icon.icon {
-  color: #6435C9;
+  color: #57419b;
 }
 i.inverted.violet.icon.icon.icon.icon {
   color: #A291FB;
 }
 i.inverted.bordered.violet.icon.icon.icon.icon,
 i.inverted.circular.violet.icon.icon.icon.icon {
-  background-color: #6435C9;
+  background-color: #57419b;
   color: #FFFFFF;
 }
 i.purple.icon.icon.icon.icon {

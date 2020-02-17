@@ -82,10 +82,10 @@
   border-radius: 0;
   border: none;
   border-right: 1px solid rgba(34, 36, 38, 0.15);
-  -webkit-transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, -webkit-box-shadow 0.5s ease;
-  transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, -webkit-box-shadow 0.5s ease;
-  transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
-  transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, -webkit-box-shadow 0.5s ease;
+  -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
 }
 
 /* Arrow */
@@ -102,10 +102,10 @@
   border-style: solid;
   border-color: rgba(34, 36, 38, 0.15);
   border-width: 0 1px 1px 0;
-  -webkit-transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, -webkit-box-shadow 0.5s ease;
-  transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, -webkit-box-shadow 0.5s ease;
-  transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
-  transition: background-color 0.5s ease, opacity 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, -webkit-box-shadow 0.5s ease;
+  -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
           transform: translateY(-50%) translateX(50%) rotate(-45deg);
 }
@@ -362,7 +362,7 @@
   background: #F3F4F5;
 }
 .ui.steps .step.active .title {
-  color: #4a5899;
+  color: #0645ad;
 }
 .ui.ordered.steps .step.active:before,
 .ui.steps .active.step .icon {

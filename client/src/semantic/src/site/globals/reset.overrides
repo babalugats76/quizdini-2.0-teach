@@ -31,3 +31,12 @@ sup,
 sub {
   font-family: @monospaceFont;
 }
+
+strong {  
+  color: @strongColor;
+}
+
+em {
+  color: @emphasisColor;
+  font-style: normal;
+}

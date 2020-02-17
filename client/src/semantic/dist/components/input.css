@@ -43,10 +43,10 @@
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(10, 10, 10, 0.75);
   border-radius: 0.1875rem;
-  -webkit-transition: border-color 0.5s ease, -webkit-box-shadow 0.5s ease;
-  transition: border-color 0.5s ease, -webkit-box-shadow 0.5s ease;
-  transition: box-shadow 0.5s ease, border-color 0.5s ease;
-  transition: box-shadow 0.5s ease, border-color 0.5s ease, -webkit-box-shadow 0.5s ease;
+  -webkit-transition: border-color 0.2s ease, -webkit-box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, -webkit-box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, -webkit-box-shadow 0.2s ease;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -136,7 +136,7 @@
 
 .ui.input.focus > input,
 .ui.input > input:focus {
-  border-color: rgba(113, 28, 255, 0.25);
+  border-color: #57419b;
   background: #FFFFFF;
   color: rgba(10, 10, 10, 0.75);
   -webkit-box-shadow: none;
@@ -424,7 +424,7 @@
   border-left-color: transparent;
 }
 .ui.labeled.input:not([class*="corner labeled"]) .label:first-child + input:focus {
-  border-left-color: rgba(113, 28, 255, 0.25);
+  border-left-color: #57419b;
 }
 
 /* Regular Label on Right */
@@ -438,7 +438,7 @@
   border-bottom-left-radius: 0;
 }
 .ui[class*="right labeled"].input > input:focus {
-  border-right-color: rgba(113, 28, 255, 0.25) !important;
+  border-right-color: #57419b !important;
 }
 
 /* Corner Label */
@@ -639,10 +639,10 @@
 
 /* Input Focus */
 .ui.action.input:not([class*="left action"]) > input:focus {
-  border-right-color: rgba(113, 28, 255, 0.25);
+  border-right-color: #57419b;
 }
 .ui.ui[class*="left action"].input > input:focus {
-  border-left-color: rgba(113, 28, 255, 0.25);
+  border-left-color: #57419b;
 }
 
 /*--------------------
