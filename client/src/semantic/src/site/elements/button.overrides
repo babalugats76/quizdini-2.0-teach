@@ -6,5 +6,7 @@
   padding-top: @relative11px !important;
   padding-bottom: @relative11px !important;
 }
-
+.ui[class*="right labeled"].icon.button {
+    padding-right: 3em !important;
+}
 

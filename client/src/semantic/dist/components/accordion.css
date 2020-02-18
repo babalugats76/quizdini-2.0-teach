@@ -33,7 +33,7 @@
   padding: 0.5em 0;
   font-family: 'marcher-medium', sans-serif;
   font-size: 1em;
-  color: rgba(10, 10, 10, 0.82);
+  color: rgba(10, 10, 10, 0.75);
 }
 
 /* Default Styling */
@@ -156,22 +156,22 @@
 .ui.styled.accordion .accordion .title:hover,
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
-  color: rgba(10, 10, 10, 0.82);
+  color: rgba(10, 10, 10, 0.75);
 }
 .ui.styled.accordion .accordion .title:hover,
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
-  color: rgba(10, 10, 10, 0.82);
+  color: rgba(10, 10, 10, 0.75);
 }
 
 /* Active */
 .ui.styled.accordion .active.title {
   background: transparent;
-  color: rgba(10, 10, 10, 0.82);
+  color: rgba(10, 10, 10, 0.75);
 }
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
-  color: rgba(10, 10, 10, 0.82);
+  color: rgba(10, 10, 10, 0.75);
 }
 
 

@@ -56,7 +56,7 @@
 .ui.form .field > label {
   display: block;
   margin: 0 0 0.25rem 0;
-  color: rgba(10, 10, 10, 0.82);
+  color: rgba(10, 10, 10, 0.75);
   font-size: 0.9375em;
   font-weight: 400;
   text-transform: none;
@@ -399,8 +399,8 @@
 .ui.form input[type="text"]:focus,
 .ui.form input[type="file"]:focus,
 .ui.form input[type="url"]:focus {
-  color: rgba(10, 10, 10, 0.82);
-  border-color: rgba(113, 28, 255, 0.65);
+  color: rgba(10, 10, 10, 0.75);
+  border-color: #cce2ff;
   border-radius: 0.1875rem;
   background: #FFFFFF;
   -webkit-box-shadow: none;
@@ -437,8 +437,8 @@
   border-top-left-radius: 0;
 }
 .ui.form textarea:focus {
-  color: rgba(10, 10, 10, 0.82);
-  border-color: rgba(113, 28, 255, 0.65);
+  color: rgba(10, 10, 10, 0.75);
+  border-color: #cce2ff;
   border-radius: 0.1875rem;
   background: #FFFFFF;
   -webkit-box-shadow: none;
@@ -1460,7 +1460,7 @@
 }
 .ui.form .grouped.fields > label {
   margin: 0 0 0.25rem 0;
-  color: rgba(10, 10, 10, 0.82);
+  color: rgba(10, 10, 10, 0.75);
   font-size: 0.9375em;
   font-weight: 400;
   text-transform: none;
@@ -1697,7 +1697,7 @@
   vertical-align: baseline;
   font-size: 0.9375em;
   font-weight: 400;
-  color: rgba(10, 10, 10, 0.82);
+  color: rgba(10, 10, 10, 0.75);
   text-transform: none;
 }
 
@@ -1817,7 +1817,7 @@
 .ui.grid .row .column > label {
   display: block;
   margin: 0 0 0.25rem 0;
-  color: rgba(10, 10, 10, 0.82);
+  color: rgba(10, 10, 10, 0.75);
   font-size: 0.9375em;
   font-weight: 400;
   text-transform: none;

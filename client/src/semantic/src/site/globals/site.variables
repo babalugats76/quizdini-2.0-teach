@@ -43,11 +43,11 @@
 /*-------------------
   Text Colors, etc.
 --------------------*/
-@textColor                   : rgba(10, 10, 10, 0.82);
+@textColor                   : rgba(10, 10, 10, 0.75);
 @unselectedTextColor         : rgba(10, 10, 10, 0.5);
-@hoveredTextColor            : rgba(10, 10, 10, 0.82);
-@pressedTextColor            : rgba(10, 10, 10, 0.82);
-@selectedTextColor           : rgba(10, 10, 10, 0.82);
+@hoveredTextColor            : rgba(10, 10, 10, 0.75);
+@pressedTextColor            : rgba(10, 10, 10, 0.75);
+@selectedTextColor           : rgba(10, 10, 10, 0.75);
 
 @bold                        : 400;
 
@@ -77,8 +77,8 @@
 @zaffre              : rgba(0, 19, 153, 1);
 @zaffreTransDark     : rgba(0, 19, 153, .65);
 
-@primaryColor        : @navyPurple;
-@primaryColorTrans   : @navyPurpleTrans;
+@primaryColor        : @indigo;
+@primaryColorTrans   : @indigoTransDark;
 @secondaryColor      : @jet;
 
 /*-------------------

@@ -122,6 +122,14 @@
       background-color: @pageBackground;
       > .page {
         margin: 2rem auto 3rem;
+        &.flxc {
+          display: flex;
+          flex: 1 0 auto;
+          flex-direction: column;
+          &.vc {
+            justify-content: center;
+          }
+        }
       }
       .banner {
         width: 100%;
@@ -761,47 +769,69 @@ svg {
   Login
 --------------------*/
 
-#login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 110px;
+#login-wrapper {
 
-  a {
-    color: @linkColor;
+  .ui.header.logo {
+     > .ui.image {
+       display: block;
+       margin: .3rem auto 0;
+     }
+  }
+
+  a#google-login {
+    display: block;
+    width: 191px;
+    height: 46px;
+    margin: 0 auto;
+    text-decoration: none;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
+    background-size: 191px 46px;
+    &:focus,
     &:hover {
-      text-decoration: underline;
+      background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
+    }
+    &:active,
+    &:visited {
+      background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
     }
   }
 
-  button[type="submit"] {
+  .ui.divider {
+    color: @secondaryColor;
+  }
+
+  #login-form {
     display: flex;
-    margin: 1em auto;
-  }
+    flex-direction: column;
+    align-items: center;
+    min-height: 236px;
 
-  .input-feedback {
-    text-align: center;
-  }
-}
+    .input-feedback {
+      text-align: center;
+    }
 
-a#google-login {
-  display: block;
-  width: 191px;
-  height: 46px;
-  margin: 0 auto;
-  text-decoration: none;
-  color: transparent;
-  border: 0;
-  outline: none;
-  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
-  background-size: 191px 46px;
-  &:focus,
-  &:hover {
-    background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
-  }
-  &:active,
-  &:visited {
-    background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
+    .field {
+      width: 191px;
+    }
+
+    button[type="submit"] {
+      display: flex;
+      margin: 1em auto;
+    }
+
+    p:last-of-type {
+      margin: auto 0 0;
+    }
+
+    a {
+      color: @linkColor;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
