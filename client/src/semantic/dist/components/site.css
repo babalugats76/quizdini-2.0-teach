@@ -122,36 +122,36 @@ a:hover {
 
 /* Site */
 ::-webkit-selection {
-  background-color: #CCE2FF;
+  background-color: #cce2ff;
   color: rgba(10, 10, 10, 0.82);
 }
 ::-moz-selection {
-  background-color: #CCE2FF;
+  background-color: #cce2ff;
   color: rgba(10, 10, 10, 0.82);
 }
 ::selection {
-  background-color: #CCE2FF;
+  background-color: #cce2ff;
   color: rgba(10, 10, 10, 0.82);
 }
 
 /* Form */
 textarea::-webkit-selection,
 input::-webkit-selection {
-  background-color: rgba(100, 100, 100, 0.4);
+  background-color: #cce2ff;
   color: rgba(10, 10, 10, 0.82);
 }
 textarea::-moz-selection,
 input::-moz-selection {
-  background-color: rgba(100, 100, 100, 0.4);
+  background-color: #cce2ff;
   color: rgba(10, 10, 10, 0.82);
 }
 textarea::-moz-selection, input::-moz-selection {
-  background-color: rgba(100, 100, 100, 0.4);
+  background-color: #cce2ff;
   color: rgba(10, 10, 10, 0.82);
 }
 textarea::selection,
 input::selection {
-  background-color: rgba(100, 100, 100, 0.4);
+  background-color: #cce2ff;
   color: rgba(10, 10, 10, 0.82);
 }
 

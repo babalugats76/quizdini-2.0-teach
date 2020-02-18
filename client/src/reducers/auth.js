@@ -47,8 +47,6 @@ export default function(state = initialState, action) {
           }
         : UNAUTHORIZED;
 
-      console.log(JSON.stringify(auth, null, 4));
-
       return {
         ...state, // spread previous state
         loaded: true, // set initialized

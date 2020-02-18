@@ -67,6 +67,7 @@
 @liberty             : rgba(74, 88, 153, 1);
 @navyPurple          : rgba(170, 84, 255, 1);
 @navyPurpleTrans     : rgba(170, 84, 255, .5);
+@periwinkle          : rgba(204, 226, 255, 1);
 @pixiePowder         : rgba(57, 18, 133, 1);
 @spaceCadet          : rgba(26, 28, 87, 1);
 @spaceCadetTransDark : rgba(26, 28, 87, .9);
@@ -86,7 +87,15 @@
 @udemyColor          : #ea5252;     
 
 /*-------------------
-    Colors etc.
+  Highlighted Text
+--------------------*/
+@highlightBackground         : @periwinkle;
+@highlightColor              : @textColor;
+@inputHighlightBackground    : @periwinkle;
+@inputHighlightColor         : @textColor;
+
+/*-------------------
+   Color Assignment
 --------------------*/
 @captionColor               : @pixiePowder; 
 @dropCapColor               : @secondaryColor;
@@ -106,11 +115,6 @@
 @summaryActiveColor         : @violet;
 @summaryHoverColor          : @secondaryColor;
 @summaryInactiveColor       : @grey;
-
-/*-------------------
-     Button Colors
---------------------*/
-
 
 /*-------------------
   Padding & Margin

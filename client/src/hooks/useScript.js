@@ -53,7 +53,7 @@ export default function useScript(src, attributes = {}) {
   useEffect(
     () => {
       if (document.querySelector(`script[src="${src}"]`)) {
-        console.log("script already loaded...");
+        // console.log("script already loaded...");
         dispatch({ type: "LOADED" });
         return;
       }
@@ -72,7 +72,7 @@ export default function useScript(src, attributes = {}) {
       document.body.appendChild(script);
 
       return () => {
-        console.log("unloading...");
+        // console.log("unloading...");
         script.removeEventListener("load", onScriptLoad);
         script.removeEventListener("error", onScriptError);
       };

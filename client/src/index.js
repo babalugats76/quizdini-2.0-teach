@@ -19,5 +19,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('quizdini')
 );
-
-// console.log('STRIKE KEY', process.env.REACT_APP_STRIPE_KEY);
