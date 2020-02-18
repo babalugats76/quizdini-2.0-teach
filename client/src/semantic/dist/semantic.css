@@ -712,52 +712,52 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 /* lexend-deca-regular - latin */
 
 @font-face {
-  font-family: 'Lexend Deca';
+  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 400;
-  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
- url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
+  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"), url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"), 
+ url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: 'marcher-light';
-  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-light-webfont.woff') format('woff');
+  font-family: "marcher-light";
+  src: url("https://static.quizdini.com/fonts/marcher-light-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-book';
-  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-book-webfont.woff') format('woff');
+  font-family: "marcher-book";
+  src: url("https://static.quizdini.com/fonts/marcher-book-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-book-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-regular';
-  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff') format('woff');
+  font-family: "marcher-regular";
+  src: url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-medium';
-  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff') format('woff');
+  font-family: "marcher-medium";
+  src: url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-extrabold';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff') format('woff');
+  font-family: "marcher-extrabold";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-extrabolditalic';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff') format('woff');
+  font-family: "marcher-extrabolditalic";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -767,7 +767,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 --------------------*/
 
 #quizdini {
-  height: 100%;
   background-color: #f0f0f0;
 }
 
@@ -787,7 +786,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   padding-top: 69px;
 }
 
-.pushable .pusher {
+.pushable > .pusher {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -795,11 +794,11 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 100%;
+  min-height: calc(100vh) !important;
   overflow-y: auto !important;
 }
 
-.pushable .pusher .ui.massive.menu {
+.pushable > .pusher .ui.massive.menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -811,16 +810,16 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-.pushable .pusher .ui.massive.menu .item svg.icon {
+.pushable > .pusher .ui.massive.menu .item svg.icon {
   width: 1.375em;
   height: 1.375em;
 }
 
-.pushable .pusher .ui.massive.menu .item svg.icon path {
+.pushable > .pusher .ui.massive.menu .item svg.icon path {
   fill: #FFFFFF;
 }
 
-.pushable .pusher > .page-wrapper {
+.pushable > .pusher > .page-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -834,36 +833,35 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   flex-direction: column;
   width: 100%;
   height: auto;
-  min-height: 100%;
   -ms-flex-line-pack: center;
   align-content: center;
   /* center the children */
   background-color: #f0f0f0;
 }
 
-.pushable .pusher > .page-wrapper > .page {
+.pushable > .pusher > .page-wrapper > .page {
   margin: 2rem auto 3rem;
 }
 
-.pushable .pusher > .page-wrapper .banner {
+.pushable > .pusher > .page-wrapper .banner {
   width: 100%;
   padding: 2.5rem;
   margin: 0;
 }
 
-.pushable .pusher > .page-wrapper .ui.container.small {
+.pushable > .pusher > .page-wrapper .ui.container.small {
   max-width: 432px;
 }
 
-.pushable .pusher > .page-wrapper .ui.container.medium {
+.pushable > .pusher > .page-wrapper .ui.container.medium {
   max-width: 735.98px;
 }
 
-.pushable .pusher > .page-wrapper .ui.container.large {
+.pushable > .pusher > .page-wrapper .ui.container.large {
   max-width: 1168px;
 }
 
-.pushable .pusher > #footer {
+.pushable > .pusher > #footer {
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
@@ -1142,7 +1140,7 @@ svg.icon.chevron-down.closed {
   min-height: 300px;
 }
 
-.form-step button[type='submit'] {
+.form-step button[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1170,7 +1168,7 @@ svg.icon.chevron-down.closed {
   background-color: rgba(84, 84, 84, 0.87);
   background-size: 25px;
   background-repeat: round;
-  background-image: url('/images/question.svg');
+  background-image: url("/images/question.svg");
 }
 
 #landing .banner#selling-points {
@@ -1384,7 +1382,7 @@ svg.icon.chevron-down.closed {
 #about.page section details > summary:before,
 #terms.page section details > summary:before {
   display: inline-block;
-  content: '\25bc\00a0';
+  content: "\25bc\00a0";
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
   -webkit-transition: all 300ms ease-in-out;
@@ -1555,7 +1553,7 @@ svg.icon.chevron-down.closed {
   text-decoration: underline;
 }
 
-#login-form button[type='submit'] {
+#login-form button[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1575,18 +1573,18 @@ a#google-login {
   color: transparent;
   border: 0;
   outline: none;
-  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
+  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
   background-size: 191px 46px;
 }
 
 a#google-login:focus,
 a#google-login:hover {
-  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
+  background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
 }
 
 a#google-login:active,
 a#google-login:visited {
-  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
+  background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
 }
 
 /*-------------------
@@ -1718,7 +1716,7 @@ a#google-login:visited {
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   background-size: 25px;
   background-repeat: round;
-  background-image: url('/images/question.svg');
+  background-image: url("/images/question.svg");
 }
 
 .ui.cards .ui.card.match-card .content.match-card-header:hover .ui.icon.button.trash {
@@ -1960,7 +1958,7 @@ a#google-login:visited {
   box-shadow: none;
 }
 
-#match-form .rich-text-editor:not([contenteditable='true']) {
+#match-form .rich-text-editor:not([contenteditable="true"]) {
   color: rgba(10, 10, 10, 0.5);
   background-color: transparent;
   border-color: transparent;
@@ -38651,45 +38649,45 @@ select.ui.dropdown {
 
 @media only screen and (min-width: 992px) {
   .ui.selection.dropdown[class*="very short"] .menu {
-    max-height: 8.175rem;
+    max-height: 6.8125rem;
   }
 
   .ui.selection.dropdown.short .menu {
-    max-height: 12.2625rem;
+    max-height: 10.21875rem;
   }
 
   .ui.selection.dropdown .menu {
-    max-height: 16.35rem;
+    max-height: 13.625rem;
   }
 
   .ui.selection.dropdown.long .menu {
-    max-height: 32.7rem;
+    max-height: 27.25rem;
   }
 
   .ui.selection.dropdown[class*="very long"] .menu {
-    max-height: 49.05rem;
+    max-height: 40.875rem;
   }
 }
 
 @media only screen and (min-width: 1920px) {
   .ui.selection.dropdown[class*="very short"] .menu {
-    max-height: 10.9rem;
+    max-height: 6.8125rem;
   }
 
   .ui.selection.dropdown.short .menu {
-    max-height: 16.35rem;
+    max-height: 10.21875rem;
   }
 
   .ui.selection.dropdown .menu {
-    max-height: 21.8rem;
+    max-height: 13.625rem;
   }
 
   .ui.selection.dropdown.long .menu {
-    max-height: 43.6rem;
+    max-height: 27.25rem;
   }
 
   .ui.selection.dropdown[class*="very long"] .menu {
-    max-height: 65.4rem;
+    max-height: 40.875rem;
   }
 }
 
@@ -38897,13 +38895,13 @@ select.ui.dropdown {
 
 @media only screen and (min-width: 992px) {
   .ui.search.dropdown .menu {
-    max-height: 16.35rem;
+    max-height: 13.625rem;
   }
 }
 
 @media only screen and (min-width: 1920px) {
   .ui.search.dropdown .menu {
-    max-height: 21.8rem;
+    max-height: 13.625rem;
   }
 }
 
@@ -39605,7 +39603,7 @@ select.ui.dropdown {
 @media only screen and (min-width: 1920px) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    max-height: 21rem;
+    max-height: 13.125rem;
   }
 }
 

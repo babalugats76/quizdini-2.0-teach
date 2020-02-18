@@ -1,6 +1,11 @@
 /*******************************
     User Variable Overrides
 *******************************/
+@selectionMobileMaxItems: 3;
+@selectionTabletMaxItems: 4;
+@selectionComputerMaxItems: 5;
+@selectionWidescreenMaxItems: 5;
+
 @selectionTextColor: @unselectedTextColor; 
 @selectionFocusBorderColor: @fieldFocusBorderColor;
 @selectionFocusBoxShadow: @fieldFocusBoxShadow;

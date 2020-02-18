@@ -308,7 +308,7 @@ const RegisterForm = props => {
                     selection
                     setFieldValue={setFieldValue}
                     tabIndex={5}
-                    upward={false}
+                    upward={true}
                     value={values.countryCode}
                   />
                   {values.countryCode === 'US' && (
@@ -324,7 +324,7 @@ const RegisterForm = props => {
                       selection
                       setFieldValue={setFieldValue}
                       tabIndex={6}
-                      upward={false}
+                      upward={true}
                       value={values.stateCode}
                     />
                   )}

@@ -1,49 +1,43 @@
-import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { Divider, Header } from 'semantic-ui-react';
-import { Button, Icon } from '/';
+import React, { useCallback, useEffect } from "react";
+import PropTypes from "prop-types";
+import { Divider, Header } from "semantic-ui-react";
+import { Button, Icon } from "/";
 
-const FormStep = ({
-  children,
-  errors,
-  icon,
-  onNext,
-  onPrevious,
-  show,
-  step,
-  title,
-  ...rest
-}) => {
+const scrollTop = () => {
+  typeof window !== "undefined" &&
+    window.document &&
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+};
+
+const FormStep = ({ children, errors, icon, onNext, onPrevious, show, step, title, ...rest }) => {
+  useEffect(() => {
+    show && scrollTop();
+  }, [show]);
+
   const incomplete = useCallback(() => {
     let innerFound = false;
     return React.Children.toArray(children).some(child => {
-      if (child.type.name === 'FormGroup') {
+      if (child.type.name === "FormGroup") {
         innerFound = React.Children.toArray(child.props.children).some(
-          inner =>
-            inner.props.name in errors ||
-            (inner.props.required && !inner.props.value)
+          inner => inner.props.name in errors || (inner.props.required && !inner.props.value)
         );
       }
       return (
-        innerFound ||
-        child.props.name in errors ||
-        (child.props.required && !child.props.value)
+        innerFound || child.props.name in errors || (child.props.required && !child.props.value)
       );
     });
   }, [children, errors]);
 
   return show ? (
     <div className="form-step">
-      {title && (
-        <Divider horizontal section>
-          <Header as="h4">
-            <Icon name={icon} />
-            <Header.Content>
-              Step {step} - {title}
-            </Header.Content>
-          </Header>
-        </Divider>
-      )}
+      <Divider horizontal section>
+        <Header as="h4">
+          <Icon name={icon} />
+          <Header.Content>
+            Step {step} - {title}
+          </Header.Content>
+        </Header>
+      </Divider>
       {children}
       {(onPrevious || onNext) && (
         <nav>
@@ -53,12 +47,7 @@ const FormStep = ({
             </Button>
           )}
           {onNext && (
-            <Button
-              disabled={incomplete()}
-              floated="right"
-              onClick={onNext}
-              type="button"
-            >
+            <Button disabled={incomplete()} floated="right" onClick={onNext} type="button">
               NEXT
             </Button>
           )}
@@ -76,7 +65,7 @@ FormStep.propTypes = {
   onPrevious: PropTypes.func,
   show: PropTypes.bool.isRequired,
   FormStep: PropTypes.number.isRequired,
-  title: PropTypes.string
+  title: PropTypes.string.isRequired
 };
 
 FormStep.defaultProps = {
