@@ -75,9 +75,10 @@
 @violet              : rgba(87, 65, 155, 1);
 @violetTrans         : rgba(87, 65, 155, .5);
 @zaffre              : rgba(0, 19, 153, 1);
+@zaffreTransDark     : rgba(0, 19, 153, .65);
 
-@primaryColor        : @indigo;
-@primaryColorTrans   : @indigoTransDark;
+@primaryColor        : @navyPurple;
+@primaryColorTrans   : @navyPurpleTrans;
 @secondaryColor      : @jet;
 
 /*-------------------
@@ -99,11 +100,11 @@
 --------------------*/
 @captionColor               : @pixiePowder; 
 @dropCapColor               : @secondaryColor;
-@dropHoveredItemBackground  : @primaryColor;
-@dropHoveredItemColor       : @white;
+@dropHoveredItemBackground  : @periwinkle;
+@dropHoveredItemColor       : @textColor;
 @emphasisColor              : @grape;
 @fieldFocusBackground       : @white;
-@fieldFocusBorderColor      : @primaryColorTrans;
+@fieldFocusBorderColor      : @periwinkle;
 @fieldFocusBoxShadow        : none;
 @fixedMenuColor             : @zaffre;
 @inputBackground            : @white;
