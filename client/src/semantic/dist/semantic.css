@@ -508,7 +508,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   min-width: 320px;
-  background: #f0f0f0;
+  background: #FFFFFF;
   font-family: 'marcher-regular', sans-serif;
   font-size: 16px;
   line-height: 1.4285em;
@@ -712,52 +712,52 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 /* lexend-deca-regular - latin */
 
 @font-face {
-  font-family: "Lexend Deca";
+  font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"), url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"), 
- url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff") format("woff");
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
+ url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "marcher-light";
-  src: url("https://static.quizdini.com/fonts/marcher-light-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-light-webfont.woff") format("woff");
+  font-family: 'marcher-light';
+  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-light-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-book";
-  src: url("https://static.quizdini.com/fonts/marcher-book-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-book-webfont.woff") format("woff");
+  font-family: 'marcher-book';
+  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-book-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-regular";
-  src: url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff") format("woff");
+  font-family: 'marcher-regular';
+  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-medium";
-  src: url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff") format("woff");
+  font-family: 'marcher-medium';
+  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-extrabold";
-  src: url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff") format("woff");
+  font-family: 'marcher-extrabold';
+  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-extrabolditalic";
-  src: url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
+  font-family: 'marcher-extrabolditalic';
+  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -767,7 +767,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 --------------------*/
 
 #quizdini {
-  background-color: #f0f0f0;
+  background-color: #FFFFFF;
 }
 
 /*-------------------
@@ -778,14 +778,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   overflow-y: hidden;
 }
 
-.pushable.menu-is-fixed .ui.massive.menu {
-  background-color: #001399;
-}
-
-.pushable.menu-is-fixed .pusher > .page-wrapper {
-  padding-top: 69px;
-}
-
 .pushable > .pusher {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -794,29 +786,8 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  min-height: calc(100vh) !important;
+  min-height: calc(100vh - 71px) !important;
   overflow-y: auto !important;
-}
-
-.pushable > .pusher .ui.massive.menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  margin: 0;
-  -webkit-transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
-  transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.pushable > .pusher .ui.massive.menu .item svg.icon {
-  width: 1.375em;
-  height: 1.375em;
-}
-
-.pushable > .pusher .ui.massive.menu .item svg.icon path {
-  fill: #FFFFFF;
 }
 
 .pushable > .pusher > .page-wrapper {
@@ -836,7 +807,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   -ms-flex-line-pack: center;
   align-content: center;
   /* center the children */
-  background-color: #f0f0f0;
 }
 
 .pushable > .pusher > .page-wrapper > .page {
@@ -880,7 +850,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   max-width: 1168px;
 }
 
-.pushable > .pusher > #footer {
+.pushable > .pusher > .page-wrapper > #footer {
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
@@ -896,9 +866,30 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   background-color: #2e3235;
 }
 
+.ui.massive.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  margin: 0;
+  -webkit-transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.ui.massive.menu .item svg.icon {
+  width: 1.375em;
+  height: 1.375em;
+}
+
 .ui.massive.menu,
 .ui.pagination.menu {
   font-family: 'marcher-regular', sans-serif;
+}
+
+.ui.menu.inverted .item svg path {
+  fill: #FFFFFF;
 }
 
 .ui.menu .link.item img.profile {
@@ -1117,6 +1108,59 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
+  Modal
+--------------------*/
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: auto;
+  /*max-height: 100vh;*/
+  min-width: 18em;
+  max-width: 32em;
+  z-index: 2000;
+  visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  /*overflow: auto;*/
+}
+
+.modal-content {
+  color: white;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.modal-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.modal-show {
+  display: block;
+  visibility: visible;
+}
+
+.modal-show ~ .modal-overlay {
+  opacity: 1;
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/*-------------------
   Forms
 --------------------*/
 
@@ -1159,7 +1203,7 @@ svg.icon.chevron-down.closed {
   min-height: 300px;
 }
 
-.form-step button[type="submit"] {
+.form-step button[type='submit'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1187,7 +1231,7 @@ svg.icon.chevron-down.closed {
   background-color: rgba(84, 84, 84, 0.87);
   background-size: 25px;
   background-repeat: round;
-  background-image: url("/images/question.svg");
+  background-image: url('/images/question.svg');
 }
 
 #landing .banner#selling-points {
@@ -1401,7 +1445,7 @@ svg.icon.chevron-down.closed {
 #about.page section details > summary:before,
 #terms.page section details > summary:before {
   display: inline-block;
-  content: "\25bc\00a0";
+  content: '\25bc\00a0';
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
   -webkit-transition: all 300ms ease-in-out;
@@ -1518,6 +1562,14 @@ svg.icon.chevron-down.closed {
   Register
 --------------------*/
 
+/* Additional spacer is needed because of dropdowns */
+
+#register::after {
+  content: '';
+  display: block;
+  height: 100px;
+}
+
 #register-form .ui.horizontal.divider .ui.header:first-of-type {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1550,6 +1602,10 @@ svg.icon.chevron-down.closed {
   Login
 --------------------*/
 
+#login-wrapper .ui.header.logo {
+  padding: 0 !important;
+}
+
 #login-wrapper .ui.header.logo > .ui.image {
   display: block;
   margin: 0.3rem auto 0;
@@ -1564,18 +1620,18 @@ svg.icon.chevron-down.closed {
   color: transparent;
   border: 0;
   outline: none;
-  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
+  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
   background-size: 191px 46px;
 }
 
 #login-wrapper a#google-login:focus,
 #login-wrapper a#google-login:hover {
-  background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
+  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
 }
 
 #login-wrapper a#google-login:active,
 #login-wrapper a#google-login:visited {
-  background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
+  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
 }
 
 #login-wrapper .ui.divider {
@@ -1593,7 +1649,7 @@ svg.icon.chevron-down.closed {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  min-height: 236px;
+  min-height: 204px;
 }
 
 #login-wrapper #login-form .input-feedback {
@@ -1604,15 +1660,15 @@ svg.icon.chevron-down.closed {
   width: 191px;
 }
 
-#login-wrapper #login-form button[type="submit"] {
+#login-wrapper #login-form button[type='submit'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 1em auto;
+  margin: 0.5em auto;
 }
 
 #login-wrapper #login-form p:last-of-type {
-  margin: auto 0 0;
+  margin: auto 0 0.5em;
 }
 
 #login-wrapper #login-form a {
@@ -1752,7 +1808,7 @@ svg.icon.chevron-down.closed {
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   background-size: 25px;
   background-repeat: round;
-  background-image: url("/images/question.svg");
+  background-image: url('/images/question.svg');
 }
 
 .ui.cards .ui.card.match-card .content.match-card-header:hover .ui.icon.button.trash {
@@ -1994,7 +2050,7 @@ svg.icon.chevron-down.closed {
   box-shadow: none;
 }
 
-#match-form .rich-text-editor:not([contenteditable="true"]) {
+#match-form .rich-text-editor:not([contenteditable='true']) {
   color: rgba(10, 10, 10, 0.5);
   background-color: transparent;
   border-color: transparent;
@@ -2166,6 +2222,12 @@ svg.icon.chevron-down.closed {
 --------------------*/
 
 @media only screen and (max-width: 767.98px) {
+  .page-wrapper .ui.container > .ui.segment {
+    border: unset;
+    -webkit-box-shadow: unset;
+    box-shadow: unset;
+  }
+
   .page-wrapper > .page {
     padding: 0 0.5rem;
   }
@@ -2217,6 +2279,10 @@ svg.icon.chevron-down.closed {
 }
 
 @media only screen and (min-width: 768px) {
+  .page-wrapper {
+    background: #f0f0f0;
+  }
+
   .page-wrapper > .page {
     padding: 0 1rem;
   }
@@ -30681,7 +30747,7 @@ Floated Menu / Item
 
 .ui.inverted.menu {
   border: 0 solid transparent;
-  background: #1a1c57;
+  background: #001399;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -40323,6 +40389,862 @@ select.ui.dropdown {
   font-family: 'marcher-regular', sans-serif;
 }
 /*!
+ * # Fomantic-UI - Modal
+ * http://github.com/fomantic/Fomantic-UI/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+             Modal
+*******************************/
+
+.ui.modal {
+  position: absolute;
+  display: none;
+  z-index: 1001;
+  text-align: left;
+  background: #FFFFFF;
+  border: none;
+  -webkit-box-shadow: 1px 3px 3px 0 rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 3px 3px 0 rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
+  -webkit-transform-origin: 50% 25%;
+  transform-origin: 50% 25%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  border-radius: 0.1875rem;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  will-change: top, left, margin, transform, opacity;
+}
+
+.ui.modal > :first-child:not(.icon):not(.dimmer),
+.ui.modal > .icon:first-child + *,
+.ui.modal > .dimmer:first-child + *:not(.icon),
+.ui.modal > .dimmer:first-child + .icon + * {
+  border-top-left-radius: 0.1875rem;
+  border-top-right-radius: 0.1875rem;
+}
+
+.ui.modal > :last-child {
+  border-bottom-left-radius: 0.1875rem;
+  border-bottom-right-radius: 0.1875rem;
+}
+
+/*******************************
+            Content
+*******************************/
+
+/*--------------
+     Close
+---------------*/
+
+.ui.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  top: -2.5rem;
+  right: -2.5rem;
+  z-index: 1;
+  opacity: 0.8;
+  font-size: 1.25em;
+  color: #FFFFFF;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0.625rem 0 0 0;
+}
+
+.ui.modal > .close:hover {
+  opacity: 1;
+}
+
+/*--------------
+     Header
+---------------*/
+
+.ui.modal > .header {
+  display: block;
+  font-family: 'marcher-medium', sans-serif;
+  background: #FFFFFF;
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+}
+
+.ui.modal > .header:not(.ui) {
+  font-size: 1.4375rem;
+  line-height: 1.28571429em;
+  font-weight: 400;
+}
+
+/*--------------
+     Content
+---------------*/
+
+.ui.modal > .content {
+  display: block;
+  width: 100%;
+  font-size: 1em;
+  line-height: 1.4;
+  padding: 1.5rem;
+  background: #FFFFFF;
+}
+
+.ui.modal > .image.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+/* Image */
+
+.ui.modal > .content > .image {
+  display: block;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  width: '';
+  -ms-flex-item-align: start;
+  align-self: start;
+  max-width: 100%;
+}
+
+.ui.modal > [class*="top aligned"] {
+  -ms-flex-item-align: start;
+  align-self: start;
+}
+
+.ui.modal > [class*="middle aligned"] {
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.ui.modal > [class*="stretched"] {
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}
+
+/* Description */
+
+.ui.modal > .content > .description {
+  display: block;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  min-width: 0;
+  -ms-flex-item-align: start;
+  align-self: start;
+}
+
+.ui.modal > .content > .icon + .description,
+.ui.modal > .content > .image + .description {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  min-width: '';
+  width: auto;
+  padding-left: 2em;
+}
+
+/*rtl:ignore*/
+
+.ui.modal > .content > .image > i.icon {
+  margin: 0;
+  opacity: 1;
+  width: auto;
+  line-height: 1;
+  font-size: 8rem;
+}
+
+/*--------------
+     Actions
+---------------*/
+
+.ui.modal > .actions {
+  background: #F9FAFB;
+  padding: 1rem 1rem;
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  text-align: right;
+}
+
+.ui.modal .actions > .button {
+  margin-left: 0.75em;
+}
+
+.ui.basic.modal > .actions {
+  border-top: none;
+}
+
+/*-------------------
+       Responsive
+--------------------*/
+
+/* Modal Width */
+
+@media only screen and (max-width: 767.98px) {
+  .ui.modal:not(.fullscreen) {
+    width: 95%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.modal:not(.fullscreen) {
+    width: 88%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.modal:not(.fullscreen) {
+    width: 850px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.modal:not(.fullscreen) {
+    width: 900px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.modal:not(.fullscreen) {
+    width: 950px;
+    margin: 0 0 0 0;
+  }
+}
+
+/* Tablet and Mobile */
+
+@media only screen and (max-width: 991.98px) {
+  .ui.modal > .header {
+    padding-right: 2.25rem;
+  }
+
+  .ui.modal > .close {
+    top: 1.0535rem;
+    right: 1rem;
+    color: rgba(10, 10, 10, 0.75);
+  }
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 767.98px) {
+  .ui.modal > .header {
+    padding: 0.75rem 1rem !important;
+    padding-right: 2.25rem !important;
+  }
+
+  .ui.overlay.fullscreen.modal > .content.content.content {
+    min-height: calc(100vh - 8.1rem);
+  }
+
+  .ui.overlay.fullscreen.modal > .scrolling.content.content.content {
+    max-height: calc(100vh - 8.1rem);
+  }
+
+  .ui.modal > .content {
+    display: block;
+    padding: 1rem !important;
+  }
+
+  .ui.modal > .close {
+    top: 0.5rem !important;
+    right: 0.5rem !important;
+  }
+
+  /*rtl:ignore*/
+
+  .ui.modal .image.content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .ui.modal .content > .image {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto !important;
+    text-align: center;
+    padding: 0 0 1rem !important;
+  }
+
+  .ui.modal > .content > .image > i.icon {
+    font-size: 5rem;
+    text-align: center;
+  }
+
+  /*rtl:ignore*/
+
+  .ui.modal .content > .description {
+    display: block;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 1rem 0 !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  /* Let Buttons Stack */
+
+  .ui.modal > .actions {
+    padding: 1rem 1rem 0rem !important;
+  }
+
+  .ui.modal .actions > .buttons,
+  .ui.modal .actions > .button {
+    margin-bottom: 1rem;
+  }
+}
+
+/*--------------
+    Coupling
+---------------*/
+
+.ui.inverted.dimmer > .ui.modal {
+  -webkit-box-shadow: 1px 3px 10px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 3px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+/*******************************
+             Types
+*******************************/
+
+.ui.basic.modal {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  color: #FFFFFF;
+}
+
+.ui.basic.modal > .header,
+.ui.basic.modal > .content,
+.ui.basic.modal > .actions {
+  background-color: transparent;
+}
+
+.ui.basic.modal > .header {
+  color: #FFFFFF;
+}
+
+.ui.basic.modal > .close {
+  top: 1rem;
+  right: 1.5rem;
+  color: #FFFFFF;
+}
+
+.ui.inverted.dimmer > .basic.modal {
+  color: rgba(10, 10, 10, 0.75);
+}
+
+.ui.inverted.dimmer > .ui.basic.modal > .header {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Resort to margin positioning if legacy */
+
+.ui.legacy.legacy.modal,
+.ui.legacy.legacy.page.dimmer > .ui.modal {
+  left: 50% !important;
+}
+
+.ui.legacy.legacy.modal:not(.aligned),
+.ui.legacy.legacy.page.dimmer > .ui.modal:not(.aligned) {
+  top: 50%;
+}
+
+.ui.legacy.legacy.page.dimmer > .ui.scrolling.modal:not(.aligned),
+.ui.page.dimmer > .ui.scrolling.legacy.legacy.modal:not(.aligned),
+.ui.top.aligned.legacy.legacy.page.dimmer > .ui.modal:not(.aligned),
+.ui.top.aligned.dimmer > .ui.legacy.legacy.modal:not(.aligned) {
+  top: auto;
+}
+
+.ui.legacy.overlay.fullscreen.modal {
+  margin-top: -2rem !important;
+}
+
+/*******************************
+             States
+*******************************/
+
+.ui.loading.modal {
+  display: block;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.ui.active.modal {
+  display: block;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------
+     Aligned
+  ---------------*/
+
+.modals.dimmer .ui.top.aligned.modal {
+  top: 5vh;
+}
+
+.modals.dimmer .ui.bottom.aligned.modal {
+  bottom: 5vh;
+}
+
+@media only screen and (max-width: 767.98px) {
+  .modals.dimmer .ui.top.aligned.modal {
+    top: 1rem;
+  }
+
+  .modals.dimmer .ui.bottom.aligned.modal {
+    bottom: 1rem;
+  }
+}
+
+/*--------------
+      Scrolling
+  ---------------*/
+
+/* Scrolling Dimmer */
+
+.scrolling.dimmable.dimmed {
+  overflow: hidden;
+}
+
+.scrolling.dimmable > .dimmer {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  position: fixed;
+}
+
+.scrolling.dimmable.dimmed > .dimmer {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modals.dimmer .ui.scrolling.modal:not(.fullscreen) {
+  margin: 2rem auto;
+}
+
+/* Fix for Firefox, Edge, IE11 */
+
+.modals.dimmer .ui.scrolling.modal:not([class*="overlay fullscreen"])::after {
+  content: '\00A0';
+  position: absolute;
+  height: 2rem;
+}
+
+/* Undetached Scrolling */
+
+.scrolling.undetached.dimmable.dimmed {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scrolling.undetached.dimmable.dimmed > .dimmer {
+  overflow: hidden;
+}
+
+.scrolling.undetached.dimmable .ui.scrolling.modal:not(.fullscreen) {
+  position: absolute;
+  left: 50%;
+}
+
+/* Scrolling Content */
+
+.ui.modal > .scrolling.content {
+  max-height: calc(80vh - 10rem);
+  overflow: auto;
+}
+
+.ui.overlay.fullscreen.modal > .content {
+  min-height: calc(100vh - 9.1rem);
+}
+
+.ui.overlay.fullscreen.modal > .scrolling.content {
+  max-height: calc(100vh - 9.1rem);
+}
+
+/*--------------
+     Full Screen
+  ---------------*/
+
+.ui.fullscreen.modal {
+  width: 95%;
+  left: 2.5%;
+  margin: 1em auto;
+}
+
+.ui.overlay.fullscreen.modal {
+  width: 100%;
+  left: 0;
+  margin: 0 auto;
+  top: 0;
+  border-radius: 0;
+}
+
+.ui.modal > .close.inside + .header,
+.ui.fullscreen.modal > .header {
+  padding-right: 2.25rem;
+}
+
+.ui.modal > .close.inside,
+.ui.fullscreen.modal > .close {
+  top: 1.0535rem;
+  right: 1rem;
+  color: rgba(10, 10, 10, 0.75);
+}
+
+.ui.basic.fullscreen.modal > .close {
+  color: #FFFFFF;
+}
+
+/*--------------
+      Size
+---------------*/
+
+.ui.modal {
+  font-size: 1rem;
+}
+
+.ui.mini.modal > .header:not(.ui) {
+  font-size: 1.3em;
+}
+
+@media only screen and (max-width: 767.98px) {
+  .ui.mini.modal {
+    width: 95%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.mini.modal {
+    width: 35.2%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.mini.modal {
+    width: 340px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.mini.modal {
+    width: 360px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.mini.modal {
+    width: 380px;
+    margin: 0 0 0 0;
+  }
+}
+
+.ui.tiny.modal > .header:not(.ui) {
+  font-size: 1.3em;
+}
+
+@media only screen and (max-width: 767.98px) {
+  .ui.tiny.modal {
+    width: 95%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.tiny.modal {
+    width: 52.8%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.tiny.modal {
+    width: 510px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.tiny.modal {
+    width: 540px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.tiny.modal {
+    width: 570px;
+    margin: 0 0 0 0;
+  }
+}
+
+.ui.small.modal > .header:not(.ui) {
+  font-size: 1.3em;
+}
+
+@media only screen and (max-width: 767.98px) {
+  .ui.small.modal {
+    width: 95%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.small.modal {
+    width: 70.4%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.small.modal {
+    width: 680px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.small.modal {
+    width: 720px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.small.modal {
+    width: 760px;
+    margin: 0 0 0 0;
+  }
+}
+
+.ui.large.modal > .header:not(.ui) {
+  font-size: 1.6em;
+}
+
+@media only screen and (max-width: 767.98px) {
+  .ui.large.modal {
+    width: 95%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.large.modal {
+    width: 88%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.large.modal {
+    width: 1020px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.large.modal {
+    width: 1080px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.large.modal {
+    width: 1140px;
+    margin: 0 0 0 0;
+  }
+}
+
+.ui.big.modal > .header:not(.ui) {
+  font-size: 1.6em;
+}
+
+@media only screen and (max-width: 767.98px) {
+  .ui.big.modal {
+    width: 95%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.big.modal {
+    width: 88%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.big.modal {
+    width: 1190px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.big.modal {
+    width: 1260px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.big.modal {
+    width: 1330px;
+    margin: 0 0 0 0;
+  }
+}
+
+.ui.huge.modal > .header:not(.ui) {
+  font-size: 1.6em;
+}
+
+@media only screen and (max-width: 767.98px) {
+  .ui.huge.modal {
+    width: 95%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.huge.modal {
+    width: 88%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.huge.modal {
+    width: 1360px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.huge.modal {
+    width: 1440px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.huge.modal {
+    width: 1520px;
+    margin: 0 0 0 0;
+  }
+}
+
+.ui.massive.modal > .header:not(.ui) {
+  font-size: 1.8em;
+}
+
+@media only screen and (max-width: 767.98px) {
+  .ui.massive.modal {
+    width: 95%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.massive.modal {
+    width: 88%;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.massive.modal {
+    width: 1530px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.massive.modal {
+    width: 1620px;
+    margin: 0 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.massive.modal {
+    width: 1710px;
+    margin: 0 0 0 0;
+  }
+}
+
+/*****************************
+            Inverted
+  *******************************/
+
+.ui.inverted.modal {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.ui.inverted.modal > .header,
+.ui.inverted.modal > .content {
+  background: rgba(0, 0, 0, 0.9);
+  color: #FFFFFF;
+}
+
+.ui.inverted.modal > .actions {
+  background: #191A1B;
+  border-top: 1px solid rgba(34, 36, 38, 0.85);
+  color: #FFFFFF;
+}
+
+.ui.inverted.dimmer > .modal > .close {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+@media only screen and (max-width: 991.98px) {
+  .ui.dimmer .inverted.modal > .close {
+    color: #FFFFFF;
+  }
+}
+
+.ui.inverted.modal > .close.inside,
+.ui.inverted.fullscreen.modal > .close {
+  color: #FFFFFF;
+}
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+/*******************************
+         Site Overrides
+*******************************/
+/*!
  * # Fomantic-UI - Sidebar
  * http://github.com/fomantic/Fomantic-UI/
  *
@@ -40473,7 +41395,7 @@ body.pushable.dimmed {
 }
 
 body.pushable > .pusher {
-  background: #f0f0f0;
+  background: #FFFFFF;
 }
 
 /*--------------

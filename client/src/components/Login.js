@@ -1,10 +1,17 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Formik } from "formik";
-import * as Yup from "yup";
-import { Container, Divider, Form, Segment } from "semantic-ui-react";
-import { useAPI, useAuth, useMessage, useResult } from "../hooks/";
-import { Button, ExternalLink, InputText, Loader, LogoHeader, Notify } from "./UI/";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+import { Container, Divider, Form, Segment } from 'semantic-ui-react';
+import { useAPI, useAuth, useMessage, useResult } from '../hooks/';
+import {
+  Button,
+  ExternalLink,
+  InputText,
+  Loader,
+  LogoHeader,
+  Notify
+} from './UI/';
 
 //import DisplayFormikState from './UI/FormikHelper';
 
@@ -12,9 +19,10 @@ export default props => {
   // handles show/dismiss of redirect messages
   const [message, dismissMessage] = useMessage(props);
   const [isRedirecting, setRedirecting] = useState(false);
+  const [showLogin, setLogin] = useState(false);
 
   // direct API interactions (ephemeral)
-  const { POST: loginUser } = useAPI({ url: "/auth/local" });
+  const { POST: loginUser } = useAPI({ url: '/auth/local' });
 
   // used to refresh redux store with initial auth
   const fetchAuth = useAuth();
@@ -43,14 +51,14 @@ export default props => {
 };
 
 const validateLogin = Yup.object().shape({
-  username: Yup.string().required("Username is required."),
-  password: Yup.string().required("Password is required.")
+  username: Yup.string().required('Username is required.'),
+  password: Yup.string().required('Password is required.')
 });
 
 const LoginForm = props => {
   const getNotify = useResult({
     failHeader: "Oops, we can't log you in!",
-    successHeader: "Welcome back!"
+    successHeader: 'Welcome back!'
   });
   return (
     <Formik
@@ -59,8 +67,8 @@ const LoginForm = props => {
       validateOnChange={true}
       validateOnMount={true}
       initialValues={{
-        username: "",
-        password: ""
+        username: '',
+        password: ''
       }}
       onSubmit={async (values, actions) => {
         const { onLogin, onSuccess } = props;
@@ -94,7 +102,11 @@ const LoginForm = props => {
         return (
           <>
             {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
-            <ExternalLink href="/auth/google" id="google-login" target="_self" />
+            <ExternalLink
+              href="/auth/google"
+              id="google-login"
+              target="_self"
+            />
             <Divider content="OR" horizontal section />
             <Form id="login-form" onSubmit={handleSubmit}>
               <InputText

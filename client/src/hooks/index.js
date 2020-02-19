@@ -3,6 +3,7 @@ import useAPI from './useAPI';
 import useAuth from './useAuth';
 import useData from './useData';
 import useMessage from './useMessage';
+import usePortal from './usePortal';
 import useRedirect from './useRedirect';
 import useReduxData from './useReduxData';
 import useResult from './useResult';
@@ -18,6 +19,7 @@ export {
   useAuth,
   useData,
   useMessage,
+  usePortal,
   useRedirect,
   useReduxData,
   useResult,

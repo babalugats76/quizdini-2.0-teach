@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Link, Redirect, Route, Switch, withRouter } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Link, Redirect, Route, Switch, withRouter } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import {
   Container,
   Grid,
@@ -9,12 +9,11 @@ import {
   List,
   Menu,
   Segment,
-  Sidebar,
-  Visibility
-} from "semantic-ui-react";
-import { useReduxData, useTitle, useWindowSize } from "../hooks/";
-import { Icon, Loader } from "./UI/";
-import logo from "../logo.svg";
+  Sidebar
+} from 'semantic-ui-react';
+import { useReduxData, useTitle, useWindowSize } from '../hooks/';
+import { Icon, Loader } from './UI/';
+import logo from '../logo.svg';
 import {
   About,
   Checkout,
@@ -28,7 +27,7 @@ import {
   Reset,
   Terms,
   Verify
-} from "/";
+} from '/';
 
 const PrivateRoute = ({
   component: Component,
@@ -66,11 +65,10 @@ const PublicRoute = ({ component: Component, title, ...rest }) => {
 };
 
 const App = props => {
-
   const auth = useSelector(state => state.auth);
 
   // Redux data
-  const { errors } = useReduxData({ items: ["fetchAuth"], deps: [] });
+  const { errors } = useReduxData({ items: ['fetchAuth'], deps: [] });
 
   // Destructure and rename data
   const { data: user, loaded } = auth;
@@ -90,11 +88,7 @@ const App = props => {
           title="Dashboard"
           credits={credits || 0}
         />
-        <PrivateRoute
-          loggedIn={loggedIn}
-          path="/match"
-          component={Match}
-        />
+        <PrivateRoute loggedIn={loggedIn} path="/match" component={Match} />
         <PrivateRoute
           loggedIn={loggedIn}
           exact
@@ -161,65 +155,28 @@ const App = props => {
 export default withRouter(App);
 
 const Layout = ({ children, errors, showLoader, user }) => {
-  const [state, setState] = useState({ fixTopMenu: false, showSidebar: false });
-  const { fixTopMenu, showSidebar } = state;
-
-  const stickTopMenu = () => {
-    setState(prevState => {
-      return {
-        ...prevState,
-        fixTopMenu: true
-      };
-    });
-  };
-
-  const unstickTopMenu = () => {
-    setState(prevState => {
-      return {
-        ...prevState,
-        fixTopMenu: false
-      };
-    });
-  };
-
+  const [showSidebar, setSidebar] = useState(false);
   const hideSidebar = () => {
-    setState(prevState => {
-      return {
-        ...prevState,
-        ...(prevState.showSidebar && { showSidebar: false })
-      };
-    });
+    setSidebar(p => p && false);
   };
 
   const toggleMenu = () => {
-    setState(prevState => {
-      return {
-        ...prevState,
-        showSidebar: !prevState.showSidebar
-      };
-    });
+    setSidebar(p => !p);
   };
 
   return (
-    <Sidebar.Pushable className={fixTopMenu ? "menu-is-fixed" : undefined}>
+    <Sidebar.Pushable>
+      <HeaderNav as="nav" onMenuClick={toggleMenu} {...user} />
       <SidebarNav onItemClick={hideSidebar} visible={showSidebar} {...user} />
       <Sidebar.Pusher
         dimmed={showSidebar}
         onClick={showSidebar ? hideSidebar : null}
       >
-        <HeaderNav fixTopMenu={fixTopMenu} onMenuClick={toggleMenu} {...user} />
-        <Visibility
-          as="div"
-          className="page-wrapper"
-          onTopPassed={stickTopMenu}
-          onTopPassedReverse={unstickTopMenu}
-          offset={0}
-          once={false}
-        >
+        <div className="page-wrapper">
           {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) ||
             (showLoader && <Loader />) ||
             children}
-        </Visibility>
+        </div>
         <Footer />
       </Sidebar.Pusher>
     </Sidebar.Pushable>
@@ -242,35 +199,35 @@ const SidebarNav = ({
 }) => {
   const navItems = [
     {
-      key: "dashboard",
+      key: 'dashboard',
       as: Link,
-      to: "/dashboard",
-      content: "Dashboard",
-      position: "left",
+      to: '/dashboard',
+      content: 'Dashboard',
+      position: 'left',
       loggedIn: true
     },
     {
-      key: "buy",
+      key: 'buy',
       as: Link,
-      to: "/credits",
-      content: "Buy Credits",
-      position: "left",
+      to: '/credits',
+      content: 'Buy Credits',
+      position: 'left',
       loggedIn: true
     },
     {
-      key: "profile",
+      key: 'profile',
       as: Link,
-      to: "/profile",
+      to: '/profile',
       content: NavProfile({ googlePicture, username }),
-      position: "left",
+      position: 'left',
       loggedIn: true
     },
     {
-      key: "logout",
-      as: "a",
-      href: "/api/logout",
-      content: "Logout",
-      position: "left",
+      key: 'logout',
+      as: 'a',
+      href: '/api/logout',
+      content: 'Logout',
+      position: 'left',
       loggedIn: true
     }
   ];
@@ -297,7 +254,7 @@ const SidebarNav = ({
     (sidebarItems.length > 0 && (
       <Sidebar
         as={Menu}
-        animation="push"
+        animation="overlay"
         direction="left"
         inverted
         vertical
@@ -321,7 +278,6 @@ SidebarNav.propTypes = {
 
 const HeaderNav = ({
   credits,
-  fixTopMenu,
   googlePicture,
   loggedIn,
   onMenuClick,
@@ -331,83 +287,83 @@ const HeaderNav = ({
 
   const navItems = [
     {
-      key: "logo",
+      key: 'logo',
       as: Link,
-      to: "/dashboard",
+      to: '/dashboard',
       content: <Image size="mini" src={logo} />,
-      position: "left",
+      position: 'left',
       loggedIn: true,
       mobile: true
     },
     {
-      key: "logo",
+      key: 'logo',
       as: Link,
-      to: "/",
+      to: '/',
       content: <Image size="mini" src={logo} />,
-      position: "left",
+      position: 'left',
       loggedIn: false,
       mobile: true
     },
     {
-      key: "dashboard",
+      key: 'dashboard',
       as: Link,
-      to: "/dashboard",
-      content: "Dashboard",
-      position: "left",
+      to: '/dashboard',
+      content: 'Dashboard',
+      position: 'left',
       loggedIn: true,
       mobile: false
     },
     {
-      key: "credits",
+      key: 'credits',
       as: null,
       to: null,
       content: `Credits: ${credits}`,
-      position: "left",
+      position: 'left',
       loggedIn: true,
       mobile: true
     },
     {
-      key: "buy",
+      key: 'buy',
       as: Link,
-      to: "/credits",
-      content: "Buy Credits",
-      position: "left",
+      to: '/credits',
+      content: 'Buy Credits',
+      position: 'left',
       loggedIn: true,
       mobile: false
     },
     {
-      key: "profile",
+      key: 'profile',
       as: Link,
-      to: "/profile",
+      to: '/profile',
       content: NavProfile({ googlePicture, username }),
-      position: "left",
+      position: 'left',
       loggedIn: true,
       mobile: false
     },
     {
-      key: "logout",
-      as: "a",
-      href: "/api/logout",
-      content: isMobile ? <Icon name="logout" /> : "Logout",
-      position: "right",
+      key: 'logout',
+      as: 'a',
+      href: '/api/logout',
+      content: isMobile ? <Icon name="logout" /> : 'Logout',
+      position: 'right',
       loggedIn: true,
       mobile: true
     },
     {
-      key: "register",
+      key: 'register',
       as: Link,
-      to: "/register",
-      content: "Register",
-      position: "right",
+      to: '/register',
+      content: 'Register',
+      position: 'right',
       loggedIn: false,
       mobile: true
     },
     {
-      key: "login",
+      key: 'login',
       as: Link,
-      to: "/login",
-      content: "Login",
-      position: "right",
+      to: '/login',
+      content: 'Login',
+      position: 'right',
       loggedIn: false,
       mobile: true
     }
@@ -434,26 +390,21 @@ const HeaderNav = ({
     });
 
   return (
-    <Menu
-      as="nav"
-      borderless
-      fixed={fixTopMenu ? "top" : undefined}
-      inverted
-      size="massive"
-    >
-      {loggedIn && isMobile && (
-        <Menu.Item key="sidebar" as="a" position="left" onClick={onMenuClick}>
-          <Icon name="menu" />
-        </Menu.Item>
-      )}
-      <Container>{headerItems}</Container>
+    <Menu as="header" borderless inverted size="massive">
+      <Container as="nav">
+        {loggedIn && isMobile && (
+          <Menu.Item key="sidebar" as="a" position="left" onClick={onMenuClick}>
+            <Icon name="menu" />
+          </Menu.Item>
+        )}
+        {headerItems}
+      </Container>
     </Menu>
   );
 };
 
 HeaderNav.propTypes = {
   credits: PropTypes.any,
-  fixTopMenu: PropTypes.bool.isRequired,
   googlePicture: PropTypes.string,
   loggedIn: PropTypes.bool.isRequired,
   onMenuClick: PropTypes.func.isRequired,
@@ -512,7 +463,7 @@ const Footer = props => {
                   as="a"
                   href="https://twitter.com/quizdini"
                   key="twitter"
-                  style={{ fill: "#ffffff" }}
+                  style={{ fill: '#ffffff' }}
                   tabIndex={-1}
                   target="_blank"
                   title="Follow us on Twitter"
@@ -523,7 +474,7 @@ const Footer = props => {
                   as="a"
                   href="https://www.youtube.com/user/quizdini"
                   key="youtube"
-                  style={{ fill: "#ffffff" }}
+                  style={{ fill: '#ffffff' }}
                   tabIndex={-1}
                   target="_blank"
                   title="Check us out on YouTube"

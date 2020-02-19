@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Formik } from 'formik';
@@ -308,7 +308,7 @@ const RegisterForm = props => {
                     selection
                     setFieldValue={setFieldValue}
                     tabIndex={5}
-                    upward={true}
+                    upward={false}
                     value={values.countryCode}
                   />
                   {values.countryCode === 'US' && (
@@ -324,7 +324,7 @@ const RegisterForm = props => {
                       selection
                       setFieldValue={setFieldValue}
                       tabIndex={6}
-                      upward={true}
+                      upward={false}
                       value={values.stateCode}
                     />
                   )}

@@ -106,16 +106,16 @@
 @fieldFocusBackground       : @white;
 @fieldFocusBorderColor      : @periwinkle;
 @fieldFocusBoxShadow        : none;
-@fixedMenuColor             : @zaffre;
 @inputBackground            : @white;
-@invertedMenuColor          : @spaceCadet;
+@invertedMenuColor          : @zaffre;
 @linkColor                  : @cobaltBlue;
-@pageBackground             : @isabelline;
+@pageBackground             : @white;          
 @spinnerColor               : @navyPurple;
 @strongColor                : @secondaryColor;
 @summaryActiveColor         : @violet;
 @summaryHoverColor          : @secondaryColor;
 @summaryInactiveColor       : @grey;
+@widePageBackground         : @isabelline;
 
 /*-------------------
   Padding & Margin

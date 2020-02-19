@@ -13,6 +13,7 @@ import InputText from './InputText';
 import Label from './Label';
 import Loader from './Loader';
 import LogoHeader from './LogoHeader';
+import Modal from './Modal';
 import Message from './Message';
 import Notify from './Notify';
 import RadioGroup from './RadioGroup';
@@ -37,6 +38,7 @@ export {
   Loader,
   LogoHeader,
   Message,
+  Modal,
   Notify,
   RadioGroup,
   RouterButton,

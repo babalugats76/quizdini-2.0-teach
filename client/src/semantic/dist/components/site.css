@@ -25,7 +25,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   min-width: 320px;
-  background: #f0f0f0;
+  background: #FFFFFF;
   font-family: 'marcher-regular', sans-serif;
   font-size: 16px;
   line-height: 1.4285em;
@@ -212,47 +212,47 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 /* lexend-deca-regular - latin */
 @font-face {
-  font-family: "Lexend Deca";
+  font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"), url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"), 
-/* Chrome 26+, Opera 23+, Firefox 39+ */ url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff") format("woff");
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
+/* Chrome 26+, Opera 23+, Firefox 39+ */ url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
   
 /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
-  font-family: "marcher-light";
-  src: url("https://static.quizdini.com/fonts/marcher-light-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-light-webfont.woff") format("woff");
+  font-family: 'marcher-light';
+  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-light-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "marcher-book";
-  src: url("https://static.quizdini.com/fonts/marcher-book-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-book-webfont.woff") format("woff");
+  font-family: 'marcher-book';
+  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-book-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "marcher-regular";
-  src: url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff") format("woff");
+  font-family: 'marcher-regular';
+  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "marcher-medium";
-  src: url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff") format("woff");
+  font-family: 'marcher-medium';
+  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "marcher-extrabold";
-  src: url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff") format("woff");
+  font-family: 'marcher-extrabold';
+  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "marcher-extrabolditalic";
-  src: url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
+  font-family: 'marcher-extrabolditalic';
+  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -262,7 +262,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 --------------------*/
 
 #quizdini {
-  background-color: #f0f0f0;
+  background-color: #FFFFFF;
 }
 
 /*-------------------
@@ -272,12 +272,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .pushable {
   overflow-y: hidden;
 }
-.pushable.menu-is-fixed .ui.massive.menu {
-  background-color: #001399;
-}
-.pushable.menu-is-fixed .pusher > .page-wrapper {
-  padding-top: 69px;
-}
 .pushable > .pusher {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -286,26 +280,8 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: calc(100vh) !important;
+  min-height: calc(100vh - 71px) !important;
   overflow-y: auto !important;
-}
-.pushable > .pusher .ui.massive.menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
-  margin: 0;
-  -webkit-transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
-  transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
-}
-.pushable > .pusher .ui.massive.menu .item svg.icon {
-  width: 1.375em;
-  height: 1.375em;
-}
-.pushable > .pusher .ui.massive.menu .item svg.icon path {
-  fill: #FFFFFF;
 }
 .pushable > .pusher > .page-wrapper {
   display: -webkit-box;
@@ -326,7 +302,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
       align-content: center;
   
 /* center the children */
-  background-color: #f0f0f0;
 }
 .pushable > .pusher > .page-wrapper > .page {
   margin: 2rem auto 3rem;
@@ -362,7 +337,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .pushable > .pusher > .page-wrapper .ui.container.large {
   max-width: 1168px;
 }
-.pushable > .pusher > #footer {
+.pushable > .pusher > .page-wrapper > #footer {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
@@ -378,9 +353,27 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
           justify-content: center;
   background-color: #2e3235;
 }
+.ui.massive.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin: 0;
+  -webkit-transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.ui.massive.menu .item svg.icon {
+  width: 1.375em;
+  height: 1.375em;
+}
 .ui.massive.menu,
 .ui.pagination.menu {
   font-family: 'marcher-regular', sans-serif;
+}
+.ui.menu.inverted .item svg path {
+  fill: #FFFFFF;
 }
 .ui.menu .link.item img.profile {
   margin-left: 10px;
@@ -572,6 +565,55 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
+  Modal
+--------------------*/
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: auto;
+  /*max-height: 100vh;*/
+  min-width: 18em;
+  max-width: 32em;
+  z-index: 2000;
+  visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  /*overflow: auto;*/
+}
+.modal-content {
+  color: white;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.modal-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+.modal-show {
+  display: block;
+  visibility: visible;
+}
+.modal-show ~ .modal-overlay {
+  opacity: 1;
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/*-------------------
   Forms
 --------------------*/
 
@@ -612,7 +654,7 @@ svg.icon.chevron-down.closed {
           justify-content: space-between;
   min-height: 300px;
 }
-.form-step button[type="submit"] {
+.form-step button[type='submit'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -637,7 +679,7 @@ svg.icon.chevron-down.closed {
   background-color: rgba(84, 84, 84, 0.87);
   background-size: 25px;
   background-repeat: round;
-  background-image: url("/images/question.svg");
+  background-image: url('/images/question.svg');
 }
 #landing .banner#selling-points {
   background-color: #F9FAFB;
@@ -816,7 +858,7 @@ svg.icon.chevron-down.closed {
 #about.page section details > summary:before,
 #terms.page section details > summary:before {
   display: inline-block;
-  content: "\25bc\00a0";
+  content: '\25bc\00a0';
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
   -webkit-transition: all 300ms ease-in-out;
@@ -914,6 +956,13 @@ svg.icon.chevron-down.closed {
   Register
 --------------------*/
 
+
+/* Additional spacer is needed because of dropdowns */
+#register::after {
+  content: '';
+  display: block;
+  height: 100px;
+}
 #register-form .ui.horizontal.divider .ui.header:first-of-type {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -943,6 +992,9 @@ svg.icon.chevron-down.closed {
   Login
 --------------------*/
 
+#login-wrapper .ui.header.logo {
+  padding: 0 !important;
+}
 #login-wrapper .ui.header.logo > .ui.image {
   display: block;
   margin: 0.3rem auto 0;
@@ -956,16 +1008,16 @@ svg.icon.chevron-down.closed {
   color: transparent;
   border: 0;
   outline: none;
-  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
+  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
   background-size: 191px 46px;
 }
 #login-wrapper a#google-login:focus,
 #login-wrapper a#google-login:hover {
-  background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
+  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
 }
 #login-wrapper a#google-login:active,
 #login-wrapper a#google-login:visited {
-  background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
+  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
 }
 #login-wrapper .ui.divider {
   color: #2e3235;
@@ -981,7 +1033,7 @@ svg.icon.chevron-down.closed {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 236px;
+  min-height: 204px;
 }
 #login-wrapper #login-form .input-feedback {
   text-align: center;
@@ -989,14 +1041,14 @@ svg.icon.chevron-down.closed {
 #login-wrapper #login-form .field {
   width: 191px;
 }
-#login-wrapper #login-form button[type="submit"] {
+#login-wrapper #login-form button[type='submit'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 1em auto;
+  margin: 0.5em auto;
 }
 #login-wrapper #login-form p:last-of-type {
-  margin: auto 0 0;
+  margin: auto 0 0.5em;
 }
 #login-wrapper #login-form a {
   color: #0645ad;
@@ -1119,7 +1171,7 @@ svg.icon.chevron-down.closed {
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   background-size: 25px;
   background-repeat: round;
-  background-image: url("/images/question.svg");
+  background-image: url('/images/question.svg');
 }
 .ui.cards .ui.card.match-card .content.match-card-header:hover .ui.icon.button.trash {
   display: block;
@@ -1329,7 +1381,7 @@ svg.icon.chevron-down.closed {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
-#match-form .rich-text-editor:not([contenteditable="true"]) {
+#match-form .rich-text-editor:not([contenteditable='true']) {
   color: rgba(10, 10, 10, 0.5);
   background-color: transparent;
   border-color: transparent;
@@ -1479,6 +1531,11 @@ svg.icon.chevron-down.closed {
 --------------------*/
 
 @media only screen and (max-width: 767.98px) {
+  .page-wrapper .ui.container > .ui.segment {
+    border: unset;
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
+  }
   .page-wrapper > .page {
     padding: 0 0.5rem;
   }
@@ -1521,6 +1578,9 @@ svg.icon.chevron-down.closed {
   }
 }
 @media only screen and (min-width: 768px) {
+  .page-wrapper {
+    background: #f0f0f0;
+  }
   .page-wrapper > .page {
     padding: 0 1rem;
   }

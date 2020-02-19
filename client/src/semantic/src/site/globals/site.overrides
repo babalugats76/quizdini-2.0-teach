@@ -8,60 +8,73 @@
 
 /* lexend-deca-regular - latin */
 @font-face {
-  font-family: "Lexend Deca";
+  font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"),
-    url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"),
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'),
+    url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2')
+      format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "marcher-light";
-  src: url("https://static.quizdini.com/fonts/marcher-light-webfont.woff2") format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-light-webfont.woff") format("woff");
+  font-family: 'marcher-light';
+  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-light-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-book";
-  src: url("https://static.quizdini.com/fonts/marcher-book-webfont.woff2") format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-book-webfont.woff") format("woff");
+  font-family: 'marcher-book';
+  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-book-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-regular";
-  src: url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff2") format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff") format("woff");
+  font-family: 'marcher-regular';
+  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-medium";
-  src: url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff2") format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff") format("woff");
+  font-family: 'marcher-medium';
+  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-extrabold";
-  src: url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2") format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff") format("woff");
+  font-family: 'marcher-extrabold';
+  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-extrabolditalic";
-  src: url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2")
-      format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
+  font-family: 'marcher-extrabolditalic';
+  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -80,38 +93,11 @@
 
 .pushable {
   overflow-y: hidden;
-
-  &.menu-is-fixed {
-    .ui.massive.menu {
-      background-color: @fixedMenuColor;
-    }
-    .pusher {
-      > .page-wrapper {
-        padding-top: 69px;
-      }
-    }
-  }
-
   > .pusher {
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh) !important;
+    min-height: calc(100vh - 71px) !important;
     overflow-y: auto !important;
-    .ui.massive.menu {
-      display: flex;
-      flex: 0 0 auto;
-      margin: 0;
-      transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
-      .item {
-        svg.icon {
-          width: 1.375em;
-          height: 1.375em;
-          path {
-            fill: @white;
-          }
-        }
-      }
-    }
     > .page-wrapper {
       display: flex;
       flex: 1 0 auto; /* Make its content grow */
@@ -119,7 +105,6 @@
       width: 100%;
       height: auto;
       align-content: center; /* center the children */
-      background-color: @pageBackground;
       > .page {
         margin: 2rem auto 3rem;
         &.flxc {
@@ -147,14 +132,27 @@
           max-width: @largeContainerWidth;
         }
       }
+      > #footer {
+        flex: 0 1 auto; /* Makes the footer shrink */
+        width: 100%;
+        padding: 1rem;
+        align-items: center;
+        justify-content: center;
+        background-color: @secondaryColor;
+      }
     }
-    > #footer {
-      flex: 0 1 auto; /* Makes the footer shrink */
-      width: 100%;
-      padding: 1rem;
-      align-items: center;
-      justify-content: center;
-      background-color: @secondaryColor;
+  }
+}
+
+.ui.massive.menu {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0;
+  transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  .item {
+    svg.icon {
+      width: 1.375em;
+      height: 1.375em;
     }
   }
 }
@@ -165,6 +163,15 @@
 }
 
 .ui.menu {
+  &.inverted {
+    .item {
+      svg {
+        path {
+          fill: @white;
+        }
+      }
+    }
+  }
   .link.item {
     img.profile {
       margin-left: 10px;
@@ -371,6 +378,56 @@ svg {
 }
 
 /*-------------------
+  Modal
+--------------------*/
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: auto;
+  /*max-height: 100vh;*/
+  min-width: 18em;
+  max-width: 32em;
+  z-index: 2000;
+  visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateX(-50%) translateY(-50%);
+  /*overflow: auto;*/
+}
+
+.modal-content {
+  color: white;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.modal-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.6);
+  transition: all 300ms;
+}
+
+.modal-show {
+  display: block;
+  visibility: visible;
+}
+
+.modal-show ~ .modal-overlay {
+  opacity: 1;
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/*-------------------
   Forms
 --------------------*/
 
@@ -402,7 +459,7 @@ svg {
   justify-content: space-between;
   min-height: 300px;
 
-  button[type="submit"] {
+  button[type='submit'] {
     display: flex;
     margin: 1em auto;
   }
@@ -428,7 +485,7 @@ svg {
       background-color: @blackTransDark;
       background-size: 25px;
       background-repeat: round;
-      background-image: url("/images/question.svg");
+      background-image: url('/images/question.svg');
     }
     &#selling-points {
       background-color: @offWhite;
@@ -598,7 +655,7 @@ svg {
           }
           &:before {
             display: inline-block;
-            content: "\25bc\00a0";
+            content: '\25bc\00a0';
             transform: rotate(-90deg);
             transition: all 300ms ease-in-out;
             vertical-align: 20%;
@@ -739,9 +796,19 @@ svg {
     }
   }
 }
+
 /*-------------------
   Register
 --------------------*/
+
+/* Additional spacer is needed because of dropdowns */
+#register {
+  &::after {
+    content: '';
+    display: block;
+    height: 100px;
+  }
+}
 
 #register-form {
   .ui.horizontal.divider {
@@ -770,12 +837,12 @@ svg {
 --------------------*/
 
 #login-wrapper {
-
   .ui.header.logo {
-     > .ui.image {
-       display: block;
-       margin: .3rem auto 0;
-     }
+    padding: 0 !important;
+    > .ui.image {
+      display: block;
+      margin: 0.3rem auto 0;
+    }
   }
 
   a#google-login {
@@ -787,15 +854,16 @@ svg {
     color: transparent;
     border: 0;
     outline: none;
-    background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
+    background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png')
+      no-repeat;
     background-size: 191px 46px;
     &:focus,
     &:hover {
-      background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
+      background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
     }
     &:active,
     &:visited {
-      background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
+      background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
     }
   }
 
@@ -807,7 +875,7 @@ svg {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 236px;
+    min-height: 204px;
 
     .input-feedback {
       text-align: center;
@@ -817,13 +885,13 @@ svg {
       width: 191px;
     }
 
-    button[type="submit"] {
+    button[type='submit'] {
       display: flex;
-      margin: 1em auto;
+      margin: .5em auto;
     }
 
     p:last-of-type {
-      margin: auto 0 0;
+      margin: auto 0 .5em;
     }
 
     a {
@@ -960,7 +1028,7 @@ svg {
           border-bottom: 1px solid @subtleTransparentBlack;
           background-size: 25px;
           background-repeat: round;
-          background-image: url("/images/question.svg");
+          background-image: url('/images/question.svg');
           &:hover {
             .ui.icon.button.trash {
               display: block;
@@ -992,7 +1060,8 @@ svg {
               width: 2em;
               height: 2em;
             }
-            transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out,
+              opacity 0.3s ease-in-out;
           }
         }
         &.match-card-desc {
@@ -1025,7 +1094,8 @@ svg {
           > .ui.four.buttons {
             .ui.button {
               &.clipboard {
-                transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+                transition: color 0.3s ease-in-out,
+                  background-color 0.3s ease-in-out;
                 &.copied {
                   color: @white;
                   background-color: @positiveColor;
@@ -1164,7 +1234,7 @@ svg {
       color: @selectedTextColor;
       box-shadow: @fieldFocusBoxShadow;
     }
-    &:not([contenteditable="true"]) {
+    &:not([contenteditable='true']) {
       color: @unselectedTextColor;
       background-color: transparent;
       border-color: transparent;
@@ -1322,8 +1392,16 @@ svg {
 --------------------*/
 
 @media only screen and (max-width: @largestMobileScreen) {
-  .page-wrapper > .page {
-    padding: @mobileContainerPadding;
+  .page-wrapper {
+    .ui.container {
+      > .ui.segment {
+        border: unset;
+        box-shadow: unset;
+      }
+    }
+    > .page {
+      padding: @mobileContainerPadding;
+    }
   }
 
   .ui.form {
@@ -1384,8 +1462,11 @@ svg {
 }
 
 @media only screen and (min-width: @tabletBreakpoint) {
-  .page-wrapper > .page {
-    padding: @containerPadding;
+  .page-wrapper {
+    background: @widePageBackground;
+    > .page {
+      padding: @containerPadding;
+    }
   }
 
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
