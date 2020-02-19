@@ -88,6 +88,20 @@
 }
 
 /*-------------------
+  Utility Classes
+--------------------*/
+
+.flxc {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  &.vc {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/*-------------------
   Page, Containers, Menus
 --------------------*/
 
@@ -107,14 +121,6 @@
       align-content: center; /* center the children */
       > .page {
         margin: 2rem auto 3rem;
-        &.flxc {
-          display: flex;
-          flex: 1 0 auto;
-          flex-direction: column;
-          &.vc {
-            justify-content: center;
-          }
-        }
       }
       .banner {
         width: 100%;
@@ -154,6 +160,9 @@
       width: 1.375em;
       height: 1.375em;
     }
+  }
+  &.inverted {
+    border: 1px solid transparent;
   }
 }
 
@@ -265,16 +274,9 @@ svg {
 --------------------*/
 
 .loader {
-  position: fixed;
   z-index: 999;
   height: 2.3rem;
   width: 2.3rem;
-  overflow: visible;
-  margin: auto;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
   .icon.spinner {
     width: 2.3rem;
     height: 2.3rem;
@@ -456,16 +458,11 @@ svg {
 .form-step {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   min-height: 300px;
 
   button[type='submit'] {
     display: flex;
     margin: 1em auto;
-  }
-  nav {
-    margin: auto 0 0;
-    padding: 1em 0 0;
   }
 }
 
@@ -806,7 +803,7 @@ svg {
   &::after {
     content: '';
     display: block;
-    height: 100px;
+    height: 160px;
   }
 }
 
@@ -1462,11 +1459,8 @@ svg {
 }
 
 @media only screen and (min-width: @tabletBreakpoint) {
-  .page-wrapper {
+  #quizdini {
     background: @widePageBackground;
-    > .page {
-      padding: @containerPadding;
-    }
   }
 
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
@@ -1481,9 +1475,14 @@ svg {
     padding: 0 5%;
   }
 
-  #register-form {
-    > :first-child {
-      margin-top: -1rem;
+}
+
+@media only screen and (min-width: @computerBreakpoint) {
+  .page-wrapper > .page {
+    &.ui.container:before {
+      content: '';
+      display: block;
+      height: 2.3rem;
     }
   }
 }

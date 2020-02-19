@@ -39,7 +39,7 @@ export default props => {
   // what to render
   return (
     (showLoader && <Loader />) || (
-      <Container as="main" className="page small flxc vc" fluid id="login">
+      <Container as="main" className="page small" fluid id="login">
         {message && Notify({ ...message, onDismiss: () => dismissMessage() })}
         <Segment id="login-wrapper" padded>
           <LogoHeader>Login to Quizdini</LogoHeader>

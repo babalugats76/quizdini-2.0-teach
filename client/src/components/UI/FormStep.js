@@ -1,32 +1,19 @@
-import React, { useCallback, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Divider, Header } from 'semantic-ui-react';
-import { Button, Icon } from '/';
+import React, { useCallback, useEffect } from "react";
+import PropTypes from "prop-types";
+import { Divider, Header, Segment } from "semantic-ui-react";
+import { Button, Icon } from "/";
 
-const FormStep = ({
-  children,
-  errors,
-  icon,
-  onNext,
-  onPrevious,
-  show,
-  step,
-  title
-}) => {
+const FormStep = ({ children, errors, icon, onNext, onPrevious, show, step, title }) => {
   const incomplete = useCallback(() => {
     let innerFound = false;
     return React.Children.toArray(children).some(child => {
-      if (child.type.name === 'FormGroup') {
+      if (child.type.name === "FormGroup") {
         innerFound = React.Children.toArray(child.props.children).some(
-          inner =>
-            inner.props.name in errors ||
-            (inner.props.required && !inner.props.value)
+          inner => inner.props.name in errors || (inner.props.required && !inner.props.value)
         );
       }
       return (
-        innerFound ||
-        child.props.name in errors ||
-        (child.props.required && !child.props.value)
+        innerFound || child.props.name in errors || (child.props.required && !child.props.value)
       );
     });
   }, [children, errors]);
@@ -34,33 +21,38 @@ const FormStep = ({
   return show ? (
     <div className="form-step">
       {(onPrevious || onNext) && (
-        <nav>
-          {onPrevious && (
-            <Button floated="left" onClick={onPrevious} type="button">
-              BACK
-            </Button>
-          )}
-          {onNext && (
-            <Button
-              disabled={incomplete()}
-              floated="right"
-              onClick={onNext}
-              type="button"
-            >
-              NEXT
-            </Button>
-          )}
-        </nav>
+        <Segment as="header" attached="top">
+          <nav>
+            {onPrevious && (
+              <Button floated="left" onClick={onPrevious} size="small" type="button">
+                BACK
+              </Button>
+            )}
+            {onNext && (
+              <Button
+                disabled={incomplete()}
+                floated="right"
+                onClick={onNext}
+                size="small"
+                type="button"
+              >
+                NEXT
+              </Button>
+            )}
+          </nav>
+        </Segment>
       )}
-      <Divider horizontal section>
-        <Header as="h4">
-          <Icon name={icon} />
-          <Header.Content>
-            Step {step} - {title}
-          </Header.Content>
-        </Header>
-      </Divider>
-      {children}
+      <Segment as="section" attached="bottom" padded>
+        <Divider horizontal section>
+          <Header as="h4">
+            <Icon name={icon} />
+            <Header.Content>
+              Step {step} - {title}
+            </Header.Content>
+          </Header>
+        </Divider>
+        {children}
+      </Segment>
     </div>
   ) : null;
 };

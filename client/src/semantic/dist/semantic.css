@@ -771,6 +771,32 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 
 /*-------------------
+  Utility Classes
+--------------------*/
+
+.flxc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flxc.vc {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+/*-------------------
   Page, Containers, Menus
 --------------------*/
 
@@ -811,25 +837,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 
 .pushable > .pusher > .page-wrapper > .page {
   margin: 2rem auto 3rem;
-}
-
-.pushable > .pusher > .page-wrapper > .page.flxc {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.pushable > .pusher > .page-wrapper > .page.flxc.vc {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
 }
 
 .pushable > .pusher > .page-wrapper .banner {
@@ -881,6 +888,10 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .ui.massive.menu .item svg.icon {
   width: 1.375em;
   height: 1.375em;
+}
+
+.ui.massive.menu.inverted {
+  border: 1px solid transparent;
 }
 
 .ui.massive.menu,
@@ -979,16 +990,9 @@ svg.icon.chevron-down.closed {
 --------------------*/
 
 .loader {
-  position: fixed;
   z-index: 999;
   height: 2.3rem;
   width: 2.3rem;
-  overflow: visible;
-  margin: auto;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
 }
 
 .loader .icon.spinner {
@@ -1197,9 +1201,6 @@ svg.icon.chevron-down.closed {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
   min-height: 300px;
 }
 
@@ -1208,11 +1209,6 @@ svg.icon.chevron-down.closed {
   display: -ms-flexbox;
   display: flex;
   margin: 1em auto;
-}
-
-.form-step nav {
-  margin: auto 0 0;
-  padding: 1em 0 0;
 }
 
 /*-------------------
@@ -1567,7 +1563,7 @@ svg.icon.chevron-down.closed {
 #register::after {
   content: '';
   display: block;
-  height: 100px;
+  height: 160px;
 }
 
 #register-form .ui.horizontal.divider .ui.header:first-of-type {
@@ -2279,12 +2275,8 @@ svg.icon.chevron-down.closed {
 }
 
 @media only screen and (min-width: 768px) {
-  .page-wrapper {
+  #quizdini {
     background: #f0f0f0;
-  }
-
-  .page-wrapper > .page {
-    padding: 0 1rem;
   }
 
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
@@ -2298,9 +2290,13 @@ svg.icon.chevron-down.closed {
   .content-wrapper {
     padding: 0 5%;
   }
+}
 
-  #register-form > :first-child {
-    margin-top: -1rem;
+@media only screen and (min-width: 992px) {
+  .page-wrapper > .page.ui.container:before {
+    content: '';
+    display: block;
+    height: 2.3rem;
   }
 }
 /*!
