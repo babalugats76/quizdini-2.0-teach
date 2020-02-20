@@ -884,11 +884,11 @@ svg {
 
     button[type='submit'] {
       display: flex;
-      margin: .5em auto;
+      margin: 0.5em auto;
     }
 
     p:last-of-type {
-      margin: auto 0 .5em;
+      margin: auto 0 0.5em;
     }
 
     a {
@@ -1412,23 +1412,6 @@ svg {
     }
   }
 
-  #about.page {
-    .ui.floated.image {
-      display: block;
-      float: unset;
-      margin: 1rem auto 2rem;
-    }
-
-    #team {
-      .ui.grid.member > .row > .column {
-        &.member-title,
-        &.member-contact {
-          text-align: center;
-        }
-      }
-    }
-  }
-
   .icon-menu-list {
     &.ui.horizontal.list {
       justify-content: space-evenly;
@@ -1464,7 +1447,7 @@ svg {
   }
 
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 
   #match-table {
@@ -1474,12 +1457,30 @@ svg {
   .content-wrapper {
     padding: 0 5%;
   }
-
 }
 
-@media only screen and (min-width: @computerBreakpoint) {
-  .page-wrapper > .page {
-    &.ui.container:before {
+@media only screen and (max-width: @largeMonitorBreakpoint) {
+  #about.page {
+    .ui.floated.image {
+      display: block;
+      float: unset;
+      margin: 1rem auto 2rem;
+    }
+
+    #team {
+      .ui.grid.member > .row > .column {
+        &.member-title,
+        &.member-contact {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: @largeMonitorBreakpoint) {
+  .page-wrapper > .page#login {
+    &:before {
       content: '';
       display: block;
       height: 2.3rem;

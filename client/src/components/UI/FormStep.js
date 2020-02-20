@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import { Divider, Header, Segment } from "semantic-ui-react";
 import { Button, Icon } from "/";

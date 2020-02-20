@@ -2236,17 +2236,6 @@ svg.icon.chevron-down.closed {
     margin-bottom: 1.3rem;
   }
 
-  #about.page .ui.floated.image {
-    display: block;
-    float: unset;
-    margin: 1rem auto 2rem;
-  }
-
-  #about.page #team .ui.grid.member > .row > .column.member-title,
-  #about.page #team .ui.grid.member > .row > .column.member-contact {
-    text-align: center;
-  }
-
   .icon-menu-list.ui.horizontal.list {
     -webkit-box-pack: space-evenly;
     -ms-flex-pack: space-evenly;
@@ -2280,7 +2269,7 @@ svg.icon.chevron-down.closed {
   }
 
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 
   #match-table {
@@ -2292,8 +2281,21 @@ svg.icon.chevron-down.closed {
   }
 }
 
-@media only screen and (min-width: 992px) {
-  .page-wrapper > .page.ui.container:before {
+@media only screen and (max-width: 1200px) {
+  #about.page .ui.floated.image {
+    display: block;
+    float: unset;
+    margin: 1rem auto 2rem;
+  }
+
+  #about.page #team .ui.grid.member > .row > .column.member-title,
+  #about.page #team .ui.grid.member > .row > .column.member-contact {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .page-wrapper > .page#login:before {
     content: '';
     display: block;
     height: 2.3rem;

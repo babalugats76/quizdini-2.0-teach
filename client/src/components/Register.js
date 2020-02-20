@@ -1,8 +1,8 @@
-import React, { useReducer, useRef } from "react";
+import React, { useReducer } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Formik } from "formik";
-import { Container, Form, Segment } from "semantic-ui-react";
+import { Container, Form } from "semantic-ui-react";
 import * as Yup from "yup";
 import { useAPI, useRedirect, useReduxData, useResult } from "../hooks/";
 import { Button, Checkbox, Dropdown, FormStep, InputText, Loader, LogoHeader, Notify } from "./UI/";
