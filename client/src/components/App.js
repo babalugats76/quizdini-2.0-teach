@@ -172,11 +172,11 @@ const Layout = ({ children, errors, showLoader, user }) => {
         dimmed={showSidebar}
         onClick={showSidebar ? hideSidebar : null}
       >
-        <div className="page-wrapper">
+        <main id="content">
           {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) ||
             (showLoader && <Loader />) ||
             children}
-        </div>
+        </main>
         <Footer />
       </Sidebar.Pusher>
     </Sidebar.Pushable>

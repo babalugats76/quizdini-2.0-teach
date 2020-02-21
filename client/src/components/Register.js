@@ -133,8 +133,8 @@ const scrollTo = (scrollRef, fieldRef) => {
     const scroll = scrollRef?.current;
     const field = fieldRef?.current?.inputRef?.current;
     field && field.focus();
-    scroll && scroll.scrollIntoView({ behavior: 'smooth' });
-  }, 100);
+    scroll && scroll.scrollIntoView({ behavior: 'auto' });
+  }, 250);
 };
 
 const RegisterForm = props => {
@@ -164,6 +164,11 @@ const RegisterForm = props => {
         return state;
     }
   }, initialState);
+
+  const home = () => {
+    dispatch({ type: 'HOME' });
+    scrollTo(scrollRef, fieldRef);
+  };
 
   const next = () => {
     dispatch({ type: 'NEXT' });
@@ -233,9 +238,9 @@ const RegisterForm = props => {
         const success = results.data || false;
         const notify = getNotify(results);
         if (success) return onSuccess(notify);
-        dispatch({ type: 'HOME' });
         await setStatus(notify);
         await setSubmitting(false);
+        home();
       }}
       validationSchema={validateNewUser}
     >

@@ -112,32 +112,36 @@
     flex-direction: column;
     min-height: calc(100vh - 71px) !important;
     overflow-y: auto !important;
-    > .page-wrapper {
+    > main#content {
       display: flex;
       flex: 1 0 auto; /* Make its content grow */
       flex-direction: column;
       width: 100%;
       height: auto;
-      align-content: center; /* center the children */
+      min-height: 50%;
+      align-content: center;
+      align-items: center;
       > .page {
-        margin: 2rem auto 3rem;
+        padding: @mobileContainerPadding;
+        &.ui.container {
+          &.small {
+            max-width: @smallContainerWidth;
+          }
+          &.medium {
+            max-width: @mediumContainerWidth;
+          }
+          &.large {
+            max-width: @largeContainerWidth;
+          }
+        }
       }
+
       .banner {
         width: 100%;
         padding: 2.5rem;
         margin: 0;
       }
-      .ui.container {
-        &.small {
-          max-width: @smallContainerWidth;
-        }
-        &.medium {
-          max-width: @mediumContainerWidth;
-        }
-        &.large {
-          max-width: @largeContainerWidth;
-        }
-      }
+
       > #footer {
         flex: 0 1 auto; /* Makes the footer shrink */
         width: 100%;
@@ -462,7 +466,7 @@ svg {
 
   button[type='submit'] {
     display: flex;
-    margin: 1em auto;
+    margin: 2em auto 1em;
   }
 }
 
@@ -803,7 +807,7 @@ svg {
   &::after {
     content: '';
     display: block;
-    height: 160px;
+    height: 5rem;
   }
 }
 
@@ -1389,15 +1393,12 @@ svg {
 --------------------*/
 
 @media only screen and (max-width: @largestMobileScreen) {
-  .page-wrapper {
+  #content {
     .ui.container {
       > .ui.segment {
         border: unset;
         box-shadow: unset;
       }
-    }
-    > .page {
-      padding: @mobileContainerPadding;
     }
   }
 
@@ -1445,7 +1446,11 @@ svg {
   #quizdini {
     background: @widePageBackground;
   }
-
+ 
+  .pushable > .pusher > main#content > .page {
+    padding: @containerPadding;
+  }
+ 
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
     margin-top: 1rem;
   }
@@ -1479,11 +1484,11 @@ svg {
 }
 
 @media only screen and (min-width: @largeMonitorBreakpoint) {
-  .page-wrapper > .page#login {
+  #content > .page#login {
     &:before {
       content: '';
       display: block;
-      height: 2.3rem;
+      height: 1rem;
     }
   }
 }

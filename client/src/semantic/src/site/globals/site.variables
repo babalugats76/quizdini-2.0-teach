@@ -154,6 +154,6 @@
 @smallContainerWidth       : (@tabletBreakpoint - @mobileBreakpoint) - @fontSize;
 @mediumContainerWidth      : (@largestMobileScreen - (2 * @fontSize));
 @largeContainerWidth       : (@largeMonitorBreakpoint - (2 * @fontSize));
-@containerPadding          : 0 1rem;
-@mobileContainerPadding    : 0 .5rem;
+@containerPadding          : 2rem 1rem 5rem;
+@mobileContainerPadding    : 1rem .5rem 3rem .5rem;
 @mobileGutter              : 0;
