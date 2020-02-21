@@ -126,7 +126,7 @@
         padding: @mobileContainerPadding;
       }
 
-      &.ui.container {
+      .ui.container {
         &.small {
           max-width: @smallContainerWidth;
         }
