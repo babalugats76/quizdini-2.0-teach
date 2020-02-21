@@ -841,15 +841,15 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   padding: 1rem 0.5rem 3rem 0.5rem;
 }
 
-.pushable > .pusher > main#content > .page.ui.container.small {
+.pushable > .pusher > main#content.ui.container.small {
   max-width: 432px;
 }
 
-.pushable > .pusher > main#content > .page.ui.container.medium {
+.pushable > .pusher > main#content.ui.container.medium {
   max-width: 735.98px;
 }
 
-.pushable > .pusher > main#content > .page.ui.container.large {
+.pushable > .pusher > main#content.ui.container.large {
   max-width: 1168px;
 }
 

@@ -124,16 +124,17 @@
         margin-left: auto;
         margin-right: auto;
         padding: @mobileContainerPadding;
-        &.ui.container {
-          &.small {
-            max-width: @smallContainerWidth;
-          }
-          &.medium {
-            max-width: @mediumContainerWidth;
-          }
-          &.large {
-            max-width: @largeContainerWidth;
-          }
+      }
+
+      &.ui.container {
+        &.small {
+          max-width: @smallContainerWidth;
+        }
+        &.medium {
+          max-width: @mediumContainerWidth;
+        }
+        &.large {
+          max-width: @largeContainerWidth;
         }
       }
 
