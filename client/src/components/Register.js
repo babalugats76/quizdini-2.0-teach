@@ -262,7 +262,16 @@ const RegisterForm = props => {
 
         return (
           <>
-            <span id="top-of-form" ref={scrollRef} />
+            <span
+              id="form-scroller"
+              style={{
+                display: 'block',
+                visibility: 'hidden',
+                position: 'relative',
+                top: '-3rem'
+              }}
+              ref={scrollRef}
+            />
             {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
             <Form id="register-form" onSubmit={handleSubmit}>
               <FormStep
