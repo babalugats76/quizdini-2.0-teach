@@ -71,19 +71,19 @@ Messages need to be standardized, etc.
   - Work on field outline on Buy Credits; try to get custom and Stripe rendered fields to match
   - Images
     - Once all images are known, move to S3/Cloudfront
-  - _Landing Page_
-    - Add selling point section, etc.
-      - Need running man, Create an activity during your passing period. Create an activity in less than 60 seconds. (running man)
-      - Node visualization Gain peace of mind by protecting your students' privacy (node)
-      - Add an invaluable tool to your teacher toolbox (toolbox)
-      - Determine verbiage for other two points
+  - Landing Page
+    - Add selling point creatives (once developed)  
+  - main to section
+    - Remove nested mains in favor of named section elements with meaningful ids  
+  - Loading
+    - Change pathes to render loader independently, i.e., do not nest in main, etc.
   - Error
     - Mock up Error
       - Return and apply to all appropriate routes
       - Create component that interrogates errors sent to it
       - Leave a placeholder image 
   - About
-    - _Attribution_
+    - Finish Attribution
   - Match
     - Change layout to resemble Stats
     - Create `Match Header` which includes `title` and `options` info
@@ -92,6 +92,8 @@ Messages need to be standardized, etc.
     - _Model Games_ - Show options 4, 6, 9
       - For each: title/subject, instructions, .csv, etc.
   - Hooks
+    - useScroll
+       - Create hook that scrolls window to top of page whenever pathname changes
     - useWindow
       - Investigate removing hook in lieu of CSS media queries
         - `HeaderNav`
