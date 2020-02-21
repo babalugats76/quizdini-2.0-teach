@@ -43,7 +43,7 @@ const Terms = ({ match, history }) => {
   });
 
   return (
-    <Container as="main" className="page large" id="terms" fluid>
+    <Container as="section" className="page large" id="terms" fluid>
       <Grid columns={2} container stackable>
         <Grid.Column width={5}>
           <Segment textAlign="center">

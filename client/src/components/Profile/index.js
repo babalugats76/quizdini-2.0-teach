@@ -112,7 +112,7 @@ const Profile = ({ match, history, accountType }) => {
   };
 
   return (
-    <Container as="main" className="page large" id="profile" fluid>
+    <Container as="section" className="page large" id="profile" fluid>
       <div className="content-wrapper">
         {renderMenu(accountType)}
         {renderPage(accountType)}

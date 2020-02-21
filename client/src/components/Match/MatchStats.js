@@ -47,7 +47,7 @@ const MatchStats = props => {
   const showLoader = !initialized && (loading || !stats);
 
   return (
-    <Container as="main" className="page medium" fluid id="match-stats">
+    <Container as="section" className="page medium" fluid id="match-stats">
       {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
         (showLoader && <Loader />) || (
           <Stats

@@ -128,7 +128,7 @@ const Dashboard = props => {
   const showLoader = !initialized && (loading || !data);
 
   return (
-    <Container as="main" className="page large" id="dashboard" fluid>
+    <Container as="section" className="page large" id="dashboard" fluid>
       <div className="content-wrapper">
         {renderMenu(games, state.activeGameIdx)}
         {message && Notify({ ...message, onDismiss: () => dismissMessage() })}

@@ -51,7 +51,7 @@ export default props => {
   // Conditionally render error, loader, and content - in that order
   return (
     (showLoader && <Loader />) || (
-      <Container as="main" className="page small" fluid id="register">
+      <Container as="section" className="page small" fluid id="register">
         {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) || (
           <>
             <LogoHeader>Sign Up for Quizdini</LogoHeader>

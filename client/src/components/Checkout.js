@@ -74,7 +74,7 @@ export default props => {
   return (
     (error && <pre>Unable to load Stripe script...</pre>) ||
     (showLoader && <Loader />) || (
-      <Container as="main" className="page small" fluid id="checkout">
+      <Container as="section" className="page small" fluid id="checkout">
         <LogoHeader>Purchase Credits</LogoHeader>
         <StripeProvider apiKey={process.env.REACT_APP_STRIPE_KEY}>
           <Elements {...elementsOptions}>

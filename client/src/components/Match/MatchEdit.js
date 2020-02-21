@@ -54,7 +54,7 @@ const MatchEdit = props => {
   const showLoader = !initialized && (loading || !game);
 
   return (
-    <Container as="main" className="page large" fluid id="match-edit">
+    <Container as="section" className="page large" fluid id="match-edit">
       {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
         (showLoader && <Loader />) || (
           <div className="content-wrapper">

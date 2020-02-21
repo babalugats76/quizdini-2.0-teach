@@ -61,7 +61,7 @@ const index = ({ match, history }) => {
   });
 
   return (
-    <Container as="main" className="page large" id="about" fluid>
+    <Container as="section" className="page large" id="about" fluid>
       <Grid columns={2} container stackable>
         <Grid.Column width={5}>
           <Segment textAlign="center">
