@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Form, Dropdown } from 'semantic-ui-react';
 import InputFeedback from './InputFeedback';
 import PropTypes from 'prop-types';
 
 const MyDropdown = ({
   error,
+  innerRef, // needed to support forwardRef
   label,
   name,
   options,
@@ -33,6 +34,7 @@ const MyDropdown = ({
         name={name}
         onChange={(event, data) => onChange(event, data)}
         options={options}
+        ref={innerRef} // as a prop, the ref needs to have a different name than 'ref'
         value={value}
         {...rest}
       />
@@ -43,6 +45,7 @@ const MyDropdown = ({
 
 MyDropdown.propTypes = {
   error: PropTypes.string,
+  innerRef: PropTypes.any,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   required: PropTypes.bool.isRequired,
@@ -56,5 +59,6 @@ MyDropdown.defaultProps = {
   required: false
 };
 
-export default MyDropdown;
-export { MyDropdown as Dropdown };
+export default forwardRef((props, ref) => (
+  <MyDropdown {...props} innerRef={ref} />
+));

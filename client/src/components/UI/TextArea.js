@@ -1,13 +1,20 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { TextArea } from "semantic-ui-react";
+import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
+import { TextArea } from 'semantic-ui-react';
 
-const MyTextArea = ({ value, placeholder, onChange, ...props }) => {
+const MyTextArea = ({
+  innerRef, // needed to support forwardRef
+  onChange,
+  placeholder,
+  value,
+  ...rest
+}) => {
   return (
     <TextArea
-      value={value || placeholder}
       onChange={(event, data) => onChange(event, data)}
-      {...props}
+      ref={innerRef} // as a prop, the ref needs to have a different name than 'ref'
+      value={value || placeholder}
+      {...rest}
     />
   );
 };
@@ -18,5 +25,6 @@ MyTextArea.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
-export default TextArea;
-export { MyTextArea as TextArea };
+export default forwardRef((props, ref) => (
+  <MyTextArea {...props} innerRef={ref} />
+));

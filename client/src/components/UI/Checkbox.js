@@ -1,10 +1,11 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { Form, Checkbox } from "semantic-ui-react";
 import PropTypes from "prop-types";
 
 const MyCheckbox = ({
   children,
   error,
+  innerRef,  // needed to support forwardRef
   name,
   onChange,
   value,
@@ -18,6 +19,7 @@ const MyCheckbox = ({
         label={<label htmlFor={name}>{children}</label>}
         name={name}
         onChange={onChange}
+        ref={innerRef} // as a prop, the ref needs to have a different name than 'ref'
         value={value}
         {...rest}
       />
@@ -28,6 +30,7 @@ const MyCheckbox = ({
 MyCheckbox.propTypes = {
   name: PropTypes.string.isRequired,
   error: PropTypes.string,
+  innerRef: PropTypes.any,
   value: PropTypes.any,
   onChange: PropTypes.func.isRequired,
   rest: PropTypes.object,
@@ -36,5 +39,6 @@ MyCheckbox.propTypes = {
 
 MyCheckbox.defaultProps = {};
 
-export default MyCheckbox;
-export { MyCheckbox as Checkbox };
+export default forwardRef((props, ref) => (
+  <MyCheckbox {...props} innerRef={ref} />
+));
