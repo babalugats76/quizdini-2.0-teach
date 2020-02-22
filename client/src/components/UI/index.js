@@ -3,6 +3,7 @@ import Button from './Button';
 import Checkbox from './Checkbox';
 import Dropdown from './Dropdown';
 import ExternalLink from './ExternalLink';
+import ErrorMessage from './ErrorMessage';
 import FormikHelper from './FormikHelper';
 import FormStep from './FormStep';
 import Icon from './Icon';
@@ -26,6 +27,7 @@ export {
   Button,
   Checkbox,
   Dropdown,
+  ErrorMessage,
   ExternalLink,
   FormikHelper,
   FormStep,

@@ -29,7 +29,7 @@ module.exports = app => {
 
       // STRIPE CHARGES MUST BE EXPRESSED IN PENNIES!
       const pennies = parseInt(amount) * 100,
-        description = `Purchase of ${credits} Quizdini credits for ${fullName}`,
+        description = `${credits} Quizdini credits for ${fullName}`,
         currency = 'usd',
         units = 'pennies';
 

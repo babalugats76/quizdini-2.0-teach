@@ -91,15 +91,72 @@
   Utility Classes
 --------------------*/
 
-.flxc {
-  display: flex;
-  flex: 1 0 auto;
-  flex-direction: column;
-  &.vc {
-    justify-content: center;
-    align-items: center;
-  }
+.p-1 {
+  padding: .25rem !important;
 }
+
+.p-2 {
+  padding: .5rem !important;
+}
+
+.p-3 {
+  padding: .75rem !important;
+}
+
+.p-4 {
+  padding: 1rem !important;
+}
+
+.m-1 {
+  margin: .25rem !important;
+}
+
+.m-2 {
+  margin: .5rem !important;
+}
+
+.m-3 {
+  margin: .75rem !important;
+}
+
+.m-4 {
+  margin: 1rem !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.flex-auto {
+  flex: auto !important; /* Shorthand for 0 1 auto */
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-justify-center {
+  justify-content: center !important;
+}
+
+.flex-justify-between {
+  justify-content: space-between !important;
+}
+
+.flex-center-items {
+  align-items: center !important;
+}
+
+.transform-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+} 
 
 /*-------------------
   Page, Containers, Menus
@@ -113,8 +170,9 @@
     min-height: calc(100vh - 71px) !important;
     overflow-y: auto !important;
     > main#content {
+      position: relative;
       display: flex;
-      flex: 1 0 auto; /* Make its content grow */
+      flex: 1 0 auto; /* Make main content grow */
       flex-direction: column;
       width: 100%;
       height: auto;
@@ -145,7 +203,7 @@
       }
 
       > #footer {
-        flex: 0 1 auto; /* Makes the footer shrink */
+        flex: 0 1 auto; /* Makes footer shrink */
         width: 100%;
         padding: 1rem;
         align-items: center;

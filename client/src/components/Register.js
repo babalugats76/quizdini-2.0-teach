@@ -9,6 +9,7 @@ import {
   Button,
   Checkbox,
   Dropdown,
+  ErrorMessage,
   FormStep,
   InputText,
   Loader,
@@ -39,30 +40,28 @@ export default props => {
   ];
 
   // Fetch redux data
-  const { errors } = useReduxData({ items: fetchItems, deps: [] });
+  let { errors } = useReduxData({ items: fetchItems, deps: [] });
 
   // Destructure and rename data
   const { data: countryOptions } = countries;
   const { data: stateOptions } = states;
+
+  errors = 'I am an error';
 
   // when to show loader
   const showLoader = !countryOptions || !stateOptions || isRedirecting;
 
   // Conditionally render error, loader, and content - in that order
   return (
-    (showLoader && <Loader />) || (
+    (showLoader && <Loader />) ||
+    (errors && <ErrorMessage>{errors}</ErrorMessage>) || (
       <Container as="section" className="page small" fluid id="register">
-        {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) || (
-          <>
-            <LogoHeader>Sign Up for Quizdini</LogoHeader>
-            <RegisterForm
-              countryOptions={countryOptions}
-              onRegister={registerUser}
-              onSuccess={notify => redirect(notify)}
-              stateOptions={stateOptions}
-            />
-          </>
-        )}
+        <RegisterForm
+          countryOptions={countryOptions}
+          onRegister={registerUser}
+          onSuccess={notify => redirect(notify)}
+          stateOptions={stateOptions}
+        />
       </Container>
     )
   );
@@ -262,6 +261,7 @@ const RegisterForm = props => {
 
         return (
           <>
+            <LogoHeader>Sign Up for Quizdini</LogoHeader>
             <span
               id="form-scroller"
               style={{
