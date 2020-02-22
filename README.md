@@ -13,16 +13,17 @@
     - Update logo to be 300px-wide friend logo with text
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Client
-  - One-off styling for Buy Credits because there is no way to provide our webfont to Stripe :(
-  - Work on field outline on Buy Credits; try to get custom and Stripe rendered fields to match
+  - Buy Credits
+    - One-off styling/fonts because there is no way to provide our webfont to Stripe :(
+    - Work on field outline on Buy Credits; try to get custom and Stripe rendered fields to match
   - Images
     - Once all images are known, move to S3/Cloudfront
   - Landing Page
+    - Add epic, hero banner (once developed)
     - Add selling point creatives (once developed)  
-  - main to section
-    - Remove nested mains in favor of named section elements with meaningful ids  
   - Loading
     - Change pathes to render loader independently, i.e., do not nest in main, etc.
+    - Potentially create a ModalLoader which breaks out and attached right before the closing `</body>` tag
   - Error
     - Mock up Error
       - Return and apply to all appropriate routes
@@ -35,10 +36,13 @@
     - Create `Match Header` which includes `title` and `options` info
   - Dashboard
     - _Refine functional component, e.g., `MatchIntro`_
-    - _Model Games_ - Show options 4, 6, 9
+    - _Model Games_ - Show optgit ions 4, 6, 9
       - For each: title/subject, instructions, .csv, etc.
+    - Match Card
+      - Add match game badge (once developed) 
+
   - Hooks
-    - useScroll
+    - useScrollToTop
        - Create hook that scrolls window to top of page whenever pathname changes
     - useWindow
       - Investigate removing hook in lieu of CSS media queries

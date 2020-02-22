@@ -1151,91 +1151,123 @@ svg.icon.chevron-down.closed {
   
 /* Allows for controlling vertical growth of card sections, when side by side */
 }
-.ui.cards .ui.card.match-card .content.match-card-header {
+.ui.cards .ui.card.match-card .content.card-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: relative;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   min-height: 5em;
-  padding: 1em 0.5em 0.5em;
+  padding: 1em 1.5em 1em;
   overflow: hidden;
   word-break: break-word;
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
-  background-size: 25px;
-  background-repeat: round;
-  background-image: url('/images/question.svg');
 }
-.ui.cards .ui.card.match-card .content.match-card-header:hover .ui.icon.button.trash {
+.ui.cards .ui.card.match-card .content.card-header:hover .ui.icon.button.trash {
   display: block;
   background-color: #FFF6F6;
   opacity: 0.87;
 }
-.ui.cards .ui.card.match-card .content.match-card-header:hover.can-delete .ui.icon.button.trash {
+.ui.cards .ui.card.match-card .content.card-header:hover.can-delete .ui.icon.button.trash {
   background-color: #E0B4B4;
   opacity: 0.95;
 }
-.ui.cards .ui.card.match-card .content.match-card-header > .header {
-  text-align: center;
-  font-size: 1.375em;
+.ui.cards .ui.card.match-card .content.card-header > .card-details {
+  padding: 0 1.5em 0 0;
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  padding: 0 0.5em;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
-.ui.cards .ui.card.match-card .content.match-card-header .ui.icon.button.trash {
+.ui.cards .ui.card.match-card .content.card-header > .card-details .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.125em;
+  line-height: 1.125em;
+  color: #1B1C1D;
+  height: 2.25em;
+  overflow: hidden;
+}
+.ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label:not(:last-child) {
+  margin: 0.5em 0;
+}
+.ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label:first-child {
+  margin-top: 1em;
+}
+.ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9375em;
+  line-height: 0.9375em;
+}
+.ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label .detail {
+  margin-left: 0;
+  color: #767676;
+}
+.ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label svg.icon path {
+  fill: #767676;
+}
+.ui.cards .ui.card.match-card .content.card-header > .card-badge {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.ui.cards .ui.card.match-card .content.card-header > .card-badge .circle-badge {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: -0.5em;
+  height: 3.5em;
+  width: 3.5em;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+.ui.cards .ui.card.match-card .content.card-header > .card-badge .circle-badge > svg {
+  width: 80% !important;
+  height: auto !important;
+}
+.ui.cards .ui.card.match-card .content.card-header .ui.icon.button.trash {
   opacity: 0;
   position: absolute;
   border-radius: 0;
   top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
   width: 100%;
   height: 100%;
   background-color: transparent;
   -webkit-transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
-.ui.cards .ui.card.match-card .content.match-card-header .ui.icon.button.trash svg.icon {
+.ui.cards .ui.card.match-card .content.card-header .ui.icon.button.trash svg.icon {
   width: 2em;
   height: 2em;
 }
-.ui.cards .ui.card.match-card .content.match-card-desc {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-.ui.cards .ui.card.match-card .content.match-card-desc .description .ui.label {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: transparent;
-  border: none;
-}
-.ui.cards .ui.card.match-card .content.match-card-desc .description .ui.label .detail {
-  margin-left: 0;
-  color: #767676;
-}
-.ui.cards .ui.card.match-card .content.match-card-desc .description .ui.label svg.icon path {
-  fill: #767676;
-}
-.ui.cards .ui.card.match-card .content.match-card-btns {
+.ui.cards .ui.card.match-card .content.card-buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1244,28 +1276,46 @@ svg.icon.chevron-down.closed {
           flex-grow: 0;
   background-color: rgba(0, 0, 0, 0.03);
 }
-.ui.cards .ui.card.match-card .content.match-card-btns > .ui.four.buttons .ui.button.clipboard {
+.ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons {
+  padding: 0.5em;
+}
+.ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons .ui.button {
+  padding: 0.5em;
+}
+.ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons .ui.button.clipboard {
   -webkit-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
-.ui.cards .ui.card.match-card .content.match-card-btns > .ui.four.buttons .ui.button.clipboard.copied {
+.ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons .ui.button.clipboard.copied {
   color: #FFFFFF;
   background-color: #21BA45;
   font-size: 0.875rem;
   margin: 0;
   padding: 0;
 }
-.ui.cards .ui.card.match-card .content.match-card-btns > .ui.four.buttons .ui.button:not(:last-child) {
+.ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons .ui.button:not(:last-child) {
   border-right: 1px inset #1B1C1D;
 }
-.ui.cards .ui.card.match-card .content.match-card-btns > .ui.four.buttons svg.icon {
-  width: 1.375em;
-  height: 1.375em;
+.ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons svg.icon {
+  width: 1.25em;
+  height: 1.25em;
 }
 .ui.cards .ui.card.match-card .content .ui.label,
 .ui.cards .ui.card.match-card .content .ui.labels,
 .ui.cards .ui.card.match-card .content .label {
-  font-size: 1em;
+  font-size: 0.9375em;
+}
+@supports (-webkit-line-clamp: 2) {
+  .ui.card .card-details .header {
+    display: -webkit-box;
+    width: 100%;
+    -webkit-line-clamp: 2;
+    
+/* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 /*-------------------
@@ -1547,20 +1597,6 @@ svg.icon.chevron-down.closed {
   }
   .icon-menu-list.ui.horizontal.list > .item {
     margin: 0.5rem 0;
-  }
-  .ui.cards .ui.card.match-card .content.match-card-desc .description {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-  }
-  .ui.cards .ui.card.match-card .content.match-card-desc .ui.label {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
   }
 }
 @media only screen and (min-width: 768px) {

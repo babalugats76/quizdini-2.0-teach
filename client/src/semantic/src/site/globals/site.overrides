@@ -1019,19 +1019,16 @@ svg {
     &.match-card {
       display: inline-flex !important; /* Allows for controlling vertical growth of card sections, when side by side */
       .content {
-        &.match-card-header {
+        &.card-header {
           display: flex;
+          flex: 1 1 auto;
+          justify-content: space-between;
           position: relative;
-          justify-content: center;
-          align-items: center;
           min-height: 5em;
-          padding: 1em 0.5em 0.5em;
+          padding: 1em 1.5em 1em;
           overflow: hidden;
           word-break: break-word;
           border-bottom: 1px solid @subtleTransparentBlack;
-          background-size: 25px;
-          background-repeat: round;
-          background-image: url('/images/question.svg');
           &:hover {
             .ui.icon.button.trash {
               display: block;
@@ -1045,17 +1042,71 @@ svg {
               }
             }
           }
-          > .header {
-            text-align: center;
-            font-size: 1.375em;
-            flex-grow: 1;
-            padding: 0 0.5em;
+          > .card-details {
+            padding: 0 1.5em 0 0;
+            flex: 1 1 auto;
+            .header {
+              display: flex;
+              align-items: center;
+              font-size: 1.125em;
+              line-height: 1.125em;
+              color: @black;
+              height: 2.25em;
+              overflow: hidden;
+            }
+            .description {
+              .ui.label:not(:last-child) {
+                margin: 0.5em 0;
+              }
+              .ui.label:first-child {
+                margin-top: 1em;
+              }
+              .ui.label {
+                display: flex;
+                align-items: flex-end;
+                background-color: transparent;
+                border: none;
+                margin: 0;
+                padding: 0;
+                font-size: .9375em;
+                line-height: .9375em;
+                .detail {
+                  margin-left: 0;
+                  color: @grey;
+                }
+                svg.icon {
+                  path {
+                    fill: @grey;
+                  }
+                }
+              }
+            }
+          }
+          > .card-badge {
+            flex: 0 0 auto;
+            .circle-badge {
+              display: flex;
+              flex: 0 1 auto;
+              justify-content: center;
+              margin-right: -0.5em;
+              height: 3.5em;
+              width: 3.5em;
+              border-radius: 50%;
+              box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+              > svg {
+                width: 80% !important;
+                height: auto !important;
+              }
+            }
           }
           .ui.icon.button.trash {
             opacity: 0;
             position: absolute;
             border-radius: 0;
             top: 0;
+            left: 0;
+            padding: 0;
+            margin: 0;
             width: 100%;
             height: 100%;
             background-color: transparent;
@@ -1067,35 +1118,14 @@ svg {
               opacity 0.3s ease-in-out;
           }
         }
-        &.match-card-desc {
-          display: flex;
-          justify-content: center;
-          flex-grow: 1;
-          .description {
-            .ui.label {
-              display: inline-flex;
-              flex-direction: row;
-              align-items: center;
-              background-color: transparent;
-              border: none;
-              .detail {
-                margin-left: 0;
-                color: @grey;
-              }
-              svg.icon {
-                path {
-                  fill: @grey;
-                }
-              }
-            }
-          }
-        }
-        &.match-card-btns {
+        &.card-buttons {
           display: flex;
           flex-grow: 0;
           background-color: @subtleTransparentBlack;
           > .ui.four.buttons {
+            padding: 0.5em;
             .ui.button {
+              padding: 0.5em;
               &.clipboard {
                 transition: color 0.3s ease-in-out,
                   background-color 0.3s ease-in-out;
@@ -1112,18 +1142,30 @@ svg {
               border-right: 1px inset @black;
             }
             svg.icon {
-              width: 1.375em;
-              height: 1.375em;
+              width: 1.25em;
+              height: 1.25em;
             }
           }
         }
         .ui.label,
         .ui.labels,
         .label {
-          font-size: 1em;
+          font-size: 0.9375em;
         }
       }
     }
+  }
+}
+
+@supports (-webkit-line-clamp: 2) {
+  .ui.card .card-details .header {
+    display: -webkit-box;
+    width: 100%;
+    -webkit-line-clamp: 2;
+    /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -1423,36 +1465,17 @@ svg {
       }
     }
   }
-
-  .ui.cards {
-    .ui.card {
-      &.match-card {
-        .content {
-          &.match-card-desc {
-            .description {
-              display: inline-flex;
-              flex-wrap: wrap;
-              justify-content: space-around;
-            }
-            .ui.label {
-              display: flex;
-            }
-          }
-        }
-      }
-    }
-  }
 }
 
 @media only screen and (min-width: @tabletBreakpoint) {
   #quizdini {
     background: @widePageBackground;
   }
- 
+
   .pushable > .pusher > main#content > .page {
     padding: @containerPadding;
   }
- 
+
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
     margin-top: 1rem;
   }

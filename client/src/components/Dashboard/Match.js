@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Divider, Segment, Transition } from 'semantic-ui-react';
 import { useTimeout } from '../../hooks';
-import { Button, Label, RouterButton } from '../UI';
+import { Button, Icon, Label, RouterButton } from '../UI';
 import { copyToClipboard } from './utils';
 const { formatDistanceToNow } = require('date-fns');
 
 const Match = ({ credits, data: games, onDelete }) => {
   return (
-    <Segment id="match-game" padded>
+    <section id="match-game">
       <RouterButton
         disabled={credits <= 0}
         labelPosition="left"
@@ -23,7 +23,7 @@ const Match = ({ credits, data: games, onDelete }) => {
       {(games && games.length && (
         <MatchCardGroup games={games} onDelete={onDelete} />
       )) || <MatchIntro />}
-    </Segment>
+    </section>
   );
 };
 
@@ -56,7 +56,7 @@ const MatchIntro = () => (
 
 const MatchCardGroup = ({ games, onDelete }) => {
   return (
-    <Card.Group itemsPerRow={3} stackable>
+    <Card.Group itemsPerRow={3} doubling stackable>
       {games &&
         games.map(game => (
           <MatchCard
@@ -130,9 +130,8 @@ const MatchCard = ({ game, onDelete }) => {
     >
       <Card className="match-card" key={matchId} raised>
         <Card.Content
-          className={`match-card-header${canDelete ? ' can-delete' : ''}`}
+          className={`card-header${canDelete ? ' can-delete' : ''}`}
         >
-          <Card.Header>{title}</Card.Header>
           <Button
             as="button"
             disabled={!visible}
@@ -141,14 +140,18 @@ const MatchCard = ({ game, onDelete }) => {
             onMouseLeave={handleMouseLeave}
             type="button"
           />
-        </Card.Content>
-        <Card.Content className="match-card-desc">
-          <Card.Description>
+          <div className="card-details">
+            <Card.Header>{title}</Card.Header>
+            <Card.Description>
             <Label icon="book">{termCount} Terms</Label>
             <Label icon="clock">{timeAgo}</Label>
           </Card.Description>
+          </div>
+          <div className="card-badge">
+            <CircleBadge icon="question" />
+          </div>
         </Card.Content>
-        <Card.Content className="match-card-btns" extra>
+        <Card.Content className="card-buttons" extra>
           <div className="ui four buttons">
             <RouterButton
               active
@@ -193,4 +196,12 @@ const MatchCard = ({ game, onDelete }) => {
 MatchCard.propTypes = {
   game: PropTypes.any.isRequired,
   onDelete: PropTypes.func.isRequired
+};
+
+const CircleBadge = ({ icon, size }) => {
+  return (
+    <div className="circle-badge">
+      <Icon name={icon} />
+    </div>
+  );
 };
