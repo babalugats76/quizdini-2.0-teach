@@ -1,29 +1,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Header, Image } from 'semantic-ui-react';
+import { Header, Image } from 'semantic-ui-react';
 
-const ErrorMessage = ({ children, header }) => {
+const renderDetails = details => {
+  if (Array.isArray(details) && details.length) {
+    return (
+      <div className="error-details">
+        {details.map(el =>
+          Object.entries(el).map(([key, value]) => (
+            <pre key={key}>
+              {key}: {value}
+            </pre>
+          ))
+        )}
+      </div>
+    );
+  }
+  return (
+    <div className="error-details">
+      <pre>{details}</pre>
+    </div>
+  );
+};
+
+const ErrorMessage = ({ header, details }) => {
   return (
     <div className="d-flex flex-1 h-auto flex-justify-center flex-center-items">
-      <div className="error-content p-4 m-4">
-        <Image src="https://via.placeholder.com/215x275?text=Creative" />
-        <Header>
+      <div className="error-message p-4 m-4">
+        <Image
+          centered
+          src="https://via.placeholder.com/280x280?text=Creative"
+        />
+        <Header size="large" textAlign="center">
           <Header.Content>{header}</Header.Content>
-          {/* TODO: Interegate to see what kind of data and handle as approproate */}
-          <Header.Subheader>{children}</Header.Subheader>
         </Header>
+        {/* TODO: Interegate to see what kind of data and handle as approproate */}
+        {renderDetails(details)}
       </div>
     </div>
   );
 };
 
 ErrorMessage.propTypes = {
-  children: PropTypes.any,
+  details: PropTypes.any.isRequired,
   header: PropTypes.string.isRequired
 };
 
 ErrorMessage.defaultProps = {
-  header: 'Houston, We Have a Problem!'
+  details: 'No details...',
+  header: 'Houston, we have a problem...'
 };
 
 export default ErrorMessage;

@@ -47,6 +47,7 @@ export default function useReduxData({ items = [], deps = [] }) {
           results: action.results
         };
       case "FETCH_FAILURE":
+        console.log('fetch failure called...');
         return {
           ...state,
           executions: state.executions + 1,
@@ -81,7 +82,7 @@ export default function useReduxData({ items = [], deps = [] }) {
     if (state.hasError) {
       return (
         (Array.isArray(state.results) &&
-          state.results.map((accum, result) => {
+          state.results.reduce((accum, result) => {
             if (result.error) accum.push(result.error);
             return accum;
           }, [])) || [state.results]
@@ -149,10 +150,10 @@ export default function useReduxData({ items = [], deps = [] }) {
 
   return {
     errors, // array of errors (if they exist)
-    executions: 0, // running fetch count, successful or not
-    hasError: false, // whether one or more errors occured during last fetch
-    loading: false, // whether fetch underway
-    requests: 0, // running total of api calls
-    results: null // results
+    executions: state.executions, // running fetch count, successful or not
+    hasError: state.hasError, // whether one or more errors occured during last fetch
+    loading: state.loading, // whether fetch underway
+    requests: state.requests, // running total of api calls
+    results: state.results // results
   };
 }
