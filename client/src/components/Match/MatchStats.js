@@ -295,7 +295,6 @@ const PingChart = ({ createDate, pings = [] }) => {
     <Segment
       disabled={!pings.length}
       id="plays-bar-chart"
-      padded
       style={{ backgroundColor: '#fff' }}
     >
       <canvas ref={ref => (canvasRef.current = ref)} />
