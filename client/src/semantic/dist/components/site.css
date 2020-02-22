@@ -308,6 +308,11 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   
 /* Shorthand for 0 1 auto */
 }
+.flex-1 {
+  -webkit-box-flex: 1 !important;
+      -ms-flex: 1 1 0% !important;
+          flex: 1 1 0% !important;
+}
 .flex-column {
   -webkit-box-orient: vertical !important;
   -webkit-box-direction: normal !important;
@@ -328,6 +333,12 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   -webkit-box-align: center !important;
       -ms-flex-align: center !important;
           align-items: center !important;
+}
+.h-auto {
+  height: auto !important;
+}
+.h-100 {
+  height: 100% !important;
 }
 .transform-center {
   position: absolute;
@@ -394,7 +405,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   padding: 2.5rem;
   margin: 0;
 }
-.pushable > .pusher > main#content > #footer {
+.pushable > .pusher > footer {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;

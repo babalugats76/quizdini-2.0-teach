@@ -4,7 +4,7 @@ import { Container, Header, Image } from 'semantic-ui-react';
 
 const ErrorMessage = ({ children, header }) => {
   return (
-    <div className="error-wrapper transform-center">
+    <div className="d-flex flex-1 h-auto flex-justify-center flex-center-items">
       <div className="error-content p-4 m-4">
         <Image src="https://via.placeholder.com/215x275?text=Creative" />
         <Header>
