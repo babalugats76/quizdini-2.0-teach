@@ -13,6 +13,8 @@
     - Update logo to be 300px-wide friend logo with text
     - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
 - Client
+  - About & Terms
+    - Cut down on the amount of selective bolding
   - Buy Credits
     - One-off styling/fonts because there is no way to provide our webfont to Stripe :(
     - Work on field outline on Buy Credits; try to get custom and Stripe rendered fields to match
@@ -36,7 +38,7 @@
     - Create `Match Header` which includes `title` and `options` info
   - Dashboard
     - _Refine functional component, e.g., `MatchIntro`_
-    - _Model Games_ - Show optgit ions 4, 6, 9
+    - _Model Games_ - Show options 4, 6, 9
       - For each: title/subject, instructions, .csv, etc.
     - Match Card
       - Add match game badge (once developed) 
