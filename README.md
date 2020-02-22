@@ -1,5 +1,65 @@
 # Quizdini Teach
 
+# Todo List
+
+- Heroku
+  - Investigate SSL steps
+- Documentation
+- Server
+  - _Refine wording_ and style for following email templates:
+    - QUIZDINI_REGISTER
+    - QUIZDINI_RECOVER_USERNAME
+    - QUIZDINI_RESET_PASSWORD
+    - Update logo to be 300px-wide friend logo with text
+    - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
+- Client
+  - One-off styling for Buy Credits because there is no way to provide our webfont to Stripe :(
+  - Work on field outline on Buy Credits; try to get custom and Stripe rendered fields to match
+  - Images
+    - Once all images are known, move to S3/Cloudfront
+  - Landing Page
+    - Add selling point creatives (once developed)  
+  - main to section
+    - Remove nested mains in favor of named section elements with meaningful ids  
+  - Loading
+    - Change pathes to render loader independently, i.e., do not nest in main, etc.
+  - Error
+    - Mock up Error
+      - Return and apply to all appropriate routes
+      - Create component that interrogates errors sent to it
+      - Leave a placeholder image 
+  - About
+    - Finish Attribution
+  - Match
+    - Change layout to resemble Stats
+    - Create `Match Header` which includes `title` and `options` info
+  - Dashboard
+    - _Refine functional component, e.g., `MatchIntro`_
+    - _Model Games_ - Show options 4, 6, 9
+      - For each: title/subject, instructions, .csv, etc.
+  - Hooks
+    - useScroll
+       - Create hook that scrolls window to top of page whenever pathname changes
+    - useWindow
+      - Investigate removing hook in lieu of CSS media queries
+        - `HeaderNav`
+        - `MatchForm`
+        - `MatchTable`
+  - Style Punchlist
+    - Move feedback errors outside (and above) segments
+    - Investigate and implement the best graph transitions
+    - Different colors for alerts
+        - info could be `#e6f2f5` background and `#003440` color
+        - success could be `#e9f7f1` background and `#004025` color
+    - Change positive/primary button background color to `#ec5252` or a Quizdini purple
+    - Find better emphasis color for places like Terms and About
+
+Kay
+
+- Custom match icon
+- Design for match-card-header
+- Error image
+
 # Diagrams
 
 - [Route Trees](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Quizdini.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1SUQK7qZlTLzat0yysiNBKhyWKBPDzlnA%26export%3Ddownload)
@@ -53,67 +113,6 @@ Messages need to be standardized, etc.
 | **Successful recovery request (reset)**            | <blockquote>Check your email!</blockquoute>           | <blockquote>If there is an account associated with `%email%`, then a password reset email has been sent.</blockquoute>    | blue  |
 | **Insufficent credits**                            | <blockquote>Not so fast!</blockquote>                 | <blockquote>There are not enough credits in your account.</blockquote>                                                    |  red  |
 | **Generic site-wide error**   | <blockquote>Something's not quite right.</blockquote>                 | <em>Provided by underlying codebase.</em>                                                    |  red  |
-
-# Todo List
-
-- Heroku
-  - Investigate SSL steps
-- Documentation
-- Server
-  - _Refine wording_ and style for following email templates:
-    - QUIZDINI_REGISTER
-    - QUIZDINI_RECOVER_USERNAME
-    - QUIZDINI_RESET_PASSWORD
-    - Update logo to be 300px-wide friend logo with text
-    - Style so that content is in simple white rounded box, i.e., experiement removing header and footer styling, etc.
-- Client
-  - One-off styling for Buy Credits because there is no way to provide our webfont to Stripe :(
-  - Work on field outline on Buy Credits; try to get custom and Stripe rendered fields to match
-  - Images
-    - Once all images are known, move to S3/Cloudfront
-  - Landing Page
-    - Add selling point creatives (once developed)  
-  - main to section
-    - Remove nested mains in favor of named section elements with meaningful ids  
-  - Loading
-    - Change pathes to render loader independently, i.e., do not nest in main, etc.
-  - Error
-    - Mock up Error
-      - Return and apply to all appropriate routes
-      - Create component that interrogates errors sent to it
-      - Leave a placeholder image 
-  - About
-    - Finish Attribution
-  - Match
-    - Change layout to resemble Stats
-    - Create `Match Header` which includes `title` and `options` info
-  - Dashboard
-    - _Refine functional component, e.g., `MatchIntro`_
-    - _Model Games_ - Show options 4, 6, 9
-      - For each: title/subject, instructions, .csv, etc.
-  - Hooks
-    - useScroll
-       - Create hook that scrolls window to top of page whenever pathname changes
-    - useWindow
-      - Investigate removing hook in lieu of CSS media queries
-        - `HeaderNav`
-        - `MatchForm`
-        - `MatchTable`
-  - Style Punchlist
-    - Move feedback errors outside (and above) segments
-    - Remove title from input fields (old skool and makes UX messy)
-    - Investigate and implement the best graph transitions
-    - Different colors for alerts
-        - info could be `#e6f2f5` background and `#003440` color
-        - success could be `#e9f7f1` background and `#004025` color
-    - Change positive/primary button background color to `#ec5252` or a Quizdini purple
-    - Find better emphasis color for places like Terms and About
-
-Kay
-
-- Custom match icon
-- Design for match-card-header
-- Error image
 
 # User Migration
 

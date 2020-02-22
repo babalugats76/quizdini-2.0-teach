@@ -111,10 +111,10 @@ const Stats = props => {
           <Grid.Column textAlign="center">
             <Segment>
               <MatchHeader
+                content={title}
                 duration={duration}
                 itemsPerBoard={itemsPerBoard}
                 termCount={termCount}
-                title={title}
               />
             </Segment>
           </Grid.Column>

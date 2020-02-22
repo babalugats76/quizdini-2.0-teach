@@ -46,7 +46,6 @@ const PaymentTable = ({ id, payments }) => {
             <Table.Cell>{val.description}</Table.Cell>
             <Table.Cell textAlign="center" collapsing>
               <ExternalLink
-                title={`View ${val.processor} receipt ${val.paymentId}`}
                 href={val.receiptUrl}
                 target="_blank"
               >

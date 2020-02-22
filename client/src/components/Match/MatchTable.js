@@ -42,7 +42,6 @@ const MatchTable = ({
             <Table.Cell content={renderHtml(val.definition)} />
             <Table.Cell collapsing>
               <Button
-                title={`Delete ${val.term}`}
                 type="button"
                 disabled={disabled}
                 icon="trash"

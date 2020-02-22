@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Header, Label } from 'semantic-ui-react';
 import { Icon } from '../UI/';
 
-const MatchHeader = ({ duration, itemsPerBoard, size, termCount, title }) => {
+const MatchHeader = ({ content, duration, itemsPerBoard, size, termCount }) => {
   return (
     <div className="match-header">
       <Icon name="question" />
       <Header className="game-title" size={size}>
-        {title}
+        {content}
       </Header>
       <Label.Group size={size}>
         <MatchLabel icon="book">{termCount} terms</MatchLabel>
@@ -20,11 +20,11 @@ const MatchHeader = ({ duration, itemsPerBoard, size, termCount, title }) => {
 };
 
 MatchHeader.propTypes = {
+  content: PropTypes.any.isRequired,
   duration: PropTypes.number.isRequired,
   itemsPerBoard: PropTypes.number.isRequired,
   size: PropTypes.string.isRequired,
   termCount: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired
 };
 
 MatchHeader.defaultProps = {

@@ -156,7 +156,6 @@ const MatchCard = ({ game, onDelete }) => {
               icon="edit"
               pathname="/match/edit"
               state={{ matchId: matchId }}
-              title={`Edit ${title}`}
             />
             <RouterButton
               active
@@ -164,7 +163,6 @@ const MatchCard = ({ game, onDelete }) => {
               icon="bar-chart-2"
               pathname="/match/stats"
               state={{ matchId: matchId }}
-              title={`View Stats for ${title}`}
             />
             <Button
               active
@@ -173,7 +171,6 @@ const MatchCard = ({ game, onDelete }) => {
               href={url}
               icon="play"
               target="_blank"
-              title={`Play ${title}`}
               type="button"
             />
             <Button
