@@ -12,9 +12,7 @@ const Modal = ({ children, id, show }) => {
 
   return (
     <Portal id={id}>
-      <div className={showHideClassName}>
-        <div className="modal-content">{children}</div>
-      </div>
+      <div className={showHideClassName}>{children}</div>
       <div className="modal-overlay"></div>
     </Portal>
   );

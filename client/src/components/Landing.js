@@ -3,7 +3,7 @@ import { Container, Grid, Header, Image } from "semantic-ui-react";
 
 export default props => {
   return (
-    <main id="landing">
+    <Container id="landing" fluid>
       <section id="intro" as="div" className="banner">
         <Container text>
           <Image centered fluid src="/images/logo.png" style={{ maxWidth: "480px" }} />
@@ -77,6 +77,6 @@ export default props => {
           </Grid>
         </Container>
       </section>
-    </main>
+    </Container>
   );
 };

@@ -8,7 +8,7 @@ const { formatDistanceToNow } = require('date-fns');
 
 const Match = ({ credits, data: games, onDelete }) => {
   return (
-    <section id="match-game">
+    <section id="match-games">
       <RouterButton
         disabled={credits <= 0}
         labelPosition="left"

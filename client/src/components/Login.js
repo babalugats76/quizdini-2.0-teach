@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { Container, Divider, Form, Segment } from "semantic-ui-react";
+import { Divider, Form, Segment } from "semantic-ui-react";
 import { useAPI, useAuth, useMessage, useResult } from "../hooks/";
 import { Button, ExternalLink, InputText, Loader, LogoHeader, Notify } from "./UI/";
 
@@ -31,14 +31,12 @@ export default props => {
   // what to render
   return (
     (showLoader && <Loader />) || (
-      <div className="d-flex flex-1 h-auto flex-justify-center flex-center-items">
-        <Container as="section" className="page small" fluid id="login">
+      <div className="page small middle" id="login">
           {message && Notify({ ...message, onDismiss: () => dismissMessage() })}
           <Segment id="login-wrapper" padded>
             <LogoHeader>Login to Quizdini</LogoHeader>
             <LoginForm onLogin={loginUser} onSuccess={() => onSuccess()} />
           </Segment>
-        </Container>
       </div>
     )
   );

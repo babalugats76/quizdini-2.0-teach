@@ -166,19 +166,20 @@ const Layout = ({ children, errors, showLoader, user }) => {
 
   return (
     <Sidebar.Pushable>
-      <HeaderNav as="nav" onMenuClick={toggleMenu} {...user} />
-      <SidebarNav onItemClick={hideSidebar} visible={showSidebar} {...user} />
       <Sidebar.Pusher
+        className="page-wrapper"
         dimmed={showSidebar}
         onClick={showSidebar ? hideSidebar : null}
       >
-        <main id="content">
+      <HeaderNav onMenuClick={toggleMenu} {...user} />
+        <div id="content">
           {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) ||
             (showLoader && <Loader />) ||
             children}
-        </main>
+        </div>
         <Footer />
       </Sidebar.Pusher>
+      <SidebarNav onItemClick={hideSidebar} visible={showSidebar} {...user} />
     </Sidebar.Pushable>
   );
 };
@@ -390,7 +391,7 @@ const HeaderNav = ({
     });
 
   return (
-    <Menu as="header" borderless inverted size="massive">
+    <Menu as="header" borderless fixed="top" inverted size="massive">
       <Container as="nav">
         {loggedIn && isMobile && (
           <Menu.Item key="sidebar" as="a" position="left" onClick={onMenuClick}>
@@ -436,7 +437,7 @@ NavProfile.propTypes = {
 
 const Footer = props => {
   return (
-    <Segment as="footer" id="footer" inverted vertical>
+    <Segment as="footer" inverted vertical>
       <Container textAlign="center">
         <Grid columns={3} stackable inverted verticalAlign="middle">
           <Grid.Row>

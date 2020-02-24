@@ -1,13 +1,13 @@
 import React from "react";
-import Icon from "./Icon";
+import { Icon, Modal } from "./";
 
 const Loader = () => {
   return (
-    <div className="d-flex flex-1 h-auto flex-justify-center flex-center-items">
+    <Modal id="loader" show={true}>
       <div className="loader">
         <Icon name="spinner" viewBox="0 0 50 50" />
       </div>
-    </div>
+    </Modal>
   );
 };
 

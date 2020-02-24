@@ -712,62 +712,54 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 /* lexend-deca-regular - latin */
 
 @font-face {
-  font-family: 'Lexend Deca';
+  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 400;
-  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
- url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
+  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"), url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"), 
+ url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: 'marcher-light';
-  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-light-webfont.woff') format('woff');
+  font-family: "marcher-light";
+  src: url("https://static.quizdini.com/fonts/marcher-light-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-book';
-  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-book-webfont.woff') format('woff');
+  font-family: "marcher-book";
+  src: url("https://static.quizdini.com/fonts/marcher-book-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-book-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-regular';
-  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff') format('woff');
+  font-family: "marcher-regular";
+  src: url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-medium';
-  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff') format('woff');
+  font-family: "marcher-medium";
+  src: url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-extrabold';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff') format('woff');
+  font-family: "marcher-extrabold";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-extrabolditalic';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff') format('woff');
+  font-family: "marcher-extrabolditalic";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-}
-
-/*-------------------
-  Root Element
---------------------*/
-
-#quizdini {
-  background-color: #FFFFFF;
 }
 
 /*-------------------
@@ -871,14 +863,35 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 
 /*-------------------
-  Page, Containers, Menus
+  Containers
 --------------------*/
 
-.pushable {
-  overflow-y: hidden;
+.ui.container.fluid {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.pushable > .pusher {
+.ui.container.fluid.small {
+  max-width: 432px;
+}
+
+.ui.container.fluid.medium {
+  max-width: 735.98px;
+}
+
+.ui.container.fluid.large {
+  max-width: 1168px;
+}
+
+/*-------------------
+  Layout
+--------------------*/
+
+#quizdini {
+  background-color: #FFFFFF;
+}
+
+.page-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -886,101 +899,94 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  min-height: calc(100vh - 71px) !important;
-  overflow-y: auto !important;
+  height: 100% !important;
+  min-height: calc(100vh) !important;
 }
 
-.pushable > .pusher > main#content {
-  position: relative;
+.page-wrapper > header {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  height: 72px!important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.page-wrapper > #content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 1;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
-  /* Make main content grow */
+  margin-top: 72px !important;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.page-wrapper > #content .page {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+}
+
+.page-wrapper > #content .page.middle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  /* align-items: center !important; */
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
   width: 100%;
-  height: auto;
-  min-height: 50%;
-  -ms-flex-line-pack: center;
-  align-content: center;
 }
 
-.pushable > .pusher > main#content > .page {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1rem 0.5rem 3rem 0.5rem;
-}
-
-.pushable > .pusher > main#content .ui.container.small {
+.page-wrapper > #content .page.small {
   max-width: 432px;
 }
 
-.pushable > .pusher > main#content .ui.container.medium {
+.page-wrapper > #content .page.medium {
   max-width: 735.98px;
 }
 
-.pushable > .pusher > main#content .ui.container.large {
+.page-wrapper > #content .page.large {
   max-width: 1168px;
 }
 
-.pushable > .pusher > main#content .banner {
-  width: 100%;
-  padding: 2.5rem;
-  margin: 0;
-}
-
-.pushable > .pusher > footer {
+.page-wrapper > footer {
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
-  /* Makes footer shrink */
-  width: 100%;
-  padding: 1rem;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background-color: #2e3235;
 }
 
-.ui.massive.menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  margin: 0;
-  -webkit-transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
-  transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.ui.massive.menu .item svg.icon {
-  width: 1.375em;
-  height: 1.375em;
-}
-
-.ui.massive.menu.inverted {
-  border: 1px solid transparent;
-}
-
-.ui.massive.menu,
-.ui.pagination.menu {
-  font-family: 'marcher-regular', sans-serif;
-}
+/*-------------------
+  Menus
+--------------------*/
 
 .ui.menu.inverted .item svg path {
   fill: #FFFFFF;
 }
 
-.ui.menu .link.item img.profile {
+.ui.menu.pagination {
+  font-family: 'marcher-regular', sans-serif;
+}
+
+.ui.menu.massive {
+  font-family: 'marcher-regular', sans-serif;
+}
+
+.ui.menu.massive .item svg.icon {
+  width: 1.375em !important;
+  height: 1.375em !important;
+}
+
+.ui.menu .item.link img.profile {
   margin-left: 10px;
 }
 
@@ -1063,56 +1069,6 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
-  Loader / Spinner
---------------------*/
-
-.loader {
-  z-index: 999;
-  height: 2.3rem;
-  width: 2.3rem;
-}
-
-.loader .icon.spinner {
-  width: 2.3rem;
-  height: 2.3rem;
-}
-
-.loader .icon.spinner path {
-  fill: #aa54ff;
-}
-
-.loader {
-  -webkit-animation: spin 500ms infinite linear;
-  /* Safari 4+ */
-  /* Fx 5+ */
-  /* Opera 12+ */
-  animation: spin 500ms infinite linear;
-  /* IE 10+, Fx 29+ */
-}
-
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-/*-------------------
   Icon Menu List
 --------------------*/
 
@@ -1189,6 +1145,58 @@ svg.icon.chevron-down.closed {
 }
 
 /*-------------------
+  Loader / Spinner
+--------------------*/
+
+.loader {
+  position: relative;
+  top: 50%;
+  z-index: 999;
+  height: 2.25rem;
+  width: 2.25rem;
+}
+
+.loader .icon.spinner {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.loader .icon.spinner path {
+  fill: #aa54ff;
+}
+
+.loader {
+  -webkit-animation: spin 500ms infinite linear;
+  /* Safari 4+ */
+  /* Fx 5+ */
+  /* Opera 12+ */
+  animation: spin 500ms infinite linear;
+  /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/*-------------------
   Modal
 --------------------*/
 
@@ -1197,23 +1205,12 @@ svg.icon.chevron-down.closed {
   top: 50%;
   left: 50%;
   height: auto;
-  /*max-height: 100vh;*/
-  min-width: 18em;
-  max-width: 32em;
   z-index: 2000;
   visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  /*overflow: auto;*/
-}
-
-.modal-content {
-  color: white;
-  text-align: center;
-  margin-top: 1em;
-  margin-bottom: 1em;
 }
 
 .modal-overlay {
@@ -1239,6 +1236,17 @@ svg.icon.chevron-down.closed {
   opacity: 1;
   visibility: visible;
   background-color: rgba(0, 0, 0, 0.9);
+}
+
+#loader .modal {
+  height: 100%;
+  width: 100%;
+}
+
+#loader .modal .loader {
+  position: relative;
+  top: calc(50% - 1.125rem);
+  left: calc(50% - 1.125rem);
 }
 
 /*-------------------
@@ -1281,7 +1289,7 @@ svg.icon.chevron-down.closed {
   min-height: 300px;
 }
 
-.form-step button[type='submit'] {
+.form-step button[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1291,6 +1299,12 @@ svg.icon.chevron-down.closed {
 /*-------------------
   Landing
 --------------------*/
+
+#landing .banner {
+  width: 100%;
+  margin: 0;
+  padding: 2.5rem;
+}
 
 #landing .banner.stripe {
   padding: 1.5rem 0;
@@ -1304,7 +1318,7 @@ svg.icon.chevron-down.closed {
   background-color: rgba(84, 84, 84, 0.87);
   background-size: 25px;
   background-repeat: round;
-  background-image: url('/images/question.svg');
+  background-image: url("/images/question.svg");
 }
 
 #landing .banner#selling-points {
@@ -1518,7 +1532,7 @@ svg.icon.chevron-down.closed {
 #about.page section details > summary:before,
 #terms.page section details > summary:before {
   display: inline-block;
-  content: '\25bc\00a0';
+  content: "\25bc\00a0";
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
   -webkit-transition: all 300ms ease-in-out;
@@ -1638,7 +1652,7 @@ svg.icon.chevron-down.closed {
 /* Additional spacer is needed because of dropdowns */
 
 #register::after {
-  content: '';
+  content: "";
   display: block;
   height: 5rem;
 }
@@ -1693,18 +1707,18 @@ svg.icon.chevron-down.closed {
   color: transparent;
   border: 0;
   outline: none;
-  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
+  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
   background-size: 191px 46px;
 }
 
 #login-wrapper a#google-login:focus,
 #login-wrapper a#google-login:hover {
-  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
+  background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
 }
 
 #login-wrapper a#google-login:active,
 #login-wrapper a#google-login:visited {
-  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
+  background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
 }
 
 #login-wrapper .ui.divider {
@@ -1733,7 +1747,7 @@ svg.icon.chevron-down.closed {
   width: 191px;
 }
 
-#login-wrapper #login-form button[type='submit'] {
+#login-wrapper #login-form button[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2180,7 +2194,7 @@ svg.icon.chevron-down.closed {
   box-shadow: none;
 }
 
-#match-form .rich-text-editor:not([contenteditable='true']) {
+#match-form .rich-text-editor:not([contenteditable="true"]) {
   color: rgba(10, 10, 10, 0.5);
   background-color: transparent;
   border-color: transparent;
@@ -2352,7 +2366,7 @@ svg.icon.chevron-down.closed {
 --------------------*/
 
 @media only screen and (max-width: 767.98px) {
-  #content .ui.container > .ui.segment {
+  .page-wrapper > #content > .page .ui.segment:first-of-type {
     border: unset;
     -webkit-box-shadow: unset;
     box-shadow: unset;
@@ -2382,8 +2396,8 @@ svg.icon.chevron-down.closed {
     background: #f0f0f0;
   }
 
-  .pushable > .pusher > main#content > .page {
-    padding: 2rem 1rem 5rem;
+  .page-wrapper > #content > .page {
+    padding: 2.5rem 1rem;
   }
 
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
@@ -2409,14 +2423,6 @@ svg.icon.chevron-down.closed {
   #about.page #team .ui.grid.member > .row > .column.member-title,
   #about.page #team .ui.grid.member > .row > .column.member-contact {
     text-align: center;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  #content > .page#login:before {
-    content: '';
-    display: block;
-    height: 1rem;
   }
 }
 /*!
@@ -31797,13 +31803,12 @@ Floated Menu / Item
          Site Overrides 
 *******************************/
 
-.ui.top.fixed.menu {
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
 .ui.tabular.menu .item {
   font-family: 'marcher-medium', sans-serif;
+}
+
+.ui.massive.vertical.menu:not(.icon) {
+  max-width: 75%;
 }
 /*!
  * # Fomantic-UI - Message
@@ -42043,6 +42048,19 @@ body.pushable > .pusher {
 /*******************************
          Site Overrides
 *******************************/
+
+/* Page Context */
+
+.pushable:not(body) {
+  -webkit-transform: none;
+  transform: none;
+}
+
+.pushable:not(body) > .ui.sidebar,
+.pushable:not(body) > .fixed,
+.pushable:not(body) > .pusher:after {
+  position: fixed;
+}
 /*!
  * # Fomantic-UI - Tab
  * http://github.com/fomantic/Fomantic-UI/

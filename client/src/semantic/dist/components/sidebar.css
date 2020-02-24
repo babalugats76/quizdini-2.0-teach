@@ -625,3 +625,14 @@ body.pushable > .pusher {
          Site Overrides
 *******************************/
 
+
+/* Page Context */
+.pushable:not(body) {
+  -webkit-transform: none;
+          transform: none;
+}
+.pushable:not(body) > .ui.sidebar,
+.pushable:not(body) > .fixed,
+.pushable:not(body) > .pusher:after {
+  position: fixed;
+}

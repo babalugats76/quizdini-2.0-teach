@@ -2226,10 +2226,9 @@ Floated Menu / Item
          Site Overrides 
 *******************************/
 
-.ui.top.fixed.menu {
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
 .ui.tabular.menu .item {
   font-family: 'marcher-medium', sans-serif;
+}
+.ui.massive.vertical.menu:not(.icon) {
+  max-width: 75%;
 }
