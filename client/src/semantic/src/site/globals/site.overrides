@@ -193,8 +193,9 @@
   > #content {
     display: flex;
     flex: 1 0 auto;
-    margin-top: 72px !important;
+    flex-direction: column;
     justify-content: center;
+    margin-top: 72px !important;
     .page {
       max-width: 100%;
       margin-left: auto;
