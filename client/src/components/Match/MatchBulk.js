@@ -21,7 +21,7 @@ const MatchBulk = ({
           as="label"
           title="Update Bank of Matches"
           icon="update"
-          size="small"
+          size="tiny"
           type="button"
           tabIndex={-1}
           disabled={disabled || !dirty}
@@ -34,8 +34,10 @@ const MatchBulk = ({
         <InputFile
           id="input-match-file"
           label="UPLOAD"
+          labelPosition="right"
           disabled={disabled}
           onChange={event => onFileChange(event)}
+          size="tiny"
         />
       </div>
       <TextArea

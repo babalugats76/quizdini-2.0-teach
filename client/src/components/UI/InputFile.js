@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
 
-const InputFile = ({ id, label, disabled, onChange }) => {
+const InputFile = ({ id, label, disabled, onChange, ...rest }) => {
   let fileInputRef = null; // Ref to hidden file input
 
   /**
@@ -23,11 +23,9 @@ const InputFile = ({ id, label, disabled, onChange }) => {
         disabled={disabled}
         htmlFor={id}
         icon="upload"
-        labelPosition="left"
         onClick={event => handleClick(event)}
-        size="small"
-        title="Upload Your Matches"
         type="button"
+        {...rest}
       >
         {label}
       </Button>

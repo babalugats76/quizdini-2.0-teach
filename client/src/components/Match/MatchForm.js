@@ -582,7 +582,7 @@ const MatchForm = props => {
           {
             menuItem: 'Game',
             render: () => (
-              <Tab.Pane id="match-desc" as="div">
+              <Tab.Pane id="match-desc" as={Segment}>
                 <Form.Group>
                   <InputText
                     disabled={disabled}
@@ -616,21 +616,16 @@ const MatchForm = props => {
                     width={16}
                   />
                 </Form.Group>
-                <Grid
-                  columns={2}
-                  stackable
-                  textAlign="center"
-                  verticalAlign="middle"
-                >
-                  <Grid.Row>
-                    <Grid.Column verticalAlign="top">
+                <Grid as={Segment} id="match-options">
+                  <Grid.Row columns="equal" stretched>
+                    <Grid.Column stretched>
                       <IconDropdown
                         headerSize="h5"
                         compact
                         disabled={disabled}
                         error={touched.itemsPerBoard && errors.itemsPerBoard}
                         icon="grid"
-                        label="Game Tiles"
+                        label="Tiles"
                         name="itemsPerBoard"
                         onBlur={handleBlur}
                         options={itemsPerBoardOptions}
@@ -640,7 +635,7 @@ const MatchForm = props => {
                         value={values.itemsPerBoard}
                       />
                     </Grid.Column>
-                    <Grid.Column verticalAlign="top">
+                    <Grid.Column stretched>
                       <IconDropdown
                         headerSize="h5"
                         compact
@@ -657,16 +652,14 @@ const MatchForm = props => {
                         value={values.duration}
                       />
                     </Grid.Column>
-                  </Grid.Row>
-                  <Grid.Row>
-                    <Grid.Column verticalAlign="top">
+                    <Grid.Column stretched>
                       <IconDropdown
                         headerSize="h5"
                         compact
                         disabled={disabled}
                         error={touched.colorScheme && errors.colorScheme}
                         icon="palette"
-                        label="Color Scheme"
+                        label="Colors"
                         name="colorScheme"
                         onBlur={handleBlur}
                         options={colorSchemeOptions}
@@ -683,9 +676,9 @@ const MatchForm = props => {
           },
           {
             hideOnMobile: true,
-            menuItem: 'Add Match',
+            menuItem: 'Rich Editor',
             render: () => (
-              <Tab.Pane id="match-add" as="div">
+              <Tab.Pane id="match-add" as={Segment}>
                 <MatchAdd
                   definition={definition}
                   definitionRef={definitionRef}
@@ -716,7 +709,7 @@ const MatchForm = props => {
             hideOnMobile: false,
             menuItem: 'Bulk Editor',
             render: () => (
-              <Tab.Pane id="match-bulk" as="div">
+              <Tab.Pane id="match-bulk" as={Segment}>
                 <MatchBulk
                   dirty={isMatchDirty}
                   disabled={disabled}
@@ -780,19 +773,6 @@ const MatchForm = props => {
                   >
                     BACK
                   </Button>
-                  <Button
-                    active
-                    disabled={disabled || !isValid || !dirty || isMatchDirty}
-                    icon="save"
-                    labelPosition="left"
-                    loading={isSubmitting}
-                    positive={dirty && isValid && !isMatchDirty}
-                    tabIndex={6}
-                    title="Save Game"
-                    type="submit"
-                  >
-                    SAVE
-                  </Button>
                 </Form.Group>
               </div>
               <div className="col">{values.title}</div>
@@ -800,135 +780,27 @@ const MatchForm = props => {
             </div>
             <div id="match-edit-panel" className="row">
               <div id="left-panel" className="col">
-                {/* <Accordion
-                  forceOpen={!!errors.title || !!errors.instructions}
-                  icon="tag"
-                  index={GAME_DESC_ACCORDION}
-                  onClick={(event, titleProps) =>
-                    handleAccordionClick(
-                      event,
-                      titleProps,
-                      !!errors.title || !!errors.instructions
-                    )
-                  }
-                  open={accordion[GAME_DESC_ACCORDION]}
-                  title="Description"
-                >
-                  <Form.Group>
-                    <InputText
-                      disabled={disabled}
-                      error={touched.title && errors.title}
-                      label="Title"
-                      maxLength={40}
-                      name="title"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      placeholder=""
-                      required
-                      tabIndex={1}
-                      type="text"
-                      value={values.title}
-                      width={16}
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                    <InputText
-                      disabled={disabled}
-                      error={touched.instructions && errors.instructions}
-                      label="Instructions"
-                      maxLength={60}
-                      name="instructions"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      placeholder=""
-                      tabIndex={2}
-                      type="text"
-                      value={values.instructions}
-                      width={16}
-                    />
-                  </Form.Group>
-                </Accordion>
-                <Accordion
-                  id="game-options"
-                  forceOpen={!!errors.itemsPerBoard || !!errors.duration}
-                  icon="sliders"
-                  index={GAME_OPTS_ACCORDION}
-                  onClick={(event, titleProps) =>
-                    handleAccordionClick(
-                      event,
-                      titleProps,
-                      !!errors.itemsPerBoard || !!errors.duration
-                    )
-                  }
-                  open={accordion[GAME_OPTS_ACCORDION]}
-                  title="Options"
-                >
-                  <Grid
-                    columns={2}
-                    stackable
-                    textAlign="center"
-                    verticalAlign="middle"
+                <Form.Group>
+                  <Button
+                    active
+                    disabled={disabled || !isValid || !dirty || isMatchDirty}
+                    icon="save"
+                    labelPosition="left"
+                    loading={isSubmitting}
+                    positive={dirty && isValid && !isMatchDirty}
+                    size="tiny"
+                    tabIndex={6}
+                    title="Save Game"
+                    type="submit"
                   >
-                    <Grid.Row>
-                      <Grid.Column verticalAlign="top">
-                        <IconDropdown
-                          headerSize="h5"
-                          compact
-                          disabled={disabled}
-                          error={touched.itemsPerBoard && errors.itemsPerBoard}
-                          icon="grid"
-                          label="Game Tiles"
-                          name="itemsPerBoard"
-                          onBlur={handleBlur}
-                          options={itemsPerBoardOptions}
-                          selection
-                          setFieldValue={setFieldValue}
-                          tabIndex={-1}
-                          value={values.itemsPerBoard}
-                        />
-                      </Grid.Column>
-                      <Grid.Column verticalAlign="top">
-                        <IconDropdown
-                          headerSize="h5"
-                          compact
-                          disabled={disabled}
-                          error={touched.duration && errors.duration}
-                          icon="watch"
-                          label="Seconds"
-                          name="duration"
-                          onBlur={handleBlur}
-                          options={durationOptions}
-                          selection
-                          setFieldValue={setFieldValue}
-                          tabIndex={-1}
-                          value={values.duration}
-                        />
-                      </Grid.Column>
-                    </Grid.Row>
-                    <Grid.Row>
-                      <Grid.Column verticalAlign="top">
-                        <IconDropdown
-                          headerSize="h5"
-                          compact
-                          disabled={disabled}
-                          error={touched.colorScheme && errors.colorScheme}
-                          icon="palette"
-                          label="Color Scheme"
-                          name="colorScheme"
-                          onBlur={handleBlur}
-                          options={colorSchemeOptions}
-                          selection
-                          setFieldValue={setFieldValue}
-                          tabIndex={-1}
-                          value={values.colorScheme}
-                        />
-                      </Grid.Column>
-                    </Grid.Row>
-                  </Grid>
-                </Accordion> */}
+                    SAVE
+                  </Button>
+                </Form.Group>
                 <Tab
                   activeIndex={activeTab}
-                  menu={{ secondary: true }}
+                  as={Segment}
+                  basic
+                  menu={{ secondary: true, pointing: true }}
                   onTabChange={(event, data) => handleTabChange(event, data)}
                   panes={editorPanes}
                   renderActiveOnly={true}

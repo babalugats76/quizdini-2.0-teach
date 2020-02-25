@@ -785,14 +785,14 @@ svg.icon.chevron-down.closed {
   line-height: 1;
 }
 #landing .ui.header.huge .content {
-  font-size: 2.6rem;
+  font-size: 2.6em;
 }
 #landing .ui.header.huge#slogan {
   color: #F3F4F5;
   margin-top: 0.5rem;
 }
 #landing .ui.header.large .content {
-  font-size: 2rem;
+  font-size: 2em;
 }
 #landing #selling-points .ui.header {
   color: #2e3235;
@@ -804,7 +804,7 @@ svg.icon.chevron-down.closed {
   text-decoration: underline;
 }
 #landing #mission .ui.header ~ blockquote {
-  font-size: 1.375rem;
+  font-size: 1.375em;
   line-height: 1.3;
   margin: 2rem;
   position: relative;
@@ -812,8 +812,8 @@ svg.icon.chevron-down.closed {
 }
 #landing #mission .ui.header ~ blockquote span {
   position: absolute;
-  font-size: 3rem;
-  line-height: 1rem;
+  font-size: 3em;
+  line-height: 1em;
   font-family: Impact, fantasy;
 }
 #landing #mission .ui.header ~ blockquote span:first-of-type {
@@ -829,7 +829,7 @@ svg.icon.chevron-down.closed {
   margin-top: -1rem;
 }
 #landing #mission p {
-  font-size: 1.4rem;
+  font-size: 1.4em;
   line-height: 1.3;
 }
 #landing #mission p.caption {
@@ -848,15 +848,15 @@ svg.icon.chevron-down.closed {
 }
 #about.page section p,
 #terms.page section p {
-  font-size: 1rem;
+  font-size: 1em;
 }
 #about.page section p.dropcap:first-letter,
 #terms.page section p.dropcap:first-letter {
   color: #2e3235;
   float: left;
   font-family: 'marcher-medium', sans-serif;
-  font-size: 4.7rem;
-  line-height: 3rem;
+  font-size: 4.7em;
+  line-height: 3em;
   padding-top: 0.75rem;
   padding-right: 0.5rem;
   padding-left: 0.25rem;
@@ -880,7 +880,7 @@ svg.icon.chevron-down.closed {
 }
 #about.page section > .ui.huge.header .content,
 #terms.page section > .ui.huge.header .content {
-  font-size: 2.6rem;
+  font-size: 2.6em;
   text-decoration: underline;
 }
 #about.page section > .ui.huge.header .sub.header,
@@ -1490,10 +1490,21 @@ svg.icon.chevron-down.closed {
 #match-form textarea[disabled] {
   opacity: 0.45;
 }
+#match-form #match-options > .row > .column {
+  min-width: 150px;
+}
+#match-form #match-options .ui.icon.header > svg {
+  height: 1em!important;
+  width: auto;
+}
+#match-form #match-options .ui.icon.header > label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
 #match-form #match-bulk > textarea {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1em;
+  line-height: 1.5em;
   margin-top: 0.75rem;
 }
 #match-form #match-add {
@@ -1616,7 +1627,7 @@ svg.icon.chevron-down.closed {
 }
 #match-stats .ui.header:first-of-type > .icon + .content {
   line-height: 1.4;
-  font-size: 1.6rem;
+  font-size: 1.6em;
 }
 #match-stats .ui.grid > .column:not(.row),
 #match-stats .ui.grid > .row {
@@ -1641,7 +1652,7 @@ svg.icon.chevron-down.closed {
           align-items: center;
 }
 #match-stats .stat-total span:first-child {
-  font-size: 2rem;
+  font-size: 2em;
   font-family: 'marcher-extrabold', sans-serif;
   line-height: 1.3;
 }

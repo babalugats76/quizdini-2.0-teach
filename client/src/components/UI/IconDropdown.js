@@ -20,11 +20,9 @@ const IconDropdown = ({
   };
 
   return (
-    <React.Fragment>
-      <Header as={headerSize} icon textAlign="center">
-        <Icon name={icon} />
-        {label}
-      </Header>
+    <Header as={headerSize} icon textAlign="center">
+      <Icon name={icon} />
+      <label>{label}</label>
       <Dropdown
         id={name}
         name={name}
@@ -35,7 +33,7 @@ const IconDropdown = ({
         {...props}
       />
       <InputFeedback error={error} />
-    </React.Fragment>
+    </Header>
   );
 };
 
