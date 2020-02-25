@@ -54,20 +54,18 @@ const MatchEdit = props => {
   const showLoader = !initialized && (loading || !game);
 
   return (
-    <Container as="section" className="page large" fluid id="match-edit">
+    <Container className="page large" fluid id="match-edit">
       {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
         (showLoader && <Loader />) || (
-          <div className="content-wrapper">
-            <MatchForm
-              game={game}
-              isMobile={isMobile}
-              loading={loading}
-              maxMatches={100}
-              onCreateMatch={createMatch}
-              onSuccess={onSuccess}
-              onUpdateMatch={updateMatch}
-            />
-          </div>
+          <MatchForm
+            game={game}
+            isMobile={isMobile}
+            loading={loading}
+            maxMatches={100}
+            onCreateMatch={createMatch}
+            onSuccess={onSuccess}
+            onUpdateMatch={updateMatch}
+          />
         )}
     </Container>
   );

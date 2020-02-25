@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Divider, Grid } from 'semantic-ui-react';
-import { Button, InputFeedback } from "../UI/";
+import { Divider, Grid, Segment } from 'semantic-ui-react';
+import { Button, InputFeedback } from '../UI/';
 import MatchEditor from './MatchEditor';
 
 const MatchAdd = ({
@@ -15,27 +15,25 @@ const MatchAdd = ({
   term,
   termRef
 }) => {
-
   return (
-    <Grid columns={1}>
-      <Grid.Row>
+    <Grid>
+      <Grid.Row width={16}>
         <Grid.Column>
-          <Divider horizontal>Term</Divider>
-          <MatchEditor
-            name="term"
-            ref={termRef}
-            value={term.value}
-            tabIndex={3}
-            placeholder={term.placeholder}
-            readOnly={disabled}
-            onEditorTouch={(field, touched) => onEditorTouch(field, touched)}
-            onChange={(value, field) => onEditorChange(value, field)}
-          />
-          <InputFeedback error={!term.touched ? term.error : null} />
-        </Grid.Column>
-      </Grid.Row>
-      <Grid.Row>
-        <Grid.Column>
+          <Segment vertical basic>
+            <Divider horizontal>Term</Divider>
+            <MatchEditor
+              name="term"
+              ref={termRef}
+              value={term.value}
+              tabIndex={3}
+              placeholder={term.placeholder}
+              readOnly={disabled}
+              onEditorTouch={(field, touched) => onEditorTouch(field, touched)}
+              onChange={(value, field) => onEditorChange(value, field)}
+            />
+            <InputFeedback error={!term.touched ? term.error : null} />
+          </Segment>
+          <Segment vertical basic>
           <Divider horizontal>Definition</Divider>
           <MatchEditor
             name="definition"
@@ -50,24 +48,21 @@ const MatchAdd = ({
           <InputFeedback
             error={!definition.touched ? definition.error : null}
           />
-        </Grid.Column>
-      </Grid.Row>
-      <Grid.Row>
-        <Grid.Column>
+          </Segment>
           <Button
             title="Add to the Match Bank"
             icon="plus"
             positive={!disabled && term.dirty && definition.dirty}
             type="button"
             tabIndex={5}
-            disabled={disabled || !term.dirty || !definition.dirty }
+            disabled={disabled || !term.dirty || !definition.dirty}
             onClick={event => onNewMatch(event)}
             labelPosition="left"
           >
             ADD
           </Button>
-          <br/>
-          <br/>
+          <br />
+          <br />
           <div className="match-tip">Maximum # of terms = {maxMatches}</div>
         </Grid.Column>
       </Grid.Row>

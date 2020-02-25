@@ -92,7 +92,7 @@ const MatchTable = ({
     totalPages
   });
   return (
-    <Segment id={id}>
+    <div id={id}>
       <Grid columns={1}>
         {error && (
           <Grid.Row verticalAlign="bottom">
@@ -129,7 +129,7 @@ const MatchTable = ({
           </Grid.Row>
         ) : null}
       </Grid>
-    </Segment>
+    </div>
   );
 };
 

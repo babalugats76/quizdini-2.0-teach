@@ -712,52 +712,52 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 /* lexend-deca-regular - latin */
 
 @font-face {
-  font-family: "Lexend Deca";
+  font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"), url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"), 
- url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff") format("woff");
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
+ url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "marcher-light";
-  src: url("https://static.quizdini.com/fonts/marcher-light-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-light-webfont.woff") format("woff");
+  font-family: 'marcher-light';
+  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-light-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-book";
-  src: url("https://static.quizdini.com/fonts/marcher-book-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-book-webfont.woff") format("woff");
+  font-family: 'marcher-book';
+  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-book-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-regular";
-  src: url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff") format("woff");
+  font-family: 'marcher-regular';
+  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-medium";
-  src: url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff") format("woff");
+  font-family: 'marcher-medium';
+  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-extrabold";
-  src: url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff") format("woff");
+  font-family: 'marcher-extrabold';
+  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-extrabolditalic";
-  src: url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
+  font-family: 'marcher-extrabolditalic';
+  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -808,6 +808,24 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   display: flex !important;
 }
 
+.flex-row {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+  -ms-flex-direction: row !important;
+  flex-direction: row !important;
+}
+
+.flex-wrap {
+  -ms-flex-wrap: wrap !important;
+  flex-wrap: wrap !important;
+}
+
+flex-basis-100 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+}
+
 .flex-auto {
   -webkit-box-flex: 1 !important;
   -ms-flex: auto !important;
@@ -854,12 +872,27 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   height: 100% !important;
 }
 
-.transform-center {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.row > .col {
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
 }
 
 /*-------------------
@@ -907,7 +940,7 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  height: 72px!important;
+  height: 72px !important;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1290,7 +1323,7 @@ svg.icon.chevron-down.closed {
   min-height: 300px;
 }
 
-.form-step button[type="submit"] {
+.form-step button[type='submit'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1319,7 +1352,7 @@ svg.icon.chevron-down.closed {
   background-color: rgba(84, 84, 84, 0.87);
   background-size: 25px;
   background-repeat: round;
-  background-image: url("/images/question.svg");
+  background-image: url('/images/question.svg');
 }
 
 #landing .banner#selling-points {
@@ -1533,7 +1566,7 @@ svg.icon.chevron-down.closed {
 #about.page section details > summary:before,
 #terms.page section details > summary:before {
   display: inline-block;
-  content: "\25bc\00a0";
+  content: '\25bc\00a0';
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
   -webkit-transition: all 300ms ease-in-out;
@@ -1653,7 +1686,7 @@ svg.icon.chevron-down.closed {
 /* Additional spacer is needed because of dropdowns */
 
 #register::after {
-  content: "";
+  content: '';
   display: block;
   height: 5rem;
 }
@@ -1708,18 +1741,18 @@ svg.icon.chevron-down.closed {
   color: transparent;
   border: 0;
   outline: none;
-  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
+  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
   background-size: 191px 46px;
 }
 
 #login-wrapper a#google-login:focus,
 #login-wrapper a#google-login:hover {
-  background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
+  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
 }
 
 #login-wrapper a#google-login:active,
 #login-wrapper a#google-login:visited {
-  background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
+  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
 }
 
 #login-wrapper .ui.divider {
@@ -1748,7 +1781,7 @@ svg.icon.chevron-down.closed {
   width: 191px;
 }
 
-#login-wrapper #login-form button[type="submit"] {
+#login-wrapper #login-form button[type='submit'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2152,10 +2185,6 @@ svg.icon.chevron-down.closed {
   opacity: 0.45;
 }
 
-#match-form #match-bulk {
-  min-height: 494px;
-}
-
 #match-form #match-bulk > textarea {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
   font-size: 1rem;
@@ -2195,7 +2224,7 @@ svg.icon.chevron-down.closed {
   box-shadow: none;
 }
 
-#match-form .rich-text-editor:not([contenteditable="true"]) {
+#match-form .rich-text-editor:not([contenteditable='true']) {
   color: rgba(10, 10, 10, 0.5);
   background-color: transparent;
   border-color: transparent;
@@ -2253,12 +2282,12 @@ svg.icon.chevron-down.closed {
 
 #match-form #match-table tbody > tr > td:first-of-type {
   font-family: 'marcher-medium', sans-serif;
-  font-size: 1rem;
+  font-size: 1em;
   color: rgba(10, 10, 10, 0.75);
 }
 
 #match-form #match-table tbody > tr > td:first-of-type > span * {
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 #match-form #match-table tbody > tr > td .ui.icon.trash.button {
@@ -2411,6 +2440,43 @@ svg.icon.chevron-down.closed {
 
   .content-wrapper {
     padding: 0 5%;
+  }
+
+  .row > .col {
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+  }
+
+  #match-edit-nav.row {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    background-color: white;
+    padding: 0;
+    -webkit-box-pack: justify !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  #match-edit-panel.row > .col {
+    padding: 1rem;
+  }
+
+  #match-edit-panel.row #left-panel.col {
+    -webkit-box-flex: 2 !important;
+    -ms-flex: 2 1 0px !important;
+    flex: 2 1 0 !important;
+    background-color: white;
+    max-width: 600px;
+  }
+
+  #match-edit-panel.row #right-panel.col {
+    -webkit-box-flex: 1 !important;
+    -ms-flex: 1 1 0px !important;
+    flex: 1 1 0 !important;
+    background-color: white;
   }
 }
 

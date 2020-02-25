@@ -25,7 +25,7 @@ const MyAccordion = ({
    * Use custom Icon component throughout
    */
   return (
-    <Accordion fluid styled {...rest}>
+    <Accordion fluid {...rest}>
       <Accordion.Title
         active={open || forceOpen}
         index={index}
