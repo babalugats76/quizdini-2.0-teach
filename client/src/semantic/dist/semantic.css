@@ -923,9 +923,6 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   margin-top: 72px !important;
 }
 
