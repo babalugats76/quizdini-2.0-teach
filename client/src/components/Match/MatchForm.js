@@ -1,10 +1,18 @@
 import React, { useRef, useState } from 'react';
 import { Formik } from 'formik';
-import { Form, Grid, Menu, Segment, Tab } from 'semantic-ui-react';
+import {
+  Breadcrumb,
+  Form,
+  Grid,
+  Responsive,
+  Segment,
+  Tab,
+  BreadcrumbDivider
+} from 'semantic-ui-react';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
-import { useResult, useWindowSize } from '../../hooks/';
-import { Accordion, Button, IconDropdown, InputText, Notify } from '../UI/';
+import { useResult } from '../../hooks/';
+import { Button, IconDropdown, InputText, Message, Notify } from '../UI/';
 import HtmlSerializer from './HtmlSerializer';
 import MatchAdd from './MatchAdd';
 import MatchBulk from './MatchBulk';
@@ -96,8 +104,6 @@ const newMatchSchema = matches => {
   });
 };
 
-const GAME_OPTS_ACCORDION = 'gameOptions';
-const GAME_DESC_ACCORDION = 'gameDescription';
 const HAS_COMMA = RegExp('^(.?)+([,]+)(.?)+$');
 
 const EMPTY_EDITOR =
@@ -105,10 +111,6 @@ const EMPTY_EDITOR =
 
 // Used as the original shape of match edit state
 const initialState = {
-  accordion: {
-    [GAME_OPTS_ACCORDION]: false, // Closed by default
-    [GAME_DESC_ACCORDION]: true // Open by default
-  },
   activePage: 1,
   activeTab: 0,
   definition: {
@@ -133,7 +135,6 @@ const MatchForm = props => {
   const [state, setState] = useState(initialState);
   const termRef = useRef();
   const definitionRef = useRef();
-  const { isMobile } = useWindowSize();
   const getNotify = useResult();
 
   const {
@@ -145,7 +146,6 @@ const MatchForm = props => {
   } = props;
 
   const {
-    accordion,
     activePage,
     activeTab,
     definition,
@@ -153,28 +153,6 @@ const MatchForm = props => {
     itemsPerPage,
     term
   } = state;
-
-  /**
-   * If title is clicked, toggle state of accordion
-   * Used to expand/collapse accordions
-   *
-   * @param {Event} event Event to handle
-   * @param {Object} titleProps Props from <Accordion.Title>
-   * @param {boolean} invalid Validation state of accordion contents
-   */
-  const handleAccordionClick = (event, titleProps, invalid) => {
-    event.preventDefault();
-    !invalid &&
-      setState(prevState => {
-        return {
-          ...prevState,
-          accordion: {
-            ...prevState.accordion,
-            [titleProps.index]: !prevState.accordion[titleProps.index]
-          }
-        };
-      });
-  };
 
   /**
    * Update state with new value for the active editor tab
@@ -582,7 +560,7 @@ const MatchForm = props => {
           {
             menuItem: 'Game',
             render: () => (
-              <Tab.Pane id="match-desc" as={Segment}>
+              <Tab.Pane id="match-desc">
                 <Form.Group>
                   <InputText
                     disabled={disabled}
@@ -618,7 +596,7 @@ const MatchForm = props => {
                 </Form.Group>
                 <Grid as={Segment} id="match-options">
                   <Grid.Row columns="equal" stretched>
-                    <Grid.Column stretched>
+                    <Grid.Column>
                       <IconDropdown
                         headerSize="h5"
                         compact
@@ -635,7 +613,7 @@ const MatchForm = props => {
                         value={values.itemsPerBoard}
                       />
                     </Grid.Column>
-                    <Grid.Column stretched>
+                    <Grid.Column>
                       <IconDropdown
                         headerSize="h5"
                         compact
@@ -652,7 +630,7 @@ const MatchForm = props => {
                         value={values.duration}
                       />
                     </Grid.Column>
-                    <Grid.Column stretched>
+                    <Grid.Column>
                       <IconDropdown
                         headerSize="h5"
                         compact
@@ -675,15 +653,23 @@ const MatchForm = props => {
             )
           },
           {
-            hideOnMobile: true,
-            menuItem: 'Rich Editor',
+            menuItem: 'Add Match',
             render: () => (
-              <Tab.Pane id="match-add" as={Segment}>
-                <MatchAdd
+              <Tab.Pane id="match-add">
+                <Responsive
+                  as={Message}
+                  content="Sorry...the rich match editor is not supported on mobile.
+                  Please use the bulk editor."
+                  maxWidth={767}
+                  severity="INFO"
+                />
+                <Responsive
+                  as={MatchAdd}
                   definition={definition}
                   definitionRef={definitionRef}
                   disabled={disabled || values.matches.length >= maxMatches}
                   maxMatches={maxMatches}
+                  minWidth={768}
                   error={errors.matches}
                   onEditorChange={(value, field) =>
                     handleEditorChange(value, field)
@@ -706,10 +692,9 @@ const MatchForm = props => {
             )
           },
           {
-            hideOnMobile: false,
             menuItem: 'Bulk Editor',
             render: () => (
-              <Tab.Pane id="match-bulk" as={Segment}>
+              <Tab.Pane id="match-bulk">
                 <MatchBulk
                   dirty={isMatchDirty}
                   disabled={disabled}
@@ -740,13 +725,9 @@ const MatchForm = props => {
               </Tab.Pane>
             )
           }
-        ]
-          .filter(pane => {
-            return !isMobile || pane.hideOnMobile !== isMobile;
-          })
-          .map(pane => {
-            return { menuItem: pane.menuItem, render: pane.render };
-          });
+        ].map(pane => {
+          return { menuItem: pane.menuItem, render: pane.render };
+        });
 
         return (
           <Form id="match-form" onSubmit={handleSubmit}>
@@ -756,46 +737,47 @@ const MatchForm = props => {
             {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
             <div id="match-edit-nav" className="row">
               <div className="col">
-                <Form.Group inline>
-                  <Button
-                    active
-                    as={Link}
-                    disabled={disabled}
-                    icon="back"
-                    labelPosition="left"
-                    tabIndex={-1}
-                    title="Back to Dashboard"
-                    to={{
-                      pathname: '/dashboard',
-                      state: { from: 'MATCH' }
-                    }}
-                    type="button"
-                  >
-                    BACK
-                  </Button>
-                </Form.Group>
+                <Breadcrumb size="small">
+                  <Breadcrumb.Section
+                    link
+                    content={
+                      <Link
+                        to={{
+                          pathname: '/dashboard',
+                          state: { from: 'MATCH' }
+                        }}
+                      >
+                        Dashboard
+                      </Link>
+                    }
+                  />
+                  <Breadcrumb.Divider>/</Breadcrumb.Divider>
+                  <Breadcrumb.Section>Match</Breadcrumb.Section>
+                  <Breadcrumb.Divider>/</Breadcrumb.Divider>
+                  <Breadcrumb.Section>Edit</Breadcrumb.Section>
+                  <BreadcrumbDivider>/</BreadcrumbDivider>
+                  <Breadcrumb.Section>{values.matchId || "Untitled"}</Breadcrumb.Section>
+                </Breadcrumb>
               </div>
               <div className="col">{values.title}</div>
               <div className="col">Circle Badge Here...</div>
             </div>
             <div id="match-edit-panel" className="row">
               <div id="left-panel" className="col">
-                <Form.Group>
-                  <Button
-                    active
-                    disabled={disabled || !isValid || !dirty || isMatchDirty}
-                    icon="save"
-                    labelPosition="left"
-                    loading={isSubmitting}
-                    positive={dirty && isValid && !isMatchDirty}
-                    size="tiny"
-                    tabIndex={6}
-                    title="Save Game"
-                    type="submit"
-                  >
-                    SAVE
-                  </Button>
-                </Form.Group>
+                <Button
+                  active
+                  disabled={disabled || !isValid || !dirty || isMatchDirty}
+                  floated="right"
+                  icon="save"
+                  labelPosition="right"
+                  loading={isSubmitting}
+                  positive={dirty && isValid && !isMatchDirty}
+                  size="tiny"
+                  tabIndex={6}
+                  type="submit"
+                >
+                  Save
+                </Button>
                 <Tab
                   activeIndex={activeTab}
                   as={Segment}
@@ -806,7 +788,7 @@ const MatchForm = props => {
                   renderActiveOnly={true}
                 />
               </div>
-              <div id="right-panel" class="col">
+              <div id="right-panel" className="col">
                 <MatchTable
                   activePage={activePage}
                   disabled={disabled}
@@ -820,7 +802,6 @@ const MatchForm = props => {
                     }...`
                   }
                   id="match-table"
-                  isMobile={isMobile}
                   itemsPerPage={itemsPerPage}
                   matches={values.matches}
                   onMatchDelete={(event, term) =>

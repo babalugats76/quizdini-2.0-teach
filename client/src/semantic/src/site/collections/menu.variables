@@ -4,3 +4,4 @@
 @invertedBackground: @invertedMenuColor;
 @boxShadow: none;
 @borderRadius: 0;
+@secondaryPointingActiveBorderColor: @primaryColor;

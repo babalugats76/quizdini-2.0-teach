@@ -27,13 +27,13 @@ const MatchBulk = ({
           disabled={disabled || !dirty}
           positive={dirty}
           onClick={event => onUpdateMatches(event)}
-          labelPosition="left"
+          labelPosition="right"
         >
-          UPDATE
+          Update
         </Button>
         <InputFile
           id="input-match-file"
-          label="UPLOAD"
+          label="Upload"
           labelPosition="right"
           disabled={disabled}
           onChange={event => onFileChange(event)}

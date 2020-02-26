@@ -24,12 +24,12 @@ const IconDropdown = ({
       <Icon name={icon} />
       <label>{label}</label>
       <Dropdown
+        error={!!error}
         id={name}
         name={name}
+        onChange={(event, data) => onChange(event, data)}
         options={options}
         value={value}
-        error={!!error}
-        onChange={(event, data) => onChange(event, data)}
         {...props}
       />
       <InputFeedback error={error} />

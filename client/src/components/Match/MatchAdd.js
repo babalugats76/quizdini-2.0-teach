@@ -16,48 +16,48 @@ const MatchAdd = ({
   termRef
 }) => {
   return (
-    <Grid>
-      <Grid.Row width={16}>
+    <Grid id="rich-match-editor">
+      <Grid.Row>
         <Grid.Column>
           <Segment vertical basic>
             <Divider horizontal>Term</Divider>
             <MatchEditor
               name="term"
-              ref={termRef}
-              value={term.value}
-              tabIndex={3}
+              onChange={(value, field) => onEditorChange(value, field)}
+              onEditorTouch={(field, touched) => onEditorTouch(field, touched)}
               placeholder={term.placeholder}
               readOnly={disabled}
-              onEditorTouch={(field, touched) => onEditorTouch(field, touched)}
-              onChange={(value, field) => onEditorChange(value, field)}
+              ref={termRef}
+              tabIndex={3}
+              value={term.value}
             />
             <InputFeedback error={!term.touched ? term.error : null} />
           </Segment>
           <Segment vertical basic>
-          <Divider horizontal>Definition</Divider>
-          <MatchEditor
-            name="definition"
-            ref={definitionRef}
-            value={definition.value}
-            tabIndex={4}
-            placeholder={definition.placeholder}
-            readOnly={disabled}
-            onEditorTouch={(field, touched) => onEditorTouch(field, touched)}
-            onChange={(value, field) => onEditorChange(value, field)}
-          />
-          <InputFeedback
-            error={!definition.touched ? definition.error : null}
-          />
+            <Divider horizontal>Definition</Divider>
+            <MatchEditor
+              name="definition"
+              onChange={(value, field) => onEditorChange(value, field)}
+              onEditorTouch={(field, touched) => onEditorTouch(field, touched)}
+              placeholder={definition.placeholder}
+              readOnly={disabled}
+              ref={definitionRef}
+              tabIndex={4}
+              value={definition.value}
+            />
+            <InputFeedback
+              error={!definition.touched ? definition.error : null}
+            />
           </Segment>
           <Button
-            title="Add to the Match Bank"
-            icon="plus"
-            positive={!disabled && term.dirty && definition.dirty}
-            type="button"
-            tabIndex={5}
             disabled={disabled || !term.dirty || !definition.dirty}
-            onClick={event => onNewMatch(event)}
+            icon="plus"
             labelPosition="left"
+            onClick={event => onNewMatch(event)}
+            positive={!disabled && term.dirty && definition.dirty}
+            tabIndex={5}
+            title="Add to the Match Bank"
+            type="button"
           >
             ADD
           </Button>

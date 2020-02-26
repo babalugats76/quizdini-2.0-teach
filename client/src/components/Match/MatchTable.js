@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Segment, Table, Grid, Pagination } from 'semantic-ui-react';
+import {
+  Grid,
+  Pagination,
+  Table,
+  Responsive,
+  Segment
+} from 'semantic-ui-react';
 import Message from '../UI/Message';
 import Button from '../UI/Button';
 
@@ -9,7 +15,6 @@ const MatchTable = ({
   disabled,
   error,
   id,
-  isMobile,
   itemsPerPage,
   matches,
   onMatchDelete,
@@ -53,22 +58,32 @@ const MatchTable = ({
       });
   };
 
-  const renderPagination = ({
-    activePage,
-    onPageChange,
-    isMobile,
-    totalPages
-  }) => {
+  const renderPagination = ({ activePage, onPageChange, totalPages }) => {
     return (
-      <Pagination
-        activePage={activePage}
-        firstItem={null}
-        lastItem={null}
-        totalPages={totalPages}
-        boundaryRange={isMobile ? 0 : 1}
-        siblingRange={isMobile ? 0 : 1}
-        onPageChange={(event, data) => onPageChange(event, data)}
-      />
+      <>
+        <Responsive
+          as={Pagination}
+          activePage={activePage}
+          firstItem={null}
+          lastItem={null}
+          maxWidth={767}
+          totalPages={totalPages}
+          boundaryRange={0}
+          siblingRange={0}
+          onPageChange={(event, data) => onPageChange(event, data)}
+        />
+        <Responsive
+          as={Pagination}
+          activePage={activePage}
+          firstItem={null}
+          lastItem={null}
+          minWidth={768}
+          totalPages={totalPages}
+          boundaryRange={1}
+          siblingRange={1}
+          onPageChange={(event, data) => onPageChange(event, data)}
+        />
+      </>
     );
   };
 
@@ -87,7 +102,6 @@ const MatchTable = ({
   });
   const pagination = renderPagination({
     activePage,
-    isMobile,
     onPageChange,
     totalPages
   });
@@ -138,7 +152,6 @@ MatchTable.propTypes = {
   disabled: PropTypes.bool,
   error: PropTypes.any,
   id: PropTypes.string.isRequired,
-  isMobile: PropTypes.bool.isRequired,
   itemsPerPage: PropTypes.number.isRequired,
   matches: PropTypes.array,
   onMatchDelete: PropTypes.func.isRequired,

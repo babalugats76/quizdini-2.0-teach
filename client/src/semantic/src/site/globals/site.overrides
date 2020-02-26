@@ -602,7 +602,7 @@ svg {
     line-height: 1;
     &.huge {
       .content {
-        font-size: 2.6em;
+        font-size: 2.6rem; /* must be rems */
       }
       &#slogan {
         color: @darkWhite;
@@ -639,8 +639,8 @@ svg {
       text-align: left;
       span {
         position: absolute;
-        font-size: 3em;
-        line-height: 1em;
+        font-size: 3rem;
+        line-height: 1rem;
         font-family: @fantasyFont;
         &:first-of-type {
           margin-left: -1.5rem;
@@ -1297,45 +1297,6 @@ svg {
 --------------------*/
 
 #match-form {
-  .ui.accordion {
-    &:not(:last-of-type) {
-      margin-bottom: 0.75em;
-    }
-    .title ~ .content:not(.active) {
-      display: block !important;
-      max-height: 0;
-      overflow-y: hidden;
-      padding-top: 0 !important;
-      padding-bottom: 0 !important;
-      transition: all 0.5s cubic-bezier(0, 1.05, 0, 1);
-      background-color: rgba(0, 0, 0, 0);
-    }
-    .content {
-      padding-top: 1em;
-      padding-bottom: 1em;
-      &.active {
-        max-height: 1000px;
-        transition: all 0.5s cubic-bezier(0, 0.03, 0.685, 0.22);
-        background-color: rgba(0, 0, 0, 0.0075);
-        border-top: 1px solid rgba(0, 0, 0, 0.13);
-      }
-      .ui.icon.header {
-        svg.icon {
-          width: 1em;
-          height: 1em;
-        }
-      }
-    }
-    .title {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      :first-child {
-        margin-right: 0.3rem;
-      }
-    }
-  }
-
   .inline.fields {
     justify-content: space-between;
   }
@@ -1344,42 +1305,23 @@ svg {
     opacity: 0.45;
   }
 
-
-  #match-options {
-
-    > .row > .column {
-      min-width: 150px;
-    }
-
-    .ui.icon.header {
-      > svg {
-        height: 1em!important;
-        width: auto;
-      }
-      > label {  
-        display: block;
-        margin-bottom: .5rem;
-      }
-    }
+  .match-tip {
+    font-size: 0.9em;
+    padding-top: 0.6em;
+    line-height: 1;
+    text-align: left;
+    color: @lightGrey;
   }
 
-  #match-bulk {
-    > textarea {
-      font-family: @textareaFont;
-      font-size: 1em;
-      line-height: 1.5em;
-      margin-top: 0.75rem;
-    }
+  #match-id {
+    position: absolute;
+    bottom: -1rem;
+    right: 0;
+    color: @lightGrey;
   }
+}
 
-  #match-add {
-    position: relative;
-    .ui.horizontal.divider {
-      font-family: @headerFont;
-      color: @black;
-    }
-  }
-
+#rich-match-editor {
   .rich-text-editor {
     display: block;
     width: auto;
@@ -1405,7 +1347,42 @@ svg {
       border-color: transparent;
     }
   }
+}
 
+#match-options {
+  > .row > .column {
+    min-width: 150px;
+  }
+  .ui.icon.header {
+    > svg {
+      height: 1em !important;
+      width: auto;
+    }
+    > label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+#match-bulk {
+  > textarea {
+    position: relative;
+    font-family: @textareaFont;
+    font-size: 1em;
+    line-height: 1.5em;
+    margin-top: 0.75rem;
+    resize: both;
+    z-index: 2;
+  }
+}
+
+#match-add {
+  position: relative;
+  .ui.horizontal.divider {
+    font-family: @headerFont;
+    color: @black;
+  }
   .format-toolbar {
     text-align: center;
     button {
@@ -1435,51 +1412,36 @@ svg {
       }
     }
   }
+}
 
-  .match-tip {
-    font-size: 0.9em;
-    padding-top: 0.6em;
-    line-height: 1;
-    text-align: left;
-    color: @lightGrey;
-  }
+#match-table {
+  tbody > tr > td {
+    color: @lightBlack;
 
-  #match-id {
-    position: absolute;
-    bottom: -1rem;
-    right: 0;
-    color: @lightGrey;
-  }
-
-  #match-table {
-    tbody > tr > td {
-      color: @lightBlack;
-
-      &:first-of-type {
-        font-family: @headerFont;
+    &:first-of-type {
+      font-family: @headerFont;
+      font-size: 1em;
+      color: @textColor;
+      > span * {
         font-size: 1em;
-        color: @textColor;
-        > span * {
-          font-size: 1em;
-        }
       }
-      .ui.icon.trash.button {
-        transition: background-color 0.5s ease;
-        background-color: @negativeBackgroundColor;
-        &:hover {
-          background-color: lighten(@negativeColor, 10);
-          svg.icon {
-            path {
-              fill: @white;
-            }
+    }
+    .ui.icon.trash.button {
+      transition: background-color 0.5s ease;
+      background-color: @negativeBackgroundColor;
+      &:hover {
+        background-color: lighten(@negativeColor, 10);
+        svg.icon {
+          path {
+            fill: @white;
           }
         }
       }
     }
-    .ui.pagination.menu > .item {
-      min-width: 2em;
-      padding: 0.75em 0.9em;
-    }
+  }
+  .ui.pagination.menu > .item {
+    min-width: 2em;
+    padding: 0.75em 0.9em;
   }
 }
 
@@ -1561,6 +1523,8 @@ svg {
     .ui.segment:first-of-type {
       border: unset;
       box-shadow: unset;
+      padding: 0!important;
+      background-color: green;
     }
   }
 
@@ -1586,6 +1550,7 @@ svg {
 }
 
 @media only screen and (min-width: @tabletBreakpoint) {
+  
   #quizdini {
     background: @widePageBackground;
   }
@@ -1624,7 +1589,7 @@ svg {
     #left-panel.col {
       flex: 2 1 0 !important;
       background-color: white;
-      max-width: 600px;
+      max-width: 640px;
     }
     #right-panel.col {
       flex: 1 1 0 !important;

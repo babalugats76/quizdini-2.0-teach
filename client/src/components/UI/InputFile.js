@@ -17,7 +17,7 @@ const InputFile = ({ id, label, disabled, onChange, ...rest }) => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <Button
         as="label"
         disabled={disabled}
@@ -39,7 +39,7 @@ const InputFile = ({ id, label, disabled, onChange, ...rest }) => {
         }} // Attach element ref to local variable
         onChange={onChange}
       />
-    </React.Fragment>
+    </>
   );
 };
 

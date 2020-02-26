@@ -1365,7 +1365,8 @@ svg.icon.chevron-down.closed {
 }
 
 #landing .ui.header.huge .content {
-  font-size: 2.6em;
+  font-size: 2.6rem;
+  /* must be rems */
 }
 
 #landing .ui.header.huge#slogan {
@@ -1398,8 +1399,8 @@ svg.icon.chevron-down.closed {
 
 #landing #mission .ui.header ~ blockquote span {
   position: absolute;
-  font-size: 3em;
-  line-height: 1em;
+  font-size: 3rem;
+  line-height: 1rem;
   font-family: Impact, fantasy;
 }
 
@@ -2125,56 +2126,6 @@ svg.icon.chevron-down.closed {
   Match Edit
 --------------------*/
 
-#match-form .ui.accordion:not(:last-of-type) {
-  margin-bottom: 0.75em;
-}
-
-#match-form .ui.accordion .title ~ .content:not(.active) {
-  display: block !important;
-  max-height: 0;
-  overflow-y: hidden;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  -webkit-transition: all 0.5s cubic-bezier(0, 1.05, 0, 1);
-  transition: all 0.5s cubic-bezier(0, 1.05, 0, 1);
-  background-color: rgba(0, 0, 0, 0);
-}
-
-#match-form .ui.accordion .content {
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
-
-#match-form .ui.accordion .content.active {
-  max-height: 1000px;
-  -webkit-transition: all 0.5s cubic-bezier(0, 0.03, 0.685, 0.22);
-  transition: all 0.5s cubic-bezier(0, 0.03, 0.685, 0.22);
-  background-color: rgba(0, 0, 0, 0.0075);
-  border-top: 1px solid rgba(0, 0, 0, 0.13);
-}
-
-#match-form .ui.accordion .content .ui.icon.header svg.icon {
-  width: 1em;
-  height: 1em;
-}
-
-#match-form .ui.accordion .title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-#match-form .ui.accordion .title :first-child {
-  margin-right: 0.3rem;
-}
-
 #match-form .inline.fields {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
@@ -2183,96 +2134,6 @@ svg.icon.chevron-down.closed {
 
 #match-form textarea[disabled] {
   opacity: 0.45;
-}
-
-#match-form #match-options > .row > .column {
-  min-width: 150px;
-}
-
-#match-form #match-options .ui.icon.header > svg {
-  height: 1em!important;
-  width: auto;
-}
-
-#match-form #match-options .ui.icon.header > label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-#match-form #match-bulk > textarea {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
-  font-size: 1em;
-  line-height: 1.5em;
-  margin-top: 0.75rem;
-}
-
-#match-form #match-add {
-  position: relative;
-}
-
-#match-form #match-add .ui.horizontal.divider {
-  font-family: 'marcher-medium', sans-serif;
-  color: #1B1C1D;
-}
-
-#match-form .rich-text-editor {
-  display: block;
-  width: auto;
-  height: auto;
-  padding: 1rem;
-  margin: 1rem;
-  font-size: inherit;
-  line-height: 1.5;
-  border: 1px solid transparent;
-  border-radius: 0.1875rem;
-  outline: none;
-  background-color: #FFFFFF;
-  color: rgba(10, 10, 10, 0.5);
-}
-
-#match-form .rich-text-editor:focus {
-  background-color: #FFFFFF;
-  border-color: #cce2ff;
-  color: rgba(10, 10, 10, 0.75);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-#match-form .rich-text-editor:not([contenteditable='true']) {
-  color: rgba(10, 10, 10, 0.5);
-  background-color: transparent;
-  border-color: transparent;
-}
-
-#match-form .format-toolbar {
-  text-align: center;
-}
-
-#match-form .format-toolbar button {
-  outline: 0;
-  margin: 0;
-  padding: 0.5em;
-  text-decoration: none !important;
-  cursor: pointer;
-  position: relative;
-  text-align: center;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  background-color: transparent;
-  border: none;
-}
-
-#match-form .format-toolbar button:hover svg.icon path {
-  fill: #000000;
-}
-
-#match-form .format-toolbar button svg.icon {
-  width: 1.3em;
-  height: 1.3em;
-}
-
-#match-form .format-toolbar button svg.icon path {
-  fill: rgba(0, 0, 0, 0.4);
 }
 
 #match-form .match-tip {
@@ -2290,35 +2151,128 @@ svg.icon.chevron-down.closed {
   color: #DCDDDE;
 }
 
-#match-form #match-table tbody > tr > td {
+#rich-match-editor .rich-text-editor {
+  display: block;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: inherit;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: 0.1875rem;
+  outline: none;
+  background-color: #FFFFFF;
+  color: rgba(10, 10, 10, 0.5);
+}
+
+#rich-match-editor .rich-text-editor:focus {
+  background-color: #FFFFFF;
+  border-color: #cce2ff;
+  color: rgba(10, 10, 10, 0.75);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#rich-match-editor .rich-text-editor:not([contenteditable='true']) {
+  color: rgba(10, 10, 10, 0.5);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+#match-options > .row > .column {
+  min-width: 150px;
+}
+
+#match-options .ui.icon.header > svg {
+  height: 1em !important;
+  width: auto;
+}
+
+#match-options .ui.icon.header > label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+#match-bulk > textarea {
+  position: relative;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-top: 0.75rem;
+  resize: both;
+  z-index: 2;
+}
+
+#match-add {
+  position: relative;
+}
+
+#match-add .ui.horizontal.divider {
+  font-family: 'marcher-medium', sans-serif;
+  color: #1B1C1D;
+}
+
+#match-add .format-toolbar {
+  text-align: center;
+}
+
+#match-add .format-toolbar button {
+  outline: 0;
+  margin: 0;
+  padding: 0.5em;
+  text-decoration: none !important;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  background-color: transparent;
+  border: none;
+}
+
+#match-add .format-toolbar button:hover svg.icon path {
+  fill: #000000;
+}
+
+#match-add .format-toolbar button svg.icon {
+  width: 1.3em;
+  height: 1.3em;
+}
+
+#match-add .format-toolbar button svg.icon path {
+  fill: rgba(0, 0, 0, 0.4);
+}
+
+#match-table tbody > tr > td {
   color: #545454;
 }
 
-#match-form #match-table tbody > tr > td:first-of-type {
+#match-table tbody > tr > td:first-of-type {
   font-family: 'marcher-medium', sans-serif;
   font-size: 1em;
   color: rgba(10, 10, 10, 0.75);
 }
 
-#match-form #match-table tbody > tr > td:first-of-type > span * {
+#match-table tbody > tr > td:first-of-type > span * {
   font-size: 1em;
 }
 
-#match-form #match-table tbody > tr > td .ui.icon.trash.button {
+#match-table tbody > tr > td .ui.icon.trash.button {
   -webkit-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
   background-color: #FFF6F6;
 }
 
-#match-form #match-table tbody > tr > td .ui.icon.trash.button:hover {
+#match-table tbody > tr > td .ui.icon.trash.button:hover {
   background-color: #e25454;
 }
 
-#match-form #match-table tbody > tr > td .ui.icon.trash.button:hover svg.icon path {
+#match-table tbody > tr > td .ui.icon.trash.button:hover svg.icon path {
   fill: #FFFFFF;
 }
 
-#match-form #match-table .ui.pagination.menu > .item {
+#match-table .ui.pagination.menu > .item {
   min-width: 2em;
   padding: 0.75em 0.9em;
 }
@@ -2414,6 +2368,8 @@ svg.icon.chevron-down.closed {
     border: unset;
     -webkit-box-shadow: unset;
     box-shadow: unset;
+    padding: 0!important;
+    background-color: green;
   }
 
   .ui.form .fields .input-feedback.error {
@@ -2483,7 +2439,7 @@ svg.icon.chevron-down.closed {
     -ms-flex: 2 1 0px !important;
     flex: 2 1 0 !important;
     background-color: white;
-    max-width: 600px;
+    max-width: 640px;
   }
 
   #match-edit-panel.row #right-panel.col {
@@ -24956,6 +24912,151 @@ ol.ui.suffixed.list li:before,
          Site Overrides
 *******************************/
 /*!
+ * # Fomantic-UI - Breadcrumb
+ * http://github.com/fomantic/Fomantic-UI/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+           Breadcrumb
+*******************************/
+
+.ui.breadcrumb {
+  line-height: 1.4285em;
+  display: inline-block;
+  margin: 0 0;
+  vertical-align: middle;
+}
+
+.ui.breadcrumb:first-child {
+  margin-top: 0;
+}
+
+.ui.breadcrumb:last-child {
+  margin-bottom: 0;
+}
+
+/*******************************
+          Content
+*******************************/
+
+/* Divider */
+
+.ui.breadcrumb .divider {
+  display: inline-block;
+  opacity: 0.7;
+  margin: 0 0.1875rem 0;
+  font-size: 0.9375em;
+  color: rgba(0, 0, 0, 0.4);
+  vertical-align: baseline;
+}
+
+/* Link */
+
+.ui.breadcrumb a {
+  color: #0645ad;
+}
+
+.ui.breadcrumb a:hover {
+  color: #003998;
+}
+
+/* Icon Divider */
+
+.ui.breadcrumb .icon.divider {
+  font-size: 0.875em;
+  vertical-align: baseline;
+}
+
+/* Section */
+
+.ui.breadcrumb a.section {
+  cursor: pointer;
+}
+
+.ui.breadcrumb .section {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Loose Coupling */
+
+.ui.breadcrumb.segment {
+  display: inline-block;
+  padding: 0.8125em 1em;
+}
+
+/* Inverted */
+
+.ui.inverted.breadcrumb {
+  color: #DCDDDE;
+}
+
+.ui.inverted.breadcrumb > .active.section {
+  color: #FFFFFF;
+}
+
+.ui.inverted.breadcrumb > .divider {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/*******************************
+            States
+*******************************/
+
+.ui.breadcrumb .active.section {
+  font-weight: 400;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+.ui.breadcrumb {
+  font-size: 1rem;
+}
+
+.ui.mini.breadcrumb {
+  font-size: 0.8125rem;
+}
+
+.ui.tiny.breadcrumb {
+  font-size: 0.875rem;
+}
+
+.ui.small.breadcrumb {
+  font-size: 0.9375rem;
+}
+
+.ui.large.breadcrumb {
+  font-size: 1.125rem;
+}
+
+.ui.big.breadcrumb {
+  font-size: 1.3125rem;
+}
+
+.ui.huge.breadcrumb {
+  font-size: 1.4375rem;
+}
+
+.ui.massive.breadcrumb {
+  font-size: 1.6875rem;
+}
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+/*******************************
+         Site Overrides
+*******************************/
+/*!
  * # Fomantic-UI - Form
  * http://github.com/fomantic/Fomantic-UI/
  *
@@ -30490,7 +30591,7 @@ Floated Menu / Item
   background-color: transparent;
   -webkit-box-shadow: none;
   box-shadow: none;
-  border-color: currentColor;
+  border-color: #711cff;
   font-weight: 400;
   color: rgba(10, 10, 10, 0.75);
 }
@@ -30498,7 +30599,7 @@ Floated Menu / Item
 /* Active Hover */
 
 .ui.secondary.pointing.menu .active.item:hover {
-  border-color: currentColor;
+  border-color: #711cff;
   color: rgba(10, 10, 10, 0.75);
 }
 
@@ -30529,7 +30630,7 @@ Floated Menu / Item
 /* Vertical Active */
 
 .ui.secondary.vertical.pointing.menu .active.item {
-  border-color: currentColor;
+  border-color: #711cff;
 }
 
 /* Inverted */
@@ -30863,84 +30964,98 @@ Floated Menu / Item
 .ui.ui.menu .primary.active.item,
 .ui.ui.primary.menu .active.item:hover,
 .ui.ui.primary.menu .active.item {
+  border-color: #711cff;
   color: #711cff;
 }
 
 .ui.ui.menu .red.active.item,
 .ui.ui.red.menu .active.item:hover,
 .ui.ui.red.menu .active.item {
+  border-color: #DB2828;
   color: #DB2828;
 }
 
 .ui.ui.menu .orange.active.item,
 .ui.ui.orange.menu .active.item:hover,
 .ui.ui.orange.menu .active.item {
+  border-color: #F2711C;
   color: #F2711C;
 }
 
 .ui.ui.menu .yellow.active.item,
 .ui.ui.yellow.menu .active.item:hover,
 .ui.ui.yellow.menu .active.item {
+  border-color: #FBBD08;
   color: #FBBD08;
 }
 
 .ui.ui.menu .olive.active.item,
 .ui.ui.olive.menu .active.item:hover,
 .ui.ui.olive.menu .active.item {
+  border-color: #B5CC18;
   color: #B5CC18;
 }
 
 .ui.ui.menu .green.active.item,
 .ui.ui.green.menu .active.item:hover,
 .ui.ui.green.menu .active.item {
+  border-color: #21BA45;
   color: #21BA45;
 }
 
 .ui.ui.menu .teal.active.item,
 .ui.ui.teal.menu .active.item:hover,
 .ui.ui.teal.menu .active.item {
+  border-color: #00B5AD;
   color: #00B5AD;
 }
 
 .ui.ui.menu .blue.active.item,
 .ui.ui.blue.menu .active.item:hover,
 .ui.ui.blue.menu .active.item {
+  border-color: #006bdc;
   color: #006bdc;
 }
 
 .ui.ui.menu .violet.active.item,
 .ui.ui.violet.menu .active.item:hover,
 .ui.ui.violet.menu .active.item {
+  border-color: #57419b;
   color: #57419b;
 }
 
 .ui.ui.menu .purple.active.item,
 .ui.ui.purple.menu .active.item:hover,
 .ui.ui.purple.menu .active.item {
+  border-color: #A333C8;
   color: #A333C8;
 }
 
 .ui.ui.menu .pink.active.item,
 .ui.ui.pink.menu .active.item:hover,
 .ui.ui.pink.menu .active.item {
+  border-color: #E03997;
   color: #E03997;
 }
 
 .ui.ui.menu .brown.active.item,
 .ui.ui.brown.menu .active.item:hover,
 .ui.ui.brown.menu .active.item {
+  border-color: #A5673F;
   color: #A5673F;
 }
 
 .ui.ui.menu .grey.active.item,
 .ui.ui.grey.menu .active.item:hover,
 .ui.ui.grey.menu .active.item {
+  border-color: #767676;
   color: #767676;
 }
 
 .ui.ui.menu .black.active.item,
 .ui.ui.black.menu .active.item:hover,
 .ui.ui.black.menu .active.item {
+  border-color: #1B1C1D;
   color: #1B1C1D;
 }
 
