@@ -1332,6 +1332,9 @@ svg {
 }
 
 #rich-match-editor {
+  > fieldset {
+    margin-bottom: .75rem;
+  }
   .rich-text-editor {
     display: block;
     width: auto;
@@ -1356,41 +1359,6 @@ svg {
       background-color: transparent;
       border-color: transparent;
     }
-  }
-}
-
-#match-options {
-  > .row > .column {
-    min-width: 150px;
-  }
-  .ui.icon.header {
-    > svg {
-      height: 1em !important;
-      width: auto;
-    }
-    > label {
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-  }
-}
-
-#match-bulk {
-  > textarea {
-    position: relative;
-    font-family: @textareaFont;
-    font-size: 1em;
-    line-height: 1.5em;
-    margin-top: 0.75rem;
-    resize: both;
-  }
-}
-
-#match-add {
-  position: relative;
-  .ui.horizontal.divider {
-    font-family: @headerFont;
-    color: @black;
   }
   .format-toolbar {
     text-align: center;
@@ -1420,6 +1388,33 @@ svg {
         }
       }
     }
+  }
+}
+
+#match-options {
+  > .row > .column {
+    min-width: 150px;
+  }
+  .ui.icon.header {
+    > svg {
+      height: 1em !important;
+      width: auto;
+    }
+    > label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+#match-bulk {
+  > textarea {
+    position: relative;
+    font-family: @textareaFont;
+    font-size: 1em;
+    line-height: 1.5em;
+    margin-top: 0.75rem;
+    resize: both;
   }
 }
 

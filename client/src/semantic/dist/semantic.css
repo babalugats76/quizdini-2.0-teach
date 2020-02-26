@@ -2172,6 +2172,10 @@ svg.icon.chevron-down.closed {
   color: #DCDDDE;
 }
 
+#rich-match-editor > fieldset {
+  margin-bottom: 0.75rem;
+}
+
 #rich-match-editor .rich-text-editor {
   display: block;
   width: auto;
@@ -2201,6 +2205,37 @@ svg.icon.chevron-down.closed {
   border-color: transparent;
 }
 
+#rich-match-editor .format-toolbar {
+  text-align: center;
+}
+
+#rich-match-editor .format-toolbar button {
+  outline: 0;
+  margin: 0;
+  padding: 0.5em;
+  text-decoration: none !important;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  background-color: transparent;
+  border: none;
+}
+
+#rich-match-editor .format-toolbar button:hover svg.icon path {
+  fill: #000000;
+}
+
+#rich-match-editor .format-toolbar button svg.icon {
+  width: 1.3em;
+  height: 1.3em;
+}
+
+#rich-match-editor .format-toolbar button svg.icon path {
+  fill: rgba(0, 0, 0, 0.4);
+}
+
 #match-options > .row > .column {
   min-width: 150px;
 }
@@ -2222,46 +2257,6 @@ svg.icon.chevron-down.closed {
   line-height: 1.5em;
   margin-top: 0.75rem;
   resize: both;
-}
-
-#match-add {
-  position: relative;
-}
-
-#match-add .ui.horizontal.divider {
-  font-family: 'marcher-medium', sans-serif;
-  color: #1B1C1D;
-}
-
-#match-add .format-toolbar {
-  text-align: center;
-}
-
-#match-add .format-toolbar button {
-  outline: 0;
-  margin: 0;
-  padding: 0.5em;
-  text-decoration: none !important;
-  cursor: pointer;
-  position: relative;
-  text-align: center;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  background-color: transparent;
-  border: none;
-}
-
-#match-add .format-toolbar button:hover svg.icon path {
-  fill: #000000;
-}
-
-#match-add .format-toolbar button svg.icon {
-  width: 1.3em;
-  height: 1.3em;
-}
-
-#match-add .format-toolbar button svg.icon path {
-  fill: rgba(0, 0, 0, 0.4);
 }
 
 #match-table tbody > tr > td {

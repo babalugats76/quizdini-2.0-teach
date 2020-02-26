@@ -17,7 +17,6 @@ const MatchAdd = ({
 }) => {
   return (
     <div id="rich-match-editor">
-      <Segment basic vertical>
         <fieldset>
           <legend>Term</legend>
           <MatchEditor
@@ -32,8 +31,6 @@ const MatchAdd = ({
           />
           <InputFeedback error={!term.touched ? term.error : null} />
         </fieldset>
-      </Segment>
-      <Segment basic vertical>
         <fieldset>
           <legend>Definition</legend>
           <MatchEditor
@@ -50,8 +47,6 @@ const MatchAdd = ({
             error={!definition.touched ? definition.error : null}
           />
         </fieldset>
-      </Segment>
-      <Segment basic vertical>
         <Button
           disabled={disabled || !term.dirty || !definition.dirty}
           icon="plus"
@@ -64,10 +59,7 @@ const MatchAdd = ({
         >
           ADD
         </Button>
-      </Segment>
-      <Segment basic vertical>
         <div className="match-tip">Maximum # of terms = {maxMatches}</div>
-      </Segment>
     </div>
   );
 };

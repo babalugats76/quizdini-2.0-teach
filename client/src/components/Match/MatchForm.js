@@ -660,38 +660,40 @@ const MatchForm = props => {
             menuItem: 'Add Match',
             render: () => (
               <Tab.Pane as={Segment} id="match-add">
-                <Responsive
-                  as={Message}
-                  content="Sorry...the rich match editor is not supported on mobile.
+                <Segment basic vertical>
+                  <Responsive
+                    as={Message}
+                    content="Sorry...the rich match editor is not supported on mobile.
                   Please use the bulk editor."
-                  maxWidth={767}
-                  severity="INFO"
-                />
-                <Responsive
-                  as={MatchAdd}
-                  definition={definition}
-                  definitionRef={definitionRef}
-                  disabled={disabled || values.matches.length >= maxMatches}
-                  maxMatches={maxMatches}
-                  minWidth={768}
-                  error={errors.matches}
-                  onEditorChange={(value, field) =>
-                    handleEditorChange(value, field)
-                  }
-                  onEditorTouch={(field, touched) =>
-                    handleEditorTouch(field, touched)
-                  }
-                  onNewMatch={event =>
-                    handleNewMatch(
-                      event,
-                      values.matches,
-                      setFieldValue,
-                      validateForm
-                    )
-                  }
-                  term={term}
-                  termRef={termRef}
-                />
+                    maxWidth={767}
+                    severity="INFO"
+                  />
+                  <Responsive
+                    as={MatchAdd}
+                    definition={definition}
+                    definitionRef={definitionRef}
+                    disabled={disabled || values.matches.length >= maxMatches}
+                    maxMatches={maxMatches}
+                    minWidth={768}
+                    error={errors.matches}
+                    onEditorChange={(value, field) =>
+                      handleEditorChange(value, field)
+                    }
+                    onEditorTouch={(field, touched) =>
+                      handleEditorTouch(field, touched)
+                    }
+                    onNewMatch={event =>
+                      handleNewMatch(
+                        event,
+                        values.matches,
+                        setFieldValue,
+                        validateForm
+                      )
+                    }
+                    term={term}
+                    termRef={termRef}
+                  />
+                </Segment>
               </Tab.Pane>
             )
           },
