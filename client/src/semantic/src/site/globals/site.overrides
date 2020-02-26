@@ -1297,8 +1297,9 @@ svg {
 --------------------*/
 
 #match-form {
-  .inline.fields {
-    justify-content: space-between;
+  #save-btn-grp {
+    justify-content: flex-end;
+    margin: 0;
   }
 
   textarea[disabled] {
@@ -1373,7 +1374,6 @@ svg {
     line-height: 1.5em;
     margin-top: 0.75rem;
     resize: both;
-    z-index: 2;
   }
 }
 
@@ -1523,7 +1523,7 @@ svg {
     .ui.segment:first-of-type {
       border: unset;
       box-shadow: unset;
-      padding: 0!important;
+      padding: 0 !important;
       background-color: green;
     }
   }
@@ -1550,7 +1550,6 @@ svg {
 }
 
 @media only screen and (min-width: @tabletBreakpoint) {
-  
   #quizdini {
     background: @widePageBackground;
   }
@@ -1589,7 +1588,7 @@ svg {
     #left-panel.col {
       flex: 2 1 0 !important;
       background-color: white;
-      max-width: 640px;
+      max-width: 600px;
     }
     #right-panel.col {
       flex: 1 1 0 !important;

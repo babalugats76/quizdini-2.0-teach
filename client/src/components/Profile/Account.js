@@ -146,7 +146,7 @@ const AccountForm = props => {
 
   return (
     <Formik
-      enableReinitialize={true}
+      enableReinitialize={false}
       validateOnBlur={true}
       validateOnChange={true}
       initialValues={{

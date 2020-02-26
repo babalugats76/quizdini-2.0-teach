@@ -2126,10 +2126,11 @@ svg.icon.chevron-down.closed {
   Match Edit
 --------------------*/
 
-#match-form .inline.fields {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+#match-form #save-btn-grp {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  margin: 0;
 }
 
 #match-form textarea[disabled] {
@@ -2201,7 +2202,6 @@ svg.icon.chevron-down.closed {
   line-height: 1.5em;
   margin-top: 0.75rem;
   resize: both;
-  z-index: 2;
 }
 
 #match-add {
@@ -2368,7 +2368,7 @@ svg.icon.chevron-down.closed {
     border: unset;
     -webkit-box-shadow: unset;
     box-shadow: unset;
-    padding: 0!important;
+    padding: 0 !important;
     background-color: green;
   }
 
@@ -2439,7 +2439,7 @@ svg.icon.chevron-down.closed {
     -ms-flex: 2 1 0px !important;
     flex: 2 1 0 !important;
     background-color: white;
-    max-width: 640px;
+    max-width: 600px;
   }
 
   #match-edit-panel.row #right-panel.col {

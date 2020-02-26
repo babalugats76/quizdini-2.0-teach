@@ -18,6 +18,7 @@ import MatchAdd from './MatchAdd';
 import MatchBulk from './MatchBulk';
 import MatchTable from './MatchTable';
 import { matchToString, parseMatch } from './utils';
+import DisplayFormikState from '../UI/FormikHelper';
 
 /***
  * To test:
@@ -477,10 +478,10 @@ const MatchForm = props => {
 
   return (
     <Formik
-      enableReinitialize={true}
+      enableReinitialize={false}
       validateOnBlur={true}
       validateOnChange={true}
-      validateOnMount={false}
+      validateOnMount={true}
       initialValues={{
         matchId: props.game.matchId || null,
         title: props.game.title || '',
@@ -529,6 +530,7 @@ const MatchForm = props => {
         const notify = getNotify(results);
         if (success) {
           await onSuccess(results.data.matchId);
+          await setSubmitting(false);
         } else {
           await setStatus(notify);
         }
@@ -594,7 +596,7 @@ const MatchForm = props => {
                     width={16}
                   />
                 </Form.Group>
-                <Grid as={Segment} id="match-options">
+                <Grid as={Segment} basic id="match-options">
                   <Grid.Row columns="equal" stretched>
                     <Grid.Column>
                       <IconDropdown
@@ -739,7 +741,6 @@ const MatchForm = props => {
               <div className="col">
                 <Breadcrumb size="small">
                   <Breadcrumb.Section
-                    link
                     content={
                       <Link
                         to={{
@@ -756,7 +757,9 @@ const MatchForm = props => {
                   <Breadcrumb.Divider>/</Breadcrumb.Divider>
                   <Breadcrumb.Section>Edit</Breadcrumb.Section>
                   <BreadcrumbDivider>/</BreadcrumbDivider>
-                  <Breadcrumb.Section>{values.matchId || "Untitled"}</Breadcrumb.Section>
+                  <Breadcrumb.Section>
+                    {values.matchId || 'Untitled'}
+                  </Breadcrumb.Section>
                 </Breadcrumb>
               </div>
               <div className="col">{values.title}</div>
@@ -764,29 +767,31 @@ const MatchForm = props => {
             </div>
             <div id="match-edit-panel" className="row">
               <div id="left-panel" className="col">
-                <Button
-                  active
-                  disabled={disabled || !isValid || !dirty || isMatchDirty}
-                  floated="right"
-                  icon="save"
-                  labelPosition="right"
-                  loading={isSubmitting}
-                  positive={dirty && isValid && !isMatchDirty}
-                  size="tiny"
-                  tabIndex={6}
-                  type="submit"
-                >
-                  Save
-                </Button>
-                <Tab
-                  activeIndex={activeTab}
-                  as={Segment}
-                  basic
-                  menu={{ secondary: true, pointing: true }}
-                  onTabChange={(event, data) => handleTabChange(event, data)}
-                  panes={editorPanes}
-                  renderActiveOnly={true}
-                />
+                <Segment basic>
+                  <Form.Group id="save-btn-grp">
+                    <Button
+                      active
+                      disabled={disabled || !isValid || !dirty || isMatchDirty}
+                      icon="save"
+                      labelPosition="right"
+                      loading={isSubmitting}
+                      positive={dirty && isValid && !isMatchDirty}
+                      size="tiny"
+                      tabIndex={6}
+                      type="submit"
+                    >
+                      Save
+                    </Button>
+                  </Form.Group>
+                  <Tab
+                    activeIndex={activeTab}
+                    id="panes"
+                    menu={{ secondary: true, pointing: true }}
+                    onTabChange={(event, data) => handleTabChange(event, data)}
+                    panes={editorPanes}
+                    renderActiveOnly={true}
+                  />
+                </Segment>
               </div>
               <div id="right-panel" className="col">
                 <MatchTable
@@ -817,6 +822,7 @@ const MatchForm = props => {
                 />
               </div>
             </div>
+            <div>{<DisplayFormikState {...props} />}</div>
           </Form>
         );
       }}
