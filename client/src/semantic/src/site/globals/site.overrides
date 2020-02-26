@@ -1297,6 +1297,15 @@ svg {
 --------------------*/
 
 #match-form {
+
+  .tab {
+    .ui.vertical.segment {
+      &:first-of-type {
+        padding-top: 0!important;
+      }
+    }
+  }
+
   #save-btn-grp {
     justify-content: flex-end;
     margin: 0;
@@ -1524,7 +1533,6 @@ svg {
       border: unset;
       box-shadow: unset;
       padding: 0 !important;
-      background-color: green;
     }
   }
 
@@ -1576,7 +1584,6 @@ svg {
 
   #match-edit-nav.row {
     flex-wrap: nowrap;
-    background-color: white;
     padding: 0;
     justify-content: space-between !important;
     align-items: center;
@@ -1585,14 +1592,12 @@ svg {
     > .col {
       padding: 1rem;
     }
-    #left-panel.col {
+    #game-panel.col {
       flex: 2 1 0 !important;
-      background-color: white;
       max-width: 600px;
     }
-    #right-panel.col {
+    #table-panel.col {
       flex: 1 1 0 !important;
-      background-color: white;
     }
   }
 }

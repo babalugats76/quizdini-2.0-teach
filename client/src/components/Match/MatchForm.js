@@ -562,102 +562,104 @@ const MatchForm = props => {
           {
             menuItem: 'Game',
             render: () => (
-              <Tab.Pane id="match-desc">
-                <Form.Group>
-                  <InputText
-                    disabled={disabled}
-                    error={touched.title && errors.title}
-                    label="Title"
-                    maxLength={40}
-                    name="title"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    placeholder=""
-                    required
-                    tabIndex={1}
-                    type="text"
-                    value={values.title}
-                    width={16}
-                  />
-                </Form.Group>
-                <Form.Group>
-                  <InputText
-                    disabled={disabled}
-                    error={touched.instructions && errors.instructions}
-                    label="Instructions"
-                    maxLength={60}
-                    name="instructions"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    placeholder=""
-                    tabIndex={2}
-                    type="text"
-                    value={values.instructions}
-                    width={16}
-                  />
-                </Form.Group>
-                <Grid as={Segment} basic id="match-options">
-                  <Grid.Row columns="equal" stretched>
-                    <Grid.Column>
-                      <IconDropdown
-                        headerSize="h5"
-                        compact
-                        disabled={disabled}
-                        error={touched.itemsPerBoard && errors.itemsPerBoard}
-                        icon="grid"
-                        label="Tiles"
-                        name="itemsPerBoard"
-                        onBlur={handleBlur}
-                        options={itemsPerBoardOptions}
-                        selection
-                        setFieldValue={setFieldValue}
-                        tabIndex={-1}
-                        value={values.itemsPerBoard}
-                      />
-                    </Grid.Column>
-                    <Grid.Column>
-                      <IconDropdown
-                        headerSize="h5"
-                        compact
-                        disabled={disabled}
-                        error={touched.duration && errors.duration}
-                        icon="watch"
-                        label="Seconds"
-                        name="duration"
-                        onBlur={handleBlur}
-                        options={durationOptions}
-                        selection
-                        setFieldValue={setFieldValue}
-                        tabIndex={-1}
-                        value={values.duration}
-                      />
-                    </Grid.Column>
-                    <Grid.Column>
-                      <IconDropdown
-                        headerSize="h5"
-                        compact
-                        disabled={disabled}
-                        error={touched.colorScheme && errors.colorScheme}
-                        icon="palette"
-                        label="Colors"
-                        name="colorScheme"
-                        onBlur={handleBlur}
-                        options={colorSchemeOptions}
-                        selection
-                        setFieldValue={setFieldValue}
-                        tabIndex={-1}
-                        value={values.colorScheme}
-                      />
-                    </Grid.Column>
-                  </Grid.Row>
-                </Grid>
+              <Tab.Pane as={Segment} id="match-desc">
+                <Segment basic vertical>
+                  <Form.Group>
+                    <InputText
+                      disabled={disabled}
+                      error={touched.title && errors.title}
+                      label="Title"
+                      maxLength={40}
+                      name="title"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      placeholder=""
+                      required
+                      tabIndex={1}
+                      type="text"
+                      value={values.title}
+                      width={16}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <InputText
+                      disabled={disabled}
+                      error={touched.instructions && errors.instructions}
+                      label="Instructions"
+                      maxLength={60}
+                      name="instructions"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      placeholder=""
+                      tabIndex={2}
+                      type="text"
+                      value={values.instructions}
+                      width={16}
+                    />
+                  </Form.Group>
+                  <Grid as={Segment} basic id="match-options" vertical>
+                    <Grid.Row columns="equal" stretched>
+                      <Grid.Column>
+                        <IconDropdown
+                          headerSize="h5"
+                          compact
+                          disabled={disabled}
+                          error={touched.itemsPerBoard && errors.itemsPerBoard}
+                          icon="grid"
+                          label="Tiles"
+                          name="itemsPerBoard"
+                          onBlur={handleBlur}
+                          options={itemsPerBoardOptions}
+                          selection
+                          setFieldValue={setFieldValue}
+                          tabIndex={-1}
+                          value={values.itemsPerBoard}
+                        />
+                      </Grid.Column>
+                      <Grid.Column>
+                        <IconDropdown
+                          headerSize="h5"
+                          compact
+                          disabled={disabled}
+                          error={touched.duration && errors.duration}
+                          icon="watch"
+                          label="Seconds"
+                          name="duration"
+                          onBlur={handleBlur}
+                          options={durationOptions}
+                          selection
+                          setFieldValue={setFieldValue}
+                          tabIndex={-1}
+                          value={values.duration}
+                        />
+                      </Grid.Column>
+                      <Grid.Column>
+                        <IconDropdown
+                          headerSize="h5"
+                          compact
+                          disabled={disabled}
+                          error={touched.colorScheme && errors.colorScheme}
+                          icon="palette"
+                          label="Colors"
+                          name="colorScheme"
+                          onBlur={handleBlur}
+                          options={colorSchemeOptions}
+                          selection
+                          setFieldValue={setFieldValue}
+                          tabIndex={-1}
+                          value={values.colorScheme}
+                        />
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
+                </Segment>
               </Tab.Pane>
             )
           },
           {
             menuItem: 'Add Match',
             render: () => (
-              <Tab.Pane id="match-add">
+              <Tab.Pane as={Segment} id="match-add">
                 <Responsive
                   as={Message}
                   content="Sorry...the rich match editor is not supported on mobile.
@@ -696,7 +698,7 @@ const MatchForm = props => {
           {
             menuItem: 'Bulk Editor',
             render: () => (
-              <Tab.Pane id="match-bulk">
+              <Tab.Pane as={Segment} id="match-bulk">
                 <MatchBulk
                   dirty={isMatchDirty}
                   disabled={disabled}
@@ -765,35 +767,33 @@ const MatchForm = props => {
               <div className="col">{values.title}</div>
               <div className="col">Circle Badge Here...</div>
             </div>
-            <div id="match-edit-panel" className="row">
-              <div id="left-panel" className="col">
-                <Segment basic>
-                  <Form.Group id="save-btn-grp">
-                    <Button
-                      active
-                      disabled={disabled || !isValid || !dirty || isMatchDirty}
-                      icon="save"
-                      labelPosition="right"
-                      loading={isSubmitting}
-                      positive={dirty && isValid && !isMatchDirty}
-                      size="tiny"
-                      tabIndex={6}
-                      type="submit"
-                    >
-                      Save
-                    </Button>
-                  </Form.Group>
-                  <Tab
-                    activeIndex={activeTab}
-                    id="panes"
-                    menu={{ secondary: true, pointing: true }}
-                    onTabChange={(event, data) => handleTabChange(event, data)}
-                    panes={editorPanes}
-                    renderActiveOnly={true}
-                  />
-                </Segment>
-              </div>
-              <div id="right-panel" className="col">
+            <section id="match-edit-panel" className="row">
+              <section id="game-panel" className="col">
+                <Form.Group id="save-btn-grp">
+                  <Button
+                    active
+                    disabled={disabled || !isValid || !dirty || isMatchDirty}
+                    icon="save"
+                    labelPosition="right"
+                    loading={isSubmitting}
+                    positive={dirty && isValid && !isMatchDirty}
+                    size="tiny"
+                    tabIndex={6}
+                    type="submit"
+                  >
+                    Save
+                  </Button>
+                </Form.Group>
+                <Tab
+                  activeIndex={activeTab}
+                  id="panes"
+                  menu={{ secondary: true, pointing: true }}
+                  onTabChange={(event, data) => handleTabChange(event, data)}
+                  panes={editorPanes}
+                  renderActiveOnly={true}
+                />
+              </section>
+              <section id="table-panel" className="col">
                 <MatchTable
                   activePage={activePage}
                   disabled={disabled}
@@ -820,8 +820,8 @@ const MatchForm = props => {
                   }
                   onPageChange={(event, data) => handlePageChange(event, data)}
                 />
-              </div>
-            </div>
+              </section>
+            </section>
             <div>{<DisplayFormikState {...props} />}</div>
           </Form>
         );

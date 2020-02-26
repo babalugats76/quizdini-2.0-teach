@@ -480,6 +480,22 @@ em {
   color: #862aa4;
   font-style: normal;
 }
+
+legend {
+  padding: 0;
+  display: table;
+}
+
+fieldset {
+  border: 0;
+  padding: 0.01em 0 0 0;
+  margin: 0;
+  min-width: 0;
+}
+
+body:not(:-moz-handler-blocked) fieldset {
+  display: table-cell;
+}
 /*!
  * # Fomantic-UI - Site
  * http://github.com/fomantic/Fomantic-UI/
@@ -2126,6 +2142,10 @@ svg.icon.chevron-down.closed {
   Match Edit
 --------------------*/
 
+#match-form .tab .ui.vertical.segment:first-of-type {
+  padding-top: 0!important;
+}
+
 #match-form #save-btn-grp {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
@@ -2369,7 +2389,6 @@ svg.icon.chevron-down.closed {
     -webkit-box-shadow: unset;
     box-shadow: unset;
     padding: 0 !important;
-    background-color: green;
   }
 
   .ui.form .fields .input-feedback.error {
@@ -2420,7 +2439,6 @@ svg.icon.chevron-down.closed {
   #match-edit-nav.row {
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
-    background-color: white;
     padding: 0;
     -webkit-box-pack: justify !important;
     -ms-flex-pack: justify !important;
@@ -2434,19 +2452,17 @@ svg.icon.chevron-down.closed {
     padding: 1rem;
   }
 
-  #match-edit-panel.row #left-panel.col {
+  #match-edit-panel.row #game-panel.col {
     -webkit-box-flex: 2 !important;
     -ms-flex: 2 1 0px !important;
     flex: 2 1 0 !important;
-    background-color: white;
     max-width: 600px;
   }
 
-  #match-edit-panel.row #right-panel.col {
+  #match-edit-panel.row #table-panel.col {
     -webkit-box-flex: 1 !important;
     -ms-flex: 1 1 0px !important;
     flex: 1 1 0 !important;
-    background-color: white;
   }
 }
 

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { Editor } from "slate-react";
-import { isKeyHotkey } from "is-hotkey";
-import Toolbar from "../UI/Toolbar";
+import React, { useState } from 'react';
+import { Editor } from 'slate-react';
+import { isKeyHotkey } from 'is-hotkey';
+import Toolbar from '../UI/Toolbar';
 
 const schema = {
   document: {
     nodes: [
       {
-        match: { type: "paragraph" },
+        match: { type: 'paragraph' },
         min: 1,
         max: 1
       }
@@ -16,12 +16,12 @@ const schema = {
   blocks: {
     paragraph: {
       marks: [
-        { type: "underline" },
-        { type: "code" },
-        { type: "superscript" },
-        { type: "subscript" }
+        { type: 'underline' },
+        { type: 'code' },
+        { type: 'superscript' },
+        { type: 'subscript' }
       ],
-      nodes: [{ match: { object: "text" } }]
+      nodes: [{ match: { object: 'text' } }]
     }
   }
 };
@@ -58,13 +58,13 @@ const MatchEditor = props => {
     const { attributes, children, mark } = props;
 
     switch (mark.type) {
-      case "code":
+      case 'code':
         return <code {...attributes}>{children}</code>;
-      case "underline":
+      case 'underline':
         return <u {...attributes}>{children}</u>;
-      case "superscript":
+      case 'superscript':
         return <sup {...attributes}>{children}</sup>;
-      case "subscript":
+      case 'subscript':
         return <sub {...attributes}>{children}</sub>;
       default:
         return next();
@@ -79,33 +79,33 @@ const MatchEditor = props => {
    * @return {Change}
    */
   const onKeyDown = (event, editor, next) => {
-    const isUnderline = isKeyHotkey("mod+u");
-    const isCode = isKeyHotkey("mod+`");
-    const isSuperscript = isKeyHotkey("mod+ArrowUp");
-    const isSubscript = isKeyHotkey("mod+ArrowDown");
-    const isClearFormatting = isKeyHotkey("mod+space");
+    const isUnderline = isKeyHotkey('mod+u');
+    const isCode = isKeyHotkey('mod+`');
+    const isSuperscript = isKeyHotkey('mod+ArrowUp');
+    const isSubscript = isKeyHotkey('mod+ArrowDown');
+    const isClearFormatting = isKeyHotkey('mod+space');
     const isPi = event => {
-      return isKeyHotkey("alt+p", event) || isKeyHotkey("opt+p", event);
+      return isKeyHotkey('alt+p', event) || isKeyHotkey('opt+p', event);
     };
 
     if (isUnderline(event)) {
       event.preventDefault();
-      editor.toggleMark("underline");
+      editor.toggleMark('underline');
     } else if (isCode(event)) {
       event.preventDefault();
-      editor.toggleMark("code");
+      editor.toggleMark('code');
     } else if (isSuperscript(event)) {
       event.preventDefault();
-      editor.toggleMark("superscript");
+      editor.toggleMark('superscript');
     } else if (isSubscript(event)) {
       event.preventDefault();
-      editor.toggleMark("subscript");
+      editor.toggleMark('subscript');
     } else if (isClearFormatting(event)) {
       event.preventDefault();
       onClearFormatting(event);
     } else if (isPi(event)) {
       event.preventDefault();
-      onClickCharacter(event, "pi");
+      onClickCharacter(event, 'pi');
     } else {
       return next();
     }
@@ -160,8 +160,8 @@ const MatchEditor = props => {
     let char;
 
     switch (character) {
-      case "pi":
-        char = "\u03C0";
+      case 'pi':
+        char = '\u03C0';
         break;
       default:
         return;
@@ -193,34 +193,34 @@ const MatchEditor = props => {
   /* Tooltip buttons the formatting toolbar will have */
   const buttons = [
     {
-      icon: "underline",
-      tooltip: "Underline",
-      onClick: event => onClickMark(event, "underline")
+      icon: 'underline',
+      tooltip: 'Underline',
+      onClick: event => onClickMark(event, 'underline')
     },
     {
-      icon: "code",
-      tooltip: "Code",
-      onClick: event => onClickMark(event, "code")
+      icon: 'code',
+      tooltip: 'Code',
+      onClick: event => onClickMark(event, 'code')
     },
     {
-      icon: "superscript",
-      tooltip: "Superscript",
-      onClick: event => onClickMark(event, "superscript")
+      icon: 'superscript',
+      tooltip: 'Superscript',
+      onClick: event => onClickMark(event, 'superscript')
     },
     {
-      icon: "subscript",
-      tooltip: "Subscript",
-      onClick: event => onClickMark(event, "subscript")
+      icon: 'subscript',
+      tooltip: 'Subscript',
+      onClick: event => onClickMark(event, 'subscript')
     },
     {
-      icon: "clear",
-      tooltip: "Clear Formatting",
+      icon: 'clear',
+      tooltip: 'Clear Formatting',
       onClick: event => onClearFormatting(event)
     },
     {
-      icon: "pi",
-      tooltip: "Insert pi symbol",
-      onClick: event => onClickCharacter(event, "pi")
+      icon: 'pi',
+      tooltip: 'Insert pi symbol',
+      onClick: event => onClickCharacter(event, 'pi')
     }
   ];
 
