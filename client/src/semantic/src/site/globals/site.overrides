@@ -1299,7 +1299,7 @@ svg {
 #match-form {
 
   .tab {
-    .ui.vertical.segment {
+    .ui.segment {
       &:first-of-type {
         padding-top: 0!important;
       }
@@ -1333,23 +1333,33 @@ svg {
 
 #rich-match-editor {
   > fieldset {
-    margin-bottom: .75rem;
+    margin-bottom: .75em;
+    border: 1px solid @borderColor;
+    border-radius: @absoluteBorderRadius;
+    > legend {
+      font-family: @headerFont;
+      font-size: .9375em;
+      font-weight: 400;
+      color: @textColor;
+      margin: -.5em 0 0 .75em;
+    }
   }
   .rich-text-editor {
     display: block;
     width: auto;
     height: auto;
-    padding: 1rem;
-    margin: 1rem;
+    padding: 1em 2em;
+    margin: .75em 0;
     font-size: inherit;
     line-height: 1.5;
     border: 1px solid transparent;
-    border-radius: @defaultBorderRadius;
+    border-right: none;
+    border-left: none;
+    border-top: none;
     outline: none;
     background-color: @white;
     color: @unselectedTextColor;
     &:focus {
-      background-color: @fieldFocusBackground;
       border-color: @fieldFocusBorderColor;
       color: @selectedTextColor;
       box-shadow: @fieldFocusBoxShadow;
@@ -1361,11 +1371,12 @@ svg {
     }
   }
   .format-toolbar {
+    margin-bottom: .25rem;
     text-align: center;
     button {
       outline: 0;
       margin: 0;
-      padding: 0.5em;
+      padding: 0.25em;
       text-decoration: none !important;
       cursor: pointer;
       position: relative;
@@ -1381,8 +1392,8 @@ svg {
         }
       }
       svg.icon {
-        width: 1.3em;
-        height: 1.3em;
+        width: 1.125em;
+        height: 1.125em;
         path {
           fill: @lightTextColor;
         }

@@ -478,7 +478,7 @@ const MatchForm = props => {
 
   return (
     <Formik
-      enableReinitialize={false}
+      enableReinitialize={true}
       validateOnBlur={true}
       validateOnChange={true}
       validateOnMount={true}
@@ -496,7 +496,7 @@ const MatchForm = props => {
       }}
       onSubmit={async (values, actions) => {
         let results;
-        const { setStatus, setSubmitting } = actions;
+        const { setStatus, setSubmitting, resetForm } = actions;
         await setSubmitting(true);
         const {
           duration,
@@ -530,7 +530,6 @@ const MatchForm = props => {
         const notify = getNotify(results);
         if (success) {
           await onSuccess(results.data.matchId);
-          await setSubmitting(false);
         } else {
           await setStatus(notify);
         }
@@ -725,7 +724,6 @@ const MatchForm = props => {
                       validateForm
                     )
                   }
-                  placeholder="Term, Definition"
                   value={values.bulkMatches}
                 />
               </Tab.Pane>

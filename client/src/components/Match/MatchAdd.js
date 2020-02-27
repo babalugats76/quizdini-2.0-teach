@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Divider, Grid, Segment } from 'semantic-ui-react';
 import { Button, InputFeedback } from '../UI/';
 import MatchEditor from './MatchEditor';
 

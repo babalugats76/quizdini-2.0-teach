@@ -54,32 +54,33 @@
 /*-------------------
   Colors
 --------------------*/
-@blackTransDark      : rgba(84, 84, 84, .87);
-@blue                : rgba(0, 107, 220, 1);
-@cobaltBlue          : rgba(6, 69, 173, 1);
-@grape               : rgba(134, 42, 164, 1);
-@grapeTrans          : rgba(134, 42, 164, .5);
-@indigo              : rgba(113, 28, 255, 1);
-@indigoTransDark     : rgba(113, 28, 255, .65);
-@indigoTransLight    : rgba(113, 28, 255, .25);
-@isabelline          : rgba(240, 240, 240, 1);
-@jet                 : rgba(46, 50, 53, 1);
-@liberty             : rgba(74, 88, 153, 1);
-@navyPurple          : rgba(170, 84, 255, 1);
-@navyPurpleTrans     : rgba(170, 84, 255, .5);
-@periwinkle          : rgba(204, 226, 255, 1);
-@pixiePowder         : rgba(57, 18, 133, 1);
-@spaceCadet          : rgba(26, 28, 87, 1);
-@spaceCadetTransDark : rgba(26, 28, 87, .9);
-@turquoise           : rgba(1, 231, 228, 1);
-@violet              : rgba(87, 65, 155, 1);
-@violetTrans         : rgba(87, 65, 155, .5);
-@zaffre              : rgba(0, 19, 153, 1);
-@zaffreTransDark     : rgba(0, 19, 153, .65);
+@blackTransDark       : rgba(84, 84, 84, .87);
+@blue                 : rgba(0, 107, 220, 1);
+@cobaltBlue           : rgba(6, 69, 173, 1);
+@grape                : rgba(134, 42, 164, 1);
+@grapeTrans           : rgba(134, 42, 164, .5);
+@indigo               : rgba(113, 28, 255, 1);
+@indigoTransDark      : rgba(113, 28, 255, .65);
+@indigoTransLight     : rgba(113, 28, 255, .25);
+@isabelline           : rgba(240, 240, 240, 1);
+@jet                  : rgba(46, 50, 53, 1);
+@liberty              : rgba(74, 88, 153, 1);
+@navyPurple           : rgba(170, 84, 255, 1);
+@navyPurpleTrans      : rgba(170, 84, 255, .5);
+@periwinkle           : rgba(204, 226, 255, 1);
+@periwinkleTransLight : rgba(204, 226, 255, .05);
+@pixiePowder          : rgba(57, 18, 133, 1);
+@spaceCadet           : rgba(26, 28, 87, 1);
+@spaceCadetTransDark  : rgba(26, 28, 87, .9);
+@turquoise            : rgba(1, 231, 228, 1);
+@violet               : rgba(87, 65, 155, 1);
+@violetTrans          : rgba(87, 65, 155, .5);
+@zaffre               : rgba(0, 19, 153, 1);
+@zaffreTransDark      : rgba(0, 19, 153, .65);
 
-@primaryColor        : @indigo;
-@primaryColorTrans   : @indigoTransDark;
-@secondaryColor      : @jet;
+@primaryColor         : @indigo;
+@primaryColorTrans    : @indigoTransDark;
+@secondaryColor       : @jet;
 
 /*-------------------
      Brand Colors
@@ -103,7 +104,7 @@
 @dropHoveredItemBackground  : @periwinkle;
 @dropHoveredItemColor       : @textColor;
 @emphasisColor              : @grape;
-@fieldFocusBackground       : @white;
+@fieldFocusBackground       : @periwinkleTransLight;
 @fieldFocusBorderColor      : @periwinkle;
 @fieldFocusBoxShadow        : none;
 @inputBackground            : @white;

@@ -11,7 +11,6 @@ const MatchBulk = ({
   onBulkChange,
   onFileChange,
   onUpdateMatches,
-  placeholder,
   value
 }) => {
   return (
@@ -42,7 +41,6 @@ const MatchBulk = ({
       </div>
       <TextArea
         value={value}
-        placeholder={placeholder}
         onChange={(event, data) => onBulkChange(event, data)}
         rows={12}
         disabled={disabled}
@@ -63,7 +61,6 @@ MatchBulk.propTypes = {
   onBulkChange: PropTypes.func.isRequired,
   onFileChange: PropTypes.func.isRequired,
   onUpdateMatches: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
   value: PropTypes.string.isRequired
 };
 
