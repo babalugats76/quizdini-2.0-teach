@@ -33,7 +33,13 @@
       - Leave a placeholder image 
   - About
     - Finish Attribution
-  - Match
+  - MatchForm
+    - Increase allowable size for `title` (will clamp everywhere)
+    - Figure out what to do about 2.x `dirty` bug (may have to add dirty toggle to parent and force re-initialization via props change)
+    - Popout functionality for Bulk Match Editor
+    - How to explain bulk match without placeholder?
+    - Secondary menu transition - change to include border-color instead of currentColor
+  - MatchStats
     - Change layout to resemble Stats
     - Create `Match Header` which includes `title` and `options` info
   - Dashboard

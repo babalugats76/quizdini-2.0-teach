@@ -167,16 +167,10 @@ flex-basis-100 {
   height: 100% !important;
 }
 
-.row {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.row > .col {
-  flex-basis: 100%;
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: block;
 }
 
 /*-------------------
@@ -360,7 +354,7 @@ svg {
 --------------------*/
 
 .input-feedback {
-  margin-top: 0.5rem;
+  margin-top: 0.5em;
   font-size: 0.9em;
   &.error {
     color: @red;
@@ -1297,18 +1291,15 @@ svg {
 --------------------*/
 
 #match-form {
-
   .tab {
     .ui.segment {
       &:first-of-type {
-        padding-top: 0!important;
+        padding-top: 0 !important;
+      }
+      &:last-of-type {
+        padding-bottom: 0 !important;
       }
     }
-  }
-
-  #save-btn-grp {
-    justify-content: flex-end;
-    margin: 0;
   }
 
   textarea[disabled] {
@@ -1331,17 +1322,24 @@ svg {
   }
 }
 
+#game-panel > #panes > #pane-menu {
+  margin-bottom: 0 !important;
+  .item {
+    border-width: 4px;
+  }
+}
+
 #rich-match-editor {
   > fieldset {
-    margin-bottom: .75em;
+    margin-bottom: 0.75em;
     border: 1px solid @borderColor;
     border-radius: @absoluteBorderRadius;
     > legend {
       font-family: @headerFont;
-      font-size: .9375em;
+      font-size: 0.9375em;
       font-weight: 400;
       color: @textColor;
-      margin: -.5em 0 0 .75em;
+      margin: -0.5em 0 0 0.75em;
     }
   }
   .rich-text-editor {
@@ -1349,7 +1347,7 @@ svg {
     width: auto;
     height: auto;
     padding: 1em 2em;
-    margin: .75em 0;
+    margin: 0 0 0.75em;
     font-size: inherit;
     line-height: 1.5;
     border: 1px solid transparent;
@@ -1371,7 +1369,7 @@ svg {
     }
   }
   .format-toolbar {
-    margin-bottom: .25rem;
+    margin-bottom: 0.25rem;
     text-align: center;
     button {
       outline: 0;
@@ -1399,6 +1397,10 @@ svg {
         }
       }
     }
+  }
+  .input-feedback {
+    margin: 0;
+    padding: 1em;
   }
 }
 
@@ -1582,29 +1584,6 @@ svg {
 
   .content-wrapper {
     padding: 0 5%;
-  }
-
-  .row > .col {
-    flex-basis: auto;
-  }
-
-  #match-edit-nav.row {
-    flex-wrap: nowrap;
-    padding: 0;
-    justify-content: space-between !important;
-    align-items: center;
-  }
-  #match-edit-panel.row {
-    > .col {
-      padding: 1rem;
-    }
-    #game-panel.col {
-      flex: 2 1 0 !important;
-      max-width: 600px;
-    }
-    #table-panel.col {
-      flex: 1 1 0 !important;
-    }
   }
 }
 

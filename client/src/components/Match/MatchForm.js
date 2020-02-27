@@ -561,7 +561,7 @@ const MatchForm = props => {
           {
             menuItem: 'Game',
             render: () => (
-              <Tab.Pane as={Segment} id="match-desc">
+              <Tab.Pane as={Segment} clearing id="match-desc">
                 <Segment basic vertical>
                   <Form.Group>
                     <InputText
@@ -658,7 +658,7 @@ const MatchForm = props => {
           {
             menuItem: 'Add Match',
             render: () => (
-              <Tab.Pane as={Segment} id="match-add">
+              <Tab.Pane as={Segment} clearing id="match-add">
                 <Segment basic vertical>
                   <Responsive
                     as={Message}
@@ -699,7 +699,7 @@ const MatchForm = props => {
           {
             menuItem: 'Bulk Editor',
             render: () => (
-              <Tab.Pane as={Segment} id="match-bulk">
+              <Tab.Pane as={Segment} clearing id="match-bulk">
                 <MatchBulk
                   dirty={isMatchDirty}
                   disabled={disabled}
@@ -724,6 +724,7 @@ const MatchForm = props => {
                       validateForm
                     )
                   }
+                  rows={10}
                   value={values.bulkMatches}
                 />
               </Tab.Pane>
@@ -739,89 +740,94 @@ const MatchForm = props => {
               {values.matchId ? values.matchId : 'UNPUBLISHED'}
             </span>
             {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
-            <div id="match-edit-nav" className="row">
-              <div className="col">
-                <Breadcrumb size="small">
-                  <Breadcrumb.Section
-                    content={
-                      <Link
-                        to={{
-                          pathname: '/dashboard',
-                          state: { from: 'MATCH' }
-                        }}
-                      >
-                        Dashboard
-                      </Link>
+            <Grid stackable>
+              <Grid.Row columns={3} id="match-edit-nav">
+                <Grid.Column>
+                  <Breadcrumb size="small">
+                    <Breadcrumb.Section
+                      content={
+                        <Link
+                          to={{
+                            pathname: '/dashboard',
+                            state: { from: 'MATCH' }
+                          }}
+                        >
+                          Dashboard
+                        </Link>
+                      }
+                    />
+                    <Breadcrumb.Divider>/</Breadcrumb.Divider>
+                    <Breadcrumb.Section>Match</Breadcrumb.Section>
+                    <Breadcrumb.Divider>/</Breadcrumb.Divider>
+                    <Breadcrumb.Section>Edit</Breadcrumb.Section>
+                    <BreadcrumbDivider>/</BreadcrumbDivider>
+                    <Breadcrumb.Section>
+                      {values.matchId || 'Untitled'}
+                    </Breadcrumb.Section>
+                  </Breadcrumb>
+                </Grid.Column>
+                <Grid.Column>{values.title}</Grid.Column>
+                <Grid.Column>Circle Badge Here...</Grid.Column>
+              </Grid.Row>
+              <Grid.Row columns={2} divided id="match-edit-panel">
+                <Grid.Column id="game-panel">
+                  <div className="clearfix">
+                    <Button
+                      active
+                      disabled={disabled || !isValid || !dirty || isMatchDirty}
+                      floated="right"
+                      icon="save"
+                      labelPosition="right"
+                      loading={isSubmitting}
+                      positive={dirty && isValid && !isMatchDirty}
+                      size="tiny"
+                      tabIndex={6}
+                      type="submit"
+                    >
+                      Save
+                    </Button>
+                  </div>
+                  <Tab
+                    activeIndex={activeTab}
+                    id="panes"
+                    menu={{ id: 'pane-menu', secondary: true, pointing: true }}
+                    onTabChange={(event, data) => handleTabChange(event, data)}
+                    panes={editorPanes}
+                    renderActiveOnly={true}
+                  />
+                </Grid.Column>
+                <Grid.Column id="table-panel">
+                  <MatchTable
+                    activePage={activePage}
+                    disabled={disabled}
+                    error={
+                      errors.matches &&
+                      `Add at least ${values.itemsPerBoard -
+                        values.matches.length} more term${
+                        values.itemsPerBoard - values.matches.length === 1
+                          ? ''
+                          : 's'
+                      }...`
+                    }
+                    id="match-table"
+                    itemsPerPage={itemsPerPage}
+                    matches={values.matches}
+                    onMatchDelete={(event, term) =>
+                      handleMatchDelete(
+                        event,
+                        term,
+                        values.matches,
+                        setFieldValue,
+                        validateForm
+                      )
+                    }
+                    onPageChange={(event, data) =>
+                      handlePageChange(event, data)
                     }
                   />
-                  <Breadcrumb.Divider>/</Breadcrumb.Divider>
-                  <Breadcrumb.Section>Match</Breadcrumb.Section>
-                  <Breadcrumb.Divider>/</Breadcrumb.Divider>
-                  <Breadcrumb.Section>Edit</Breadcrumb.Section>
-                  <BreadcrumbDivider>/</BreadcrumbDivider>
-                  <Breadcrumb.Section>
-                    {values.matchId || 'Untitled'}
-                  </Breadcrumb.Section>
-                </Breadcrumb>
-              </div>
-              <div className="col">{values.title}</div>
-              <div className="col">Circle Badge Here...</div>
-            </div>
-            <section id="match-edit-panel" className="row">
-              <section id="game-panel" className="col">
-                <Form.Group id="save-btn-grp">
-                  <Button
-                    active
-                    disabled={disabled || !isValid || !dirty || isMatchDirty}
-                    icon="save"
-                    labelPosition="right"
-                    loading={isSubmitting}
-                    positive={dirty && isValid && !isMatchDirty}
-                    size="tiny"
-                    tabIndex={6}
-                    type="submit"
-                  >
-                    Save
-                  </Button>
-                </Form.Group>
-                <Tab
-                  activeIndex={activeTab}
-                  id="panes"
-                  menu={{ secondary: true, pointing: true }}
-                  onTabChange={(event, data) => handleTabChange(event, data)}
-                  panes={editorPanes}
-                  renderActiveOnly={true}
-                />
-              </section>
-              <section id="table-panel" className="col">
-                <MatchTable
-                  activePage={activePage}
-                  disabled={disabled}
-                  error={
-                    errors.matches &&
-                    `Add at least ${values.itemsPerBoard -
-                      values.matches.length} more term${
-                      values.itemsPerBoard - values.matches.length === 1
-                        ? ''
-                        : 's'
-                    }...`
-                  }
-                  id="match-table"
-                  itemsPerPage={itemsPerPage}
-                  matches={values.matches}
-                  onMatchDelete={(event, term) =>
-                    handleMatchDelete(
-                      event,
-                      term,
-                      values.matches,
-                      setFieldValue,
-                      validateForm
-                    )
-                  }
-                  onPageChange={(event, data) => handlePageChange(event, data)}
-                />
-              </section>
-            </section>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
             <div>{<DisplayFormikState {...props} />}</div>
           </Form>
         );

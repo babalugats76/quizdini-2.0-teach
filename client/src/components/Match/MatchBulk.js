@@ -11,10 +11,11 @@ const MatchBulk = ({
   onBulkChange,
   onFileChange,
   onUpdateMatches,
+  rows,
   value
 }) => {
   return (
-    <React.Fragment>
+    <>
       <div id="btn-group-bulk-match">
         <Button
           as="label"
@@ -42,7 +43,7 @@ const MatchBulk = ({
       <TextArea
         value={value}
         onChange={(event, data) => onBulkChange(event, data)}
-        rows={12}
+        rows={rows}
         disabled={disabled}
       />
       <br />
@@ -51,8 +52,12 @@ const MatchBulk = ({
         For special characters, use quotes:&nbsp;&nbsp;
         <code>"a,b,c"</code>
       </div>
-    </React.Fragment>
+    </>
   );
+};
+
+MatchBulk.defaultProps = {
+  rows: 10
 };
 
 MatchBulk.propTypes = {
@@ -61,6 +66,7 @@ MatchBulk.propTypes = {
   onBulkChange: PropTypes.func.isRequired,
   onFileChange: PropTypes.func.isRequired,
   onUpdateMatches: PropTypes.func.isRequired,
+  rows: PropTypes.number.isRequired,
   value: PropTypes.string.isRequired
 };
 
