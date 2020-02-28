@@ -478,7 +478,7 @@ const MatchForm = props => {
 
   return (
     <Formik
-      enableReinitialize={true}
+      enableReinitialize={false}
       validateOnBlur={true}
       validateOnChange={true}
       validateOnMount={true}
@@ -528,12 +528,18 @@ const MatchForm = props => {
         }
         const success = results.data || false;
         const notify = getNotify(results);
-        if (success) {
-          await onSuccess(results.data.matchId);
-        } else {
+        if (success) { // no errors, i.e., success
+          if (matchId) { // existing match game
+            await resetForm({ values }); // sets dirty to false
+          } else { // new match game
+            await onSuccess(results.data.matchId); // decrement user credits
+            const newValues = { ...values, matchId: results.data.matchId }; // augment with matchId
+            await resetForm({ values: newValues }); // sets dirty to false
+          }
+        } else { // errors, i.e., failure
           await setStatus(notify);
         }
-        await setSubmitting(false);
+        await setSubmitting(false); 
       }}
       validationSchema={validateMatch}
     >

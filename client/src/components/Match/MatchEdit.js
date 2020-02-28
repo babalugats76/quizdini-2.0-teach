@@ -20,7 +20,7 @@ const MatchEdit = props => {
   // API data
   const { data: game, error, initialized, loading } = useData({
     url: '/api/match/' + state.matchId,
-    deps: [state.matchId]
+    deps: []
   });
 
   // direct API interactions (ephemeral)
@@ -40,14 +40,8 @@ const MatchEdit = props => {
   const fetchAuth = useAuth();
 
   // upon successful creation of a new game
-  const onSuccess = (matchId = null) => {
+  const onSuccess = () => {
     fetchAuth(); // updates redux store (to update credits)
-    setState(prevState => {
-      return {
-        ...prevState,
-        matchId: prevState.matchId || matchId
-      };
-    }); // update state with newly issued gameId
   };
 
   // when to show loader

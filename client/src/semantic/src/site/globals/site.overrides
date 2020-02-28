@@ -1143,7 +1143,7 @@ svg {
             flex: 1 1 auto;
             .header {
               display: flex;
-              align-items: center;
+              align-items: flex-start;
               font-size: 1.125em;
               line-height: 1.125em;
               color: @black;
