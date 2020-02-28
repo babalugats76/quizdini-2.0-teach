@@ -226,8 +226,8 @@ flex-basis-100 {
       &.middle {
         display: flex;
         flex-direction: column;
-        /* align-items: center !important; */
         justify-content: center !important;
+        flex: 1 1 0%;
         width: 100%;
       }
       &.small {
@@ -697,7 +697,7 @@ svg {
       > .ui.huge.header {
         font-family: @extraBoldItalicFont;
         .content {
-          font-size: 2.6em;
+          font-size: 2.6rem; /* Needs to be rems */
           text-decoration: underline;
         }
         .sub.header {
