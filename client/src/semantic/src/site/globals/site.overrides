@@ -478,6 +478,148 @@ svg {
 }
 
 /*-------------------
+  Tables
+--------------------*/
+
+table {
+  &.striped {
+    tbody > tr {
+      &:nth-of-type(odd) {
+        background-color: @white;
+        color: black;
+      }
+      &:nth-of-type(even) {
+        background-color: rgba(238, 238, 238, .01);
+      }
+    }
+  }
+  &.flex-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    font-size: 1em;
+    border: 1px solid rgba(34, 36, 38, 0.1);
+    border-radius: @absoluteBorderRadius;
+    background-color: @white;
+    thead,
+    tbody {
+      display: block;
+    }
+    tr {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(34, 36, 38, 0.1);
+      td,
+      th {
+        display: block;
+        flex: 1;
+      }
+      td {
+        color: @lightBlack;
+        padding: 0.75em 0.75em;
+      }
+      th {
+        align-self: flex-end;
+        padding: 1em 0.75em;
+      }
+    }
+    thead > tr {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      box-shadow: inset 0 -1px 0px 0 rgba(0, 0, 0, .1);
+      th {
+        text-align: left;
+        font-family: @headerFont;
+        font-weight: 400;
+        color: @textColor;
+      }
+    }
+    thead {
+      margin-right: 0px;
+      background-color: white;
+      color: black;
+    }
+    tbody {
+      flex: 1;
+      overflow-y: scroll;
+      background-color: rgba(170, 170, 170, 0.03);
+    }
+    tfoot {
+      display: block;
+      border-top: 1px solid rgba(34, 36, 38, 0.1);
+      tr {
+        td,
+        th {
+          padding: 1em 1.5em;
+        }
+      }
+    }
+  }
+}
+
+.flex-table-header {
+  padding: 1em 0.75em;
+  margin: 0;
+  background-color: white;
+  border: 1px solid rgba(34, 36, 38, 0.1);
+  border-top-right-radius: @absoluteBorderRadius;
+  border-top-left-radius: @absoluteBorderRadius;
+}
+
+.flex-table-header ~ .flex-table {
+  border-top: none;
+  border-top-right-radius: none;
+  border-top-left-radius: none;
+}
+
+#match-table {
+  thead,
+  tbody {
+    tr {
+      td,
+      th {
+        &:nth-child(1) {
+          text-align: center;
+          border-right: none;
+          button {
+            margin: auto;
+          }
+          padding-right: .125em;
+          padding-left: .125em;
+        }
+        &:nth-child(2) {
+          flex: 2;
+          padding-right: .125em;
+          padding-left: .125em;
+        }
+        &:nth-child(3) {
+          flex: 5;
+        }
+      }
+      td {
+        &:nth-child(3) {
+          font-family: @bookFont;
+        }
+      }
+    }
+  }
+  .ui.icon.trash.button {
+    transition: background-color 0.5s ease;
+    background-color: @negativeBackgroundColor;
+    &:hover {
+      background-color: lighten(@negativeColor, 10);
+      svg.icon {
+        path {
+          fill: @white;
+        }
+      }
+    }
+  }
+}
+
+/*-------------------
   Modal
 --------------------*/
 
@@ -1431,37 +1573,6 @@ svg {
   }
 }
 
-#match-table {
-  tbody > tr > td {
-    color: @lightBlack;
-
-    &:first-of-type {
-      font-family: @headerFont;
-      font-size: 1em;
-      color: @textColor;
-      > span * {
-        font-size: 1em;
-      }
-    }
-    .ui.icon.trash.button {
-      transition: background-color 0.5s ease;
-      background-color: @negativeBackgroundColor;
-      &:hover {
-        background-color: lighten(@negativeColor, 10);
-        svg.icon {
-          path {
-            fill: @white;
-          }
-        }
-      }
-    }
-  }
-  .ui.pagination.menu > .item {
-    min-width: 2em;
-    padding: 0.75em 0.9em;
-  }
-}
-
 /*-------------------
   Match Stats
 --------------------*/
@@ -1579,7 +1690,7 @@ svg {
   }
 
   #match-table {
-    min-height: 550px;
+    height: 480px;
   }
 
   .content-wrapper {

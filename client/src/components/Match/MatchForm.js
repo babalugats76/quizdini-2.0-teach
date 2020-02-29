@@ -17,6 +17,7 @@ import HtmlSerializer from './HtmlSerializer';
 import MatchAdd from './MatchAdd';
 import MatchBulk from './MatchBulk';
 import MatchTable from './MatchTable';
+import FlexTable from './FlexTable';
 import { matchToString, parseMatch } from './utils';
 import DisplayFormikState from '../UI/FormikHelper';
 
@@ -528,18 +529,22 @@ const MatchForm = props => {
         }
         const success = results.data || false;
         const notify = getNotify(results);
-        if (success) { // no errors, i.e., success
-          if (matchId) { // existing match game
+        if (success) {
+          // no errors, i.e., success
+          if (matchId) {
+            // existing match game
             await resetForm({ values }); // sets dirty to false
-          } else { // new match game
+          } else {
+            // new match game
             await onSuccess(results.data.matchId); // decrement user credits
             const newValues = { ...values, matchId: results.data.matchId }; // augment with matchId
             await resetForm({ values: newValues }); // sets dirty to false
           }
-        } else { // errors, i.e., failure
+        } else {
+          // errors, i.e., failure
           await setStatus(notify);
         }
-        await setSubmitting(false); 
+        await setSubmitting(false);
       }}
       validationSchema={validateMatch}
     >
@@ -803,7 +808,22 @@ const MatchForm = props => {
                   />
                 </Grid.Column>
                 <Grid.Column id="table-panel">
-                  <MatchTable
+                  <FlexTable
+                    columns={['', 'Term', 'Description']}
+                    disabled={disabled}
+                    id="match-table"
+                    onMatchDelete={(event, term) =>
+                      handleMatchDelete(
+                        event,
+                        term,
+                        values.matches,
+                        setFieldValue,
+                        validateForm
+                      )
+                    }
+                    matches={values.matches}
+                  />
+                  {/* <MatchTable
                     activePage={activePage}
                     disabled={disabled}
                     error={
@@ -830,7 +850,7 @@ const MatchForm = props => {
                     onPageChange={(event, data) =>
                       handlePageChange(event, data)
                     }
-                  />
+                  /> */}
                 </Grid.Column>
               </Grid.Row>
             </Grid>
