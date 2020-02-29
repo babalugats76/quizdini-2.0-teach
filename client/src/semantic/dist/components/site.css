@@ -158,8 +158,8 @@ input::selection {
 /* Force Simple Scrollbars */
 body ::-webkit-scrollbar {
   -webkit-appearance: none;
-  width: 10px;
-  height: 10px;
+  width: 18px;
+  height: 18px;
 }
 body ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.1);
@@ -167,7 +167,7 @@ body ::-webkit-scrollbar-track {
 }
 body ::-webkit-scrollbar-thumb {
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 0.1875rem;
   background: rgba(0, 0, 0, 0.25);
   -webkit-transition: color 0.2s ease;
   transition: color 0.2s ease;
@@ -705,7 +705,6 @@ table.flex-table tr th {
   padding: 1em 0.75em;
 }
 table.flex-table thead > tr {
-  overflow-y: scroll;
   overflow-x: hidden;
   -webkit-box-shadow: inset 0 -1px 0px 0 rgba(0, 0, 0, 0.1);
           box-shadow: inset 0 -1px 0px 0 rgba(0, 0, 0, 0.1);

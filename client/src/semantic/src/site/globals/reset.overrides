@@ -56,3 +56,7 @@ fieldset {
 body:not(:-moz-handler-blocked) fieldset {
   display: table-cell;
 }
+
+body ::-webkit-scrollbar-thumb {
+  height: 36px;
+}

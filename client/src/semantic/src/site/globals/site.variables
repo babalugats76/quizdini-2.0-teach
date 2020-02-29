@@ -139,6 +139,14 @@
 @absoluteBorderRadius: @3px;
 
 /*-------------------
+    Scroll Bars
+--------------------*/
+@useCustomScrollbars: true; 
+@customScrollbarWidth: 18px;
+@customScrollbarHeight: 18px;
+@thumbBorderRadius: @3px;
+
+/*-------------------
        States
 --------------------*/
 @disabledOpacity: 0.33;
