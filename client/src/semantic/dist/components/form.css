@@ -56,7 +56,7 @@
 .ui.form .field > label {
   display: block;
   margin: 0 0 0.25rem 0;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(32, 33, 36, 0.75);
   font-size: 0.9375em;
   font-weight: 400;
   text-transform: none;
@@ -110,7 +110,7 @@
   font-size: 1em;
   background: #FFFFFF;
   border: 1px solid #dee4e7;
-  color: rgba(10, 10, 10, 0.5);
+  color: rgba(32, 33, 36, 0.5);
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
@@ -128,7 +128,7 @@
   background: #FFFFFF;
   border: 1px solid #dee4e7;
   outline: none;
-  color: rgba(10, 10, 10, 0.5);
+  color: rgba(32, 33, 36, 0.5);
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
@@ -214,7 +214,7 @@
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
   padding: 0.62em 0.875em;
-  color: rgba(10, 10, 10, 0.5);
+  color: rgba(32, 33, 36, 0.5);
   -webkit-transition: color 0.2s ease, border-color 0.2s ease;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
@@ -365,22 +365,22 @@
 
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(201, 201, 201, 0.5);
+  color: rgba(224, 224, 227, 0.5);
 }
 .ui.form :-ms-input-placeholder {
-  color: rgba(201, 201, 201, 0.5) !important;
+  color: rgba(224, 224, 227, 0.5) !important;
 }
 .ui.form ::-moz-placeholder {
-  color: rgba(201, 201, 201, 0.5);
+  color: rgba(224, 224, 227, 0.5);
 }
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(125, 125, 125, 0.5);
+  color: rgba(143, 146, 155, 0.5);
 }
 .ui.form :focus:-ms-input-placeholder {
-  color: rgba(125, 125, 125, 0.5) !important;
+  color: rgba(143, 146, 155, 0.5) !important;
 }
 .ui.form :focus::-moz-placeholder {
-  color: rgba(125, 125, 125, 0.5);
+  color: rgba(143, 146, 155, 0.5);
 }
 
 /*--------------------
@@ -399,7 +399,7 @@
 .ui.form input[type="text"]:focus,
 .ui.form input[type="file"]:focus,
 .ui.form input[type="url"]:focus {
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(32, 33, 36, 0.9);
   border-color: #cce2ff;
   border-radius: 0.1875rem;
   background: rgba(204, 226, 255, 0.05);
@@ -437,7 +437,7 @@
   border-top-left-radius: 0;
 }
 .ui.form textarea:focus {
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(32, 33, 36, 0.9);
   border-color: #cce2ff;
   border-radius: 0.1875rem;
   background: rgba(204, 226, 255, 0.05);
@@ -1440,7 +1440,7 @@
 .ui.inverted.form input[type="url"] {
   background: #FFFFFF;
   border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(10, 10, 10, 0.5);
+  color: rgba(32, 33, 36, 0.5);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -1460,7 +1460,7 @@
 }
 .ui.form .grouped.fields > label {
   margin: 0 0 0.25rem 0;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(32, 33, 36, 0.75);
   font-size: 0.9375em;
   font-weight: 400;
   text-transform: none;
@@ -1697,7 +1697,7 @@
   vertical-align: baseline;
   font-size: 0.9375em;
   font-weight: 400;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(32, 33, 36, 0.75);
   text-transform: none;
 }
 
@@ -1817,7 +1817,7 @@
 .ui.grid .row .column > label {
   display: block;
   margin: 0 0 0.25rem 0;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(32, 33, 36, 0.75);
   font-size: 0.9375em;
   font-weight: 400;
   text-transform: none;
@@ -1825,7 +1825,7 @@
 
 /* Style textarea text to be initially unselected */
 .ui.form textarea {
-  color: rgba(10, 10, 10, 0.5);
+  color: rgba(32, 33, 36, 0.5);
 }
 
 /* Prevent semantic from hiding messages on forms */

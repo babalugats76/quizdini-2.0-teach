@@ -58,5 +58,5 @@ body:not(:-moz-handler-blocked) fieldset {
 }
 
 body ::-webkit-scrollbar-thumb {
-  height: 100px;
+  height: 50px;
 }

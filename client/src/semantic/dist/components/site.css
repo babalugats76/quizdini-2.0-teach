@@ -25,11 +25,11 @@ body {
   padding: 0;
   overflow-x: hidden;
   min-width: 320px;
-  background: #FFFFFF;
+  background: #F9FAFB;
   font-family: 'marcher-regular', sans-serif;
   font-size: 16px;
   line-height: 1.4285em;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(32, 33, 36, 0.75);
 }
 
 
@@ -100,11 +100,11 @@ p:last-child {
 --------------------*/
 
 a {
-  color: #0645ad;
+  color: #2e9adf;
   text-decoration: none;
 }
 a:hover {
-  color: #003998;
+  color: #078add;
   text-decoration: none;
 }
 
@@ -122,44 +122,44 @@ a:hover {
 
 /* Site */
 ::-webkit-selection {
-  background-color: #cce2ff;
-  color: rgba(10, 10, 10, 0.75);
+  background-color: rgba(255, 250, 204);
+  color: #000000;
 }
 ::-moz-selection {
-  background-color: #cce2ff;
-  color: rgba(10, 10, 10, 0.75);
+  background-color: rgba(255, 250, 204);
+  color: #000000;
 }
 ::selection {
-  background-color: #cce2ff;
-  color: rgba(10, 10, 10, 0.75);
+  background-color: rgba(255, 250, 204);
+  color: #000000;
 }
 
 /* Form */
 textarea::-webkit-selection,
 input::-webkit-selection {
-  background-color: #cce2ff;
-  color: rgba(10, 10, 10, 0.75);
+  background-color: rgba(255, 250, 204);
+  color: #000000;
 }
 textarea::-moz-selection,
 input::-moz-selection {
-  background-color: #cce2ff;
-  color: rgba(10, 10, 10, 0.75);
+  background-color: rgba(255, 250, 204);
+  color: #000000;
 }
 textarea::-moz-selection, input::-moz-selection {
-  background-color: #cce2ff;
-  color: rgba(10, 10, 10, 0.75);
+  background-color: rgba(255, 250, 204);
+  color: #000000;
 }
 textarea::selection,
 input::selection {
-  background-color: #cce2ff;
-  color: rgba(10, 10, 10, 0.75);
+  background-color: rgba(255, 250, 204);
+  color: #000000;
 }
 
 /* Force Simple Scrollbars */
 body ::-webkit-scrollbar {
   -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
+  width: 1rem;
+  height: 1rem;
 }
 body ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.1);
@@ -376,7 +376,7 @@ flex-basis-100 {
 --------------------*/
 
 #quizdini {
-  background-color: #FFFFFF;
+  background-color: #F9FAFB;
 }
 .page-wrapper {
   display: -webkit-box;
@@ -657,7 +657,7 @@ table.striped tbody > tr:nth-of-type(odd) {
   color: black;
 }
 table.striped tbody > tr:nth-of-type(even) {
-  background-color: rgba(0, 0, 60, 0.02);
+  background-color: rgba(242, 245, 245, 0.8);
 }
 table.flex-table {
   display: -webkit-box;
@@ -712,7 +712,7 @@ table.flex-table thead > tr th {
   text-align: left;
   font-family: 'marcher-medium', sans-serif;
   font-weight: 400;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(32, 33, 36, 0.75);
 }
 table.flex-table thead {
   margin-right: 0px;
@@ -763,6 +763,10 @@ table.flex-table tfoot tr th {
   -webkit-box-flex: 5;
       -ms-flex: 5;
           flex: 5;
+}
+#match-table thead tr td:nth-child(2),
+#match-table tbody tr td:nth-child(2) {
+  color: rgba(32, 33, 36, 0.9);
 }
 #match-table thead tr td:nth-child(3),
 #match-table tbody tr td:nth-child(3) {
@@ -996,7 +1000,7 @@ table.flex-table tfoot tr th {
 }
 #about.page section a,
 #terms.page section a {
-  color: #0645ad;
+  color: #2e9adf;
   font-weight: 600;
 }
 #about.page section a:hover,
@@ -1209,7 +1213,7 @@ table.flex-table tfoot tr th {
   line-height: 1.3;
 }
 #register-form a {
-  color: #0645ad;
+  color: #2e9adf;
 }
 #register-form a:hover {
   text-decoration: underline;
@@ -1278,7 +1282,7 @@ table.flex-table tfoot tr th {
   margin: auto 0 0.5em;
 }
 #login-wrapper #login-form a {
-  color: #0645ad;
+  color: #2e9adf;
 }
 #login-wrapper #login-form a:hover {
   text-decoration: underline;
@@ -1611,7 +1615,7 @@ table.flex-table tfoot tr th {
   font-family: 'marcher-medium', sans-serif;
   font-size: 0.9375em;
   font-weight: 400;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(32, 33, 36, 0.75);
   margin: -0.5em 0 0 0.75em;
 }
 #rich-match-editor .rich-text-editor {
@@ -1628,16 +1632,16 @@ table.flex-table tfoot tr th {
   border-top: none;
   outline: none;
   background-color: #FFFFFF;
-  color: rgba(10, 10, 10, 0.5);
+  color: rgba(32, 33, 36, 0.5);
 }
 #rich-match-editor .rich-text-editor:focus {
   border-color: #cce2ff;
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(32, 33, 36, 0.9);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 #rich-match-editor .rich-text-editor:not([contenteditable='true']) {
-  color: rgba(10, 10, 10, 0.5);
+  color: rgba(32, 33, 36, 0.5);
   background-color: transparent;
   border-color: transparent;
 }
@@ -1754,10 +1758,10 @@ table.flex-table tfoot tr th {
   border: 1px solid rgba(34, 36, 38, 0.15);
 }
 .StripeElement--complete {
-  color: rgba(10, 10, 10, 0.5);
+  color: rgba(32, 33, 36, 0.5);
 }
 .StripeElement--focus {
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(32, 33, 36, 0.9);
   background: rgba(204, 226, 255, 0.05);
   border-color: #cce2ff;
 }
@@ -1794,7 +1798,7 @@ table.flex-table tfoot tr th {
 }
 @media only screen and (min-width: 768px) {
   #quizdini {
-    background: #f0f0f0;
+    background: #F9FAFB;
   }
   .page-wrapper > #content > .page {
     padding: 2.5rem 1rem;

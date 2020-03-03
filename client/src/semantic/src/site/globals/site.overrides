@@ -580,6 +580,9 @@ table {
         }
       }
       td {
+        &:nth-child(2) {
+          color: @selectedTextColor;
+        }
         &:nth-child(3) {
           font-family: @marcherBook;
         }

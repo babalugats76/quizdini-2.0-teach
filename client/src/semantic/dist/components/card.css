@@ -308,7 +308,7 @@
 }
 .ui.cards > .card > .content > a.header:hover,
 .ui.card > .content > a.header:hover {
-  color: #003998;
+  color: #078add;
 }
 
 /* Meta */
@@ -318,7 +318,7 @@
 }
 .ui.cards > .card .meta > a:not(.ui):hover,
 .ui.card .meta > a:not(.ui):hover {
-  color: rgba(10, 10, 10, 0.75);
+  color: rgba(32, 33, 36, 0.75);
 }
 
 /*--------------
@@ -423,11 +423,11 @@
 }
 .ui.cards > .card > .extra a:not(.ui),
 .ui.card > .extra a:not(.ui) {
-  color: rgba(10, 10, 10, 0.5);
+  color: rgba(32, 33, 36, 0.5);
 }
 .ui.cards > .card > .extra a:not(.ui):hover,
 .ui.card > .extra a:not(.ui):hover {
-  color: #003998;
+  color: #078add;
 }
 
 
@@ -1294,7 +1294,7 @@ a.ui.card:hover,
 }
 .ui.inverted.cards > .card > .extra a:not(.ui):hover,
 .ui.inverted.card > .extra a:not(.ui):hover {
-  color: #003998;
+  color: #078add;
 }
 
 /* Link card(s) */
