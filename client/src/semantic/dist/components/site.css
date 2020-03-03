@@ -657,7 +657,7 @@ table.striped tbody > tr:nth-of-type(odd) {
   color: black;
 }
 table.striped tbody > tr:nth-of-type(even) {
-  background-color: rgba(238, 238, 238, 0.01);
+  background-color: rgba(0, 0, 60, 0.02);
 }
 table.flex-table {
   display: -webkit-box;
@@ -671,9 +671,11 @@ table.flex-table {
   max-width: 100%;
   height: 100%;
   font-size: 1em;
-  border: 1px solid rgba(34, 36, 38, 0.1);
+  border: 1px solid #dee4e7;
   border-radius: 0.1875rem;
   background-color: #FFFFFF;
+  border-top-right-radius: 0.1875rem;
+  border-top-left-radius: 0.1875rem;
 }
 table.flex-table thead,
 table.flex-table tbody {
@@ -686,7 +688,6 @@ table.flex-table tr {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
 }
 table.flex-table tr td,
 table.flex-table tr th {
@@ -697,17 +698,15 @@ table.flex-table tr th {
 }
 table.flex-table tr td {
   color: #545454;
-  padding: 0.75em 0.75em;
+  padding: 0.5rem 0.75rem;
 }
 table.flex-table tr th {
   -ms-flex-item-align: end;
       align-self: flex-end;
-  padding: 1em 0.75em;
+  padding: 1rem 0.75rem;
 }
 table.flex-table thead > tr {
   overflow-x: hidden;
-  -webkit-box-shadow: inset 0 -1px 0px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: inset 0 -1px 0px 0 rgba(0, 0, 0, 0.1);
 }
 table.flex-table thead > tr th {
   text-align: left;
@@ -717,36 +716,24 @@ table.flex-table thead > tr th {
 }
 table.flex-table thead {
   margin-right: 0px;
-  background-color: white;
-  color: black;
+  background-color: #FFFFFF;
+  color: #1B1C1D;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 table.flex-table tbody {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   overflow-y: scroll;
-  background-color: rgba(170, 170, 170, 0.03);
+  background-color: #FFFFFF;
 }
 table.flex-table tfoot {
   display: block;
-  border-top: 1px solid rgba(34, 36, 38, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 table.flex-table tfoot tr td,
 table.flex-table tfoot tr th {
   padding: 1em 1.5em;
-}
-.flex-table-header {
-  padding: 1em 0.75em;
-  margin: 0;
-  background-color: white;
-  border: 1px solid rgba(34, 36, 38, 0.1);
-  border-top-right-radius: 0.1875rem;
-  border-top-left-radius: 0.1875rem;
-}
-.flex-table-header ~ .flex-table {
-  border-top: none;
-  border-top-right-radius: none;
-  border-top-left-radius: none;
 }
 #match-table thead tr td:nth-child(1),
 #match-table tbody tr td:nth-child(1),
@@ -754,8 +741,6 @@ table.flex-table tfoot tr th {
 #match-table tbody tr th:nth-child(1) {
   text-align: center;
   border-right: none;
-  padding-right: 0.125em;
-  padding-left: 0.125em;
 }
 #match-table thead tr td:nth-child(1) button,
 #match-table tbody tr td:nth-child(1) button,
@@ -770,8 +755,6 @@ table.flex-table tfoot tr th {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
-  padding-right: 0.125em;
-  padding-left: 0.125em;
 }
 #match-table thead tr td:nth-child(3),
 #match-table tbody tr td:nth-child(3),
@@ -784,6 +767,16 @@ table.flex-table tfoot tr th {
 #match-table thead tr td:nth-child(3),
 #match-table tbody tr td:nth-child(3) {
   font-family: 'marcher-book', sans-serif;
+}
+#match-table tbody tr td,
+#match-table tbody tr th {
+  font-size: 0.9375em;
+  line-height: 1.3125em;
+}
+#match-table tfoot tr th,
+#match-table tfoot tr td {
+  padding: 0;
+  text-align: center;
 }
 #match-table .ui.icon.trash.button {
   -webkit-transition: background-color 0.5s ease;

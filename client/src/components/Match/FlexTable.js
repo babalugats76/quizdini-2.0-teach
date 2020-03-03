@@ -1,40 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Button } from '../UI/';
+import React from "react";
+import PropTypes from "prop-types";
+import { Button, Message } from "../UI/";
 
-const FlexTable = ({
-  columns,
-  disabled,
-  id,
-  onMatchDelete,
-  matches,
-  striped
-}) => {
-  const classes = [
-    'flex-table',
-    disabled ? ['disabled'] : [],
-    striped ? ['striped'] : []
-  ]
-    .join(' ')
+const FlexTable = ({ columns, disabled, error, id, info, onMatchDelete, matches, striped }) => {
+  const classes = ["flex-table", disabled ? ["disabled"] : [], striped ? ["striped"] : []]
+    .join(" ")
     .trim();
 
   const renderHtml = value => (
-    <span
-      dangerouslySetInnerHTML={{ __html: value.replace(/(^")|("$)/g, '') }}
-    />
+    <span dangerouslySetInnerHTML={{ __html: value.replace(/(^")|("$)/g, "") }} />
   );
 
   return (
     <div className="flex-table-wrapper">
-      <div className="flex-table-header">Message Goes Here....</div>
       <table id={id} className={classes}>
         <thead>
           {Array.isArray(columns) && columns.length && (
             <tr>
               {columns.map((colhead, idx) => (
-                <th key={idx}>
-                  {colhead == '' ? <span>&nbsp;</span> : colhead}
-                </th>
+                <th key={idx}>{colhead == "" ? <span>&nbsp;</span> : colhead}</th>
               ))}
             </tr>
           )}
@@ -58,7 +42,7 @@ const FlexTable = ({
         </tbody>
         <tfoot>
           <tr>
-            <td>Information about the table</td>
+            <td colspan="2">{error && <Message content={error} severity="INFO" />}</td>
           </tr>
         </tfoot>
       </table>
@@ -69,7 +53,9 @@ const FlexTable = ({
 FlexTable.propTypes = {
   columns: PropTypes.array.isRequired,
   disabled: PropTypes.bool.isRequired,
+  error: PropTypes.any,
   id: PropTypes.string.isRequired,
+  info: PropTypes.string,
   onMatchDelete: PropTypes.func.isRequired,
   matches: PropTypes.array.isRequired,
   striped: PropTypes.bool.isRequired

@@ -115,6 +115,7 @@
 @linkColor                  : @cobaltBlue;
 @pageBackground             : @white;          
 @spinnerColor               : @navyPurple;
+@stripedBackground          : rgba(0, 0, 60, 0.02);
 @strongColor                : @secondaryColor;
 @summaryActiveColor         : @violet;
 @summaryHoverColor          : @secondaryColor;
