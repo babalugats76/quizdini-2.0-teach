@@ -40,7 +40,7 @@
   font-family: 'marcher-regular', sans-serif;
   padding: 0.45535714em 0.875em;
   background: #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid #dee4e7;
   color: rgba(10, 10, 10, 0.75);
   border-radius: 0.1875rem;
   -webkit-transition: border-color 0.2s ease, -webkit-box-shadow 0.2s ease;

@@ -783,7 +783,7 @@ table.flex-table tfoot tr th {
 }
 #match-table thead tr td:nth-child(3),
 #match-table tbody tr td:nth-child(3) {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
+  font-family: 'marcher-book', sans-serif;
 }
 #match-table .ui.icon.trash.button {
   -webkit-transition: background-color 0.5s ease;
@@ -1413,6 +1413,9 @@ table.flex-table tfoot tr th {
   background-color: #E0B4B4;
   opacity: 0.95;
 }
+.ui.cards .ui.card.match-card .content.card-header:hover > .card-details {
+  opacity: 0.33;
+}
 .ui.cards .ui.card.match-card .content.card-header > .card-details {
   padding: 0 1.5em 0 0;
   -webkit-box-flex: 1;
@@ -1455,6 +1458,7 @@ table.flex-table tfoot tr th {
 .ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label .detail {
   margin-left: 0;
   color: #767676;
+  font-family: 'marcher-book', sans-serif;
 }
 .ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label svg.icon path {
   fill: #767676;
@@ -1530,7 +1534,7 @@ table.flex-table tfoot tr th {
   padding: 0;
 }
 .ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons .ui.button:not(:last-child) {
-  border-right: 1px inset #1B1C1D;
+  border-right: 1px inset rgba(0, 0, 0, 0.15);
 }
 .ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons svg.icon {
   width: 1.25em;
@@ -1607,7 +1611,7 @@ table.flex-table tfoot tr th {
 }
 #rich-match-editor > fieldset {
   margin-bottom: 0.75em;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid #dee4e7;
   border-radius: 0.1875rem;
 }
 #rich-match-editor > fieldset > legend {

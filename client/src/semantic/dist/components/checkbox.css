@@ -66,7 +66,7 @@
   transition: border 0.2s ease, opacity 0.2s ease, -webkit-transform 0.2s ease, -webkit-box-shadow 0.2s ease;
   transition: border 0.2s ease, opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   transition: border 0.2s ease, opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, -webkit-transform 0.2s ease, -webkit-box-shadow 0.2s ease;
-  border: 1px solid #D4D4D5;
+  border: 1px solid #dee4e7;
 }
 
 /*--------------
@@ -365,8 +365,8 @@
   opacity: 1;
   z-index: 2;
   border: none;
-  -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.15) inset;
-          box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.15) inset;
+  -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px #dee4e7 inset;
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px #dee4e7 inset;
   width: 1.5rem;
   height: 1.5rem;
   top: -0.25rem;
@@ -463,8 +463,8 @@
   opacity: 1;
   z-index: 2;
   border: none;
-  -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.15) inset;
-          box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.15) inset;
+  -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px #dee4e7 inset;
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px #dee4e7 inset;
   width: 1.5rem;
   height: 1.5rem;
   top: 0;
@@ -475,8 +475,8 @@
 }
 .ui.toggle.checkbox input ~ label:after {
   left: -0.05rem;
-  -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.15) inset;
-          box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.15) inset;
+  -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px #dee4e7 inset;
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px #dee4e7 inset;
 }
 
 /* Focus */
@@ -500,8 +500,8 @@
 }
 .ui.toggle.checkbox input:checked ~ label:after {
   left: 2.15rem;
-  -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.15) inset;
-          box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.15) inset;
+  -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px #dee4e7 inset;
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px #dee4e7 inset;
 }
 
 /* Active Focus */

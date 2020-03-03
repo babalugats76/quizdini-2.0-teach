@@ -70,6 +70,7 @@
 @periwinkle           : rgba(204, 226, 255, 1);
 @periwinkleTransLight : rgba(204, 226, 255, .05);
 @pixiePowder          : rgba(57, 18, 133, 1);
+@platinum             : rgba(222, 228, 231, 1);
 @spaceCadet           : rgba(26, 28, 87, 1);
 @spaceCadetTransDark  : rgba(26, 28, 87, .9);
 @turquoise            : rgba(1, 231, 228, 1);
@@ -99,6 +100,8 @@
 /*-------------------
    Color Assignment
 --------------------*/
+@borderColor                : @platinum;
+@solidBorderColor           : @platinum;
 @captionColor               : @pixiePowder; 
 @dropCapColor               : @secondaryColor;
 @dropHoveredItemBackground  : @periwinkle;
@@ -117,6 +120,14 @@
 @summaryHoverColor          : @secondaryColor;
 @summaryInactiveColor       : @grey;
 @widePageBackground         : @isabelline;
+
+/*-------------------
+  Borders & Shadows
+--------------------*/
+@segmentBorderWidth: 0px;
+@subtleShadow: 0 0 4px 0 rgba(0,0,0,.12);
+@bottomBoxShadow: 0 4px 4px 0 rgba(0,0,0,.06);
+@floatingShadow: 0 4px 4px 0 rgba(0, 0, 0, .06), 0 0 4px 0 rgba(0, 0, 0, .12);
 
 /*-------------------
   Padding & Margin

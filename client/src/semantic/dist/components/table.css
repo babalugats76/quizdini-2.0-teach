@@ -19,7 +19,7 @@
   width: 100%;
   background: #FFFFFF;
   margin: 1em 0;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid #dee4e7;
   -webkit-box-shadow: none;
           box-shadow: none;
   border-radius: 0.1875rem;
@@ -93,7 +93,7 @@
 .ui.table > tfoot > tr > th,
 .ui.table > tfoot > tr > td {
   cursor: auto;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid #dee4e7;
   background: #F9FAFB;
   text-align: inherit;
   color: rgba(10, 10, 10, 0.75);
@@ -499,8 +499,8 @@
   border-right: none;
 }
 .ui.structured.sortable.table > thead > tr > th {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid #dee4e7;
+  border-right: 1px solid #dee4e7;
 }
 .ui.structured.basic.table > tr > th,
 .ui.structured.basic.table > thead > tr > th,
@@ -562,15 +562,15 @@
 
 /* Fix 2nd Column */
 .ui.definition.table > thead:not(.full-width) > tr > th:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid #dee4e7;
 }
 .ui.definition.table > tfoot:not(.full-width) > tr > th:nth-child(2),
 .ui.definition.table > tfoot:not(.full-width) > tr > td:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid #dee4e7;
 }
 .ui.definition.table > tr > td:nth-child(2),
 .ui.definition.table > tbody > tr > td:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid #dee4e7;
 }
 
 
@@ -1094,7 +1094,7 @@
   max-width: calc(100% + 2px);
   -webkit-box-shadow: none;
           box-shadow: none;
-  border: 1px solid #D4D4D5;
+  border: 1px solid #dee4e7;
 }
 .ui.attached + .ui.attached.table:not(.top) {
   border-top: none;
@@ -1861,7 +1861,7 @@
 .ui.sortable.table > thead > tr > th {
   cursor: pointer;
   white-space: nowrap;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid #dee4e7;
   color: rgba(10, 10, 10, 0.75);
 }
 .ui.sortable.table > thead > tr > th:first-child {
@@ -2010,7 +2010,7 @@
 
 .ui.basic.table {
   background: transparent;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid #dee4e7;
   -webkit-box-shadow: none;
           box-shadow: none;
 }

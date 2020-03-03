@@ -670,7 +670,7 @@ a.ui.inverted.black.header.header.header:hover {
 
 .ui.dividing.header {
   padding-bottom: 0.1875rem;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid #dee4e7;
 }
 .ui.dividing.header .sub.header {
   padding-bottom: 0.1875rem;
@@ -691,7 +691,7 @@ a.ui.inverted.black.header.header.header:hover {
   padding: 0.8125rem 1rem;
   -webkit-box-shadow: none;
           box-shadow: none;
-  border: 1px solid #D4D4D5;
+  border: 1px solid #dee4e7;
   border-radius: 0.1875rem;
 }
 .ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
@@ -729,7 +729,7 @@ a.ui.inverted.black.header.header.header:hover {
   margin: 0 -1px 0 -1px;
   -webkit-box-shadow: none;
           box-shadow: none;
-  border: 1px solid #D4D4D5;
+  border: 1px solid #dee4e7;
   border-radius: 0;
 }
 .ui.attached.block.header {

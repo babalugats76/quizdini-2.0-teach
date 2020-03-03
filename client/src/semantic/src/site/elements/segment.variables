@@ -1,6 +1,8 @@
 /*******************************
     User Variable Overrides
 *******************************/
+@borderWidth: @segmentBorderWidth;
+@attachedBottomBoxShadow: @bottomBoxShadow;
 @padding: @segmentPaddingVertical @segmentPaddingHorizontal;
 @paddedSegmentPadding: @paddedSegmentVertical @paddedSegmentHorizontal;
 @veryPaddedSegmentPadding: @veryPaddedSegmentVertical @veryPaddedSegmentHorizontal;

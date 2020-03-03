@@ -599,7 +599,7 @@ table {
       }
       td {
         &:nth-child(3) {
-          font-family: @bookFont;
+          font-family: @marcherBook;
         }
       }
     }
@@ -1278,6 +1278,9 @@ table {
                 opacity: 0.95;
               }
             }
+            > .card-details {
+                opacity: @disabledOpacity;
+            }
           }
           > .card-details {
             padding: 0 1.5em 0 0;
@@ -1310,6 +1313,7 @@ table {
                 .detail {
                   margin-left: 0;
                   color: @grey;
+                  font-family: @marcherBook;
                 }
                 svg.icon {
                   path {
@@ -1376,7 +1380,7 @@ table {
               }
             }
             .ui.button:not(:last-child) {
-              border-right: 1px inset @black;
+              border-right: 1px inset @veryStrongTransparentBlack;
             }
             svg.icon {
               width: 1.25em;

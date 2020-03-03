@@ -30,7 +30,7 @@
           box-shadow: none;
   line-height: 1.125em;
   border-radius: 0.1875rem;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid #dee4e7;
 }
 .ui.steps:not(.unstackable) {
   -ms-flex-wrap: wrap;
@@ -81,7 +81,7 @@
           box-shadow: none;
   border-radius: 0;
   border: none;
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-right: 1px solid #dee4e7;
   -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
   transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
   transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
@@ -100,7 +100,7 @@
   width: 1.125em;
   height: 1.125em;
   border-style: solid;
-  border-color: rgba(34, 36, 38, 0.15);
+  border-color: #dee4e7;
   border-width: 0 1px 1px 0;
   -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
   transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
@@ -237,7 +237,7 @@
   border-radius: 0;
   padding: 1.125em 2em;
   border-right: none;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid #dee4e7;
 }
 .ui.vertical.steps .step:first-child {
   padding: 1.125em 2em;
@@ -294,7 +294,7 @@
     border-radius: 0;
     padding: 1.125em 2em;
     border-right: none;
-    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+    border-bottom: 1px solid #dee4e7;
   }
   .ui.steps:not(.unstackable) .step:first-child {
     padding: 1.125em 2em;
@@ -447,7 +447,7 @@
     border-radius: 0;
     padding: 1.125em 2em;
     border-right: none;
-    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+    border-bottom: 1px solid #dee4e7;
   }
   .ui[class*="tablet stackable"].steps .step:first-child {
     padding: 1.125em 2em;
