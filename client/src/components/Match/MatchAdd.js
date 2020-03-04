@@ -58,7 +58,6 @@ const MatchAdd = ({
       >
         Add
       </Button>
-      <div className="match-tip">Maximum # of terms = {maxMatches}</div>
     </div>
   );
 };

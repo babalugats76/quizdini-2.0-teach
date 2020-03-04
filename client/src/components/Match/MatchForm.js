@@ -112,6 +112,10 @@ const EMPTY_EDITOR =
 const initialState = {
   activePage: 1,
   activeTab: 0,
+  bulkMatches: {
+    dirty: false,
+    popup: false
+  },
   definition: {
     dirty: false,
     placeholder: "",
@@ -141,8 +145,8 @@ const MatchForm = props => {
   const {
     activePage,
     activeTab,
+    bulkMatches: { dirty: isMatchDirty, popup: isMatchPopup },
     definition,
-    dirty: { bulkMatches: isMatchDirty },
     itemsPerPage,
     term
   } = state;
@@ -200,9 +204,9 @@ const MatchForm = props => {
     setState(prevState => {
       return {
         ...prevState,
-        dirty: {
-          ...prevState.dirty,
-          bulkMatches: prevBulkMatches !== data.value
+        bulkMatches: {
+          ...prevState.bulkMatches,
+          dirty: prevBulkMatches !== data.value
         }
       };
     });
@@ -278,7 +282,7 @@ const MatchForm = props => {
     setState(prevState => {
       return {
         ...prevState,
-        dirty: { ...prevState.dirty, bulkMatches: false }
+        bulkMatches: { ...prevState.bulkMatches, dirty: false }
       };
     });
   };
@@ -422,6 +426,21 @@ const MatchForm = props => {
     const totalPages = Math.ceil((filtered.length ? filtered.length : 0) / itemsPerPage); // Calculate total # of pages
     if (activePage > totalPages) setActivePage(totalPages); // If active page no longer exists (because of delete)
     await validateForm();
+  };
+
+  /**
+   * Toggles value for `bulkMatches` `popup` state value
+   */
+  const handleBulkPopup = () => {
+    setState(prevState => {
+      return {
+        ...prevState,
+        bulkMatches: {
+          ...prevState.bulkMatches,
+          popup: !prevState.bulkMatches.popup
+        }
+      };
+    });
   };
 
   /***
@@ -654,7 +673,7 @@ const MatchForm = props => {
           {
             menuItem: "Bulk Editor",
             render: () => (
-              <Tab.Pane as={Segment} clearing id="match-bulk">
+              <Tab.Pane as={Segment} className={`popup ${isMatchPopup ? "maximized" : "minimized"}`} clearing id="match-bulk">
                 <MatchBulk
                   dirty={isMatchDirty}
                   disabled={disabled}
@@ -668,11 +687,13 @@ const MatchForm = props => {
                       validateForm
                     )
                   }
+                  onBulkPopup={handleBulkPopup}
                   onFileChange={event => handleFileChange(event, setFieldValue, validateForm)}
                   onUpdateMatches={event =>
                     handleUpdateMatches(event, values.bulkMatches, setFieldValue, validateForm)
                   }
-                  rows={10}
+                  popup={isMatchPopup}
+                  rows={isMatchPopup ? 13 : 10}
                   value={values.bulkMatches}
                 />
               </Tab.Pane>
@@ -684,34 +705,33 @@ const MatchForm = props => {
 
         return (
           <Form id="match-form" onSubmit={handleSubmit}>
-            <span id="match-id">{values.matchId ? values.matchId : "UNPUBLISHED"}</span>
             {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
-            <Grid stackable>
+            <span id="match-id">{values.matchId ? values.matchId : "UNPUBLISHED"}</span>
+            <Breadcrumb size="small">
+              <Breadcrumb.Section
+                content={
+                  <Link
+                    to={{
+                      pathname: "/dashboard",
+                      state: { from: "MATCH" }
+                    }}
+                  >
+                    Dashboard
+                  </Link>
+                }
+              />
+              <Breadcrumb.Divider>/</Breadcrumb.Divider>
+              <Breadcrumb.Section>Match</Breadcrumb.Section>
+              <Breadcrumb.Divider>/</Breadcrumb.Divider>
+              <Breadcrumb.Section>Edit</Breadcrumb.Section>
+              <BreadcrumbDivider>/</BreadcrumbDivider>
+              <Breadcrumb.Section>{values.matchId || "Untitled"}</Breadcrumb.Section>
+            </Breadcrumb>
+            <Grid divided="vertically" page stackable>
               <Grid.Row columns={3} id="match-edit-nav">
-                <Grid.Column>
-                  <Breadcrumb size="small">
-                    <Breadcrumb.Section
-                      content={
-                        <Link
-                          to={{
-                            pathname: "/dashboard",
-                            state: { from: "MATCH" }
-                          }}
-                        >
-                          Dashboard
-                        </Link>
-                      }
-                    />
-                    <Breadcrumb.Divider>/</Breadcrumb.Divider>
-                    <Breadcrumb.Section>Match</Breadcrumb.Section>
-                    <Breadcrumb.Divider>/</Breadcrumb.Divider>
-                    <Breadcrumb.Section>Edit</Breadcrumb.Section>
-                    <BreadcrumbDivider>/</BreadcrumbDivider>
-                    <Breadcrumb.Section>{values.matchId || "Untitled"}</Breadcrumb.Section>
-                  </Breadcrumb>
-                </Grid.Column>
                 <Grid.Column>{values.title}</Grid.Column>
-                <Grid.Column>Circle Badge Here...</Grid.Column>
+                <Grid.Column>{values.title}</Grid.Column>
+                <Grid.Column>{values.title}</Grid.Column>
               </Grid.Row>
               <Grid.Row columns={2} divided id="match-edit-panel">
                 <Grid.Column id="game-panel">

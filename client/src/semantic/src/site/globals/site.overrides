@@ -1437,7 +1437,7 @@ table {
 --------------------*/
 
 #match-form {
-  .tab {
+  .ui.tab {
     .ui.segment {
       &:first-of-type {
         padding-top: 0 !important;
@@ -1452,14 +1452,6 @@ table {
     opacity: 0.45;
   }
 
-  .match-tip {
-    font-size: 0.9em;
-    padding-top: 0.6em;
-    line-height: 1;
-    text-align: left;
-    color: @lightGrey;
-  }
-
   #match-id {
     position: absolute;
     bottom: -1rem;
@@ -1468,11 +1460,33 @@ table {
   }
 }
 
-#game-panel > #panes > #pane-menu {
-  margin-bottom: 0 !important;
-  .item {
-    border-width: 4px;
-  }
+#game-panel {
+  > #panes {
+    .ui.tab {
+      min-height: 400px;
+      &.popup {
+        transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+        &.maximized {
+          position: fixed;
+          top: 20%;
+          right: 20%;
+          bottom: 20%;
+          left: 20%;
+          z-index: 1000;
+          margin: auto;
+          max-width: 60%;
+          width: 800px;
+          box-shadow: @popupBoxShadow;
+        }
+      }   
+    }
+    > #pane-menu {
+      margin-bottom: 0 !important;
+      .item {
+        border-width: @4px;
+      }
+    }
+  }  
 }
 
 #rich-match-editor {
@@ -1571,9 +1585,22 @@ table {
     position: relative;
     font-family: @textareaFont;
     font-size: 1em;
-    line-height: 1.5em;
+    line-height: 1.5;
     margin-top: 0.75rem;
-    resize: both;
+    height: calc(100% - 100px);
+  }
+  > #bulk-match-btns {
+    #bulk-popout {
+      float: right;
+      margin-right: 0!important;
+    }
+  }
+  > .match-tip {
+    font-size: .875em;
+    margin-top: @16px;
+    line-height: 1.4;
+    font-family: @marcherBook;
+    color: @grey;
   }
 }
 

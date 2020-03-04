@@ -1578,21 +1578,14 @@ table.flex-table tfoot tr th {
   Match Edit
 --------------------*/
 
-#match-form .tab .ui.segment:first-of-type {
+#match-form .ui.tab .ui.segment:first-of-type {
   padding-top: 0 !important;
 }
-#match-form .tab .ui.segment:last-of-type {
+#match-form .ui.tab .ui.segment:last-of-type {
   padding-bottom: 0 !important;
 }
 #match-form textarea[disabled] {
   opacity: 0.45;
-}
-#match-form .match-tip {
-  font-size: 0.9em;
-  padding-top: 0.6em;
-  line-height: 1;
-  text-align: left;
-  color: #DCDDDE;
 }
 #match-form #match-id {
   position: absolute;
@@ -1600,11 +1593,31 @@ table.flex-table tfoot tr th {
   right: 0;
   color: #DCDDDE;
 }
+#game-panel > #panes .ui.tab {
+  min-height: 400px;
+}
+#game-panel > #panes .ui.tab.popup {
+  -webkit-transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+}
+#game-panel > #panes .ui.tab.popup.maximized {
+  position: fixed;
+  top: 20%;
+  right: 20%;
+  bottom: 20%;
+  left: 20%;
+  z-index: 1000;
+  margin: auto;
+  max-width: 60%;
+  width: 800px;
+  -webkit-box-shadow: 0 0.1875rem 0.4375rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0.1875rem 0.4375rem rgba(0, 0, 0, 0.3);
+}
 #game-panel > #panes > #pane-menu {
   margin-bottom: 0 !important;
 }
 #game-panel > #panes > #pane-menu .item {
-  border-width: 4px;
+  border-width: 0.25rem;
 }
 #rich-match-editor > fieldset {
   margin-bottom: 0.75em;
@@ -1691,9 +1704,20 @@ table.flex-table tfoot tr th {
   position: relative;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
   font-size: 1em;
-  line-height: 1.5em;
+  line-height: 1.5;
   margin-top: 0.75rem;
-  resize: both;
+  height: calc(100% - 100px);
+}
+#match-bulk > #bulk-match-btns #bulk-popout {
+  float: right;
+  margin-right: 0!important;
+}
+#match-bulk > .match-tip {
+  font-size: 0.875em;
+  margin-top: 1rem;
+  line-height: 1.4;
+  font-family: 'marcher-book', sans-serif;
+  color: #767676;
 }
 
 /*-------------------
@@ -1801,7 +1825,7 @@ table.flex-table tfoot tr th {
     background: #F9FAFB;
   }
   .page-wrapper > #content > .page {
-    padding: 2.5rem 1rem;
+    padding: 1.75rem 1rem;
   }
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
     margin-top: 1rem;

@@ -1,22 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Button from '../UI/Button';
-import TextArea from '../UI/TextArea';
-import InputFile from '../UI/InputFile';
+import React from "react";
+import PropTypes from "prop-types";
+import { Responsive } from "semantic-ui-react";
+import { Button, TextArea, InputFile } from "../UI/";
 
 const MatchBulk = ({
   dirty,
   disabled,
   maxMatches,
   onBulkChange,
+  onBulkPopup,
   onFileChange,
   onUpdateMatches,
+  popup,
   rows,
   value
 }) => {
   return (
     <>
-      <div id="btn-group-bulk-match">
+      <div className="clearfix" id="bulk-match-btns">
         <Button
           as="label"
           title="Update Bank of Matches"
@@ -32,12 +33,20 @@ const MatchBulk = ({
           Update
         </Button>
         <InputFile
+          disabled={disabled}
           id="input-match-file"
           label="Upload"
           labelPosition="right"
-          disabled={disabled}
           onChange={event => onFileChange(event)}
           size="tiny"
+        />
+        <Responsive
+          as={Button}
+          icon={popup ? "minimize" : "maximize"}
+          id="bulk-popout"
+          minWidth={768}
+          onClick={onBulkPopup}
+          type="button"
         />
       </div>
       <TextArea
@@ -47,10 +56,10 @@ const MatchBulk = ({
         disabled={disabled}
       />
       <br />
-      <div className="match-tip">Maximum # of terms = {maxMatches}</div>
       <div className="match-tip">
-        For special characters, use quotes:&nbsp;&nbsp;
-        <code>"a,b,c"</code>
+        Maximum # of terms = {maxMatches}
+        <br />
+        For special characters, use quotes:&nbsp;<code>"a,b,c"</code>
       </div>
     </>
   );
@@ -64,8 +73,10 @@ MatchBulk.propTypes = {
   disabled: PropTypes.bool,
   maxMatches: PropTypes.number.isRequired,
   onBulkChange: PropTypes.func.isRequired,
+  onBulkPopup: PropTypes.func.isRequired,
   onFileChange: PropTypes.func.isRequired,
   onUpdateMatches: PropTypes.func.isRequired,
+  popup: PropTypes.bool.isRequired,
   rows: PropTypes.number.isRequired,
   value: PropTypes.string.isRequired
 };

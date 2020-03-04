@@ -2,7 +2,7 @@
     User Variable Overrides
 *******************************/
 @borderWidth: @segmentBorderWidth;
-@attachedBottomBoxShadow: @bottomBoxShadow;
+@attachedBottomBoxShadow: none;
 @padding: @segmentPaddingVertical @segmentPaddingHorizontal;
 @paddedSegmentPadding: @paddedSegmentVertical @paddedSegmentHorizontal;
 @veryPaddedSegmentPadding: @veryPaddedSegmentVertical @veryPaddedSegmentHorizontal;

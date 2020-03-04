@@ -127,10 +127,11 @@
 /*-------------------
   Borders & Shadows
 --------------------*/
-@segmentBorderWidth: 0px;
-@subtleShadow: 0 0 4px 0 rgba(0,0,0,.12);
-@bottomBoxShadow: 0 4px 4px 0 rgba(0,0,0,.06);
-@floatingShadow: 0 4px 4px 0 rgba(0, 0, 0, .06), 0 0 4px 0 rgba(0, 0, 0, .12);
+@segmentBorderWidth: 1px;
+@subtleShadow: 0 0 @4px 0 rgba(0, 0, 0,.12);
+@bottomBoxShadow: 0 @4px @4px 0 rgba(0, 0, 0, .06);
+@floatingShadow: 0 @4px @4px 0 rgba(0, 0, 0, .06), 0 0 @4px 0 rgba(0, 0, 0, .12);
+@popupBoxShadow: 0 @3px @7px rgba(0, 0, 0, .3);
 
 /*-------------------
   Padding & Margin
@@ -177,6 +178,6 @@
 @smallContainerWidth       : (@tabletBreakpoint - @mobileBreakpoint) - @fontSize;
 @mediumContainerWidth      : (@largestMobileScreen - (2 * @fontSize));
 @largeContainerWidth       : (@largeMonitorBreakpoint - (2 * @fontSize));
-@pagePadding               : 2.5rem 1rem;
-@mobilePagePadding         : 1rem;
+@pagePadding               : @28px @16px;
+@mobilePagePadding         : @16px;
 @mobileGutter              : 0;

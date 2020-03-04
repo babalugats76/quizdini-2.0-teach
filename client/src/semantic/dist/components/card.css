@@ -496,8 +496,8 @@
 
 .ui.raised.cards > .card,
 .ui.raised.card {
-  -webkit-box-shadow: 0 0 0 1px #dee4e7, 0 4px 4px 0 rgba(0, 0, 0, 0.06), 0 0 4px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 0 0 1px #dee4e7, 0 4px 4px 0 rgba(0, 0, 0, 0.06), 0 0 4px 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 0 0 1px #dee4e7, 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.06), 0 0 0.25rem 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0 0 1px #dee4e7, 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.06), 0 0 0.25rem 0 rgba(0, 0, 0, 0.12);
 }
 .ui.raised.cards a.card:hover,
 .ui.link.cards .raised.card:hover,
