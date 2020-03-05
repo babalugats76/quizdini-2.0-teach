@@ -49,7 +49,7 @@
 @unselectedTextColor         : rgba(32, 33, 36, 0.5);
 @hoveredTextColor            : rgba(32, 33, 36, 0.75);
 @pressedTextColor            : rgba(32, 33, 36, 0.75);
-@selectedTextColor           : rgba(32, 33, 36, .9);
+@selectedTextColor           : rgba(32, 33, 36, .88);
 
 @bold                        : 400;
 
@@ -125,9 +125,9 @@
 @inputBackground            : @white;
 @invertedMenuColor          : @zaffre;
 @linkColor                  : @bleuDeFrance;
-@pageBackground             : @offWhite;          
+@pageBackground             : #f4f4f4;          
 @spinnerColor               : @navyPurple;
-@stripedBackground          : rgba(244, 244, 244, 0.15);
+@stripedBackground          : rgba(244, 244, 244, 0.13);
 @strongColor                : @secondaryColor;
 @summaryActiveColor         : @violet;
 @summaryHoverColor          : @secondaryColor;

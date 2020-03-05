@@ -399,7 +399,7 @@
 .ui.form input[type="text"]:focus,
 .ui.form input[type="file"]:focus,
 .ui.form input[type="url"]:focus {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   border-color: #cce2ff;
   border-radius: 0.1875rem;
   background: rgba(204, 226, 255, 0.05);
@@ -437,7 +437,7 @@
   border-top-left-radius: 0;
 }
 .ui.form textarea:focus {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   border-color: #cce2ff;
   border-radius: 0.1875rem;
   background: rgba(204, 226, 255, 0.05);

@@ -25,7 +25,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   min-width: 320px;
-  background: #F9FAFB;
+  background: #f4f4f4;
   font-family: 'marcher-regular', sans-serif;
   font-size: 16px;
   line-height: 1.4285em;
@@ -388,7 +388,7 @@ flex-basis-100 {
 --------------------*/
 
 #quizdini {
-  background-color: #F9FAFB;
+  background-color: #f4f4f4;
 }
 .page-wrapper {
   display: -webkit-box;
@@ -669,7 +669,7 @@ table.striped tbody > tr:nth-of-type(odd) {
   color: black;
 }
 table.striped tbody > tr:nth-of-type(even) {
-  background-color: rgba(244, 244, 244, 0.15);
+  background-color: rgba(244, 244, 244, 0.13);
 }
 table.flex-table {
   display: -webkit-box;
@@ -739,6 +739,9 @@ table.flex-table tbody {
   overflow-y: scroll;
   background-color: #FFFFFF;
 }
+table.flex-table tbody tr {
+  border-bottom: 1px solid #edf0f2;
+}
 table.flex-table tfoot {
   display: block;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
@@ -778,19 +781,14 @@ table.flex-table tfoot tr th {
 }
 #match-table thead tr td:nth-child(2),
 #match-table tbody tr td:nth-child(2) {
-  color: rgba(32, 33, 36, 0.9);
   font-family: 'marcher-medium', sans-serif;
 }
 #match-table thead tr td:nth-child(3),
 #match-table tbody tr td:nth-child(3) {
   font-family: 'marcher-book', sans-serif;
 }
-#match-table thead {
-  background-color: rgba(240, 218, 255, 0.4);
-}
 #match-table thead tr th {
   font-family: 'marcher-semibold', sans-serif;
-  color: #904eba;
 }
 #match-table tbody {
   -ms-flex-preferred-size: 360px;
@@ -1673,7 +1671,7 @@ table.flex-table tfoot tr th {
 }
 #rich-match-editor .rich-text-editor:focus {
   border-color: #cce2ff;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -1809,7 +1807,7 @@ table.flex-table tfoot tr th {
   color: rgba(32, 33, 36, 0.5);
 }
 .StripeElement--focus {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   background: rgba(204, 226, 255, 0.05);
   border-color: #cce2ff;
 }

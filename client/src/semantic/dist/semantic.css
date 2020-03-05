@@ -528,7 +528,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   min-width: 320px;
-  background: #F9FAFB;
+  background: #f4f4f4;
   font-family: 'marcher-regular', sans-serif;
   font-size: 16px;
   line-height: 1.4285em;
@@ -938,7 +938,7 @@ flex-basis-100 {
 --------------------*/
 
 #quizdini {
-  background-color: #F9FAFB;
+  background-color: #f4f4f4;
 }
 
 .page-wrapper {
@@ -1259,7 +1259,7 @@ table.striped tbody > tr:nth-of-type(odd) {
 }
 
 table.striped tbody > tr:nth-of-type(even) {
-  background-color: rgba(244, 244, 244, 0.15);
+  background-color: rgba(244, 244, 244, 0.13);
 }
 
 table.flex-table {
@@ -1340,6 +1340,10 @@ table.flex-table tbody {
   background-color: #FFFFFF;
 }
 
+table.flex-table tbody tr {
+  border-bottom: 1px solid #edf0f2;
+}
+
 table.flex-table tfoot {
   display: block;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
@@ -1385,7 +1389,6 @@ table.flex-table tfoot tr th {
 
 #match-table thead tr td:nth-child(2),
 #match-table tbody tr td:nth-child(2) {
-  color: rgba(32, 33, 36, 0.9);
   font-family: 'marcher-medium', sans-serif;
 }
 
@@ -1394,13 +1397,8 @@ table.flex-table tfoot tr th {
   font-family: 'marcher-book', sans-serif;
 }
 
-#match-table thead {
-  background-color: rgba(240, 218, 255, 0.4);
-}
-
 #match-table thead tr th {
   font-family: 'marcher-semibold', sans-serif;
-  color: #904eba;
 }
 
 #match-table tbody {
@@ -2419,7 +2417,7 @@ table.flex-table tfoot tr th {
 
 #rich-match-editor .rich-text-editor:focus {
   border-color: #cce2ff;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -2575,7 +2573,7 @@ table.flex-table tfoot tr th {
 }
 
 .StripeElement--focus {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   background: rgba(204, 226, 255, 0.05);
   border-color: #cce2ff;
 }
@@ -2756,13 +2754,13 @@ table.flex-table tfoot tr th {
   background-image: none;
   -webkit-box-shadow: 0 0 0 1px transparent inset;
   box-shadow: 0 0 0 1px transparent inset;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 .ui.active.button:hover {
   background-color: #C0C1C2;
   background-image: none;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 .ui.active.button:active {
@@ -3550,7 +3548,7 @@ table.flex-table tfoot tr th {
   background: rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: '';
   box-shadow: '';
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 .ui.basic.buttons .active.button:hover,
@@ -19526,13 +19524,13 @@ a.ui.label:hover:before {
   background-color: #D0D0D0;
   border-color: #D0D0D0;
   background-image: none;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 .ui.active.label:before {
   background-color: #D0D0D0;
   background-image: none;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*-------------------
@@ -19544,14 +19542,14 @@ a.ui.active.label:hover {
   background-color: #C8C8C8;
   border-color: #C8C8C8;
   background-image: none;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 .ui.labels a.active.label:hover:before,
 a.ui.active.label:hover:before {
   background-color: #C8C8C8;
   background-image: none;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*-------------------
@@ -21811,7 +21809,7 @@ ol.ui.list ol li,
 
 .ui.link.list.list .active.item,
 .ui.link.list.list .active.item a:not(.ui) {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /* Inverted */
@@ -21873,7 +21871,7 @@ ol.ui.list ol li,
 .ui.selection.list .list > .item.active,
 .ui.selection.list > .item.active {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /* Inverted */
@@ -25673,7 +25671,7 @@ ol.ui.suffixed.list li:before,
 .ui.form input[type="text"]:focus,
 .ui.form input[type="file"]:focus,
 .ui.form input[type="url"]:focus {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   border-color: #cce2ff;
   border-radius: 0.1875rem;
   background: rgba(204, 226, 255, 0.05);
@@ -25714,7 +25712,7 @@ ol.ui.suffixed.list li:before,
 }
 
 .ui.form textarea:focus {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   border-color: #cce2ff;
   border-radius: 0.1875rem;
   background: rgba(204, 226, 255, 0.05);
@@ -29913,18 +29911,18 @@ ol.ui.suffixed.list li:before,
 
 .ui.menu .ui.dropdown .menu > .item:hover {
   background: rgba(0, 0, 0, 0.05) !important;
-  color: rgba(32, 33, 36, 0.9) !important;
+  color: rgba(32, 33, 36, 0.88) !important;
 }
 
 .ui.menu .ui.dropdown .menu > .selected.item {
   background: rgba(0, 0, 0, 0.05) !important;
-  color: rgba(32, 33, 36, 0.9) !important;
+  color: rgba(32, 33, 36, 0.88) !important;
 }
 
 .ui.menu .ui.dropdown .menu > .active.item {
   background: rgba(0, 0, 0, 0.03) !important;
   font-weight: 400 !important;
-  color: rgba(32, 33, 36, 0.9) !important;
+  color: rgba(32, 33, 36, 0.88) !important;
 }
 
 .ui.menu .ui.dropdown.item .menu .item:not(.filtered) {
@@ -30116,7 +30114,7 @@ ol.ui.suffixed.list li:before,
 .ui.menu a.item:hover {
   cursor: pointer;
   background: rgba(0, 0, 0, 0.03);
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*--------------
@@ -30127,7 +30125,7 @@ ol.ui.suffixed.list li:before,
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
   background: rgba(0, 0, 0, 0.03);
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*--------------
@@ -30136,7 +30134,7 @@ ol.ui.suffixed.list li:before,
 
 .ui.menu .active.item {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   font-weight: normal;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -30153,7 +30151,7 @@ ol.ui.suffixed.list li:before,
 .ui.menu .active.item:hover,
 .ui.vertical.menu .active.item:hover {
   background-color: rgba(0, 0, 0, 0.05);
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*--------------
@@ -30345,7 +30343,7 @@ Floated Menu / Item
 .ui.vertical.menu .item .menu .active.item {
   background-color: transparent;
   font-weight: 400;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*--------------
@@ -30390,7 +30388,7 @@ Floated Menu / Item
 
 .ui.tabular.menu .active.item {
   background: none #FFFFFF;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   border-top-width: 1px;
   border-color: #dee4e7;
   font-weight: 400;
@@ -30438,7 +30436,7 @@ Floated Menu / Item
 
 .ui.bottom.tabular.menu .active.item {
   background: none #FFFFFF;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   border-color: #dee4e7;
   margin: -1px 0 0 0;
   border-radius: 0 0 0.1875rem 0.1875rem !important;
@@ -30465,7 +30463,7 @@ Floated Menu / Item
 
 .ui.vertical.tabular.menu .active.item {
   background: none #FFFFFF;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   border-color: #dee4e7;
   margin: 0 -1px 0 0;
   border-radius: 0.1875rem 0 0 0.1875rem !important;
@@ -30493,7 +30491,7 @@ Floated Menu / Item
 
 .ui.vertical.right.tabular.menu .active.item {
   background: none #FFFFFF;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   border-color: #dee4e7;
   margin: 0 0 0 -1px;
   border-radius: 0 0.1875rem 0.1875rem 0 !important;
@@ -30548,7 +30546,7 @@ Floated Menu / Item
   border-top: none;
   padding-top: 0.9375em;
   background-color: rgba(0, 0, 0, 0.05);
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -30609,7 +30607,7 @@ Floated Menu / Item
 .ui.secondary.menu .link.item:hover,
 .ui.secondary.menu a.item:hover {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /* Active */
@@ -30618,7 +30616,7 @@ Floated Menu / Item
   -webkit-box-shadow: none;
   box-shadow: none;
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   border-radius: 0.1875rem;
 }
 
@@ -30628,7 +30626,7 @@ Floated Menu / Item
   -webkit-box-shadow: none;
   box-shadow: none;
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /* Inverted */
@@ -30781,14 +30779,14 @@ Floated Menu / Item
   box-shadow: none;
   border-color: #711cff;
   font-weight: 400;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /* Active Hover */
 
 .ui.secondary.pointing.menu .active.item:hover {
   border-color: #711cff;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /* Active Dropdown */
@@ -30962,7 +30960,7 @@ Floated Menu / Item
   -webkit-box-shadow: none;
   box-shadow: none;
   font-weight: normal;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*--- active hover ---*/
@@ -33588,7 +33586,7 @@ Floated Menu / Item
 .ui.definition.table tr td.definition {
   background: rgba(0, 0, 0, 0.03);
   font-weight: 400;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   text-transform: '';
   -webkit-box-shadow: '';
   box-shadow: '';
@@ -34131,7 +34129,7 @@ Floated Menu / Item
 .ui.ui.selectable.table > tbody > tr:hover,
 .ui.table tbody tr td.selectable:hover {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 .ui.ui.selectable.inverted.table > tbody > tr:hover,
@@ -34270,7 +34268,7 @@ Floated Menu / Item
 
 .ui.striped.selectable.selectable.selectable.table tbody tr.active:hover {
   background: #EFEFEF;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*--------------
@@ -35190,7 +35188,7 @@ Floated Menu / Item
 /* Sorted */
 
 .ui.sortable.table thead th.sorted {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 .ui.sortable.table:not(.basic) thead th.sorted {
@@ -35204,7 +35202,7 @@ Floated Menu / Item
 /* Sorted Hover */
 
 .ui.sortable.table thead th.sorted:hover {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 .ui.sortable.table:not(.basic) thead th.sorted:hover {
@@ -37828,12 +37826,12 @@ a.inverted.ui.card:hover,
 
 .ui.styled.accordion .active.title {
   background: transparent;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*******************************
@@ -38041,11 +38039,11 @@ a.inverted.ui.card:hover,
 }
 
 .ui.checkbox label:active::after {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 .ui.checkbox input:active ~ label {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*--------------
@@ -38058,11 +38056,11 @@ a.inverted.ui.card:hover,
 }
 
 .ui.checkbox input:focus ~ label:after {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 .ui.checkbox input:focus ~ label {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*--------------
@@ -38076,7 +38074,7 @@ a.inverted.ui.card:hover,
 
 .ui.checkbox input:checked ~ label:after {
   opacity: 1;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*--------------
@@ -38090,7 +38088,7 @@ a.inverted.ui.card:hover,
 
 .ui.checkbox input:not([type=radio]):indeterminate ~ label:after {
   opacity: 1;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 .ui.indeterminate.toggle.checkbox input:not([type=radio]):indeterminate ~ label:before {
@@ -38113,7 +38111,7 @@ a.inverted.ui.card:hover,
 
 .ui.checkbox input:not([type=radio]):indeterminate:focus ~ label:after,
 .ui.checkbox input:checked:focus ~ label:after {
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*--------------
@@ -38209,7 +38207,7 @@ a.inverted.ui.card:hover,
 }
 
 .ui.radio.checkbox input:focus ~ label:after {
-  background-color: rgba(32, 33, 36, 0.9);
+  background-color: rgba(32, 33, 36, 0.88);
 }
 
 /* Indeterminate */
@@ -38225,7 +38223,7 @@ a.inverted.ui.card:hover,
 }
 
 .ui.radio.checkbox input:checked ~ label:after {
-  background-color: rgba(32, 33, 36, 0.9);
+  background-color: rgba(32, 33, 36, 0.88);
 }
 
 /* Active Focus */
@@ -38235,7 +38233,7 @@ a.inverted.ui.card:hover,
 }
 
 .ui.radio.checkbox input:focus:checked ~ label:after {
-  background-color: rgba(32, 33, 36, 0.9);
+  background-color: rgba(32, 33, 36, 0.88);
 }
 
 /*--------------
@@ -38325,7 +38323,7 @@ a.inverted.ui.card:hover,
 /* Active */
 
 .ui.slider.checkbox input:checked ~ label {
-  color: rgba(32, 33, 36, 0.9) !important;
+  color: rgba(32, 33, 36, 0.88) !important;
 }
 
 .ui.slider.checkbox input:checked ~ label:before {
@@ -38339,7 +38337,7 @@ a.inverted.ui.card:hover,
 /* Active Focus */
 
 .ui.slider.checkbox input:focus:checked ~ label {
-  color: rgba(32, 33, 36, 0.9) !important;
+  color: rgba(32, 33, 36, 0.88) !important;
 }
 
 .ui.slider.checkbox input:focus:checked ~ label:before {
@@ -38437,7 +38435,7 @@ a.inverted.ui.card:hover,
 /* Active */
 
 .ui.toggle.checkbox input:checked ~ label {
-  color: rgba(32, 33, 36, 0.9) !important;
+  color: rgba(32, 33, 36, 0.88) !important;
 }
 
 .ui.toggle.checkbox input:checked ~ label:before {
@@ -38453,7 +38451,7 @@ a.inverted.ui.card:hover,
 /* Active Focus */
 
 .ui.toggle.checkbox input:focus:checked ~ label {
-  color: rgba(32, 33, 36, 0.9) !important;
+  color: rgba(32, 33, 36, 0.88) !important;
 }
 
 .ui.toggle.checkbox input:focus:checked ~ label:before {
@@ -39682,7 +39680,7 @@ select.ui.dropdown {
 .ui.dropdown .menu .active.item {
   background: transparent;
   font-weight: 400;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
   -webkit-box-shadow: none;
   box-shadow: none;
   z-index: 12;
@@ -39793,7 +39791,7 @@ select.ui.dropdown {
 .ui.dropdown.selected,
 .ui.dropdown .menu .selected.item {
   background: rgba(0, 0, 0, 0.03);
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 /*--------------------
@@ -41900,7 +41898,7 @@ body.pushable.dimmed {
 }
 
 body.pushable > .pusher {
-  background: #F9FAFB;
+  background: #f4f4f4;
 }
 
 /*--------------

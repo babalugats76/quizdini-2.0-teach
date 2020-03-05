@@ -167,11 +167,11 @@
 /* Active */
 .ui.styled.accordion .active.title {
   background: transparent;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 
 

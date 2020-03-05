@@ -105,12 +105,12 @@
   background-image: none;
   -webkit-box-shadow: 0 0 0 1px transparent inset;
           box-shadow: 0 0 0 1px transparent inset;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 .ui.active.button:hover {
   background-color: #C0C1C2;
   background-image: none;
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 .ui.active.button:active {
   background-color: #C0C1C2;
@@ -814,7 +814,7 @@
   background: rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: '';
           box-shadow: '';
-  color: rgba(32, 33, 36, 0.9);
+  color: rgba(32, 33, 36, 0.88);
 }
 .ui.basic.buttons .active.button:hover,
 .ui.basic.active.button:hover {

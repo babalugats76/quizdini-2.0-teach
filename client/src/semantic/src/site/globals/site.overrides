@@ -548,6 +548,9 @@ table {
       flex: 1;
       overflow-y: scroll;
       background-color: @white;
+      tr {
+        border-bottom: 1px solid lighten(@borderColor, 5);
+      }
     }
     tfoot {
       display: block;
@@ -584,7 +587,6 @@ table {
       }
       td {
         &:nth-child(2) {
-          color: @selectedTextColor;
           font-family: @headerFont;
         }
         &:nth-child(3) {
@@ -594,11 +596,9 @@ table {
     }
   }
   thead {
-    background-color: @lavenderMistTransLight;
     tr {
       th {
         font-family: @tableHeaderFont;
-        color: @deepLilac;
       }
     }
   }
