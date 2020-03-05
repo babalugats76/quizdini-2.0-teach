@@ -1301,10 +1301,10 @@ table.flex-table tr th {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  color: rgba(32, 33, 36, 0.75);
 }
 
 table.flex-table tr td {
-  color: #545454;
   padding: 0.5rem 0.75rem;
 }
 
@@ -1322,13 +1322,11 @@ table.flex-table thead > tr th {
   text-align: left;
   font-family: 'marcher-semibold', sans-serif;
   font-weight: 400;
-  color: rgba(32, 33, 36, 0.75);
 }
 
 table.flex-table thead {
   margin-right: 0px;
   background-color: #FFFFFF;
-  color: #1B1C1D;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
@@ -1390,6 +1388,7 @@ table.flex-table tfoot tr th {
 #match-table thead tr td:nth-child(2),
 #match-table tbody tr td:nth-child(2) {
   font-family: 'marcher-medium', sans-serif;
+  color: rgba(32, 33, 36, 0.88);
 }
 
 #match-table thead tr td:nth-child(3),
@@ -1399,6 +1398,7 @@ table.flex-table tfoot tr th {
 
 #match-table thead tr th {
   font-family: 'marcher-semibold', sans-serif;
+  color: #1B1C1D;
 }
 
 #match-table tbody {

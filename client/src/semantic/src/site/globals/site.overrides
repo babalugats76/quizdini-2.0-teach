@@ -519,9 +519,9 @@ table {
       th {
         display: block;
         flex: 1;
+        color: @textColor;
       }
       td {
-        color: @lightBlack;
         padding: @8px @12px;
       }
       th {
@@ -535,13 +535,11 @@ table {
         text-align: left;
         font-family: @tableHeaderFont;
         font-weight: 400;
-        color: @textColor;
       }
     }
     thead {
       margin-right: 0px;
       background-color: @white;
-      color: @black;
       border-bottom: 1px solid @veryStrongTransparentBlack;
     }
     tbody {
@@ -588,6 +586,7 @@ table {
       td {
         &:nth-child(2) {
           font-family: @headerFont;
+          color: @selectedTextColor;
         }
         &:nth-child(3) {
           font-family: @marcherBook;
@@ -599,6 +598,7 @@ table {
     tr {
       th {
         font-family: @tableHeaderFont;
+        color: @black;
       }
     }
   }
