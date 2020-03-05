@@ -2,7 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button, Message } from "../UI/";
 
-const FlexTable = ({ columns, disabled, error, id, info, onMatchDelete, matches, striped }) => {
+const FlexTable = ({
+  columns,
+  disabled,
+  error,
+  id,
+  onMatchDelete,
+  matches,
+  maxMatches,
+  minMatches,
+  striped
+}) => {
   const classes = ["flex-table", disabled ? ["disabled"] : [], striped ? ["striped"] : []]
     .join(" ")
     .trim();
@@ -18,7 +28,7 @@ const FlexTable = ({ columns, disabled, error, id, info, onMatchDelete, matches,
           {Array.isArray(columns) && columns.length && (
             <tr>
               {columns.map((colhead, idx) => (
-                <th key={idx}>{colhead == "" ? <span>&nbsp;</span> : colhead}</th>
+                <th key={idx}>{colhead === "" ? <span>&nbsp;</span> : colhead}</th>
               ))}
             </tr>
           )}
@@ -42,7 +52,21 @@ const FlexTable = ({ columns, disabled, error, id, info, onMatchDelete, matches,
         </tbody>
         <tfoot>
           <tr>
-            <td colspan="2">{error && <Message content={error} severity="INFO" />}</td>
+            <td colSpan="2">
+              <Message
+                content={
+                  (error &&
+                    `Add at least ${minMatches - matches.length} term${
+                      minMatches - matches.length === 1 ? "" : "s"
+                    }...`) || (
+                    <span>
+                      {matches.length} terms &#x2264; {maxMatches} max
+                    </span>
+                  )
+                }
+                severity="INFO"
+              />
+            </td>
           </tr>
         </tfoot>
       </table>

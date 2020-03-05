@@ -7,12 +7,13 @@
 --------------------*/
 @fantasy                : Impact, fantasy;
 @lexendDeca             : 'Lexend Deca', sans-serif;
+@marcherLight           : 'marcher-light', sans-serif; 
 @marcherBook            : 'marcher-book', sans-serif;
+@marcherRegular         : 'marcher-regular', sans-serif;
+@marcherMedium          : 'marcher-medium', sans-serif;
+@marcherSemiBold        : 'marcher-semibold', sans-serif;
 @marcherExtraBold       : 'marcher-extrabold', sans-serif;
 @marcherExtraBoldItalic : 'marcher-extrabolditalic', sans-serif;
-@marcherLight           : 'marcher-light', sans-serif; 
-@marcherMedium          : 'marcher-medium', sans-serif;
-@marcherRegular         : 'marcher-regular', sans-serif;
 @monospaceFont          : 'Consolas', 'Droid Sans Mono', 'Lucida Console', 'Liberation Mono', monospace;
 @systemFont             : -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
 @verdana                : Verdana, Geneva, sans-serif;
@@ -25,6 +26,7 @@
 @fontName               : @marcherRegular;
 @formInputFont          : @marcherRegular;
 @headerFont             : @marcherMedium;
+@tableHeaderFont        : @marcherSemiBold;
 @menuFont               : @marcherRegular;
 @pageFont               : @marcherRegular;
 @textareaFont           : @systemFont;
@@ -54,42 +56,50 @@
 /*-------------------
   Colors
 --------------------*/
-@blackTransDark       : rgba(84, 84, 84, .87);
-@blue                 : rgba(0, 107, 220, 1);
-@bleuDeFrance         : rgba(46, 154, 223, 1);
-@cobaltBlue           : rgba(6, 69, 173, 1);
-@grape                : rgba(134, 42, 164, 1);
-@grapeTrans           : rgba(134, 42, 164, .5);
-@indigo               : rgba(113, 28, 255, 1);
-@indigoTransDark      : rgba(113, 28, 255, .65);
-@indigoTransLight     : rgba(113, 28, 255, .25);
-@isabelline           : rgba(240, 240, 240, 1);
-@jet                  : rgba(46, 50, 53, 1);
-@lemonChiffon         : rgba(255, 250, 204);
-@liberty              : rgba(74, 88, 153, 1);
-@navyPurple           : rgba(170, 84, 255, 1);
-@navyPurpleTrans      : rgba(170, 84, 255, .5);
-@periwinkle           : rgba(204, 226, 255, 1);
-@periwinkleTransLight : rgba(204, 226, 255, .05);
-@pixiePowder          : rgba(57, 18, 133, 1);
-@platinum             : rgba(222, 228, 231, 1);
-@spaceCadet           : rgba(26, 28, 87, 1);
-@spaceCadetTransDark  : rgba(26, 28, 87, .9);
-@turquoise            : rgba(1, 231, 228, 1);
-@violet               : rgba(87, 65, 155, 1);
-@violetTrans          : rgba(87, 65, 155, .5);
-@zaffre               : rgba(0, 19, 153, 1);
-@zaffreTransDark      : rgba(0, 19, 153, .65);
+@blackTransDark         : rgba(84, 84, 84, .87);
+@blue                   : rgba(0, 107, 220, 1);
+@bleuDeFrance           : rgba(46, 154, 223, 1);
+@cobaltBlue             : rgba(6, 69, 173, 1);
+@deepLilac              : rgba(144, 78, 186, 1);
+@grape                  : rgba(134, 42, 164, 1);
+@grapeTrans             : rgba(134, 42, 164, .5);
+@indigo                 : rgba(113, 28, 255, 1);
+@indigoTransDark        : rgba(113, 28, 255, .65);
+@indigoTransLight       : rgba(113, 28, 255, .25);
+@isabelline             : rgba(240, 240, 240, 1);
+@jet                    : rgba(46, 50, 53, 1);
+@lavenderMistTransLight : rgba(240, 218, 255, .4); 
+@lemonChiffon           : rgba(255, 250, 204);
+@liberty                : rgba(74, 88, 153, 1);
+@navyPurple             : rgba(170, 84, 255, 1);
+@navyPurpleTrans        : rgba(170, 84, 255, .5);
+@periwinkle             : rgba(204, 226, 255, 1);
+@periwinkleTransLight   : rgba(204, 226, 255, .05);
+@pixiePowder            : rgba(57, 18, 133, 1);
+@platinum               : rgba(222, 228, 231, 1);
+@spaceCadet             : rgba(26, 28, 87, 1);
+@spaceCadetTransDark    : rgba(26, 28, 87, .9);
+@turquoise              : rgba(1, 231, 228, 1);
+@violet                 : rgba(87, 65, 155, 1);
+@violetTrans            : rgba(87, 65, 155, .5);
+@zaffre                 : rgba(0, 19, 153, 1);
+@zaffreTransDark        : rgba(0, 19, 153, .65);
 
 @primaryColor         : @indigo;
 @primaryColorTrans    : @indigoTransDark;
 @secondaryColor       : @jet;
 
 /*-------------------
-     Brand Colors
+  Brand Colors
 --------------------*/
 @githubColor         : #24292e;
-@udemyColor          : #ea5252;     
+@udemyColor          : #ea5252;   
+
+/*-------------------
+  Message Colors
+--------------------*/
+@messageTextColor            : @deepLilac; 
+@messageBackground           : @lavenderMistTransLight;
 
 /*-------------------
   Highlighted Text
@@ -117,7 +127,7 @@
 @linkColor                  : @bleuDeFrance;
 @pageBackground             : @offWhite;          
 @spinnerColor               : @navyPurple;
-@stripedBackground          : rgba(242, 245, 245, 0.8);
+@stripedBackground          : rgba(244, 244, 244, 0.15);
 @strongColor                : @secondaryColor;
 @summaryActiveColor         : @violet;
 @summaryHoverColor          : @secondaryColor;
@@ -128,25 +138,25 @@
   Borders & Shadows
 --------------------*/
 @segmentBorderWidth: 1px;
-@subtleShadow: 0 0 @4px 0 rgba(0, 0, 0,.12);
-@bottomBoxShadow: 0 @4px @4px 0 rgba(0, 0, 0, .06);
-@floatingShadow: 0 @4px @4px 0 rgba(0, 0, 0, .06), 0 0 @4px 0 rgba(0, 0, 0, .12);
+@subtleShadow: 0 0 @3px 0 rgba(0, 0, 0,.12);
+@bottomBoxShadow: 0 @3px 3px 0 rgba(0, 0, 0, .06);
+@floatingShadow: 0 @3px @3px 0 rgba(0, 0, 0, .06), 0 0 @3px 0 rgba(0, 0, 0, .12);
 @popupBoxShadow: 0 @3px @7px rgba(0, 0, 0, .3);
 
 /*-------------------
   Padding & Margin
 --------------------*/
 @inputVerticalPadding: @relative9px;
-@segmentPaddingVertical: 1em; 
-@segmentPaddingHorizontal: 1em;
-@paddedSegmentVertical: 2em;
-@paddedSegmentHorizontal: 2em;
-@mobilePaddedSegmentVertical: 1em;
-@mobilePaddedSegmentHorizontal: 1em;
-@veryPaddedSegmentVertical: 3em;
-@veryPaddedSegmentHorizontal: 3em;
-@mobileVeryPaddedSegmentVertical: 1.5em;
-@mobileVeryPaddedSegmentHorizontal: 1.5em; 
+@segmentPaddingVertical: @relative16px; 
+@segmentPaddingHorizontal: @relative16px;
+@paddedSegmentVertical: @relative32px;
+@paddedSegmentHorizontal: @relative32px;
+@mobilePaddedSegmentVertical: @relative16px;
+@mobilePaddedSegmentHorizontal: @relative16px;
+@veryPaddedSegmentVertical: @relative48px;
+@veryPaddedSegmentHorizontal: @relative48px;
+@mobileVeryPaddedSegmentVertical: @relative24px;
+@mobileVeryPaddedSegmentHorizontal: @relative24px;
 
 /*-------------------
        Borders

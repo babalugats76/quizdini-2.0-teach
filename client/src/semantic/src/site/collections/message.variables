@@ -2,3 +2,5 @@
     User Variable Overrides
 *******************************/
 @borderWidth: 0px;
+/*@textColor: @messageTextColor;*/
+/*@background: @messageBackground;*/

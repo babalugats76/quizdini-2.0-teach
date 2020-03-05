@@ -55,12 +55,7 @@ const MatchBulk = ({
         rows={rows}
         disabled={disabled}
       />
-      <br />
-      <div className="match-tip">
-        Maximum # of terms = {maxMatches}
-        <br />
-        For special characters, use quotes:&nbsp;<code>"a,b,c"</code>
-      </div>
+      <div className="match-tip">For special characters, use quotes:&nbsp;<code>"a,b,c"</code></div>
     </>
   );
 };

@@ -442,7 +442,7 @@ const Footer = props => {
         <Grid columns={3} stackable inverted verticalAlign="middle">
           <Grid.Row>
             <Grid.Column>
-              <List divided horizontal inverted link size="big">
+              <List divided horizontal inverted link size="large">
                 <List.Item key="about" as={Link} to="/about" tabIndex={-1}>
                   About
                 </List.Item>
@@ -459,7 +459,7 @@ const Footer = props => {
               </List>
             </Grid.Column>
             <Grid.Column>
-              <List divided horizontal inverted link size="big">
+              <List divided horizontal inverted link size="large">
                 <List.Item
                   as="a"
                   href="https://twitter.com/quizdini"
@@ -485,7 +485,7 @@ const Footer = props => {
               </List>
             </Grid.Column>
             <Grid.Column>
-              <List horizontal inverted divided link size="big">
+              <List horizontal inverted divided link size="large">
                 <List.Item>Copyright &copy; Quizdini, 2013-2020</List.Item>
               </List>
             </Grid.Column>

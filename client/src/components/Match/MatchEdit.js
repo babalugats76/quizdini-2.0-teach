@@ -13,7 +13,7 @@ const MatchEdit = props => {
   } = props;
 
   // local state
-  const [state, setState] = useState({
+  const [state, ] = useState({
     matchId: matchId
   });
 

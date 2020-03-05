@@ -16,10 +16,9 @@ import { Button, IconDropdown, InputText, Message, Notify } from "../UI/";
 import HtmlSerializer from "./HtmlSerializer";
 import MatchAdd from "./MatchAdd";
 import MatchBulk from "./MatchBulk";
-import MatchTable from "./MatchTable";
 import FlexTable from "./FlexTable";
 import { matchToString, parseMatch } from "./utils";
-import DisplayFormikState from "../UI/FormikHelper";
+//import DisplayFormikState from "../UI/FormikHelper";
 
 /***
  * To test:
@@ -544,7 +543,7 @@ const MatchForm = props => {
           {
             menuItem: "Game",
             render: () => (
-              <Tab.Pane as={Segment} clearing id="match-desc">
+              <Tab.Pane clearing id="match-desc">
                 <Segment basic vertical>
                   <Form.Group>
                     <InputText
@@ -641,7 +640,7 @@ const MatchForm = props => {
           {
             menuItem: "Add Match",
             render: () => (
-              <Tab.Pane as={Segment} clearing id="match-add">
+              <Tab.Pane clearing id="match-add">
                 <Segment basic vertical>
                   <Responsive
                     as={Message}
@@ -673,7 +672,7 @@ const MatchForm = props => {
           {
             menuItem: "Bulk Editor",
             render: () => (
-              <Tab.Pane as={Segment} className={`popup ${isMatchPopup ? "maximized" : "minimized"}`} clearing id="match-bulk">
+              <Tab.Pane className={`popup ${isMatchPopup ? "maximized" : "minimized"}`} clearing id="match-bulk">
                 <MatchBulk
                   dirty={isMatchDirty}
                   disabled={disabled}
@@ -693,7 +692,7 @@ const MatchForm = props => {
                     handleUpdateMatches(event, values.bulkMatches, setFieldValue, validateForm)
                   }
                   popup={isMatchPopup}
-                  rows={isMatchPopup ? 13 : 10}
+                  rows={10}
                   value={values.bulkMatches}
                 />
               </Tab.Pane>
@@ -727,7 +726,7 @@ const MatchForm = props => {
               <BreadcrumbDivider>/</BreadcrumbDivider>
               <Breadcrumb.Section>{values.matchId || "Untitled"}</Breadcrumb.Section>
             </Breadcrumb>
-            <Grid divided="vertically" page stackable>
+            <Grid divided="vertically" stackable>
               <Grid.Row columns={3} id="match-edit-nav">
                 <Grid.Column>{values.title}</Grid.Column>
                 <Grid.Column>{values.title}</Grid.Column>
@@ -764,49 +763,19 @@ const MatchForm = props => {
                   <FlexTable
                     columns={["", "Term", "Description"]}
                     disabled={disabled}
-                    error={
-                      errors.matches &&
-                      `Add at least ${values.itemsPerBoard - values.matches.length} more term${
-                        values.itemsPerBoard - values.matches.length === 1 ? "" : "s"
-                      }...`
-                    }
+                    error={errors.matches}
                     id="match-table"
                     onMatchDelete={(event, term) =>
                       handleMatchDelete(event, term, values.matches, setFieldValue, validateForm)
                     }
                     matches={values.matches}
+                    maxMatches={maxMatches}
+                    minMatches={values.itemsPerBoard}
                   />
-                  {/* <MatchTable
-                    activePage={activePage}
-                    disabled={disabled}
-                    errors.matches &&
-                      `Add at least ${values.itemsPerBoard -
-                        values.matches.length} more term${
-                        values.itemsPerBoard - values.matches.length === 1
-                          ? ''
-                          : 's'
-                      }...`
-                    }
-                    id="match-table"
-                    itemsPerPage={itemsPerPage}
-                    matches={values.matches}
-                    onMatchDelete={(event, term) =>
-                      handleMatchDelete(
-                        event,
-                        term,
-                        values.matches,
-                        setFieldValue,
-                        validateForm
-                      )
-                    }
-                    onPageChange={(event, data) =>
-                      handlePageChange(event, data)
-                    }
-                  /> */}
                 </Grid.Column>
               </Grid.Row>
             </Grid>
-            <div>{<DisplayFormikState {...props} />}</div>
+            <div>{/*<DisplayFormikState {...props} />*/}</div>
           </Form>
         );
       }}

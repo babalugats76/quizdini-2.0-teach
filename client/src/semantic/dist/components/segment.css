@@ -16,8 +16,8 @@
 .ui.segment {
   position: relative;
   background: #FFFFFF;
-  -webkit-box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
   margin: 1rem 0;
   padding: 1em 1em;
   border-radius: 0.1875rem;
@@ -91,8 +91,8 @@
 .ui.basic.table.segment {
   background: #FFFFFF;
   border: 1px solid #dee4e7;
-  -webkit-box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
 }
 .ui[class*="very basic"].table.segment {
   padding: 1em 1em;
@@ -335,8 +335,8 @@
 
 .ui.raised.raised.segments,
 .ui.raised.raised.segment {
-  -webkit-box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.06), 0 0 0.25rem 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.06), 0 0 0.25rem 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.06), 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.06), 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
 }
 
 
@@ -354,8 +354,8 @@
   position: relative;
   margin: 1rem 0;
   border: 1px solid #dee4e7;
-  -webkit-box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
   border-radius: 0.1875rem;
 }
 .ui.segments:first-child {
@@ -425,8 +425,8 @@
           flex-direction: row;
   background-color: transparent;
   padding: 0;
-  -webkit-box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 0 0.25rem 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
   margin: 1rem 0;
   border-radius: 0.1875rem;
   border: 1px solid #dee4e7;
