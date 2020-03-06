@@ -1,6 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button, Message } from "../UI/";
+import { Button, Message, Transition } from "../UI/";
+
+/* Return nested objects for these states: 'default', 'entering', 'entered', 'exiting', 'exited' */
+
+const getTransitionStyles = wait => {
+  return {
+    default: { opacity: 0 },
+    entering: {
+      opacity: 0,
+      transition: `opacity ${wait}ms ease`
+    },
+    entered: {
+      opacity: 1.0,
+      transition: `opacity ${wait}ms ease`
+    },
+    exiting: {},
+    exited: {}
+  };
+};
 
 const FlexTable = ({
   columns,
@@ -11,9 +29,11 @@ const FlexTable = ({
   matches,
   maxMatches,
   minMatches,
-  striped
+  striped,
+  wait
 }) => {
-  const classes = ["flex-table", disabled ? ["disabled"] : [], striped ? ["striped"] : []]
+  const classes = ["flex-table"]
+    .concat(disabled ? ["disabled"] : [], striped ? ["striped"] : [])
     .join(" ")
     .trim();
 
@@ -30,6 +50,27 @@ const FlexTable = ({
               {columns.map((colhead, idx) => (
                 <th key={idx}>{colhead === "" ? <span>&nbsp;</span> : colhead}</th>
               ))}
+            </tr>
+          )}
+          {error && (
+            <tr>
+              <th colSpan={columns.length}>
+                <Transition
+                  appear={true}
+                  component={null}
+                  in={true}
+                  key={matches.length}
+                  timeout={wait}
+                  transitionStyles={getTransitionStyles(wait)}
+                  unmountOnExit={false}
+                  mountOnEnter={true}
+                >
+                  <div>
+                    Add at least {minMatches - matches.length} more term
+                    {minMatches - matches.length === 1 ? "" : "s"}...
+                  </div>
+                </Transition>
+              </th>
             </tr>
           )}
         </thead>
@@ -52,20 +93,23 @@ const FlexTable = ({
         </tbody>
         <tfoot>
           <tr>
-            <td colSpan="2">
-              <Message
-                content={
-                  (error &&
-                    `Add at least ${minMatches - matches.length} term${
-                      minMatches - matches.length === 1 ? "" : "s"
-                    }...`) || (
-                    <span>
-                      {matches.length} terms &#x2264; {maxMatches} max
-                    </span>
-                  )
-                }
-                severity="INFO"
-              />
+            <td>
+              <Transition
+                appear={true}
+                component={null}
+                in={true}
+                key={matches.length}
+                timeout={wait}
+                transitionStyles={getTransitionStyles(wait)}
+                unmountOnExit={false}
+                mountOnEnter={true}
+              >
+                <span className="term-count">{matches.length}</span>
+              </Transition>
+              &nbsp;terms&nbsp;
+              <span className={matches.length === maxMatches ? "at-max" : "max"}>
+                /&nbsp;{maxMatches}&nbsp;max
+              </span>
             </td>
           </tr>
         </tfoot>
@@ -82,14 +126,20 @@ FlexTable.propTypes = {
   info: PropTypes.string,
   onMatchDelete: PropTypes.func.isRequired,
   matches: PropTypes.array.isRequired,
-  striped: PropTypes.bool.isRequired
+  maxMatches: PropTypes.number.isRequired,
+  minMatches: PropTypes.number.isRequired,
+  striped: PropTypes.bool.isRequired,
+  wait: PropTypes.number.isRequired
 };
 
 FlexTable.defaultProps = {
   columns: [],
   disabled: false,
   matches: [],
-  striped: true
+  minMatches: 9,
+  maxMatches: 100,
+  striped: true,
+  wait: 250
 };
 
 export default FlexTable;

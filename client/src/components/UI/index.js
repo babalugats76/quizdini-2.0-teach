@@ -21,6 +21,7 @@ import RadioGroup from './RadioGroup';
 import RouterButton from './RouterButton';
 import TextArea from './TextArea';
 import Toolbar from './Toolbar';
+import Transition from './Transition';
 
 export {
   Accordion,
@@ -45,5 +46,6 @@ export {
   RadioGroup,
   RouterButton,
   TextArea,
-  Toolbar
+  Toolbar,
+  Transition
 }

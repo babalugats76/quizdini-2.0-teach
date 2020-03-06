@@ -705,7 +705,6 @@ const MatchForm = props => {
         return (
           <Form id="match-form" onSubmit={handleSubmit}>
             {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
-            <span id="match-id">{values.matchId ? values.matchId : "UNPUBLISHED"}</span>
             <Breadcrumb size="small">
               <Breadcrumb.Section
                 content={
@@ -735,6 +734,7 @@ const MatchForm = props => {
               <Grid.Row columns={2} divided id="match-edit-panel">
                 <Grid.Column id="game-panel">
                   <div className="clearfix">
+                    <span id="match-id">{values.matchId ? values.matchId : "UNPUBLISHED"}</span>
                     <Button
                       active
                       disabled={disabled || !isValid || !dirty || isMatchDirty}
