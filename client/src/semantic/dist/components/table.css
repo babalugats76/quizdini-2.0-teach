@@ -50,8 +50,8 @@
 /* Table Content */
 .ui.table th,
 .ui.table td {
-  -webkit-transition: background 0.2s ease, color 0.2s ease;
-  transition: background 0.2s ease, color 0.2s ease;
+  -webkit-transition: background 250ms ease, color 250ms ease;
+  transition: background 250ms ease, color 250ms ease;
 }
 
 /* Headers */

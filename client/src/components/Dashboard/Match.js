@@ -9,17 +9,16 @@ const { formatDistanceToNow } = require('date-fns');
 const Match = ({ credits, data: games, onDelete }) => {
   return (
     <section id="match-games">
-      <RouterButton
-        disabled={credits <= 0}
-        labelPosition="left"
-        icon="plus"
-        pathname="/match"
-        primary={credits >= 1}
-        state={{ matchId: null }}
-      >
-        NEW GAME
-      </RouterButton>
-      <Divider hidden />
+      <Segment vertical>
+        <RouterButton
+          disabled={credits <= 0}
+          pathname="/match"
+          primary={credits >= 1}
+          state={{ matchId: null }}
+        >
+          New Game
+        </RouterButton>
+      </Segment>
       {(games && games.length && (
         <MatchCardGroup games={games} onDelete={onDelete} />
       )) || <MatchIntro />}
@@ -38,7 +37,7 @@ Match.propTypes = {
 export default Match;
 
 const MatchIntro = () => (
-  <div>
+  <Segment vertical>
     <h1>The Match Game...</h1>
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -51,12 +50,12 @@ const MatchIntro = () => (
       publishing software like Aldus PageMaker including versions of Lorem
       Ipsum.
     </p>
-  </div>
+  </Segment>
 );
 
 const MatchCardGroup = ({ games, onDelete }) => {
   return (
-    <Card.Group itemsPerRow={3} doubling stackable>
+    <Card.Group as={Segment} itemsPerRow={3} doubling stackable vertical>
       {games &&
         games.map(game => (
           <MatchCard
@@ -143,9 +142,9 @@ const MatchCard = ({ game, onDelete }) => {
           <div className="card-details">
             <Card.Header>{title}</Card.Header>
             <Card.Description>
-            <Label icon="book">{termCount} Terms</Label>
-            <Label icon="clock">{timeAgo}</Label>
-          </Card.Description>
+              <Label icon="book">{termCount} Terms</Label>
+              <Label icon="clock">{timeAgo}</Label>
+            </Card.Description>
           </div>
           <div className="card-badge">
             <CircleBadge icon="question" />

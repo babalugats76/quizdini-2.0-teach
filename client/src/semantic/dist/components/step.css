@@ -82,10 +82,10 @@
   border-radius: 0;
   border: none;
   border-right: 1px solid #dee4e7;
-  -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, box-shadow 250ms ease;
+  transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, box-shadow 250ms ease, -webkit-box-shadow 250ms ease;
 }
 
 /* Arrow */
@@ -102,10 +102,10 @@
   border-style: solid;
   border-color: #dee4e7;
   border-width: 0 1px 1px 0;
-  -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, box-shadow 250ms ease;
+  transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, box-shadow 250ms ease, -webkit-box-shadow 250ms ease;
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
           transform: translateY(-50%) translateX(50%) rotate(-45deg);
 }

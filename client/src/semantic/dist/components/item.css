@@ -31,10 +31,10 @@
   border-radius: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
-  -webkit-transition: -webkit-box-shadow 0.2s ease;
-  transition: -webkit-box-shadow 0.2s ease;
-  transition: box-shadow 0.2s ease;
-  transition: box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: -webkit-box-shadow 250ms ease;
+  transition: -webkit-box-shadow 250ms ease;
+  transition: box-shadow 250ms ease;
+  transition: box-shadow 250ms ease, -webkit-box-shadow 250ms ease;
   z-index: '';
 }
 .ui.items > .item a {
@@ -230,8 +230,8 @@
 /* Generic */
 .ui.items > .item > .content a:not(.ui) {
   color: '';
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 .ui.items > .item > .content a:not(.ui):hover {
   color: '';
@@ -265,8 +265,8 @@
 .ui.items > .item > .content .favorite.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 .ui.items > .item > .content .favorite.icon:hover {
   opacity: 1;
@@ -283,8 +283,8 @@
 .ui.items > .item > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 .ui.items > .item > .content .like.icon:hover {
   opacity: 1;
@@ -310,8 +310,8 @@
   color: rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: none;
           box-shadow: none;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
   border-top: none;
 }
 .ui.items > .item .extra > * {

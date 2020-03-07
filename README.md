@@ -24,8 +24,7 @@
     - Add epic, hero banner (once developed)
     - Add selling point creatives (once developed)  
   - Loading
-    - Change pathes to render loader independently, i.e., do not nest in main, etc.
-    - Potentially create a ModalLoader which breaks out and attached right before the closing `</body>` tag
+    - Revisit and test new portal loader throughout
   - Error
     - Mock up Error
       - Return and apply to all appropriate routes
@@ -35,11 +34,9 @@
     - Finish Attribution
   - MatchForm
     - Increase allowable size for `title` (will clamp everywhere)
-    - Popout functionality for Bulk Match Editor
-    - How to explain bulk match without placeholder?
-    - Secondary menu transition - change to include border-color instead of currentColor
     - Continue Development of Flex Table
-      - [POC](https://codesandbox.io/s/little-frost-usinn?fontsize=14&hidenavigation=1&theme=dark)
+      - Develop what it should look like on mobile
+      - Make CSS changes, i.e., add to media queries, etc.
   - MatchStats
     - Change layout to resemble Stats
     - Create `Match Header` which includes `title` and `options` info
@@ -51,8 +48,6 @@
       - Add match game badge (once developed) 
 
   - Hooks
-    - useScrollToTop
-       - Create hook that scrolls window to top of page whenever pathname changes
     - useWindow
       - Investigate removing hook in lieu of CSS media queries
         - `HeaderNav`

@@ -37,10 +37,10 @@
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 1px 3px 0 #dee4e7, 0 0 0 1px #dee4e7;
           box-shadow: 0 1px 3px 0 #dee4e7, 0 0 0 1px #dee4e7;
-  -webkit-transition: -webkit-box-shadow 0.2s ease, -webkit-transform 0.2s ease;
-  transition: -webkit-box-shadow 0.2s ease, -webkit-transform 0.2s ease;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, -webkit-box-shadow 0.2s ease, -webkit-transform 0.2s ease;
+  -webkit-transition: -webkit-box-shadow 250ms ease, -webkit-transform 250ms ease;
+  transition: -webkit-box-shadow 250ms ease, -webkit-transform 250ms ease;
+  transition: box-shadow 250ms ease, transform 250ms ease;
+  transition: box-shadow 250ms ease, transform 250ms ease, -webkit-box-shadow 250ms ease, -webkit-transform 250ms ease;
   z-index: '';
   word-wrap: break-word;
 }
@@ -293,8 +293,8 @@
 .ui.cards > .card > .content a:not(.ui),
 .ui.card > .content a:not(.ui) {
   color: '';
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 .ui.cards > .card > .content a:not(.ui):hover,
 .ui.card > .content a:not(.ui):hover {
@@ -362,8 +362,8 @@
 .ui.card > .content .star.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 .ui.cards > .card > .content .star.icon:hover,
 .ui.card > .content .star.icon:hover {
@@ -383,8 +383,8 @@
 .ui.card > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 .ui.cards > .card > .content .like.icon:hover,
 .ui.card > .content .like.icon:hover {
@@ -418,8 +418,8 @@
   color: rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: none;
           box-shadow: none;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 .ui.cards > .card > .extra a:not(.ui),
 .ui.card > .extra a:not(.ui) {

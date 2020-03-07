@@ -19,10 +19,10 @@
   display: inline-block;
   outline: none;
   text-align: left;
-  -webkit-transition: width 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: width 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: box-shadow 0.2s ease, width 0.2s ease;
-  transition: box-shadow 0.2s ease, width 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: width 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: width 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: box-shadow 250ms ease, width 250ms ease;
+  transition: box-shadow 250ms ease, width 250ms ease, -webkit-box-shadow 250ms ease;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -59,8 +59,8 @@
           box-shadow: 0 2px 3px 0 #dee4e7;
   border: 1px solid #dee4e7;
   border-radius: 0.1875rem;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
   z-index: 11;
   will-change: transform, opacity;
 }
@@ -380,10 +380,10 @@ select.ui.dropdown {
           box-shadow: none;
   border: 1px solid #dee4e7;
   border-radius: 0.1875rem;
-  -webkit-transition: width 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: width 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: box-shadow 0.2s ease, width 0.2s ease;
-  transition: box-shadow 0.2s ease, width 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: width 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: width 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: box-shadow 250ms ease, width 250ms ease;
+  transition: box-shadow 250ms ease, width 250ms ease, -webkit-box-shadow 250ms ease;
 }
 .ui.selection.dropdown.visible,
 .ui.selection.dropdown.active {
@@ -403,8 +403,8 @@ select.ui.dropdown {
   margin: -0.5625em;
   padding: 0.75em;
   opacity: 0.8;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
 }
 
 /* Compact */
@@ -428,8 +428,8 @@ select.ui.dropdown {
   border-radius: 0 0 0.1875rem 0.1875rem;
   -webkit-box-shadow: 0 2px 3px 0 #dee4e7;
           box-shadow: 0 2px 3px 0 #dee4e7;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
 }
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
@@ -1105,8 +1105,8 @@ select.ui.dropdown {
 
 .ui.dropdown > .clear.dropdown.icon {
   opacity: 0.8;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
 }
 .ui.dropdown > .clear.dropdown.icon:hover {
   opacity: 1;
@@ -1361,8 +1361,8 @@ select.ui.dropdown {
   opacity: 0;
   width: 0;
   height: 0;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
   margin-top: 0 !important;
 }
 .ui.simple.active.dropdown,

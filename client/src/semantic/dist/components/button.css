@@ -39,10 +39,10 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: opacity 250ms ease, background-color 250ms ease, color 250ms ease, background 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: opacity 250ms ease, background-color 250ms ease, color 250ms ease, background 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: opacity 250ms ease, background-color 250ms ease, color 250ms ease, box-shadow 250ms ease, background 250ms ease;
+  transition: opacity 250ms ease, background-color 250ms ease, color 250ms ease, box-shadow 250ms ease, background 250ms ease, -webkit-box-shadow 250ms ease;
   will-change: auto;
   -webkit-tap-highlight-color: transparent;
 }
@@ -130,8 +130,8 @@
   color: transparent;
   opacity: 1;
   pointer-events: auto;
-  -webkit-transition: all 0s linear, opacity 0.2s ease;
-  transition: all 0s linear, opacity 0.2s ease;
+  -webkit-transition: all 0s linear, opacity 250ms ease;
+  transition: all 0s linear, opacity 250ms ease;
 }
 .ui.loading.button:before {
   position: absolute;
@@ -633,8 +633,8 @@
   height: auto;
   opacity: 0.8;
   margin: 0 0.375em 0 -0.1875em;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
   vertical-align: '';
   color: '';
 }
@@ -899,8 +899,8 @@
 
 /* Overline Mixin */
 .ui.tertiary.button {
-  -webkit-transition: color 0.2s ease !important;
-  transition: color 0.2s ease !important;
+  -webkit-transition: color 250ms ease !important;
+  transition: color 250ms ease !important;
   border-radius: 0;
   margin: 0.0625em 0.25em 0.0625em 0 !important;
   padding: 0.5em !important;

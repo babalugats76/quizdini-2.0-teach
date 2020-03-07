@@ -8,170 +8,114 @@
 
 /* lexend-deca-regular - latin */
 @font-face {
-  font-family: "Lexend Deca";
+  font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"),
-    url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"),
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'),
+    url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2')
+      format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "marcher-light";
-  src: url("https://static.quizdini.com/fonts/marcher-light-webfont.woff2") format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-light-webfont.woff") format("woff");
+  font-family: 'marcher-light';
+  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-light-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-book";
-  src: url("https://static.quizdini.com/fonts/marcher-book-webfont.woff2") format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-book-webfont.woff") format("woff");
+  font-family: 'marcher-book';
+  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-book-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-regular";
-  src: url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff2") format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff") format("woff");
+  font-family: 'marcher-regular';
+  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-medium";
-  src: url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff2") format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff") format("woff");
+  font-family: 'marcher-medium';
+  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-semibold";
-  src: url("https://static.quizdini.com/fonts/marcher-semibold-webfont.woff2") format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-semibold-webfont.woff") format("woff");
+  font-family: 'marcher-semibold';
+  src: url('https://static.quizdini.com/fonts/marcher-semibold-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-semibold-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-bold";
-  src: url("https://static.quizdini.com/fonts/marcher-bold-webfont.woff2") format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-bold-webfont.woff") format("woff");
+  font-family: 'marcher-bold';
+  src: url('https://static.quizdini.com/fonts/marcher-bold-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-bold-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-extrabold";
-  src: url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2") format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff") format("woff");
+  font-family: 'marcher-extrabold';
+  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-extrabolditalic";
-  src: url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2")
-      format("woff2"),
-    url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
+  font-family: 'marcher-extrabolditalic';
+  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2')
+      format('woff2'),
+    url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
+}
+
+/*-------------------
+  Generic Elements
+--------------------*/
+
+a {
+  color: @linkColor;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 /*-------------------
   Utility Classes
 --------------------*/
 
-.p-1 {
-  padding: 0.25rem !important;
-}
-
-.p-2 {
-  padding: 0.5rem !important;
-}
-
-.p-3 {
-  padding: 0.75rem !important;
-}
-
-.p-4 {
-  padding: 1rem !important;
-}
-
-.m-1 {
-  margin: 0.25rem !important;
-}
-
-.m-2 {
-  margin: 0.5rem !important;
-}
-
-.m-3 {
-  margin: 0.75rem !important;
-}
-
-.m-4 {
-  margin: 1rem !important;
-}
-
-.d-block {
-  display: block !important;
-}
-
-.d-flex {
-  display: flex !important;
-}
-
-.flex-row {
-  flex-direction: row !important;
-}
-
-.flex-wrap {
-  flex-wrap: wrap !important;
-}
-
-flex-basis-100 {
-  flex: 0 0 100%;
-}
-
-.flex-auto {
-  flex: auto !important; /* Shorthand for 0 1 auto */
-}
-
-.flex-1 {
-  flex: 1 1 0% !important;
-}
-
-.flex-column {
-  flex-direction: column !important;
-}
-
-.flex-justify-center {
-  justify-content: center !important;
-}
-
-.flex-justify-between {
-  justify-content: space-between !important;
-}
-
-.flex-center-items {
-  align-items: center !important;
-}
-
-.h-auto {
-  height: auto !important;
-}
-
-.h-100 {
-  height: 100% !important;
-}
-
 .clearfix::after {
-  content: "";
+  content: '';
   clear: both;
   display: block;
 }
@@ -226,6 +170,9 @@ flex-basis-100 {
       margin-left: auto;
       margin-right: auto;
       padding: @mobilePagePadding;
+      > .page-nav {
+        padding-top: 0 !important;
+      }
       &.middle {
         display: flex;
         flex-direction: column;
@@ -281,7 +228,7 @@ flex-basis-100 {
   .item {
     &.link {
       img.profile {
-        margin-left: 10px;
+        margin-left: @10px;
       }
     }
   }
@@ -292,11 +239,11 @@ flex-basis-100 {
 --------------------*/
 
 svg {
-  width: 1em;
-  height: 1em;
+  width: @relative16px;
+  height: @relative16px;
 
   path {
-    transition: fill 0.5s ease;
+    transition: fill @defaultDuration @defaultDuration;
   }
 
   &.icon {
@@ -357,8 +304,8 @@ svg {
 --------------------*/
 
 .input-feedback {
-  margin-top: 0.5em;
-  font-size: 0.9em;
+  margin-top: @relative8px;
+  font-size: @relative15px;
   &.error {
     color: @red;
   }
@@ -382,9 +329,9 @@ svg {
       flex-direction: row;
       align-items: center;
       background-color: none;
-      padding: 0.5em 1em;
-      margin: 0 1em 0.5em 0;
-      border-radius: 0.3em;
+      padding: @relative8px @relative16px;
+      margin: 0 @relative16px @relative8px 0;
+      border-radius: @absoluteBorderRadius;
       > .ui.avatar.image svg path {
         fill: @veryStrongTransparentBlack;
       }
@@ -415,16 +362,18 @@ svg {
 
   &.ui.horizontal.list:not(.celled) {
     > .item:last-child {
-      padding-right: 1em;
-      margin-bottom: 0.5em;
+      padding-right: @relative16px;
+      margin-bottom: @relative8px;
     }
   }
 
   &.ui.horizontal.list {
-    > .item:first-child,
-    > .item:last-child {
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
+    > .item {
+      &:first-child,
+      &:last-child {
+        padding-top: @relative8px;
+        padding-bottom: @relative8px;
+      }
     }
   }
 }
@@ -437,11 +386,11 @@ svg {
   position: relative;
   top: 50%;
   z-index: 999;
-  height: 2.25rem;
-  width: 2.25rem;
+  height: @36px;
+  width: @36px;
   .icon.spinner {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: @36px;
+    height: @36px;
     path {
       fill: @spinnerColor;
     }
@@ -502,7 +451,7 @@ table {
     width: 100%;
     max-width: 100%;
     height: 100%;
-    font-size: 1em;
+    font-size: @relative16px;
     border: 1px solid @borderColor;
     border-radius: @absoluteBorderRadius;
     background-color: @white;
@@ -575,10 +524,10 @@ table {
           }
         }
         &:nth-child(2) {
-          flex: 5;
+          flex: 2;
         }
         &:nth-child(3) {
-          flex: 12;
+          flex: 2;
         }
       }
     }
@@ -593,11 +542,11 @@ table {
         }
       }
       &:nth-child(2) {
-        font-size: .9375em;
+        font-size: @relative15px;
         background-color: @infoBackgroundColor;
-        border-bottom: 1px solid lighten(@infoBorderColor,5);
+        border-bottom: 1px solid lighten(@infoBorderColor, 5);
         th {
-          padding: 0!important;
+          padding: 0 !important;
           color: @infoTextColor;
           line-height: 3;
         }
@@ -609,11 +558,11 @@ table {
     tr {
       td,
       th {
-        font-size: 0.9375em;
+        font-size: @relative15px;
         line-height: 1.3125em;
         &:nth-child(2) {
           font-family: @headerFont;
-          color: @lightBlack;
+          color: @selectedTextColor;
         }
         &:nth-child(3) {
           font-family: @marcherBook;
@@ -638,7 +587,7 @@ table {
     }
   }
   .ui.icon.trash.button {
-    transition: background-color 0.5s ease;
+    transition: background-color @defaultDuration @defaultEasing;
     background-color: @negativeBackgroundColor;
     &:hover {
       background-color: lighten(@negativeColor, 10);
@@ -676,7 +625,7 @@ table {
   z-index: 1000;
   opacity: 0;
   background: rgba(0, 0, 0, 0.6);
-  transition: all 300ms;
+  transition: all @defaultDuration @defaultEasing;
 }
 
 .modal-show {
@@ -720,7 +669,7 @@ table {
 #password-form > .fields:last-of-type,
 #register-form > .fields:last-of-type,
 #reset-form > .fields:last-of-type {
-  padding-top: 0.75em;
+  padding-top: @relative12px;
   padding-bottom: 0;
   margin-bottom: 0;
 }
@@ -733,9 +682,9 @@ table {
   flex-direction: column;
   min-height: 300px;
 
-  button[type="submit"] {
+  button[type='submit'] {
     display: flex;
-    margin: 2em auto 1em;
+    margin: @relative32px auto @relative16px;
   }
 }
 
@@ -747,9 +696,9 @@ table {
   .banner {
     width: 100%;
     margin: 0;
-    padding: 2.5rem;
+    padding: @40px;
     &.stripe {
-      padding: 1.5rem 0;
+      padding: @24px 0;
       &.purple {
         background-color: @grape;
       }
@@ -758,7 +707,7 @@ table {
       background-color: @blackTransDark;
       background-size: 25px;
       background-repeat: round;
-      background-image: url("/images/question.svg");
+      background-image: url('/images/question.svg');
     }
     &#selling-points {
       background-color: @offWhite;
@@ -774,12 +723,12 @@ table {
       }
       &#slogan {
         color: @darkWhite;
-        margin-top: 0.5rem;
+        margin-top: @8px;
       }
     }
     &.large {
       .content {
-        font-size: 2em;
+        font-size: @relative32px;
       }
     }
   }
@@ -787,8 +736,8 @@ table {
   #selling-points {
     .ui.header {
       color: @secondaryColor;
-      margin: 0.5rem 5% 0;
-      padding: 1rem;
+      margin: @8px 5% 0;
+      padding: @16px;
       line-height: 1.3;
     }
   }
@@ -802,34 +751,34 @@ table {
     .ui.header ~ blockquote {
       font-size: 1.375em;
       line-height: 1.3;
-      margin: 2rem;
+      margin: @32px;
       position: relative;
       text-align: left;
       span {
         position: absolute;
         font-size: 3rem;
-        line-height: 1rem;
+        line-height: @16px;
         font-family: @fantasyFont;
         &:first-of-type {
-          margin-left: -1.5rem;
-          margin-top: 0.3rem;
+          margin-left: -@24px;
+          margin-top: @5px;
         }
         &:last-of-type {
-          margin-left: 0.5rem;
-          margin-top: 1rem;
+          margin-left: @8px;
+          margin-top: @16px;
         }
       }
     }
     img.dumpster {
       max-width: 320px;
-      margin-top: -1rem;
+      margin-top: -@16px;
     }
     p {
-      font-size: 1.4em;
+      font-size: @relative22px;
       line-height: 1.3;
       &.caption {
         color: @captionColor;
-        margin-top: -1rem;
+        margin-top: -@16px;
         text-align: center;
       }
     }
@@ -846,64 +795,60 @@ table {
     section {
       font-family: @bookFont;
       p {
-        font-size: 1em;
+        font-size: @relative16px;
         &.dropcap:first-letter {
           color: @dropCapColor;
           float: left;
           font-family: @dropCapFont;
           font-size: 4.7em;
           line-height: 3em;
-          padding-top: 0.75rem;
-          padding-right: 0.5rem;
-          padding-left: 0.25rem;
+          padding-top: @12px;
+          padding-right: @8px;
+          padding-left: @4px;
         }
       }
       strong {
         font-weight: 600;
       }
       a {
-        color: @linkColor;
         font-weight: 600;
-        &:hover {
-          text-decoration: underline;
-        }
       }
       > .ui.huge.header {
         font-family: @extraBoldItalicFont;
         .content {
-          font-size: 2.6rem; /* Needs to be rems */
+          font-size: @42px; /* Needs to be rems */
           text-decoration: underline;
         }
         .sub.header {
-          margin-top: 1rem;
+          margin-top: @16px;
           font-family: @headerFont;
         }
       }
       .ui.icon.header {
-        margin: 1rem 0;
+        margin: @16px 0;
       }
       img.icon {
-        margin-bottom: 1rem;
+        margin-bottom: @16px;
       }
       .ui.list {
         margin-left: 0;
-        padding-left: 2.5em;
+        padding-left: @relative40px;
         > li {
-          padding: 0.3em 0;
+          padding: @relative5px 0;
         }
       }
       details {
-        transition: all 300ms ease-in-out;
-        margin: 0.5em 0;
+        transition: all @defaultEasing @defaultDuration;
+        margin: @relative8px 0;
         &[open] {
-          margin-bottom: 2em;
+          margin-bottom: @relative32px;
           > summary {
-            margin-bottom: 0.3em;
+            margin-bottom: @relative5px;
             color: @summaryActiveColor;
             &:before {
               transform: rotate(0deg);
               vertical-align: 0%;
-              transition: all 300ms ease-in-out;
+              transition: all @defaultDuration @defaultEasing;
             }
           }
         }
@@ -916,11 +861,11 @@ table {
           }
         }
         > summary {
-          transition: all 300ms ease-in-out;
+          transition: all @defaultDuration @defaultEasing;
           font-family: @headerFont;
           line-height: 1.1;
-          font-size: 1.7em;
-          padding: 0.3em 0.1em;
+          font-size: @relative27px;
+          padding: @relative5px 0 @relative16px;
           list-style-type: none;
           outline: none;
           &:hover {
@@ -928,9 +873,9 @@ table {
           }
           &:before {
             display: inline-block;
-            content: "\25bc\00a0";
+            content: '\25bc\00a0';
             transform: rotate(-90deg);
-            transition: all 300ms ease-in-out;
+            transition: all @defaultDuration @defaultEasing;
             vertical-align: 20%;
           }
           &::-webkit-details-marker {
@@ -962,11 +907,11 @@ table {
   .member-contact {
     a {
       > svg {
-        width: 2rem;
-        height: 2rem;
+        width: @32px;
+        height: @32px;
       }
       &:not(:last-of-type) {
-        margin-right: 0.25rem;
+        margin-right: @4px;
       }
     }
   }
@@ -978,7 +923,7 @@ table {
       color: @violet;
     }
     &:not(:last-child) {
-      margin-bottom: 2em;
+      margin-bottom: @relative32px;
     }
     img.icon {
       &.easel,
@@ -1018,7 +963,7 @@ table {
       }
     }
     > tfoot {
-      font-size: 0.9em;
+      font-size: @relative15px;
       tr > th {
         background-color: @white;
       }
@@ -1077,7 +1022,7 @@ table {
 /* Additional spacer is needed because of dropdowns */
 #register {
   &::after {
-    content: "";
+    content: '';
     display: block;
     height: 5rem;
   }
@@ -1096,13 +1041,6 @@ table {
   .ui.checkbox > label {
     line-height: 1.3;
   }
-
-  a {
-    color: @linkColor;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }
 
 /*-------------------
@@ -1114,7 +1052,7 @@ table {
     padding: 0 !important;
     > .ui.image {
       display: block;
-      margin: 0.3rem auto 0;
+      margin: @5px auto 0;
     }
   }
 
@@ -1127,15 +1065,16 @@ table {
     color: transparent;
     border: 0;
     outline: none;
-    background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
+    background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png')
+      no-repeat;
     background-size: 191px 46px;
     &:focus,
     &:hover {
-      background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
+      background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
     }
     &:active,
     &:visited {
-      background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
+      background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
     }
   }
 
@@ -1157,13 +1096,13 @@ table {
       width: 191px;
     }
 
-    button[type="submit"] {
+    button[type='submit'] {
       display: flex;
-      margin: 0.5em auto;
+      margin: @relative8px auto;
     }
 
     p:last-of-type {
-      margin: auto 0 0.5em;
+      margin: auto 0 @relative8px;
     }
 
     a {
@@ -1194,17 +1133,17 @@ table {
   }
 
   #credit-options {
-    margin: 0 0 2em 1em;
+    margin: 0 0 @relative32px @relative16px;
   }
 
   #credit-card {
     &.ui.grid {
       > .row {
-        padding-top: 0.5em;
-        padding-bottom: 0.7em;
+        padding-top: @relative8px;
+        padding-bottom: @relative11px;
       }
       > .row:last-child {
-        margin-top: 0.75rem;
+        margin-top: @12px;
         margin-bottom: 0;
       }
     }
@@ -1220,16 +1159,16 @@ table {
     min-height: 50vh;
   }
   .ui.message {
-    margin-bottom: 2em;
+    margin-bottom: @relative32px;
   }
   #payments {
     min-height: 330px;
     #payment-table {
       thead > tr > th {
-        font-size: 1em;
+        font-size: @relative16px;
       }
       tbody > tr > td {
-        font-size: 1em;
+        font-size: @relative16px;
       }
     }
   }
@@ -1238,12 +1177,12 @@ table {
     .ui.items {
       > .item {
         line-height: 1.2;
-        font-size: 1.125em;
+        font-size: @relative18px;
         > .content {
           > .description {
-            margin-top: 0.3em;
+            margin-top: @relative5px;
             &.username {
-              font-size: 1.0625em;
+              font-size: @relative17px;
             }
             &.email {
               color: @navyPurple;
@@ -1251,7 +1190,7 @@ table {
           }
           > .extra {
             &.since {
-              margin-top: 0.8em;
+              margin-top: @relative13px;
             }
           }
         }
@@ -1266,15 +1205,15 @@ table {
 
 #dashboard {
   .ui.message {
-    margin-bottom: 2em;
+    margin-bottom: @relative32px;
   }
   #match-game {
     min-height: 330px;
   }
   #dashboard-menu > .item {
     > .image > svg {
-      width: 2.5em;
-      height: 2.5em;
+      width: @relative40px;
+      height: @relative40px;
     }
   }
 }
@@ -1294,7 +1233,7 @@ table {
           justify-content: space-between;
           position: relative;
           min-height: 5em;
-          padding: 1em 1.5em 1em;
+          padding: @relative16px @relative24px @relative16px;
           overflow: hidden;
           word-break: break-word;
           border-bottom: 1px solid @subtleTransparentBlack;
@@ -1315,23 +1254,23 @@ table {
             }
           }
           > .card-details {
-            padding: 0 1.5em 0 0;
+            padding: 0 @relative24px 0 0;
             flex: 1 1 auto;
             .header {
               display: flex;
               align-items: flex-start;
-              font-size: 1.125em;
-              line-height: 1.125em;
+              font-size: @relative18px;
+              line-height: @relative18px;
               color: @black;
-              height: 2.25em;
+              height: @relative36px;
               overflow: hidden;
             }
             .description {
               .ui.label:not(:last-child) {
-                margin: 0.5em 0;
+                margin: @relative8px 0;
               }
               .ui.label:first-child {
-                margin-top: 1em;
+                margin-top: @relative16px;
               }
               .ui.label {
                 display: flex;
@@ -1340,8 +1279,8 @@ table {
                 border: none;
                 margin: 0;
                 padding: 0;
-                font-size: 0.9375em;
-                line-height: 0.9375em;
+                font-size: @relative15px;
+                line-height: @relative15px;
                 .detail {
                   margin-left: 0;
                   color: @grey;
@@ -1361,7 +1300,7 @@ table {
               display: flex;
               flex: 0 1 auto;
               justify-content: center;
-              margin-right: -0.5em;
+              margin-right: -@relative8px;
               height: 3.5em;
               width: 3.5em;
               border-radius: 50%;
@@ -1384,10 +1323,11 @@ table {
             height: 100%;
             background-color: transparent;
             svg.icon {
-              width: 2em;
-              height: 2em;
+              width: @relative32px;
+              height: @relative32px;
             }
-            transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            transition: background-color @defaultDuration @defaultEasing,
+              opacity @defaultDuration @defaultEasing;
           }
         }
         &.card-buttons {
@@ -1395,11 +1335,12 @@ table {
           flex-grow: 0;
           background-color: @subtleTransparentBlack;
           > .ui.four.buttons {
-            padding: 0.5em;
+            padding: @relative8px;
             .ui.button {
-              padding: 0.5em;
+              padding: @relative8px;
               &.clipboard {
-                transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+                transition: color @defaultDuration @defaultEasing,
+                  background-color @defaultDuration @defaultEasing;
                 &.copied {
                   color: @white;
                   background-color: @positiveColor;
@@ -1413,15 +1354,15 @@ table {
               border-right: 1px inset @veryStrongTransparentBlack;
             }
             svg.icon {
-              width: 1.25em;
-              height: 1.25em;
+              width: @relative20px;
+              height: @relative20px;
             }
           }
         }
         .ui.label,
         .ui.labels,
         .label {
-          font-size: 0.9375em;
+          font-size: @relative15px;
         }
       }
     }
@@ -1451,7 +1392,7 @@ table {
     height: 4em;
   }
   .header.game-title {
-    margin: 0.25em 0 0.5em;
+    margin: @relative4px 0 @relative8px;
   }
 
   .labels {
@@ -1464,6 +1405,24 @@ table {
 /*-------------------
   Match Edit
 --------------------*/
+
+.ui.grid > #match-edit-header.row > .column {
+  display: flex;
+  flex-direction: column;
+  > #match-title {
+    max-width: 30ch;
+    font-size: @relative24px;
+    font-family: @extraBoldFont;
+    color: @black;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  > #match-id {
+    font-size: @relative17px;
+    font-family: @semiBoldFont;
+    color: @black;
+  }
+}
 
 #match-form {
   .ui.tab {
@@ -1478,17 +1437,17 @@ table {
   }
 
   textarea[disabled] {
-    opacity: 0.45;
+    opacity: @disabledOpacity;
   }
-
 }
 
 #game-panel {
   > #panes {
     .ui.tab {
       min-height: 400px;
+      margin-bottom: 0 !important;
       &.popup {
-        transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+        transition: all @popupDuration @popupEasing;
         &.maximized {
           position: fixed;
           top: 20%;
@@ -1507,6 +1466,11 @@ table {
       margin-bottom: 0 !important;
       .item {
         border-width: @4px;
+        color: @unselectedTextColor;
+        transition: all @defaultDuration defaultEasing;
+        &.active {
+          color: @black;
+        }
       }
     }
   }
@@ -1514,23 +1478,23 @@ table {
 
 #rich-match-editor {
   > fieldset {
-    margin-bottom: 0.75em;
+    margin-bottom: @relative12px;
     border: 1px solid @borderColor;
     border-radius: @absoluteBorderRadius;
     > legend {
       font-family: @headerFont;
-      font-size: 0.9375em;
+      font-size: @relative15px;
       font-weight: 400;
       color: @textColor;
-      margin: -0.5em 0 0 0.75em;
+      margin: -@relative8px 0 0 @relative12px;
     }
   }
   .rich-text-editor {
     display: block;
     width: auto;
     height: auto;
-    padding: 1em 25%;
-    margin: 0 0 0.75em;
+    padding: @relative16px 25%;
+    margin: 0 0 @relative12px;
     font-size: inherit;
     line-height: 1.5;
     border: 1px solid transparent;
@@ -1546,19 +1510,19 @@ table {
       color: @selectedTextColor;
       box-shadow: @fieldFocusBoxShadow;
     }
-    &:not([contenteditable="true"]) {
+    &:not([contenteditable='true']) {
       color: @unselectedTextColor;
       background-color: transparent;
       border-color: transparent;
     }
   }
   .format-toolbar {
-    margin-bottom: 0.25rem;
+    margin-bottom: @4px;
     text-align: center;
     button {
       outline: 0;
       margin: 0;
-      padding: 0.25em;
+      padding: @relative4px;
       text-decoration: none !important;
       cursor: pointer;
       position: relative;
@@ -1574,8 +1538,8 @@ table {
         }
       }
       svg.icon {
-        width: 1.125em;
-        height: 1.125em;
+        width: @relative18px;
+        height: @relative18px;
         path {
           fill: @lightTextColor;
         }
@@ -1584,7 +1548,7 @@ table {
   }
   .input-feedback {
     margin: 0;
-    padding: 1em;
+    padding: @relative16px;
   }
 }
 
@@ -1594,12 +1558,12 @@ table {
   }
   .ui.icon.header {
     > svg {
-      height: 1em !important;
+      height: @relative16px !important;
       width: auto;
     }
     > label {
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: @8px;
     }
   }
 }
@@ -1608,9 +1572,9 @@ table {
   > textarea {
     position: relative;
     font-family: @textareaFont;
-    font-size: 1em;
+    font-size: @relative16px;
     line-height: 1.5;
-    margin-top: 0.75rem;
+    margin-top: @12px;
     height: calc(100% - 100px);
   }
   > #bulk-match-btns {
@@ -1620,7 +1584,7 @@ table {
     }
   }
   > .match-tip {
-    font-size: 0.875em;
+    font-size: @relative14px;
     margin-top: @16px;
     line-height: 1.4;
     font-family: @marcherBook;
@@ -1647,11 +1611,11 @@ table {
   .ui.grid {
     > .column:not(.row),
     > .row {
-      padding-top: 0.125rem;
-      padding-bottom: 0.125rem;
+      padding-top: @2px;
+      padding-bottom: @2px;
       > .column {
-        padding-left: 0.125rem;
-        padding-right: 0.125rem;
+        padding-left: @2px;
+        padding-right: @2px;
       }
     }
   }
@@ -1663,7 +1627,7 @@ table {
 
     span {
       &:first-child {
-        font-size: 2em;
+        font-size: @relative32px;
         font-family: @extraBoldFont;
         line-height: 1.3;
       }
@@ -1677,9 +1641,9 @@ table {
 
 .StripeElement {
   height: 43px;
-  padding: 0.67857143em 1em;
-  border-radius: 4px;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  padding: 0.67857143em @relative16px;
+  border-radius: @4px;
+  border: 1px solid @borderColor;
 }
 
 .StripeElement--complete {
@@ -1703,7 +1667,7 @@ table {
 
 @media only screen and (max-width: @largestMobileScreen) {
   .page-wrapper > #content > .page {
-    .ui.segment:first-of-type {
+    .ui.segment:first-of-type:not(.vertical) {
       border: unset;
       box-shadow: unset;
       padding: 0 !important;
@@ -1713,10 +1677,10 @@ table {
   .ui.form {
     .fields {
       .input-feedback.error {
-        margin-bottom: 1.3rem;
+        margin-bottom: @21px;
       }
       .field:not(.error) {
-        margin-bottom: 1.3rem;
+        margin-bottom: @21px;
       }
     }
   }
@@ -1725,7 +1689,7 @@ table {
     &.ui.horizontal.list {
       justify-content: space-evenly;
       > .item {
-        margin: 0.5rem 0;
+        margin: @8px 0;
       }
     }
   }
@@ -1741,15 +1705,21 @@ table {
   }
 
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
-    margin-top: 1rem;
+    margin-top: @16px;
   }
 
   #match-table {
-    height: 480px;
+    /*height: 480px;*/
   }
 
   .content-wrapper {
     padding: 0 5%;
+  }
+
+  .ui.grid > #match-edit-header.row > .column {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
   }
 }
 
@@ -1758,7 +1728,7 @@ table {
     .ui.floated.image {
       display: block;
       float: unset;
-      margin: 1rem auto 2rem;
+      margin: @16px auto @32px;
     }
 
     #team {

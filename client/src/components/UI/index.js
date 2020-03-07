@@ -19,6 +19,7 @@ import Message from './Message';
 import Notify from './Notify';
 import RadioGroup from './RadioGroup';
 import RouterButton from './RouterButton';
+import ScrollToTop from './ScrollToTop';
 import TextArea from './TextArea';
 import Toolbar from './Toolbar';
 import Transition from './Transition';
@@ -45,6 +46,7 @@ export {
   Notify,
   RadioGroup,
   RouterButton,
+  ScrollToTop,
   TextArea,
   Toolbar,
   Transition

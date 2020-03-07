@@ -20,6 +20,7 @@
 
 // Override Semantic Global Values
 @bookFont               : @systemFont;
+@semiBoldFont           : @marcherSemiBold;
 @extraBoldFont          : @marcherExtraBold;
 @extraBoldItalicFont    : @marcherExtraBoldItalic;
 @fantasyFont            : @fantasy;
@@ -179,8 +180,10 @@
 /*-------------------
      Transitions
 --------------------*/
-@defaultDuration : 0.2s;
+@defaultDuration : 250ms;
+@popupDuration   : 2000ms;
 @defaultEasing   : ease;
+@popupEasing     : cubic-bezier(0.19, 1, 0.22, 1); /* easeOutExpo */
 
 /*-------------------
     Containers

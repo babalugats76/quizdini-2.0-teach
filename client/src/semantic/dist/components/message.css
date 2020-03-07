@@ -21,10 +21,10 @@
   padding: 1em 1.5em;
   line-height: 1.4285em;
   color: #904eba;
-  -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: opacity 250ms ease, color 250ms ease, background 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: opacity 250ms ease, color 250ms ease, background 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: opacity 250ms ease, color 250ms ease, background 250ms ease, box-shadow 250ms ease;
+  transition: opacity 250ms ease, color 250ms ease, background 250ms ease, box-shadow 250ms ease, -webkit-box-shadow 250ms ease;
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.22) inset, 0 0 0 0 rgba(0, 0, 0, 0);
           box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.22) inset, 0 0 0 0 rgba(0, 0, 0, 0);
@@ -113,8 +113,8 @@
   top: 0.78575em;
   right: 0.5em;
   opacity: 0.7;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
 }
 .ui.message > .close.icon:hover {
   opacity: 1;

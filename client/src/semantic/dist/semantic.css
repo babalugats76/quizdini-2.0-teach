@@ -732,182 +732,88 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 /* lexend-deca-regular - latin */
 
 @font-face {
-  font-family: "Lexend Deca";
+  font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"), url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"), 
- url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff") format("woff");
+  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
+ url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "marcher-light";
-  src: url("https://static.quizdini.com/fonts/marcher-light-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-light-webfont.woff") format("woff");
+  font-family: 'marcher-light';
+  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-light-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-book";
-  src: url("https://static.quizdini.com/fonts/marcher-book-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-book-webfont.woff") format("woff");
+  font-family: 'marcher-book';
+  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-book-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-regular";
-  src: url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff") format("woff");
+  font-family: 'marcher-regular';
+  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-medium";
-  src: url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff") format("woff");
+  font-family: 'marcher-medium';
+  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-semibold";
-  src: url("https://static.quizdini.com/fonts/marcher-semibold-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-semibold-webfont.woff") format("woff");
+  font-family: 'marcher-semibold';
+  src: url('https://static.quizdini.com/fonts/marcher-semibold-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-semibold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-bold";
-  src: url("https://static.quizdini.com/fonts/marcher-bold-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-bold-webfont.woff") format("woff");
+  font-family: 'marcher-bold';
+  src: url('https://static.quizdini.com/fonts/marcher-bold-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-bold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-extrabold";
-  src: url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff") format("woff");
+  font-family: 'marcher-extrabold';
+  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "marcher-extrabolditalic";
-  src: url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
+  font-family: 'marcher-extrabolditalic';
+  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+}
+
+/*-------------------
+  Generic Elements
+--------------------*/
+
+a {
+  color: #2e9adf;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /*-------------------
   Utility Classes
 --------------------*/
 
-.p-1 {
-  padding: 0.25rem !important;
-}
-
-.p-2 {
-  padding: 0.5rem !important;
-}
-
-.p-3 {
-  padding: 0.75rem !important;
-}
-
-.p-4 {
-  padding: 1rem !important;
-}
-
-.m-1 {
-  margin: 0.25rem !important;
-}
-
-.m-2 {
-  margin: 0.5rem !important;
-}
-
-.m-3 {
-  margin: 0.75rem !important;
-}
-
-.m-4 {
-  margin: 1rem !important;
-}
-
-.d-block {
-  display: block !important;
-}
-
-.d-flex {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-}
-
-.flex-row {
-  -webkit-box-orient: horizontal !important;
-  -webkit-box-direction: normal !important;
-  -ms-flex-direction: row !important;
-  flex-direction: row !important;
-}
-
-.flex-wrap {
-  -ms-flex-wrap: wrap !important;
-  flex-wrap: wrap !important;
-}
-
-flex-basis-100 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 100%;
-  flex: 0 0 100%;
-}
-
-.flex-auto {
-  -webkit-box-flex: 1 !important;
-  -ms-flex: auto !important;
-  flex: auto !important;
-  /* Shorthand for 0 1 auto */
-}
-
-.flex-1 {
-  -webkit-box-flex: 1 !important;
-  -ms-flex: 1 1 0% !important;
-  flex: 1 1 0% !important;
-}
-
-.flex-column {
-  -webkit-box-orient: vertical !important;
-  -webkit-box-direction: normal !important;
-  -ms-flex-direction: column !important;
-  flex-direction: column !important;
-}
-
-.flex-justify-center {
-  -webkit-box-pack: center !important;
-  -ms-flex-pack: center !important;
-  justify-content: center !important;
-}
-
-.flex-justify-between {
-  -webkit-box-pack: justify !important;
-  -ms-flex-pack: justify !important;
-  justify-content: space-between !important;
-}
-
-.flex-center-items {
-  -webkit-box-align: center !important;
-  -ms-flex-align: center !important;
-  align-items: center !important;
-}
-
-.h-auto {
-  height: auto !important;
-}
-
-.h-100 {
-  height: 100% !important;
-}
-
 .clearfix::after {
-  content: "";
+  content: '';
   clear: both;
   display: block;
 }
@@ -983,6 +889,10 @@ flex-basis-100 {
   padding: 1rem;
 }
 
+.page-wrapper > #content .page > .page-nav {
+  padding-top: 0 !important;
+}
+
 .page-wrapper > #content .page.middle {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1040,7 +950,7 @@ flex-basis-100 {
 }
 
 .ui.menu .item.link img.profile {
-  margin-left: 10px;
+  margin-left: 0.625rem;
 }
 
 /*-------------------
@@ -1053,8 +963,8 @@ svg {
 }
 
 svg path {
-  -webkit-transition: fill 0.5s ease;
-  transition: fill 0.5s ease;
+  -webkit-transition: fill 250ms 250ms;
+  transition: fill 250ms 250ms;
 }
 
 svg.icon.github path {
@@ -1110,7 +1020,7 @@ svg.icon.chevron-down.closed {
 
 .input-feedback {
   margin-top: 0.5em;
-  font-size: 0.9em;
+  font-size: 0.9375em;
 }
 
 .input-feedback.error {
@@ -1150,7 +1060,7 @@ svg.icon.chevron-down.closed {
   background-color: none;
   padding: 0.5em 1em;
   margin: 0 1em 0.5em 0;
-  border-radius: 0.3em;
+  border-radius: 0.1875rem;
 }
 
 .icon-menu-list.ui.selection.list > .item > .ui.avatar.image svg path {
@@ -1369,18 +1279,18 @@ table.flex-table tfoot tr th {
 #match-table tbody tr td:nth-child(2),
 #match-table thead tr th:nth-child(2),
 #match-table tbody tr th:nth-child(2) {
-  -webkit-box-flex: 5;
-  -ms-flex: 5;
-  flex: 5;
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
 }
 
 #match-table thead tr td:nth-child(3),
 #match-table tbody tr td:nth-child(3),
 #match-table thead tr th:nth-child(3),
 #match-table tbody tr th:nth-child(3) {
-  -webkit-box-flex: 12;
-  -ms-flex: 12;
-  flex: 12;
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
 }
 
 #match-table thead tr:nth-child(1) {
@@ -1399,7 +1309,7 @@ table.flex-table tfoot tr th {
 }
 
 #match-table thead tr:nth-child(2) th {
-  padding: 0!important;
+  padding: 0 !important;
   color: #276F86;
   line-height: 3;
 }
@@ -1418,7 +1328,7 @@ table.flex-table tfoot tr th {
 #match-table tbody tr td:nth-child(2),
 #match-table tbody tr th:nth-child(2) {
   font-family: 'marcher-medium', sans-serif;
-  color: #545454;
+  color: rgba(32, 33, 36, 0.88);
 }
 
 #match-table tbody tr td:nth-child(3),
@@ -1444,8 +1354,8 @@ table.flex-table tfoot tr th {
 }
 
 #match-table .ui.icon.trash.button {
-  -webkit-transition: background-color 0.5s ease;
-  transition: background-color 0.5s ease;
+  -webkit-transition: background-color 250ms ease;
+  transition: background-color 250ms ease;
   background-color: #FFF6F6;
 }
 
@@ -1484,8 +1394,8 @@ table.flex-table tfoot tr th {
   z-index: 1000;
   opacity: 0;
   background: rgba(0, 0, 0, 0.6);
-  -webkit-transition: all 300ms;
-  transition: all 300ms;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
 }
 
 .modal-show {
@@ -1550,7 +1460,7 @@ table.flex-table tfoot tr th {
   min-height: 300px;
 }
 
-.form-step button[type="submit"] {
+.form-step button[type='submit'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1579,7 +1489,7 @@ table.flex-table tfoot tr th {
   background-color: rgba(84, 84, 84, 0.87);
   background-size: 25px;
   background-repeat: round;
-  background-image: url("/images/question.svg");
+  background-image: url('/images/question.svg');
 }
 
 #landing .banner#selling-points {
@@ -1633,7 +1543,7 @@ table.flex-table tfoot tr th {
 
 #landing #mission .ui.header ~ blockquote span:first-of-type {
   margin-left: -1.5rem;
-  margin-top: 0.3rem;
+  margin-top: 0.3125rem;
 }
 
 #landing #mission .ui.header ~ blockquote span:last-of-type {
@@ -1647,7 +1557,7 @@ table.flex-table tfoot tr th {
 }
 
 #landing #mission p {
-  font-size: 1.4em;
+  font-size: 1.375em;
   line-height: 1.3;
 }
 
@@ -1690,13 +1600,7 @@ table.flex-table tfoot tr th {
 
 #about.page section a,
 #terms.page section a {
-  color: #2e9adf;
   font-weight: 600;
-}
-
-#about.page section a:hover,
-#terms.page section a:hover {
-  text-decoration: underline;
 }
 
 #about.page section > .ui.huge.header,
@@ -1706,7 +1610,7 @@ table.flex-table tfoot tr th {
 
 #about.page section > .ui.huge.header .content,
 #terms.page section > .ui.huge.header .content {
-  font-size: 2.6rem;
+  font-size: 2.625rem;
   /* Needs to be rems */
   text-decoration: underline;
 }
@@ -1735,13 +1639,13 @@ table.flex-table tfoot tr th {
 
 #about.page section .ui.list > li,
 #terms.page section .ui.list > li {
-  padding: 0.3em 0;
+  padding: 0.3125em 0;
 }
 
 #about.page section details,
 #terms.page section details {
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+  -webkit-transition: all ease 250ms;
+  transition: all ease 250ms;
   margin: 0.5em 0;
 }
 
@@ -1752,7 +1656,7 @@ table.flex-table tfoot tr th {
 
 #about.page section details[open] > summary,
 #terms.page section details[open] > summary {
-  margin-bottom: 0.3em;
+  margin-bottom: 0.3125em;
   color: #57419b;
 }
 
@@ -1761,8 +1665,8 @@ table.flex-table tfoot tr th {
   -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
   vertical-align: 0%;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
 }
 
 #about.page section details:not([open]) > summary,
@@ -1777,12 +1681,12 @@ table.flex-table tfoot tr th {
 
 #about.page section details > summary,
 #terms.page section details > summary {
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
   font-family: 'marcher-medium', sans-serif;
   line-height: 1.1;
-  font-size: 1.7em;
-  padding: 0.3em 0.1em;
+  font-size: 1.6875em;
+  padding: 0.3125em 0 1em;
   list-style-type: none;
   outline: none;
 }
@@ -1795,11 +1699,11 @@ table.flex-table tfoot tr th {
 #about.page section details > summary:before,
 #terms.page section details > summary:before {
   display: inline-block;
-  content: "\25bc\00a0";
+  content: '\25bc\00a0';
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
   vertical-align: 20%;
 }
 
@@ -1875,7 +1779,7 @@ table.flex-table tfoot tr th {
 }
 
 #faq #rate-schedule > tfoot {
-  font-size: 0.9em;
+  font-size: 0.9375em;
 }
 
 #faq #rate-schedule > tfoot tr > th {
@@ -1915,7 +1819,7 @@ table.flex-table tfoot tr th {
 /* Additional spacer is needed because of dropdowns */
 
 #register::after {
-  content: "";
+  content: '';
   display: block;
   height: 5rem;
 }
@@ -1940,14 +1844,6 @@ table.flex-table tfoot tr th {
   line-height: 1.3;
 }
 
-#register-form a {
-  color: #2e9adf;
-}
-
-#register-form a:hover {
-  text-decoration: underline;
-}
-
 /*-------------------
   Login
 --------------------*/
@@ -1958,7 +1854,7 @@ table.flex-table tfoot tr th {
 
 #login-wrapper .ui.header.logo > .ui.image {
   display: block;
-  margin: 0.3rem auto 0;
+  margin: 0.3125rem auto 0;
 }
 
 #login-wrapper a#google-login {
@@ -1970,18 +1866,18 @@ table.flex-table tfoot tr th {
   color: transparent;
   border: 0;
   outline: none;
-  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
+  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
   background-size: 191px 46px;
 }
 
 #login-wrapper a#google-login:focus,
 #login-wrapper a#google-login:hover {
-  background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
+  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
 }
 
 #login-wrapper a#google-login:active,
 #login-wrapper a#google-login:visited {
-  background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
+  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
 }
 
 #login-wrapper .ui.divider {
@@ -2010,7 +1906,7 @@ table.flex-table tfoot tr th {
   width: 191px;
 }
 
-#login-wrapper #login-form button[type="submit"] {
+#login-wrapper #login-form button[type='submit'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2059,7 +1955,7 @@ table.flex-table tfoot tr th {
 
 #checkout-form #credit-card.ui.grid > .row {
   padding-top: 0.5em;
-  padding-bottom: 0.7em;
+  padding-bottom: 0.6875em;
 }
 
 #checkout-form #credit-card.ui.grid > .row:last-child {
@@ -2097,7 +1993,7 @@ table.flex-table tfoot tr th {
 }
 
 #profile #account-summary .ui.items > .item > .content > .description {
-  margin-top: 0.3em;
+  margin-top: 0.3125em;
 }
 
 #profile #account-summary .ui.items > .item > .content > .description.username {
@@ -2109,7 +2005,7 @@ table.flex-table tfoot tr th {
 }
 
 #profile #account-summary .ui.items > .item > .content > .extra.since {
-  margin-top: 0.8em;
+  margin-top: 0.8125em;
 }
 
 /*-------------------
@@ -2267,8 +2163,8 @@ table.flex-table tfoot tr th {
   width: 100%;
   height: 100%;
   background-color: transparent;
-  -webkit-transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  -webkit-transition: background-color 250ms ease, opacity 250ms ease;
+  transition: background-color 250ms ease, opacity 250ms ease;
 }
 
 .ui.cards .ui.card.match-card .content.card-header .ui.icon.button.trash svg.icon {
@@ -2295,8 +2191,8 @@ table.flex-table tfoot tr th {
 }
 
 .ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons .ui.button.clipboard {
-  -webkit-transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  -webkit-transition: color 250ms ease, background-color 250ms ease;
+  transition: color 250ms ease, background-color 250ms ease;
 }
 
 .ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons .ui.button.clipboard.copied {
@@ -2359,6 +2255,31 @@ table.flex-table tfoot tr th {
   Match Edit
 --------------------*/
 
+.ui.grid > #match-edit-header.row > .column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.ui.grid > #match-edit-header.row > .column > #match-title {
+  max-width: 30ch;
+  font-size: 1.5em;
+  font-family: 'marcher-extrabold', sans-serif;
+  color: #1B1C1D;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.ui.grid > #match-edit-header.row > .column > #match-id {
+  font-size: 1.0625em;
+  font-family: 'marcher-semibold', sans-serif;
+  color: #1B1C1D;
+}
+
 #match-form .ui.tab .ui.segment:first-of-type {
   padding-top: 0 !important;
 }
@@ -2368,16 +2289,17 @@ table.flex-table tfoot tr th {
 }
 
 #match-form textarea[disabled] {
-  opacity: 0.45;
+  opacity: 0.33;
 }
 
 #game-panel > #panes .ui.tab {
   min-height: 400px;
+  margin-bottom: 0 !important;
 }
 
 #game-panel > #panes .ui.tab.popup {
-  -webkit-transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
-  transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition: all 2000ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 2000ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 #game-panel > #panes .ui.tab.popup.maximized {
@@ -2400,6 +2322,13 @@ table.flex-table tfoot tr th {
 
 #game-panel > #panes > #pane-menu .item {
   border-width: 0.25rem;
+  color: rgba(32, 33, 36, 0.5);
+  -webkit-transition: all 250ms defaultEasing;
+  transition: all 250ms defaultEasing;
+}
+
+#game-panel > #panes > #pane-menu .item.active {
+  color: #1B1C1D;
 }
 
 #rich-match-editor > fieldset {
@@ -2441,7 +2370,7 @@ table.flex-table tfoot tr th {
   box-shadow: none;
 }
 
-#rich-match-editor .rich-text-editor:not([contenteditable="true"]) {
+#rich-match-editor .rich-text-editor:not([contenteditable='true']) {
   color: rgba(32, 33, 36, 0.5);
   background-color: transparent;
   border-color: transparent;
@@ -2583,8 +2512,8 @@ table.flex-table tfoot tr th {
 .StripeElement {
   height: 43px;
   padding: 0.67857143em 1em;
-  border-radius: 4px;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border-radius: 0.25rem;
+  border: 1px solid #dee4e7;
 }
 
 .StripeElement--complete {
@@ -2607,7 +2536,7 @@ table.flex-table tfoot tr th {
 --------------------*/
 
 @media only screen and (max-width: 767.98px) {
-  .page-wrapper > #content > .page .ui.segment:first-of-type {
+  .page-wrapper > #content > .page .ui.segment:first-of-type:not(.vertical) {
     border: unset;
     -webkit-box-shadow: unset;
     box-shadow: unset;
@@ -2615,11 +2544,11 @@ table.flex-table tfoot tr th {
   }
 
   .ui.form .fields .input-feedback.error {
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.3125rem;
   }
 
   .ui.form .fields .field:not(.error) {
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.3125rem;
   }
 
   .icon-menu-list.ui.horizontal.list {
@@ -2647,11 +2576,23 @@ table.flex-table tfoot tr th {
   }
 
   #match-table {
-    height: 480px;
+    /*height: 480px;*/
   }
 
   .content-wrapper {
     padding: 0 5%;
+  }
+
+  .ui.grid > #match-edit-header.row > .column {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
   }
 }
 
@@ -2707,10 +2648,10 @@ table.flex-table tfoot tr th {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: opacity 250ms ease, background-color 250ms ease, color 250ms ease, background 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: opacity 250ms ease, background-color 250ms ease, color 250ms ease, background 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: opacity 250ms ease, background-color 250ms ease, color 250ms ease, box-shadow 250ms ease, background 250ms ease;
+  transition: opacity 250ms ease, background-color 250ms ease, color 250ms ease, box-shadow 250ms ease, background 250ms ease, -webkit-box-shadow 250ms ease;
   will-change: auto;
   -webkit-tap-highlight-color: transparent;
 }
@@ -2800,8 +2741,8 @@ table.flex-table tfoot tr th {
   color: transparent;
   opacity: 1;
   pointer-events: auto;
-  -webkit-transition: all 0s linear, opacity 0.2s ease;
-  transition: all 0s linear, opacity 0.2s ease;
+  -webkit-transition: all 0s linear, opacity 250ms ease;
+  transition: all 0s linear, opacity 250ms ease;
 }
 
 .ui.loading.button:before {
@@ -3368,8 +3309,8 @@ table.flex-table tfoot tr th {
   height: auto;
   opacity: 0.8;
   margin: 0 0.375em 0 -0.1875em;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
   vertical-align: '';
   color: '';
 }
@@ -3665,8 +3606,8 @@ table.flex-table tfoot tr th {
 /* Overline Mixin */
 
 .ui.tertiary.button {
-  -webkit-transition: color 0.2s ease !important;
-  transition: color 0.2s ease !important;
+  -webkit-transition: color 250ms ease !important;
+  transition: color 250ms ease !important;
   border-radius: 0;
   margin: 0.0625em 0.25em 0.0625em 0 !important;
   padding: 0.5em !important;
@@ -9182,8 +9123,8 @@ i.link.icon:not(.disabled),
 i.link.icons:not(.disabled) {
   cursor: pointer;
   opacity: 0.8;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
 }
 
 i.link.icon:hover,
@@ -18221,10 +18162,10 @@ img.ui.bordered.image {
   border: 1px solid #dee4e7;
   color: rgba(32, 33, 36, 0.75);
   border-radius: 0.1875rem;
-  -webkit-transition: border-color 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: border-color 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: border-color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: border-color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: box-shadow 250ms ease, border-color 250ms ease;
+  transition: box-shadow 250ms ease, border-color 250ms ease, -webkit-box-shadow 250ms ease;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -19009,8 +18950,8 @@ img.ui.bordered.image {
   font-weight: 400;
   border: 0 solid transparent;
   border-radius: 0.1875rem;
-  -webkit-transition: background 0.2s ease;
-  transition: background 0.2s ease;
+  -webkit-transition: background 250ms ease;
+  transition: background 250ms ease;
 }
 
 .ui.label:first-child {
@@ -19033,8 +18974,8 @@ a.ui.label {
   cursor: pointer;
   color: inherit;
   opacity: 0.5;
-  -webkit-transition: 0.2s opacity ease;
-  transition: 0.2s opacity ease;
+  -webkit-transition: 250ms opacity ease;
+  transition: 250ms opacity ease;
 }
 
 .ui.label > a:hover {
@@ -19078,8 +19019,8 @@ a.ui.label {
   cursor: pointer;
   font-size: 0.9375em;
   opacity: 0.5;
-  -webkit-transition: background 0.2s ease;
-  transition: background 0.2s ease;
+  -webkit-transition: background 250ms ease;
+  transition: background 250ms ease;
 }
 
 .ui.label > .close.icon:hover,
@@ -19267,8 +19208,8 @@ a.ui.label {
   width: 4em;
   height: 4em;
   z-index: 1;
-  -webkit-transition: border-color 0.2s ease;
-  transition: border-color 0.2s ease;
+  -webkit-transition: border-color 250ms ease;
+  transition: border-color 250ms ease;
 }
 
 /* Icon Label */
@@ -19291,8 +19232,8 @@ a.ui.label {
   border-bottom: 4em solid transparent;
   border-left: 0 solid transparent;
   border-right-color: inherit;
-  -webkit-transition: border-color 0.2s ease;
-  transition: border-color 0.2s ease;
+  -webkit-transition: border-color 250ms ease;
+  transition: border-color 250ms ease;
 }
 
 .ui.corner.label .icon {
@@ -21442,8 +21383,8 @@ ol.ui.list ol li,
   min-width: 1.55em;
   margin: 0;
   padding-top: 0;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 
 .ui.list .list > .item > i.icon:not(.loading),
@@ -21812,8 +21753,8 @@ ol.ui.list ol li,
 .ui.link.list a.item,
 .ui.link.list .item a:not(.ui) {
   color: rgba(32, 33, 36, 0.5);
-  -webkit-transition: 0.2s color ease;
-  transition: 0.2s color ease;
+  -webkit-transition: 250ms color ease;
+  transition: 250ms color ease;
 }
 
 .ui.link.list.list a.item:hover,
@@ -21866,8 +21807,8 @@ ol.ui.list ol li,
   margin: 0;
   color: rgba(32, 33, 36, 0.5);
   border-radius: 0.5em;
-  -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
-  transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+  -webkit-transition: 250ms color ease, 250ms padding-left ease, 250ms background-color ease;
+  transition: 250ms color ease, 250ms padding-left ease, 250ms background-color ease;
 }
 
 .ui.selection.list .list > .item:last-child,
@@ -24437,10 +24378,10 @@ ol.ui.suffixed.list li:before,
   border-radius: 0;
   border: none;
   border-right: 1px solid #dee4e7;
-  -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, box-shadow 250ms ease;
+  transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, box-shadow 250ms ease, -webkit-box-shadow 250ms ease;
 }
 
 /* Arrow */
@@ -24458,10 +24399,10 @@ ol.ui.suffixed.list li:before,
   border-style: solid;
   border-color: #dee4e7;
   border-width: 0 1px 1px 0;
-  -webkit-transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-  transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, box-shadow 250ms ease;
+  transition: background-color 250ms ease, opacity 250ms ease, color 250ms ease, box-shadow 250ms ease, -webkit-box-shadow 250ms ease;
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
   transform: translateY(-50%) translateX(50%) rotate(-45deg);
 }
@@ -25379,8 +25320,8 @@ ol.ui.suffixed.list li:before,
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
   box-shadow: 0 0 0 0 transparent inset;
-  -webkit-transition: color 0.2s ease, border-color 0.2s ease;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: color 250ms ease, border-color 250ms ease;
+  transition: color 250ms ease, border-color 250ms ease;
 }
 
 /* Text Area */
@@ -25398,8 +25339,8 @@ ol.ui.suffixed.list li:before,
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
   box-shadow: 0 0 0 0 transparent inset;
-  -webkit-transition: color 0.2s ease, border-color 0.2s ease;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: color 250ms ease, border-color 250ms ease;
+  transition: color 250ms ease, border-color 250ms ease;
   font-size: 1em;
   font-family: 'marcher-regular', sans-serif;
   line-height: 1.2857;
@@ -25490,8 +25431,8 @@ ol.ui.suffixed.list li:before,
   box-shadow: 0 0 0 0 transparent inset;
   padding: 0.62em 0.875em;
   color: rgba(32, 33, 36, 0.5);
-  -webkit-transition: color 0.2s ease, border-color 0.2s ease;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: color 250ms ease, border-color 250ms ease;
+  transition: color 250ms ease, border-color 250ms ease;
 }
 
 /*--------------------
@@ -29761,10 +29702,10 @@ ol.ui.suffixed.list li:before,
   text-transform: none;
   color: rgba(32, 33, 36, 0.75);
   font-weight: normal;
-  -webkit-transition: background 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: background 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
-  transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: background 250ms ease, color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: background 250ms ease, color 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: background 250ms ease, box-shadow 250ms ease, color 250ms ease;
+  transition: background 250ms ease, box-shadow 250ms ease, color 250ms ease, -webkit-box-shadow 250ms ease;
 }
 
 .ui.menu > .item:first-child {
@@ -30595,8 +30536,8 @@ Floated Menu / Item
   padding: 0.8125em 0.9375em;
   margin: 0 0.3125em;
   background: none;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
   border-radius: 0.1875rem;
 }
 
@@ -30739,8 +30680,8 @@ Floated Menu / Item
   margin: 0 0 -2px;
   padding: 0.875em 1.125em;
   border-bottom-width: 2px;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 
 .ui.secondary.pointing.menu .ui.dropdown .menu .item {
@@ -30890,8 +30831,8 @@ Floated Menu / Item
   padding: 0.3125em 0.4375em;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.6);
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
 }
 
 /* Border */
@@ -31875,8 +31816,8 @@ Floated Menu / Item
   border-bottom: 1px solid #dee4e7;
   border-right: 1px solid #dee4e7;
   z-index: 2;
-  -webkit-transition: background 0.2s ease;
-  transition: background 0.2s ease;
+  -webkit-transition: background 250ms ease;
+  transition: background 250ms ease;
 }
 
 .ui.vertical.pointing.menu .item:after {
@@ -32233,10 +32174,10 @@ Floated Menu / Item
   padding: 1em 1.5em;
   line-height: 1.4285em;
   color: #904eba;
-  -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: opacity 250ms ease, color 250ms ease, background 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: opacity 250ms ease, color 250ms ease, background 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: opacity 250ms ease, color 250ms ease, background 250ms ease, box-shadow 250ms ease;
+  transition: opacity 250ms ease, color 250ms ease, background 250ms ease, box-shadow 250ms ease, -webkit-box-shadow 250ms ease;
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.22) inset, 0 0 0 0 rgba(0, 0, 0, 0);
   box-shadow: 0 0 0 0px rgba(34, 36, 38, 0.22) inset, 0 0 0 0 rgba(0, 0, 0, 0);
@@ -32340,8 +32281,8 @@ Floated Menu / Item
   top: 0.78575em;
   right: 0.5em;
   opacity: 0.7;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
 }
 
 .ui.message > .close.icon:hover {
@@ -33013,8 +32954,8 @@ Floated Menu / Item
 
 .ui.table th,
 .ui.table td {
-  -webkit-transition: background 0.2s ease, color 0.2s ease;
-  transition: background 0.2s ease, color 0.2s ease;
+  -webkit-transition: background 250ms ease, color 250ms ease;
+  transition: background 250ms ease, color 250ms ease;
 }
 
 /* Headers */
@@ -35580,10 +35521,10 @@ Floated Menu / Item
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 1px 3px 0 #dee4e7, 0 0 0 1px #dee4e7;
   box-shadow: 0 1px 3px 0 #dee4e7, 0 0 0 1px #dee4e7;
-  -webkit-transition: -webkit-box-shadow 0.2s ease, -webkit-transform 0.2s ease;
-  transition: -webkit-box-shadow 0.2s ease, -webkit-transform 0.2s ease;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, -webkit-box-shadow 0.2s ease, -webkit-transform 0.2s ease;
+  -webkit-transition: -webkit-box-shadow 250ms ease, -webkit-transform 250ms ease;
+  transition: -webkit-box-shadow 250ms ease, -webkit-transform 250ms ease;
+  transition: box-shadow 250ms ease, transform 250ms ease;
+  transition: box-shadow 250ms ease, transform 250ms ease, -webkit-box-shadow 250ms ease, -webkit-transform 250ms ease;
   z-index: '';
   word-wrap: break-word;
 }
@@ -35859,8 +35800,8 @@ Floated Menu / Item
 .ui.cards > .card > .content a:not(.ui),
 .ui.card > .content a:not(.ui) {
   color: '';
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 
 .ui.cards > .card > .content a:not(.ui):hover,
@@ -35933,8 +35874,8 @@ Floated Menu / Item
 .ui.card > .content .star.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 
 .ui.cards > .card > .content .star.icon:hover,
@@ -35956,8 +35897,8 @@ Floated Menu / Item
 .ui.card > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 
 .ui.cards > .card > .content .like.icon:hover,
@@ -35993,8 +35934,8 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: none;
   box-shadow: none;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 
 .ui.cards > .card > .extra a:not(.ui),
@@ -37058,10 +36999,10 @@ a.inverted.ui.card:hover,
   border-radius: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
-  -webkit-transition: -webkit-box-shadow 0.2s ease;
-  transition: -webkit-box-shadow 0.2s ease;
-  transition: box-shadow 0.2s ease;
-  transition: box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: -webkit-box-shadow 250ms ease;
+  transition: -webkit-box-shadow 250ms ease;
+  transition: box-shadow 250ms ease;
+  transition: box-shadow 250ms ease, -webkit-box-shadow 250ms ease;
   z-index: '';
 }
 
@@ -37274,8 +37215,8 @@ a.inverted.ui.card:hover,
 
 .ui.items > .item > .content a:not(.ui) {
   color: '';
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 
 .ui.items > .item > .content a:not(.ui):hover {
@@ -37313,8 +37254,8 @@ a.inverted.ui.card:hover,
 .ui.items > .item > .content .favorite.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 
 .ui.items > .item > .content .favorite.icon:hover {
@@ -37333,8 +37274,8 @@ a.inverted.ui.card:hover,
 .ui.items > .item > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 
 .ui.items > .item > .content .like.icon:hover {
@@ -37362,8 +37303,8 @@ a.inverted.ui.card:hover,
   color: rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: none;
   box-shadow: none;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
   border-top: none;
 }
 
@@ -37727,10 +37668,10 @@ a.inverted.ui.card:hover,
   margin: 0 0.25rem 0 0;
   padding: 0;
   font-size: 1em;
-  -webkit-transition: opacity 0.2s ease, -webkit-transform 0.2s ease;
-  transition: opacity 0.2s ease, -webkit-transform 0.2s ease;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  transition: transform 0.2s ease, opacity 0.2s ease, -webkit-transform 0.2s ease;
+  -webkit-transition: opacity 250ms ease, -webkit-transform 250ms ease;
+  transition: opacity 250ms ease, -webkit-transform 250ms ease;
+  transition: transform 250ms ease, opacity 250ms ease;
+  transition: transform 250ms ease, opacity 250ms ease, -webkit-transform 250ms ease;
   vertical-align: baseline;
   -webkit-transform: none;
   transform: none;
@@ -37803,8 +37744,8 @@ a.inverted.ui.card:hover,
   color: rgba(32, 33, 36, 0.5);
   font-weight: 400;
   border-top: 1px solid #dee4e7;
-  -webkit-transition: background 0.2s ease, color 0.2s ease;
-  transition: background 0.2s ease, color 0.2s ease;
+  -webkit-transition: background 250ms ease, color 250ms ease;
+  transition: background 250ms ease, color 250ms ease;
 }
 
 .ui.styled.accordion > .title:first-child,
@@ -37984,10 +37925,10 @@ a.inverted.ui.card:hover,
   content: '';
   background: #FFFFFF;
   border-radius: 0.1875rem;
-  -webkit-transition: border 0.2s ease, opacity 0.2s ease, -webkit-transform 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: border 0.2s ease, opacity 0.2s ease, -webkit-transform 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: border 0.2s ease, opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  transition: border 0.2s ease, opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, -webkit-transform 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: border 250ms ease, opacity 250ms ease, -webkit-transform 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: border 250ms ease, opacity 250ms ease, -webkit-transform 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: border 250ms ease, opacity 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+  transition: border 250ms ease, opacity 250ms ease, transform 250ms ease, box-shadow 250ms ease, -webkit-transform 250ms ease, -webkit-box-shadow 250ms ease;
   border: 1px solid #dee4e7;
 }
 
@@ -38005,10 +37946,10 @@ a.inverted.ui.card:hover,
   text-align: center;
   opacity: 0;
   color: rgba(32, 33, 36, 0.75);
-  -webkit-transition: border 0.2s ease, opacity 0.2s ease, -webkit-transform 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: border 0.2s ease, opacity 0.2s ease, -webkit-transform 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: border 0.2s ease, opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  transition: border 0.2s ease, opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, -webkit-transform 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: border 250ms ease, opacity 250ms ease, -webkit-transform 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: border 250ms ease, opacity 250ms ease, -webkit-transform 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: border 250ms ease, opacity 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+  transition: border 250ms ease, opacity 250ms ease, transform 250ms ease, box-shadow 250ms ease, -webkit-transform 250ms ease, -webkit-box-shadow 250ms ease;
 }
 
 /*--------------
@@ -38020,8 +37961,8 @@ a.inverted.ui.card:hover,
 .ui.checkbox label,
 .ui.checkbox + label {
   color: rgba(32, 33, 36, 0.75);
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  -webkit-transition: color 250ms ease;
+  transition: color 250ms ease;
 }
 
 /* Outside */
@@ -38786,10 +38727,10 @@ a.inverted.ui.card:hover,
   display: inline-block;
   outline: none;
   text-align: left;
-  -webkit-transition: width 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: width 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: box-shadow 0.2s ease, width 0.2s ease;
-  transition: box-shadow 0.2s ease, width 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: width 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: width 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: box-shadow 250ms ease, width 250ms ease;
+  transition: box-shadow 250ms ease, width 250ms ease, -webkit-box-shadow 250ms ease;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -38824,8 +38765,8 @@ a.inverted.ui.card:hover,
   box-shadow: 0 2px 3px 0 #dee4e7;
   border: 1px solid #dee4e7;
   border-radius: 0.1875rem;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
   z-index: 11;
   will-change: transform, opacity;
 }
@@ -39162,10 +39103,10 @@ select.ui.dropdown {
   box-shadow: none;
   border: 1px solid #dee4e7;
   border-radius: 0.1875rem;
-  -webkit-transition: width 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: width 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: box-shadow 0.2s ease, width 0.2s ease;
-  transition: box-shadow 0.2s ease, width 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: width 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: width 250ms ease, -webkit-box-shadow 250ms ease;
+  transition: box-shadow 250ms ease, width 250ms ease;
+  transition: box-shadow 250ms ease, width 250ms ease, -webkit-box-shadow 250ms ease;
 }
 
 .ui.selection.dropdown.visible,
@@ -39187,8 +39128,8 @@ select.ui.dropdown {
   margin: -0.5625em;
   padding: 0.75em;
   opacity: 0.8;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
 }
 
 /* Compact */
@@ -39214,8 +39155,8 @@ select.ui.dropdown {
   border-radius: 0 0 0.1875rem 0.1875rem;
   -webkit-box-shadow: 0 2px 3px 0 #dee4e7;
   box-shadow: 0 2px 3px 0 #dee4e7;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
 }
 
 .ui.selection.dropdown .menu:after,
@@ -39997,8 +39938,8 @@ select.ui.dropdown {
 
 .ui.dropdown > .clear.dropdown.icon {
   opacity: 0.8;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
 }
 
 .ui.dropdown > .clear.dropdown.icon:hover {
@@ -40280,8 +40221,8 @@ select.ui.dropdown {
   opacity: 0;
   width: 0;
   height: 0;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
   margin-top: 0 !important;
 }
 
