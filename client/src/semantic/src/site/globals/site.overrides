@@ -471,11 +471,17 @@ table {
         color: @textColor;
       }
       td {
-        padding: @relative12px @relative16px;
+        padding: @relative10px 0 @relative10px @relative14px;
+        &:last-child {
+          padding: @relative10px @relative14px;
+        }
       }
       th {
         align-self: flex-end;
-        padding: @relative16px @relative16px;
+        padding: @relative16px 0 @relative16px @relative14px;
+        &:last-child {
+          padding: @relative16px @relative14px;
+        }
       }
     }
     thead > tr {
@@ -524,10 +530,10 @@ table {
           }
         }
         &:nth-child(2) {
-          flex: 2;
+          flex: 3;
         }
         &:nth-child(3) {
-          flex: 2;
+          flex: 6;
         }
       }
     }
@@ -562,7 +568,7 @@ table {
         line-height: 1.3125em;
         &:nth-child(2) {
           font-family: @headerFont;
-          color: @selectedTextColor;
+          color: @darkTextColor;
         }
         &:nth-child(3) {
           font-family: @marcherBook;
@@ -575,10 +581,10 @@ table {
       th,
       td {
         font-family: @tableHeaderFont;
-        color: @selectedTextColor;
+        color: @darkTextColor;
         text-align: center;
         .max {
-          opacity: @disabledOpacity;
+          color: @lightTextColor;
         }
         .at-max {
           color: @primaryColor;
@@ -1466,7 +1472,7 @@ table {
       margin-bottom: 0 !important;
       .item {
         border-width: @4px;
-        color: @unselectedTextColor;
+        color: @mutedTextColor;
         transition: all @defaultDuration defaultEasing;
         &.active {
           color: @black;
@@ -1485,7 +1491,7 @@ table {
       font-family: @headerFont;
       font-size: @relative15px;
       font-weight: 400;
-      color: @textColor;
+      color: @labelTextColor;
       margin: -@relative8px 0 0 @relative12px;
     }
   }
@@ -1507,7 +1513,7 @@ table {
     text-align: center;
     &:focus {
       border-color: @fieldFocusBorderColor;
-      color: @selectedTextColor;
+      color: @darkTextColor;
       box-shadow: @fieldFocusBoxShadow;
     }
     &:not([contenteditable='true']) {
@@ -1560,10 +1566,14 @@ table {
     > svg {
       height: @relative16px !important;
       width: auto;
+      > path {
+        fill: @labelTextColor;
+      }
     }
     > label {
       display: block;
       margin-bottom: @8px;
+      color: @labelTextColor;
     }
   }
 }
@@ -1588,7 +1598,7 @@ table {
     margin-top: @16px;
     line-height: 1.4;
     font-family: @marcherBook;
-    color: @grey;
+    color: @lightTextColor;
   }
 }
 
@@ -1651,7 +1661,7 @@ table {
 }
 
 .StripeElement--focus {
-  color: @selectedTextColor;
+  color: @darkTextColor;
   background: @fieldFocusBackground;
   border-color: @fieldFocusBorderColor;
 }

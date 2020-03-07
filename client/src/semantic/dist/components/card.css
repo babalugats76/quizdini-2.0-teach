@@ -423,7 +423,7 @@
 }
 .ui.cards > .card > .extra a:not(.ui),
 .ui.card > .extra a:not(.ui) {
-  color: rgba(32, 33, 36, 0.5);
+  color: rgba(32, 33, 36, 0.6);
 }
 .ui.cards > .card > .extra a:not(.ui):hover,
 .ui.card > .extra a:not(.ui):hover {

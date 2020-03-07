@@ -638,12 +638,18 @@ table.flex-table tr th {
   color: rgba(32, 33, 36, 0.75);
 }
 table.flex-table tr td {
-  padding: 0.75em 1em;
+  padding: 0.625em 0 0.625em 0.875em;
+}
+table.flex-table tr td:last-child {
+  padding: 0.625em 0.875em;
 }
 table.flex-table tr th {
   -ms-flex-item-align: end;
       align-self: flex-end;
-  padding: 1em 1em;
+  padding: 1em 0 1em 0.875em;
+}
+table.flex-table tr th:last-child {
+  padding: 1em 0.875em;
 }
 table.flex-table thead > tr {
   overflow-x: hidden;
@@ -691,17 +697,17 @@ table.flex-table tfoot tr th {
 #match-table tbody tr td:nth-child(2),
 #match-table thead tr th:nth-child(2),
 #match-table tbody tr th:nth-child(2) {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
 }
 #match-table thead tr td:nth-child(3),
 #match-table tbody tr td:nth-child(3),
 #match-table thead tr th:nth-child(3),
 #match-table tbody tr th:nth-child(3) {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  -webkit-box-flex: 6;
+      -ms-flex: 6;
+          flex: 6;
 }
 #match-table thead tr:nth-child(1) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
@@ -732,7 +738,7 @@ table.flex-table tfoot tr th {
 #match-table tbody tr td:nth-child(2),
 #match-table tbody tr th:nth-child(2) {
   font-family: 'marcher-medium', sans-serif;
-  color: rgba(32, 33, 36, 0.88);
+  color: rgba(0, 0, 0, 0.85);
 }
 #match-table tbody tr td:nth-child(3),
 #match-table tbody tr th:nth-child(3) {
@@ -741,12 +747,12 @@ table.flex-table tfoot tr th {
 #match-table tfoot tr th,
 #match-table tfoot tr td {
   font-family: 'marcher-semibold', sans-serif;
-  color: rgba(32, 33, 36, 0.88);
+  color: rgba(0, 0, 0, 0.85);
   text-align: center;
 }
 #match-table tfoot tr th .max,
 #match-table tfoot tr td .max {
-  opacity: 0.33;
+  color: rgba(0, 0, 0, 0.4);
 }
 #match-table tfoot tr th .at-max,
 #match-table tfoot tr td .at-max {
@@ -1594,7 +1600,7 @@ table.flex-table tfoot tr th {
 }
 #game-panel > #panes > #pane-menu .item {
   border-width: 0.25rem;
-  color: rgba(32, 33, 36, 0.5);
+  color: rgba(0, 0, 0, 0.6);
   -webkit-transition: all 250ms defaultEasing;
   transition: all 250ms defaultEasing;
 }
@@ -1610,7 +1616,7 @@ table.flex-table tfoot tr th {
   font-family: 'marcher-medium', sans-serif;
   font-size: 0.9375em;
   font-weight: 400;
-  color: rgba(32, 33, 36, 0.75);
+  color: rgba(0, 0, 0, 0.6);
   margin: -0.5em 0 0 0.75em;
 }
 #rich-match-editor .rich-text-editor {
@@ -1627,17 +1633,17 @@ table.flex-table tfoot tr th {
   border-top: none;
   outline: none;
   background-color: #FFFFFF;
-  color: rgba(32, 33, 36, 0.5);
+  color: rgba(32, 33, 36, 0.6);
   text-align: center;
 }
 #rich-match-editor .rich-text-editor:focus {
-  border-color: #cce2ff;
-  color: rgba(32, 33, 36, 0.88);
+  border-color: #ffbe0b;
+  color: rgba(0, 0, 0, 0.85);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 #rich-match-editor .rich-text-editor:not([contenteditable='true']) {
-  color: rgba(32, 33, 36, 0.5);
+  color: rgba(32, 33, 36, 0.6);
   background-color: transparent;
   border-color: transparent;
 }
@@ -1679,9 +1685,13 @@ table.flex-table tfoot tr th {
   height: 1em !important;
   width: auto;
 }
+#match-options .ui.icon.header > svg > path {
+  fill: rgba(0, 0, 0, 0.6);
+}
 #match-options .ui.icon.header > label {
   display: block;
   margin-bottom: 0.5rem;
+  color: rgba(0, 0, 0, 0.6);
 }
 #match-bulk > textarea {
   position: relative;
@@ -1700,7 +1710,7 @@ table.flex-table tfoot tr th {
   margin-top: 1rem;
   line-height: 1.4;
   font-family: 'marcher-book', sans-serif;
-  color: #767676;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 /*-------------------
@@ -1765,12 +1775,12 @@ table.flex-table tfoot tr th {
   border: 1px solid #dee4e7;
 }
 .StripeElement--complete {
-  color: rgba(32, 33, 36, 0.5);
+  color: rgba(32, 33, 36, 0.6);
 }
 .StripeElement--focus {
-  color: rgba(32, 33, 36, 0.88);
-  background: rgba(204, 226, 255, 0.05);
-  border-color: #cce2ff;
+  color: rgba(0, 0, 0, 0.85);
+  background: rgba(238, 232, 170, 0.08);
+  border-color: #ffbe0b;
 }
 .StripeElement--invalid {
   background: #fff6f6;

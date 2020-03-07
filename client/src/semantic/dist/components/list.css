@@ -430,21 +430,21 @@ ol.ui.list ol li,
 .ui.link.list .item,
 .ui.link.list a.item,
 .ui.link.list .item a:not(.ui) {
-  color: rgba(32, 33, 36, 0.5);
+  color: rgba(32, 33, 36, 0.6);
   -webkit-transition: 250ms color ease;
   transition: 250ms color ease;
 }
 .ui.link.list.list a.item:hover,
 .ui.link.list.list .item a:not(.ui):hover {
-  color: rgba(32, 33, 36, 0.75);
+  color: rgba(32, 33, 36, 0.85);
 }
 .ui.link.list.list a.item:active,
 .ui.link.list.list .item a:not(.ui):active {
-  color: rgba(32, 33, 36, 0.75);
+  color: rgba(32, 33, 36, 0.85);
 }
 .ui.link.list.list .active.item,
 .ui.link.list.list .active.item a:not(.ui) {
-  color: rgba(32, 33, 36, 0.88);
+  color: rgba(32, 33, 36, 0.85);
 }
 
 /* Inverted */
@@ -476,7 +476,7 @@ ol.ui.list ol li,
   background: transparent;
   padding: 0.5em 0.5em;
   margin: 0;
-  color: rgba(32, 33, 36, 0.5);
+  color: rgba(32, 33, 36, 0.6);
   border-radius: 0.5em;
   -webkit-transition: 250ms color ease, 250ms padding-left ease, 250ms background-color ease;
   transition: 250ms color ease, 250ms padding-left ease, 250ms background-color ease;
@@ -488,17 +488,17 @@ ol.ui.list ol li,
 .ui.selection.list .list > .item:hover,
 .ui.selection.list > .item:hover {
   background: rgba(0, 0, 0, 0.03);
-  color: rgba(32, 33, 36, 0.75);
+  color: rgba(32, 33, 36, 0.85);
 }
 .ui.selection.list .list > .item:active,
 .ui.selection.list > .item:active {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(32, 33, 36, 0.75);
+  color: rgba(32, 33, 36, 0.85);
 }
 .ui.selection.list .list > .item.active,
 .ui.selection.list > .item.active {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(32, 33, 36, 0.88);
+  color: rgba(32, 33, 36, 0.85);
 }
 
 /* Inverted */

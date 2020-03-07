@@ -341,7 +341,7 @@
 .ui.steps a.step:hover::after,
 .ui.steps a.step:hover {
   background: #F9FAFB;
-  color: rgba(32, 33, 36, 0.75);
+  color: rgba(32, 33, 36, 0.85);
 }
 
 /* Link Down */
@@ -350,7 +350,7 @@
 .ui.steps a.step:active::after,
 .ui.steps a.step:active {
   background: #F3F4F5;
-  color: rgba(32, 33, 36, 0.75);
+  color: rgba(32, 33, 36, 0.85);
 }
 
 /* Active */

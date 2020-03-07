@@ -128,7 +128,7 @@
 .ui.styled.accordion .accordion .title {
   margin: 0;
   padding: 0.75em 1em;
-  color: rgba(32, 33, 36, 0.5);
+  color: rgba(32, 33, 36, 0.6);
   font-weight: 400;
   border-top: 1px solid #dee4e7;
   -webkit-transition: background 250ms ease, color 250ms ease;
@@ -167,11 +167,11 @@
 /* Active */
 .ui.styled.accordion .active.title {
   background: transparent;
-  color: rgba(32, 33, 36, 0.88);
+  color: rgba(32, 33, 36, 0.85);
 }
 .ui.styled.accordion .accordion .active.title {
   background: transparent;
-  color: rgba(32, 33, 36, 0.88);
+  color: rgba(32, 33, 36, 0.85);
 }
 
 

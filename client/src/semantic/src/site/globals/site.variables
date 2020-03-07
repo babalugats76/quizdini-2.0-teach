@@ -46,11 +46,15 @@
 /*-------------------
   Text Colors, etc.
 --------------------*/
+@darkTextColor               : rgba(0, 0, 0, 0.85);
+@mutedTextColor              : rgba(0, 0, 0, 0.6);
+@lightTextColor              : rgba(0, 0, 0, 0.4);
 @textColor                   : rgba(32, 33, 36, 0.75);
-@unselectedTextColor         : rgba(32, 33, 36, 0.5);
-@hoveredTextColor            : rgba(32, 33, 36, 0.75);
-@pressedTextColor            : rgba(32, 33, 36, 0.75);
-@selectedTextColor           : rgba(32, 33, 36, .88);
+@unselectedTextColor         : rgba(32, 33, 36, 0.6);
+@hoveredTextColor            : rgba(32, 33, 36, 0.85);
+@pressedTextColor            : rgba(32, 33, 36, 0.85);
+@selectedTextColor           : rgba(32, 33, 36, 0.85);
+@labelTextColor              : @mutedTextColor;
 
 @bold                        : 400;
 
@@ -72,6 +76,7 @@
 @lavenderMistTransLight : rgba(240, 218, 255, .4); 
 @lemonChiffon           : rgba(255, 250, 204);
 @liberty                : rgba(74, 88, 153, 1);
+@mikadoYellow           : rgba(255, 190, 11, 1);
 @navyPurple             : rgba(170, 84, 255, 1);
 @navyPurpleTrans        : rgba(170, 84, 255, .5);
 @periwinkle             : rgba(204, 226, 255, 1);
@@ -117,12 +122,11 @@
 @solidBorderColor           : @platinum;
 @captionColor               : @pixiePowder; 
 @dropCapColor               : @secondaryColor;
-@dropHoveredItemBackground  : @periwinkle;
-@dropHoveredItemColor       : @textColor;
+@dropHoveredItemBackground  : @indigo;
+@dropHoveredItemColor       : @white;
 @emphasisColor              : @grape;
-@fieldFocusBackground       : @periwinkleTransLight;
-@fieldFocusBorderColor      : @periwinkle;
-@fieldFocusBoxShadow        : none;
+@fieldFocusBackground       : rgba(238, 232, 170, 0.08); /* light palegoldenrod */
+@fieldFocusBorderColor      : @mikadoYellow;
 @inputBackground            : @white;
 @invertedMenuColor          : @zaffre;
 @linkColor                  : @bleuDeFrance;
@@ -138,26 +142,27 @@
 /*-------------------
   Borders & Shadows
 --------------------*/
-@segmentBorderWidth: 1px;
-@subtleShadow: 0 0 @3px 0 rgba(0, 0, 0,.12);
-@bottomBoxShadow: 0 @3px 3px 0 rgba(0, 0, 0, .06);
-@floatingShadow: 0 @3px @3px 0 rgba(0, 0, 0, .06), 0 0 @3px 0 rgba(0, 0, 0, .12);
-@popupBoxShadow: 0 @3px @7px rgba(0, 0, 0, .3);
+@segmentBorderWidth         : 1px;
+@subtleShadow               : 0 0 @3px 0 rgba(0, 0, 0,.12);
+@bottomBoxShadow            : 0 @3px 3px 0 rgba(0, 0, 0, .06);
+@floatingShadow             : 0 @3px @3px 0 rgba(0, 0, 0, .06), 0 0 @3px 0 rgba(0, 0, 0, .12);
+@popupBoxShadow             : 0 @3px @7px rgba(0, 0, 0, .3);
+@fieldFocusBoxShadow        : none;
 
 /*-------------------
   Padding & Margin
 --------------------*/
-@inputVerticalPadding: @relative9px;
-@segmentPaddingVertical: @relative16px; 
-@segmentPaddingHorizontal: @relative16px;
-@paddedSegmentVertical: @relative32px;
-@paddedSegmentHorizontal: @relative32px;
-@mobilePaddedSegmentVertical: @relative16px;
-@mobilePaddedSegmentHorizontal: @relative16px;
-@veryPaddedSegmentVertical: @relative48px;
-@veryPaddedSegmentHorizontal: @relative48px;
-@mobileVeryPaddedSegmentVertical: @relative24px;
-@mobileVeryPaddedSegmentHorizontal: @relative24px;
+@inputVerticalPadding                : @relative9px;
+@segmentPaddingVertical              : @relative16px; 
+@segmentPaddingHorizontal            : @relative16px;
+@paddedSegmentVertical               : @relative32px;
+@paddedSegmentHorizontal             : @relative32px;
+@mobilePaddedSegmentVertical         : @relative16px;
+@mobilePaddedSegmentHorizontal       : @relative16px;
+@veryPaddedSegmentVertical           : @relative48px;
+@veryPaddedSegmentHorizontal         : @relative48px;
+@mobileVeryPaddedSegmentVertical     : @relative24px;
+@mobileVeryPaddedSegmentHorizontal   : @relative24px;
 
 /*-------------------
        Borders
@@ -167,10 +172,10 @@
 /*-------------------
     Scroll Bars
 --------------------*/
-@useCustomScrollbars: true; 
-@customScrollbarWidth: @16px;
-@customScrollbarHeight: @16px;
-@thumbBorderRadius: @3px;
+@useCustomScrollbars   : true; 
+@customScrollbarWidth  : @16px;
+@customScrollbarHeight : @16px;
+@thumbBorderRadius     : @3px;
 
 /*-------------------
        States

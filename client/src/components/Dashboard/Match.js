@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Card, Divider, Segment, Transition } from 'semantic-ui-react';
+import { Card, Segment, Transition } from 'semantic-ui-react';
 import { useTimeout } from '../../hooks';
 import { Button, Icon, Label, RouterButton } from '../UI';
 import { copyToClipboard } from './utils';

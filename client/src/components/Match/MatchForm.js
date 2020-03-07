@@ -1,14 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Formik } from 'formik';
-import {
-  Breadcrumb,
-  Form,
-  Grid,
-  Responsive,
-  Segment,
-  Tab,
-  BreadcrumbDivider
-} from 'semantic-ui-react';
+import { Form, Grid, Responsive, Segment, Tab } from 'semantic-ui-react';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { useResult } from '../../hooks/';
@@ -16,7 +8,7 @@ import { Button, IconDropdown, InputText, Message, Notify } from '../UI/';
 import HtmlSerializer from './HtmlSerializer';
 import MatchAdd from './MatchAdd';
 import MatchBulk from './MatchBulk';
-import FlexTable from './FlexTable';
+import MatchTable from './MatchTable';
 import { matchToString, parseMatch } from './utils';
 //import DisplayFormikState from "../UI/FormikHelper";
 
@@ -184,17 +176,6 @@ const MatchForm = props => {
     setState(prevState => {
       return { ...prevState, activePage };
     });
-  };
-
-  /**
-   * Update state with new value for the active page in match paginator
-   *
-   * @param {Event} event Event to handle
-   * @param {Object} data Contains all form data and props, including activePage
-   */
-  const handlePageChange = (event, data) => {
-    event.preventDefault();
-    setActivePage(data.activePage);
   };
 
   /**
@@ -826,8 +807,8 @@ const MatchForm = props => {
                     />
                   </Grid.Column>
                   <Grid.Column id="table-panel">
-                    <FlexTable
-                      columns={['', 'Term', 'Description']}
+                    <MatchTable
+                      columns={['', 'Term', 'Definition']}
                       disabled={disabled}
                       error={errors.matches}
                       id="match-table"
