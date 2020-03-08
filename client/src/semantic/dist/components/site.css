@@ -628,6 +628,10 @@ table.flex-table tr {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -639,20 +643,14 @@ table.flex-table tr th {
       -ms-flex: 1;
           flex: 1;
   color: rgba(32, 33, 36, 0.75);
+  -ms-flex-item-align: center;
+      align-self: center;
 }
-table.flex-table tr td {
-  padding: 0.625em 0 0.625em 0.875em;
-}
-table.flex-table tr td:last-child {
-  padding: 0.625em 0.875em;
-}
-table.flex-table tr th {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  padding: 1em 0 1em 0.875em;
-}
+table.flex-table tr td:first-child,
+table.flex-table tr th:first-child,
+table.flex-table tr td:last-child,
 table.flex-table tr th:last-child {
-  padding: 1em 0.875em;
+  padding: 0.625em;
 }
 table.flex-table thead > tr {
   overflow-x: hidden;
@@ -660,6 +658,9 @@ table.flex-table thead > tr {
 table.flex-table thead > tr th {
   text-align: left;
   font-weight: 400;
+}
+table.flex-table thead > tr:first-child th:not(:last-child) {
+  padding-bottom: 0.125em;
 }
 table.flex-table thead {
   margin-right: 0px;
@@ -679,45 +680,18 @@ table.flex-table tfoot {
   display: block;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
-table.flex-table tfoot tr td,
-table.flex-table tfoot tr th {
-  padding: 1em 1.5em;
-}
-#match-table thead tr td:nth-child(1),
-#match-table tbody tr td:nth-child(1),
-#match-table thead tr th:nth-child(1),
-#match-table tbody tr th:nth-child(1) {
-  text-align: center;
-  border-right: none;
-}
-#match-table thead tr td:nth-child(1) button,
-#match-table tbody tr td:nth-child(1) button,
-#match-table thead tr th:nth-child(1) button,
-#match-table tbody tr th:nth-child(1) button {
-  margin: auto;
-}
-#match-table thead tr td:nth-child(2),
-#match-table tbody tr td:nth-child(2),
-#match-table thead tr th:nth-child(2),
-#match-table tbody tr th:nth-child(2) {
-  -webkit-box-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
-}
-#match-table thead tr td:nth-child(3),
-#match-table tbody tr td:nth-child(3),
-#match-table thead tr th:nth-child(3),
-#match-table tbody tr th:nth-child(3) {
-  -webkit-box-flex: 6;
-      -ms-flex: 6;
-          flex: 6;
-}
 #match-table thead tr:nth-child(1) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 #match-table thead tr:nth-child(1) th {
   font-family: 'marcher-semibold', sans-serif;
   color: #1B1C1D;
+}
+#match-table thead tr:nth-child(1) th:first-child {
+  display: none;
+}
+#match-table thead tr:nth-child(1) th:nth-child(2) {
+  padding: 0.625em 0.625em 0.125em;
 }
 #match-table thead tr:nth-child(2) {
   font-size: 0.9375em;
@@ -1825,14 +1799,73 @@ table.flex-table tfoot tr th {
   .page-wrapper > #content > .page {
     padding: 1.75rem 1rem;
   }
+  .content-wrapper {
+    padding: 0 5%;
+  }
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
     margin-top: 1rem;
+  }
+  table.flex-table tr {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  table.flex-table tr td {
+    padding: 0.625em 0 0.625em 0.875em;
+  }
+  table.flex-table tr td:last-child {
+    padding: 0.625em 0.875em;
+  }
+  table.flex-table tr th {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    padding: 1em 0 1em 0.875em;
+  }
+  table.flex-table tr th:last-child {
+    padding: 1em 0.875em;
+  }
+  table.flex-table tfoot tr td,
+  table.flex-table tfoot tr th {
+    padding: 1em 1.5em;
   }
   #match-table {
     /*height: 480px;*/
   }
-  .content-wrapper {
-    padding: 0 5%;
+  #match-table thead tr td:nth-child(1),
+  #match-table tbody tr td:nth-child(1),
+  #match-table thead tr th:nth-child(1),
+  #match-table tbody tr th:nth-child(1) {
+    text-align: center;
+    border-right: none;
+  }
+  #match-table thead tr td:nth-child(1) button,
+  #match-table tbody tr td:nth-child(1) button,
+  #match-table thead tr th:nth-child(1) button,
+  #match-table tbody tr th:nth-child(1) button {
+    margin: auto;
+  }
+  #match-table thead tr td:nth-child(2),
+  #match-table tbody tr td:nth-child(2),
+  #match-table thead tr th:nth-child(2),
+  #match-table tbody tr th:nth-child(2) {
+    -webkit-box-flex: 3;
+        -ms-flex: 3;
+            flex: 3;
+  }
+  #match-table thead tr td:nth-child(3),
+  #match-table tbody tr td:nth-child(3),
+  #match-table thead tr th:nth-child(3),
+  #match-table tbody tr th:nth-child(3) {
+    -webkit-box-flex: 6;
+        -ms-flex: 6;
+            flex: 6;
+  }
+  #match-table thead tr:nth-child(1) th:first-child {
+    display: block;
+  }
+  #match-table thead tr:nth-child(1) th:nth-child(2) {
+    padding: 1em 0 1em 0.875em;
   }
   .ui.grid > #match-edit-header.row > .column {
     -webkit-box-orient: horizontal;

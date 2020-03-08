@@ -304,7 +304,7 @@ svg {
     path {
       fill: @headerTextColor;
     }
-  } 
+  }
 }
 
 /*-------------------
@@ -471,24 +471,16 @@ table {
     }
     tr {
       display: flex;
+      flex-direction: column;
       align-items: center;
       td,
       th {
         display: block;
         flex: 1;
         color: @textColor;
-      }
-      td {
-        padding: @relative10px 0 @relative10px @relative14px;
-        &:last-child {
-          padding: @relative10px @relative14px;
-        }
-      }
-      th {
-        align-self: flex-end;
-        padding: @relative16px 0 @relative16px @relative14px;
-        &:last-child {
-          padding: @relative16px @relative14px;
+        align-self: center;
+        &:first-child, &:last-child {
+          padding: @relative10px;
         }
       }
     }
@@ -497,6 +489,13 @@ table {
       th {
         text-align: left;
         font-weight: 400;
+      }
+      &:first-child {
+        th {
+          &:not(:last-child) {
+            padding-bottom: @relative2px;
+          }
+        }
       }
     }
     thead {
@@ -514,38 +513,11 @@ table {
     tfoot {
       display: block;
       border-top: 1px solid @veryStrongTransparentBlack;
-      tr {
-        td,
-        th {
-          padding: @relative16px @relative24px;
-        }
-      }
     }
   }
 }
 
 #match-table {
-  thead,
-  tbody {
-    tr {
-      td,
-      th {
-        &:nth-child(1) {
-          text-align: center;
-          border-right: none;
-          button {
-            margin: auto;
-          }
-        }
-        &:nth-child(2) {
-          flex: 3;
-        }
-        &:nth-child(3) {
-          flex: 6;
-        }
-      }
-    }
-  }
   thead {
     tr {
       &:nth-child(1) {
@@ -553,6 +525,12 @@ table {
         th {
           font-family: @tableHeaderFont;
           color: @black;
+          &:first-child {
+            display: none;
+          }
+          &:nth-child(2) {
+            padding: @relative10px @relative10px @relative2px;
+          }     
         }
       }
       &:nth-child(2) {
@@ -1724,16 +1702,80 @@ table {
     padding: @pagePadding;
   }
 
+  .content-wrapper {
+    padding: 0 5%;
+  }
+
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
     margin-top: @16px;
   }
 
-  #match-table {
-    /*height: 480px;*/
+  table {
+    &.flex-table {
+      tr {
+        flex-direction: row;
+        td {
+          padding: @relative10px 0 @relative10px @relative14px;
+          &:last-child {
+            padding: @relative10px @relative14px;
+          }
+        }
+        th {
+          align-self: flex-end;
+          padding: @relative16px 0 @relative16px @relative14px;
+          &:last-child {
+            padding: @relative16px @relative14px;
+          }
+        }
+      }
+      tfoot {
+        tr {
+          td,
+          th {
+            padding: @relative16px @relative24px;
+          }
+        }
+      }
+    }
   }
 
-  .content-wrapper {
-    padding: 0 5%;
+  #match-table {
+    /*height: 480px;*/
+    thead,
+    tbody {
+      tr {
+        td,
+        th {
+          &:nth-child(1) {
+            text-align: center;
+            border-right: none;
+            button {
+              margin: auto;
+            }
+          }
+          &:nth-child(2) {
+            flex: 3;
+          }
+          &:nth-child(3) {
+            flex: 6;
+          }
+        }
+      }
+    }
+    thead { 
+      tr { 
+        &:nth-child(1) {
+          th { 
+            &:first-child {
+              display: block;
+            }
+            &:nth-child(2) {
+              padding: @relative16px 0 @relative16px @relative14px;
+            }  
+          }
+        }
+      }
+    }
   }
 
   .ui.grid > #match-edit-header.row > .column {

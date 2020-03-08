@@ -34,9 +34,6 @@
     - Finish Attribution
   - MatchForm
     - Increase allowable size for `title` (will clamp everywhere)
-    - Continue Development of Flex Table
-      - Develop what it should look like on mobile
-      - Make CSS changes, i.e., add to media queries, etc.
   - MatchStats
     - Change layout to resemble Stats
     - Create `Match Header` which includes `title` and `options` info
