@@ -205,7 +205,7 @@ ol.ui.list ol li,
 .ui.list > a.item > i.icons,
 .ui.list .list > a.item > i.icon,
 .ui.list > a.item > i.icon {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.35);
 }
 
 /* Header Link */
@@ -436,15 +436,15 @@ ol.ui.list ol li,
 }
 .ui.link.list.list a.item:hover,
 .ui.link.list.list .item a:not(.ui):hover {
-  color: rgba(32, 33, 36, 0.85);
+  color: rgba(32, 33, 36, 0.9);
 }
 .ui.link.list.list a.item:active,
 .ui.link.list.list .item a:not(.ui):active {
-  color: rgba(32, 33, 36, 0.85);
+  color: rgba(32, 33, 36, 0.9);
 }
 .ui.link.list.list .active.item,
 .ui.link.list.list .active.item a:not(.ui) {
-  color: rgba(32, 33, 36, 0.85);
+  color: rgba(32, 33, 36, 0.9);
 }
 
 /* Inverted */
@@ -488,17 +488,17 @@ ol.ui.list ol li,
 .ui.selection.list .list > .item:hover,
 .ui.selection.list > .item:hover {
   background: rgba(0, 0, 0, 0.03);
-  color: rgba(32, 33, 36, 0.85);
+  color: rgba(32, 33, 36, 0.9);
 }
 .ui.selection.list .list > .item:active,
 .ui.selection.list > .item:active {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(32, 33, 36, 0.85);
+  color: rgba(32, 33, 36, 0.9);
 }
 .ui.selection.list .list > .item.active,
 .ui.selection.list > .item.active {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(32, 33, 36, 0.85);
+  color: rgba(32, 33, 36, 0.9);
 }
 
 /* Inverted */

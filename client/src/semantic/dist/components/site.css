@@ -458,6 +458,9 @@ svg.icon.chevron-down.closed {
 .ui.primary svg.icon path {
   fill: #FFFFFF;
 }
+.ui.header svg.icon path {
+  fill: #545454;
+}
 
 /*-------------------
   Feedback
@@ -597,7 +600,7 @@ table.striped tbody > tr:nth-of-type(odd) {
   color: black;
 }
 table.striped tbody > tr:nth-of-type(even) {
-  background-color: rgba(244, 244, 244, 0.13);
+  background-color: rgba(244, 244, 244, 0.4);
 }
 table.flex-table {
   display: -webkit-box;
@@ -752,7 +755,7 @@ table.flex-table tfoot tr th {
 }
 #match-table tfoot tr th .max,
 #match-table tfoot tr td .max {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.35);
 }
 #match-table tfoot tr th .at-max,
 #match-table tfoot tr td .at-max {
@@ -1391,11 +1394,12 @@ table.flex-table tfoot tr th {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  font-size: 1.125em;
-  line-height: 1.125em;
-  color: #1B1C1D;
   height: 2.25em;
   overflow: hidden;
+  line-height: 1.125em;
+  font-size: 1.125em;
+  color: rgba(0, 0, 0, 0.85);
+  font-family: 'marcher-bold', sans-serif;
 }
 .ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label:not(:last-child) {
   margin: 0.5em 0;
@@ -1419,11 +1423,11 @@ table.flex-table tfoot tr th {
 }
 .ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label .detail {
   margin-left: 0;
-  color: #767676;
+  color: rgba(0, 0, 0, 0.6);
   font-family: 'marcher-book', sans-serif;
 }
 .ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label svg.icon path {
-  fill: #767676;
+  fill: rgba(0, 0, 0, 0.6);
 }
 .ui.cards .ui.card.match-card .content.card-header > .card-badge {
   -webkit-box-flex: 0;
@@ -1600,7 +1604,8 @@ table.flex-table tfoot tr th {
 }
 #game-panel > #panes > #pane-menu .item {
   border-width: 0.25rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.35);
+  font-family: 'marcher-semibold', sans-serif;
   -webkit-transition: all 250ms defaultEasing;
   transition: all 250ms defaultEasing;
 }
@@ -1637,7 +1642,7 @@ table.flex-table tfoot tr th {
   text-align: center;
 }
 #rich-match-editor .rich-text-editor:focus {
-  border-color: #ffbe0b;
+  border-color: rgba(113, 28, 255, 0.25);
   color: rgba(0, 0, 0, 0.85);
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -1672,7 +1677,7 @@ table.flex-table tfoot tr th {
   height: 1.125em;
 }
 #rich-match-editor .format-toolbar button svg.icon path {
-  fill: rgba(0, 0, 0, 0.4);
+  fill: rgba(0, 0, 0, 0.35);
 }
 #rich-match-editor .input-feedback {
   margin: 0;
@@ -1710,7 +1715,7 @@ table.flex-table tfoot tr th {
   margin-top: 1rem;
   line-height: 1.4;
   font-family: 'marcher-book', sans-serif;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.35);
 }
 
 /*-------------------
@@ -1779,8 +1784,8 @@ table.flex-table tfoot tr th {
 }
 .StripeElement--focus {
   color: rgba(0, 0, 0, 0.85);
-  background: rgba(238, 232, 170, 0.08);
-  border-color: #ffbe0b;
+  background: #FFFFFF;
+  border-color: rgba(113, 28, 255, 0.25);
 }
 .StripeElement--invalid {
   background: #fff6f6;

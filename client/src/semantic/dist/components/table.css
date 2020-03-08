@@ -550,7 +550,7 @@
 .ui.definition.table tr td.definition {
   background: rgba(0, 0, 0, 0.03);
   font-weight: 400;
-  color: rgba(32, 33, 36, 0.85);
+  color: rgba(32, 33, 36, 0.9);
   text-transform: '';
   -webkit-box-shadow: '';
           box-shadow: '';
@@ -1023,7 +1023,7 @@
 .ui.ui.selectable.table > tbody > tr:hover,
 .ui.table tbody tr td.selectable:hover {
   background: rgba(0, 0, 0, 0.05);
-  color: rgba(32, 33, 36, 0.85);
+  color: rgba(32, 33, 36, 0.9);
 }
 .ui.ui.selectable.inverted.table > tbody > tr:hover,
 .ui.inverted.table tbody tr td.selectable:hover {
@@ -1146,7 +1146,7 @@
 /* Allow striped active hover */
 .ui.striped.selectable.selectable.selectable.table tbody tr.active:hover {
   background: #EFEFEF;
-  color: rgba(32, 33, 36, 0.85);
+  color: rgba(32, 33, 36, 0.9);
 }
 
 /*--------------
@@ -1899,7 +1899,7 @@
   color: rgba(40, 40, 40, 0.3);
 }
 .ui.sortable.table > thead > tr > th:hover {
-  color: rgba(32, 33, 36, 0.85);
+  color: rgba(32, 33, 36, 0.9);
 }
 .ui.sortable.table:not(.basic) > thead > tr > th:hover {
   background: rgba(0, 0, 0, 0.05);
@@ -1907,7 +1907,7 @@
 
 /* Sorted */
 .ui.sortable.table thead th.sorted {
-  color: rgba(32, 33, 36, 0.85);
+  color: rgba(32, 33, 36, 0.9);
 }
 .ui.sortable.table:not(.basic) thead th.sorted {
   background: rgba(0, 0, 0, 0.05);
@@ -1918,7 +1918,7 @@
 
 /* Sorted Hover */
 .ui.sortable.table thead th.sorted:hover {
-  color: rgba(32, 33, 36, 0.85);
+  color: rgba(32, 33, 36, 0.9);
 }
 .ui.sortable.table:not(.basic) thead th.sorted:hover {
   background: rgba(0, 0, 0, 0.05);

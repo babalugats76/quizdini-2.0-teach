@@ -299,6 +299,14 @@ svg {
   }
 }
 
+.ui.header {
+  svg.icon {
+    path {
+      fill: @headerTextColor;
+    }
+  } 
+}
+
 /*-------------------
   Feedback
 --------------------*/
@@ -1265,11 +1273,12 @@ table {
             .header {
               display: flex;
               align-items: flex-start;
-              font-size: @relative18px;
-              line-height: @relative18px;
-              color: @black;
               height: @relative36px;
               overflow: hidden;
+              line-height: @relative18px;
+              font-size: @relative18px;
+              color: @darkTextColor;
+              font-family: @boldFont;
             }
             .description {
               .ui.label:not(:last-child) {
@@ -1289,12 +1298,12 @@ table {
                 line-height: @relative15px;
                 .detail {
                   margin-left: 0;
-                  color: @grey;
+                  color: @labelTextColor;
                   font-family: @marcherBook;
                 }
                 svg.icon {
                   path {
-                    fill: @grey;
+                    fill: @labelTextColor;
                   }
                 }
               }
@@ -1472,7 +1481,8 @@ table {
       margin-bottom: 0 !important;
       .item {
         border-width: @4px;
-        color: @mutedTextColor;
+        color: @lightTextColor;
+        font-family: @semiBoldFont;
         transition: all @defaultDuration defaultEasing;
         &.active {
           color: @black;

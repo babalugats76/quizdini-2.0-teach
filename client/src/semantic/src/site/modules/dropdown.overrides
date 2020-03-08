@@ -7,5 +7,5 @@
 }
 
 .ui.dropdown {
-  font-family: @formInputFont;
+  font-family: @dropdownFont;
 }

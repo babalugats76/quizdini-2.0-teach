@@ -12,6 +12,7 @@
 @marcherRegular         : 'marcher-regular', sans-serif;
 @marcherMedium          : 'marcher-medium', sans-serif;
 @marcherSemiBold        : 'marcher-semibold', sans-serif;
+@marcherBold            : 'marcher-bold', sans-serif;
 @marcherExtraBold       : 'marcher-extrabold', sans-serif;
 @marcherExtraBoldItalic : 'marcher-extrabolditalic', sans-serif;
 @monospaceFont          : 'Consolas', 'Droid Sans Mono', 'Lucida Console', 'Liberation Mono', monospace;
@@ -21,18 +22,21 @@
 // Override Semantic Global Values
 @bookFont               : @systemFont;
 @semiBoldFont           : @marcherSemiBold;
+@boldFont               : @marcherBold;
 @extraBoldFont          : @marcherExtraBold;
 @extraBoldItalicFont    : @marcherExtraBoldItalic;
 @fantasyFont            : @fantasy;
 @fontName               : @marcherRegular;
+
+@dropdownFont           : @marcherMedium;
 @formInputFont          : @marcherRegular;
 @headerFont             : @marcherMedium;
 @tableHeaderFont        : @marcherSemiBold;
 @menuFont               : @marcherRegular;
 @pageFont               : @marcherRegular;
 @textareaFont           : @systemFont;
-
 @dropCapFont            : @headerFont;
+
 @googleFontFamily       : 'Lexend+Deca';
 @googleFontRequest      : '@{googleFontFamily}&subset=@{googleSubset}&display=@{googleFontDisplay}';
 @importGoogleFonts      : false; /* Make false because self-hosting */
@@ -48,13 +52,16 @@
 --------------------*/
 @darkTextColor               : rgba(0, 0, 0, 0.85);
 @mutedTextColor              : rgba(0, 0, 0, 0.6);
-@lightTextColor              : rgba(0, 0, 0, 0.4);
+@lightTextColor              : rgba(0, 0, 0, 0.35);
+
 @textColor                   : rgba(32, 33, 36, 0.75);
 @unselectedTextColor         : rgba(32, 33, 36, 0.6);
-@hoveredTextColor            : rgba(32, 33, 36, 0.85);
-@pressedTextColor            : rgba(32, 33, 36, 0.85);
-@selectedTextColor           : rgba(32, 33, 36, 0.85);
+@hoveredTextColor            : rgba(32, 33, 36, .9);
+@pressedTextColor            : rgba(32, 33, 36, .9);
+@selectedTextColor           : rgba(32, 33, 36, .9);
+
 @labelTextColor              : @mutedTextColor;
+@headerTextColor             : @lightBlack;
 
 @bold                        : 400;
 
@@ -122,17 +129,17 @@
 @solidBorderColor           : @platinum;
 @captionColor               : @pixiePowder; 
 @dropCapColor               : @secondaryColor;
-@dropHoveredItemBackground  : @indigo;
+@dropHoveredItemBackground  : @primaryColor;
 @dropHoveredItemColor       : @white;
 @emphasisColor              : @grape;
-@fieldFocusBackground       : rgba(238, 232, 170, 0.08); /* light palegoldenrod */
-@fieldFocusBorderColor      : @mikadoYellow;
+@fieldFocusBackground       : @white;
+@fieldFocusBorderColor      : @indigoTransLight;
 @inputBackground            : @white;
 @invertedMenuColor          : @zaffre;
 @linkColor                  : @bleuDeFrance;
 @pageBackground             : #f4f4f4;          
 @spinnerColor               : @navyPurple;
-@stripedBackground          : rgba(244, 244, 244, 0.13);
+@stripedBackground          : rgba(244, 244, 244, 0.4);
 @strongColor                : @secondaryColor;
 @summaryActiveColor         : @violet;
 @summaryHoverColor          : @secondaryColor;
