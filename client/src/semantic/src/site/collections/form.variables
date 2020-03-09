@@ -8,5 +8,8 @@
 @inputFocusBoxShadow: @fieldFocusBoxShadow;
 @inputFocusColor: @selectedTextColor;
 @labelColor: @labelTextColor;
+@labelFontSize: @relative13px;
+@labelFontWeight: 400;
+@labelTextTransform: uppercase;
 @textAreaFocusBackground: @fieldFocusBackground;
 @textAreaFocusBorderColor: @fieldFocusBorderColor;

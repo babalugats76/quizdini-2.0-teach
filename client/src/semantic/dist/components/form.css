@@ -56,10 +56,10 @@
 .ui.form .field > label {
   display: block;
   margin: 0 0 0.25rem 0;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 0.9375em;
+  color: #90999e;
+  font-size: 0.8125em;
   font-weight: 400;
-  text-transform: none;
+  text-transform: uppercase;
 }
 
 /*--------------------
@@ -100,7 +100,7 @@
 .ui.form input[type="text"],
 .ui.form input[type="file"],
 .ui.form input[type="url"] {
-  font-family: 'marcher-regular', sans-serif;
+  font-family: 'marcher-medium', sans-serif;
   margin: 0;
   outline: none;
   -webkit-appearance: none;
@@ -110,7 +110,7 @@
   font-size: 1em;
   background: #FFFFFF;
   border: 1px solid #dee4e7;
-  color: rgba(32, 33, 36, 0.6);
+  color: rgba(32, 33, 36, 0.75);
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
@@ -128,14 +128,14 @@
   background: #FFFFFF;
   border: 1px solid #dee4e7;
   outline: none;
-  color: rgba(32, 33, 36, 0.6);
+  color: rgba(32, 33, 36, 0.75);
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
   -webkit-transition: color 250ms ease, border-color 250ms ease;
   transition: color 250ms ease, border-color 250ms ease;
   font-size: 1em;
-  font-family: 'marcher-regular', sans-serif;
+  font-family: 'marcher-medium', sans-serif;
   line-height: 1.2857;
   resize: vertical;
 }
@@ -214,7 +214,7 @@
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
   padding: 0.62em 0.875em;
-  color: rgba(32, 33, 36, 0.6);
+  color: rgba(32, 33, 36, 0.75);
   -webkit-transition: color 250ms ease, border-color 250ms ease;
   transition: color 250ms ease, border-color 250ms ease;
 }
@@ -365,22 +365,22 @@
 
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(224, 224, 227, 0.6);
+  color: rgba(224, 224, 227, 0.75);
 }
 .ui.form :-ms-input-placeholder {
-  color: rgba(224, 224, 227, 0.6) !important;
+  color: rgba(224, 224, 227, 0.75) !important;
 }
 .ui.form ::-moz-placeholder {
-  color: rgba(224, 224, 227, 0.6);
+  color: rgba(224, 224, 227, 0.75);
 }
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(143, 146, 155, 0.6);
+  color: rgba(143, 146, 155, 0.75);
 }
 .ui.form :focus:-ms-input-placeholder {
-  color: rgba(143, 146, 155, 0.6) !important;
+  color: rgba(143, 146, 155, 0.75) !important;
 }
 .ui.form :focus::-moz-placeholder {
-  color: rgba(143, 146, 155, 0.6);
+  color: rgba(143, 146, 155, 0.75);
 }
 
 /*--------------------
@@ -1440,7 +1440,7 @@
 .ui.inverted.form input[type="url"] {
   background: #FFFFFF;
   border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(32, 33, 36, 0.6);
+  color: rgba(32, 33, 36, 0.75);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -1460,10 +1460,10 @@
 }
 .ui.form .grouped.fields > label {
   margin: 0 0 0.25rem 0;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 0.9375em;
+  color: #90999e;
+  font-size: 0.8125em;
   font-weight: 400;
-  text-transform: none;
+  text-transform: uppercase;
 }
 .ui.form .grouped.fields .field,
 .ui.form .grouped.inline.fields .field {
@@ -1695,10 +1695,10 @@
   margin-top: 0;
   margin-bottom: 0;
   vertical-align: baseline;
-  font-size: 0.9375em;
+  font-size: 0.8125em;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.6);
-  text-transform: none;
+  color: #90999e;
+  text-transform: uppercase;
 }
 
 /* Grouped Inline Label */
@@ -1803,7 +1803,7 @@
 /* Use headerForm for form and grid forms */
 .ui.form .field > label,
 .ui.grid .row .column > label {
-  font-family: 'marcher-medium', sans-serif;
+  font-family: 'marcher-regular', sans-serif;
 }
 
 /* Style .ui.grid "required" labels like .ui.form */
@@ -1817,10 +1817,10 @@
 .ui.grid .row .column > label {
   display: block;
   margin: 0 0 0.25rem 0;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 0.9375em;
+  color: #90999e;
+  font-size: 0.8125em;
   font-weight: 400;
-  text-transform: none;
+  text-transform: uppercase;
 }
 
 /* Style textarea text to be initially unselected */

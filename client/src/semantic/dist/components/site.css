@@ -1421,16 +1421,14 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   border: none;
   margin: 0;
   padding: 0;
-  font-size: 0.9375em;
-  line-height: 0.9375em;
 }
 .ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label .detail {
   margin-left: 0;
-  color: rgba(0, 0, 0, 0.6);
+  color: #90999e;
   font-family: 'marcher-book', sans-serif;
 }
 .ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label svg.icon path {
-  fill: rgba(0, 0, 0, 0.6);
+  fill: #90999e;
 }
 .ui.cards .ui.card.match-card .content.card-header > .card-badge {
   -webkit-box-flex: 0;
@@ -1490,11 +1488,6 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 .ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons svg.icon {
   width: 1.25em;
   height: 1.25em;
-}
-.ui.cards .ui.card.match-card .content .ui.label,
-.ui.cards .ui.card.match-card .content .ui.labels,
-.ui.cards .ui.card.match-card .content .label {
-  font-size: 0.9375em;
 }
 @supports (-webkit-line-clamp: 2) {
   .ui.card .card-details .header {
@@ -1606,7 +1599,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   font-family: 'marcher-medium', sans-serif;
   font-size: 0.9375em;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.6);
+  color: #90999e;
   margin: -0.5em 0 0 0.75em;
 }
 #rich-match-editor .rich-text-editor {
@@ -1676,12 +1669,12 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   width: auto;
 }
 #match-options .ui.icon.header > svg > path {
-  fill: rgba(0, 0, 0, 0.6);
+  fill: #90999e;
 }
 #match-options .ui.icon.header > label {
   display: block;
   margin-bottom: 0.5rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: #90999e;
 }
 #match-bulk > textarea {
   position: relative;

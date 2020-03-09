@@ -28,8 +28,9 @@
 @fantasyFont            : @fantasy;
 @fontName               : @marcherRegular;
 
+@labelFont              : @marcherRegular;
 @dropdownFont           : @marcherMedium;
-@formInputFont          : @marcherRegular;
+@formInputFont          : @marcherMedium;
 @headerFont             : @marcherMedium;
 @tableHeaderFont        : @marcherSemiBold;
 @menuFont               : @marcherRegular;
@@ -60,7 +61,7 @@
 @pressedTextColor            : rgba(32, 33, 36, .9);
 @selectedTextColor           : rgba(32, 33, 36, .9);
 
-@labelTextColor              : @mutedTextColor;
+@labelTextColor              : @spanishGray;
 @headerTextColor             : @lightBlack;
 
 @bold                        : 400;
@@ -92,6 +93,7 @@
 @platinum               : rgba(222, 228, 231, 1);
 @spaceCadet             : rgba(26, 28, 87, 1);
 @spaceCadetTransDark    : rgba(26, 28, 87, .9);
+@spanishGray            : rgba(144, 153, 158, 1);
 @turquoise              : rgba(1, 231, 228, 1);
 @violet                 : rgba(87, 65, 155, 1);
 @violetTrans            : rgba(87, 65, 155, .5);

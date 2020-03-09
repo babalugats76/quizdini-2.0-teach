@@ -1284,8 +1284,6 @@ table {
                 border: none;
                 margin: 0;
                 padding: 0;
-                font-size: @relative15px;
-                line-height: @relative15px;
                 .detail {
                   margin-left: 0;
                   color: @labelTextColor;
@@ -1352,11 +1350,6 @@ table {
               height: @relative20px;
             }
           }
-        }
-        .ui.label,
-        .ui.labels,
-        .label {
-          font-size: @relative15px;
         }
       }
     }

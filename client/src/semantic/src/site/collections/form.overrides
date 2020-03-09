@@ -4,7 +4,7 @@
 
 /* Use headerForm for form and grid forms */
 .ui.form .field > label, .ui.grid .row .column > label {
-   font-family: @headerFont;
+   font-family: @labelFont;
 }
 
 /* Style .ui.grid "required" labels like .ui.form */

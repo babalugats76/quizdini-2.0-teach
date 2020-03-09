@@ -2121,18 +2121,16 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   border: none;
   margin: 0;
   padding: 0;
-  font-size: 0.9375em;
-  line-height: 0.9375em;
 }
 
 .ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label .detail {
   margin-left: 0;
-  color: rgba(0, 0, 0, 0.6);
+  color: #90999e;
   font-family: 'marcher-book', sans-serif;
 }
 
 .ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label svg.icon path {
-  fill: rgba(0, 0, 0, 0.6);
+  fill: #90999e;
 }
 
 .ui.cards .ui.card.match-card .content.card-header > .card-badge {
@@ -2203,12 +2201,6 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 .ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons svg.icon {
   width: 1.25em;
   height: 1.25em;
-}
-
-.ui.cards .ui.card.match-card .content .ui.label,
-.ui.cards .ui.card.match-card .content .ui.labels,
-.ui.cards .ui.card.match-card .content .label {
-  font-size: 0.9375em;
 }
 
 @supports (-webkit-line-clamp: 2) {
@@ -2335,7 +2327,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   font-family: 'marcher-medium', sans-serif;
   font-size: 0.9375em;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.6);
+  color: #90999e;
   margin: -0.5em 0 0 0.75em;
 }
 
@@ -2417,13 +2409,13 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 }
 
 #match-options .ui.icon.header > svg > path {
-  fill: rgba(0, 0, 0, 0.6);
+  fill: #90999e;
 }
 
 #match-options .ui.icon.header > label {
   display: block;
   margin-bottom: 0.5rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: #90999e;
 }
 
 #match-bulk > textarea {
@@ -19016,7 +19008,7 @@ img.ui.bordered.image {
   background-color: #E8E8E8;
   background-image: none;
   padding: 0.5833em 0.833em;
-  color: rgba(0, 0, 0, 0.6);
+  color: #90999e;
   text-transform: none;
   font-weight: 400;
   border: 0 solid transparent;
@@ -25186,10 +25178,10 @@ ol.ui.suffixed.list li:before,
 .ui.form .field > label {
   display: block;
   margin: 0 0 0.25rem 0;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 0.9375em;
+  color: #90999e;
+  font-size: 0.8125em;
   font-weight: 400;
-  text-transform: none;
+  text-transform: uppercase;
 }
 
 /*--------------------
@@ -25232,7 +25224,7 @@ ol.ui.suffixed.list li:before,
 .ui.form input[type="text"],
 .ui.form input[type="file"],
 .ui.form input[type="url"] {
-  font-family: 'marcher-regular', sans-serif;
+  font-family: 'marcher-medium', sans-serif;
   margin: 0;
   outline: none;
   -webkit-appearance: none;
@@ -25242,7 +25234,7 @@ ol.ui.suffixed.list li:before,
   font-size: 1em;
   background: #FFFFFF;
   border: 1px solid #dee4e7;
-  color: rgba(32, 33, 36, 0.6);
+  color: rgba(32, 33, 36, 0.75);
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
   box-shadow: 0 0 0 0 transparent inset;
@@ -25261,14 +25253,14 @@ ol.ui.suffixed.list li:before,
   background: #FFFFFF;
   border: 1px solid #dee4e7;
   outline: none;
-  color: rgba(32, 33, 36, 0.6);
+  color: rgba(32, 33, 36, 0.75);
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
   box-shadow: 0 0 0 0 transparent inset;
   -webkit-transition: color 250ms ease, border-color 250ms ease;
   transition: color 250ms ease, border-color 250ms ease;
   font-size: 1em;
-  font-family: 'marcher-regular', sans-serif;
+  font-family: 'marcher-medium', sans-serif;
   line-height: 1.2857;
   resize: vertical;
 }
@@ -25356,7 +25348,7 @@ ol.ui.suffixed.list li:before,
   -webkit-box-shadow: 0 0 0 0 transparent inset;
   box-shadow: 0 0 0 0 transparent inset;
   padding: 0.62em 0.875em;
-  color: rgba(32, 33, 36, 0.6);
+  color: rgba(32, 33, 36, 0.75);
   -webkit-transition: color 250ms ease, border-color 250ms ease;
   transition: color 250ms ease, border-color 250ms ease;
 }
@@ -25518,27 +25510,27 @@ ol.ui.suffixed.list li:before,
 /* browsers require these rules separate */
 
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(224, 224, 227, 0.6);
+  color: rgba(224, 224, 227, 0.75);
 }
 
 .ui.form :-ms-input-placeholder {
-  color: rgba(224, 224, 227, 0.6) !important;
+  color: rgba(224, 224, 227, 0.75) !important;
 }
 
 .ui.form ::-moz-placeholder {
-  color: rgba(224, 224, 227, 0.6);
+  color: rgba(224, 224, 227, 0.75);
 }
 
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(143, 146, 155, 0.6);
+  color: rgba(143, 146, 155, 0.75);
 }
 
 .ui.form :focus:-ms-input-placeholder {
-  color: rgba(143, 146, 155, 0.6) !important;
+  color: rgba(143, 146, 155, 0.75) !important;
 }
 
 .ui.form :focus::-moz-placeholder {
-  color: rgba(143, 146, 155, 0.6);
+  color: rgba(143, 146, 155, 0.75);
 }
 
 /*--------------------
@@ -26714,7 +26706,7 @@ ol.ui.suffixed.list li:before,
 .ui.inverted.form input[type="url"] {
   background: #FFFFFF;
   border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(32, 33, 36, 0.6);
+  color: rgba(32, 33, 36, 0.75);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -26736,10 +26728,10 @@ ol.ui.suffixed.list li:before,
 
 .ui.form .grouped.fields > label {
   margin: 0 0 0.25rem 0;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 0.9375em;
+  color: #90999e;
+  font-size: 0.8125em;
   font-weight: 400;
-  text-transform: none;
+  text-transform: uppercase;
 }
 
 .ui.form .grouped.fields .field,
@@ -27006,10 +26998,10 @@ ol.ui.suffixed.list li:before,
   margin-top: 0;
   margin-bottom: 0;
   vertical-align: baseline;
-  font-size: 0.9375em;
+  font-size: 0.8125em;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.6);
-  text-transform: none;
+  color: #90999e;
+  text-transform: uppercase;
 }
 
 /* Grouped Inline Label */
@@ -27124,7 +27116,7 @@ ol.ui.suffixed.list li:before,
 
 .ui.form .field > label,
 .ui.grid .row .column > label {
-  font-family: 'marcher-medium', sans-serif;
+  font-family: 'marcher-regular', sans-serif;
 }
 
 /* Style .ui.grid "required" labels like .ui.form */
@@ -27140,10 +27132,10 @@ ol.ui.suffixed.list li:before,
 .ui.grid .row .column > label {
   display: block;
   margin: 0 0 0.25rem 0;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 0.9375em;
+  color: #90999e;
+  font-size: 0.8125em;
   font-weight: 400;
-  text-transform: none;
+  text-transform: uppercase;
 }
 
 /* Style textarea text to be initially unselected */
@@ -39024,7 +39016,7 @@ select.ui.dropdown {
   background: #FFFFFF;
   display: inline-block;
   padding: 0.5625em 3.075em 0.5625em 0.875em;
-  color: rgba(32, 33, 36, 0.6);
+  color: rgba(32, 33, 36, 0.75);
   -webkit-box-shadow: none;
   box-shadow: none;
   border: 1px solid #dee4e7;
