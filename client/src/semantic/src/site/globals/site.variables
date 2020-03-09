@@ -204,6 +204,6 @@
 @mediumContainer           : (@largestMobileScreen - (2 * @fontSize));
 @largeContainer            : (@computerBreakpoint - (2 * @fontSize));
 @extraLargeContainer       : (@largeMonitorBreakpoint - (2 * @fontSize));
-@pagePadding               : (@fontSize * 1.5) @fontSize;
+@pagePadding               : (@fontSize * 1.75) @fontSize;
 @mobilePagePadding         : @fontSize;
 @mobileGutter              : 0;
