@@ -6,7 +6,7 @@
 @selectionComputerMaxItems: 5;
 @selectionWidescreenMaxItems: 5;
 
-@selectionTextColor: @unselectedTextColor; 
+@selectionTextColor: @textColor; 
 @selectionFocusBorderColor: @fieldFocusBorderColor;
 @selectionFocusBoxShadow: @fieldFocusBoxShadow;
 @selectionFocusMenuBoxShadow: @fieldFocusBoxShadow;
