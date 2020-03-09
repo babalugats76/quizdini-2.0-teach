@@ -129,19 +129,22 @@ a {
     margin-left: auto;
     margin-right: auto;
     &.small {
-      max-width: @smallContainerWidth;
+      max-width: @smallContainer;
     }
     &.medium {
-      max-width: @mediumContainerWidth;
+      max-width: @mediumContainer;
     }
     &.large {
-      max-width: @largeContainerWidth;
+      max-width: @largeContainer;
+    }
+    &.extra-large {
+      max-width: @extraLargeContainer;
     }
   }
 }
 
 /*-------------------
-  Layout
+  Layout (Page)
 --------------------*/
 
 #quizdini {
@@ -164,7 +167,8 @@ a {
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;
-    margin-top: 72px !important;
+    margin-top: 72px!important;
+    margin-bottom: 28px!important;
     .page {
       max-width: 100%;
       margin-left: auto;
@@ -181,19 +185,40 @@ a {
         width: 100%;
       }
       &.small {
-        max-width: @smallContainerWidth;
+        max-width: @smallContainer;
       }
       &.medium {
-        max-width: @mediumContainerWidth;
+        max-width: @mediumContainer;
       }
       &.large {
-        max-width: @largeContainerWidth;
+        max-width: @largeContainer;
+      }
+      &.extra-large {
+        max-width: @extraLargeContainer;
       }
     }
   }
 
   > footer {
     flex: 0 1 auto;
+  }
+}
+
+/*-------------------
+  Badge
+--------------------*/
+.badge {
+  display: flex;
+  flex: 0 1 auto;
+  justify-content: center;
+  width: @relative56px;
+  height: @relative56px;
+  font-size: @16px;
+  border-radius: 50%;
+  box-shadow: 0 1px 5px rgba(0,0,0,.4);
+  > svg {
+    width: 80% !important;
+    height: auto !important;
   }
 }
 
@@ -239,6 +264,7 @@ a {
 --------------------*/
 
 svg {
+
   width: @relative16px;
   height: @relative16px;
 
@@ -337,11 +363,20 @@ svg {
       flex-direction: row;
       align-items: center;
       background-color: none;
-      padding: @relative8px @relative16px;
-      margin: 0 @relative16px @relative8px 0;
+      padding: @relative8px @relative16px !important;
       border-radius: @absoluteBorderRadius;
-      > .ui.avatar.image svg path {
-        fill: @veryStrongTransparentBlack;
+      margin: 0;
+      &:not(:first-child) {
+        margin-left: @relative8px;
+      }
+      > .badge {
+        width: @relative40px;
+        height: @relative40px;
+        margin-right: @relative5px;
+        box-shadow: none!important;
+        svg path {
+          fill: @veryStrongTransparentBlack;
+        }
       }
       > .content {
         color: @veryStrongTransparentBlack;
@@ -352,11 +387,12 @@ svg {
     }
     > .item:hover {
       background: @subtleTransparentBlack;
+      text-decoration: none;
     }
     > .item.active {
       background: @white;
       border: 1px solid @veryStrongTransparentBlack;
-      > .ui.avatar.image svg path {
+      > .badge svg path {
         fill: @black;
       }
       > .content {
@@ -364,23 +400,6 @@ svg {
         > .header {
           color: @black;
         }
-      }
-    }
-  }
-
-  &.ui.horizontal.list:not(.celled) {
-    > .item:last-child {
-      padding-right: @relative16px;
-      margin-bottom: @relative8px;
-    }
-  }
-
-  &.ui.horizontal.list {
-    > .item {
-      &:first-child,
-      &:last-child {
-        padding-top: @relative8px;
-        padding-bottom: @relative8px;
       }
     }
   }
@@ -442,17 +461,6 @@ svg {
 --------------------*/
 
 table {
-  &.striped {
-    tbody > tr {
-      &:nth-of-type(odd) {
-        background-color: @white;
-        color: black;
-      }
-      &:nth-of-type(even) {
-        background-color: @stripedBackground;
-      }
-    }
-  }
   &.flex-table {
     display: flex;
     flex-direction: column;
@@ -513,6 +521,17 @@ table {
     tfoot {
       display: block;
       border-top: 1px solid @veryStrongTransparentBlack;
+    }
+    &.striped {
+      tbody > tr {
+        &:nth-of-type(odd) {
+          background-color: @white;
+          color: black;
+        }
+        &:nth-of-type(even) {
+          background-color: @stripedBackground;
+        }
+      }
     }
   }
 }
@@ -1012,11 +1031,11 @@ table {
 --------------------*/
 
 /* Additional spacer is needed because of dropdowns */
-#register {
+#account, #register {
   &::after {
     content: '';
     display: block;
-    height: 5rem;
+    height: 100px;
   }
 }
 
@@ -1147,9 +1166,7 @@ table {
 --------------------*/
 
 #profile {
-  .content-wrapper {
-    min-height: 50vh;
-  }
+
   .ui.message {
     margin-bottom: @relative32px;
   }
@@ -1202,12 +1219,7 @@ table {
   #match-game {
     min-height: 330px;
   }
-  #dashboard-menu > .item {
-    > .image > svg {
-      width: @relative40px;
-      height: @relative40px;
-    }
-  }
+
 }
 
 /*-------------------
@@ -1289,19 +1301,8 @@ table {
           }
           > .card-badge {
             flex: 0 0 auto;
-            .circle-badge {
-              display: flex;
-              flex: 0 1 auto;
-              justify-content: center;
+            .badge {
               margin-right: -@relative8px;
-              height: 3.5em;
-              width: 3.5em;
-              border-radius: 50%;
-              box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
-              > svg {
-                width: 80% !important;
-                height: auto !important;
-              }
             }
           }
           .ui.icon.button.trash {
@@ -1691,6 +1692,7 @@ table {
       }
     }
   }
+
 }
 
 @media only screen and (min-width: @tabletBreakpoint) {
@@ -1703,6 +1705,7 @@ table {
   }
 
   .content-wrapper {
+    min-height: calc(50vh);
     padding: 0 5%;
   }
 

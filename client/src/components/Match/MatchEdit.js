@@ -48,7 +48,7 @@ const MatchEdit = props => {
   const showLoader = !initialized && (loading || !game);
 
   return (
-    <Container className="page large" fluid id="match-edit">
+    <Container className="page extra-large" fluid id="match-edit">
       {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
         (showLoader && <Loader />) || (
           <MatchForm

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Container, List, Image } from 'semantic-ui-react';
+import { Container, List } from 'semantic-ui-react';
 import { useAPI, useData, useMessage } from '../../hooks/';
-import { Icon, Loader, Notify } from '../UI/';
+import { Badge, ErrorMessage, Loader, Notify } from '../UI/';
 import Match from './Match';
 
 /***
@@ -111,9 +111,7 @@ const Dashboard = props => {
                 active={activeGameIdx === idx}
                 onClick={() => handleMenuChange(idx)}
               >
-                <Image>
-                  <Icon name={icon} />
-                </Image>
+                <Badge icon={icon} />
                 <List.Content>
                   <List.Header>{title}</List.Header>
                   {credits} credit{credits === 1 ? '' : 's'}
@@ -129,11 +127,11 @@ const Dashboard = props => {
   const showLoader = !initialized && (loading || !data);
 
   return (
-    <Container className="page large" fluid id="dashboard">
-      <div className="content-wrapper">
+    <Container className="page extra-large" fluid id="dashboard">
+      <div className="content-wrapper"> {/* Provides for additional side padding, etc. */}
         {renderMenu(games, state.activeGameIdx)}
-        {message && Notify({ ...message, onDismiss: () => dismissMessage() })}
-        {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
+        {message && <Notify {...message} onDismiss={() => dismissMessage()} />}
+        {(error && <ErrorMessage details={error} />) ||
           (showLoader && <Loader />) ||
           games[state.activeGameIdx].render({
             ...props, // including credits

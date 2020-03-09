@@ -193,16 +193,17 @@
      Transitions
 --------------------*/
 @defaultDuration : 250ms;
-@popupDuration   : 2000ms;
+@popupDuration   : 1500ms;
 @defaultEasing   : ease;
 @popupEasing     : cubic-bezier(0.19, 1, 0.22, 1); /* easeOutExpo */
 
 /*-------------------
     Containers
 --------------------*/
-@smallContainerWidth       : (@tabletBreakpoint - @mobileBreakpoint) - @fontSize;
-@mediumContainerWidth      : (@largestMobileScreen - (2 * @fontSize));
-@largeContainerWidth       : (@largeMonitorBreakpoint - (2 * @fontSize));
-@pagePadding               : @28px @16px;
-@mobilePagePadding         : @16px;
+@smallContainer            : (@tabletBreakpoint - @mobileBreakpoint) - @fontSize;
+@mediumContainer           : (@largestMobileScreen - (2 * @fontSize));
+@largeContainer            : (@computerBreakpoint - (2 * @fontSize));
+@extraLargeContainer       : (@largeMonitorBreakpoint - (2 * @fontSize));
+@pagePadding               : (@fontSize * 1.5) @fontSize;
+@mobilePagePadding         : @fontSize;
 @mobileGutter              : 0;

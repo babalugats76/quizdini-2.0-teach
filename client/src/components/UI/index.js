@@ -1,4 +1,5 @@
 import Accordion from './Accordion';
+import Badge from './Badge';
 import Button from './Button';
 import Checkbox from './Checkbox';
 import Dropdown from './Dropdown';
@@ -26,6 +27,7 @@ import Transition from './Transition';
 
 export {
   Accordion,
+  Badge,
   Button,
   Checkbox,
   Dropdown,

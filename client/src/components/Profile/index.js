@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Route, Switch, matchPath } from 'react-router-dom';
-import { Container, Image, List } from 'semantic-ui-react';
-import { Icon } from '../UI/';
+import { Container, List } from 'semantic-ui-react';
+import { Badge } from '../UI/';
 import Account from './Account';
 import Payment from './Payment';
 import Password from './Password';
@@ -77,9 +77,7 @@ const Profile = ({ match, history, accountType }) => {
                 to={`${basePath}/${path}`}
                 active={path === activePath}
               >
-                <Image avatar>
-                  <Icon name={icon} />
-                </Image>
+                <Badge icon={icon} />
                 <List.Content>
                   <List.Header>{text}</List.Header>
                 </List.Content>
@@ -112,11 +110,9 @@ const Profile = ({ match, history, accountType }) => {
   };
 
   return (
-    <Container as="section" className="page large" id="profile" fluid>
-      <div className="content-wrapper">
-        {renderMenu(accountType)}
-        {renderPage(accountType)}
-      </div>
+    <Container className="page" fluid id="profile">
+      {renderMenu(accountType)}
+      {renderPage(accountType)}
     </Container>
   );
 };

@@ -1,7 +1,12 @@
 import React from 'react';
 import { Message } from 'semantic-ui-react';
 
-const Notify = ({ content = null, header = null, onDismiss = null, severity = null}) => {
+const Notify = ({
+  content = null,
+  header = null,
+  onDismiss = null,
+  severity = null
+}) => {
   return (
     <Message
       header={header}

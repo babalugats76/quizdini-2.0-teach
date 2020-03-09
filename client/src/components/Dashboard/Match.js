@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Segment, Transition } from 'semantic-ui-react';
 import { useTimeout } from '../../hooks';
-import { Button, Icon, Label, RouterButton } from '../UI';
+import { Badge, Button, Label, RouterButton } from '../UI';
 import { copyToClipboard } from './utils';
 const { formatDistanceToNow } = require('date-fns');
 
@@ -147,7 +147,7 @@ const MatchCard = ({ game, onDelete }) => {
             </Card.Description>
           </div>
           <div className="card-badge">
-            <CircleBadge icon="question" />
+            <Badge icon="question" />
           </div>
         </Card.Content>
         <Card.Content className="card-buttons" extra>
@@ -195,12 +195,4 @@ const MatchCard = ({ game, onDelete }) => {
 MatchCard.propTypes = {
   game: PropTypes.any.isRequired,
   onDelete: PropTypes.func.isRequired
-};
-
-const CircleBadge = ({ icon, size }) => {
-  return (
-    <div className="circle-badge">
-      <Icon name={icon} />
-    </div>
-  );
 };

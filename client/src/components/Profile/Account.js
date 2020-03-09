@@ -2,19 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Formik } from 'formik';
-import {
-  Container,
-  Divider,
-  Form,
-  Image,
-  Item,
-  Label,
-  Segment
-} from 'semantic-ui-react';
+import { Container, Divider, Form, Image, Item, Label, Segment } from 'semantic-ui-react';
 import * as Yup from 'yup';
 import * as actions from '../../actions/';
 import { useActions, useReduxData, useResult } from '../../hooks/';
-import { Button, Dropdown, InputText, Loader, Notify } from '../UI/';
+import {
+  Button,
+  Dropdown,
+  ErrorMessage,
+  InputText,
+  Loader,
+  Notify
+} from '../UI/';
 import avatar from '../../avatar.svg';
 
 /***
@@ -28,20 +27,20 @@ const { format } = require('date-fns');
 export default props => {
   // direct redux interactions (persistent)
   const updateAccount = useActions(actions.updateAccount);
-  
+
   const account = useSelector(state => state.account);
   const countries = useSelector(state => state.countries);
   const states = useSelector(state => state.states);
 
   // Redux data
   const fetchItems = [
-    'fetchAccount', // fetch latest account data on mount 
+    'fetchAccount', // fetch latest account data on mount
     ...(!countries.data ? ['fetchCountries'] : []), // conditionally fetch country data
     ...(!states.data ? ['fetchStates'] : []) // conditionally fetch state data
   ];
 
   // Fetch redux data
-  const { errors } = useReduxData({ items: fetchItems, deps: [] });
+  const { errors, hasError } = useReduxData({ items: fetchItems, deps: [] });
 
   // Destructure and rename data
   const { data: countryOptions } = countries;
@@ -50,24 +49,23 @@ export default props => {
 
   // When to show loader
   const showLoader = !user || !countryOptions || !stateOptions;
-  // Conditionally render error, loader, and content - in that order
-  //return <div>Hello, World!</div>;
+
   return (
-    <Container className="medium">
-      {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) ||
-        (showLoader && <Loader />) || (
-          <Segment id="account">
-            <AccountSummary {...user} />
-            <Divider />
-            <AccountForm
-              countryOptions={countryOptions}
-              onUpdate={updateAccount}
-              stateOptions={stateOptions}
-              user={user}
-            />
-          </Segment>
-        )}
-    </Container>
+    (hasError && <ErrorMessage details={errors} />) ||
+    (showLoader && <Loader />) || (
+      <Container className="medium" id="account" fluid>
+        <Segment>
+          <AccountSummary {...user} />
+          <Divider />
+          <AccountForm
+            countryOptions={countryOptions}
+            onUpdate={updateAccount}
+            stateOptions={stateOptions}
+            user={user}
+          />
+        </Segment>
+      </Container>
+    )
   );
 };
 
@@ -202,7 +200,7 @@ const AccountForm = props => {
 
         return (
           <Segment basic>
-            {status && Notify({ ...status, onDismiss: () => setStatus(null) })}
+            {status && <Notify {...status} onDismiss={() => setStatus(null)} />}
             <Form id="account-form" onSubmit={handleSubmit}>
               <Form.Group>
                 <Dropdown
@@ -278,7 +276,7 @@ const AccountForm = props => {
                   tabIndex={5}
                   upward={false}
                   value={values.countryCode}
-                  width={9}
+                  width={8}
                 />
                 {values.countryCode === 'US' && (
                   <Dropdown
@@ -294,7 +292,7 @@ const AccountForm = props => {
                     tabIndex={6}
                     upward={false}
                     value={values.stateCode}
-                    width={5}
+                    width={6}
                   />
                 )}
               </Form.Group>
@@ -306,12 +304,10 @@ const AccountForm = props => {
                   labelPosition="left"
                   loading={isSubmitting}
                   positive={isValid && dirty}
-                  size="large"
                   tabIndex={7}
-                  title="Update"
                   type="submit"
                 >
-                  UPDATE
+                  Update
                 </Button>
               </Form.Group>
             </Form>

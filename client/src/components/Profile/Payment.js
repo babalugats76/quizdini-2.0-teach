@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Segment, Table } from 'semantic-ui-react';
+import { Container, Segment, Table } from 'semantic-ui-react';
 import { useData } from '../../hooks/';
-import { ExternalLink, Loader } from '../UI/';
+import { ErrorMessage, ExternalLink, Loader } from '../UI/';
 
 const { format } = require('date-fns');
 
@@ -16,11 +16,13 @@ export default props => {
   const showLoader = !initialized && (loading || !payments);
 
   return (
-    (error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
+    (error && <ErrorMessage details={error} />) ||
     (showLoader && <Loader />) || (
-      <Segment id="payments">
-        <PaymentTable id="payment-table" payments={payments} />
-      </Segment>
+      <Container className="large" id="payments" fluid>
+        <Segment id="payments">
+          <PaymentTable id="payment-table" payments={payments} />
+        </Segment>
+      </Container>
     )
   );
 };
@@ -45,10 +47,7 @@ const PaymentTable = ({ id, payments }) => {
             </Table.Cell>
             <Table.Cell>{val.description}</Table.Cell>
             <Table.Cell textAlign="center" collapsing>
-              <ExternalLink
-                href={val.receiptUrl}
-                target="_blank"
-              >
+              <ExternalLink href={val.receiptUrl} target="_blank">
                 Receipt
               </ExternalLink>
             </Table.Cell>
