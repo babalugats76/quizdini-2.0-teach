@@ -468,7 +468,7 @@
 .ui.blue.loading.loading.loading.loading .input > i.icon:after,
 .ui.blue.loading.loading.loading.loading > i.icon:after,
 .ui.blue.loader.loader.loader:after {
-  color: #006bdc;
+  color: #2185D0;
 }
 .ui.inverted.blue.elastic.loader:before,
 .ui.inverted.blue.elastic.loading.loading.loading:not(.segment):before,
@@ -490,7 +490,7 @@
 .ui.violet.loading.loading.loading.loading .input > i.icon:after,
 .ui.violet.loading.loading.loading.loading > i.icon:after,
 .ui.violet.loader.loader.loader:after {
-  color: #57419b;
+  color: #6435C9;
 }
 .ui.inverted.violet.elastic.loader:before,
 .ui.inverted.violet.elastic.loading.loading.loading:not(.segment):before,

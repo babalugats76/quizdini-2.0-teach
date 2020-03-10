@@ -9,10 +9,10 @@ import FormikHelper from './FormikHelper';
 import FormStep from './FormStep';
 import Icon from './Icon';
 import IconDropdown from './IconDropdown';
+import IconLabel from './IconLabel';
 import InputFeedback from './InputFeedback';
 import InputFile from './InputFile';
 import InputText from './InputText';
-import Label from './Label';
 import Loader from './Loader';
 import LogoHeader from './LogoHeader';
 import Modal from './Modal';
@@ -37,10 +37,10 @@ export {
   FormStep,
   Icon,
   IconDropdown,
+  IconLabel,
   InputFeedback,
   InputFile,
   InputText,
-  Label,
   Loader,
   LogoHeader,
   Message,

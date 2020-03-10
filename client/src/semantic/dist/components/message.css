@@ -495,35 +495,35 @@
 }
 .ui.blue.message {
   background-color: #DFF0FF;
-  color: #006bdc;
+  color: #2185D0;
 }
 .ui.blue.message,
 .ui.attached.blue.message {
-  -webkit-box-shadow: 0 0 0 0px #006bdc inset, 0 0 0 0 rgba(0, 0, 0, 0);
-          box-shadow: 0 0 0 0px #006bdc inset, 0 0 0 0 rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 0 0 0 0px #2185D0 inset, 0 0 0 0 rgba(0, 0, 0, 0);
+          box-shadow: 0 0 0 0px #2185D0 inset, 0 0 0 0 rgba(0, 0, 0, 0);
 }
 .ui.floating.blue.message {
-  -webkit-box-shadow: 0 0 0 0px #006bdc inset, 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.06), 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 0 0 0px #006bdc inset, 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.06), 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 0 0 0px #2185D0 inset, 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.06), 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0 0 0px #2185D0 inset, 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.06), 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
 }
 .ui.blue.message .header {
-  color: #005fc3;
+  color: #1e77ba;
 }
 .ui.violet.message {
   background-color: #EAE7FF;
-  color: #57419b;
+  color: #6435C9;
 }
 .ui.violet.message,
 .ui.attached.violet.message {
-  -webkit-box-shadow: 0 0 0 0px #57419b inset, 0 0 0 0 rgba(0, 0, 0, 0);
-          box-shadow: 0 0 0 0px #57419b inset, 0 0 0 0 rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 0 0 0 0px #6435C9 inset, 0 0 0 0 rgba(0, 0, 0, 0);
+          box-shadow: 0 0 0 0px #6435C9 inset, 0 0 0 0 rgba(0, 0, 0, 0);
 }
 .ui.floating.violet.message {
-  -webkit-box-shadow: 0 0 0 0px #57419b inset, 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.06), 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 0 0 0px #57419b inset, 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.06), 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 0 0 0px #6435C9 inset, 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.06), 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0 0 0px #6435C9 inset, 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.06), 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
 }
 .ui.violet.message .header {
-  color: #4d3989;
+  color: #5a30b5;
 }
 .ui.purple.message {
   background-color: #F6E7FF;

@@ -223,6 +223,28 @@ a {
 }
 
 /*-------------------
+  Icon Label
+--------------------*/
+label.icon-label {
+  display: flex;
+  align-items: center;
+  flex-basis: 100%;
+  font-family: @iconLabelFont;
+  font-size: @iconLabelFontSize;
+  line-height: 1.5;
+  color: @labelTextColor;
+  svg.icon {
+    path {
+      fill: @labelTextColor;  
+    }
+  }
+  svg.icon + span {
+    margin-top: @relative1px;
+    margin-left: @relative5px;
+  }
+}
+
+/*-------------------
   Menus
 --------------------*/
 
@@ -269,7 +291,7 @@ svg {
   height: @relative16px;
 
   path {
-    transition: fill @defaultDuration @defaultDuration;
+    transition: fill @defaultDuration @defaultEasing;
   }
 
   &.icon {
@@ -339,14 +361,14 @@ svg {
 
 .input-feedback {
   margin-top: @relative8px;
-  font-size: @relative15px;
+  font-size: @fieldFeedbackFontSize;
   &.error {
-    color: @red;
+    color: @errorColor;
   }
 }
 
 .error .label {
-  color: @red;
+  color: @errorColor;
 }
 
 /*-------------------
@@ -572,11 +594,11 @@ table {
         font-size: @relative15px;
         line-height: 1.3125em;
         &:nth-child(2) {
-          font-family: @headerFont;
+          font-family: @mediumFont;
           color: @darkTextColor;
         }
         &:nth-child(3) {
-          font-family: @marcherBook;
+          font-family: @bookFont;
         }
       }
     }
@@ -715,7 +737,7 @@ table {
       }
     }
     &#intro {
-      background-color: @blackTransDark;
+      background-color: @veryStrongTransparentBlack;
       background-size: 25px;
       background-repeat: round;
       background-image: url('/images/question.svg');
@@ -804,15 +826,15 @@ table {
 #terms {
   &.page {
     section {
-      font-family: @bookFont;
+      font-family: @systemFont;
       p {
         font-size: @relative16px;
         &.dropcap:first-letter {
           color: @dropCapColor;
           float: left;
           font-family: @dropCapFont;
-          font-size: 4.7em;
-          line-height: 3em;
+          font-size: 75px;
+          line-height: 50px; 
           padding-top: @12px;
           padding-right: @8px;
           padding-left: @4px;
@@ -1245,16 +1267,13 @@ table {
             .ui.icon.button.trash {
               display: block;
               background-color: @negativeBackgroundColor;
-              opacity: 0.87;
+              opacity: 0.75;
             }
             &.can-delete {
               .ui.icon.button.trash {
-                background-color: @negativeBorderColor;
-                opacity: 0.95;
+                background-color: lighten(@negativeTextColor, 35);
+                opacity: 0.9;
               }
-            }
-            > .card-details {
-              opacity: @disabledOpacity;
             }
           }
           > .card-details {
@@ -1265,36 +1284,11 @@ table {
               align-items: flex-start;
               height: @relative36px;
               overflow: hidden;
+              margin-bottom: @relative10px;
               line-height: @relative18px;
               font-size: @relative18px;
               color: @darkTextColor;
               font-family: @boldFont;
-            }
-            .description {
-              .ui.label:not(:last-child) {
-                margin: @relative8px 0;
-              }
-              .ui.label:first-child {
-                margin-top: @relative16px;
-              }
-              .ui.label {
-                display: flex;
-                align-items: flex-end;
-                background-color: transparent;
-                border: none;
-                margin: 0;
-                padding: 0;
-                .detail {
-                  margin-left: 0;
-                  color: @labelTextColor;
-                  font-family: @marcherBook;
-                }
-                svg.icon {
-                  path {
-                    fill: @labelTextColor;
-                  }
-                }
-              }
             }
           }
           > .card-badge {
@@ -1304,6 +1298,7 @@ table {
             }
           }
           .ui.icon.button.trash {
+            z-index: 2; /* Brings bottom atop card */
             opacity: 0;
             position: absolute;
             border-radius: 0;
@@ -1336,7 +1331,7 @@ table {
                 &.copied {
                   color: @white;
                   background-color: @positiveColor;
-                  font-size: 0.875rem;
+                  font-size: @relative14px;
                   margin: 0;
                   padding: 0;
                 }
@@ -1375,8 +1370,8 @@ table {
 .match-header {
   /* TODO replace with className of icon */
   svg.icon.question {
-    width: 4em;
-    height: 4em;
+    width: @relative64px;
+    height: @relative64px;
   }
   .header.game-title {
     margin: @relative4px 0 @relative8px;
@@ -1451,15 +1446,6 @@ table {
     }
     > #pane-menu {
       margin-bottom: 0 !important;
-      .item {
-        border-width: @4px;
-        color: @lightTextColor;
-        font-family: @semiBoldFont;
-        transition: all @defaultDuration defaultEasing;
-        &.active {
-          color: @black;
-        }
-      }
     }
   }
 }
@@ -1493,6 +1479,12 @@ table {
     background-color: @white;
     color: @unselectedTextColor;
     text-align: center;
+    &#term {
+      font-family: @mediumFont;
+    }
+    &#definition {
+      font-family: @bookFont;
+    }
     &:focus {
       border-color: @fieldFocusBorderColor;
       color: @darkTextColor;
@@ -1565,7 +1557,7 @@ table {
     position: relative;
     font-family: @textareaFont;
     font-size: @relative16px;
-    line-height: 1.5;
+    line-height: 1.6;
     margin-top: @12px;
     height: calc(100% - 100px);
   }
@@ -1711,24 +1703,18 @@ table {
       tr {
         flex-direction: row;
         td {
-          padding: @relative10px 0 @relative10px @relative14px;
-          &:last-child {
-            padding: @relative10px @relative14px;
-          }
+          padding: @relative8px @relative12px!important;
         }
         th {
           align-self: flex-end;
-          padding: @relative16px 0 @relative16px @relative14px;
-          &:last-child {
-            padding: @relative16px @relative14px;
-          }
+          padding: @relative16px @relative12px!important;
         }
       }
       tfoot {
         tr {
           td,
           th {
-            padding: @relative16px @relative24px;
+            padding: @relative16px!important;
           }
         }
       }
@@ -1765,9 +1751,6 @@ table {
             &:first-child {
               display: block;
             }
-            &:nth-child(2) {
-              padding: @relative16px 0 @relative16px @relative14px;
-            }  
           }
         }
       }

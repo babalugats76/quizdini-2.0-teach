@@ -1,7 +1,14 @@
 /*******************************
     User Variable Overrides
 *******************************/
-@invertedBackground: @invertedMenuColor;
-@boxShadow: none;
+
 @borderRadius: 0;
+@boxShadow: none;
+@fontFamily: @semiBoldFont;
+@invertedBackground: @invertedMenuColor;
+@itemTextColor: @lightTextColor;
 @secondaryPointingActiveBorderColor: @primaryColor;
+@secondaryPointingActiveHoverBorderColor: @primaryColor;
+@secondaryPointingBorderWidth: @4px;
+@secondaryItemTransition: all @defaultDuration @defaultEasing;
+@secondaryPointingActiveHoverTextColor: @black;

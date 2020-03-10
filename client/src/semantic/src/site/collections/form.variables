@@ -1,15 +1,18 @@
 /*******************************
     User Variable Overrides
 *******************************/
-@inputFont: @formInputFont;
-@inputColor: @textColor;
+@inputColor: @unselectedTextColor;
 @inputFocusBackground: @fieldFocusBackground;
 @inputFocusBorderColor: @fieldFocusBorderColor;
 @inputFocusBoxShadow: @fieldFocusBoxShadow;
 @inputFocusColor: @selectedTextColor;
+@inputFont: @formInputFont;
 @labelColor: @labelTextColor;
-@labelFontSize: @relative13px;
+@labelFontSize: @fieldLabelFontSize;
 @labelFontWeight: 400;
 @labelTextTransform: uppercase;
 @textAreaFocusBackground: @fieldFocusBackground;
 @textAreaFocusBorderColor: @fieldFocusBorderColor;
+@textAreaFocusColor: @selectedTextColor;
+@textAreaFocusBorderColor: @fieldFocusBorderColor;
+@textAreaFocusBoxShadow: @fieldFocusBoxShadow;

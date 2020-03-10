@@ -21,7 +21,7 @@
   background-color: #E8E8E8;
   background-image: none;
   padding: 0.5833em 0.833em;
-  color: #90999e;
+  color: #767676;
   text-transform: none;
   font-weight: 400;
   border: 0 solid transparent;
@@ -1284,36 +1284,36 @@ a.ui.ui.ui.inverted.basic.teal.label:hover {
 }
 .ui.blue.labels .label,
 .ui.ui.ui.blue.label {
-  background-color: #006bdc;
-  border-color: #006bdc;
+  background-color: #2185D0;
+  border-color: #2185D0;
   color: #FFFFFF;
 }
 
 /* Link */
 .ui.blue.labels a.label:hover,
 a.ui.ui.ui.blue.label:hover {
-  background-color: #005fc3;
-  border-color: #005fc3;
+  background-color: #1678c2;
+  border-color: #1678c2;
   color: #FFFFFF;
 }
 
 /* Ribbon */
 .ui.ui.ui.blue.ribbon.label {
-  border-color: #0052a9;
+  border-color: #1a69a4;
 }
 
 /* Basic */
 .ui.basic.labels .blue.label,
 .ui.ui.ui.basic.blue.label {
   background: none #FFFFFF;
-  border-color: #006bdc;
-  color: #006bdc;
+  border-color: #2185D0;
+  color: #2185D0;
 }
 .ui.basic.labels a.blue.label:hover,
 a.ui.ui.ui.basic.blue.label:hover {
   background: none #FFFFFF;
-  border-color: #005fc3;
-  color: #005fc3;
+  border-color: #1678c2;
+  color: #1678c2;
 }
 
 /* Inverted */
@@ -1366,36 +1366,36 @@ a.ui.ui.ui.inverted.basic.blue.label:hover {
 }
 .ui.violet.labels .label,
 .ui.ui.ui.violet.label {
-  background-color: #57419b;
-  border-color: #57419b;
+  background-color: #6435C9;
+  border-color: #6435C9;
   color: #FFFFFF;
 }
 
 /* Link */
 .ui.violet.labels a.label:hover,
 a.ui.ui.ui.violet.label:hover {
-  background-color: #4b358d;
-  border-color: #4b358d;
+  background-color: #5829bb;
+  border-color: #5829bb;
   color: #FFFFFF;
 }
 
 /* Ribbon */
 .ui.ui.ui.violet.ribbon.label {
-  border-color: #433277;
+  border-color: #502aa1;
 }
 
 /* Basic */
 .ui.basic.labels .violet.label,
 .ui.ui.ui.basic.violet.label {
   background: none #FFFFFF;
-  border-color: #57419b;
-  color: #57419b;
+  border-color: #6435C9;
+  color: #6435C9;
 }
 .ui.basic.labels a.violet.label:hover,
 a.ui.ui.ui.basic.violet.label:hover {
   background: none #FFFFFF;
-  border-color: #4b358d;
-  color: #4b358d;
+  border-color: #5829bb;
+  color: #5829bb;
 }
 
 /* Inverted */

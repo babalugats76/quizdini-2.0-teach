@@ -754,7 +754,7 @@ const MatchForm = props => {
           <>
             <Segment className="page-nav" vertical>
               <Link to={{ pathname: '/dashboard', state: { from: 'MATCH' } }}>
-                &#x21a9;&nbsp;Back to Dashboard
+                &#x2190;&nbsp;Back to Dashboard
               </Link>
             </Segment>
             {status && (
@@ -784,7 +784,6 @@ const MatchForm = props => {
                         labelPosition="right"
                         loading={isSubmitting}
                         positive={dirty && isValid && !isMatchDirty}
-                        size="tiny"
                         tabIndex={6}
                         type="submit"
                       >

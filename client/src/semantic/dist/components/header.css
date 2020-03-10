@@ -491,13 +491,13 @@ a.ui.inverted.teal.header.header.header:hover {
   border-bottom: 2px solid #6DFFFF;
 }
 .ui.blue.header {
-  color: #006bdc;
+  color: #2185D0;
 }
 a.ui.blue.header:hover {
-  color: #005fc3;
+  color: #1678c2;
 }
 .ui.blue.dividing.header {
-  border-bottom: 2px solid #006bdc;
+  border-bottom: 2px solid #2185D0;
 }
 .ui.inverted.blue.header.header.header {
   color: #54C8FF;
@@ -509,13 +509,13 @@ a.ui.inverted.blue.header.header.header:hover {
   border-bottom: 2px solid #54C8FF;
 }
 .ui.violet.header {
-  color: #57419b;
+  color: #6435C9;
 }
 a.ui.violet.header:hover {
-  color: #4b358d;
+  color: #5829bb;
 }
 .ui.violet.dividing.header {
-  border-bottom: 2px solid #57419b;
+  border-bottom: 2px solid #6435C9;
 }
 .ui.inverted.violet.header.header.header {
   color: #A291FB;

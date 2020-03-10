@@ -56,7 +56,7 @@
 .ui.form .field > label {
   display: block;
   margin: 0 0 0.25rem 0;
-  color: #90999e;
+  color: #767676;
   font-size: 0.8125em;
   font-weight: 400;
   text-transform: uppercase;
@@ -110,7 +110,7 @@
   font-size: 1em;
   background: #FFFFFF;
   border: 1px solid #dee4e7;
-  color: rgba(32, 33, 36, 0.75);
+  color: rgba(32, 33, 36, 0.6);
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
@@ -128,7 +128,7 @@
   background: #FFFFFF;
   border: 1px solid #dee4e7;
   outline: none;
-  color: rgba(32, 33, 36, 0.75);
+  color: rgba(32, 33, 36, 0.6);
   border-radius: 0.1875rem;
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
@@ -214,7 +214,7 @@
   -webkit-box-shadow: 0 0 0 0 transparent inset;
           box-shadow: 0 0 0 0 transparent inset;
   padding: 0.62em 0.875em;
-  color: rgba(32, 33, 36, 0.75);
+  color: rgba(32, 33, 36, 0.6);
   -webkit-transition: color 250ms ease, border-color 250ms ease;
   transition: color 250ms ease, border-color 250ms ease;
 }
@@ -365,22 +365,22 @@
 
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(224, 224, 227, 0.75);
+  color: rgba(224, 224, 227, 0.6);
 }
 .ui.form :-ms-input-placeholder {
-  color: rgba(224, 224, 227, 0.75) !important;
+  color: rgba(224, 224, 227, 0.6) !important;
 }
 .ui.form ::-moz-placeholder {
-  color: rgba(224, 224, 227, 0.75);
+  color: rgba(224, 224, 227, 0.6);
 }
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(143, 146, 155, 0.75);
+  color: rgba(143, 146, 155, 0.6);
 }
 .ui.form :focus:-ms-input-placeholder {
-  color: rgba(143, 146, 155, 0.75) !important;
+  color: rgba(143, 146, 155, 0.6) !important;
 }
 .ui.form :focus::-moz-placeholder {
-  color: rgba(143, 146, 155, 0.75);
+  color: rgba(143, 146, 155, 0.6);
 }
 
 /*--------------------
@@ -1440,7 +1440,7 @@
 .ui.inverted.form input[type="url"] {
   background: #FFFFFF;
   border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(32, 33, 36, 0.75);
+  color: rgba(32, 33, 36, 0.6);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -1460,7 +1460,7 @@
 }
 .ui.form .grouped.fields > label {
   margin: 0 0 0.25rem 0;
-  color: #90999e;
+  color: #767676;
   font-size: 0.8125em;
   font-weight: 400;
   text-transform: uppercase;
@@ -1697,7 +1697,7 @@
   vertical-align: baseline;
   font-size: 0.8125em;
   font-weight: 400;
-  color: #90999e;
+  color: #767676;
   text-transform: uppercase;
 }
 
@@ -1817,7 +1817,7 @@
 .ui.grid .row .column > label {
   display: block;
   margin: 0 0 0.25rem 0;
-  color: #90999e;
+  color: #767676;
   font-size: 0.8125em;
   font-weight: 400;
   text-transform: uppercase;

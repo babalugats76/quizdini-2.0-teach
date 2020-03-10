@@ -8,3 +8,8 @@
 .ui.massive.vertical.menu:not(.icon) {
   max-width: 75%;
 }
+
+.ui.secondary.pointing.menu .active.item {
+  border-color: @secondaryPointingActiveHoverBorderColor;
+  color: @secondaryPointingActiveHoverTextColor;
+}

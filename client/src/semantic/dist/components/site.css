@@ -421,6 +421,32 @@ a:hover {
 }
 
 /*-------------------
+  Icon Label
+--------------------*/
+
+label.icon-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  font-family: 'marcher-book', sans-serif;
+  font-size: 0.875em;
+  line-height: 1.5;
+  color: #767676;
+}
+label.icon-label svg.icon path {
+  fill: #767676;
+}
+label.icon-label svg.icon + span {
+  margin-top: 0.0625em;
+  margin-left: 0.3125em;
+}
+
+/*-------------------
   Menus
 --------------------*/
 
@@ -450,8 +476,8 @@ svg {
   height: 1em;
 }
 svg path {
-  -webkit-transition: fill 250ms 250ms;
-  transition: fill 250ms 250ms;
+  -webkit-transition: fill 250ms ease;
+  transition: fill 250ms ease;
 }
 svg.icon.github path {
   fill: #24292e;
@@ -501,7 +527,7 @@ svg.icon.chevron-down.closed {
 
 .input-feedback {
   margin-top: 0.5em;
-  font-size: 0.9375em;
+  font-size: 0.875em;
 }
 .input-feedback.error {
   color: #DB2828;
@@ -891,7 +917,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   background-color: #862aa4;
 }
 #landing .banner#intro {
-  background-color: rgba(84, 84, 84, 0.87);
+  background-color: rgba(0, 0, 0, 0.15);
   background-size: 25px;
   background-repeat: round;
   background-image: url('/images/question.svg');
@@ -954,7 +980,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   line-height: 1.3;
 }
 #landing #mission p.caption {
-  color: #391285;
+  color: #767676;
   margin-top: -1rem;
   text-align: center;
 }
@@ -976,8 +1002,8 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   color: #2e3235;
   float: left;
   font-family: 'marcher-medium', sans-serif;
-  font-size: 4.7em;
-  line-height: 3em;
+  font-size: 75px;
+  line-height: 50px;
   padding-top: 0.75rem;
   padding-right: 0.5rem;
   padding-left: 0.25rem;
@@ -1036,7 +1062,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 #about.page section details[open] > summary,
 #terms.page section details[open] > summary {
   margin-bottom: 0.3125em;
-  color: #57419b;
+  color: #69359c;
 }
 #about.page section details[open] > summary:before,
 #terms.page section details[open] > summary:before {
@@ -1067,7 +1093,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 }
 #about.page section details > summary:hover,
 #terms.page section details > summary:hover {
-  color: #57419b;
+  color: #69359c;
 }
 #about.page section details > summary:before,
 #terms.page section details > summary:before {
@@ -1099,7 +1125,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 --------------------*/
 
 #team .sub.header {
-  color: #57419b;
+  color: #6435C9;
   font-family: 'marcher-regular', sans-serif;
 }
 #team .member-contact a > svg {
@@ -1110,7 +1136,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   margin-right: 0.25rem;
 }
 #philosophy .belief > .header {
-  color: #57419b;
+  color: #6435C9;
 }
 #philosophy .belief:not(:last-child) {
   margin-bottom: 2em;
@@ -1148,7 +1174,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   height: 250px;
 }
 #dedication .sub.header {
-  color: #57419b;
+  color: #6435C9;
   font-family: 'marcher-regular', sans-serif;
 }
 
@@ -1375,14 +1401,11 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 .ui.cards .ui.card.match-card .content.card-header:hover .ui.icon.button.trash {
   display: block;
   background-color: #FFF6F6;
-  opacity: 0.87;
+  opacity: 0.75;
 }
 .ui.cards .ui.card.match-card .content.card-header:hover.can-delete .ui.icon.button.trash {
-  background-color: #E0B4B4;
-  opacity: 0.95;
-}
-.ui.cards .ui.card.match-card .content.card-header:hover > .card-details {
-  opacity: 0.33;
+  background-color: #e1aaa9;
+  opacity: 0.9;
 }
 .ui.cards .ui.card.match-card .content.card-header > .card-details {
   padding: 0 1.5em 0 0;
@@ -1399,36 +1422,11 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
           align-items: flex-start;
   height: 2.25em;
   overflow: hidden;
+  margin-bottom: 0.625em;
   line-height: 1.125em;
   font-size: 1.125em;
   color: rgba(0, 0, 0, 0.85);
   font-family: 'marcher-bold', sans-serif;
-}
-.ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label:not(:last-child) {
-  margin: 0.5em 0;
-}
-.ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label:first-child {
-  margin-top: 1em;
-}
-.ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  background-color: transparent;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-.ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label .detail {
-  margin-left: 0;
-  color: #90999e;
-  font-family: 'marcher-book', sans-serif;
-}
-.ui.cards .ui.card.match-card .content.card-header > .card-details .description .ui.label svg.icon path {
-  fill: #90999e;
 }
 .ui.cards .ui.card.match-card .content.card-header > .card-badge {
   -webkit-box-flex: 0;
@@ -1439,6 +1437,9 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   margin-right: -0.5em;
 }
 .ui.cards .ui.card.match-card .content.card-header .ui.icon.button.trash {
+  z-index: 2;
+  
+/* Brings bottom atop card */
   opacity: 0;
   position: absolute;
   border-radius: 0;
@@ -1478,7 +1479,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 .ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons .ui.button.clipboard.copied {
   color: #FFFFFF;
   background-color: #21BA45;
-  font-size: 0.875rem;
+  font-size: 0.875em;
   margin: 0;
   padding: 0;
 }
@@ -1580,16 +1581,6 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 #game-panel > #panes > #pane-menu {
   margin-bottom: 0 !important;
 }
-#game-panel > #panes > #pane-menu .item {
-  border-width: 0.25rem;
-  color: rgba(0, 0, 0, 0.35);
-  font-family: 'marcher-semibold', sans-serif;
-  -webkit-transition: all 250ms defaultEasing;
-  transition: all 250ms defaultEasing;
-}
-#game-panel > #panes > #pane-menu .item.active {
-  color: #1B1C1D;
-}
 #rich-match-editor > fieldset {
   margin-bottom: 0.75em;
   border: 1px solid #dee4e7;
@@ -1599,7 +1590,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   font-family: 'marcher-medium', sans-serif;
   font-size: 0.9375em;
   font-weight: 400;
-  color: #90999e;
+  color: #767676;
   margin: -0.5em 0 0 0.75em;
 }
 #rich-match-editor .rich-text-editor {
@@ -1618,6 +1609,12 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   background-color: #FFFFFF;
   color: rgba(32, 33, 36, 0.6);
   text-align: center;
+}
+#rich-match-editor .rich-text-editor#term {
+  font-family: 'marcher-medium', sans-serif;
+}
+#rich-match-editor .rich-text-editor#definition {
+  font-family: 'marcher-book', sans-serif;
 }
 #rich-match-editor .rich-text-editor:focus {
   border-color: rgba(113, 28, 255, 0.25);
@@ -1669,18 +1666,18 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   width: auto;
 }
 #match-options .ui.icon.header > svg > path {
-  fill: #90999e;
+  fill: #767676;
 }
 #match-options .ui.icon.header > label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #90999e;
+  color: #767676;
 }
 #match-bulk > textarea {
   position: relative;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
   font-size: 1em;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-top: 0.75rem;
   height: calc(100% - 100px);
 }
@@ -1817,22 +1814,16 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
             flex-direction: row;
   }
   table.flex-table tr td {
-    padding: 0.625em 0 0.625em 0.875em;
-  }
-  table.flex-table tr td:last-child {
-    padding: 0.625em 0.875em;
+    padding: 0.5em 0.75em !important;
   }
   table.flex-table tr th {
     -ms-flex-item-align: end;
         align-self: flex-end;
-    padding: 1em 0 1em 0.875em;
-  }
-  table.flex-table tr th:last-child {
-    padding: 1em 0.875em;
+    padding: 1em 0.75em !important;
   }
   table.flex-table tfoot tr td,
   table.flex-table tfoot tr th {
-    padding: 1em 1.5em;
+    padding: 1em !important;
   }
   #match-table {
     /*height: 480px;*/
@@ -1868,9 +1859,6 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   }
   #match-table thead tr:nth-child(1) th:first-child {
     display: block;
-  }
-  #match-table thead tr:nth-child(1) th:nth-child(2) {
-    padding: 1em 0 1em 0.875em;
   }
   .ui.grid > #match-edit-header.row > .column {
     -webkit-box-orient: horizontal;

@@ -498,7 +498,6 @@ const RegisterForm = props => {
                     loading={isSubmitting}
                     primary
                     //positive={isValid && !status && dirty}
-                    size="large"
                     tabIndex={7}
                     type="submit"
                   >

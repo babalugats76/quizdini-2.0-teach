@@ -227,6 +227,7 @@ const MatchEditor = props => {
   return (
     <div className="match-editor">
       <Editor
+        id={name}
         name={name}
         autoFocus={false}
         tabIndex={tabIndex}

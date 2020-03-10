@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Segment, Transition } from 'semantic-ui-react';
 import { useTimeout } from '../../hooks';
-import { Badge, Button, Label, RouterButton } from '../UI';
+import { Badge, Button, IconLabel, RouterButton } from '../UI';
 import { copyToClipboard } from './utils';
 const { formatDistanceToNow } = require('date-fns');
 
@@ -95,6 +95,7 @@ const MatchCard = ({ game, onDelete }) => {
   const handleDelete = () => {
     // First click enables deletion capability
     // Second click triggers deletion by setting visible -> false
+    console.log('handle delete called...');
     setState(prevState => {
       return {
         ...prevState,
@@ -142,8 +143,8 @@ const MatchCard = ({ game, onDelete }) => {
           <div className="card-details">
             <Card.Header>{title}</Card.Header>
             <Card.Description>
-              <Label icon="book">{termCount} Terms</Label>
-              <Label icon="clock">{timeAgo}</Label>
+              <IconLabel icon="book">{termCount} Terms</IconLabel>
+              <IconLabel icon="clock">{timeAgo}</IconLabel>
             </Card.Description>
           </div>
           <div className="card-badge">

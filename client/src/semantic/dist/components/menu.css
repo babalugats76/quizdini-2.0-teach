@@ -24,7 +24,7 @@
   display: -ms-flexbox;
   display: flex;
   margin: 1rem 0;
-  font-family: 'marcher-regular', sans-serif;
+  font-family: 'marcher-semibold', sans-serif;
   background: #FFFFFF;
   font-weight: normal;
   border: 1px solid #dee4e7;
@@ -88,7 +88,7 @@
   background: none;
   padding: 0.9375em 1.125em;
   text-transform: none;
-  color: rgba(32, 33, 36, 0.75);
+  color: rgba(0, 0, 0, 0.35);
   font-weight: normal;
   -webkit-transition: background 250ms ease, color 250ms ease, -webkit-box-shadow 250ms ease;
   transition: background 250ms ease, color 250ms ease, -webkit-box-shadow 250ms ease;
@@ -672,7 +672,7 @@ Floated Menu / Item
   border-right: 1px solid transparent;
   border-top: 2px solid transparent;
   padding: 0.9375em 1.4375em;
-  color: rgba(32, 33, 36, 0.75);
+  color: rgba(0, 0, 0, 0.35);
 }
 .ui.tabular.menu .item:before {
   display: none;
@@ -856,8 +856,8 @@ Floated Menu / Item
   padding: 0.8125em 0.9375em;
   margin: 0 0.3125em;
   background: none;
-  -webkit-transition: color 250ms ease;
-  transition: color 250ms ease;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
   border-radius: 0.1875rem;
 }
 
@@ -971,7 +971,7 @@ Floated Menu / Item
 .ui.secondary.pointing.menu {
   margin-left: 0;
   margin-right: 0;
-  border-bottom: 2px solid #dee4e7;
+  border-bottom: 0.25rem solid #dee4e7;
 }
 .ui.secondary.pointing.menu .item {
   border-bottom-color: transparent;
@@ -979,11 +979,11 @@ Floated Menu / Item
   border-radius: 0;
   -ms-flex-item-align: end;
       align-self: flex-end;
-  margin: 0 0 -2px;
+  margin: 0 0 -0.25rem;
   padding: 0.875em 1.125em;
-  border-bottom-width: 2px;
-  -webkit-transition: color 250ms ease;
-  transition: color 250ms ease;
+  border-bottom-width: 0.25rem;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
 }
 .ui.secondary.pointing.menu .ui.dropdown .menu .item {
   border-bottom-width: 0;
@@ -1038,7 +1038,7 @@ Floated Menu / Item
 /* Active Hover */
 .ui.secondary.pointing.menu .active.item:hover {
   border-color: #711cff;
-  color: rgba(32, 33, 36, 0.9);
+  color: #1B1C1D;
 }
 
 /* Active Dropdown */
@@ -1049,7 +1049,7 @@ Floated Menu / Item
 /* Vertical Pointing */
 .ui.secondary.vertical.pointing.menu {
   border-bottom-width: 0;
-  border-right-width: 2px;
+  border-right-width: 0.25rem;
   border-right-style: solid;
   border-right-color: #dee4e7;
 }
@@ -1058,8 +1058,8 @@ Floated Menu / Item
   border-right-style: solid;
   border-right-color: transparent;
   border-radius: 0 !important;
-  margin: 0 -2px 0 0;
-  border-right-width: 2px;
+  margin: 0 -0.25rem 0 0;
+  border-right-width: 0.25rem;
 }
 
 /* Vertical Active */
@@ -1407,14 +1407,14 @@ Floated Menu / Item
 .ui.ui.menu .blue.active.item,
 .ui.ui.blue.menu .active.item:hover,
 .ui.ui.blue.menu .active.item {
-  border-color: #006bdc;
-  color: #006bdc;
+  border-color: #2185D0;
+  color: #2185D0;
 }
 .ui.ui.menu .violet.active.item,
 .ui.ui.violet.menu .active.item:hover,
 .ui.ui.violet.menu .active.item {
-  border-color: #57419b;
-  color: #57419b;
+  border-color: #6435C9;
+  color: #6435C9;
 }
 .ui.ui.menu .purple.active.item,
 .ui.ui.purple.menu .active.item:hover,
@@ -1660,7 +1660,7 @@ Floated Menu / Item
 }
 .ui.ui.inverted.menu .blue.active.item,
 .ui.ui.inverted.blue.menu {
-  background-color: #006bdc;
+  background-color: #2185D0;
 }
 .ui.inverted.blue.menu .item:before {
   background-color: rgba(34, 36, 38, 0.1);
@@ -1669,11 +1669,11 @@ Floated Menu / Item
   background-color: rgba(0, 0, 0, 0.1);
 }
 .ui.inverted.pointing.blue.menu .active.item {
-  background-color: #005fc3;
+  background-color: #1678c2;
 }
 .ui.ui.inverted.menu .violet.active.item,
 .ui.ui.inverted.violet.menu {
-  background-color: #57419b;
+  background-color: #6435C9;
 }
 .ui.inverted.violet.menu .item:before {
   background-color: rgba(34, 36, 38, 0.1);
@@ -1682,7 +1682,7 @@ Floated Menu / Item
   background-color: rgba(0, 0, 0, 0.1);
 }
 .ui.inverted.pointing.violet.menu .active.item {
-  background-color: #4b358d;
+  background-color: #5829bb;
 }
 .ui.ui.inverted.menu .purple.active.item,
 .ui.ui.inverted.purple.menu {
@@ -2043,10 +2043,10 @@ Floated Menu / Item
   background-color: #00B5AD;
 }
 .ui.inverted.pointing.menu .blue.active.item:after {
-  background-color: #006bdc;
+  background-color: #2185D0;
 }
 .ui.inverted.pointing.menu .violet.active.item:after {
-  background-color: #57419b;
+  background-color: #6435C9;
 }
 .ui.inverted.pointing.menu .purple.active.item:after {
   background-color: #A333C8;
@@ -2245,4 +2245,8 @@ Floated Menu / Item
 }
 .ui.massive.vertical.menu:not(.icon) {
   max-width: 75%;
+}
+.ui.secondary.pointing.menu .active.item {
+  border-color: #711cff;
+  color: #1B1C1D;
 }
