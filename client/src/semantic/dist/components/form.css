@@ -100,7 +100,7 @@
 .ui.form input[type="text"],
 .ui.form input[type="file"],
 .ui.form input[type="url"] {
-  font-family: 'marcher-medium', sans-serif;
+  font-family: 'marcher-regular', sans-serif;
   margin: 0;
   outline: none;
   -webkit-appearance: none;
@@ -135,7 +135,7 @@
   -webkit-transition: color 250ms ease, border-color 250ms ease;
   transition: color 250ms ease, border-color 250ms ease;
   font-size: 1em;
-  font-family: 'marcher-medium', sans-serif;
+  font-family: 'marcher-regular', sans-serif;
   line-height: 1.2857;
   resize: vertical;
 }

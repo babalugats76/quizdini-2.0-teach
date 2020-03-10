@@ -453,11 +453,8 @@ label.icon-label svg.icon + span {
 .ui.menu.inverted .item svg path {
   fill: #FFFFFF;
 }
-.ui.menu.pagination {
-  font-family: 'marcher-regular', sans-serif;
-}
 .ui.menu.massive {
-  font-family: 'marcher-regular', sans-serif;
+  font-family: 'marcher-semibold', sans-serif;
 }
 .ui.menu.massive .item svg.icon {
   width: 1.375em !important;
@@ -572,18 +569,22 @@ svg.icon.chevron-down.closed {
 .icon-menu-list.ui.selection.list > .item > .badge {
   width: 2.5em;
   height: 2.5em;
-  margin-right: 0.3125em;
+  margin-right: 0.5em;
   -webkit-box-shadow: none!important;
           box-shadow: none!important;
 }
 .icon-menu-list.ui.selection.list > .item > .badge svg path {
-  fill: rgba(0, 0, 0, 0.15);
+  fill: rgba(0, 0, 0, 0.35);
 }
 .icon-menu-list.ui.selection.list > .item > .content {
-  color: rgba(0, 0, 0, 0.15);
+  font-size: 0.875em;
+  font-family: 'marcher-book', sans-serif;
+  color: rgba(0, 0, 0, 0.35);
 }
 .icon-menu-list.ui.selection.list > .item > .content > .header {
-  color: rgba(0, 0, 0, 0.15);
+  font-size: 1.0625em;
+  font-family: 'marcher-semibold', sans-serif;
+  color: rgba(0, 0, 0, 0.35);
 }
 .icon-menu-list.ui.selection.list > .item:hover {
   background: rgba(0, 0, 0, 0.03);
@@ -1423,7 +1424,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   height: 2.25em;
   overflow: hidden;
   margin-bottom: 0.625em;
-  line-height: 1.125em;
+  line-height: 1.2;
   font-size: 1.125em;
   color: rgba(0, 0, 0, 0.85);
   font-family: 'marcher-bold', sans-serif;
@@ -1504,7 +1505,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 }
 
 /*-------------------
-  Match Header
+  Headers
 --------------------*/
 
 .match-header {
@@ -1520,6 +1521,17 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 }
 .match-header .labels .label > .detail {
   margin-left: 0;
+}
+.game-header > .column > div {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.game-header > .column > div.game-title {
+  line-height: 1;
+  font-size: 1.5em;
+  color: rgba(0, 0, 0, 0.85);
+  font-family: 'marcher-bold', sans-serif;
+  text-transform: uppercase;
 }
 
 /*-------------------
@@ -1587,11 +1599,12 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   border-radius: 0.1875rem;
 }
 #rich-match-editor > fieldset > legend {
-  font-family: 'marcher-medium', sans-serif;
-  font-size: 0.9375em;
+  font-family: 'marcher-regular', sans-serif;
+  font-size: 0.8125em;
   font-weight: 400;
   color: #767676;
-  margin: -0.5em 0 0 0.75em;
+  margin: -0.5em 0 0 1em;
+  text-transform: uppercase;
 }
 #rich-match-editor .rich-text-editor {
   display: block;

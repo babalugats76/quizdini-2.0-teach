@@ -258,16 +258,13 @@ label.icon-label {
       }
     }
   }
-  &.pagination {
-    font-family: @menuFont;
-  }
   &.massive {
     font-family: @menuFont;
     .item {
       svg {
         &.icon {
-          width: 1.375em !important;
-          height: 1.375em !important;
+          width: @relative22px !important;
+          height: @relative22px !important;
         }
       }
     }
@@ -394,16 +391,20 @@ svg {
       > .badge {
         width: @relative40px;
         height: @relative40px;
-        margin-right: @relative5px;
+        margin-right: @relative8px;
         box-shadow: none!important;
         svg path {
-          fill: @veryStrongTransparentBlack;
+          fill: @lightTextColor;
         }
       }
       > .content {
-        color: @veryStrongTransparentBlack;
+        font-size: @relative14px;
+        font-family: @bookFont;
+        color: @lightTextColor;
         > .header {
-          color: @veryStrongTransparentBlack;
+          font-size: @relative17px;
+          font-family: @semiBoldFont;
+          color: @lightTextColor;
         }
       }
     }
@@ -1285,7 +1286,7 @@ table {
               height: @relative36px;
               overflow: hidden;
               margin-bottom: @relative10px;
-              line-height: @relative18px;
+              line-height: 1.2;
               font-size: @relative18px;
               color: @darkTextColor;
               font-family: @boldFont;
@@ -1364,7 +1365,7 @@ table {
 }
 
 /*-------------------
-  Match Header
+  Headers
 --------------------*/
 
 .match-header {
@@ -1380,6 +1381,21 @@ table {
   .labels {
     .label > .detail {
       margin-left: 0;
+    }
+  }
+}
+
+.game-header {
+  > .column {
+    > div {
+      align-self: center;
+      &.game-title {
+        line-height: 1;
+        font-size: @relative24px;
+        color: @darkTextColor;
+        font-family: @boldFont;
+        text-transform: uppercase;
+      }
     }
   }
 }
@@ -1456,11 +1472,12 @@ table {
     border: 1px solid @borderColor;
     border-radius: @absoluteBorderRadius;
     > legend {
-      font-family: @headerFont;
-      font-size: @relative15px;
+      font-family: @labelFont;
+      font-size: @fieldLabelFontSize;
       font-weight: 400;
       color: @labelTextColor;
-      margin: -@relative8px 0 0 @relative12px;
+      margin: -@relative8px 0 0 @relative16px;
+      text-transform: uppercase;
     }
   }
   .rich-text-editor {

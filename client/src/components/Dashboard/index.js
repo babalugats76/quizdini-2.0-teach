@@ -24,7 +24,7 @@ import Match from './Match';
 const games = [
   {
     name: 'MATCH',
-    title: 'Match',
+    title: 'Match Game',
     credits: 1,
     icon: 'question',
     render: props => <Match {...props} />,

@@ -4,7 +4,14 @@ import { Form, Grid, Responsive, Segment, Tab } from 'semantic-ui-react';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { useResult } from '../../hooks/';
-import { Button, IconDropdown, InputText, Message, Notify } from '../UI/';
+import {
+  Badge,
+  Button,
+  IconDropdown,
+  InputText,
+  Message,
+  Notify
+} from '../UI/';
 import HtmlSerializer from './HtmlSerializer';
 import MatchAdd from './MatchAdd';
 import MatchBulk from './MatchBulk';
@@ -752,7 +759,7 @@ const MatchForm = props => {
 
         return (
           <>
-            <Segment className="page-nav" vertical>
+            <Segment basic className="page-nav" vertical>
               <Link to={{ pathname: '/dashboard', state: { from: 'MATCH' } }}>
                 &#x2190;&nbsp;Back to Dashboard
               </Link>
@@ -763,15 +770,22 @@ const MatchForm = props => {
               </Segment>
             )}
             <Form id="match-form" onSubmit={handleSubmit}>
-              <Grid divided="vertically" stackable>
-                <Grid.Row columns={1} id="match-edit-header">
+              <Grid stackable>
+                <Grid.Row
+                  className="game-header"
+                  columns={1}
+                  id="match-edit-header"
+                >
                   <Grid.Column>
-                    <span id="match-badge">Match Edit</span>
-                    <span id="match-title">{values.title || 'UNTITLED'}</span>
-                    <span id="match-id">{values.matchId || 'UNPUBLISHED'}</span>
+                    <div className="game-badge">
+                      <Badge icon="question" />
+                      <span className="game-type">Match Game</span>
+                    </div>
+                    <div className="game-title">{values.title || 'UNTITLED'}</div>
+                    <div className="game-id">{values.matchId || 'UNPUBLISHED'}</div>
                   </Grid.Column>
                 </Grid.Row>
-                <Grid.Row columns={2} divided id="match-edit-panel" stretched>
+                <Grid.Row columns={2} id="match-edit-panel" stretched>
                   <Grid.Column id="game-panel">
                     <div className="clearfix">
                       <Button

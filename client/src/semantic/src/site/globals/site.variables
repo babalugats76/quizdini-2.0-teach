@@ -30,13 +30,14 @@
 @fontName               : @marcherRegular;
 
 
+@buttonFont             : @marcherSemiBold;
 @labelFont              : @marcherRegular; /* Form labels, etc. */
 @iconLabelFont          : @marcherBook;    /* Icon (detail) labels */
-@dropdownFont           : @marcherMedium;
-@formInputFont          : @marcherMedium;
+@dropdownFont           : @marcherRegular;
+@formInputFont          : @marcherRegular;
 @headerFont             : @marcherMedium;
 @tableHeaderFont        : @marcherSemiBold;
-@menuFont               : @marcherRegular;
+@menuFont               : @marcherSemiBold;
 @pageFont               : @marcherRegular;
 @textareaFont           : @systemFont;
 @dropCapFont            : @headerFont;
@@ -93,6 +94,7 @@
 @navyPurple             : rgba(170, 84, 255, 1);
 @platinum               : rgba(222, 228, 231, 1);
 @purpleHeart            : rgba(105, 53, 156, 1);
+@sapphire               : rgba(11, 80, 226, 1);
 @sonicSilver            : rgba(118, 118, 118, 1);
 @spaceCadet             : rgba(26, 28, 87, 1);
 @spanishGray            : rgba(144, 153, 158, 1);
@@ -137,9 +139,9 @@
 @fieldFocusBackground        : @white;
 @fieldFocusBorderColor       : @indigoTransLight;
 @inputBackground             : @white;
-@invertedMenuColor           : @zaffre;
+@invertedMenuColor           : @sapphire; /* Debating between zaffre and sapphire */
 @linkColor                   : @bleuDeFrance;
-@pageBackground              : #f4f4f4;          
+@pageBackground              : #f4f4f4;
 @spinnerColor                : @navyPurple;
 @stripedBackground           : rgba(244, 244, 244, 0.4);
 @strongColor                 : @secondaryColor;
