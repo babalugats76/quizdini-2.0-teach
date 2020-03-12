@@ -344,7 +344,7 @@ module.exports = app => {
 
   app.get('/api/countries', async (req, res, next) => {
     try {
-      //throw new Error('testing countries error...');
+      throw new Error('testing countries error...');
       const countries = await Country.find().sort({ countryId: 'asc' });
       if (!countries) return res.send({}); // Return empty Object to signify not found
       res.send(countries);

@@ -56,7 +56,7 @@
 .ui.form .field > label {
   display: block;
   margin: 0 0 0.25rem 0;
-  color: #767676;
+  color: #a09fa7;
   font-size: 0.8125em;
   font-weight: 400;
   text-transform: uppercase;
@@ -1460,7 +1460,7 @@
 }
 .ui.form .grouped.fields > label {
   margin: 0 0 0.25rem 0;
-  color: #767676;
+  color: #a09fa7;
   font-size: 0.8125em;
   font-weight: 400;
   text-transform: uppercase;
@@ -1697,7 +1697,7 @@
   vertical-align: baseline;
   font-size: 0.8125em;
   font-weight: 400;
-  color: #767676;
+  color: #a09fa7;
   text-transform: uppercase;
 }
 
@@ -1817,7 +1817,7 @@
 .ui.grid .row .column > label {
   display: block;
   margin: 0 0 0.25rem 0;
-  color: #767676;
+  color: #a09fa7;
   font-size: 0.8125em;
   font-weight: 400;
   text-transform: uppercase;

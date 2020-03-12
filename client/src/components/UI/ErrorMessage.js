@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Header, Image } from 'semantic-ui-react';
+import { Header, Image, Segment } from 'semantic-ui-react';
+import { Modal } from './';
+import logo from '../../logo.svg';
 
 const renderDetails = details => {
   if (Array.isArray(details) && details.length) {
@@ -8,36 +10,26 @@ const renderDetails = details => {
       <div className="error-details">
         {details.map(el =>
           Object.entries(el).map(([key, value]) => (
-            <pre key={key}>
-              {key}: {value}
-            </pre>
+            <>{key}: {value}<br/></>
           ))
         )}
       </div>
     );
   }
-  return (
-    <div className="error-details">
-      <pre>{details}</pre>
-    </div>
-  );
 };
 
 const ErrorMessage = ({ header, details }) => {
   return (
-    <div className="d-flex flex-1 h-auto flex-justify-center flex-center-items">
-      <div className="error-message p-4 m-4">
-        <Image
-          centered
-          src="https://via.placeholder.com/280x280?text=Creative"
-        />
+    <Modal id="error" show={true}>
+      <Segment className="error-message modal-content" padded="very">
+        <Image src={logo} />
         <Header size="large" textAlign="center">
           <Header.Content>{header}</Header.Content>
         </Header>
         {/* TODO: Interegate to see what kind of data and handle as approproate */}
         {renderDetails(details)}
-      </div>
-    </div>
+      </Segment>
+    </Modal>
   );
 };
 

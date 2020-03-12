@@ -6,6 +6,19 @@
   Self-Hosted Fonts
 --------------------*/
 
+/* inconsolata-regular - latin */
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Inconsolata Regular'), local('Inconsolata-Regular'),
+    url('https://static.quizdini.com/fonts/inconsolata-v18-latin-regular.woff2')
+      format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('https://static.quizdini.com/fonts/inconsolata-v18-latin-regular.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 /* lexend-deca-regular - latin */
 @font-face {
   font-family: 'Lexend Deca';
@@ -167,8 +180,8 @@ a {
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;
-    margin-top: 72px!important;
-    margin-bottom: 28px!important;
+    margin-top: 72px !important;
+    margin-bottom: 28px !important;
     .page {
       max-width: 100%;
       margin-left: auto;
@@ -215,7 +228,7 @@ a {
   height: @relative56px;
   font-size: @16px;
   border-radius: 50%;
-  box-shadow: 0 1px 5px rgba(0,0,0,.4);
+  box-shadow: 0 1px 5px @mutedTextColor;
   > svg {
     width: 80% !important;
     height: auto !important;
@@ -235,7 +248,7 @@ label.icon-label {
   color: @labelTextColor;
   svg.icon {
     path {
-      fill: @labelTextColor;  
+      fill: @labelTextColor;
     }
   }
   svg.icon + span {
@@ -283,7 +296,6 @@ label.icon-label {
 --------------------*/
 
 svg {
-
   width: @relative16px;
   height: @relative16px;
 
@@ -392,7 +404,7 @@ svg {
         width: @relative40px;
         height: @relative40px;
         margin-right: @relative8px;
-        box-shadow: none!important;
+        box-shadow: none !important;
         svg path {
           fill: @lightTextColor;
         }
@@ -510,7 +522,8 @@ table {
         flex: 1;
         color: @textColor;
         align-self: center;
-        &:first-child, &:last-child {
+        &:first-child,
+        &:last-child {
           padding: @relative10px;
         }
       }
@@ -572,7 +585,7 @@ table {
           }
           &:nth-child(2) {
             padding: @relative10px @relative10px @relative2px;
-          }     
+          }
         }
       }
       &:nth-child(2) {
@@ -642,11 +655,29 @@ table {
   position: fixed;
   top: 50%;
   left: 50%;
-  height: auto;
+  width: 100%;
+  height: 100%;
   z-index: 2000;
   visibility: hidden;
   backface-visibility: hidden;
   transform: translateX(-50%) translateY(-50%);
+  > .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh);
+    &.error-message {
+      > img {
+        max-width: 220px;
+        margin: 0 auto;
+      }
+      > .header {
+        font-family: @extraBoldFont;
+      }
+    }
+  }
 }
 
 .modal-overlay {
@@ -658,7 +689,7 @@ table {
   left: 0;
   z-index: 1000;
   opacity: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: none;
   transition: all @defaultDuration @defaultEasing;
 }
 
@@ -670,18 +701,19 @@ table {
 .modal-show ~ .modal-overlay {
   opacity: 1;
   visibility: visible;
-  background-color: rgba(0, 0, 0, 0.9);
+}
+
+#error {
+  .modal-overlay {
+    background: @mutedTextColor;
+  }
 }
 
 #loader {
-  .modal {
-    height: 100%;
-    width: 100%;
-    .loader {
-      position: relative;
-      top: calc(50% - 1.125rem);
-      left: calc(50% - 1.125rem);
-    }
+  .loader {
+    position: relative;
+    top: calc(50% - 1.125rem);
+    left: calc(50% - 1.125rem);
   }
 }
 
@@ -835,7 +867,7 @@ table {
           float: left;
           font-family: @dropCapFont;
           font-size: 75px;
-          line-height: 50px; 
+          line-height: 50px;
           padding-top: @12px;
           padding-right: @8px;
           padding-left: @4px;
@@ -1054,7 +1086,8 @@ table {
 --------------------*/
 
 /* Additional spacer is needed because of dropdowns */
-#account, #register {
+#account,
+#register {
   &::after {
     content: '';
     display: block;
@@ -1189,7 +1222,6 @@ table {
 --------------------*/
 
 #profile {
-
   .ui.message {
     margin-bottom: @relative32px;
   }
@@ -1242,7 +1274,6 @@ table {
   #match-game {
     min-height: 330px;
   }
-
 }
 
 /*-------------------
@@ -1440,7 +1471,7 @@ table {
 }
 
 #game-panel {
-  > #panes {
+  #panes {
     .ui.tab {
       min-height: 400px;
       margin-bottom: 0 !important;
@@ -1460,7 +1491,7 @@ table {
         }
       }
     }
-    > #pane-menu {
+    #pane-menu {
       margin-bottom: 0 !important;
     }
   }
@@ -1666,6 +1697,17 @@ table {
   Media Queries
 --------------------*/
 
+@media only screen and (min-width: 600px) {
+  .modal {
+    height: auto !important;
+    width: auto !important;
+    > .modal-content {
+      max-width: 448px;
+      max-height: 500px;
+    }
+  }
+}
+
 @media only screen and (max-width: @largestMobileScreen) {
   .page-wrapper > #content > .page {
     .ui.segment:first-of-type:not(.vertical) {
@@ -1694,7 +1736,6 @@ table {
       }
     }
   }
-
 }
 
 @media only screen and (min-width: @tabletBreakpoint) {
@@ -1761,10 +1802,10 @@ table {
         }
       }
     }
-    thead { 
-      tr { 
+    thead {
+      tr {
         &:nth-child(1) {
-          th { 
+          th {
             &:first-child {
               display: block;
             }

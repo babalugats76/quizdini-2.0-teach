@@ -426,7 +426,7 @@ samp,
 pre,
 sup,
 sub {
-  font-family: 'Consolas', 'Droid Sans Mono', 'Lucida Console', 'Liberation Mono', monospace;
+  font-family: monospace;
 }
 strong {
   color: #2e3235;

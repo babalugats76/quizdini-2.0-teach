@@ -15,7 +15,7 @@
 @marcherBold            : 'marcher-bold', sans-serif;
 @marcherExtraBold       : 'marcher-extrabold', sans-serif;
 @marcherExtraBoldItalic : 'marcher-extrabolditalic', sans-serif;
-@monospaceFont          : 'Consolas', 'Droid Sans Mono', 'Lucida Console', 'Liberation Mono', monospace;
+@monospaceFont          : monospace;
 @systemFont             : -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
 @verdana                : Verdana, Geneva, sans-serif;
 
@@ -72,7 +72,7 @@
 @pressedTextColor            : rgba(32, 33, 36, .9);
 @selectedTextColor           : rgba(32, 33, 36, .9);
 
-@labelTextColor              : @sonicSilver;
+@labelTextColor              : @quickSilver;
 @headerTextColor             : @lightBlack;
 
 @bold                        : 400;
@@ -94,6 +94,7 @@
 @navyPurple             : rgba(170, 84, 255, 1);
 @platinum               : rgba(222, 228, 231, 1);
 @purpleHeart            : rgba(105, 53, 156, 1);
+@quickSilver            : rgba(160, 159, 167, 1);
 @sapphire               : rgba(11, 80, 226, 1);
 @sonicSilver            : rgba(118, 118, 118, 1);
 @spaceCadet             : rgba(26, 28, 87, 1);
@@ -141,14 +142,14 @@
 @inputBackground             : @white;
 @invertedMenuColor           : @sapphire; /* Debating between zaffre and sapphire */
 @linkColor                   : @bleuDeFrance;
-@pageBackground              : #f4f4f4;
+@pageBackground              : #f3f5f2;
 @spinnerColor                : @navyPurple;
 @stripedBackground           : rgba(244, 244, 244, 0.4);
 @strongColor                 : @secondaryColor;
 @summaryActiveColor          : @purpleHeart;
 @summaryHoverColor           : @secondaryColor;
 @summaryInactiveColor        : @grey;
-@widePageBackground          : @offWhite;
+@widePageBackground          : #f3f5f2;
 
 /*-------------------
   Borders & Shadows

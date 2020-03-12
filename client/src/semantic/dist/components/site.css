@@ -25,7 +25,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   min-width: 320px;
-  background: #f4f4f4;
+  background: #f3f5f2;
   font-family: 'marcher-regular', sans-serif;
   font-size: 16px;
   line-height: 1.4285em;
@@ -210,6 +210,17 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 --------------------*/
 
 
+/* inconsolata-regular - latin */
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Inconsolata Regular'), local('Inconsolata-Regular'), url('https://static.quizdini.com/fonts/inconsolata-v18-latin-regular.woff2') format('woff2'), 
+/* Chrome 26+, Opera 23+, Firefox 39+ */ url('https://static.quizdini.com/fonts/inconsolata-v18-latin-regular.woff') format('woff');
+  
+/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 /* lexend-deca-regular - latin */
 @font-face {
   font-family: 'Lexend Deca';
@@ -316,7 +327,7 @@ a:hover {
 --------------------*/
 
 #quizdini {
-  background-color: #f4f4f4;
+  background-color: #f3f5f2;
 }
 .page-wrapper {
   display: -webkit-box;
@@ -348,8 +359,8 @@ a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 72px!important;
-  margin-bottom: 28px!important;
+  margin-top: 72px !important;
+  margin-bottom: 28px !important;
 }
 .page-wrapper > #content .page {
   max-width: 100%;
@@ -412,8 +423,8 @@ a:hover {
   height: 3.5em;
   font-size: 1rem;
   border-radius: 50%;
-  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
-          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
 }
 .badge > svg {
   width: 80% !important;
@@ -436,10 +447,10 @@ label.icon-label {
   font-family: 'marcher-book', sans-serif;
   font-size: 0.875em;
   line-height: 1.5;
-  color: #767676;
+  color: #a09fa7;
 }
 label.icon-label svg.icon path {
-  fill: #767676;
+  fill: #a09fa7;
 }
 label.icon-label svg.icon + span {
   margin-top: 0.0625em;
@@ -570,8 +581,8 @@ svg.icon.chevron-down.closed {
   width: 2.5em;
   height: 2.5em;
   margin-right: 0.5em;
-  -webkit-box-shadow: none!important;
-          box-shadow: none!important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 .icon-menu-list.ui.selection.list > .item > .badge svg path {
   fill: rgba(0, 0, 0, 0.35);
@@ -817,13 +828,38 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   position: fixed;
   top: 50%;
   left: 50%;
-  height: auto;
+  width: 100%;
+  height: 100%;
   z-index: 2000;
   visibility: hidden;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
+}
+.modal > .modal-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: calc(100vh);
+}
+.modal > .modal-content.error-message > img {
+  max-width: 220px;
+  margin: 0 auto;
+}
+.modal > .modal-content.error-message > .header {
+  font-family: 'marcher-extrabold', sans-serif;
 }
 .modal-overlay {
   position: fixed;
@@ -834,7 +870,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   left: 0;
   z-index: 1000;
   opacity: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: none;
   -webkit-transition: all 250ms ease;
   transition: all 250ms ease;
 }
@@ -845,13 +881,11 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 .modal-show ~ .modal-overlay {
   opacity: 1;
   visibility: visible;
-  background-color: rgba(0, 0, 0, 0.9);
 }
-#loader .modal {
-  height: 100%;
-  width: 100%;
+#error .modal-overlay {
+  background: rgba(0, 0, 0, 0.6);
 }
-#loader .modal .loader {
+#loader .loader {
   position: relative;
   top: calc(50% - 1.125rem);
   left: calc(50% - 1.125rem);
@@ -1569,15 +1603,15 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 #match-form textarea[disabled] {
   opacity: 0.33;
 }
-#game-panel > #panes .ui.tab {
+#game-panel #panes .ui.tab {
   min-height: 400px;
   margin-bottom: 0 !important;
 }
-#game-panel > #panes .ui.tab.popup {
+#game-panel #panes .ui.tab.popup {
   -webkit-transition: all 1500ms cubic-bezier(0.19, 1, 0.22, 1);
   transition: all 1500ms cubic-bezier(0.19, 1, 0.22, 1);
 }
-#game-panel > #panes .ui.tab.popup.maximized {
+#game-panel #panes .ui.tab.popup.maximized {
   position: fixed;
   top: 20%;
   right: 20%;
@@ -1590,7 +1624,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   -webkit-box-shadow: 0 0.1875rem 0.4375rem rgba(0, 0, 0, 0.3);
           box-shadow: 0 0.1875rem 0.4375rem rgba(0, 0, 0, 0.3);
 }
-#game-panel > #panes > #pane-menu {
+#game-panel #panes #pane-menu {
   margin-bottom: 0 !important;
 }
 #rich-match-editor > fieldset {
@@ -1602,7 +1636,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   font-family: 'marcher-regular', sans-serif;
   font-size: 0.8125em;
   font-weight: 400;
-  color: #767676;
+  color: #a09fa7;
   margin: -0.5em 0 0 1em;
   text-transform: uppercase;
 }
@@ -1679,12 +1713,12 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   width: auto;
 }
 #match-options .ui.icon.header > svg > path {
-  fill: #767676;
+  fill: #a09fa7;
 }
 #match-options .ui.icon.header > label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #767676;
+  color: #a09fa7;
 }
 #match-bulk > textarea {
   position: relative;
@@ -1784,6 +1818,16 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   Media Queries
 --------------------*/
 
+@media only screen and (min-width: 600px) {
+  .modal {
+    height: auto !important;
+    width: auto !important;
+  }
+  .modal > .modal-content {
+    max-width: 448px;
+    max-height: 500px;
+  }
+}
 @media only screen and (max-width: 767.98px) {
   .page-wrapper > #content > .page .ui.segment:first-of-type:not(.vertical) {
     border: unset;
@@ -1808,7 +1852,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 }
 @media only screen and (min-width: 768px) {
   #quizdini {
-    background: #F9FAFB;
+    background: #f3f5f2;
   }
   .page-wrapper > #content > .page {
     padding: 28px 16px;

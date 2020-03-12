@@ -613,61 +613,53 @@ const MatchForm = props => {
                       width={16}
                     />
                   </Form.Group>
-                  <Grid as={Segment} basic id="match-options" vertical>
-                    <Grid.Row columns="equal" stretched>
-                      <Grid.Column>
-                        <IconDropdown
-                          headerSize="h5"
-                          compact
-                          disabled={disabled}
-                          error={touched.itemsPerBoard && errors.itemsPerBoard}
-                          icon="grid"
-                          label="Tiles"
-                          name="itemsPerBoard"
-                          onBlur={handleBlur}
-                          options={itemsPerBoardOptions}
-                          selection
-                          setFieldValue={setFieldValue}
-                          tabIndex={-1}
-                          value={values.itemsPerBoard}
-                        />
-                      </Grid.Column>
-                      <Grid.Column>
-                        <IconDropdown
-                          headerSize="h5"
-                          compact
-                          disabled={disabled}
-                          error={touched.duration && errors.duration}
-                          icon="watch"
-                          label="Seconds"
-                          name="duration"
-                          onBlur={handleBlur}
-                          options={durationOptions}
-                          selection
-                          setFieldValue={setFieldValue}
-                          tabIndex={-1}
-                          value={values.duration}
-                        />
-                      </Grid.Column>
-                      <Grid.Column>
-                        <IconDropdown
-                          headerSize="h5"
-                          compact
-                          disabled={disabled}
-                          error={touched.colorScheme && errors.colorScheme}
-                          icon="palette"
-                          label="Colors"
-                          name="colorScheme"
-                          onBlur={handleBlur}
-                          options={colorSchemeOptions}
-                          selection
-                          setFieldValue={setFieldValue}
-                          tabIndex={-1}
-                          value={values.colorScheme}
-                        />
-                      </Grid.Column>
-                    </Grid.Row>
-                  </Grid>
+                  <Segment basic id="match-options" vertical>
+                    <IconDropdown
+                      headerSize="h6"
+                      compact
+                      disabled={disabled}
+                      error={touched.itemsPerBoard && errors.itemsPerBoard}
+                      icon="grid"
+                      label="Tiles"
+                      name="itemsPerBoard"
+                      onBlur={handleBlur}
+                      options={itemsPerBoardOptions}
+                      selection
+                      setFieldValue={setFieldValue}
+                      tabIndex={-1}
+                      value={values.itemsPerBoard}
+                    />
+                    <IconDropdown
+                      headerSize="h6"
+                      compact
+                      disabled={disabled}
+                      error={touched.duration && errors.duration}
+                      icon="watch"
+                      label="Seconds"
+                      name="duration"
+                      onBlur={handleBlur}
+                      options={durationOptions}
+                      selection
+                      setFieldValue={setFieldValue}
+                      tabIndex={-1}
+                      value={values.duration}
+                    />
+                    <IconDropdown
+                      headerSize="h6"
+                      compact
+                      disabled={disabled}
+                      error={touched.colorScheme && errors.colorScheme}
+                      icon="palette"
+                      label="Colors"
+                      name="colorScheme"
+                      onBlur={handleBlur}
+                      options={colorSchemeOptions}
+                      selection
+                      setFieldValue={setFieldValue}
+                      tabIndex={-1}
+                      value={values.colorScheme}
+                    />
+                  </Segment>
                 </Segment>
               </Tab.Pane>
             )
@@ -758,7 +750,7 @@ const MatchForm = props => {
         });
 
         return (
-          <>
+          <Form id="match-form" onSubmit={handleSubmit}>
             <Segment basic className="page-nav" vertical>
               <Link to={{ pathname: '/dashboard', state: { from: 'MATCH' } }}>
                 &#x2190;&nbsp;Back to Dashboard
@@ -769,25 +761,25 @@ const MatchForm = props => {
                 <Notify {...status} onDismiss={() => setStatus(null)} />
               </Segment>
             )}
-            <Form id="match-form" onSubmit={handleSubmit}>
-              <Grid stackable>
-                <Grid.Row
-                  className="game-header"
-                  columns={1}
-                  id="match-edit-header"
-                >
-                  <Grid.Column>
-                    <div className="game-badge">
-                      <Badge icon="question" />
-                      <span className="game-type">Match Game</span>
-                    </div>
-                    <div className="game-title">{values.title || 'UNTITLED'}</div>
-                    <div className="game-id">{values.matchId || 'UNPUBLISHED'}</div>
-                  </Grid.Column>
-                </Grid.Row>
-                <Grid.Row columns={2} id="match-edit-panel" stretched>
-                  <Grid.Column id="game-panel">
-                    <div className="clearfix">
+            <Grid stackable>
+              <Grid.Row columns={2} divided id="match-edit-panel" stretched>
+                <Grid.Column id="game-panel">
+                  <Grid.Row
+                    className="game-header"
+                    columns={1}
+                    id="match-edit-header"
+                  >
+                    <Grid.Column>
+                      <div className="game-badge">
+                        <Badge icon="question" />
+                        <span className="game-type">Match Game</span>
+                      </div>
+                      <div className="game-title">
+                        {values.title || 'UNTITLED'}
+                      </div>
+                      <div className="game-id">
+                        {values.matchId || 'UNPUBLISHED'}
+                      </div>
                       <Button
                         active
                         disabled={
@@ -803,47 +795,50 @@ const MatchForm = props => {
                       >
                         Save
                       </Button>
-                    </div>
-                    <Tab
-                      activeIndex={activeTab}
-                      id="panes"
-                      menu={{
-                        id: 'pane-menu',
-                        secondary: true,
-                        pointing: true
-                      }}
-                      onTabChange={(event, data) =>
-                        handleTabChange(event, data)
-                      }
-                      panes={editorPanes}
-                      renderActiveOnly={true}
-                    />
-                  </Grid.Column>
-                  <Grid.Column id="table-panel">
-                    <MatchTable
-                      columns={['', 'Term', 'Definition']}
-                      disabled={disabled}
-                      error={errors.matches}
-                      id="match-table"
-                      onMatchDelete={(event, term) =>
-                        handleMatchDelete(
-                          event,
-                          term,
-                          values.matches,
-                          setFieldValue,
-                          validateForm
-                        )
-                      }
-                      matches={values.matches}
-                      maxMatches={maxMatches}
-                      minMatches={values.itemsPerBoard}
-                    />
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </Form>
-            <div>{/*<DisplayFormikState {...props} />*/}</div>
-          </>
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <Tab
+                        activeIndex={activeTab}
+                        id="panes"
+                        menu={{
+                          id: 'pane-menu',
+                          secondary: true,
+                          pointing: true
+                        }}
+                        onTabChange={(event, data) =>
+                          handleTabChange(event, data)
+                        }
+                        panes={editorPanes}
+                        renderActiveOnly={true}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid.Column>
+                <Grid.Column id="table-panel">
+                  <MatchTable
+                    columns={['', 'Term', 'Definition']}
+                    disabled={disabled}
+                    error={errors.matches}
+                    id="match-table"
+                    onMatchDelete={(event, term) =>
+                      handleMatchDelete(
+                        event,
+                        term,
+                        values.matches,
+                        setFieldValue,
+                        validateForm
+                      )
+                    }
+                    matches={values.matches}
+                    maxMatches={maxMatches}
+                    minMatches={values.itemsPerBoard}
+                  />
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Form>
         );
       }}
     </Formik>
