@@ -24,7 +24,7 @@
   color: rgba(0, 0, 0, 0.6);
   font-family: 'marcher-semibold', sans-serif;
   margin: 0 0.25em 0 0;
-  padding: 0.5625em 1.5em 0.5625em;
+  padding: 0.5625rem 1.5em 0.5625rem;
   text-transform: none;
   text-shadow: none;
   font-weight: 400;
@@ -675,19 +675,19 @@
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: 0.421875em 1.125em 0.421875em;
+  padding: 0.421875rem 1.125em 0.421875rem;
 }
 .ui.compact.icon.buttons .button,
 .ui.compact.icon.button {
-  padding: 0.421875em 0.421875em 0.421875em;
+  padding: 0.421875rem 0.421875rem 0.421875rem;
 }
 .ui.compact.labeled.icon.buttons .button,
 .ui.compact.labeled.icon.button {
-  padding: 0.421875em 3.25em 0.421875em;
+  padding: 0.421875rem 3.25em 0.421875rem;
 }
 .ui.compact.labeled.icon.buttons .button > .icon,
 .ui.compact.labeled.icon.button > .icon {
-  padding: 0.421875em 0 0.421875em 0;
+  padding: 0.421875rem 0 0.421875rem 0;
 }
 
 /*-------------------
@@ -755,7 +755,7 @@
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.5625em 0.5625em 0.5625em;
+  padding: 0.5625rem 0.5625rem 0.5625rem;
 }
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
@@ -902,7 +902,7 @@
   -webkit-transition: color 250ms ease !important;
   transition: color 250ms ease !important;
   border-radius: 0;
-  margin: 0.0625em 0.25em 0.0625em 0 !important;
+  margin: 0.0625rem 0.25em 0.0625rem 0 !important;
   padding: 0.5em !important;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -954,7 +954,7 @@
   text-align: center;
   -webkit-animation: none;
           animation: none;
-  padding: 0.5625em 0 0.5625em 0;
+  padding: 0.5625rem 0 0.5625rem 0;
   margin: 0;
   width: 2.125em;
   background-color: rgba(0, 0, 0, 0.05);
@@ -1053,7 +1053,7 @@
 .ui.buttons .or {
   position: relative;
   width: 0.3em;
-  height: 2.125em;
+  height: 2.125rem;
   z-index: 3;
 }
 .ui.buttons .or:before {
@@ -1065,11 +1065,11 @@
   left: 50%;
   background-color: #FFFFFF;
   text-shadow: none;
-  margin-top: -0.78125em;
-  margin-left: -0.78125em;
-  width: 1.5625em;
-  height: 1.5625em;
-  line-height: 1.5625em;
+  margin-top: -0.78125rem;
+  margin-left: -0.78125rem;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  line-height: 1.5625rem;
   color: rgba(0, 0, 0, 0.35);
   font-style: normal;
   font-weight: 400;

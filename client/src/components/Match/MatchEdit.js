@@ -1,38 +1,30 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Container } from 'semantic-ui-react';
-import { useAPI, useAuth, useData, useTitle } from '../../hooks';
-import { Loader } from '../UI';
-import MatchForm from './MatchForm';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { useAPI, useAuth, useData, useTitle } from "../../hooks";
+import { ErrorMessage, Loader } from "../UI";
+import MatchForm from "./MatchForm";
 
 const MatchEdit = props => {
   // destructure key props
-  const {
-    location: { state: { matchId = undefined } = {} } = {},
-    isMobile
-  } = props;
+  const { location: { state: { matchId = undefined } = {} } = {}, isMobile } = props;
 
   // local state
-  const [state, ] = useState({
+  const [state] = useState({
     matchId: matchId
   });
 
   // API data
   const { data: game, error, initialized, loading } = useData({
-    url: '/api/match/' + state.matchId,
+    url: "/api/match/" + state.matchId,
     deps: []
   });
 
   // direct API interactions (ephemeral)
-  const { POST: createMatch, PUT: updateMatch } = useAPI({ url: '/api/match' });
+  const { POST: createMatch, PUT: updateMatch } = useAPI({ url: "/api/match" });
 
   // set page title
   useTitle({
-    title: state.matchId
-      ? game
-        ? game.title
-        : 'Loading...'
-      : 'Create New Match',
+    title: state.matchId ? (game ? game.title : "Loading...") : "Create New Match",
     deps: [state.matchId]
   });
 
@@ -48,20 +40,18 @@ const MatchEdit = props => {
   const showLoader = !initialized && (loading || !game);
 
   return (
-    <Container className="page extra-large" fluid id="match-edit">
-      {(error && <pre>{JSON.stringify(error, null, 4)}</pre>) ||
-        (showLoader && <Loader />) || (
-          <MatchForm
-            game={game}
-            isMobile={isMobile}
-            loading={loading}
-            maxMatches={100}
-            onCreateMatch={createMatch}
-            onSuccess={onSuccess}
-            onUpdateMatch={updateMatch}
-          />
-        )}
-    </Container>
+    (error && <ErrorMessage details={error} />) ||
+    (showLoader && <Loader />) || (
+      <MatchForm
+        game={game}
+        isMobile={isMobile}
+        loading={loading}
+        maxMatches={100}
+        onCreateMatch={createMatch}
+        onSuccess={onSuccess}
+        onUpdateMatch={updateMatch}
+      />
+    )
   );
 };
 

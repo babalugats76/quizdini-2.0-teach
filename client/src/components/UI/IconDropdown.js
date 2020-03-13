@@ -20,7 +20,7 @@ const IconDropdown = ({
   };
 
   return (
-    <Header as={headerSize} icon textAlign="center">
+    <Header as={headerSize} icon>
       <Icon name={icon} />
       <label>{label}</label>
       <Dropdown

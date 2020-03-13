@@ -164,17 +164,17 @@
 /*-------------------
   Padding & Margin
 --------------------*/
-@inputVerticalPadding                : @relative9px;
-@segmentPaddingVertical              : @relative16px; 
-@segmentPaddingHorizontal            : @relative16px;
-@paddedSegmentVertical               : @relative32px;
-@paddedSegmentHorizontal             : @relative32px;
-@mobilePaddedSegmentVertical         : @relative16px;
-@mobilePaddedSegmentHorizontal       : @relative16px;
-@veryPaddedSegmentVertical           : @relative48px;
-@veryPaddedSegmentHorizontal         : @relative48px;
-@mobileVeryPaddedSegmentVertical     : @relative24px;
-@mobileVeryPaddedSegmentHorizontal   : @relative24px;
+@inputVerticalPadding                : @9px;
+@segmentPaddingVertical              : @16px; 
+@segmentPaddingHorizontal            : @16px;
+@paddedSegmentVertical               : @32px;
+@paddedSegmentHorizontal             : @32px;
+@mobilePaddedSegmentVertical         : @16px;
+@mobilePaddedSegmentHorizontal       : @16px;
+@veryPaddedSegmentVertical           : @48px;
+@veryPaddedSegmentHorizontal         : @48px;
+@mobileVeryPaddedSegmentVertical     : @24px;
+@mobileVeryPaddedSegmentHorizontal   : @24px;
 
 /*-------------------
        Borders

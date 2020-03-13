@@ -38,7 +38,7 @@
   text-align: left;
   line-height: 1.21428571em;
   font-family: 'marcher-regular', sans-serif;
-  padding: 0.45535714em 0.875em;
+  padding: 0.45535714rem 0.875em;
   background: #FFFFFF;
   border: 1px solid #dee4e7;
   color: rgba(32, 33, 36, 0.75);
@@ -296,7 +296,7 @@
   border-radius: 0 !important;
 }
 .field .ui.transparent.input > textarea {
-  padding: 0.45535714em 0.875em;
+  padding: 0.45535714rem 0.875em;
 }
 
 /* Transparent Icon */
@@ -343,7 +343,7 @@
   right: 0;
   margin: 0;
   height: 100%;
-  width: 2.225em;
+  width: 2.225rem;
   opacity: 0.5;
   border-radius: 0 0.1875rem 0.1875rem 0;
   -webkit-transition: opacity 0.3s ease;
@@ -354,7 +354,7 @@
 }
 .ui.ui.ui.ui.icon.input > textarea,
 .ui.ui.ui.ui.icon.input > input {
-  padding-right: 2.225em;
+  padding-right: 2.225rem;
 }
 .ui.icon.input > i.icon:before,
 .ui.icon.input > i.icon:after {
@@ -385,7 +385,7 @@
 }
 .ui.ui.ui.ui[class*="left icon"].input > textarea,
 .ui.ui.ui.ui[class*="left icon"].input > input {
-  padding-left: 2.225em;
+  padding-left: 2.225rem;
   padding-right: 0.875em;
 }
 
@@ -409,8 +409,8 @@
   font-size: 1em;
 }
 .ui.labeled.input > .label:not(.corner) {
-  padding-top: 0.5625em;
-  padding-bottom: 0.5625em;
+  padding-top: 0.5625rem;
+  padding-bottom: 0.5625rem;
 }
 
 /* Regular Label on Left */
@@ -603,8 +603,8 @@
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons > .button {
-  padding-top: 0.5625em;
-  padding-bottom: 0.5625em;
+  padding-top: 0.5625rem;
+  padding-bottom: 0.5625rem;
   margin: 0;
 }
 

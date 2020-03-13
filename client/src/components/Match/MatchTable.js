@@ -42,7 +42,6 @@ const MatchTable = ({
   );
 
   return (
-    <div className="flex-table-wrapper">
       <table id={id} className={classes}>
         <thead>
           {Array.isArray(columns) && columns.length && (
@@ -114,7 +113,6 @@ const MatchTable = ({
           </tr>
         </tfoot>
       </table>
-    </div>
   );
 };
 

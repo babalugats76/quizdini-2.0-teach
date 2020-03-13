@@ -19,7 +19,7 @@
   -webkit-box-shadow: 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
   margin: 1rem 0;
-  padding: 1em 1em;
+  padding: 1rem 1rem;
   border-radius: 0.1875rem;
   border: 1px solid #dee4e7;
 }
@@ -95,7 +95,7 @@
           box-shadow: 0 0 0.1875rem 0 rgba(0, 0, 0, 0.12);
 }
 .ui[class*="very basic"].table.segment {
-  padding: 1em 1em;
+  padding: 1rem 1rem;
 }
 
 /* Tab */
@@ -131,7 +131,7 @@
   -webkit-animation: none;
           animation: none;
   overflow: visible;
-  padding: 1em 1em;
+  padding: 1rem 1rem;
   min-height: 18rem;
   background: #F9FAFB;
   border-color: #dee4e7;
@@ -282,10 +282,10 @@
   --------------------*/
 
 .ui.padded.segment {
-  padding: 2em 2em;
+  padding: 2rem 2rem;
 }
 .ui[class*="very padded"].segment {
-  padding: 3em 3em;
+  padding: 3rem 3rem;
 }
 
 /* Padded vertical */
@@ -858,9 +858,9 @@
 
 @media only screen and (min-width: 320px) and (max-width: 767.98px) {
   .ui.padded.segment {
-    padding: 1em 1em;
+    padding: 1rem 1rem;
   }
   .ui[class*='very padded'].segment {
-    padding: 1.5em 1.5em;
+    padding: 1.5rem 1.5rem;
   }
 }

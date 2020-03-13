@@ -374,7 +374,7 @@ select.ui.dropdown {
   min-height: 2.27678571em;
   background: #FFFFFF;
   display: inline-block;
-  padding: 0.5625em 3.075em 0.5625em 0.875em;
+  padding: 0.5625rem 3.075em 0.5625rem 0.875em;
   color: rgba(32, 33, 36, 0.75);
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -397,11 +397,11 @@ select.ui.dropdown {
   width: auto;
   height: auto;
   line-height: 1.21428571em;
-  top: 0.5625em;
+  top: 0.5625rem;
   right: 0.875em;
   z-index: 3;
-  margin: -0.5625em;
-  padding: 0.75em;
+  margin: -0.5625rem;
+  padding: 0.75rem;
   opacity: 0.8;
   -webkit-transition: opacity 250ms ease;
   transition: opacity 250ms ease;
@@ -639,13 +639,13 @@ select.ui.dropdown {
 /* Search Selection */
 .ui.search.selection.dropdown > input.search {
   line-height: 1.21428571em;
-  padding: 0.45535714em 3.075em 0.45535714em 0.875em;
+  padding: 0.45535714rem 3.075em 0.45535714rem 0.875em;
 }
 
 /* Used to size multi select input to character width */
 .ui.search.selection.dropdown > span.sizer {
   line-height: 1.21428571em;
-  padding: 0.45535714em 3.075em 0.45535714em 0.875em;
+  padding: 0.45535714rem 3.075em 0.45535714rem 0.875em;
   display: none;
   white-space: pre;
 }
@@ -702,10 +702,10 @@ select.ui.dropdown {
 .ui.dropdown > .remove.icon {
   cursor: pointer;
   font-size: 0.75em;
-  margin: -0.5625em;
-  padding: 0.75em;
+  margin: -0.5625rem;
+  padding: 0.75rem;
   right: 3em;
-  top: 0.5625em;
+  top: 0.5625rem;
   position: absolute;
   opacity: 0.6;
   z-index: 3;
@@ -728,7 +728,7 @@ select.ui.dropdown {
 
 /* Multiple Selection */
 .ui.multiple.dropdown {
-  padding: 0.15178571em 3.075em 0.15178571em 0.3125em;
+  padding: 0.15178571rem 3.075em 0.15178571rem 0.3125em;
 }
 .ui.multiple.dropdown .menu {
   cursor: auto;
@@ -756,7 +756,7 @@ select.ui.dropdown {
   position: static;
   padding: 0;
   max-width: 100%;
-  margin: 0.30357143em 0 0.30357143em 0.5625em;
+  margin: 0.30357143rem 0 0.30357143rem 0.5625em;
   line-height: 1.0625em;
 }
 .ui.multiple.dropdown > .label ~ input.search {
@@ -794,7 +794,7 @@ select.ui.dropdown {
   top: 0;
   left: 0;
   padding: inherit;
-  margin: 0.30357143em 0 0.30357143em 0.5625em;
+  margin: 0.30357143rem 0 0.30357143rem 0.5625em;
   line-height: 1.0625em;
 }
 .ui.multiple.search.dropdown > .label ~ .text {
@@ -806,7 +806,7 @@ select.ui.dropdown {
   position: static;
   padding: 0;
   max-width: 100%;
-  margin: 0.30357143em 0 0.30357143em 0.5625em;
+  margin: 0.30357143rem 0 0.30357143rem 0.5625em;
   width: 2.2em;
   line-height: 1.0625em;
 }

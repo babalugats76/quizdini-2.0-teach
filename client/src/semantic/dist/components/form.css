@@ -106,7 +106,7 @@
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.21428571em;
-  padding: 0.45535714em 0.875em;
+  padding: 0.45535714rem 0.875em;
   font-size: 1em;
   background: #FFFFFF;
   border: 1px solid #dee4e7;
@@ -124,7 +124,7 @@
   margin: 0;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  padding: 0.5625em 0.875em;
+  padding: 0.5625rem 0.875em;
   background: #FFFFFF;
   border: 1px solid #dee4e7;
   outline: none;
@@ -182,7 +182,7 @@
 .ui.form .field .transparent.input:not(.icon) input,
 .ui.form .field input.transparent,
 .ui.form .field textarea.transparent {
-  padding: 0.45535714em 0.875em;
+  padding: 0.45535714rem 0.875em;
 }
 .ui.form .field input.transparent,
 .ui.form .field textarea.transparent {
