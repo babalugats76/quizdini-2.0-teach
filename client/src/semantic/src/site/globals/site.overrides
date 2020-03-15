@@ -131,7 +131,7 @@ a {
     &.banner {
       position: relative;
       background-color: @white;
-      box-shadow: inset 0 -1px 0 0 @borderColor;
+      box-shadow: inset 0 -@1px 0 0 @borderColor;
       > .ui.container.fluid {
         padding: @42px @12px @24px;
       }
@@ -167,16 +167,15 @@ a {
 
   > header {
     flex: 0 0 auto;
-    height: 72px !important;
     box-shadow: none;
+    margin: 0!important;
   }
 
   > #content {
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;
-    margin-top: 72px !important;
-    margin-bottom: 28px !important;
+    margin-bottom: @28px !important;
     .page {
       max-width: 100%;
       margin-left: auto;
@@ -184,6 +183,9 @@ a {
       padding: @mobilePagePadding;
       > .page-nav {
         padding-top: 0 !important;
+        .back {
+          margin-left: @16px;
+        }
       }
       &.middle {
         display: flex;
@@ -219,11 +221,11 @@ a {
   display: flex;
   flex: 0 0 auto;
   justify-content: center;
-  width: @relative56px;
-  height: @relative56px;
+  width: @56px;
+  height: @56px;
   font-size: @16px;
   border-radius: 50%;
-  box-shadow: 0 1px 5px @mutedTextColor;
+  box-shadow: 0 @1px @5px @mutedTextColor;
   > svg {
     width: 80% !important;
     height: auto !important;
@@ -244,7 +246,7 @@ a {
    }
    .details {
      padding: 0 @16px;
-     border-left: 1px solid @borderColor; 
+     border-left: @1px solid @borderColor; 
      .game-type {
        display: block;
        margin-bottom: @5px;
@@ -290,8 +292,8 @@ label.icon-label {
     }
   }
   svg.icon + span {
-    margin-top: @relative1px;
-    margin-left: @relative5px;
+    margin-top: @1px;
+    margin-left: @5px;
   }
 }
 
@@ -314,8 +316,8 @@ label.icon-label {
     .item {
       svg {
         &.icon {
-          width: @relative22px !important;
-          height: @relative22px !important;
+          width: @22px !important;
+          height: @22px !important;
         }
       }
     }
@@ -334,8 +336,8 @@ label.icon-label {
 --------------------*/
 
 svg {
-  width: @relative16px;
-  height: @relative16px;
+  width: @16px;
+  height: @16px;
 
   path {
     transition: fill @defaultDuration @defaultEasing;
@@ -407,7 +409,7 @@ svg {
 --------------------*/
 
 .input-feedback {
-  margin-top: @relative8px;
+  margin-top: @8px;
   font-size: @fieldFeedbackFontSize;
   &.error {
     color: @errorColor;
@@ -464,7 +466,7 @@ svg {
     }
     > .item.active {
       background: @white;
-      border: 1px solid @veryStrongTransparentBlack;
+      border: @1px solid @veryStrongTransparentBlack;
       > .badge svg path {
         fill: @black;
       }
@@ -541,7 +543,7 @@ table {
     max-width: 100%;
     height: 100%;
     font-size: @16px;
-    border: 1px solid @borderColor;
+    border: @1px solid @borderColor;
     border-radius: @absoluteBorderRadius;
     background-color: @white;
     border-top-right-radius: @3px;
@@ -589,12 +591,12 @@ table {
       overflow-y: scroll;
       background-color: @white;
       tr {
-        border-bottom: 1px solid lighten(@borderColor, 5);
+        border-bottom: @1px solid lighten(@borderColor, 5);
       }
     }
     tfoot {
       display: block;
-      border-top: 1px solid @veryStrongTransparentBlack;
+      border-top: @1px solid @veryStrongTransparentBlack;
     }
     &.striped {
       tbody > tr {
@@ -614,7 +616,7 @@ table {
   thead {
     tr {
       &:nth-child(1) {
-        border-bottom: 1px solid @veryStrongTransparentBlack;
+        border-bottom: @1px solid @veryStrongTransparentBlack;
         th {
           font-family: @tableHeaderFont;
           color: @black;
@@ -629,7 +631,7 @@ table {
       &:nth-child(2) {
         font-size: @15px;
         background-color: @infoBackgroundColor;
-        border-bottom: 1px solid lighten(@infoBorderColor, 5);
+        border-bottom: @1px solid lighten(@infoBorderColor, 5);
         th {
           padding: 0 !important;
           color: @infoTextColor;
@@ -1332,7 +1334,7 @@ table {
           padding: @relative16px @relative24px @relative16px;
           overflow: hidden;
           word-break: break-word;
-          border-bottom: 1px solid @subtleTransparentBlack;
+          border-bottom: @1px solid @subtleTransparentBlack;
           &:hover {
             .ui.icon.button.trash {
               display: block;
@@ -1347,16 +1349,16 @@ table {
             }
           }
           > .card-details {
-            padding: 0 @relative24px 0 0;
+            padding: 0 @24px 0 0;
             flex: 1 1 auto;
             .header {
               display: flex;
               align-items: flex-start;
-              height: @relative36px;
+              height: calc(1.2 * 2 * @18px);
               overflow: hidden;
-              margin-bottom: @relative10px;
+              margin-bottom: @10px;
               line-height: 1.2;
-              font-size: @relative18px;
+              font-size: @18px;
               color: @darkTextColor;
               font-family: @boldFont;
             }
@@ -1364,7 +1366,7 @@ table {
           > .card-badge {
             flex: 0 0 auto;
             .badge {
-              margin-right: -@relative8px;
+              margin-right: -@8px;
             }
           }
           .ui.icon.button.trash {
@@ -1380,8 +1382,8 @@ table {
             height: 100%;
             background-color: transparent;
             svg.icon {
-              width: @relative32px;
-              height: @relative32px;
+              width: @32px;
+              height: @32px;
             }
             transition: background-color @defaultDuration @defaultEasing,
               opacity @defaultDuration @defaultEasing;
@@ -1392,27 +1394,27 @@ table {
           flex-grow: 0;
           background-color: @subtleTransparentBlack;
           > .ui.four.buttons {
-            padding: @relative8px;
+            padding: @8px;
             .ui.button {
-              padding: @relative8px;
+              padding: @8px;
               &.clipboard {
                 transition: color @defaultDuration @defaultEasing,
                   background-color @defaultDuration @defaultEasing;
                 &.copied {
                   color: @white;
                   background-color: @positiveColor;
-                  font-size: @relative14px;
+                  font-size: @14px;
                   margin: 0;
                   padding: 0;
                 }
               }
             }
             .ui.button:not(:last-child) {
-              border-right: 1px inset @veryStrongTransparentBlack;
+              border-right: @1px inset @veryStrongTransparentBlack;
             }
             svg.icon {
-              width: @relative20px;
-              height: @relative20px;
+              width: @20px;
+              height: @20px;
             }
           }
         }
@@ -1440,11 +1442,11 @@ table {
 .match-header {
   /* TODO replace with className of icon */
   svg.icon.question {
-    width: @relative64px;
-    height: @relative64px;
+    width: @64px;
+    height: @64px;
   }
   .header.game-title {
-    margin: @relative4px 0 @relative8px;
+    margin: @4px 0 @8px;
   }
 
   .labels {
@@ -1460,7 +1462,7 @@ table {
       align-self: center;
       &.game-title {
         line-height: 1;
-        font-size: @relative24px;
+        font-size: @24px;
         color: @darkTextColor;
         font-family: @boldFont;
         text-transform: uppercase;
@@ -1478,14 +1480,14 @@ table {
   flex-direction: column;
   > #match-title {
     max-width: 30ch;
-    font-size: @relative24px;
+    font-size: @24px;
     font-family: @extraBoldFont;
     color: @black;
     text-align: center;
     text-transform: uppercase;
   }
   > #match-id {
-    font-size: @relative17px;
+    font-size: @17px;
     font-family: @semiBoldFont;
     color: @black;
   }
@@ -1537,15 +1539,15 @@ table {
 
 #rich-match-editor {
   > fieldset {
-    margin-bottom: @relative12px;
-    border: 1px solid @borderColor;
+    margin-bottom: @12px;
+    border: @1px solid @borderColor;
     border-radius: @absoluteBorderRadius;
     > legend {
       font-family: @labelFont;
       font-size: @fieldLabelFontSize;
       font-weight: 400;
       color: @labelTextColor;
-      margin: -@relative8px 0 0 @relative16px;
+      margin: -@8px 0 0 @16px;
       text-transform: uppercase;
     }
   }
@@ -1553,11 +1555,11 @@ table {
     display: block;
     width: auto;
     height: auto;
-    padding: @relative16px 25%;
-    margin: 0 0 @relative12px;
+    padding: @16px 25%;
+    margin: 0 0 @12px;
     font-size: inherit;
     line-height: 1.5;
-    border: 1px solid transparent;
+    border: @1px solid transparent;
     border-right: none;
     border-left: none;
     border-top: none;
@@ -1588,7 +1590,7 @@ table {
     button {
       outline: 0;
       margin: 0;
-      padding: @relative4px;
+      padding: @4px;
       text-decoration: none !important;
       cursor: pointer;
       position: relative;
@@ -1604,8 +1606,8 @@ table {
         }
       }
       svg.icon {
-        width: @relative18px;
-        height: @relative18px;
+        width: @18px;
+        height: @18px;
         path {
           fill: @lightTextColor;
         }
@@ -1614,7 +1616,7 @@ table {
   }
   .input-feedback {
     margin: 0;
-    padding: @relative16px;
+    padding: @16px;
   }
 }
 
@@ -1624,7 +1626,7 @@ table {
   }
   .ui.icon.header {
     > svg {
-      height: @relative16px !important;
+      height: @16px !important;
       width: auto;
       > path {
         fill: @labelTextColor;
@@ -1642,7 +1644,7 @@ table {
   > textarea {
     position: relative;
     font-family: @textareaFont;
-    font-size: @relative16px;
+    font-size: @16px;
     line-height: 1.6;
     margin-top: @12px;
     height: calc(100% - 100px);
@@ -1654,7 +1656,7 @@ table {
     }
   }
   > .match-tip {
-    font-size: @relative14px;
+    font-size: @14px;
     margin-top: @16px;
     line-height: 1.4;
     font-family: @marcherBook;
@@ -1674,7 +1676,7 @@ table {
     flex-direction: row;
     > .icon + .content {
       line-height: 1.4;
-      font-size: 1.6em;
+      font-size: @25px;
     }
   }
 
@@ -1697,7 +1699,7 @@ table {
 
     span {
       &:first-child {
-        font-size: @relative32px;
+        font-size: @32px;
         font-family: @extraBoldFont;
         line-height: 1.3;
       }
@@ -1713,7 +1715,7 @@ table {
   height: 43px;
   padding: 0.67857143em @relative16px;
   border-radius: @4px;
-  border: 1px solid @borderColor;
+  border: @1px solid @borderColor;
 }
 
 .StripeElement--complete {

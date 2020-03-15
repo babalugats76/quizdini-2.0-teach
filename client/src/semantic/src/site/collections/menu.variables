@@ -2,6 +2,8 @@
     User Variable Overrides
 *******************************/
 
+@borderWidth: 0px;
+@border: none;
 @borderRadius: 0;
 @boxShadow: none;
 @fontFamily: @semiBoldFont;

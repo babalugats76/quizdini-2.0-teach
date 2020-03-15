@@ -27,7 +27,7 @@
   font-family: 'marcher-semibold', sans-serif;
   background: #FFFFFF;
   font-weight: normal;
-  border: 1px solid #dee4e7;
+  border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
   border-radius: 0;
@@ -1841,7 +1841,7 @@ Floated Menu / Item
           justify-content: center;
 }
 .ui.attached.item.menu:not(.tabular) {
-  margin: 0 -1px !important;
+  margin: 0 0px !important;
 }
 .ui.item.menu .item:last-child:before {
   display: none;
@@ -2074,9 +2074,9 @@ Floated Menu / Item
   top: 0;
   bottom: 0;
   border-radius: 0;
-  margin: 0 -1px;
-  width: calc(100% + 2px);
-  max-width: calc(100% + 2px);
+  margin: 0 0px;
+  width: calc(100% + 0px);
+  max-width: calc(100% + 0px);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -2120,7 +2120,7 @@ Floated Menu / Item
 
 /* Tabular Attached */
 .ui.attached.menu:not(.tabular) {
-  border: 1px solid #dee4e7;
+  border: 0px solid #dee4e7;
 }
 .ui.attached.inverted.menu {
   border: none;

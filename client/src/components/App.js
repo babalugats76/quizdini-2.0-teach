@@ -391,7 +391,7 @@ const HeaderNav = ({
     });
 
   return (
-    <Menu as="header" borderless fixed="top" inverted size="massive">
+    <Menu as="header" borderless inverted size="massive">
       <Container as="nav">
         {loggedIn && isMobile && (
           <Menu.Item key="sidebar" as="a" position="left" onClick={onMenuClick}>

@@ -689,7 +689,7 @@ const MatchForm = props => {
                   </Segment>
                 )}
                 <Grid stackable divided="vertically">
-                  <Grid.Row>
+                  <Grid.Row className="page-nav">
                     <Link
                       className="back"
                       to={{ pathname: "/dashboard", state: { from: "MATCH" } }}
