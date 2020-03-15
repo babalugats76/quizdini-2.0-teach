@@ -57,7 +57,7 @@
   display: block;
   margin: 0 0 0.25rem 0;
   color: #a09fa7;
-  font-size: 0.8125em;
+  font-size: 0.875rem;
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -1461,7 +1461,7 @@
 .ui.form .grouped.fields > label {
   margin: 0 0 0.25rem 0;
   color: #a09fa7;
-  font-size: 0.8125em;
+  font-size: 0.875rem;
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -1695,7 +1695,7 @@
   margin-top: 0;
   margin-bottom: 0;
   vertical-align: baseline;
-  font-size: 0.8125em;
+  font-size: 0.875rem;
   font-weight: 400;
   color: #a09fa7;
   text-transform: uppercase;
@@ -1818,7 +1818,7 @@
   display: block;
   margin: 0 0 0.25rem 0;
   color: #a09fa7;
-  font-size: 0.8125em;
+  font-size: 0.875rem;
   font-weight: 400;
   text-transform: uppercase;
 }

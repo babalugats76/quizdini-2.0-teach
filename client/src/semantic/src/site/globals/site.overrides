@@ -181,12 +181,6 @@ a {
       margin-left: auto;
       margin-right: auto;
       padding: @mobilePagePadding;
-      > .page-nav {
-        padding-top: 0 !important;
-        .back {
-          margin-left: @16px;
-        }
-      }
       &.middle {
         display: flex;
         flex-direction: column;
@@ -206,6 +200,11 @@ a {
       &.extra-large {
         max-width: @extraLargeContainer;
       }
+      .page-nav {
+        .back {
+          margin-left: @16px;
+        }
+      }
     }
   }
 
@@ -223,7 +222,8 @@ a {
   justify-content: center;
   width: @56px;
   height: @56px;
-  font-size: @16px;
+  font-size: @fontSize;
+  background-color: @white;
   border-radius: 50%;
   box-shadow: 0 @1px @5px @mutedTextColor;
   > svg {
@@ -240,11 +240,11 @@ a {
    align-items: center;
    padding: 0 @16px;
    .badge {
-     height: 5rem!important;
-     width: 5rem!important; 
      margin-right: @16px;
+     width: 5rem;
+     height: 5rem;
    }
-   .details {
+   .game-details {
      padding: 0 @16px;
      border-left: @1px solid @borderColor; 
      .game-type {
@@ -253,14 +253,14 @@ a {
        font-family: @labelFont;
        color: @labelTextColor;
        text-transform: uppercase;
-       font-size: @12px;
+       font-size: @absoluteMini;
        line-height: 1
      }
      .game-title {
        display: block;
-       max-width: 22ch;
+       max-width: 30ch;
        margin: @10px 0;
-       font-size: @24px;
+       font-size: @absoluteHuge;
        line-height: 1.1;
        color: @darkTextColor;
        font-family: @boldFont;
@@ -269,10 +269,22 @@ a {
      .game-id {
        display: block;
        color: @labelTextColor;
-       font-size: @14px;
+       font-size: @absoluteSmall;
        line-height: 1;
      }
    }
+}
+
+@supports (-webkit-line-clamp: 2) {
+  .game-summary .game-details .game-title {
+    display: -webkit-box!important;
+    width: 100%;
+    -webkit-line-clamp: 2;
+    /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    overflow: hidden!important;
+    text-overflow: ellipsis;
+  }
 }
 
 /*-------------------
@@ -1331,7 +1343,7 @@ table {
           justify-content: space-between;
           position: relative;
           min-height: 5em;
-          padding: @relative16px @relative24px @relative16px;
+          padding: @16px @24px @16px;
           overflow: hidden;
           word-break: break-word;
           border-bottom: @1px solid @subtleTransparentBlack;
@@ -1354,11 +1366,11 @@ table {
             .header {
               display: flex;
               align-items: flex-start;
-              height: calc(1.2 * 2 * @18px);
               overflow: hidden;
+              height: calc(2 * 1.1 * @absoluteLarge);
               margin-bottom: @10px;
-              line-height: 1.2;
-              font-size: @18px;
+              line-height: 1.1;
+              font-size: @absoluteLarge;
               color: @darkTextColor;
               font-family: @boldFont;
             }
@@ -1382,8 +1394,8 @@ table {
             height: 100%;
             background-color: transparent;
             svg.icon {
-              width: @32px;
-              height: @32px;
+              width: @relative32px;
+              height: @relative32px;
             }
             transition: background-color @defaultDuration @defaultEasing,
               opacity @defaultDuration @defaultEasing;
@@ -1393,17 +1405,15 @@ table {
           display: flex;
           flex-grow: 0;
           background-color: @subtleTransparentBlack;
+          padding: @16px;
           > .ui.four.buttons {
-            padding: @8px;
             .ui.button {
               padding: @8px;
               &.clipboard {
                 transition: color @defaultDuration @defaultEasing,
                   background-color @defaultDuration @defaultEasing;
                 &.copied {
-                  color: @white;
                   background-color: @positiveColor;
-                  font-size: @14px;
                   margin: 0;
                   padding: 0;
                 }
@@ -1413,8 +1423,8 @@ table {
               border-right: @1px inset @veryStrongTransparentBlack;
             }
             svg.icon {
-              width: @20px;
-              height: @20px;
+              width: @relative20px;
+              height: @relative20px;
             }
           }
         }
@@ -1425,12 +1435,12 @@ table {
 
 @supports (-webkit-line-clamp: 2) {
   .ui.card .card-details .header {
-    display: -webkit-box;
+    display: -webkit-box!important;
     width: 100%;
     -webkit-line-clamp: 2;
     /* autoprefixer: ignore next */
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    overflow: hidden!important;
     text-overflow: ellipsis;
   }
 }

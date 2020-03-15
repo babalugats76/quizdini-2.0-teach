@@ -55,9 +55,9 @@
 /*-------------------
   Font Sizes
 --------------------*/
-@fieldLabelFontSize     : @relative13px;
-@fieldFeedbackFontSize  : @relative14px;
-@iconLabelFontSize      : @relative14px;
+@fieldLabelFontSize     : @absoluteTiny;
+@fieldFeedbackFontSize  : @absoluteSmall;
+@iconLabelFontSize      : @absoluteSmall;
 
 /*-------------------
   Text Colors, etc.

@@ -701,11 +701,11 @@ const MatchForm = props => {
                     <Grid.Column id="game-panel">
                       <div className="game-summary">
                         <Badge icon="question" />
-                        <span className="details">
-                          <span className="game-type">Match Game</span>
-                          <span className="game-title">{values.title || "UNTITLED"}</span>
-                          <span className="game-id">{values.matchId || "UNPUBLISHED"}</span>
-                        </span>
+                        <div className="game-details">
+                          <div className="game-type">Match Game</div>
+                          <div className="game-title">{values.title || "UNTITLED"}</div>
+                          <div className="game-id">{values.matchId || "UNPUBLISHED"}</div>
+                        </div>
                       </div>
                       <div className="clearfix">
                         <Button
