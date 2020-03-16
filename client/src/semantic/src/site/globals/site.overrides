@@ -8,93 +8,76 @@
 
 /* lexend-deca-regular - latin */
 @font-face {
-  font-family: 'Lexend Deca';
+  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 400;
-  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'),
-    url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2')
-      format('woff2'),
+  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"),
+    url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff')
-      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: 'marcher-light';
-  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-light-webfont.woff')
-      format('woff');
+  font-family: "marcher-light";
+  src: url("https://static.quizdini.com/fonts/marcher-light-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-book';
-  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-book-webfont.woff')
-      format('woff');
+  font-family: "marcher-book";
+  src: url("https://static.quizdini.com/fonts/marcher-book-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-book-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-regular';
-  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff')
-      format('woff');
+  font-family: "marcher-regular";
+  src: url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-medium';
-  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff')
-      format('woff');
+  font-family: "marcher-medium";
+  src: url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-semibold';
-  src: url('https://static.quizdini.com/fonts/marcher-semibold-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-semibold-webfont.woff')
-      format('woff');
+  font-family: "marcher-semibold";
+  src: url("https://static.quizdini.com/fonts/marcher-semibold-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-bold';
-  src: url('https://static.quizdini.com/fonts/marcher-bold-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-bold-webfont.woff')
-      format('woff');
+  font-family: "marcher-bold";
+  src: url("https://static.quizdini.com/fonts/marcher-bold-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-extrabold';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff')
-      format('woff');
+  font-family: "marcher-extrabold";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-extrabolditalic';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff')
-      format('woff');
+  font-family: "marcher-extrabolditalic";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2")
+      format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -115,7 +98,7 @@ a {
 --------------------*/
 
 .clearfix::after {
-  content: '';
+  content: "";
   clear: both;
   display: block;
 }
@@ -168,7 +151,7 @@ a {
   > header {
     flex: 0 0 auto;
     box-shadow: none;
-    margin: 0!important;
+    margin: 0 !important;
   }
 
   > #content {
@@ -236,53 +219,53 @@ a {
   Game Summary
 --------------------*/
 .game-summary {
-   display: inline-flex;
-   align-items: center;
-   padding: 0 @16px;
-   .badge {
-     margin-right: @16px;
-     width: 5rem;
-     height: 5rem;
-   }
-   .game-details {
-     padding: 0 @16px;
-     border-left: @1px solid @borderColor; 
-     .game-type {
-       display: block;
-       margin-bottom: @5px;
-       font-family: @labelFont;
-       color: @labelTextColor;
-       text-transform: uppercase;
-       font-size: @absoluteMini;
-       line-height: 1
-     }
-     .game-title {
-       display: block;
-       max-width: 30ch;
-       margin: @10px 0;
-       font-size: @absoluteHuge;
-       line-height: 1.1;
-       color: @darkTextColor;
-       font-family: @boldFont;
-       text-transform: uppercase;  
-     }   
-     .game-id {
-       display: block;
-       color: @labelTextColor;
-       font-size: @absoluteSmall;
-       line-height: 1;
-     }
-   }
+  display: inline-flex;
+  align-items: center;
+  padding: 0 @16px;
+  .badge {
+    margin-right: @16px;
+    width: 5rem;
+    height: 5rem;
+  }
+  .game-details {
+    padding: 0 @16px;
+    border-left: @1px solid @borderColor;
+    .game-type {
+      display: block;
+      margin-bottom: @5px;
+      font-family: @labelFont;
+      color: @labelTextColor;
+      text-transform: uppercase;
+      font-size: @absoluteMini;
+      line-height: 1;
+    }
+    .game-title {
+      display: block;
+      max-width: 30ch;
+      margin: @10px 0;
+      font-size: @absoluteHuge;
+      line-height: 1.1;
+      color: @darkTextColor;
+      font-family: @boldFont;
+      text-transform: uppercase;
+    }
+    .game-id {
+      display: block;
+      color: @labelTextColor;
+      font-size: @absoluteSmall;
+      line-height: 1;
+    }
+  }
 }
 
 @supports (-webkit-line-clamp: 2) {
   .game-summary .game-details .game-title {
-    display: -webkit-box!important;
+    display: -webkit-box !important;
     width: 100%;
     -webkit-line-clamp: 2;
     /* autoprefixer: ignore next */
     -webkit-box-orient: vertical;
-    overflow: hidden!important;
+    overflow: hidden !important;
     text-overflow: ellipsis;
   }
 }
@@ -800,7 +783,7 @@ table {
   flex-direction: column;
   min-height: 300px;
 
-  button[type='submit'] {
+  button[type="submit"] {
     display: flex;
     margin: @relative32px auto @relative16px;
   }
@@ -825,7 +808,7 @@ table {
       background-color: @veryStrongTransparentBlack;
       background-size: 25px;
       background-repeat: round;
-      background-image: url('/images/question.svg');
+      background-image: url("/images/question.svg");
     }
     &#selling-points {
       background-color: @offWhite;
@@ -991,7 +974,7 @@ table {
           }
           &:before {
             display: inline-block;
-            content: '\25bc\00a0';
+            content: "\25bc\00a0";
             transform: rotate(-90deg);
             transition: all @defaultDuration @defaultEasing;
             vertical-align: 20%;
@@ -1141,7 +1124,7 @@ table {
 #account,
 #register {
   &::after {
-    content: '';
+    content: "";
     display: block;
     height: 100px;
   }
@@ -1184,16 +1167,15 @@ table {
     color: transparent;
     border: 0;
     outline: none;
-    background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png')
-      no-repeat;
+    background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
     background-size: 191px 46px;
     &:focus,
     &:hover {
-      background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
+      background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
     }
     &:active,
     &:visited {
-      background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
+      background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
     }
   }
 
@@ -1215,7 +1197,7 @@ table {
       width: 191px;
     }
 
-    button[type='submit'] {
+    button[type="submit"] {
       display: flex;
       margin: @relative8px auto;
     }
@@ -1435,12 +1417,12 @@ table {
 
 @supports (-webkit-line-clamp: 2) {
   .ui.card .card-details .header {
-    display: -webkit-box!important;
+    display: -webkit-box !important;
     width: 100%;
     -webkit-line-clamp: 2;
     /* autoprefixer: ignore next */
     -webkit-box-orient: vertical;
-    overflow: hidden!important;
+    overflow: hidden !important;
     text-overflow: ellipsis;
   }
 }
@@ -1588,7 +1570,7 @@ table {
       color: @darkTextColor;
       box-shadow: @fieldFocusBoxShadow;
     }
-    &:not([contenteditable='true']) {
+    &:not([contenteditable="true"]) {
       color: @unselectedTextColor;
       background-color: transparent;
       border-color: transparent;
@@ -1806,6 +1788,14 @@ table {
     margin-top: @16px;
   }
 
+  .ui.grid > #match-edit-header.row > .column {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width: @computerBreakpoint) {
   table {
     &.flex-table {
       tr {
@@ -1830,7 +1820,6 @@ table {
   }
 
   #match-table {
-    /*height: 480px;*/
     thead,
     tbody {
       tr {
@@ -1863,12 +1852,6 @@ table {
         }
       }
     }
-  }
-
-  .ui.grid > #match-edit-header.row > .column {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
   }
 }
 

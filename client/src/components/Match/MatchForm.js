@@ -688,7 +688,7 @@ const MatchForm = props => {
                     <Notify {...status} onDismiss={() => setStatus(null)} />
                   </Segment>
                 )}
-                <Grid stackable divided="vertically">
+                <Grid divided="vertically" stackable>
                   <Grid.Row className="page-nav">
                     <Link
                       className="back"
@@ -697,8 +697,8 @@ const MatchForm = props => {
                       &#x2190;&nbsp;Back to Dashboard
                     </Link>
                   </Grid.Row>
-                  <Grid.Row columns={2} divided id="match-edit-panel" stretched>
-                    <Grid.Column id="game-panel">
+                  <Grid.Row columns={2} divided id="match-edit-panel">
+                    <Grid.Column id="game-panel" stretched>
                       <div className="game-summary">
                         <Badge icon="question" />
                         <div className="game-details">
@@ -735,7 +735,7 @@ const MatchForm = props => {
                         renderActiveOnly={true}
                       />
                     </Grid.Column>
-                    <Grid.Column id="table-panel">
+                    <Grid.Column id="table-panel" stretched>
                       <Segment className="flex-table-wrapper">
                         <MatchTable
                           columns={["", "Term", "Definition"]}

@@ -732,66 +732,66 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 /* lexend-deca-regular - latin */
 
 @font-face {
-  font-family: 'Lexend Deca';
+  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 400;
-  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'), url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2') format('woff2'), 
- url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff') format('woff');
+  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"), url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"), 
+ url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: 'marcher-light';
-  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-light-webfont.woff') format('woff');
+  font-family: "marcher-light";
+  src: url("https://static.quizdini.com/fonts/marcher-light-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-book';
-  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-book-webfont.woff') format('woff');
+  font-family: "marcher-book";
+  src: url("https://static.quizdini.com/fonts/marcher-book-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-book-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-regular';
-  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff') format('woff');
+  font-family: "marcher-regular";
+  src: url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-medium';
-  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff') format('woff');
+  font-family: "marcher-medium";
+  src: url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-semibold';
-  src: url('https://static.quizdini.com/fonts/marcher-semibold-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-semibold-webfont.woff') format('woff');
+  font-family: "marcher-semibold";
+  src: url("https://static.quizdini.com/fonts/marcher-semibold-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-bold';
-  src: url('https://static.quizdini.com/fonts/marcher-bold-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-bold-webfont.woff') format('woff');
+  font-family: "marcher-bold";
+  src: url("https://static.quizdini.com/fonts/marcher-bold-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-extrabold';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff') format('woff');
+  font-family: "marcher-extrabold";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-extrabolditalic';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2') format('woff2'), url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff') format('woff');
+  font-family: "marcher-extrabolditalic";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2") format("woff2"), url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -813,7 +813,7 @@ a:hover {
 --------------------*/
 
 .clearfix::after {
-  content: '';
+  content: "";
   clear: both;
   display: block;
 }
@@ -880,7 +880,7 @@ a:hover {
   flex: 0 0 auto;
   -webkit-box-shadow: none;
   box-shadow: none;
-  margin: 0!important;
+  margin: 0 !important;
 }
 
 .page-wrapper > #content {
@@ -1035,7 +1035,7 @@ a:hover {
     -webkit-line-clamp: 2;
     /* autoprefixer: ignore next */
     -webkit-box-orient: vertical;
-    overflow: hidden!important;
+    overflow: hidden !important;
     text-overflow: ellipsis;
   }
 }
@@ -1609,7 +1609,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   min-height: 300px;
 }
 
-.form-step button[type='submit'] {
+.form-step button[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1638,7 +1638,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   background-color: rgba(0, 0, 0, 0.15);
   background-size: 25px;
   background-repeat: round;
-  background-image: url('/images/question.svg');
+  background-image: url("/images/question.svg");
 }
 
 #landing .banner#selling-points {
@@ -1848,7 +1848,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 #about.page section details > summary:before,
 #terms.page section details > summary:before {
   display: inline-block;
-  content: '\25bc\00a0';
+  content: "\25bc\00a0";
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
   -webkit-transition: all 250ms ease;
@@ -1969,7 +1969,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 
 #account::after,
 #register::after {
-  content: '';
+  content: "";
   display: block;
   height: 100px;
 }
@@ -2016,18 +2016,18 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   color: transparent;
   border: 0;
   outline: none;
-  background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png') no-repeat;
+  background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
   background-size: 191px 46px;
 }
 
 #login-wrapper a#google-login:focus,
 #login-wrapper a#google-login:hover {
-  background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
+  background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
 }
 
 #login-wrapper a#google-login:active,
 #login-wrapper a#google-login:visited {
-  background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
+  background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
 }
 
 #login-wrapper .ui.divider {
@@ -2056,7 +2056,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   width: 191px;
 }
 
-#login-wrapper #login-form button[type='submit'] {
+#login-wrapper #login-form button[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2303,7 +2303,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
     -webkit-line-clamp: 2;
     /* autoprefixer: ignore next */
     -webkit-box-orient: vertical;
-    overflow: hidden!important;
+    overflow: hidden !important;
     text-overflow: ellipsis;
   }
 }
@@ -2459,7 +2459,7 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   box-shadow: none;
 }
 
-#rich-match-editor .rich-text-editor:not([contenteditable='true']) {
+#rich-match-editor .rich-text-editor:not([contenteditable="true"]) {
   color: rgba(32, 33, 36, 0.6);
   background-color: transparent;
   border-color: transparent;
@@ -2686,6 +2686,20 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
     margin-top: 1rem;
   }
 
+  .ui.grid > #match-edit-header.row > .column {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width: 992px) {
   table.flex-table tr {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -2706,10 +2720,6 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   table.flex-table tfoot tr td,
   table.flex-table tfoot tr th {
     padding: 1rem !important;
-  }
-
-  #match-table {
-    /*height: 480px;*/
   }
 
   #match-table thead tr td:nth-child(1),
@@ -2747,18 +2757,6 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 
   #match-table thead tr:nth-child(1) th:first-child {
     display: block;
-  }
-
-  .ui.grid > #match-edit-header.row > .column {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
   }
 }
 
