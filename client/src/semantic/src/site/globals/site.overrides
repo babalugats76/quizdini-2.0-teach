@@ -135,11 +135,44 @@ a {
 }
 
 /*-------------------
-  Layout (Page)
+  Layouts (Page)
 --------------------*/
 
 #quizdini {
   background-color: @pageBackground;
+}
+
+.full-page-wrapper {
+  width: 100%;
+  flex-direction: column;
+  flex: 1 0 auto;
+  > #content {
+    flex: 1 1 auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    > .side-menu {
+      flex: 0 0 56px;
+      flex-direction: column;
+      background: blue;
+    }
+    > .page {
+      width: 100%;
+      flex: 1 1 auto;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      > main, > aside {
+        flex-direction: column;
+      }
+      > main {
+        flex: 3 1 auto;
+        background: @white;
+      }
+      > aside {
+        flex: 2 1 auto;
+        background: @white;
+      }
+    }
+  }
 }
 
 .page-wrapper {
@@ -538,11 +571,11 @@ table {
     max-width: 100%;
     height: 100%;
     font-size: @16px;
-    border: @1px solid @borderColor;
+    /*border: @1px solid @borderColor;
     border-radius: @absoluteBorderRadius;
     background-color: @white;
     border-top-right-radius: @3px;
-    border-top-left-radius: @3px;
+    border-top-left-radius: @3px;*/
     thead,
     tbody {
       display: block;
@@ -578,6 +611,7 @@ table {
       }
     }
     thead {
+      flex: 0;
       margin-right: 0px;
       background-color: @white;
     }
@@ -590,6 +624,7 @@ table {
       }
     }
     tfoot {
+      flex: 0;
       display: block;
       border-top: @1px solid @veryStrongTransparentBlack;
     }
@@ -1773,6 +1808,32 @@ table {
 @media only screen and (min-width: @tabletBreakpoint) {
   #quizdini {
     background: @widePageBackground;
+  }
+
+  .full-page-wrapper {
+    height: 100vh;
+    display: flex;
+    > #content {
+      display: flex;
+      > .side-menu {
+        display: flex;
+      }
+      > .page {
+        display: flex;
+        > main, > aside {
+          display: flex;
+          padding: @28px;
+          min-width: 480px;
+        }
+        > aside {
+          background: @white;
+          margin-left: @14px;
+          border-left: 1px solid @borderColor;
+          min-width: 270px;
+          max-width: 480px;
+        }
+      }
+    }
   }
 
   .page-wrapper > #content > .page {

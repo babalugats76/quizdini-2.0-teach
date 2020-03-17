@@ -50,8 +50,6 @@ export default props => {
   // When to show loader
   const showLoader = !user || !countryOptions || !stateOptions;
 
-  console.log('hasError', hasError);
-
   return (
     (hasError && <ErrorMessage details={errors} />) ||
     (showLoader && <Loader />) || (

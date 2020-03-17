@@ -12,7 +12,7 @@ import {
   Sidebar
 } from 'semantic-ui-react';
 import { useReduxData, useTitle, useWindowSize } from '../hooks/';
-import { Icon, Loader } from './UI/';
+import { ErrorMessage, Icon, Loader } from './UI/';
 import logo from '../logo.svg';
 import {
   About,
@@ -31,36 +31,91 @@ import {
 
 const PrivateRoute = ({
   component: Component,
-  title,
+  errors,
+  layout: Layout,
   loggedIn = false,
+  showLoader,
+  title,
+  user,
   ...rest
 }) => {
   useTitle({ title, deps: [Component] });
   return (
     (loggedIn && (
-      <Route render={props => <Component {...props} {...rest} />} {...rest} />
-    )) || <Route render={props => <Landing {...props} {...rest} />} {...rest} />
+      <Route
+        render={props => (
+          <Layout errors={errors} showLoader={showLoader} user={user}>
+            <Component {...props} {...rest} />
+          </Layout>
+        )}
+        {...rest}
+      />
+    )) || (
+      <Route
+        render={props => (
+          <DefaultLayout errors={errors} showLoader={showLoader} user={user}>
+            <Landing {...props} {...rest} />
+          </DefaultLayout>
+        )}
+        {...rest}
+      />
+    )
   );
 };
 
 const PublicOnlyRoute = ({
   component: Component,
-  title,
+  errors,
+  layout: Layout,
   loggedIn = false,
+  title,
+  showLoader,
+  user,
   ...rest
 }) => {
   useTitle({ title, deps: [Component] });
   return (
     (!loggedIn && (
-      <Route render={props => <Component {...props} {...rest} />} {...rest} />
-    )) || <Route render={props => <Landing {...props} {...rest} />} {...rest} />
+      <Route
+        render={props => (
+          <Layout errors={errors} showLoader={showLoader} user={user}>
+            <Component {...props} {...rest} />
+          </Layout>
+        )}
+        {...rest}
+      />
+    )) || (
+      <Route
+        render={props => (
+          <DefaultLayout errors={errors} showLoader={showLoader} user={user}>
+            <Landing {...props} {...rest} />
+          </DefaultLayout>
+        )}
+        {...rest}
+      />
+    )
   );
 };
 
-const PublicRoute = ({ component: Component, title, ...rest }) => {
+const PublicRoute = ({
+  component: Component,
+  errors,
+  layout: Layout,
+  showLoader,
+  title,
+  user,
+  ...rest
+}) => {
   useTitle({ title, deps: [Component] });
   return (
-    <Route render={props => <Component {...props} {...rest} />} {...rest} />
+    <Route
+      render={props => (
+        <Layout errors={errors} showLoader={showLoader} user={user}>
+          <Component {...props} {...rest} />
+        </Layout>
+      )}
+      {...rest}
+    />
   );
 };
 
@@ -77,84 +132,125 @@ const App = props => {
   // When to show loader
   const showLoader = !loaded;
 
+  const layoutProps = { errors, showLoader, user };
+
   return (
-    <Layout errors={errors} showLoader={showLoader} user={user}>
-      <Switch>
-        <PrivateRoute
-          loggedIn={loggedIn}
-          exact
-          path="/dashboard"
-          component={Dashboard}
-          title="Dashboard"
-          credits={credits || 0}
-        />
-        <PrivateRoute loggedIn={loggedIn} path="/match" component={Match} />
-        <PrivateRoute
-          loggedIn={loggedIn}
-          exact
-          path="/credits"
-          component={Checkout}
-          title="Buy Credits"
-        />
-        <PrivateRoute
-          loggedIn={loggedIn}
-          accountType={accountType}
-          path="/profile"
-          component={Profile}
-          title="Profile"
-        />
-        <PublicRoute path="/about" component={About} title="About" />
-        <PublicRoute path="/terms" component={Terms} title="Terms" />
-        <PublicOnlyRoute
-          loggedIn={loggedIn}
-          exact
-          path="/auth/google"
-          render={() => <Redirect to="/auth/google" />}
-        />
-        <PublicOnlyRoute
-          loggedIn={loggedIn}
-          exact
-          path="/register"
-          component={Register}
-          title="Sign Up"
-        />
-        <PublicOnlyRoute
-          loggedIn={loggedIn}
-          exact
-          path="/verify/:secret"
-          component={Verify}
-          title="Verify"
-        />
-        <PublicOnlyRoute
-          loggedIn={loggedIn}
-          exact
-          path="/lost"
-          component={Lost}
-          title="Recovery"
-        />
-        <PublicOnlyRoute
-          loggedIn={loggedIn}
-          exact
-          path="/reset/:secret"
-          component={Reset}
-          title="Reset"
-        />
-        <PublicOnlyRoute
-          loggedIn={loggedIn}
-          exact
-          path="/login"
-          component={Login}
-          title="Login"
-        />
-        <PublicRoute component={Landing} title="Home" />
-      </Switch>
-    </Layout>
+    <Switch>
+      <PrivateRoute
+        loggedIn={loggedIn}
+        exact
+        path="/dashboard"
+        component={Dashboard}
+        title="Dashboard"
+        credits={credits || 0}
+        layout={DefaultLayout}
+        {...layoutProps}
+      />
+      <PrivateRoute
+        loggedIn={loggedIn}
+        path="/match"
+        component={Match}
+        layout={FullPageLayout}
+        {...layoutProps}
+      />
+      <PrivateRoute
+        loggedIn={loggedIn}
+        exact
+        path="/credits"
+        component={Checkout}
+        title="Buy Credits"
+        layout={DefaultLayout}
+        {...layoutProps}
+      />
+      <PrivateRoute
+        loggedIn={loggedIn}
+        accountType={accountType}
+        path="/profile"
+        component={Profile}
+        title="Profile"
+        layout={DefaultLayout}
+        {...layoutProps}
+      />
+      <PublicRoute
+        path="/about"
+        component={About}
+        title="About"
+        layout={DefaultLayout}
+        {...layoutProps}
+      />
+      <PublicRoute
+        path="/terms"
+        component={Terms}
+        title="Terms"
+        layout={DefaultLayout}
+        {...layoutProps}
+      />
+      <PublicOnlyRoute
+        loggedIn={loggedIn}
+        exact
+        path="/auth/google"
+        render={() => <Redirect to="/auth/google" />}
+        layout={DefaultLayout}
+        {...layoutProps}
+      />
+      <PublicOnlyRoute
+        loggedIn={loggedIn}
+        exact
+        path="/register"
+        component={Register}
+        title="Sign Up"
+        layout={DefaultLayout}
+        {...layoutProps}
+      />
+      <PublicOnlyRoute
+        loggedIn={loggedIn}
+        exact
+        path="/verify/:secret"
+        component={Verify}
+        title="Verify"
+        layout={DefaultLayout}
+        {...layoutProps}
+      />
+      <PublicOnlyRoute
+        loggedIn={loggedIn}
+        exact
+        path="/lost"
+        component={Lost}
+        title="Recovery"
+        layout={DefaultLayout}
+        {...layoutProps}
+      />
+      <PublicOnlyRoute
+        loggedIn={loggedIn}
+        exact
+        path="/reset/:secret"
+        component={Reset}
+        title="Reset"
+        layout={DefaultLayout}
+        {...layoutProps}
+      />
+      <PublicOnlyRoute
+        loggedIn={loggedIn}
+        exact
+        path="/login"
+        component={Login}
+        title="Login"
+        layout={DefaultLayout}
+        {...layoutProps}
+      />
+      <PublicRoute
+        component={Landing}
+        title="Home"
+        layout={DefaultLayout}
+        {...layoutProps}
+      />
+    </Switch>
   );
 };
 
 export default withRouter(App);
 
-const Layout = ({ children, errors, showLoader, user }) => {
+const DefaultLayout = ({ children, errors, showLoader, user }) => {
   const [showSidebar, setSidebar] = useState(false);
   const hideSidebar = () => {
     setSidebar(p => p && false);
@@ -171,7 +267,7 @@ const Layout = ({ children, errors, showLoader, user }) => {
         dimmed={showSidebar}
         onClick={showSidebar ? hideSidebar : null}
       >
-      <HeaderNav onMenuClick={toggleMenu} {...user} />
+        <HeaderNav onMenuClick={toggleMenu} {...user} />
         <div id="content">
           {(errors && <pre>{JSON.stringify(errors, null, 4)}</pre>) ||
             (showLoader && <Loader />) ||
@@ -184,11 +280,26 @@ const Layout = ({ children, errors, showLoader, user }) => {
   );
 };
 
-Layout.propTypes = {
+DefaultLayout.propTypes = {
   children: PropTypes.any,
   errors: PropTypes.any,
   showLoader: PropTypes.bool.isRequired,
   user: PropTypes.object.isRequired
+};
+
+const FullPageLayout = ({ children, errors, showLoader, user }) => {
+  return (
+    <div className="full-page-wrapper">
+      <div id="content">
+        <div className="side-menu">
+          This is where full page menu would go...
+        </div>
+        {(errors && <ErrorMessage details={errors} />) ||
+          (showLoader && <Loader />) ||
+          children}
+      </div>
+    </div>
+  );
 };
 
 const SidebarNav = ({

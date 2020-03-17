@@ -321,11 +321,73 @@ a:hover {
 }
 
 /*-------------------
-  Layout (Page)
+  Layouts (Page)
 --------------------*/
 
 #quizdini {
   background-color: #f3f5f2;
+}
+.full-page-wrapper {
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+.full-page-wrapper > #content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+.full-page-wrapper > #content > .side-menu {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 56px;
+          flex: 0 0 56px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: blue;
+}
+.full-page-wrapper > #content > .page {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+.full-page-wrapper > #content > .page > main,
+.full-page-wrapper > #content > .page > aside {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.full-page-wrapper > #content > .page > main {
+  -webkit-box-flex: 3;
+      -ms-flex: 3 1 auto;
+          flex: 3 1 auto;
+  background: #FFFFFF;
+}
+.full-page-wrapper > #content > .page > aside {
+  -webkit-box-flex: 2;
+      -ms-flex: 2 1 auto;
+          flex: 2 1 auto;
+  background: #FFFFFF;
 }
 .page-wrapper {
   display: -webkit-box;
@@ -738,11 +800,11 @@ table.flex-table {
   max-width: 100%;
   height: 100%;
   font-size: 1rem;
-  border: 0.0625rem solid #dee4e7;
-  border-radius: 0.1875rem;
-  background-color: #FFFFFF;
-  border-top-right-radius: 0.1875rem;
-  border-top-left-radius: 0.1875rem;
+  /*border: @1px solid @borderColor;
+    border-radius: @absoluteBorderRadius;
+    background-color: @white;
+    border-top-right-radius: @3px;
+    border-top-left-radius: @3px;*/
 }
 table.flex-table thead,
 table.flex-table tbody {
@@ -787,6 +849,9 @@ table.flex-table thead > tr:first-child th:not(:last-child) {
   padding-bottom: 0.125rem;
 }
 table.flex-table thead {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
   margin-right: 0px;
   background-color: #FFFFFF;
 }
@@ -801,6 +866,9 @@ table.flex-table tbody tr {
   border-bottom: 0.0625rem solid #edf0f2;
 }
 table.flex-table tfoot {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
   display: block;
   border-top: 0.0625rem solid rgba(0, 0, 0, 0.15);
 }
@@ -1907,6 +1975,42 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 @media only screen and (min-width: 768px) {
   #quizdini {
     background: #f3f5f2;
+  }
+  .full-page-wrapper {
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .full-page-wrapper > #content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .full-page-wrapper > #content > .side-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .full-page-wrapper > #content > .page {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .full-page-wrapper > #content > .page > main,
+  .full-page-wrapper > #content > .page > aside {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 1.75rem;
+    min-width: 480px;
+  }
+  .full-page-wrapper > #content > .page > aside {
+    background: #FFFFFF;
+    margin-left: 0.875rem;
+    border-left: 1px solid #dee4e7;
+    min-width: 270px;
+    max-width: 480px;
   }
   .page-wrapper > #content > .page {
     padding: 28px 16px;
