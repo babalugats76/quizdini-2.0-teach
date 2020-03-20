@@ -20,9 +20,8 @@ const IconDropdown = ({
   };
 
   return (
-    <Header as={headerSize} icon>
+    <div className="icon-dropdown">
       <Icon name={icon} />
-      <label>{label}</label>
       <Dropdown
         error={!!error}
         id={name}
@@ -32,8 +31,9 @@ const IconDropdown = ({
         value={value}
         {...props}
       />
+      <label>{label}</label>
       <InputFeedback error={error} />
-    </Header>
+    </div>
   );
 };
 

@@ -1,3 +1,4 @@
+
 import Accordion from './Accordion';
 import Badge from './Badge';
 import Button from './Button';
@@ -19,6 +20,7 @@ import Modal from './Modal';
 import Message from './Message';
 import Notify from './Notify';
 import RadioGroup from './RadioGroup';
+import ResizingInputText from './ResizingInputText';
 import RouterButton from './RouterButton';
 import ScrollToTop from './ScrollToTop';
 import TextArea from './TextArea';
@@ -47,6 +49,7 @@ export {
   Modal,
   Notify,
   RadioGroup,
+  ResizingInputText,
   RouterButton,
   ScrollToTop,
   TextArea,

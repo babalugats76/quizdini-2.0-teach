@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Formik } from 'formik';
 import {
   Container,
@@ -17,7 +17,8 @@ import {
   IconDropdown,
   InputText,
   Message,
-  Notify
+  Notify,
+  ResizingInputText
 } from '../UI/';
 import HtmlSerializer from './HtmlSerializer';
 import MatchAdd from './MatchAdd';
@@ -57,7 +58,7 @@ const colorSchemeOptions = [
 const validateMatch = Yup.object().shape({
   title: Yup.string()
     .min(2, 'Title is too short. ${min} characters are required.')
-    .max(40, 'Title is too long. ${max} characters are allowed.')
+    .max(50, 'Title is too long. ${max} characters are allowed.')
     .required('Title is required.'),
   instructions: Yup.string().max(
     60,
@@ -144,9 +145,15 @@ const initialState = {
 
 const MatchForm = props => {
   const [state, setState] = useState(initialState);
+  const titleRef = useRef();
   const termRef = useRef();
   const definitionRef = useRef();
   const getNotify = useResult();
+
+  useEffect(() => {
+    const field = titleRef?.current;
+    field && field.focus();
+  }, []);
 
   const {
     loading,
@@ -588,7 +595,7 @@ const MatchForm = props => {
               <Tab.Pane clearing id="match-desc">
                 <Segment basic vertical>
                   <Form.Group>
-                    <InputText
+                    {/*<InputText
                       disabled={disabled}
                       error={touched.title && errors.title}
                       label="Title"
@@ -602,10 +609,10 @@ const MatchForm = props => {
                       type="text"
                       value={values.title}
                       width={16}
-                    />
+                    />*/}
                   </Form.Group>
                   <Form.Group>
-                    <InputText
+                    {/*<InputText
                       disabled={disabled}
                       error={touched.instructions && errors.instructions}
                       label="Instructions"
@@ -618,55 +625,8 @@ const MatchForm = props => {
                       type="text"
                       value={values.instructions}
                       width={16}
-                    />
+                    /> */}
                   </Form.Group>
-                  <Segment basic id="match-options">
-                    <IconDropdown
-                      headerSize="h6"
-                      compact
-                      disabled={disabled}
-                      error={touched.itemsPerBoard && errors.itemsPerBoard}
-                      icon="grid"
-                      label="Tiles"
-                      name="itemsPerBoard"
-                      onBlur={handleBlur}
-                      options={itemsPerBoardOptions}
-                      selection
-                      setFieldValue={setFieldValue}
-                      tabIndex={-1}
-                      value={values.itemsPerBoard}
-                    />
-                    <IconDropdown
-                      headerSize="h6"
-                      compact
-                      disabled={disabled}
-                      error={touched.duration && errors.duration}
-                      icon="watch"
-                      label="Seconds"
-                      name="duration"
-                      onBlur={handleBlur}
-                      options={durationOptions}
-                      selection
-                      setFieldValue={setFieldValue}
-                      tabIndex={-1}
-                      value={values.duration}
-                    />
-                    <IconDropdown
-                      headerSize="h6"
-                      compact
-                      disabled={disabled}
-                      error={touched.colorScheme && errors.colorScheme}
-                      icon="palette"
-                      label="Colors"
-                      name="colorScheme"
-                      onBlur={handleBlur}
-                      options={colorSchemeOptions}
-                      selection
-                      setFieldValue={setFieldValue}
-                      tabIndex={-1}
-                      value={values.colorScheme}
-                    />
-                  </Segment>
                 </Segment>
               </Tab.Pane>
             )
@@ -758,80 +718,149 @@ const MatchForm = props => {
 
         return (
           <div className="page">
-            <main>
-              <Form id="match-form" onSubmit={handleSubmit}>
-                {status && (
-                  <Segment vertical>
-                    <Notify {...status} onDismiss={() => setStatus(null)} />
-                  </Segment>
-                )}
+            <Form id="match-form" onSubmit={handleSubmit}>
+              {status && (
+                <Segment vertical>
+                  <Notify {...status} onDismiss={() => setStatus(null)} />
+                </Segment>
+              )}
 
-                <Link
-                  className="back"
-                  to={{ pathname: '/dashboard', state: { from: 'MATCH' } }}
-                >
-                  &#x2190;&nbsp;Back to Dashboard
-                </Link>
-                <div className="game-summary">
-                  <Badge icon="question" />
-                  <div className="game-details">
-                    <div className="game-type">Match Game</div>
-                    <div className="game-title">
-                      {values.title || 'UNTITLED'}
-                    </div>
-                    <div className="game-id">
-                      {values.matchId || 'UNPUBLISHED'}
-                    </div>
+              <Link
+                className="back"
+                to={{ pathname: '/dashboard', state: { from: 'MATCH' } }}
+              >
+                &#x2190;&nbsp;Back to Dashboard
+              </Link>
+              <div className="game-summary">
+                <Badge icon="question" />
+                <div className="game-details">
+                  <div className="game-type">Match Game</div>
+                  <div>
+                    <ResizingInputText
+                      maxLength={50}
+                      name="title"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      placeholder="Game title (required)"
+                      ref={titleRef}
+                      required
+                      styles={{ fontSize: '1.125rem' }}
+                      tabIndex={1}
+                      type="text"
+                      value={values.title}
+                    />
+                  </div>
+                  <div>
+                    <ResizingInputText
+                      maxLength={60}
+                      name="instructions"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      placeholder="Instructions (optional)"
+                      required
+                      styles={{ fontSize: '.9375rem' }}
+                      tabIndex={2}
+                      type="text"
+                      value={values.instructions}
+                    />
                   </div>
                 </div>
-                <div className="clearfix">
-                  <Button
-                    active
-                    disabled={disabled || !isValid || !dirty || isMatchDirty}
-                    floated="right"
-                    icon="save"
-                    labelPosition="right"
-                    loading={isSubmitting}
-                    positive={dirty && isValid && !isMatchDirty}
-                    tabIndex={6}
-                    type="submit"
-                  >
-                    Save
-                  </Button>
+              </div>
+              <div className="clearfix">
+                <Button
+                  active
+                  disabled={disabled || !isValid || !dirty || isMatchDirty}
+                  floated="right"
+                  icon="save"
+                  labelPosition="right"
+                  loading={isSubmitting}
+                  positive={dirty && isValid && !isMatchDirty}
+                  tabIndex={6}
+                  type="submit"
+                >
+                  Save
+                </Button>
+              </div>
+              <div className="match-panel">
+                <div className="options">
+                  <IconDropdown
+                    compact
+                    disabled={disabled}
+                    error={touched.itemsPerBoard && errors.itemsPerBoard}
+                    icon="grid"
+                    label="Tiles"
+                    name="itemsPerBoard"
+                    onBlur={handleBlur}
+                    options={itemsPerBoardOptions}
+                    selection
+                    setFieldValue={setFieldValue}
+                    tabIndex={-1}
+                    value={values.itemsPerBoard}
+                  />
+                  <IconDropdown
+                    compact
+                    disabled={disabled}
+                    error={touched.duration && errors.duration}
+                    icon="watch"
+                    label="Seconds"
+                    name="duration"
+                    onBlur={handleBlur}
+                    options={durationOptions}
+                    selection
+                    setFieldValue={setFieldValue}
+                    tabIndex={-1}
+                    value={values.duration}
+                  />
+                  <IconDropdown
+                    compact
+                    disabled={disabled}
+                    error={touched.colorScheme && errors.colorScheme}
+                    icon="palette"
+                    label="Colors"
+                    name="colorScheme"
+                    onBlur={handleBlur}
+                    options={colorSchemeOptions}
+                    selection
+                    setFieldValue={setFieldValue}
+                    tabIndex={-1}
+                    value={values.colorScheme}
+                  />
                 </div>
-                <Tab
-                  activeIndex={activeTab}
-                  id="panes"
-                  menu={{
-                    id: 'pane-menu',
-                    secondary: true,
-                    pointing: true
-                  }}
-                  onTabChange={(event, data) => handleTabChange(event, data)}
-                  panes={editorPanes}
-                  renderActiveOnly={true}
-                />
-              </Form>
-            </main>
+                <div className="editors">
+                  <Tab
+                    activeIndex={activeTab}
+                    id="panes"
+                    menu={{
+                      id: 'pane-menu',
+                      secondary: true,
+                      pointing: true
+                    }}
+                    onTabChange={(event, data) => handleTabChange(event, data)}
+                    panes={editorPanes}
+                    renderActiveOnly={true}
+                  />
+                </div>
+              </div>
+            </Form>
             <aside>
-                <MatchTable
-                  columns={['', 'Term', 'Definition']}
-                  disabled={disabled}
-                  error={errors.matches}
-                  id="match-table"
-                  onMatchDelete={(event, term) =>
-                    handleMatchDelete(
-                      event,
-                      term,
-                      values.matches,
-                      setFieldValue,
-                      validateForm
-                    )
-                  }
-                  matches={values.matches}
-                  maxMatches={maxMatches}
-                  minMatches={values.itemsPerBoard}
-                />
+              <MatchTable
+                columns={['', 'Term', 'Definition']}
+                disabled={disabled}
+                error={errors.matches}
+                id="match-table"
+                onMatchDelete={(event, term) =>
+                  handleMatchDelete(
+                    event,
+                    term,
+                    values.matches,
+                    setFieldValue,
+                    validateForm
+                  )
+                }
+                matches={values.matches}
+                maxMatches={maxMatches}
+                minMatches={values.itemsPerBoard}
+              />
             </aside>
           </div>
         );
