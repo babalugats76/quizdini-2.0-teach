@@ -140,9 +140,9 @@
   resize: vertical;
 }
 .ui.form textarea:not([rows]) {
-  height: 12em;
-  min-height: 8em;
-  max-height: 24em;
+  height: unset;
+  min-height: unset;
+  max-height: unset;
 }
 .ui.form textarea,
 .ui.form input[type="checkbox"] {

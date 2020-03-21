@@ -152,6 +152,27 @@ a {
 }
 
 /*-------------------
+  Custom Grid 
+--------------------*/
+.grid-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &.gutters {
+    margin: -@16px -@16px -@16px -@16px;
+    .grid-item {
+      padding: @16px 0 @16px @16px;
+       &:last-of-type {
+         padding-right: @16px;
+       }
+    }
+  }
+  .grid-item {
+     flex: 1;
+  }
+}
+
+/*-------------------
   Layouts (Page)
 --------------------*/
 
@@ -262,8 +283,7 @@ a {
     }
     .game-title {
       display: block;
-      max-width: 30ch;
-      margin: @10px 0;
+      margin: @5px 0;
       font-size: @absoluteHuge;
       line-height: 1.1;
       color: @darkTextColor;
@@ -288,6 +308,7 @@ a {
     -webkit-box-orient: vertical;
     overflow: hidden !important;
     text-overflow: ellipsis;
+    word-break: break-word;
   }
 }
 
@@ -317,13 +338,12 @@ label.icon-label {
   Icon Dropdown
 --------------------*/
 .icon-dropdown {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
   svg.icon {
-    max-height: @36px;
-    height: auto !important;
-    width: auto !important;
+    height: @32px;
+    width: auto;
     margin-bottom: @8px;
   }
   > .ui.input {
@@ -1514,6 +1534,37 @@ table {
   Match Edit
 --------------------*/
 
+#match-options {
+  justify-content: center;
+  > * {
+    flex: 0 0 125px;
+  }
+}
+
+#match-form.ui.form {
+  
+  /*textarea#title {
+    max-width: 50ch;
+  }
+
+  textarea#instructions {
+    max-width: 60ch;
+  }*/
+
+  #match-summary {
+    display: flex;
+  }
+
+  #match-details.fields {
+    > * {
+      min-width: 50%;
+      flex: 1 0 25ch; /* Break at 25ch */
+      max-width: 50ch; /* Up to 50ch */
+      margin-bottom: 0!important;
+    }
+  }
+}
+
 .ui.grid > #match-edit-header.row > .column {
   display: flex;
   flex-direction: column;
@@ -1814,6 +1865,12 @@ table {
 
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
     margin-top: @16px;
+  }
+
+  #match-options {
+    > * {
+      flex: 1 0 auto;
+    }
   }
 
   .ui.grid > #match-edit-header.row > .column {

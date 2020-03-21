@@ -4,6 +4,7 @@ import InputFeedback from './InputFeedback';
 import Icon from './Icon';
 
 const IconDropdown = ({
+  className,
   error,
   headerSize,
   icon,
@@ -19,8 +20,10 @@ const IconDropdown = ({
     setFieldValue(name, data.value);
   };
 
+  const dropdownClasses = ['icon-dropdown'].concat(className).join(" ").trim();
+
   return (
-    <div className="icon-dropdown">
+    <div className={dropdownClasses}>
       <Icon name={icon} />
       <Dropdown
         error={!!error}
@@ -31,7 +34,7 @@ const IconDropdown = ({
         value={value}
         {...props}
       />
-      <label>{label}</label>
+      {label && (<label>{label}</label>) }
       <InputFeedback error={error} />
     </div>
   );

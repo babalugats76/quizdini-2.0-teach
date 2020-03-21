@@ -21,6 +21,7 @@ import Message from './Message';
 import Notify from './Notify';
 import RadioGroup from './RadioGroup';
 import ResizingInputText from './ResizingInputText';
+import ResponsiveTextArea from './ResponsiveTextArea';
 import RouterButton from './RouterButton';
 import ScrollToTop from './ScrollToTop';
 import TextArea from './TextArea';
@@ -50,6 +51,7 @@ export {
   Notify,
   RadioGroup,
   ResizingInputText,
+  ResponsiveTextArea,
   RouterButton,
   ScrollToTop,
   TextArea,

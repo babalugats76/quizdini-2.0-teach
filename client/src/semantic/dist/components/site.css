@@ -321,6 +321,36 @@ a:hover {
 }
 
 /*-------------------
+  Custom Grid 
+--------------------*/
+
+.grid-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.grid-row.gutters {
+  margin: -1rem -1rem -1rem -1rem;
+}
+.grid-row.gutters .grid-item {
+  padding: 1rem 0 1rem 1rem;
+}
+.grid-row.gutters .grid-item:last-of-type {
+  padding-right: 1rem;
+}
+.grid-row .grid-item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+/*-------------------
   Layouts (Page)
 --------------------*/
 
@@ -462,8 +492,7 @@ a:hover {
 }
 .game-summary .game-details .game-title {
   display: block;
-  max-width: 30ch;
-  margin: 0.625rem 0;
+  margin: 0.3125rem 0;
   font-size: 1.4375rem;
   line-height: 1.1;
   color: rgba(0, 0, 0, 0.85);
@@ -486,6 +515,7 @@ a:hover {
     -webkit-box-orient: vertical;
     overflow: hidden !important;
     text-overflow: ellipsis;
+    word-break: break-word;
   }
 }
 
@@ -520,9 +550,9 @@ label.icon-label svg.icon + span {
 --------------------*/
 
 .icon-dropdown {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -532,9 +562,8 @@ label.icon-label svg.icon + span {
           align-items: center;
 }
 .icon-dropdown svg.icon {
-  max-height: 2.25rem;
-  height: auto !important;
-  width: auto !important;
+  height: 2rem;
+  width: auto;
   margin-bottom: 0.5rem;
 }
 .icon-dropdown > .ui.input {
@@ -1663,6 +1692,42 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   Match Edit
 --------------------*/
 
+#match-options {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#match-options > * {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 125px;
+          flex: 0 0 125px;
+}
+#match-form.ui.form {
+  /*textarea#title {
+    max-width: 50ch;
+  }
+
+  textarea#instructions {
+    max-width: 60ch;
+  }*/
+}
+#match-form.ui.form #match-summary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#match-form.ui.form #match-details.fields > * {
+  min-width: 50%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 25ch;
+          flex: 1 0 25ch;
+  
+/* Break at 25ch */
+  max-width: 50ch;
+  
+/* Up to 50ch */
+  margin-bottom: 0!important;
+}
 .ui.grid > #match-edit-header.row > .column {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1942,6 +2007,11 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   }
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
     margin-top: 1rem;
+  }
+  #match-options > * {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
   }
   .ui.grid > #match-edit-header.row > .column {
     -webkit-box-orient: horizontal;

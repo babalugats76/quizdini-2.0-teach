@@ -1,16 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Formik } from 'formik';
-import {
-  Container,
-  Form,
-  Grid,
-  Responsive,
-  Segment,
-  Tab
-} from 'semantic-ui-react';
-import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
-import { useResult } from '../../hooks/';
+import React, { useEffect, useRef, useState } from "react";
+import { Formik } from "formik";
+import { Container, Form, Grid, Responsive, Segment, Tab } from "semantic-ui-react";
+import * as Yup from "yup";
+import { Link } from "react-router-dom";
+import { useResult } from "../../hooks/";
 import {
   Badge,
   Button,
@@ -18,13 +11,13 @@ import {
   InputText,
   Message,
   Notify,
-  ResizingInputText
-} from '../UI/';
-import HtmlSerializer from './HtmlSerializer';
-import MatchAdd from './MatchAdd';
-import MatchBulk from './MatchBulk';
-import MatchTable from './MatchTable';
-import { matchToString, parseMatch } from './utils';
+  ResponsiveTextArea
+} from "../UI/";
+import HtmlSerializer from "./HtmlSerializer";
+import MatchAdd from "./MatchAdd";
+import MatchBulk from "./MatchBulk";
+import MatchTable from "./MatchTable";
+import { matchToString, parseMatch } from "./utils";
 //import DisplayFormikState from "../UI/FormikHelper";
 
 /***
@@ -34,64 +27,61 @@ import { matchToString, parseMatch } from './utils';
  */
 
 const itemsPerBoardOptions = [
-  { text: '4', value: 4 },
-  { text: '6', value: 6 },
-  { text: '9', value: 9 }
+  { text: "4", value: 4 },
+  { text: "6", value: 6 },
+  { text: "9", value: 9 }
 ];
 
 const durationOptions = [
-  { text: '10', value: 10 },
-  { text: '60', value: 60 },
-  { text: '90', value: 90 },
-  { text: '120', value: 120 },
-  { text: '180', value: 180 },
-  { text: '240', value: 240 },
-  { text: '300', value: 300 }
+  { text: "10", value: 10 },
+  { text: "60", value: 60 },
+  { text: "90", value: 90 },
+  { text: "120", value: 120 },
+  { text: "180", value: 180 },
+  { text: "240", value: 240 },
+  { text: "300", value: 300 }
 ];
 
 const colorSchemeOptions = [
-  { text: 'Basic', value: 'Basic' },
-  { text: 'Rainbow', value: 'Rainbow' }
+  { text: "Basic", value: "Basic" },
+  { text: "Rainbow", value: "Rainbow" }
 ];
 
 /* eslint-disable no-template-curly-in-string */
 const validateMatch = Yup.object().shape({
   title: Yup.string()
-    .min(2, 'Title is too short. ${min} characters are required.')
-    .max(50, 'Title is too long. ${max} characters are allowed.')
-    .required('Title is required.'),
-  instructions: Yup.string().max(
-    60,
-    'Instructions are too long. ${max} characters are allowed.'
-  ),
+    .min(2, "Title is too short. ${min} characters are required.")
+    .max(50, "Title is too long. ${max} characters are allowed.")
+    .required("Title is required."),
+  instructions: Yup.string().max(50, "Instructions are too long. ${max} characters are allowed."),
   itemsPerBoard: Yup.number()
     .integer()
     .positive()
-    .required('Game Tiles is required.')
+    .required("Game Tiles is required.")
     .oneOf(
       itemsPerBoardOptions.map(i => i.value),
-      'Pick a valid number of game tiles.'
+      "Pick a valid number of game tiles."
     ),
   duration: Yup.number()
     .integer()
     .positive()
-    .required('Duration is required.')
+    .required("Duration is required.")
     .oneOf(
       durationOptions.map(i => i.value),
-      'Pick a valid game duration.'
+      "Pick a valid game duration."
     ),
   colorScheme: Yup.string()
-    .required('Color Scheme is required.')
+    .required("Color Scheme is required.")
     .oneOf(
       colorSchemeOptions.map(i => i.value),
-      'Pick a valid color scheme.'
+      "Pick a valid color scheme."
     ),
   matches: Yup.array().test({
-    name: 'min-matches',
+    name: "min-matches",
     params: {
-      itemsPerBoard: Yup.ref('itemsPerBoard')
+      itemsPerBoard: Yup.ref("itemsPerBoard")
     },
-    message: '${itemsPerBoard} matches required in bank.',
+    message: "${itemsPerBoard} matches required in bank.",
     test: function(value) {
       return value.length >= this.parent.itemsPerBoard;
     }
@@ -101,18 +91,18 @@ const validateMatch = Yup.object().shape({
 const newMatchSchema = matches => {
   return Yup.object().shape({
     term: Yup.string()
-      .required('Term is required.')
-      .test('duplicate term', 'Duplicate term.', function(value) {
+      .required("Term is required.")
+      .test("duplicate term", "Duplicate term.", function(value) {
         const passed = !matches.some(element => {
           return element.term === value;
         }); // check for duplicate terms
         return passed;
       }),
-    definition: Yup.string().required('Definition is required.')
+    definition: Yup.string().required("Definition is required.")
   });
 };
 
-const HAS_COMMA = RegExp('^(.?)+([,]+)(.?)+$');
+const HAS_COMMA = RegExp("^(.?)+([,]+)(.?)+$");
 
 const EMPTY_EDITOR =
   '{"object":"value","document":{"object":"document","data":{},"nodes":[{"object":"block","type":"paragraph","data":{},"nodes":[{"object":"text","text":"","marks":[]}]}]}}';
@@ -127,9 +117,9 @@ const initialState = {
   },
   definition: {
     dirty: false,
-    placeholder: '',
+    placeholder: "",
     touched: false,
-    value: HtmlSerializer.deserialize('')
+    value: HtmlSerializer.deserialize("")
   },
   dirty: {
     bulkMatches: false
@@ -137,9 +127,9 @@ const initialState = {
   itemsPerPage: 10,
   term: {
     dirty: false,
-    placeholder: '',
+    placeholder: "",
     touched: false,
-    value: HtmlSerializer.deserialize('')
+    value: HtmlSerializer.deserialize("")
   }
 };
 
@@ -155,13 +145,7 @@ const MatchForm = props => {
     field && field.focus();
   }, []);
 
-  const {
-    loading,
-    maxMatches,
-    onCreateMatch,
-    onSuccess,
-    onUpdateMatch
-  } = props;
+  const { loading, maxMatches, onCreateMatch, onSuccess, onUpdateMatch } = props;
 
   const {
     activePage,
@@ -208,15 +192,9 @@ const MatchForm = props => {
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
    * @param {function} validateForm Reference to Formik `validateForm` function
    */
-  const handleBulkChange = async (
-    event,
-    data,
-    prevBulkMatches,
-    setFieldValue,
-    validateForm
-  ) => {
+  const handleBulkChange = async (event, data, prevBulkMatches, setFieldValue, validateForm) => {
     event.preventDefault();
-    await setFieldValue('bulkMatches', data.value, false);
+    await setFieldValue("bulkMatches", data.value, false);
     setState(prevState => {
       return {
         ...prevState,
@@ -247,8 +225,8 @@ const MatchForm = props => {
    */
   const updateMatches = async (bulkMatches, setFieldValue, validateForm) => {
     const parsed = parseMatch(bulkMatches, maxMatches); // Split, Sanitize, Dedup -> array of matches
-    await setFieldValue('matches', parsed, false); // Update matches in Formik state
-    await setFieldValue('bulkMatches', matchToString(parsed), false); // Flatten parsed matches
+    await setFieldValue("matches", parsed, false); // Update matches in Formik state
+    await setFieldValue("bulkMatches", matchToString(parsed), false); // Flatten parsed matches
     setActivePage(1); // Reset pagination to beginning
     await validateForm();
   };
@@ -265,7 +243,7 @@ const MatchForm = props => {
 
     if (event.target.files.length) {
       const file = event.target.files[0]; // Assumes single file processing
-      const contents = event.target.files[0].slice(0, file.size, ''); // 0, size, '' are defaults
+      const contents = event.target.files[0].slice(0, file.size, ""); // 0, size, '' are defaults
       const reader = new FileReader(); // To read file from disk
 
       reader.onload = (function(file, updateMatches) {
@@ -274,17 +252,13 @@ const MatchForm = props => {
           console.log(`Loaded ${file.size} bytes from ${file.name}...`);
           if (event.target.result) {
             // If results are returned
-            await updateMatches(
-              event.target.result,
-              setFieldValue,
-              validateForm
-            ); // Call common function to parse, santize, dedup, and update state, etc.
+            await updateMatches(event.target.result, setFieldValue, validateForm); // Call common function to parse, santize, dedup, and update state, etc.
             event.target.value = null;
           }
         };
       })(file, updateMatches);
 
-      reader.readAsText(contents, 'UTF-8'); // Initiate file read, assuming UTF-8 encoding
+      reader.readAsText(contents, "UTF-8"); // Initiate file read, assuming UTF-8 encoding
     }
   };
 
@@ -296,12 +270,7 @@ const MatchForm = props => {
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
    * @param {function} validateForm Reference to Formik `validateForm` function
    */
-  const handleUpdateMatches = async (
-    event,
-    bulkMatches,
-    setFieldValue,
-    validateForm
-  ) => {
+  const handleUpdateMatches = async (event, bulkMatches, setFieldValue, validateForm) => {
     event.preventDefault();
     await updateMatches(bulkMatches, setFieldValue, validateForm); // Call common function to parse, santize, dedup, and update state, etc.
     setState(prevState => {
@@ -393,27 +362,17 @@ const MatchForm = props => {
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
    * @param {function} validateForm Reference to Formik `validateForm` function
    */
-  const handleNewMatch = async (
-    event,
-    matches,
-    setFieldValue,
-    validateForm
-  ) => {
+  const handleNewMatch = async (event, matches, setFieldValue, validateForm) => {
     event.preventDefault();
 
     let termHtml = HtmlSerializer.serialize(term.value);
     termHtml = HAS_COMMA.test(termHtml) ? `"${termHtml}"` : termHtml;
 
     let definitionHtml = HtmlSerializer.serialize(definition.value);
-    definitionHtml = HAS_COMMA.test(definitionHtml)
-      ? `"${definitionHtml}"`
-      : definitionHtml;
+    definitionHtml = HAS_COMMA.test(definitionHtml) ? `"${definitionHtml}"` : definitionHtml;
 
     newMatchSchema(matches)
-      .validate(
-        { term: termHtml, definition: definitionHtml },
-        { abortEarly: false }
-      ) // Validate serialized term and definition
+      .validate({ term: termHtml, definition: definitionHtml }, { abortEarly: false }) // Validate serialized term and definition
       .then(async valid => {
         // If valid, merge into matches
         const updated = [
@@ -423,16 +382,13 @@ const MatchForm = props => {
           },
           ...matches
         ];
-        await setFieldValue('matches', updated, false); // Update Formik state
-        await setFieldValue('bulkMatches', matchToString(updated), false); // Format bulkMatches then update Formik state
+        await setFieldValue("matches", updated, false); // Update Formik state
+        await setFieldValue("bulkMatches", matchToString(updated), false); // Format bulkMatches then update Formik state
         await validateForm();
-        handleEditorChange({ value: HtmlSerializer.deserialize('') }, 'term'); // Reset editors' contents
-        handleEditorChange(
-          { value: HtmlSerializer.deserialize('') },
-          'definition'
-        );
-        setError('term', ''); // Clear errors (using custom function)
-        setError('definition', '');
+        handleEditorChange({ value: HtmlSerializer.deserialize("") }, "term"); // Reset editors' contents
+        handleEditorChange({ value: HtmlSerializer.deserialize("") }, "definition");
+        setError("term", ""); // Clear errors (using custom function)
+        setError("definition", "");
         setFocus(termRef); // Move focus to term editor
       })
       .catch(errors => {
@@ -442,8 +398,8 @@ const MatchForm = props => {
           setError(path, message);
         });
       });
-    handleEditorTouch('term', false); // Mark fields untouched
-    handleEditorTouch('definition', false);
+    handleEditorTouch("term", false); // Mark fields untouched
+    handleEditorTouch("definition", false);
     setActivePage(1); // Reset pagination to beginning
   };
 
@@ -456,20 +412,12 @@ const MatchForm = props => {
    * @param {function} setFieldValue Reference to Formik `setFieldValue` function
    * @param {function} validateForm Reference to Formik `validateForm` function
    */
-  const handleMatchDelete = async (
-    event,
-    term,
-    matches,
-    setFieldValue,
-    validateForm
-  ) => {
+  const handleMatchDelete = async (event, term, matches, setFieldValue, validateForm) => {
     event.preventDefault();
     const filtered = matches.filter(match => match.term !== term);
-    await setFieldValue('matches', filtered, false); // Update state (in Formik) with matches minus (deleted) term
-    await setFieldValue('bulkMatches', matchToString(filtered), false); // Format bulkMatches then update Formik state
-    const totalPages = Math.ceil(
-      (filtered.length ? filtered.length : 0) / itemsPerPage
-    ); // Calculate total # of pages
+    await setFieldValue("matches", filtered, false); // Update state (in Formik) with matches minus (deleted) term
+    await setFieldValue("bulkMatches", matchToString(filtered), false); // Format bulkMatches then update Formik state
+    const totalPages = Math.ceil((filtered.length ? filtered.length : 0) / itemsPerPage); // Calculate total # of pages
     if (activePage > totalPages) setActivePage(totalPages); // If active page no longer exists (because of delete)
     await validateForm();
   };
@@ -505,13 +453,11 @@ const MatchForm = props => {
       validateOnMount={true}
       initialValues={{
         matchId: props.game.matchId || null,
-        title: props.game.title || '',
-        instructions: props.game.instructions || '',
-        itemsPerBoard:
-          (props.game.options && props.game.options.itemsPerBoard) || 9,
+        title: props.game.title || "",
+        instructions: props.game.instructions || "",
+        itemsPerBoard: (props.game.options && props.game.options.itemsPerBoard) || 9,
         duration: (props.game.options && props.game.options.duration) || 90,
-        colorScheme:
-          (props.game.options && props.game.options.colorScheme) || 'Basic',
+        colorScheme: (props.game.options && props.game.options.colorScheme) || "Basic",
         matches: props.game.matches || [],
         bulkMatches: matchToString(props.game.matches || [])
       }}
@@ -590,49 +536,17 @@ const MatchForm = props => {
 
         const editorPanes = [
           {
-            menuItem: 'Game',
+            menuItem: "Game",
             render: () => (
               <Tab.Pane clearing id="match-desc">
                 <Segment basic vertical>
-                  <Form.Group>
-                    {/*<InputText
-                      disabled={disabled}
-                      error={touched.title && errors.title}
-                      label="Title"
-                      maxLength={40}
-                      name="title"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      placeholder=""
-                      required
-                      tabIndex={1}
-                      type="text"
-                      value={values.title}
-                      width={16}
-                    />*/}
-                  </Form.Group>
-                  <Form.Group>
-                    {/*<InputText
-                      disabled={disabled}
-                      error={touched.instructions && errors.instructions}
-                      label="Instructions"
-                      maxLength={60}
-                      name="instructions"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      placeholder=""
-                      tabIndex={2}
-                      type="text"
-                      value={values.instructions}
-                      width={16}
-                    /> */}
-                  </Form.Group>
+                  Game Stuff Used to Be Here...
                 </Segment>
               </Tab.Pane>
             )
           },
           {
-            menuItem: 'Add Match',
+            menuItem: "Add Match",
             render: () => (
               <Tab.Pane clearing id="match-add">
                 <Segment basic vertical>
@@ -651,19 +565,10 @@ const MatchForm = props => {
                     maxMatches={maxMatches}
                     minWidth={768}
                     error={errors.matches}
-                    onEditorChange={(value, field) =>
-                      handleEditorChange(value, field)
-                    }
-                    onEditorTouch={(field, touched) =>
-                      handleEditorTouch(field, touched)
-                    }
+                    onEditorChange={(value, field) => handleEditorChange(value, field)}
+                    onEditorTouch={(field, touched) => handleEditorTouch(field, touched)}
                     onNewMatch={event =>
-                      handleNewMatch(
-                        event,
-                        values.matches,
-                        setFieldValue,
-                        validateForm
-                      )
+                      handleNewMatch(event, values.matches, setFieldValue, validateForm)
                     }
                     term={term}
                     termRef={termRef}
@@ -673,10 +578,10 @@ const MatchForm = props => {
             )
           },
           {
-            menuItem: 'Bulk Editor',
+            menuItem: "Bulk Editor",
             render: () => (
               <Tab.Pane
-                className={`popup ${isMatchPopup ? 'maximized' : 'minimized'}`}
+                className={`popup ${isMatchPopup ? "maximized" : "minimized"}`}
                 clearing
                 id="match-bulk"
               >
@@ -694,16 +599,9 @@ const MatchForm = props => {
                     )
                   }
                   onBulkPopup={handleBulkPopup}
-                  onFileChange={event =>
-                    handleFileChange(event, setFieldValue, validateForm)
-                  }
+                  onFileChange={event => handleFileChange(event, setFieldValue, validateForm)}
                   onUpdateMatches={event =>
-                    handleUpdateMatches(
-                      event,
-                      values.bulkMatches,
-                      setFieldValue,
-                      validateForm
-                    )
+                    handleUpdateMatches(event, values.bulkMatches, setFieldValue, validateForm)
                   }
                   popup={isMatchPopup}
                   rows={10}
@@ -725,48 +623,22 @@ const MatchForm = props => {
                 </Segment>
               )}
 
-              <Link
-                className="back"
-                to={{ pathname: '/dashboard', state: { from: 'MATCH' } }}
-              >
-                &#x2190;&nbsp;Back to Dashboard
-              </Link>
-              <div className="game-summary">
-                <Badge icon="question" />
-                <div className="game-details">
-                  <div className="game-type">Match Game</div>
-                  <div>
-                    <ResizingInputText
-                      maxLength={50}
-                      name="title"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      placeholder="Game title (required)"
-                      ref={titleRef}
-                      required
-                      styles={{ fontSize: '1.125rem' }}
-                      tabIndex={1}
-                      type="text"
-                      value={values.title}
-                    />
-                  </div>
-                  <div>
-                    <ResizingInputText
-                      maxLength={60}
-                      name="instructions"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      placeholder="Instructions (optional)"
-                      required
-                      styles={{ fontSize: '.9375rem' }}
-                      tabIndex={2}
-                      type="text"
-                      value={values.instructions}
-                    />
+              <div>
+                <Link className="back" to={{ pathname: "/dashboard", state: { from: "MATCH" } }}>
+                  &#x2190;&nbsp;Back to Dashboard
+                </Link>
+              </div>
+              <div id="match-summary" className="grid-row gutters">
+                <div className="game-summary grid-item">
+                  <Badge icon="question" />
+                  <div className="game-details">
+                    <span className="game-type">Match Edit</span>
+                    <span className="game-title">{values.title || "UNTITLED"}</span>
+                    <span className="game-id">{values.matchId || "UNPUBLISHED"}</span>
                   </div>
                 </div>
               </div>
-              <div className="clearfix">
+              {/* <div className="clearfix">
                 <Button
                   active
                   disabled={disabled || !isValid || !dirty || isMatchDirty}
@@ -780,82 +652,110 @@ const MatchForm = props => {
                 >
                   Save
                 </Button>
+              </div> */}
+              <div id="match-options" className="grid-row gutters">
+                <IconDropdown
+                  className="grid-item"
+                  compact
+                  disabled={disabled}
+                  error={touched.itemsPerBoard && errors.itemsPerBoard}
+                  icon="grid"
+                  name="itemsPerBoard"
+                  onBlur={handleBlur}
+                  options={itemsPerBoardOptions}
+                  selection
+                  setFieldValue={setFieldValue}
+                  tabIndex={-1}
+                  value={values.itemsPerBoard}
+                />
+                <IconDropdown
+                  className="grid-item"
+                  compact
+                  disabled={disabled}
+                  error={touched.duration && errors.duration}
+                  icon="watch"
+                  name="duration"
+                  onBlur={handleBlur}
+                  options={durationOptions}
+                  selection
+                  setFieldValue={setFieldValue}
+                  tabIndex={-1}
+                  value={values.duration}
+                />
+                <IconDropdown
+                  className="grid-item"
+                  compact
+                  disabled={disabled}
+                  error={touched.colorScheme && errors.colorScheme}
+                  icon="palette"
+                  name="colorScheme"
+                  onBlur={handleBlur}
+                  options={colorSchemeOptions}
+                  selection
+                  setFieldValue={setFieldValue}
+                  tabIndex={-1}
+                  value={values.colorScheme}
+                />
               </div>
-              <div className="match-panel">
-                <div className="options">
-                  <IconDropdown
-                    compact
-                    disabled={disabled}
-                    error={touched.itemsPerBoard && errors.itemsPerBoard}
-                    icon="grid"
-                    label="Tiles"
-                    name="itemsPerBoard"
-                    onBlur={handleBlur}
-                    options={itemsPerBoardOptions}
-                    selection
-                    setFieldValue={setFieldValue}
-                    tabIndex={-1}
-                    value={values.itemsPerBoard}
-                  />
-                  <IconDropdown
-                    compact
-                    disabled={disabled}
-                    error={touched.duration && errors.duration}
-                    icon="watch"
-                    label="Seconds"
-                    name="duration"
-                    onBlur={handleBlur}
-                    options={durationOptions}
-                    selection
-                    setFieldValue={setFieldValue}
-                    tabIndex={-1}
-                    value={values.duration}
-                  />
-                  <IconDropdown
-                    compact
-                    disabled={disabled}
-                    error={touched.colorScheme && errors.colorScheme}
-                    icon="palette"
-                    label="Colors"
-                    name="colorScheme"
-                    onBlur={handleBlur}
-                    options={colorSchemeOptions}
-                    selection
-                    setFieldValue={setFieldValue}
-                    tabIndex={-1}
-                    value={values.colorScheme}
-                  />
-                </div>
-                <div className="editors">
-                  <Tab
-                    activeIndex={activeTab}
-                    id="panes"
-                    menu={{
-                      id: 'pane-menu',
-                      secondary: true,
-                      pointing: true
-                    }}
-                    onTabChange={(event, data) => handleTabChange(event, data)}
-                    panes={editorPanes}
-                    renderActiveOnly={true}
-                  />
-                </div>
+              <Form.Group id="match-details" className="grid-row gutters">
+                <ResponsiveTextArea
+                  className="grid-item"
+                  disabled={disabled}
+                  error={touched.title && errors.title}
+                  label="Title"
+                  maxLength={50}
+                  minRows={1}
+                  maxRows={2}
+                  name="title"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  placeholder=""
+                  required
+                  tabIndex={1}
+                  type="text"
+                  value={values.title}
+                />
+                <ResponsiveTextArea
+                  className="grid-item"
+                  disabled={disabled}
+                  error={touched.instructions && errors.instructions}
+                  label="Instructions"
+                  maxLength={50}
+                  maxRows={2}
+                  minRows={1}
+                  name="instructions"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  placeholder=""
+                  tabIndex={2}
+                  type="text"
+                  value={values.instructions}
+                />
+              </Form.Group>
+              
+              <div className="grid-row gutters">
+                <Tab
+                  activeIndex={activeTab}
+                  id="panes"
+                  menu={{
+                    id: "pane-menu",
+                    secondary: true,
+                    pointing: true
+                  }}
+                  onTabChange={(event, data) => handleTabChange(event, data)}
+                  panes={editorPanes}
+                  renderActiveOnly={true}
+                />
               </div>
             </Form>
             <aside>
               <MatchTable
-                columns={['', 'Term', 'Definition']}
+                columns={["", "Term", "Definition"]}
                 disabled={disabled}
                 error={errors.matches}
                 id="match-table"
                 onMatchDelete={(event, term) =>
-                  handleMatchDelete(
-                    event,
-                    term,
-                    values.matches,
-                    setFieldValue,
-                    validateForm
-                  )
+                  handleMatchDelete(event, term, values.matches, setFieldValue, validateForm)
                 }
                 matches={values.matches}
                 maxMatches={maxMatches}

@@ -16,3 +16,7 @@
 @textAreaFocusColor: @selectedTextColor;
 @textAreaFocusBorderColor: @fieldFocusBorderColor;
 @textAreaFocusBoxShadow: @fieldFocusBoxShadow;
+@textAreaHeight: unset;
+@textAreaResize: vertical;
+@textAreaMinHeight: unset;
+@textAreaMaxHeight: unset;
