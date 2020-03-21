@@ -336,18 +336,18 @@ a:hover {
       flex-wrap: wrap;
 }
 .grid-row.gutters {
-  margin: -1rem -1rem -1rem -1rem;
+  margin: 0 -0.5rem !important;
 }
 .grid-row.gutters .grid-item {
-  padding: 1rem 0 1rem 1rem;
-}
-.grid-row.gutters .grid-item:last-of-type {
-  padding-right: 1rem;
+  padding: 0 0.5rem 1rem;
+  /*&:last-of-type {
+         padding-right: @16px;
+       }*/
 }
 .grid-row .grid-item {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
 }
 
 /*-------------------
@@ -553,10 +553,10 @@ label.icon-label svg.icon + span {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -564,15 +564,10 @@ label.icon-label svg.icon + span {
 .icon-dropdown svg.icon {
   height: 2rem;
   width: auto;
-  margin-bottom: 0.5rem;
+  margin: 0 0.5rem;
 }
 .icon-dropdown > .ui.input {
   display: block;
-}
-.icon-dropdown > label {
-  display: block;
-  margin-top: 0.5rem;
-  color: #a09fa7;
 }
 
 /*-------------------
@@ -1697,19 +1692,11 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
       -ms-flex-pack: center;
           justify-content: center;
 }
-#match-options > * {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 125px;
-          flex: 0 0 125px;
+#match-form.ui.form textarea#title {
+  max-width: 50ch;
 }
-#match-form.ui.form {
-  /*textarea#title {
-    max-width: 50ch;
-  }
-
-  textarea#instructions {
-    max-width: 60ch;
-  }*/
+#match-form.ui.form textarea#instructions {
+  max-width: 60ch;
 }
 #match-form.ui.form #match-summary {
   display: -webkit-box;
@@ -2007,11 +1994,6 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   }
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
     margin-top: 1rem;
-  }
-  #match-options > * {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 auto;
-            flex: 1 0 auto;
   }
   .ui.grid > #match-edit-header.row > .column {
     -webkit-box-orient: horizontal;

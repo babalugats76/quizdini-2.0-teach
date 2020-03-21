@@ -159,16 +159,16 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   &.gutters {
-    margin: -@16px -@16px -@16px -@16px;
+    margin: 0 -@8px !important;
     .grid-item {
-      padding: @16px 0 @16px @16px;
-       &:last-of-type {
+      padding: 0 @8px @16px;
+       /*&:last-of-type {
          padding-right: @16px;
-       }
+       }*/
     }
   }
   .grid-item {
-     flex: 1;
+     flex: 0 1 auto;
   }
 }
 
@@ -339,20 +339,15 @@ label.icon-label {
 --------------------*/
 .icon-dropdown {
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   svg.icon {
     height: @32px;
     width: auto;
-    margin-bottom: @8px;
+    margin: 0 @8px;
   }
   > .ui.input {
     display: block;
-  }
-  > label {
-    display: block;
-    margin-top: @8px;
-    color: @labelTextColor;
   }
 }
 
@@ -1536,20 +1531,17 @@ table {
 
 #match-options {
   justify-content: center;
-  > * {
-    flex: 0 0 125px;
-  }
 }
 
 #match-form.ui.form {
   
-  /*textarea#title {
+  textarea#title {
     max-width: 50ch;
   }
 
   textarea#instructions {
     max-width: 60ch;
-  }*/
+  }
 
   #match-summary {
     display: flex;
@@ -1865,12 +1857,6 @@ table {
 
   #about.page #team .ui.grid.member > .row > .column.member-bio > img {
     margin-top: @16px;
-  }
-
-  #match-options {
-    > * {
-      flex: 1 0 auto;
-    }
   }
 
   .ui.grid > #match-edit-header.row > .column {

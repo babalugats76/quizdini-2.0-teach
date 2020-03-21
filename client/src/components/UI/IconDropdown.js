@@ -1,14 +1,12 @@
 import React from 'react';
-import { Dropdown, Header } from 'semantic-ui-react';
-import InputFeedback from './InputFeedback';
-import Icon from './Icon';
+import { Dropdown } from 'semantic-ui-react';
+import { Icon, InputFeedback } from './'
 
 const IconDropdown = ({
   className,
   error,
   headerSize,
   icon,
-  label,
   name,
   options,
   setFieldValue,
@@ -34,7 +32,6 @@ const IconDropdown = ({
         value={value}
         {...props}
       />
-      {label && (<label>{label}</label>) }
       <InputFeedback error={error} />
     </div>
   );
