@@ -394,7 +394,7 @@ svg {
   height: @16px;
 
   path {
-    transition: fill @defaultDuration @defaultEasing;
+    transition: fill @defaultDuration @defaultEasing @defaultDelay;
   }
 
   &.icon {
@@ -431,11 +431,11 @@ svg {
     &.chevron-down {
       &.open {
         transform: rotate(0deg);
-        transition: transform 150ms ease-in-out;
+        transition: transform 150ms ease-in-out @defaultDelay;
       }
       &.closed {
         transform: rotate(-90deg);
-        transition: transform 150ms ease-in-out;
+        transition: transform 150ms ease-in-out @defaultDelay;
       }
     }
   }
@@ -730,7 +730,7 @@ table {
     }
   }
   .ui.icon.trash.button {
-    transition: background-color @defaultDuration @defaultEasing;
+    transition: background-color @defaultDuration @defaultEasing @defaultDelay;
     background-color: @negativeBackgroundColor;
     &:hover {
       background-color: lighten(@negativeColor, 10);
@@ -786,7 +786,7 @@ table {
   z-index: 1000;
   opacity: 0;
   background: none;
-  transition: all @defaultDuration @defaultEasing;
+  transition: all @defaultDuration @defaultEasing @defaultDelay;
 }
 
 .modal-show {
@@ -1000,7 +1000,7 @@ table {
         }
       }
       details {
-        transition: all @defaultEasing @defaultDuration;
+        transition: all @defaultEasing @defaultDuration @defaultDelay;
         margin: @relative8px 0;
         &[open] {
           margin-bottom: @relative32px;
@@ -1010,7 +1010,7 @@ table {
             &:before {
               transform: rotate(0deg);
               vertical-align: 0%;
-              transition: all @defaultDuration @defaultEasing;
+              transition: all @defaultDuration @defaultEasing @defaultDelay;
             }
           }
         }
@@ -1023,7 +1023,7 @@ table {
           }
         }
         > summary {
-          transition: all @defaultDuration @defaultEasing;
+          transition: all @defaultDuration @defaultEasing @defaultDelay;
           font-family: @headerFont;
           line-height: 1.1;
           font-size: @relative27px;
@@ -1037,7 +1037,7 @@ table {
             display: inline-block;
             content: '\25bc\00a0';
             transform: rotate(-90deg);
-            transition: all @defaultDuration @defaultEasing;
+            transition: all @defaultDuration @defaultEasing @defaultDelay;
             vertical-align: 20%;
           }
           &::-webkit-details-marker {
@@ -1441,8 +1441,8 @@ table {
               width: @relative32px;
               height: @relative32px;
             }
-            transition: background-color @defaultDuration @defaultEasing,
-              opacity @defaultDuration @defaultEasing;
+            transition: background-color @defaultDuration @defaultEasing @defaultDelay,
+              opacity @defaultDuration @defaultEasing @defaultDelay;
           }
         }
         &.card-buttons {
@@ -1454,8 +1454,8 @@ table {
             .ui.button {
               padding: @8px;
               &.clipboard {
-                transition: color @defaultDuration @defaultEasing,
-                  background-color @defaultDuration @defaultEasing;
+                transition: color @defaultDuration @defaultEasing @defaultDelay,
+                  background-color @defaultDuration @defaultEasing @defaultDelay;
                 &.copied {
                   background-color: @positiveColor;
                   margin: 0;
@@ -1616,7 +1616,7 @@ aside {
       min-height: 400px;
       margin-bottom: 0 !important;
       &.popup {
-        transition: all @popupDuration @popupEasing;
+        transition: all @popupDuration @popupEasing @defaultDelay;
         &.maximized {
           position: fixed;
           top: 20%;
@@ -1908,8 +1908,8 @@ aside {
     
   #match-form, aside {
     background: @white;
-    padding: @28px @21px;
-    padding: 4vmin 3vmin;
+    padding: @21px @28px;
+    padding: 3vmin 4vmin;
   }
 
 }
@@ -1945,6 +1945,7 @@ aside {
       tr {
         td,
         th {
+          word-break: break-all;
           &:nth-child(1) {
             text-align: center;
             border-right: none;

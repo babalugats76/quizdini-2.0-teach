@@ -597,8 +597,8 @@ svg {
   height: 1rem;
 }
 svg path {
-  -webkit-transition: fill 250ms ease;
-  transition: fill 250ms ease;
+  -webkit-transition: fill 250ms ease 100ms;
+  transition: fill 250ms ease 100ms;
 }
 svg.icon.github path {
   fill: #24292e;
@@ -621,18 +621,18 @@ svg.icon.trash path {
 svg.icon.chevron-down.open {
   -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 150ms ease-in-out;
-  transition: -webkit-transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+  -webkit-transition: -webkit-transform 150ms ease-in-out 100ms;
+  transition: -webkit-transform 150ms ease-in-out 100ms;
+  transition: transform 150ms ease-in-out 100ms;
+  transition: transform 150ms ease-in-out 100ms, -webkit-transform 150ms ease-in-out 100ms;
 }
 svg.icon.chevron-down.closed {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
-  -webkit-transition: -webkit-transform 150ms ease-in-out;
-  transition: -webkit-transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+  -webkit-transition: -webkit-transform 150ms ease-in-out 100ms;
+  transition: -webkit-transform 150ms ease-in-out 100ms;
+  transition: transform 150ms ease-in-out 100ms;
+  transition: transform 150ms ease-in-out 100ms, -webkit-transform 150ms ease-in-out 100ms;
 }
 .ui.positive svg.icon path,
 .ui.primary svg.icon path {
@@ -928,8 +928,8 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   color: #711cff;
 }
 #match-table .ui.icon.trash.button {
-  -webkit-transition: background-color 250ms ease;
-  transition: background-color 250ms ease;
+  -webkit-transition: background-color 250ms ease 100ms;
+  transition: background-color 250ms ease 100ms;
   background-color: #FFF6F6;
 }
 #match-table .ui.icon.trash.button:hover {
@@ -990,8 +990,8 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   z-index: 1000;
   opacity: 0;
   background: none;
-  -webkit-transition: all 250ms ease;
-  transition: all 250ms ease;
+  -webkit-transition: all 250ms ease 100ms;
+  transition: all 250ms ease 100ms;
 }
 .modal-show {
   display: block;
@@ -1205,8 +1205,8 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 }
 #about.page section details,
 #terms.page section details {
-  -webkit-transition: all ease 250ms;
-  transition: all ease 250ms;
+  -webkit-transition: all ease 250ms 100ms;
+  transition: all ease 250ms 100ms;
   margin: 0.5em 0;
 }
 #about.page section details[open],
@@ -1223,8 +1223,8 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
   vertical-align: 0%;
-  -webkit-transition: all 250ms ease;
-  transition: all 250ms ease;
+  -webkit-transition: all 250ms ease 100ms;
+  transition: all 250ms ease 100ms;
 }
 #about.page section details:not([open]) > summary,
 #terms.page section details:not([open]) > summary {
@@ -1236,8 +1236,8 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
 }
 #about.page section details > summary,
 #terms.page section details > summary {
-  -webkit-transition: all 250ms ease;
-  transition: all 250ms ease;
+  -webkit-transition: all 250ms ease 100ms;
+  transition: all 250ms ease 100ms;
   font-family: 'marcher-medium', sans-serif;
   line-height: 1.1;
   font-size: 1.6875em;
@@ -1255,8 +1255,8 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   content: '\25bc\00a0';
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
-  -webkit-transition: all 250ms ease;
-  transition: all 250ms ease;
+  -webkit-transition: all 250ms ease 100ms;
+  transition: all 250ms ease 100ms;
   vertical-align: 20%;
 }
 #about.page section details > summary::-webkit-details-marker,
@@ -1604,8 +1604,8 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   width: 100%;
   height: 100%;
   background-color: transparent;
-  -webkit-transition: background-color 250ms ease, opacity 250ms ease;
-  transition: background-color 250ms ease, opacity 250ms ease;
+  -webkit-transition: background-color 250ms ease 100ms, opacity 250ms ease 100ms;
+  transition: background-color 250ms ease 100ms, opacity 250ms ease 100ms;
 }
 .ui.cards .ui.card.match-card .content.card-header .ui.icon.button.trash svg.icon {
   width: 2em;
@@ -1625,8 +1625,8 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   padding: 0.5rem;
 }
 .ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons .ui.button.clipboard {
-  -webkit-transition: color 250ms ease, background-color 250ms ease;
-  transition: color 250ms ease, background-color 250ms ease;
+  -webkit-transition: color 250ms ease 100ms, background-color 250ms ease 100ms;
+  transition: color 250ms ease 100ms, background-color 250ms ease 100ms;
 }
 .ui.cards .ui.card.match-card .content.card-buttons > .ui.four.buttons .ui.button.clipboard.copied {
   background-color: #21BA45;
@@ -1775,8 +1775,8 @@ aside {
   margin-bottom: 0 !important;
 }
 #game-panel #panes .ui.tab.popup {
-  -webkit-transition: all 1500ms cubic-bezier(0.19, 1, 0.22, 1);
-  transition: all 1500ms cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: all 1500ms cubic-bezier(0.19, 1, 0.22, 1) 100ms;
+  transition: all 1500ms cubic-bezier(0.19, 1, 0.22, 1) 100ms;
 }
 #game-panel #panes .ui.tab.popup.maximized {
   position: fixed;
@@ -2051,8 +2051,8 @@ aside {
   #match-form,
   aside {
     background: #FFFFFF;
-    padding: 1.75rem 1.3125rem;
-    padding: 4vmin 3vmin;
+    padding: 1.3125rem 1.75rem;
+    padding: 3vmin 4vmin;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -2073,6 +2073,12 @@ aside {
   table.flex-table tfoot tr td,
   table.flex-table tfoot tr th {
     padding: 1rem !important;
+  }
+  #match-table thead tr td,
+  #match-table tbody tr td,
+  #match-table thead tr th,
+  #match-table tbody tr th {
+    word-break: break-all;
   }
   #match-table thead tr td:nth-child(1),
   #match-table tbody tr td:nth-child(1),
