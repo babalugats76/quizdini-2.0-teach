@@ -1528,6 +1528,23 @@ table {
 /*-------------------
   Match Edit
 --------------------*/
+.match-edit-wrapper {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+
+#match-form,
+aside {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+aside {
+  height: 100%;
+  overflow: hidden;
+}
 
 #match-options {
   justify-content: center;
@@ -1864,6 +1881,37 @@ table {
     flex-wrap: nowrap;
     justify-content: space-between;
   }
+
+.match-edit-wrapper {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3vmin 4vmin;
+  }
+
+  .page {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: minmax(400px, 5fr) minmax(200px, 4fr);
+    grid-template-rows: auto;
+  }
+
+  #match-form {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+    
+  #match-form, aside {
+    background: @white;
+    padding: @28px @21px;
+    padding: 4vmin 3vmin;
+  }
+
 }
 
 @media only screen and (min-width: @computerBreakpoint) {

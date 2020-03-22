@@ -638,7 +638,7 @@ const MatchForm = props => {
                   </div>
                 </div>
               </div>
-              {/* <div className="clearfix">
+              <div className="clearfix">
                 <Button
                   active
                   disabled={disabled || !isValid || !dirty || isMatchDirty}
@@ -652,7 +652,7 @@ const MatchForm = props => {
                 >
                   Save
                 </Button>
-              </div> */}
+              </div>
               <div id="match-options" className="grid-row gutters">
                 <IconDropdown
                   className="grid-item"

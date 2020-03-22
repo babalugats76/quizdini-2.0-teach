@@ -2412,6 +2412,30 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
   Match Edit
 --------------------*/
 
+.match-edit-wrapper {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+#match-form,
+aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+aside {
+  height: 100%;
+  overflow: hidden;
+}
+
 #match-options {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -2778,6 +2802,37 @@ table.flex-table.striped tbody > tr:nth-of-type(even) {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+  }
+
+  .match-edit-wrapper {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3vmin 4vmin;
+  }
+
+  .page {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: minmax(400px, 5fr) minmax(200px, 4fr);
+    grid-template-rows: auto;
+  }
+
+  #match-form {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  #match-form,
+  aside {
+    background: #FFFFFF;
+    padding: 1.75rem 1.3125rem;
+    padding: 4vmin 3vmin;
   }
 }
 

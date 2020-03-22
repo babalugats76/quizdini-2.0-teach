@@ -150,7 +150,7 @@ const App = props => {
         loggedIn={loggedIn}
         path="/match"
         component={Match}
-        layout={FullPageLayout}
+        layout={MatchEditLayout}
         {...layoutProps}
       />
       <PrivateRoute
@@ -287,17 +287,12 @@ DefaultLayout.propTypes = {
   user: PropTypes.object.isRequired
 };
 
-const FullPageLayout = ({ children, errors, showLoader, user }) => {
+const MatchEditLayout = ({ children, errors, showLoader, user }) => {
   return (
-    <div className="full-page-wrapper">
-      <div id="content">
-        <div className="side-menu">
-          This is where full page menu would go...
-        </div>
-        {(errors && <ErrorMessage details={errors} />) ||
-          (showLoader && <Loader />) ||
-          children}
-      </div>
+    <div className="match-edit-wrapper">
+      {(errors && <ErrorMessage details={errors} />) ||
+        (showLoader && <Loader />) ||
+        children}
     </div>
   );
 };
