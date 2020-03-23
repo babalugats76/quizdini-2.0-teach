@@ -158,8 +158,8 @@ input::selection {
 /* Force Simple Scrollbars */
 body ::-webkit-scrollbar {
   -webkit-appearance: none;
-  width: 1rem;
-  height: 1rem;
+  width: 0.75rem;
+  height: 0.75rem;
 }
 body ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.1);
@@ -1770,15 +1770,25 @@ aside {
 #match-form textarea[disabled] {
   opacity: 0.33;
 }
-#game-panel #panes .ui.tab {
+#match-panes .ui.menu {
+  background: #FFFFFF;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  border-bottom-left-radius: 0.1875rem;
+  border-bottom-right-radius: 0.1875rem;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+#match-panes .ui.tab {
   min-height: 400px;
   margin-bottom: 0 !important;
 }
-#game-panel #panes .ui.tab.popup {
+#match-panes .ui.tab.popup {
   -webkit-transition: all 1500ms cubic-bezier(0.19, 1, 0.22, 1) 100ms;
   transition: all 1500ms cubic-bezier(0.19, 1, 0.22, 1) 100ms;
 }
-#game-panel #panes .ui.tab.popup.maximized {
+#match-panes .ui.tab.popup.maximized {
   position: fixed;
   top: 20%;
   right: 20%;
@@ -1790,9 +1800,6 @@ aside {
   width: 800px;
   -webkit-box-shadow: 0 0.1875rem 0.4375rem rgba(0, 0, 0, 0.3);
           box-shadow: 0 0.1875rem 0.4375rem rgba(0, 0, 0, 0.3);
-}
-#game-panel #panes #pane-menu {
-  margin-bottom: 0 !important;
 }
 #rich-match-editor > fieldset {
   margin-bottom: 0.75rem;
@@ -2031,16 +2038,16 @@ aside {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    max-width: 1200px;
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    padding: 3vmin 4vmin;
+    padding: 6vmin 3vmin;
   }
   .page {
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-columns: minmax(400px, 5fr) minmax(200px, 4fr);
+    grid-template-columns: minmax(400px, 1fr) minmax(200px, 1fr);
     grid-template-rows: auto;
   }
   #match-form {
@@ -2050,9 +2057,12 @@ aside {
   }
   #match-form,
   aside {
-    background: #FFFFFF;
     padding: 1.3125rem 1.75rem;
     padding: 3vmin 4vmin;
+  }
+  aside {
+    background: white;
+    margin-left: 3vmin;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -2078,7 +2088,7 @@ aside {
   #match-table tbody tr td,
   #match-table thead tr th,
   #match-table tbody tr th {
-    word-break: break-all;
+    word-break: break-word;
   }
   #match-table thead tr td:nth-child(1),
   #match-table tbody tr td:nth-child(1),

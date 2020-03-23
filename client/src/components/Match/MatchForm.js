@@ -538,17 +538,93 @@ const MatchForm = props => {
           {
             menuItem: "Game",
             render: () => (
-              <Tab.Pane clearing id="match-desc">
-                <Segment basic vertical>
-                  Game Stuff Used to Be Here...
-                </Segment>
+              <Tab.Pane id="match-desc">
+                <Form.Group id="match-details" className="grid-row gutters">
+                  <ResponsiveTextArea
+                    className="grid-item"
+                    disabled={disabled}
+                    error={touched.title && errors.title}
+                    label="Title"
+                    maxLength={50}
+                    minRows={1}
+                    maxRows={2}
+                    name="title"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder=""
+                    required
+                    tabIndex={1}
+                    type="text"
+                    value={values.title}
+                  />
+                  <ResponsiveTextArea
+                    className="grid-item"
+                    disabled={disabled}
+                    error={touched.instructions && errors.instructions}
+                    label="Instructions"
+                    maxLength={50}
+                    maxRows={2}
+                    minRows={1}
+                    name="instructions"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder=""
+                    tabIndex={2}
+                    type="text"
+                    value={values.instructions}
+                  />
+                </Form.Group>
+                <div id="match-options" className="grid-row gutters">
+                  <IconDropdown
+                    className="grid-item"
+                    compact
+                    disabled={disabled}
+                    error={touched.itemsPerBoard && errors.itemsPerBoard}
+                    icon="grid"
+                    name="itemsPerBoard"
+                    onBlur={handleBlur}
+                    options={itemsPerBoardOptions}
+                    selection
+                    setFieldValue={setFieldValue}
+                    tabIndex={-1}
+                    value={values.itemsPerBoard}
+                  />
+                  <IconDropdown
+                    className="grid-item"
+                    compact
+                    disabled={disabled}
+                    error={touched.duration && errors.duration}
+                    icon="watch"
+                    name="duration"
+                    onBlur={handleBlur}
+                    options={durationOptions}
+                    selection
+                    setFieldValue={setFieldValue}
+                    tabIndex={-1}
+                    value={values.duration}
+                  />
+                  <IconDropdown
+                    className="grid-item"
+                    compact
+                    disabled={disabled}
+                    error={touched.colorScheme && errors.colorScheme}
+                    icon="palette"
+                    name="colorScheme"
+                    onBlur={handleBlur}
+                    options={colorSchemeOptions}
+                    selection
+                    setFieldValue={setFieldValue}
+                    tabIndex={-1}
+                    value={values.colorScheme}
+                  />
+                </div>
               </Tab.Pane>
             )
           },
           {
             menuItem: "Add Match",
             render: () => (
-              <Tab.Pane clearing id="match-add">
+              <Tab.Pane id="match-add">
                 <Segment basic vertical>
                   <Responsive
                     as={Message}
@@ -653,100 +729,19 @@ const MatchForm = props => {
                   Save
                 </Button>
               </div>
-              <div id="match-options" className="grid-row gutters">
-                <IconDropdown
-                  className="grid-item"
-                  compact
-                  disabled={disabled}
-                  error={touched.itemsPerBoard && errors.itemsPerBoard}
-                  icon="grid"
-                  name="itemsPerBoard"
-                  onBlur={handleBlur}
-                  options={itemsPerBoardOptions}
-                  selection
-                  setFieldValue={setFieldValue}
-                  tabIndex={-1}
-                  value={values.itemsPerBoard}
-                />
-                <IconDropdown
-                  className="grid-item"
-                  compact
-                  disabled={disabled}
-                  error={touched.duration && errors.duration}
-                  icon="watch"
-                  name="duration"
-                  onBlur={handleBlur}
-                  options={durationOptions}
-                  selection
-                  setFieldValue={setFieldValue}
-                  tabIndex={-1}
-                  value={values.duration}
-                />
-                <IconDropdown
-                  className="grid-item"
-                  compact
-                  disabled={disabled}
-                  error={touched.colorScheme && errors.colorScheme}
-                  icon="palette"
-                  name="colorScheme"
-                  onBlur={handleBlur}
-                  options={colorSchemeOptions}
-                  selection
-                  setFieldValue={setFieldValue}
-                  tabIndex={-1}
-                  value={values.colorScheme}
-                />
-              </div>
-              <Form.Group id="match-details" className="grid-row gutters">
-                <ResponsiveTextArea
-                  className="grid-item"
-                  disabled={disabled}
-                  error={touched.title && errors.title}
-                  label="Title"
-                  maxLength={50}
-                  minRows={1}
-                  maxRows={2}
-                  name="title"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  placeholder=""
-                  required
-                  tabIndex={1}
-                  type="text"
-                  value={values.title}
-                />
-                <ResponsiveTextArea
-                  className="grid-item"
-                  disabled={disabled}
-                  error={touched.instructions && errors.instructions}
-                  label="Instructions"
-                  maxLength={50}
-                  maxRows={2}
-                  minRows={1}
-                  name="instructions"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  placeholder=""
-                  tabIndex={2}
-                  type="text"
-                  value={values.instructions}
-                />
-              </Form.Group>
-              
-              <div className="grid-row gutters">
-                <Tab
-                  activeIndex={activeTab}
-                  id="panes"
-                  menu={{
-                    id: "pane-menu",
-                    secondary: true,
-                    pointing: true
-                  }}
-                  onTabChange={(event, data) => handleTabChange(event, data)}
-                  panes={editorPanes}
-                  renderActiveOnly={true}
-                />
-              </div>
+
+              <Tab
+                activeIndex={activeTab}
+                id="match-panes"
+                menu={{
+                  id: "pane-menu",
+                  secondary: true,
+                  pointing: true
+                }}
+                onTabChange={(event, data) => handleTabChange(event, data)}
+                panes={editorPanes}
+                renderActiveOnly={true}
+              />
             </Form>
             <aside>
               <MatchTable

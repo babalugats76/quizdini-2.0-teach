@@ -1610,29 +1610,32 @@ aside {
   }
 }
 
-#game-panel {
-  #panes {
-    .ui.tab {
-      min-height: 400px;
-      margin-bottom: 0 !important;
-      &.popup {
-        transition: all @popupDuration @popupEasing @defaultDelay;
-        &.maximized {
-          position: fixed;
-          top: 20%;
-          right: 20%;
-          bottom: 20%;
-          left: 20%;
-          z-index: 1000;
-          margin: auto;
-          max-width: 60%;
-          width: 800px;
-          box-shadow: @popupBoxShadow;
-        }
+#match-panes {
+  .ui.menu {
+    background: @white;
+    justify-content: space-evenly;
+    border-bottom-left-radius: @absoluteBorderRadius;
+    border-bottom-right-radius: @absoluteBorderRadius;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .ui.tab {
+    min-height: 400px;
+    margin-bottom: 0 !important;
+    &.popup {
+      transition: all @popupDuration @popupEasing @defaultDelay;
+      &.maximized {
+        position: fixed;
+        top: 20%;
+        right: 20%;
+        bottom: 20%;
+        left: 20%;
+        z-index: 1000;
+        margin: auto;
+        max-width: 60%;
+        width: 800px;
+        box-shadow: @popupBoxShadow;
       }
-    }
-    #pane-menu {
-      margin-bottom: 0 !important;
     }
   }
 }
@@ -1886,17 +1889,17 @@ aside {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    max-width: 1200px;
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    padding: 3vmin 4vmin;
+    padding: 6vmin 3vmin;
   }
 
   .page {
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-columns: minmax(400px, 5fr) minmax(200px, 4fr);
+    grid-template-columns: minmax(400px, 1fr) minmax(200px, 1fr);
     grid-template-rows: auto;
   }
 
@@ -1907,9 +1910,13 @@ aside {
   }
     
   #match-form, aside {
-    background: @white;
     padding: @21px @28px;
     padding: 3vmin 4vmin;
+  }
+
+  aside {
+    background: white;
+    margin-left: 3vmin;
   }
 
 }
@@ -1945,7 +1952,7 @@ aside {
       tr {
         td,
         th {
-          word-break: break-all;
+          word-break: break-word;
           &:nth-child(1) {
             text-align: center;
             border-right: none;

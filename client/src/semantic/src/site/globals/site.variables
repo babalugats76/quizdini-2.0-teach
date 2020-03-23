@@ -185,8 +185,8 @@
     Scroll Bars
 --------------------*/
 @useCustomScrollbars   : true; 
-@customScrollbarWidth  : @16px;
-@customScrollbarHeight : @16px;
+@customScrollbarWidth  : @12px;
+@customScrollbarHeight : @12px;
 @thumbBorderRadius     : @3px;
 
 /*-------------------
