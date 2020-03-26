@@ -8,93 +8,76 @@
 
 /* lexend-deca-regular - latin */
 @font-face {
-  font-family: 'Lexend Deca';
+  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 400;
-  src: local('Lexend Deca Regular'), local('LexendDeca-Regular'),
-    url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2')
-      format('woff2'),
+  src: local("Lexend Deca Regular"), local("LexendDeca-Regular"),
+    url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff2") format("woff2"),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff')
-      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("https://static.quizdini.com/fonts/lexend-deca-v1-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: 'marcher-light';
-  src: url('https://static.quizdini.com/fonts/marcher-light-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-light-webfont.woff')
-      format('woff');
+  font-family: "marcher-light";
+  src: url("https://static.quizdini.com/fonts/marcher-light-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-book';
-  src: url('https://static.quizdini.com/fonts/marcher-book-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-book-webfont.woff')
-      format('woff');
+  font-family: "marcher-book";
+  src: url("https://static.quizdini.com/fonts/marcher-book-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-book-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-regular';
-  src: url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-regular-webfont.woff')
-      format('woff');
+  font-family: "marcher-regular";
+  src: url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-medium';
-  src: url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-medium-webfont.woff')
-      format('woff');
+  font-family: "marcher-medium";
+  src: url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-semibold';
-  src: url('https://static.quizdini.com/fonts/marcher-semibold-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-semibold-webfont.woff')
-      format('woff');
+  font-family: "marcher-semibold";
+  src: url("https://static.quizdini.com/fonts/marcher-semibold-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-bold';
-  src: url('https://static.quizdini.com/fonts/marcher-bold-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-bold-webfont.woff')
-      format('woff');
+  font-family: "marcher-bold";
+  src: url("https://static.quizdini.com/fonts/marcher-bold-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-extrabold';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff')
-      format('woff');
+  font-family: "marcher-extrabold";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff2") format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marcher-extrabolditalic';
-  src: url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2')
-      format('woff2'),
-    url('https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff')
-      format('woff');
+  font-family: "marcher-extrabolditalic";
+  src: url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff2")
+      format("woff2"),
+    url("https://static.quizdini.com/fonts/marcher-extrabolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -115,7 +98,7 @@ a {
 --------------------*/
 
 .clearfix::after {
-  content: '';
+  content: "";
   clear: both;
   display: block;
 }
@@ -162,13 +145,13 @@ a {
     margin: 0 -@8px !important;
     .grid-item {
       padding: 0 @8px @16px;
-       /*&:last-of-type {
+      /*&:last-of-type {
          padding-right: @16px;
        }*/
     }
   }
   .grid-item {
-     flex: 0 1 auto;
+    flex: 0 1 auto;
   }
 }
 
@@ -181,7 +164,6 @@ a {
 }
 
 .full-page-wrapper {
-  
 }
 
 .page-wrapper {
@@ -844,7 +826,7 @@ table {
   flex-direction: column;
   min-height: 300px;
 
-  button[type='submit'] {
+  button[type="submit"] {
     display: flex;
     margin: @relative32px auto @relative16px;
   }
@@ -869,7 +851,7 @@ table {
       background-color: @veryStrongTransparentBlack;
       background-size: 25px;
       background-repeat: round;
-      background-image: url('/images/question.svg');
+      background-image: url("/images/question.svg");
     }
     &#selling-points {
       background-color: @offWhite;
@@ -1035,7 +1017,7 @@ table {
           }
           &:before {
             display: inline-block;
-            content: '\25bc\00a0';
+            content: "\25bc\00a0";
             transform: rotate(-90deg);
             transition: all @defaultDuration @defaultEasing @defaultDelay;
             vertical-align: 20%;
@@ -1185,7 +1167,7 @@ table {
 #account,
 #register {
   &::after {
-    content: '';
+    content: "";
     display: block;
     height: 100px;
   }
@@ -1228,16 +1210,15 @@ table {
     color: transparent;
     border: 0;
     outline: none;
-    background: #ffffff url('/images/btn_google_signin_light_normal_web@2x.png')
-      no-repeat;
+    background: #ffffff url("/images/btn_google_signin_light_normal_web@2x.png") no-repeat;
     background-size: 191px 46px;
     &:focus,
     &:hover {
-      background-image: url('/images/btn_google_signin_light_focus_web@2x.png');
+      background-image: url("/images/btn_google_signin_light_focus_web@2x.png");
     }
     &:active,
     &:visited {
-      background-image: url('/images/btn_google_signin_light_pressed_web@2x.png');
+      background-image: url("/images/btn_google_signin_light_pressed_web@2x.png");
     }
   }
 
@@ -1259,7 +1240,7 @@ table {
       width: 191px;
     }
 
-    button[type='submit'] {
+    button[type="submit"] {
       display: flex;
       margin: @relative8px auto;
     }
@@ -1533,7 +1514,6 @@ table {
   padding-right: 16px;
 }
 
-
 #match-form,
 aside {
   display: flex;
@@ -1551,7 +1531,6 @@ aside {
 }
 
 #match-form.ui.form {
-  
   textarea#title {
     max-width: 50ch;
   }
@@ -1569,7 +1548,7 @@ aside {
       min-width: 50%;
       flex: 1 0 25ch; /* Break at 25ch */
       max-width: 50ch; /* Up to 50ch */
-      margin-bottom: 0!important;
+      margin-bottom: 0 !important;
     }
   }
 }
@@ -1681,7 +1660,7 @@ aside {
       color: @darkTextColor;
       box-shadow: @fieldFocusBoxShadow;
     }
-    &:not([contenteditable='true']) {
+    &:not([contenteditable="true"]) {
       color: @unselectedTextColor;
       background-color: transparent;
       border-color: transparent;
@@ -1885,7 +1864,7 @@ aside {
     justify-content: space-between;
   }
 
-.match-edit-wrapper {
+  .match-edit-wrapper {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
@@ -1908,8 +1887,9 @@ aside {
     overflow-y: auto;
     overflow-x: hidden;
   }
-    
-  #match-form, aside {
+
+  #match-form,
+  aside {
     padding: @21px @28px;
     padding: 3vmin 4vmin;
   }
@@ -1918,10 +1898,26 @@ aside {
     background: white;
     margin-left: 3vmin;
   }
-
 }
 
 @media only screen and (min-width: @computerBreakpoint) {
+  .page {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr) 2vmin repeat(4, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+
+  #match-summary {
+    grid-area: 2 / 2 / 4 / 6;
+  }
+  #match-panes {
+    grid-area: 2 / 7 / 9 / 10;
+  }
+  #match-table {
+    grid-area: 4 / 2 / 9 / 6;
+  }
 
   table {
     &.flex-table {

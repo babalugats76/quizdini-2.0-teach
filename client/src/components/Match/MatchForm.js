@@ -691,20 +691,19 @@ const MatchForm = props => {
         });
 
         return (
-          <div className="page">
-            <Form id="match-form" onSubmit={handleSubmit}>
-              {status && (
-                <Segment vertical>
-                  <Notify {...status} onDismiss={() => setStatus(null)} />
-                </Segment>
-              )}
-
-              <div>
-                <Link className="back" to={{ pathname: "/dashboard", state: { from: "MATCH" } }}>
-                  &#x2190;&nbsp;Back to Dashboard
-                </Link>
-              </div>
+          <Form id="match-form" onSubmit={handleSubmit}>
+            {status && (
+              <Segment vertical>
+                <Notify {...status} onDismiss={() => setStatus(null)} />
+              </Segment>
+            )}
+            <div className="page">
               <div id="match-summary" className="grid-row gutters">
+                <div>
+                  <Link className="back" to={{ pathname: "/dashboard", state: { from: "MATCH" } }}>
+                    &#x2190;&nbsp;Back to Dashboard
+                  </Link>
+                </div>
                 <div className="game-summary grid-item">
                   <Badge icon="question" />
                   <div className="game-details">
@@ -713,23 +712,22 @@ const MatchForm = props => {
                     <span className="game-id">{values.matchId || "UNPUBLISHED"}</span>
                   </div>
                 </div>
+                <div className="clearfix">
+                  <Button
+                    active
+                    disabled={disabled || !isValid || !dirty || isMatchDirty}
+                    floated="right"
+                    icon="save"
+                    labelPosition="right"
+                    loading={isSubmitting}
+                    positive={dirty && isValid && !isMatchDirty}
+                    tabIndex={6}
+                    type="submit"
+                  >
+                    Save
+                  </Button>
+                </div>
               </div>
-              <div className="clearfix">
-                <Button
-                  active
-                  disabled={disabled || !isValid || !dirty || isMatchDirty}
-                  floated="right"
-                  icon="save"
-                  labelPosition="right"
-                  loading={isSubmitting}
-                  positive={dirty && isValid && !isMatchDirty}
-                  tabIndex={6}
-                  type="submit"
-                >
-                  Save
-                </Button>
-              </div>
-
               <Tab
                 activeIndex={activeTab}
                 id="match-panes"
@@ -742,8 +740,6 @@ const MatchForm = props => {
                 panes={editorPanes}
                 renderActiveOnly={true}
               />
-            </Form>
-            <aside>
               <MatchTable
                 columns={["", "Term", "Definition"]}
                 disabled={disabled}
@@ -756,8 +752,8 @@ const MatchForm = props => {
                 maxMatches={maxMatches}
                 minMatches={values.itemsPerBoard}
               />
-            </aside>
-          </div>
+            </div>
+          </Form>
         );
       }}
     </Formik>
