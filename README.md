@@ -69,6 +69,24 @@ Kay
 
 - [Route Trees](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Quizdini.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1SUQK7qZlTLzat0yysiNBKhyWKBPDzlnA%26export%3Ddownload)
 
+# CSS Naming Conventions
+
+| "Block" | Element(s) | Modifier(s) |
+| -----------------------------| :-----: | :-----: |
+| `button` | * | modifiers | 
+| `button-group` | * | modifiers | 
+| `card` | * | modifiers | 
+| `dropdown` | * | modifiers |
+| `grid` | * | modifiers | 
+| `icon` | * | modifiers | 
+| `input-group` | * | modifiers | 
+| `stack` | * | modifiers | 
+| extra-small device utlities | `u-xs` | ... | 
+| small device utilities | `u-sm` | ... | 
+| medium device utilities | `u-md`| ... |
+| large device utilities | `u-lg` | ... |
+| extra large device utilities | `u-xl` | ... |
+
 # Server Endpoints
 
 | Endpoint                      | Method | Protected | Details                                                                                                                                                                                                                                 | Throws                                   |
