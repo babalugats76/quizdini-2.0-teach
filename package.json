@@ -31,7 +31,7 @@
     "md5": "^2.2.1",
     "memjs": "^1.2.2",
     "mongoose": "^5.8.7",
-    "nanoid": "^2.1.9",
+    "nanoid": "^3.1.31",
     "newrelic": "^6.2.0",
     "nodemon": "^2.0.2",
     "passport": "^0.4.1",
